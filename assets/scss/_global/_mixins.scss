@@ -1,0 +1,158 @@
+/*------------------------------------*\
+    GLOBAL MIXINS
+\*------------------------------------*/
+
+ //*****************
+// FONT DECLARATION
+
+@mixin font($family: primary, $weight: regular, $style: normal) {
+
+	$font-choice: map-get($fonts, $family);
+	$font: map-get($font-choice, family);
+
+	@if $font == null {
+		@error 'Incorrect use of fonts';
+	}
+
+	$fallback: map-get($font-choice, fallback);
+	$weight: map-get(map-get($font-choice, weights), $weight);
+
+	@if ($weight == null) {
+		@error 'Font weight "#{$weight}" passed to `font` mixin does not exist';
+		@return false;
+	}
+
+	@if ($style != 'normal' and $style != 'italic') {
+		@error 'Font style "#{$style}" passed to `font` mixin is invalid';
+		@return false;
+	}
+
+	$typekit: map-get($font-choice, typekit);
+
+	font-weight: $weight;
+	font-style: $style;
+	-webkit-font-smoothing: antialiased;
+
+	@if $typekit == true {
+		// replace all spaces with dashes
+		$typekit-font: str_replace(to-lower-case($font), ' ', '-');
+
+		font-family: "#{$typekit-font}-" + str-slice($style, 0, 1) + ($weight / 100), $font, $fallback;
+	} @else {
+		font-family: $font, $fallback;
+	}
+}
+
+
+ //***************************
+// TYPE AND LIST BASED MIXINS
+
+@mixin font-size($size: $base-font-size) {
+	font-size: $size + px;
+	font-size: $size / $base-font-size + rem;
+}
+
+// Generates em value based on the root font size
+// otherwise supply different value
+@function em($value, $size: $base-font-size) {
+	@return $value / $size + em;
+}
+
+
+ //*******************
+// COLOR BASED FUNCTIONS
+
+@function color($colour, $opacity: 1) {
+
+	$color: map-get($colours, $colour);
+
+	@if ($color == null) {
+		@error 'Colour "#{$colour}" passed to `color` mixin does not exist';
+		@return false;
+	}
+
+	@if $opacity < 1 {
+		@return rgba($color, $opacity);
+	} @else {
+		@return $color;
+	}
+
+}
+
+
+ //***************
+// STRING REPLACE
+
+@function str-replace($string, $search, $replace: '') {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+
+ //*************
+// SVG FALLBACK
+
+@mixin svg($path) {
+	background-image: url($path + '.svg');
+
+	.no-svg & {
+		background-image: url($path + '.png');
+		background-size: 100%;
+	}
+}
+
+
+ //**************
+// MEDIA QUERIES
+
+// Pass in a value or a breakpoint letter
+@mixin mq($point, $IE9: false, $query1: min, $query2: width) {
+
+	@if map-has-key($breakpoints, $point) {
+		$point: map-get($breakpoints, $point);
+	}
+
+    @if $IE9 == true{
+
+        .lt-ie9 {
+            @content;
+        }
+
+        @media screen and (#{$query1}-#{$query2}: $point + px) {
+            @content;
+        }
+
+    } @else {
+
+        @media screen and (#{$query1}-#{$query2}: $point + px) {
+            @content;
+        }
+
+    }
+
+}
+
+
+/**
+ * Example of use
+ *
+
+    .example {
+        @include font-size(12);
+
+        @include mq(400) {
+            @include font-size(14);
+        }
+
+        @include mq(M) {
+            @include font-size(18);
+        }
+    }
+
+ *
+ */

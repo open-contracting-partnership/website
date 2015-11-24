@@ -1,0 +1,26 @@
+/*------------------------------------*\
+	BAND
+\*------------------------------------*/
+// Band is used to provide consistant spacing between large sections of the page
+// To be used instead of .island when working with higher level section.
+
+.band {
+	margin-bottom: $space;
+	@extend .cf;
+}
+
+.band--thin {
+	margin-bottom: $space / 2;
+}
+
+.band--thick {
+	margin-bottom: $space * 2;
+}
+
+.band--extra-thick {
+	margin-bottom: $space * 3;
+}
+
+.band--double-thick {
+	margin-bottom: $space * 4;
+}

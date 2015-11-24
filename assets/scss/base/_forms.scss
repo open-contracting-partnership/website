@@ -1,0 +1,111 @@
+/*------------------------------------*\
+    FORMS
+\*------------------------------------*/
+
+fieldset,
+form {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+label,
+legend {
+	display: block;
+	margin-bottom: 0;
+	@include font-size(13);
+	text-transform: uppercase;
+	color: color('brand');
+	cursor: pointer;
+}
+
+abbr[title="Required"] {
+	color: color('brand');
+	@include font(primary, bold);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="number"],
+input[type="color"],
+input[type="number"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="datetime"],
+input[type="datetime-local"],
+textarea {
+	@include font(primary, regular);
+	@include font-size(16);
+	padding: em(20) em(10);
+	width: 100%;
+	border: 1px solid color('brand');
+	margin-bottom: $space / 2;
+	line-height: 1;
+	color: color('body');
+	background-color: color('white');
+	border-radius: $border-radius;
+}
+
+input[type="color"] {
+	width: auto;
+}
+
+textarea {
+	line-height: $space;
+}
+
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="number"],
+input[type="color"],
+input[type="number"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="datetime"],
+input[type="datetime-local"],
+textarea {
+
+	&:hover,
+	&:focus {
+		box-shadow: none;
+		outline: none;
+		border: solid 1px color('brand');
+		background-color: color('brand');
+	}
+}
+
+input[type="text"].valid,
+input[type="email"].valid {
+}
+
+input[type="text"].not-valid,
+input[type="email"].not-valid {
+}
+
+
+ //*******************
+// PLACEHOLDER STYLES
+
+::-webkit-input-placeholder {
+   color: color('brand');
+}
+
+:-moz-placeholder { /* Firefox 18- */
+ 	color: color('brand');
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: color('brand');
+}
+
+:-ms-input-placeholder {
+   color: color('brand');
+}

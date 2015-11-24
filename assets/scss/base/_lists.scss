@@ -1,0 +1,34 @@
+/*------------------------------------*\
+	LISTS
+\*------------------------------------*/
+
+ul {
+	list-style: disc;
+}
+
+ol,
+ul {
+	margin-bottom: $space;
+
+	&.no-bullet {
+		list-style-type: none;
+	}
+}
+
+ul ul,
+ol ol {
+	margin-bottom: 0;
+}
+
+
+ //*****************
+// DEFINITION LISTS
+
+dl {
+}
+
+dt {
+}
+
+dd {
+}

@@ -1,0 +1,88 @@
+/*------------------------------------*\
+	HEADINGS
+\*------------------------------------*/
+// Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/
+
+h1,
+.alpha,
+h2,
+.beta,
+h3,
+.gamma,
+h4,
+.delta,
+h5,
+.epsilon,
+h6,
+.zeta {
+	@include font;
+	margin-bottom: $space / 2;
+	line-height: 1.2;
+
+	&.has-strap {
+		margin-bottom: $space / 4;
+	}
+}
+
+.strap {
+	font-style: italic;
+}
+
+.giga {
+	@include font-size(40);
+}
+
+
+h1,
+.alpha {
+	@include font-size(35);
+
+	@include mq(M) {
+		@include font-size(50);
+	}
+}
+
+h2,
+.beta {
+	@include font-size(30);
+
+	@include mq(M) {
+		@include font-size(35);
+	}
+
+	&.strap {
+		@include font-size(28);
+
+		@include mq(M) {
+			@include font-size(33);
+		}
+	}
+}
+
+h3,
+.gamma {
+	@include font-size(25);
+
+	@include mq(M) {
+		@include font-size(30);
+	}
+
+	&.strap {
+		@include font-size(23);
+	}
+}
+
+h4,
+.delta {
+	@include font-size(20);
+
+	&.strap {
+		@include font-size(13);
+		margin-bottom: em(27, 13);
+	}
+}
+
+h5,
+.epsilon {
+	@include font-size(18);
+}

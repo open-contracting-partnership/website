@@ -1,0 +1,108 @@
+/*------------------------------------*\
+	VARIABLES
+\*------------------------------------*/
+
+ //********
+// COLOURS
+
+$colours: (
+    'demo': #CFD7DB,
+    'selection': #b3d4fc,
+    'placeholder': #333,
+    'white': #FFF,
+    'black': #000,
+    'grey': #999,
+    'body': #777,
+    'border-color': #eee,
+    'brand': #353535,
+    'orange': #FFA600,
+    'blue': #0FF,
+);
+
+
+ //***************
+// SOCIAL COLOURS
+
+$social-colors: (
+    'youtube': #CC181E,
+    'twitter': #00ACEE,
+    'facebook': #3B5998,
+    'google': #DD4B39,
+    'linkedin': #007BB6,
+);
+
+
+ //***************
+// BUTTON COLOURS
+// There are two arrays here. the names need to match up else the
+// styleguide colours output fails
+
+$button-colors: (
+	'green': #92D016,
+	'orange': #FF811A,
+	'pink': #F61AFF,
+	'blue': #1169A4,
+);
+
+$button-colors-light: (
+	'green': #BCD469,
+	'orange': #FFB17F,
+	'pink': #E87EFE,
+	'blue': #74CAE9,
+);
+
+ //**************
+// TYPE SETTINGS
+
+$base-font-size: 16;
+$copy: color('body');
+$border-radius: 4px;
+
+
+ //****************
+// LAYOUT SETTINGS
+
+$max-width: 1240;
+$space: 1.5em; // NOTE: This is needs to be changed depending on the lineheight of the <p>
+
+$breakpoints: (
+    M: 640,
+    L: 1024
+);
+
+
+ //******
+// FONTS
+
+$fonts: (
+    primary: (
+        family: 'Open Sans',
+        fallback: 'Helvetica Neue' 'Helvetica' 'Arial' 'sans-serif',
+        weights: (
+            light: 300,
+            regular: 400,
+            semibold: 600,
+            bold: 700
+        ),
+        typekit: true
+    ),
+    secondary: (
+        family: 'Gotham',
+        fallback: 'Courier' 'Times New Roman' 'serif',
+        weights: (
+            regular: 400,
+            bold: 700
+        ),
+        typekit: false
+    )
+);
+
+
+ //********
+// Z-INDEX
+
+// Here we can denote a solid z-index hierarchy through the main elements
+
+$z-index: (
+
+);

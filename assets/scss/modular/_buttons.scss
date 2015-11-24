@@ -1,0 +1,114 @@
+/*------------------------------------*\
+    BUTTONS
+\*------------------------------------*/
+
+.button,
+button,
+input[type="submit"] {
+	display: inline-block;
+	border: 0;
+	@include font-size(14);
+	border-radius: $border-radius;
+	padding: em(10, 14) em(15, 14);
+	text-decoration: none;
+	margin-bottom: $space / 2;
+	font-weight: bold;
+	color: color('white');
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	background: color('brand');
+	cursor: pointer;
+
+	&:hover,
+	&:active,
+	&:focus {
+		background: lighten(color('brand'), 10%);
+	}
+}
+
+
+ //*************
+// BUTTON SIZES
+
+.button--small {
+	@include font-size(12);
+	padding: em(5, 12) em(8, 12);
+}
+
+.button--medium {
+	@include font-size(16);
+	padding: em(15, 16) em(20, 16);
+}
+
+.button--large {
+	@include font-size(18);
+	padding: em(20, 18) em(25, 18);
+}
+
+// This is often used inside the hero sections
+.button--huge {
+	@include font-size(22);
+	padding: em(25, 20) em(100, 20);
+}
+
+
+ //***********
+// VARIATIONS
+
+// Uppercase
+.button--uppercase {
+	text-transform: uppercase;
+}
+
+// Full bleed
+.button--block {
+	display: block;
+}
+
+// Left Align
+.button--left {
+	text-align: left;
+}
+
+// Remove the Margin
+.button--flatten {
+	margin-bottom: 0;
+}
+
+// Sub-heading within buttons
+// Must be used with a span element
+
+.button__sub-text {
+	display: block;
+	font-size: 75%;
+	font-style: italic;
+}
+
+.button--disabled {
+	cursor: default;
+	pointer-events: none;
+	background: color('grey');
+	color: color('white');
+}
+
+ //**************
+// COLOR OPTIONS
+
+@each $name, $color in $button-colors {
+
+	.button--#{$name} {
+		background: $color;
+	}
+
+	a.button--#{$name},
+	button.button--#{$name},
+	input.button--#{$name} {
+		&:hover,
+		&:active,
+		&:focus {
+			background: map-get($button-colors-light, $name);
+		}
+	}
+
+}

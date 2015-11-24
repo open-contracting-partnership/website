@@ -1,0 +1,202 @@
+/*------------------------------------*\
+    BASE
+\*------------------------------------*/
+
+html {
+    font-size: $base-font-size + px;
+}
+
+body {
+	background-color: color('white');
+    padding: 0;
+    margin: 0;
+    color: color('body');
+    line-height: $space;
+    @include font;
+
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+
+	-webkit-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+
+ //**********************
+// TEXT RELATED ELEMENTS
+
+p,
+ul,
+ol,
+dl {
+	line-height: $space;
+    margin-bottom: $space; // Typically the margin-bottom matches the line-height.
+}
+
+.text--bigger {
+	@include font-size(18);
+}
+
+.text--mini {
+	@include font-size(14);
+}
+
+.text--micro {
+	@include font-size(12);
+}
+
+.text--nano {
+	@include font-size(10);
+}
+
+small {
+	@extend .text--mini;
+}
+
+.text--style-italic {
+	font-style: italic;
+}
+
+abbr {
+}
+
+strong,
+b {
+	@include font(primary, bold);
+}
+
+i,
+em {
+	font-style: italic;
+}
+
+
+ //***********
+// BLOCKQUOTE
+
+blockquote {
+    padding: em(10, 20) em(20, 20);
+    margin: 0 0 em(20, 20);
+    @include font-size(20);
+    border-left: 5px solid color('border-color');
+
+    p {
+        @include font;
+        margin-bottom: $space / 2;
+    }
+
+    footer {
+        display: block;
+    }
+}
+
+
+ //****************
+// HORIZONTAL RULE
+
+hr {
+	border: 0 solid color('body');
+	border-top-width: 1px;
+	height: 1px;
+	margin: 0 0 1em;
+}
+
+
+ //************
+// MISC STYLES
+
+::-moz-selection {
+    background: color('brand');
+    color: color('white');
+    text-shadow: none;
+}
+
+::selection {
+    background: color('brand');
+    color: color('white');
+    text-shadow: none;
+}
+
+
+ //*********
+// CLEARFIX
+
+.cf {
+    *zoom: 1;
+}
+
+.cf:before,
+.cf:after {
+    content: ' ';
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+// Completely remove from the flow and screen readers.
+
+.is-hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+// Completely remove from the flow but leave available to screen readers.
+
+.is-visually-hidden {
+    position: absolute !important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+/*------------------------------------*\
+	HELPERS
+\*------------------------------------*/
+
+ //*******
+// FLOATS
+
+.pull-right {
+	float: right;
+}
+
+.pull-left {
+	float: left;
+}
+
+
+ //***************
+// TEXT ALIGNMENT
+
+.align-right {
+	text-align: right;
+}
+
+.align-center {
+	text-align: center;
+}
+
+.align-left {
+	text-align: left;
+}
+
+
+ //***************
+// INLINE SPACING
+
+// Used to provide some spacing between two inline elements (like 2 buttons side-by-side)
+
+.inline-space {
+	margin-right: em(10);
+}
+
+.inline-space--double {
+	margin-right: em(20);
+}
