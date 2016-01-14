@@ -35,7 +35,7 @@ register_post_type('news', array(
 	'rewrite'				=> array('slug' => 'news', 'with_front' => FALSE),
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
-	'supports'				=> array('title', 'editor', 'thumbnail'),
+	'supports'				=> array('title', 'editor'),
 	'has_archive'			=> FALSE
 ));
 
@@ -46,7 +46,7 @@ register_post_type('event', array(
 	'rewrite'				=> array('slug' => 'event', 'with_front' => FALSE),
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
-	'supports'				=> array('title', 'editor', 'thumbnail'),
+	'supports'				=> array('title', 'editor'),
 	'has_archive'			=> FALSE
 ));
 
@@ -79,7 +79,7 @@ register_post_type('policy', array(
 	'rewrite'				=> array('slug' => 'policy', 'with_front' => FALSE),
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
-	'supports'				=> array('title', 'editor', 'thumbnail'),
+	'supports'				=> array('title', 'editor'),
 	'has_archive'			=> FALSE
 ));
 
@@ -101,6 +101,6 @@ register_post_type('media-clipping', array(
 	'rewrite'				=> array('slug' => 'media-clipping', 'with_front' => FALSE),
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
-	'supports'				=> array('title', 'editor', 'thumbnail'),
+	'supports'				=> array('title', 'editor'),
 	'has_archive'			=> FALSE
 ));
