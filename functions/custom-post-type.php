@@ -91,7 +91,7 @@ register_post_type('newsletter', array(
 	'rewrite'				=> array('slug' => 'newsletter', 'with_front' => FALSE),
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
-	'supports'				=> array('title', 'editor', 'thumbnail'),
+	'supports'				=> array('title', 'thumbnail'),
 	'has_archive'			=> FALSE
 ));
 
@@ -102,7 +102,7 @@ register_post_type('media-clipping', array(
 	'rewrite'				=> array('slug' => 'media-clipping', 'with_front' => FALSE),
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
-	'supports'				=> array('title', 'editor'),
+	'supports'				=> array('title'),
 	'has_archive'			=> FALSE
 ));
 
