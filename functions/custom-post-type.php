@@ -107,6 +107,74 @@ register_post_type('media-clipping', array(
 ));
 
 
+ //***********
+// TAXONOMIES
+
+// an array of taxonomies that will be used to efficiently create
+// and handle the wordpress taxonomy and removal of ui elements
+
+$taxonomies = array(
+
+	'issue' => array(
+		'label' => 'Issue',
+		'post_type' => ['post', 'news', 'event', 'resource', 'success-story', 'newsletter', 'media-clipping']
+	),
+	'resource-type' => array(
+		'label' => 'Resource Type',
+		'post_type' => ['resource']
+	),
+	'region' => array(
+		'label' => 'Region',
+		'post_type' => ['post', 'news', 'event', 'resource', 'success-story', 'newsletter', 'media-clipping']
+	),
+	'country' => array(
+		'label' => 'Country',
+		'post_type' => ['post', 'news', 'event', 'resource', 'success-story', 'newsletter', 'media-clipping']
+	),
+	'open-contracting' => array(
+		'label' => 'Open Contracting',
+		'post_type' => ['post', 'news', 'event', 'resource', 'success-story']
+	),
+	'audience' => array(
+		'label' => 'Audience',
+		'post_type' => ['post', 'news', 'event', 'resource', 'success-story']
+	)
+
+);
+
+foreach ( $taxonomies as $taxonomy => $options ) {
+
+	register_taxonomy(
+		$taxonomy,
+		$options['post_type'],
+		array(
+			'labels' => array(
+				'name' => $options['label'],
+				'add_new_item' => 'Add New ' . $options['label'],
+				'new_item_name' => "New " . $options['label']
+			),
+			'show_ui' => TRUE,
+			'show_tagcloud' => FALSE,
+			'hierarchical' => TRUE,
+			'rewrite' => array('slug' => $taxonomy, 'with_front' => FALSE)
+		)
+	);
+
+	if ( is_array($options['post_type']) && is_admin() ) {
+
+		add_action('admin_menu', function() use ($taxonomy, $options) {
+
+			foreach ( $options['post_type'] as $post_type ) {
+				remove_meta_box($taxonomy . 'div', $post_type, 'side');
+			}
+
+		});
+
+	}
+
+}
+
+
  //*************
 // RENAME POSTS
 
