@@ -37,7 +37,8 @@ register_post_type('news', array(
 	'taxonomies'			=> array(),
 	'supports'				=> array('title', 'editor'),
 	'has_archive'			=> FALSE,
-	'menu_position'			=> 5
+	'menu_position'			=> 5,
+	'menu_icon'				=> 'dashicons-welcome-write-blog'
 ));
 
 register_post_type('event', array(
@@ -48,7 +49,8 @@ register_post_type('event', array(
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
 	'supports'				=> array('title', 'editor'),
-	'has_archive'			=> FALSE
+	'has_archive'			=> FALSE,
+	'menu_icon'				=> 'dashicons-calendar'
 ));
 
 register_post_type('resource', array(
@@ -59,7 +61,8 @@ register_post_type('resource', array(
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
 	'supports'				=> array('title', 'editor', 'thumbnail'),
-	'has_archive'			=> FALSE
+	'has_archive'			=> FALSE,
+	'menu_icon'				=> 'dashicons-book-alt'
 ));
 
 register_post_type('success-story', array(
@@ -70,7 +73,8 @@ register_post_type('success-story', array(
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
 	'supports'				=> array('title', 'editor', 'thumbnail'),
-	'has_archive'			=> FALSE
+	'has_archive'			=> FALSE,
+	'menu_icon'				=> 'dashicons-format-aside'
 ));
 
 register_post_type('policy', array(
@@ -81,7 +85,8 @@ register_post_type('policy', array(
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
 	'supports'				=> array('title', 'editor'),
-	'has_archive'			=> FALSE
+	'has_archive'			=> FALSE,
+	'menu_icon'				=> 'dashicons-list-view'
 ));
 
 register_post_type('newsletter', array(
@@ -92,7 +97,8 @@ register_post_type('newsletter', array(
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
 	'supports'				=> array('title', 'thumbnail'),
-	'has_archive'			=> FALSE
+	'has_archive'			=> FALSE,
+	'menu_icon'				=> 'dashicons-align-right'
 ));
 
 register_post_type('media-clipping', array(
@@ -103,7 +109,8 @@ register_post_type('media-clipping', array(
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
 	'supports'				=> array('title'),
-	'has_archive'			=> FALSE
+	'has_archive'			=> FALSE,
+	'menu_icon'				=> 'dashicons-video-alt2'
 ));
 
 
