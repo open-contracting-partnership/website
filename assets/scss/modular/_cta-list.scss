@@ -1,0 +1,24 @@
+.cta-list {
+	border-top: 1px solid color('white');
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+
+	li {
+		border-bottom: 1px solid white;
+	}
+
+	a {
+		display: block;
+		color: color('white');
+		text-decoration: none;
+		line-height: 1;
+		padding: 1em .5em;
+
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+}

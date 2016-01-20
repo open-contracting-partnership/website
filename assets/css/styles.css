@@ -805,6 +805,9 @@ tbody tr {
 .band--double-thick {
   margin-bottom: 6em; }
 
+.band--dark {
+  background-color: #777; }
+
 /*------------------------------------*    FOOTER
 \*------------------------------------*/
 /*------------------------------------*	HEADER
@@ -944,6 +947,22 @@ input.button--blue:hover,
 input.button--blue:active,
 input.button--blue:focus {
   background: #74CAE9; }
+
+.cta-list {
+  border-top: 1px solid #FFF;
+  padding: 0;
+  margin: 0;
+  list-style-type: none; }
+  .cta-list li {
+    border-bottom: 1px solid white; }
+  .cta-list a {
+    display: block;
+    color: #FFF;
+    text-decoration: none;
+    line-height: 1;
+    padding: 1em .5em; }
+    .cta-list a:hover, .cta-list a:active, .cta-list a:focus {
+      text-decoration: underline; }
 
 /*------------------------------------*	ICONS
 \*------------------------------------*/
