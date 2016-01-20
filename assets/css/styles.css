@@ -964,6 +964,16 @@ input.button--blue:focus {
     .cta-list a:hover, .cta-list a:active, .cta-list a:focus {
       text-decoration: underline; }
 
+.heading-highlight {
+  display: inline;
+  color: #FFF;
+  background-color: #d7de1f;
+  box-shadow: 0.57143rem 0 0 #d7de1f, -0.57143rem 0 0 #d7de1f;
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+  line-height: 1.45;
+  padding: 5px 0; }
+
 /*------------------------------------*	ICONS
 \*------------------------------------*/
 /*------------------------------------*	ISLAND

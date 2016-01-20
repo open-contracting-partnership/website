@@ -1,0 +1,9 @@
+.heading-highlight {
+	display: inline;
+	color: color('white');
+	background-color: color('brand');
+	box-shadow: .57143rem 0 0 color('brand'),-.57143rem 0 0 color('brand');
+	box-decoration-break: clone; // FF32 Fix - https://css-tricks.com/multi-line-padded-text/
+	line-height: 1.45;
+	padding: 5px 0;
+}
