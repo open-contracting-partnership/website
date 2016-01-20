@@ -24,3 +24,7 @@
 .band--double-thick {
 	margin-bottom: $space * 4;
 }
+
+.band--dark {
+	background-color: color('body');
+}
