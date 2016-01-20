@@ -9,6 +9,8 @@ var gulp = require('gulp'),
 	browserSync = require('browser-sync').create(),
 	plumber = require('gulp-plumber'),
 	modernizr = require('gulp-modernizr'),
+	svgstore = require('gulp-svgstore'),
+	svgmin = require('gulp-svgmin'),
 
 	// styles
 	sass = require('gulp-sass'),
@@ -19,7 +21,10 @@ var gulp = require('gulp'),
 
 	// scripts
 	jshint = require('gulp-jshint'),
-	uglify = require('gulp-uglify');
+	uglify = require('gulp-uglify'),
+
+	// pattern library
+	patternLibrary = require("gulp-theideabureau-pattern-library");
 
 
  //**************
@@ -34,6 +39,24 @@ function onError(err) {
 
  //******
 // TASKS
+
+gulp.task('templates', function() {
+
+	gulp.src('patterns/templates/**/*.html')
+		.pipe(patternLibrary({
+			filename: 'paths.json'
+		}))
+		.pipe(gulp.dest('patterns'));
+
+});
+
+gulp.task('svgstore', function () {
+    return gulp
+        .src('assets/img/icons/*.svg')
+		.pipe(svgmin())
+        .pipe(svgstore({ inlineSvg: true }))
+        .pipe(gulp.dest('assets/img/'));
+});
 
 gulp.task('modernizr', function() {
   gulp.src(['assets/js/main.js', 'assets/css/styles.css'])
@@ -84,14 +107,6 @@ gulp.task('js', function () {
 
 });
 
-gulp.task('markup', function () {
-
-	return gulp.src('styleguide/templates/**/**/*.php')
-		.pipe(plumber({ errorHandler: onError }))
-		.pipe(livereload());
-
-});
-
 gulp.task('scss:bs', function () {
 
 	return gulp.src('./assets/scss/*.scss')
@@ -122,14 +137,57 @@ gulp.task('bs', function () {
 });
 
 
+ //*********************
+// PATTERN LIBRARY APP
+
+gulp.task('pattern-styles', function () {
+
+	return gulp.src('patterns/app/scss/**/*.scss')
+		.pipe(plumber({ errorHandler: onError }))
+		.pipe(globbing({ extensions: ['.scss'] }))
+		.pipe(sass())
+		.pipe(autoprefixer('last 2 versions'))
+		.pipe(gulp.dest('patterns/build/css'))
+		.pipe(concat('styles.min.css'))
+		.pipe(minifyCss({compatibility: 'ie8'}))
+		.pipe(livereload())
+		.pipe(notify("Pattern Styles Compiled"));
+
+});
+
+gulp.task('pattern-scripts', function () {
+
+	return gulp.src('patterns/app/js/main.js')
+		.pipe(plumber({ errorHandler: onError }))
+		.pipe(jshint())
+		.pipe(jshint.reporter('jshint-stylish'))
+		.pipe(uglify())
+		.pipe(rename({
+			extname: '.min.js'
+		}))
+		.pipe(gulp.dest('patterns/build/js'))
+		.pipe(livereload())
+		.pipe(notify("Pattern Scripts Compiled"));
+
+});
+
+
  //******
 // WATCH
 
 gulp.task('default', ['watch']);
 
 gulp.task('watch', function () {
+
 	livereload.listen();
-	gulp.watch('styleguide/templates/**/**/*.php', ['markup', 'modernizr']);
+
+	// boilerplate
+	gulp.watch('patterns/templates/**/*.html', ['templates']);
 	gulp.watch('assets/scss/**/*.scss', ['scss', 'scss-lint', 'modernizr']);
 	gulp.watch('assets/js/*.js', ['js', 'modernizr']);
+
+	// pattern library (app only)
+	gulp.watch('patterns/app/scss/**/*.scss', ['pattern-styles']);
+	gulp.watch('patterns/app/js/*.js', ['pattern-scripts']);
+
 });

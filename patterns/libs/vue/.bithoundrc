@@ -1,0 +1,14 @@
+{
+  "ignore": [
+    "**/node_modules/**",
+    "**/build/**",
+    "**/dist/**",
+    "**/examples/**",
+    "**/perf/**",
+    "gruntfile.js",
+    "**/test/unit/lib/**"
+  ],
+  "test": [
+    "**/test/**"
+  ]
+}
