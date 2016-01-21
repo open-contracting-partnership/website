@@ -5,25 +5,25 @@
 .button,
 button,
 input[type="submit"] {
-	display: inline-block;
-	border: 0;
 	@include font-size(14);
-	border-radius: $border-radius;
+	display: inline-block;
+	border: 1px solid;
+	border-radius: 0;
 	padding: em(10, 14) em(15, 14);
 	text-decoration: none;
 	margin-bottom: $space / 2;
-	font-weight: bold;
 	color: color('white');
 	text-align: center;
 	vertical-align: middle;
 	white-space: nowrap;
-	background: color('brand');
+	background: transparent;
 	cursor: pointer;
+	transition: color .2s ease;
 
 	&:hover,
 	&:active,
 	&:focus {
-		background: lighten(color('brand'), 10%);
+		color: color('brand');
 	}
 }
 
