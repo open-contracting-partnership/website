@@ -5,7 +5,7 @@
 
 		<!-- designed and developed by The Idea Bureau, http://theideabureau.co -->
 
-		<!-- <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/assets/css/styles.css"> -->
+		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/assets/css/styles.css">
 
 		<title><?php wp_title(); ?></title>
 
