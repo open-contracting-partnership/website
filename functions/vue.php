@@ -43,6 +43,23 @@ function vue_posts($args) {
 
 		}
 
+		if ( isset($args['fields']) ) {
+
+			foreach ( $args['fields'] as $field ) {
+
+				$value = get_field($field);
+
+				if ( $value === NULL ) {
+					$value = get_post_meta(get_the_ID(), $field, TRUE);
+				}
+
+				$vue_posts[$vue_post->ID]['fields'][$field] = $value;
+
+
+			}
+
+		}
+
 		if ( isset($args['custom']) ) {
 
 			foreach ( $args['custom'] as $custom => $callback ) {
