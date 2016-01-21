@@ -1040,6 +1040,49 @@ input.button--blue:focus {
   overflow: hidden;
   display: block; }
 
+.resource {
+  width: 33%;
+  border: 1px solid grey;
+  padding: 1em;
+  float: left; }
+  .resource:nth-of-type(3n+1) {
+    clear: both; }
+
+.resource__filter-container {
+  height: 175px;
+  overflow: hidden;
+  margin-bottom: 2em;
+  position: relative;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease; }
+  .resource__filter-container:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.1); }
+  .resource__filter-container:hover {
+    height: auto; }
+    .resource__filter-container:hover:after {
+      display: none; }
+
+.resource__filter {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .resource__filter label {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    margin: 1em; }
+
 /*------------------------------------*    $SHARE
 \*------------------------------------*/
 .share {
