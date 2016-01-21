@@ -634,14 +634,13 @@ textarea {
   font-family: "open-sans-n4", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif";
   font-size: 16px;
   font-size: 1rem;
-  padding: 1.25em 0.625em;
+  padding: 0.625em;
   width: 100%;
   border: 1px solid #d7de1f;
   margin-bottom: 0.75em;
-  line-height: 1;
-  color: #777;
-  background-color: #FFF;
-  border-radius: 4px; }
+  color: #d7de1f;
+  background-color: transparent;
+  border-radius: 0; }
 
 input[type="color"] {
   width: auto; }
@@ -649,7 +648,11 @@ input[type="color"] {
 textarea {
   line-height: 1.5em; }
 
-input[type="password"]:hover, input[type="password"]:focus,
+input[type="text"]:hover, input[type="text"]:focus,
+input[type="email"]:hover,
+input[type="email"]:focus,
+input[type="password"]:hover,
+input[type="password"]:focus,
 input[type="search"]:hover,
 input[type="search"]:focus,
 input[type="url"]:hover,
@@ -675,23 +678,27 @@ input[type="datetime-local"]:focus,
 textarea:hover,
 textarea:focus {
   box-shadow: none;
-  outline: none;
-  border: solid 1px #d7de1f;
-  background-color: #d7de1f; }
+  outline: none; }
 
 ::-webkit-input-placeholder {
-  color: #d7de1f; }
+  /* Safari, Chrome and Opera */
+  color: #FFF; }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: #d7de1f; }
+  color: #FFF; }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #d7de1f; }
+  color: #FFF; }
 
 :-ms-input-placeholder {
-  color: #d7de1f; }
+  /* IE 10+ */
+  color: #FFF; }
+
+::-ms-input-placeholder {
+  /* Edge */
+  color: #FFF; }
 
 /*------------------------------------*    TABLES
 \*------------------------------------*/
@@ -843,6 +850,25 @@ nav h4 {
 
 .nav--vertical a {
   display: inline-block; }
+
+.primary-nav a {
+  padding: 3em 0;
+  border-bottom: 3px solid transparent; }
+  .primary-nav a:hover, .primary-nav a:active, .primary-nav a:focus {
+    text-decoration: none;
+    border-bottom-color: #d7de1f; }
+
+.primary-nav li {
+  margin: 0;
+  padding: 0 1em;
+  border-right: 1px solid black; }
+
+.primary-nav li:first-child {
+  padding-left: 0; }
+
+.primary-nav li:last-child {
+  border-right: none;
+  padding-right: 0; }
 
 /*------------------------------------*    SIDEBAR
 \*------------------------------------*/

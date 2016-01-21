@@ -41,14 +41,13 @@ input[type="datetime-local"],
 textarea {
 	@include font(primary, regular);
 	@include font-size(16);
-	padding: em(20) em(10);
+	padding: em(10);
 	width: 100%;
 	border: 1px solid color('brand');
 	margin-bottom: $space / 2;
-	line-height: 1;
-	color: color('body');
-	background-color: color('white');
-	border-radius: $border-radius;
+	color: color('brand');
+	background-color: transparent;
+	border-radius: 0;
 }
 
 input[type="color"] {
@@ -59,6 +58,8 @@ textarea {
 	line-height: $space;
 }
 
+input[type="text"],
+input[type="email"],
 input[type="password"],
 input[type="search"],
 input[type="url"],
@@ -77,8 +78,6 @@ textarea {
 	&:focus {
 		box-shadow: none;
 		outline: none;
-		border: solid 1px color('brand');
-		background-color: color('brand');
 	}
 }
 
@@ -94,18 +93,22 @@ input[type="email"].not-valid {
  //*******************
 // PLACEHOLDER STYLES
 
-::-webkit-input-placeholder {
-   color: color('brand');
+::-webkit-input-placeholder { /* Safari, Chrome and Opera */
+  color: color('white');
 }
 
 :-moz-placeholder { /* Firefox 18- */
- 	color: color('brand');
+  color: color('white');
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
-   color: color('brand');
+::-moz-placeholder { /* Firefox 19+ */
+  color: color('white');
 }
 
-:-ms-input-placeholder {
-   color: color('brand');
+:-ms-input-placeholder { /* IE 10+ */
+  color: color('white');
+}
+
+::-ms-input-placeholder { /* Edge */
+  color: color('white');
 }

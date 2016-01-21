@@ -124,6 +124,7 @@ Vue.filter('objectValues', function (object) {
 	console.log(objectValues(object));
   return objectValues(object);
 });
+
 			// bootstrap the demo
 			var demo = new Vue({
 
@@ -242,7 +243,6 @@ Vue.filter('objectValues', function (object) {
 				}
 
 			});
-
 
 			var intersection = function (haystack, arr) {
 				return arr.some(function (v) {
