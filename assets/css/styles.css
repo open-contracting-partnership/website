@@ -57,14 +57,6 @@ hgroup,
 figure {
   display: block; }
 
-button::-moz-focus-inner {
-  padding: 0;
-  border: 0; }
-
-input {
-  -webkit-appearance: none;
-  -moz-appearance: none; }
-
 /*------------------------------------*	FONTS
 \*------------------------------------*/
 /*------------------------------------*    GLOBAL MIXINS
