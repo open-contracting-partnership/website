@@ -859,6 +859,25 @@ nav h4 {
 .nav--vertical a {
   display: inline-block; }
 
+.primary-nav a {
+  padding: 3em 0;
+  border-bottom: 3px solid transparent; }
+  .primary-nav a:hover, .primary-nav a:active, .primary-nav a:focus {
+    text-decoration: none;
+    border-bottom-color: #d7de1f; }
+
+.primary-nav li {
+  margin: 0;
+  padding: 0 1em;
+  border-right: 1px solid black; }
+
+.primary-nav li:first-child {
+  padding-left: 0; }
+
+.primary-nav li:last-child {
+  border-right: none;
+  padding-right: 0; }
+
 /*------------------------------------*    SIDEBAR
 \*------------------------------------*/
 /*------------------------------------*    $MODULAR
