@@ -369,16 +369,17 @@ hr {
   color: #FFF;
   text-shadow: none; }
 
-.cf, .band {
+.cf, .band, .nav {
   *zoom: 1; }
 
-.cf:before, .band:before,
+.cf:before, .band:before, .nav:before,
 .cf:after,
-.band:after {
+.band:after,
+.nav:after {
   content: ' ';
   display: table; }
 
-.cf:after, .band:after {
+.cf:after, .band:after, .nav:after {
   clear: both; }
 
 .is-hidden {
@@ -823,6 +824,34 @@ tbody tr {
 
 /*------------------------------------*    NAVIGATION
 \*------------------------------------*/
+nav h4 {
+  text-transform: uppercase;
+  margin-bottom: 2em; }
+
+.nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+  .nav a {
+    text-decoration: none; }
+    .nav a:hover, .nav a:focus {
+      text-decoration: underline; }
+    .nav a:active {
+      text-decoration: none; }
+
+.nav--horizontal li {
+  float: left;
+  margin-right: 2em; }
+
+.nav--horizontal a {
+  display: block; }
+
+.nav--vertical li {
+  margin-bottom: 1em; }
+
+.nav--vertical a {
+  display: inline-block; }
+
 /*------------------------------------*    SIDEBAR
 \*------------------------------------*/
 /*------------------------------------*    $MODULAR
@@ -954,7 +983,7 @@ input.button--blue:focus {
   margin: 0;
   list-style-type: none; }
   .cta-list li {
-    border-bottom: 1px solid white; }
+    border-bottom: 1px solid #FFF; }
   .cta-list a {
     display: block;
     color: #FFF;

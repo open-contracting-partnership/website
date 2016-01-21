@@ -1,3 +1,51 @@
 /*------------------------------------*\
     NAVIGATION
 \*------------------------------------*/
+
+nav h4 {
+	text-transform: uppercase;
+	margin-bottom: 2em;
+}
+
+.nav {
+	@extend .cf;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+
+	a {
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+
+		&:active {
+			text-decoration: none;
+		}
+	}
+}
+
+.nav--horizontal {
+
+	li {
+		float: left;
+		margin-right: 2em;
+	}
+
+	a {
+		display: block;
+	}
+}
+
+.nav--vertical {
+
+	li {
+		margin-bottom: 1em;
+	}
+
+	a {
+		display: inline-block;
+	}
+}
