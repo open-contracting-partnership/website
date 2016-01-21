@@ -36,7 +36,7 @@ register_post_type('news', array(
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
 	'supports'				=> array('title', 'editor'),
-	'has_archive'			=> FALSE,
+	'has_archive'			=> TRUE,
 	'menu_position'			=> 5,
 	'menu_icon'				=> 'dashicons-welcome-write-blog'
 ));
@@ -45,11 +45,11 @@ register_post_type('event', array(
 	'labels'				=> create_post_type_labels('Event'),
 	'public'				=> TRUE,
 	'query_var'				=> TRUE,
-	'rewrite'				=> array('slug' => 'event', 'with_front' => FALSE),
+	'rewrite'				=> array('slug' => 'events', 'with_front' => FALSE),
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
 	'supports'				=> array('title', 'editor'),
-	'has_archive'			=> FALSE,
+	'has_archive'			=> TRUE,
 	'menu_icon'				=> 'dashicons-calendar'
 ));
 
@@ -57,11 +57,11 @@ register_post_type('resource', array(
 	'labels'				=> create_post_type_labels('Resource'),
 	'public'				=> TRUE,
 	'query_var'				=> TRUE,
-	'rewrite'				=> array('slug' => 'resource', 'with_front' => FALSE),
+	'rewrite'				=> array('slug' => 'resources', 'with_front' => FALSE),
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
 	'supports'				=> array('title', 'editor', 'thumbnail'),
-	'has_archive'			=> FALSE,
+	'has_archive'			=> TRUE,
 	'menu_icon'				=> 'dashicons-book-alt'
 ));
 
@@ -69,11 +69,11 @@ register_post_type('success-story', array(
 	'labels'				=> create_post_type_labels('Success Story', 'Success Stories'),
 	'public'				=> TRUE,
 	'query_var'				=> TRUE,
-	'rewrite'				=> array('slug' => 'success-story', 'with_front' => FALSE),
+	'rewrite'				=> array('slug' => 'success-stories', 'with_front' => FALSE),
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
 	'supports'				=> array('title', 'editor', 'thumbnail'),
-	'has_archive'			=> FALSE,
+	'has_archive'			=> TRUE,
 	'menu_icon'				=> 'dashicons-format-aside'
 ));
 
@@ -81,11 +81,11 @@ register_post_type('policy', array(
 	'labels'				=> create_post_type_labels('Policy', 'Policies'),
 	'public'				=> TRUE,
 	'query_var'				=> TRUE,
-	'rewrite'				=> array('slug' => 'policy', 'with_front' => FALSE),
+	'rewrite'				=> array('slug' => 'policies', 'with_front' => FALSE),
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
 	'supports'				=> array('title', 'editor'),
-	'has_archive'			=> FALSE,
+	'has_archive'			=> TRUE,
 	'menu_icon'				=> 'dashicons-list-view'
 ));
 
@@ -93,11 +93,11 @@ register_post_type('newsletter', array(
 	'labels'				=> create_post_type_labels('Newsletter'),
 	'public'				=> TRUE,
 	'query_var'				=> TRUE,
-	'rewrite'				=> array('slug' => 'newsletter', 'with_front' => FALSE),
+	'rewrite'				=> array('slug' => 'newsletters', 'with_front' => FALSE),
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
 	'supports'				=> array('title', 'thumbnail'),
-	'has_archive'			=> FALSE,
+	'has_archive'			=> TRUE,
 	'menu_icon'				=> 'dashicons-align-right'
 ));
 
@@ -105,11 +105,11 @@ register_post_type('media-clipping', array(
 	'labels'				=> create_post_type_labels('Media Clipping'),
 	'public'				=> TRUE,
 	'query_var'				=> TRUE,
-	'rewrite'				=> array('slug' => 'media-clipping', 'with_front' => FALSE),
+	'rewrite'				=> array('slug' => 'media-clippings', 'with_front' => FALSE),
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
 	'supports'				=> array('title'),
-	'has_archive'			=> FALSE,
+	'has_archive'			=> TRUE,
 	'menu_icon'				=> 'dashicons-video-alt2'
 ));
 
