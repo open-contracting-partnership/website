@@ -890,10 +890,10 @@ input.button--blue:focus {
   overflow: hidden;
   margin-bottom: 2em;
   position: relative;
-  -webkit-transition: all 0.3s ease;
-          transition: all 0.3s ease; }
+  -webkit-transition: all .3s ease;
+          transition: all .3s ease; }
   .resource__filter-container:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     right: 0;
