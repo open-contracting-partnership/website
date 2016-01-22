@@ -90,25 +90,59 @@ input[type="email"].not-valid {
 }
 
 
+ //*******
+// SEARCH
+
+.search {
+	color: color('black');
+	position: relative;
+
+	&:after {
+		content: '';
+		height: 1px;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 7px;
+		background: currentColor;
+	}
+
+	input[type="search"] {
+		padding: em(10) 0;
+		margin: 0;
+		border: none;
+		color: currentColor;
+	}
+
+	button {
+		position: absolute;
+		top: 0;
+		right: 0;
+		border: none;
+		color: currentColor;
+	}
+}
+
+
  //*******************
 // PLACEHOLDER STYLES
 
 ::-webkit-input-placeholder { /* Safari, Chrome and Opera */
-  color: color('white');
+	color: currentColor;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-  color: color('white');
+	color: currentColor;
 }
 
 ::-moz-placeholder { /* Firefox 19+ */
-  color: color('white');
+	color: currentColor;
 }
 
 :-ms-input-placeholder { /* IE 10+ */
-  color: color('white');
+	color: currentColor;
 }
 
 ::-ms-input-placeholder { /* Edge */
-  color: color('white');
+	color: currentColor;
 }
