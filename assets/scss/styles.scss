@@ -20,7 +20,7 @@ partial in the specified directory .
 @import '_global/fonts';
 @import '_global/mixins';
 @import '_global/variables';
-@import '_global/grid';
+@import '../../node_modules/susy/sass/susy';
 
 
 /*------------------------------------*\
@@ -45,6 +45,12 @@ partial in the specified directory .
     $MODULAR
 \*------------------------------------*/
 @import 'modular/*';
+
+
+/*------------------------------------*\
+    $NON-MODULAR
+\*------------------------------------*/
+@import 'non-modular/*';
 
 
 /*------------------------------------*\
