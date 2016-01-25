@@ -81,195 +81,6 @@ figure {
  */
 /*------------------------------------*	VARIABLES
 \*------------------------------------*/
-/*------------------------------------* * THE IDEA BUREAU - GRID
- * https://github.com/theideabureau/grid
-\*------------------------------------*/
-.row {
-  margin-left: -1.5em;
-  *zoom: 1; }
-  .row:before, .row:after {
-    content: ' ';
-    /* 1 */
-    display: table;
-    /* 2 */ }
-  .row:after {
-    clear: both; }
-
-.col {
-  border: 0 solid transparent;
-  float: left;
-  box-sizing: border-box;
-  background-clip: padding-box !important;
-  border-left-width: 1.5em;
-  margin-left: 0;
-  padding: 0 0; }
-
-.S-hide {
-  display: none; }
-
-.S-1 {
-  display: block;
-  width: 25%; }
-
-.row--clearfix .S-1:nth-child(n) {
-  clear: none; }
-
-.row--clearfix .S-1:nth-child(4n+1) {
-  clear: left; }
-
-.S-2 {
-  display: block;
-  width: 50%; }
-
-.row--clearfix .S-2:nth-child(n) {
-  clear: none; }
-
-.row--clearfix .S-2:nth-child(2n+1) {
-  clear: left; }
-
-.S-3 {
-  display: block;
-  width: 75%; }
-
-.row--clearfix .S-3:nth-child(n) {
-  clear: none; }
-
-.row--clearfix .S-3:nth-child(1n+1) {
-  clear: left; }
-
-.S-all {
-  display: block;
-  margin-left: 0;
-  width: 100%; }
-
-@media screen and (min-width: 640px) {
-  .M-hide {
-    display: none; }
-  .M-1 {
-    display: block;
-    width: 16.66667%; }
-  .row--clearfix .M-1:nth-child(n) {
-    clear: none; }
-  .row--clearfix .M-1:nth-child(6n+1) {
-    clear: left; }
-  .M-2 {
-    display: block;
-    width: 33.33333%; }
-  .row--clearfix .M-2:nth-child(n) {
-    clear: none; }
-  .row--clearfix .M-2:nth-child(3n+1) {
-    clear: left; }
-  .M-3 {
-    display: block;
-    width: 50%; }
-  .row--clearfix .M-3:nth-child(n) {
-    clear: none; }
-  .row--clearfix .M-3:nth-child(2n+1) {
-    clear: left; }
-  .M-4 {
-    display: block;
-    width: 66.66667%; }
-  .row--clearfix .M-4:nth-child(n) {
-    clear: none; }
-  .row--clearfix .M-4:nth-child(1n+1) {
-    clear: left; }
-  .M-5 {
-    display: block;
-    width: 83.33333%; }
-  .row--clearfix .M-5:nth-child(n) {
-    clear: none; }
-  .row--clearfix .M-5:nth-child(1n+1) {
-    clear: left; }
-  .M-all {
-    display: block;
-    margin-left: 0;
-    width: 100%; } }
-
-@media screen and (min-width: 1024px) {
-  .L-hide {
-    display: none; }
-  .L-1 {
-    display: block;
-    width: 8.33333%; }
-  .row--clearfix .L-1:nth-child(n) {
-    clear: none; }
-  .row--clearfix .L-1:nth-child(12n+1) {
-    clear: left; }
-  .L-2 {
-    display: block;
-    width: 16.66667%; }
-  .row--clearfix .L-2:nth-child(n) {
-    clear: none; }
-  .row--clearfix .L-2:nth-child(6n+1) {
-    clear: left; }
-  .L-3 {
-    display: block;
-    width: 25%; }
-  .row--clearfix .L-3:nth-child(n) {
-    clear: none; }
-  .row--clearfix .L-3:nth-child(4n+1) {
-    clear: left; }
-  .L-4 {
-    display: block;
-    width: 33.33333%; }
-  .row--clearfix .L-4:nth-child(n) {
-    clear: none; }
-  .row--clearfix .L-4:nth-child(3n+1) {
-    clear: left; }
-  .L-5 {
-    display: block;
-    width: 41.66667%; }
-  .row--clearfix .L-5:nth-child(n) {
-    clear: none; }
-  .row--clearfix .L-5:nth-child(2n+1) {
-    clear: left; }
-  .L-6 {
-    display: block;
-    width: 50%; }
-  .row--clearfix .L-6:nth-child(n) {
-    clear: none; }
-  .row--clearfix .L-6:nth-child(2n+1) {
-    clear: left; }
-  .L-7 {
-    display: block;
-    width: 58.33333%; }
-  .row--clearfix .L-7:nth-child(n) {
-    clear: none; }
-  .row--clearfix .L-7:nth-child(1n+1) {
-    clear: left; }
-  .L-8 {
-    display: block;
-    width: 66.66667%; }
-  .row--clearfix .L-8:nth-child(n) {
-    clear: none; }
-  .row--clearfix .L-8:nth-child(1n+1) {
-    clear: left; }
-  .L-9 {
-    display: block;
-    width: 75%; }
-  .row--clearfix .L-9:nth-child(n) {
-    clear: none; }
-  .row--clearfix .L-9:nth-child(1n+1) {
-    clear: left; }
-  .L-10 {
-    display: block;
-    width: 83.33333%; }
-  .row--clearfix .L-10:nth-child(n) {
-    clear: none; }
-  .row--clearfix .L-10:nth-child(1n+1) {
-    clear: left; }
-  .L-11 {
-    display: block;
-    width: 91.66667%; }
-  .row--clearfix .L-11:nth-child(n) {
-    clear: none; }
-  .row--clearfix .L-11:nth-child(1n+1) {
-    clear: left; }
-  .L-all {
-    display: block;
-    margin-left: 0;
-    width: 100%; } }
-
 /*------------------------------------*    $BASE ELEMENTS
 \*------------------------------------*/
 /*------------------------------------*    BASE
@@ -287,11 +98,24 @@ body {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "open-sans-n4", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif";
+  max-width: 80em;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: -webkit-linear-gradient(left, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25) 80%, transparent 80%);
+  background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25) 80%, transparent 80%);
+  background-size: 8.47458%;
+  background-origin: content-box;
+  background-clip: content-box;
+  background-position: left top;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
+  body:after {
+    content: " ";
+    display: block;
+    clear: both; }
 
 p,
 ul,
@@ -833,6 +657,9 @@ tbody tr {
 
 /*------------------------------------*    FOOTER
 \*------------------------------------*/
+.site-footer {
+  clear: both; }
+
 /*------------------------------------*	HEADER
 \*------------------------------------*/
 /*------------------------------------*    HERO
@@ -1123,10 +950,10 @@ input.button--blue:focus {
   overflow: hidden;
   margin-bottom: 2em;
   position: relative;
-  -webkit-transition: all 0.3s ease;
-          transition: all 0.3s ease; }
+  -webkit-transition: all .3s ease;
+          transition: all .3s ease; }
   .resource__filter-container:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     right: 0;
@@ -1191,6 +1018,100 @@ input.button--blue:focus {
   color: #007BB6; }
   .social--linkedin:hover, .social--linkedin:active, .social--linkedin:focus {
     color: #005983; }
+
+/*------------------------------------*    $NON-MODULAR
+\*------------------------------------*/
+.blog__featured {
+  background: lightgreen; }
+  @media screen and (min-width: 1024px) {
+    .blog__featured {
+      width: 49.15254%;
+      float: left;
+      margin-right: 1.69492%; } }
+
+.blog__event-mobile {
+  background: orange; }
+  @media screen and (min-width: 640px) {
+    .blog__event-mobile {
+      display: none; } }
+
+.blog__recent {
+  background: red; }
+  @media screen and (min-width: 1024px) {
+    .blog__recent {
+      width: 49.15254%;
+      float: right;
+      margin-right: 0; } }
+
+.blog__event-tablet {
+  background: orange;
+  display: none;
+  clear: both; }
+  @media screen and (min-width: 640px) {
+    .blog__event-tablet {
+      display: block; } }
+  @media screen and (min-width: 1024px) {
+    .blog__event-tablet {
+      display: none; } }
+
+.blog__topics {
+  background: green;
+  clear: both; }
+
+.blog__news {
+  background: lightblue; }
+  @media screen and (min-width: 1024px) {
+    .blog__news {
+      width: 57.62712%;
+      float: left;
+      margin-right: 1.69492%; } }
+
+.blog__event-desktop {
+  display: none;
+  background: orange; }
+  @media screen and (min-width: 1024px) {
+    .blog__event-desktop {
+      display: block;
+      width: 40.67797%;
+      float: right;
+      margin-right: 0; } }
+
+.blog__newsletter-signup {
+  background: blue; }
+  @media screen and (min-width: 1024px) {
+    .blog__newsletter-signup {
+      width: 40.67797%;
+      float: right;
+      margin-right: 0; } }
+
+.blog__posts {
+  background: yellow;
+  clear: both; }
+  @media screen and (min-width: 640px) {
+    .blog__posts {
+      width: 65.51724%;
+      float: left;
+      margin-right: 3.44828%; } }
+  @media screen and (min-width: 1024px) {
+    .blog__posts {
+      width: 66.10169%;
+      float: left;
+      margin-right: 1.69492%; } }
+
+.blog__authors {
+  background: pink;
+  display: none; }
+  @media screen and (min-width: 640px) {
+    .blog__authors {
+      display: block;
+      width: 31.03448%;
+      float: right;
+      margin-right: 0; } }
+  @media screen and (min-width: 1024px) {
+    .blog__authors {
+      width: 32.20339%;
+      float: right;
+      margin-right: 0; } }
 
 /*------------------------------------*	$TOOLS
 \*------------------------------------*/

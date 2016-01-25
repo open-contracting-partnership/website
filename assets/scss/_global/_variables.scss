@@ -70,6 +70,14 @@ $breakpoints: (
     L: 1024
 );
 
+$susy: (
+	// container: 70em,
+	columns: 12,
+	// gutters: 1/6
+ 	debug: (image: show)
+);
+
+
 
  //******
 // FONTS

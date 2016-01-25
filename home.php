@@ -2,12 +2,44 @@
 
 <?php get_header(); ?>
 
-	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+	<div class="blog__featured">
+		#1
+	</div>
 
-		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+	<div class="blog__event-mobile">
+		#2 (mobile only)
+	</div>
 
-		<?php the_content(); ?>
+	<section class="blog__recent">
+		#3
+	</section>
 
-	<?php endwhile; ?>
+	<div class="blog__event-tablet">
+		#4 (tablet only)
+	</div>
+
+	<section class="blog__topics">
+		#5
+	</section>
+
+	<section class="blog__news">
+		#6
+	</section>
+
+	<div class="blog__event-desktop">
+		#7 (desktop only)
+	</div>
+
+	<div class="blog__newsletter-signup">
+		#8
+	</div>
+
+	<div class="blog__posts">
+		#9
+	</div>
+
+	<section class="blog__authors">
+		#10 (desktop / tablet only)
+	</section>
 
 <?php get_footer(); ?>

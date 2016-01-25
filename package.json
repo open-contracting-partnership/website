@@ -21,7 +21,8 @@
     "gulp-theideabureau-pattern-library": "^0.1.5",
     "gulp-uglify": "^1.2.0",
     "gulp-watch": "^4.2.4",
-    "jshint-stylish": "^1.0.2"
+    "jshint-stylish": "^1.0.2",
+    "susy": "^2.2.11"
   },
   "repository": "https://github.com/theideabureau/pattern-library",
   "license": "MIT"

@@ -17,10 +17,10 @@
 	overflow: hidden;
 	margin-bottom: 2em;
 	position: relative;
-	transition: all 0.3s ease;
+	transition: all .3s ease;
 
 	&:after {
-		content: "";
+		content: '';
 		position: absolute;
 		top: 0;
 		right: 0;
