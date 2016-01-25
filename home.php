@@ -2,8 +2,35 @@
 
 <?php get_header(); ?>
 
+	<?php $exclude_ids = []; ?>
+
 	<div class="blog__featured">
-		#1
+
+		<?php
+
+			$featured_blog = new query_loop([
+				'post_type' => 'post',
+				'posts_per_page' => 1,
+				'meta_query' => array(
+					array(
+						'key' => 'featured',
+						'value' => TRUE
+					)
+				)
+			]);
+
+		?>
+
+		<?php foreach ( $featured_blog as $featured_blog ) : ?>
+
+			<article>
+				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+			</article>
+
+		<?php endforeach; ?>
+
+		&nbsp;
+
 	</div>
 
 	<div class="blog__event-mobile">
