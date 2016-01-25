@@ -1,1 +1,117 @@
+.blog__featured {
 
+	background: lightgreen;
+
+	@include mq(L) {
+		@include span(6 of 12);
+	}
+
+}
+
+.blog__event-mobile {
+
+	background: orange;
+
+	@include mq(M) {
+		display: none;
+	}
+
+}
+
+.blog__recent {
+
+	background: red;
+
+	@include mq(L) {
+		@include span(6 of 12 last);
+	}
+
+}
+
+.blog__event-tablet {
+
+	background: orange;
+
+	display: none;
+	@include break;
+
+	@include mq(M) {
+		display: block;
+	}
+
+	@include mq(L) {
+		display: none;
+	}
+
+}
+
+.blog__topics {
+
+	background: green;
+	@include break;
+
+}
+
+.blog__news {
+
+	background: lightblue;
+
+	@include mq(L) {
+		@include span(7 of 12);
+	}
+
+}
+
+
+.blog__event-desktop {
+
+	display: none;
+	background: orange;
+
+	@include mq(L) {
+		display: block;
+		@include span(5 of 12 last);
+	}
+
+}
+
+.blog__newsletter-signup {
+
+	background: blue;
+
+	@include mq(L) {
+		@include span(5 of 12 last);
+	}
+
+}
+
+.blog__posts {
+
+	background: yellow;
+	@include break;
+
+	@include mq(M) {
+		@include span(4 of 6 first);
+	}
+
+	@include mq(L) {
+		@include span(8 of 12 first);
+	}
+
+}
+
+.blog__authors {
+
+	background: pink;
+	display: none;
+
+	@include mq(M) {
+		display: block;
+		@include span(2 of 6 last);
+	}
+
+	@include mq(L) {
+		@include span(4 of 12 last);
+	}
+
+}

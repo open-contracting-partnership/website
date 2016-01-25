@@ -2,3 +2,6 @@
     FOOTER
 \*------------------------------------*/
 
+.site-footer {
+	@include break;
+}
