@@ -63,9 +63,19 @@
 		#4 (tablet only)
 	</div>
 
-	<section class="blog__topics">
-		#5
-	</section>
+	<?php if ( $topics = get_field('featured_topics', 'options') ) : ?>
+
+		<section class="blog__topics">
+
+			<?php foreach ( $topics as $topic ) : ?>
+				<p><?php echo $topic->name; ?></p>
+			<?php endforeach; ?>
+
+			<h2>Topic Highlights</h2>
+
+		</section>
+
+	<?php endif; ?>
 
 	<section class="blog__news">
 
