@@ -504,25 +504,48 @@ textarea:focus {
   box-shadow: none;
   outline: none; }
 
+.search {
+  color: #000;
+  position: relative; }
+  .search:after {
+    content: '';
+    height: 1px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 7px;
+    background: currentColor; }
+  .search input[type="search"] {
+    padding: 0.625em 0;
+    margin: 0;
+    border: none;
+    color: currentColor; }
+  .search button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    color: currentColor; }
+
 ::-webkit-input-placeholder {
   /* Safari, Chrome and Opera */
-  color: #FFF; }
+  color: currentColor; }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: #FFF; }
+  color: currentColor; }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #FFF; }
+  color: currentColor; }
 
 :-ms-input-placeholder {
   /* IE 10+ */
-  color: #FFF; }
+  color: currentColor; }
 
 ::-ms-input-placeholder {
   /* Edge */
-  color: #FFF; }
+  color: currentColor; }
 
 /*------------------------------------*    TABLES
 \*------------------------------------*/
