@@ -38,7 +38,25 @@
 	</div>
 
 	<section class="blog__recent">
-		#3
+
+		<?php
+
+			$recent_posts = new query_loop([
+				'post_type' => 'post',
+				'posts_per_page' => 4,
+				'post__not_in' => $exclude_ids
+			]);
+
+		?>
+
+		<?php foreach ( $recent_posts as $recent_post ) : ?>
+
+			<article>
+				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+			</article>
+
+		<?php endforeach; ?>
+
 	</section>
 
 	<div class="blog__event-tablet">
