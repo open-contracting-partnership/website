@@ -657,8 +657,42 @@ tbody tr {
 
 /*------------------------------------*    FOOTER
 \*------------------------------------*/
-.site-footer {
+.site-footer,
+.sub-footer,
+.site-copyright {
   clear: both; }
+
+@media screen and (min-width: 1024px) {
+  .site-footer__organisation {
+    width: 15.25424%;
+    float: left;
+    margin-right: 1.69492%; } }
+
+@media screen and (min-width: 1024px) {
+  .site-footer__contracting,
+  .site-footer__implement,
+  .site-footer__updates {
+    width: 15.25424%;
+    float: left;
+    margin-right: 1.69492%; } }
+
+@media screen and (min-width: 1024px) {
+  .site-footer__subscribe {
+    width: 32.20339%;
+    float: right;
+    margin-right: 0; } }
+
+@media screen and (min-width: 1024px) {
+  .site-colophon {
+    width: 32.20339%;
+    float: left;
+    margin-right: 1.69492%; } }
+
+@media screen and (min-width: 1024px) {
+  .sub-footer img {
+    width: 15.25424%;
+    float: right;
+    margin-right: 0; } }
 
 /*------------------------------------*	HEADER
 \*------------------------------------*/
