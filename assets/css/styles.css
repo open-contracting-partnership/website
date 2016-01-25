@@ -1089,6 +1089,27 @@ input.button--blue:focus {
   overflow: hidden;
   display: block; }
 
+.post-object__content {
+  padding-top: 0.5625em; }
+
+.post-object--vertical .post-object__content {
+  padding-left: 1.3125em;
+  padding-right: 1.3125em; }
+
+.post-object--vertical .post-object__media {
+  position: relative; }
+
+.post-object--vertical .post-object__tag {
+  padding: 0.5625em 1.3125em; }
+  @media screen and (min-width: 640px) {
+    .post-object--vertical .post-object__tag {
+      position: absolute;
+      bottom: 0;
+      left: 0; } }
+
+.post-object--horizontal .post-object__media {
+  margin-right: 1em; }
+
 .resource {
   width: 33%;
   border: 1px solid grey;
