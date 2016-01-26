@@ -1,5 +1,7 @@
 <?php // footer.php ?>
 
+	<div class="wrapper">
+
 		<div class="site-footer">
 
 			<div> <!-- main footer -->
@@ -238,6 +240,8 @@
 		</footer> <!-- copyright -->
 
 		<?php wp_footer(); ?>
+
+	</div> <!-- .wrapper -->
 
 	</body>
 
