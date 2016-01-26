@@ -11,3 +11,17 @@
 		@include span(5 of 12 first);
 	}
 }
+
+.homepage-title {
+	text-align: center;
+
+	h1 {
+		@include font-size(45);
+		margin-bottom: em(21, 45);
+	}
+
+	h2 {
+		@include font-size(26);
+		margin-bottom: em(65, 26);
+	}
+}

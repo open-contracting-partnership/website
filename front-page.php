@@ -25,7 +25,7 @@
 
 		<section class="g-break / band band--thick">
 
-			<div class="band band--thick / align-center">
+			<div class="homepage-title">
 				<h1>Public contracting</h1>
 				<h2>The number one corruption risk in government</h2>
 			</div>
