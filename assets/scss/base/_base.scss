@@ -13,7 +13,6 @@ body {
     color: color('body');
     line-height: $space;
     @include font;
-    @include container(80em);
 
 	text-rendering: optimizeLegibility;
 	-moz-osx-font-smoothing: grayscale;

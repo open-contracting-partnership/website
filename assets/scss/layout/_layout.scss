@@ -7,3 +7,43 @@
 	margin: 0 auto;
 	max-width: $max-width + px;
 }
+
+.l-3 {
+
+	@include mq(L) {
+		@include span(3 of 12);
+	}
+}
+
+.l-4 {
+
+	@include mq(L) {
+		@include span(4 of 12);
+	}
+}
+
+.l-5 {
+
+	@include mq(L) {
+		@include span(5 of 12);
+	}
+}
+
+.l-7 {
+
+	@include mq(L) {
+		@include span(7 of 12);
+	}
+}
+
+.g-first {
+	@include first;
+}
+
+.g-last {
+	@include last;
+}
+
+.g-break {
+	@include break;
+}

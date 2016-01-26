@@ -16,11 +16,11 @@ h5,
 h6,
 .zeta {
 	@include font;
-	margin-bottom: $space / 2;
-	line-height: 1.2;
+	margin-bottom: $space;
+	line-height: $space;
 
 	&.has-strap {
-		margin-bottom: $space / 4;
+		margin-bottom: .625em;
 	}
 }
 
@@ -35,40 +35,28 @@ h6,
 
 h1,
 .alpha {
-	@include font-size(35);
+	@include font-size(39);
 
 	@include mq(M) {
-		@include font-size(50);
+		@include font-size(54);
 	}
 }
 
 h2,
 .beta {
-	@include font-size(30);
+	@include font-size(29);
 
 	@include mq(M) {
-		@include font-size(35);
-	}
-
-	&.strap {
-		@include font-size(28);
-
-		@include mq(M) {
-			@include font-size(33);
-		}
+		@include font-size(39);
 	}
 }
 
 h3,
 .gamma {
-	@include font-size(25);
+	@include font-size(22);
 
 	@include mq(M) {
-		@include font-size(30);
-	}
-
-	&.strap {
-		@include font-size(23);
+		@include font-size(29);
 	}
 }
 
@@ -85,4 +73,21 @@ h4,
 h5,
 .epsilon {
 	@include font-size(18);
+}
+
+.border-top {
+	border-top: 1px solid color('background');
+	position: relative;
+	padding-top: 1rem;
+
+	&:before {
+		position: absolute;
+		content: '';
+		display: block;
+		top: 0;
+		left: 0;
+		width: 6rem;
+		height: .5rem;
+		background-color: color('brand');
+	}
 }

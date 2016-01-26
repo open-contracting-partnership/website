@@ -2,6 +2,59 @@
     FOOTER
 \*------------------------------------*/
 
-.site-footer {
+.site-footer a {
+	color: color('white');
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+
+	&:active {
+		text-decoration: none;
+	}
+}
+
+.site-footer,
+.sub-footer,
+.site-copyright {
 	@include break;
+}
+
+.site-footer__organisation {
+
+	@include mq(L) {
+		@include span(2 of 12 first);
+	}
+}
+
+.site-footer__contracting,
+.site-footer__implement,
+.site-footer__updates {
+
+	@include mq(L) {
+		@include span(2 of 12);
+	}
+}
+
+.site-footer__subscribe {
+
+	@include mq(L) {
+		@include span(4 of 12 last);
+	}
+}
+
+.site-colophon {
+
+	@include mq(L) {
+		@include span(4 of 12 first);
+	}
+}
+
+.sub-footer img {
+
+	@include mq(L) {
+		@include span(2 at 10 of 12 last);
+	}
 }

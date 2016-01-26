@@ -1,5 +1,35 @@
 .post-object {
+	display: block;
+	clear: both;
+	margin-bottom: $space;
 }
 
 .post-object__content {
+	padding-top: em(9);
+}
+
+.post-object--vertical {
+
+	.post-object__content {
+		padding-left: em(21);
+		padding-right: em(21);
+	}
+
+	.post-object__media {
+		position: relative;
+	}
+
+	.post-object__tag {
+		padding: em(9) em(21);
+
+		@include mq(M) {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+	}
+}
+
+.post-object--horizontal .post-object__media {
+	margin-right: em(16);
 }

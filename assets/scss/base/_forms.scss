@@ -110,7 +110,7 @@ input[type="email"].not-valid {
 	input[type="search"] {
 		padding: em(10) 0;
 		margin: 0;
-		border: none;
+		border: 0;
 		color: currentColor;
 	}
 
@@ -118,7 +118,7 @@ input[type="email"].not-valid {
 		position: absolute;
 		top: 0;
 		right: 0;
-		border: none;
+		border: 0;
 		color: currentColor;
 	}
 }

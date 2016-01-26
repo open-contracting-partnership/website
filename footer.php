@@ -2,135 +2,123 @@
 
 		<div class="site-footer">
 
-			<div>
+			<div> <!-- main footer -->
 
-				<div>
+				<nav class="site-footer__organisation">
 
-					<nav>
+					<h4>Our Organisation</h4>
 
-						<h4>Our Organisation</h4>
+					<ul class="nav nav--vertical">
 
-						<ul class="nav nav--vertical">
+						<li>
+							<a href="#">Mission</a>
+						</li>
 
-							<li>
-								<a href="#">Mission</a>
-							</li>
+						<li>
+							<a href="#">Strategy</a>
+						</li>
 
-							<li>
-								<a href="#">Strategy</a>
-							</li>
+						<li>
+							<a href="#">Values</a>
+						</li>
 
-							<li>
-								<a href="#">Values</a>
-							</li>
+						<li>
+							<a href="#">Our Story</a>
+						</li>
 
-							<li>
-								<a href="#">Our Story</a>
-							</li>
+						<li>
+							<a href="#">Team</a>
+						</li>
 
-							<li>
-								<a href="#">Team</a>
-							</li>
+						<li>
+							<a href="#">Advisory board</a>
+						</li>
 
-							<li>
-								<a href="#">Advisory board</a>
-							</li>
+						<li>
+							<a href="#">Financing</a>
+						</li>
 
-							<li>
-								<a href="#">Financing</a>
-							</li>
+						<li>
+							<a href="#">Policies</a>
+						</li>
 
-							<li>
-								<a href="#">Policies</a>
-							</li>
+					</ul>
 
-						</ul>
+				</nav>
 
-					</nav>
+				<nav class="site-footer__contracting">
 
-				</div>
+					<h4>Open Contracting</h4>
 
-				<div>
+					<ul class="nav nav--vertical">
 
-					<nav>
+						<li>
+							<a href="#">What is Open Contracting</a>
+						</li>
 
-						<h4>Open Contracting</h4>
+						<li>
+							<a href="#">Sectors</a>
+						</li>
 
-						<ul class="nav nav--vertical">
+						<li>
+							<a href="#">Showcase projects</a>
+						</li>
 
-							<li>
-								<a href="#">What is Open Contracting</a>
-							</li>
+						<li>
+							<a href="#">Evidence</a>
+						</li>
 
-							<li>
-								<a href="#">Sectors</a>
-							</li>
+						<li>
+							<a href="#">Learning</a>
+						</li>
 
-							<li>
-								<a href="#">Showcase projects</a>
-							</li>
+						<li>
+							<a href="#">Case studies</a>
+						</li>
 
-							<li>
-								<a href="#">Evidence</a>
-							</li>
+					</ul>
 
-							<li>
-								<a href="#">Learning</a>
-							</li>
+				</nav>
 
-							<li>
-								<a href="#">Case studies</a>
-							</li>
+				<nav class="site-footer__implement">
 
-						</ul>
+					<h4>Implement</h4>
 
-					</nav>
+					<ul class="nav nav--vertical">
 
-				</div>
+						<li>
+							<a href="#">How to implement</a>
+						</li>
 
-				<div>
+						<li>
+							<a href="#">Data standard</a>
+						</li>
 
-					<nav>
+						<li>
+							<a href="#">Success stories</a>
+						</li>
 
-						<h4>Implement</h4>
+						<li>
+							<a href="#">Global principles</a>
+						</li>
 
-						<ul class="nav nav--vertical">
+						<li>
+							<a href="#">Learning</a>
+						</li>
 
-							<li>
-								<a href="#">How to implement</a>
-							</li>
+						<li>
+							<a href="#">Case studies</a>
+						</li>
 
-							<li>
-								<a href="#">Data standard</a>
-							</li>
+						<li>
+							<a href="#">Resources and Tools</a>
+						</li>
 
-							<li>
-								<a href="#">Success stories</a>
-							</li>
+					</ul>
 
-							<li>
-								<a href="#">Global principles</a>
-							</li>
+				</nav>
 
-							<li>
-								<a href="#">Learning</a>
-							</li>
-
-							<li>
-								<a href="#">Case studies</a>
-							</li>
-
-							<li>
-								<a href="#">Resources and Tools</a>
-							</li>
-
-						</ul>
-
-					</nav>
-
-				</div>
-
-				<div>
+				<div class="site-footer__updates">
 
 					<nav>
 
@@ -170,7 +158,7 @@
 
 				</div>
 
-				<div>
+				<div class="site-footer__subscribe">
 
 					<div>
 
@@ -221,21 +209,21 @@
 
 				</div>
 
-			</div>
+			</div> <!-- main footer -->
 
-			<div>
+			<div class="sub-footer"> <!-- sub footer -->
 
-				<div>
+				<div class="site-colophon">
 					<p>This work by the Open Contracting Partnership, unless otherwise noted, is licensed under a Creative Commons Attribution 4.0 International License.</p>
 				</div>
 
 				<img src="http://placehold.it/300x100" alt="Logo" />
 
-			</div>
+			</div> <!-- sub footer -->
 
 		</div>
 
-		<footer>
+		<footer class="site-copyright"> <!-- copyright -->
 
 			<span>&copy; Open Contracting Partnership 2016</span>
 
@@ -247,7 +235,7 @@
 
 			<span>Website by <a href="http://theideabureau.co">The Idea Bureau</a></span>
 
-		</footer>
+		</footer> <!-- copyright -->
 
 		<?php wp_footer(); ?>
 
