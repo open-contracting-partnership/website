@@ -942,7 +942,7 @@ input.button--blue:focus {
     .cta-list a:hover, .cta-list a:active, .cta-list a:focus {
       text-decoration: underline; }
 
-.heading-highlight,
+.heading-highlight h3,
 .highlight-text p {
   display: inline;
   color: #FFF;
@@ -1002,6 +1002,8 @@ input.button--blue:focus {
   display: block;
   clear: both;
   margin-bottom: 0.5em; }
+  .post-object a {
+    display: block; }
   .post-object h4 {
     line-height: 1.25;
     margin-bottom: 1em; }
@@ -1010,6 +1012,16 @@ input.button--blue:focus {
 
 .home .post-object {
   background-color: #373738; }
+  .home .post-object a {
+    color: #FFF;
+    text-decoration: none; }
+    .home .post-object a:hover h4, .home .post-object a:active h4 {
+      text-decoration: underline; }
+    .home .post-object a:focus h4 {
+      text-decoration: none; }
+
+.post-object__media:hover + a, .post-object__media:active + a {
+  text-decoration: underline; }
 
 .post-object__content {
   padding-top: 0.45em; }
@@ -1021,11 +1033,12 @@ input.button--blue:focus {
   position: relative; }
 
 .post-object--vertical .post-object__tag {
-  padding: 0.45em 1.05em; }
+  padding: 0.45em 1.05em;
+  background-color: #373738; }
   @media screen and (min-width: 640px) {
     .post-object--vertical .post-object__tag {
       position: absolute;
-      bottom: 0;
+      bottom: -1px;
       left: 0; } }
 
 .post-object--vertical p {
@@ -1288,6 +1301,18 @@ input.button--blue:focus {
 
 .homepage-spotlight .post-object {
   min-height: 24.1em; }
+
+.homepage-implement {
+  margin-top: 3.45em; }
+  .homepage-implement .heading-highlight {
+    margin-left: 12px;
+    margin-bottom: 1.4em; }
+  .homepage-implement h3 {
+    font-size: 35px;
+    font-size: 1.75rem;
+    line-height: 1.7; }
+  .homepage-implement .cta-list {
+    margin-top: 1.75em; }
 
 /*------------------------------------*	$TOOLS
 \*------------------------------------*/

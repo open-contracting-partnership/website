@@ -29,3 +29,21 @@
 .homepage-spotlight .post-object {
 	min-height: em(482);
 }
+
+.homepage-implement {
+	margin-top: em(69);
+
+	.heading-highlight {
+		margin-left: 12px;
+		margin-bottom: 1.4em;
+	}
+
+	h3 {
+		@include font-size(35);
+		line-height: 1.7;
+	}
+
+	.cta-list {
+		margin-top: em(35);
+	}
+}
