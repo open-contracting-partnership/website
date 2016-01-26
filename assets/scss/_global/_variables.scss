@@ -55,7 +55,7 @@ $button-colors-light: (
  //**************
 // TYPE SETTINGS
 
-$base-font-size: 16;
+$base-font-size: 20;
 $copy: color('body');
 $border-radius: 4px;
 
@@ -64,7 +64,7 @@ $border-radius: 4px;
 // LAYOUT SETTINGS
 
 $max-width: 1400;
-$space: 1.5em; // NOTE: This is needs to be changed depending on the lineheight of the <p>
+$space: 1.4em; // NOTE: This is needs to be changed depending on the lineheight of the <p>
 
 $breakpoints: (
     M: 640,
