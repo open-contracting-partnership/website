@@ -183,3 +183,71 @@ function get_post_type_label($post_type = NULL, $plural = FALSE) {
 function the_post_type_label($post_type = NULL, $plural = FALSE) {
 	echo get_post_type_label($post_type, $plural);
 }
+
+function get_authors() {
+
+	// set the initial authors array as the normal post author...
+	$authors = array(get_author_object());
+
+	// but if multiple authors have been set, completely overwrite this array
+	if ( have_rows('authors') ) {
+
+		$authors = array();
+
+		// loop through the rows of data
+		while ( have_rows('authors') ) {
+
+			the_row();
+
+			switch ( get_row_layout() ) {
+
+				case 'wordpress_user':
+					$authors[] = get_author_object(get_sub_field('user')['ID']);
+					break;
+
+				case 'custom_user':
+					$authors[] = array('name' => get_sub_field('user'));
+					break;
+
+			}
+
+		}
+
+	}
+
+	return $authors;
+
+}
+
+function get_author_object($author_id = NULL) {
+
+	if ( ! $author_id ) {
+		$author_id = get_the_author_meta('ID');
+	}
+
+	return (object) array(
+		'name' => get_the_author_meta('display_name', $author_id),
+		'url' => get_author_posts_url($author_id)
+	);
+
+}
+
+function the_authors($with_links = FALSE) {
+
+	$link_template = '<a href="%s">%s</a>';
+
+	$authors = get_authors();
+
+	foreach ( $authors as $key => $author ) {
+
+		if ( $with_links && isset($author->url) ) {
+			$authors[$key] = sprintf($link_template, $author->url, $author->name);
+		} else {
+			$authors[$key] = $author->name;
+		}
+
+	}
+
+	echo array_multi_implode(', ', ' and ', $authors);
+
+}
