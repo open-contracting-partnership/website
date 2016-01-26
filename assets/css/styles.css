@@ -348,6 +348,20 @@ h5,
   font-size: 18px;
   font-size: 0.9rem; }
 
+.border-top {
+  border-top: 1px solid #545456;
+  position: relative;
+  padding-top: 1rem; }
+  .border-top:before {
+    position: absolute;
+    content: '';
+    display: block;
+    top: 0;
+    left: 0;
+    width: 6rem;
+    height: .5rem;
+    background-color: #9BAF00; }
+
 /*------------------------------------*	LISTS
 \*------------------------------------*/
 ul {
@@ -619,6 +633,9 @@ tbody tr {
 
 .band--thick {
   margin-bottom: 2.8em; }
+
+.band--thicker {
+  margin-bottom: 3.5em; }
 
 .band--extra-thick {
   margin-bottom: 4.2em; }
@@ -1196,6 +1213,17 @@ input.button--blue:focus {
       width: 40.67797%;
       float: left;
       margin-right: 1.69492%; } }
+
+.homepage-title {
+  text-align: center; }
+  .homepage-title h1 {
+    font-size: 45px;
+    font-size: 2.25rem;
+    margin-bottom: 0.46667em; }
+  .homepage-title h2 {
+    font-size: 26px;
+    font-size: 1.3rem;
+    margin-bottom: 2.5em; }
 
 /*------------------------------------*	$TOOLS
 \*------------------------------------*/

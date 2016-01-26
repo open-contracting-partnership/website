@@ -51,7 +51,7 @@
 
 			<section>
 
-				<h3>Recent Blogs</h3>
+				<h3 class="border-top">Recent Blogs</h3>
 
 				<article class="post-object post-object--horizontal / media">
 
@@ -100,7 +100,7 @@
 
 			<section>
 
-				<h3>Spotlight</h3>
+				<h3 class="border-top">Spotlight</h3>
 
 				<article class="post-object post-object--vertical">
 
@@ -124,7 +124,7 @@
 
 			<section>
 
-				<h3>Implement Open Contracting</h3>
+				<h3 class="border-top">Implement Open Contracting</h3>
 
 				<span>Learn how to implement open contracting or use contracting data.</span>
 

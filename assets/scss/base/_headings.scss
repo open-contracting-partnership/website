@@ -74,3 +74,20 @@ h5,
 .epsilon {
 	@include font-size(18);
 }
+
+.border-top {
+	border-top: 1px solid color('background');
+	position: relative;
+	padding-top: 1rem;
+
+	&:before {
+		position: absolute;
+		content: '';
+		display: block;
+		top: 0;
+		left: 0;
+		width: 6rem;
+		height: .5rem;
+		background-color: color('brand');
+	}
+}
