@@ -12,7 +12,7 @@
 
 	<div class="wrapper">
 
-		<div class="homepage-cta / band band--thick">
+		<div class="homepage-cta / band band--section">
 
 			<div class="highlight-text / band">
 				<p>The Open Contracting Partnership connects governments, civil society and business to open up and monitor public contracting. The result: Better deals, less fraud and corruption, higher-quality services, and a fairer business environment.</p>
@@ -23,7 +23,7 @@
 
 		</div> <!-- homepage-cta -->
 
-		<section class="g-break / band band--thick">
+		<section class="g-break / band band--section">
 
 			<div class="homepage-title">
 				<h1>Public contracting</h1>
