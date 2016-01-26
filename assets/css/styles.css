@@ -337,11 +337,6 @@ h4,
 .delta {
   font-size: 20px;
   font-size: 1rem; }
-  h4.strap,
-  .delta.strap {
-    font-size: 13px;
-    font-size: 0.65rem;
-    margin-bottom: 2.07692em; }
 
 h5,
 .epsilon {
@@ -996,14 +991,21 @@ input.button--blue:focus {
 .post-object {
   display: block;
   clear: both;
-  margin-bottom: 1.4em; }
+  margin-bottom: 0.5em; }
+  .post-object h4 {
+    line-height: 1.25;
+    margin-bottom: 1em; }
+  .post-object p {
+    margin-bottom: 0; }
+
+.home .post-object {
+  background-color: #373738; }
 
 .post-object__content {
   padding-top: 0.45em; }
 
 .post-object--vertical .post-object__content {
-  padding-left: 1.05em;
-  padding-right: 1.05em; }
+  padding: 1.05em; }
 
 .post-object--vertical .post-object__media {
   position: relative; }
@@ -1016,8 +1018,17 @@ input.button--blue:focus {
       bottom: 0;
       left: 0; } }
 
-.post-object--horizontal .post-object__media {
-  margin-right: 0.8em; }
+.post-object--vertical p {
+  font-size: 18px;
+  font-size: 0.9rem; }
+
+.post-object--horizontal {
+  overflow: hidden; }
+  .post-object--horizontal .post-object__media {
+    margin-right: 0.8em; }
+  .post-object--horizontal p {
+    font-size: 16px;
+    font-size: 0.8rem; }
 
 .resource {
   width: 33%;
@@ -1233,6 +1244,9 @@ input.button--blue:focus {
     font-size: 26px;
     font-size: 1.3rem;
     margin-bottom: 2.5em; }
+
+.homepage-spotlight .post-object {
+  min-height: 24.1em; }
 
 /*------------------------------------*	$TOOLS
 \*------------------------------------*/

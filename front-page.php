@@ -60,7 +60,7 @@
 					</div>
 
 					<div class="post-object__content / media__body">
-						<h3>Why Finance Ministers should care about open contracting</h3>
+						<h4>Why Finance Ministers should care about open contracting</h4>
 						<p>By Georg Neumann <span>C 1</span></p>
 					</div>
 
@@ -73,7 +73,7 @@
 					</div>
 
 					<div class="post-object__content / media__body">
-						<h3>Open Contracting at the OGP Summit</h3>
+						<h4>Open Contracting at the OGP Summit</h4>
 						<p>By Georg Neumann <span>C 1</span></p>
 					</div>
 
@@ -86,7 +86,7 @@
 					</div>
 
 					<div class="post-object__content / media__body">
-						<h3>Open contracting awakens: Will the light side in government contracting win?</h3>
+						<h4>Open contracting awakens: Will the light side in government contracting win?</h4>
 						<p>By Georg Neumann <span>C 1</span></p>
 					</div>
 
@@ -110,8 +110,8 @@
 					</div>
 
 					<div class="post-object__content">
-						<h3>Help us define our openness</h3>
-						<p>Open is part of our name and game at the Open Contracting Partnership. This means, open is at the core of our institution. It is our mission. It is one of our core values. If we want public procurement to be open, we have to be open ourselves. We are trying to model what we ask others to do.</p>
+						<h4>Help us define our openness</h4>
+						<p>Open is part of our name and game at the Open Contracting Partnership. This means, open is at the core of our institution. It is our mission. It is one of our core values. If we want public procurement to be open, we have to be open ourselves.</p>
 					</div>
 
 				</article>
