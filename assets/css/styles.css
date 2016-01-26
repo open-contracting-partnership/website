@@ -280,8 +280,8 @@ h6,
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
-  margin-bottom: 0.7em;
-  line-height: 1.2; }
+  margin-bottom: 1.4em;
+  line-height: 1.4em; }
   h1.has-strap,
   .alpha.has-strap,
   h2.has-strap,
@@ -294,7 +294,7 @@ h6,
   .epsilon.has-strap,
   h6.has-strap,
   .zeta.has-strap {
-    margin-bottom: 0.35em; }
+    margin-bottom: .625em; }
 
 .strap {
   font-style: italic; }
@@ -305,46 +305,33 @@ h6,
 
 h1,
 .alpha {
-  font-size: 35px;
-  font-size: 1.75rem; }
+  font-size: 39px;
+  font-size: 1.95rem; }
   @media screen and (min-width: 640px) {
     h1,
     .alpha {
-      font-size: 50px;
-      font-size: 2.5rem; } }
+      font-size: 54px;
+      font-size: 2.7rem; } }
 
 h2,
 .beta {
-  font-size: 30px;
-  font-size: 1.5rem; }
+  font-size: 29px;
+  font-size: 1.45rem; }
   @media screen and (min-width: 640px) {
     h2,
     .beta {
-      font-size: 35px;
-      font-size: 1.75rem; } }
-  h2.strap,
-  .beta.strap {
-    font-size: 28px;
-    font-size: 1.4rem; }
-    @media screen and (min-width: 640px) {
-      h2.strap,
-      .beta.strap {
-        font-size: 33px;
-        font-size: 1.65rem; } }
+      font-size: 39px;
+      font-size: 1.95rem; } }
 
 h3,
 .gamma {
-  font-size: 25px;
-  font-size: 1.25rem; }
+  font-size: 22px;
+  font-size: 1.1rem; }
   @media screen and (min-width: 640px) {
     h3,
     .gamma {
-      font-size: 30px;
-      font-size: 1.5rem; } }
-  h3.strap,
-  .gamma.strap {
-    font-size: 23px;
-    font-size: 1.15rem; }
+      font-size: 29px;
+      font-size: 1.45rem; } }
 
 h4,
 .delta {
