@@ -2,6 +2,20 @@
     FOOTER
 \*------------------------------------*/
 
+.site-footer a {
+	color: color('white');
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+
+	&:active {
+		text-decoration: none;
+	}
+}
+
 .site-footer,
 .sub-footer,
 .site-copyright {
