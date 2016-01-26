@@ -349,6 +349,9 @@ h5,
   font-size: 0.9rem; }
 
 .border-top {
+  font-size: 16px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
   border-top: 1px solid #545456;
   position: relative;
   padding-top: 1rem; }
@@ -642,6 +645,12 @@ tbody tr {
 
 .band--double-thick {
   margin-bottom: 5.6em; }
+
+.band--double-thick {
+  margin-bottom: 5.6em; }
+
+.band--section {
+  margin-bottom: 6rem; }
 
 .band--dark {
   background-color: #424244; }
