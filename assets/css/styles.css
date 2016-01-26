@@ -97,25 +97,12 @@ body {
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n4", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif";
-  max-width: 80em;
-  margin-left: auto;
-  margin-right: auto;
-  background-image: -webkit-linear-gradient(left, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25) 80%, transparent 80%);
-  background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25) 80%, transparent 80%);
-  background-size: 8.47458%;
-  background-origin: content-box;
-  background-clip: content-box;
-  background-position: left top;
+  font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
-  body:after {
-    content: " ";
-    display: block;
-    clear: both; }
 
 p,
 ul,
@@ -148,7 +135,7 @@ b {
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n7", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif"; }
+  font-family: "open-sans-n7", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
 
 i,
 em {
@@ -164,7 +151,7 @@ blockquote {
     font-weight: 400;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
-    font-family: "open-sans-n4", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif";
+    font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
     margin-bottom: 0.75em; }
   blockquote footer {
     display: block; }
@@ -176,12 +163,12 @@ hr {
   margin: 0 0 1em; }
 
 ::-moz-selection {
-  background: #d7de1f;
+  background: #9BAF00;
   color: #FFF;
   text-shadow: none; }
 
 ::selection {
-  background: #d7de1f;
+  background: #9BAF00;
   color: #FFF;
   text-shadow: none; }
 
@@ -292,7 +279,7 @@ h6,
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n4", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif";
+  font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
   margin-bottom: 0.75em;
   line-height: 1.2; }
   h1.has-strap,
@@ -427,15 +414,15 @@ legend {
   font-size: 13px;
   font-size: 0.8125rem;
   text-transform: uppercase;
-  color: #d7de1f;
+  color: #9BAF00;
   cursor: pointer; }
 
 abbr[title="Required"] {
-  color: #d7de1f;
+  color: #9BAF00;
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n7", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif"; }
+  font-family: "open-sans-n7", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
 
 input[type="text"],
 input[type="email"],
@@ -455,14 +442,14 @@ textarea {
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n4", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif";
+  font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
   font-size: 16px;
   font-size: 1rem;
   padding: 0.625em;
   width: 100%;
-  border: 1px solid #d7de1f;
+  border: 1px solid #9BAF00;
   margin-bottom: 0.75em;
-  color: #d7de1f;
+  color: #9BAF00;
   background-color: transparent;
   border-radius: 0; }
 
@@ -573,9 +560,9 @@ th {
       font-weight: 700;
       font-style: normal;
       -webkit-font-smoothing: antialiased;
-      font-family: "open-sans-n7", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif";
+      font-family: "open-sans-n7", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
       text-transform: uppercase;
-      background-color: #d7de1f;
+      background-color: #9BAF00;
       color: #FFF;
       letter-spacing: 2px;
       padding: 0.83333em;
@@ -593,7 +580,7 @@ td {
     font-size: 12px;
     font-size: 0.75rem;
     text-transform: uppercase;
-    background-color: #d7de1f;
+    background-color: #9BAF00;
     color: #FFF;
     letter-spacing: 2px;
     padding-left: 0.41667em; }
@@ -604,7 +591,7 @@ td {
         font-weight: 400;
         font-style: normal;
         -webkit-font-smoothing: antialiased;
-        font-family: "open-sans-n4", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif";
+        font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
         margin-top: 0.71429em;
         letter-spacing: 0;
         color: inherit;
@@ -625,8 +612,8 @@ tbody tr {
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n4", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif";
-  background-color: #d7de1f;
+  font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
+  background-color: #9BAF00;
   color: #000;
   text-decoration: none;
   padding: 1em; }
@@ -657,6 +644,14 @@ tbody tr {
 
 /*------------------------------------*    FOOTER
 \*------------------------------------*/
+.site-footer a {
+  color: #FFF;
+  text-decoration: none; }
+  .site-footer a:hover, .site-footer a:focus {
+    text-decoration: underline; }
+  .site-footer a:active {
+    text-decoration: none; }
+
 .site-footer,
 .sub-footer,
 .site-copyright {
@@ -703,7 +698,41 @@ tbody tr {
 .wrapper {
   padding: 0 0.625em;
   margin: 0 auto;
-  max-width: 1240px; }
+  max-width: 1400px; }
+
+@media screen and (min-width: 1024px) {
+  .l-3 {
+    width: 23.72881%;
+    float: left;
+    margin-right: 1.69492%; } }
+
+@media screen and (min-width: 1024px) {
+  .l-4 {
+    width: 32.20339%;
+    float: left;
+    margin-right: 1.69492%; } }
+
+@media screen and (min-width: 1024px) {
+  .l-5 {
+    width: 40.67797%;
+    float: left;
+    margin-right: 1.69492%; } }
+
+@media screen and (min-width: 1024px) {
+  .l-7 {
+    width: 57.62712%;
+    float: left;
+    margin-right: 1.69492%; } }
+
+.g-first {
+  margin-left: 0; }
+
+.g-last {
+  float: right;
+  margin-right: 0; }
+
+.g-break {
+  clear: both; }
 
 /*------------------------------------*    NAVIGATION
 \*------------------------------------*/
@@ -740,7 +769,7 @@ nav h4 {
   border-bottom: 3px solid transparent; }
   .primary-nav a:hover, .primary-nav a:active, .primary-nav a:focus {
     text-decoration: none;
-    border-bottom-color: #d7de1f; }
+    border-bottom-color: #9BAF00; }
 
 .primary-nav li {
   margin: 0;
@@ -786,7 +815,7 @@ input[type="submit"] {
   input[type="submit"]:hover,
   input[type="submit"]:active,
   input[type="submit"]:focus {
-    color: #d7de1f; }
+    color: #9BAF00; }
 
 .button--small {
   font-size: 12px;
@@ -895,11 +924,12 @@ input.button--blue:focus {
     .cta-list a:hover, .cta-list a:active, .cta-list a:focus {
       text-decoration: underline; }
 
-.heading-highlight {
+.heading-highlight,
+.highlight-text p {
   display: inline;
   color: #FFF;
-  background-color: #d7de1f;
-  box-shadow: 0.57143rem 0 0 #d7de1f, -0.57143rem 0 0 #d7de1f;
+  background-color: #9BAF00;
+  box-shadow: 0.57143rem 0 0 #9BAF00, -0.57143rem 0 0 #9BAF00;
   -webkit-box-decoration-break: clone;
           box-decoration-break: clone;
   line-height: 1.45;
@@ -929,7 +959,7 @@ input.button--blue:focus {
   padding-bottom: 0; }
 
 .island--bordered {
-  border: 1px solid #d7de1f;
+  border: 1px solid #9BAF00;
   padding: 0.625em; }
 
 /*------------------------------------*	MEDIA OBJECT
@@ -949,6 +979,11 @@ input.button--blue:focus {
 .media__body {
   overflow: hidden;
   display: block; }
+
+.post-object {
+  display: block;
+  clear: both;
+  margin-bottom: 1.5em; }
 
 .post-object__content {
   padding-top: 0.5625em; }
@@ -1053,6 +1088,20 @@ input.button--blue:focus {
   .social--linkedin:hover, .social--linkedin:active, .social--linkedin:focus {
     color: #005983; }
 
+.stat-module span {
+  font-size: 52px;
+  font-size: 3.25rem;
+  display: block;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: .5em; }
+
+.stat-module p {
+  font-size: 18px;
+  font-size: 1.125rem;
+  width: 80%;
+  margin: 0 auto; }
+
 /*------------------------------------*    $NON-MODULAR
 \*------------------------------------*/
 .blog__featured {
@@ -1147,6 +1196,20 @@ input.button--blue:focus {
       float: right;
       margin-right: 0; } }
 
+.home {
+  background-color: #545456;
+  color: #FFF; }
+
+.homepage-cta {
+  font-size: 25px;
+  font-size: 1.5625rem;
+  line-height: 1.9; }
+  @media screen and (min-width: 1024px) {
+    .homepage-cta {
+      width: 40.67797%;
+      float: left;
+      margin-right: 1.69492%; } }
+
 /*------------------------------------*	$TOOLS
 \*------------------------------------*/
 /*------------------------------------*	DEMO
@@ -1188,7 +1251,7 @@ input.button--blue:focus {
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n7", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif";
+  font-family: "open-sans-n7", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
   text-transform: uppercase;
   font-size: 14px;
   font-size: 0.875rem;
@@ -1202,25 +1265,25 @@ input.button--blue:focus {
   font-weight: 300;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n3", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif"; }
+  font-family: "open-sans-n3", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
 
 .primary-font--regular {
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n4", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif"; }
+  font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
 
 .primary-font--semibold {
   font-weight: 600;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n6", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif"; }
+  font-family: "open-sans-n6", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
 
 .primary-font--bold {
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n7", "Open Sans", "Helvetica Neue" "Helvetica" "Arial" "sans-serif"; }
+  font-family: "open-sans-n7", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
 
 /*------------------------------------*	$PRINT STYLES
 \*------------------------------------*/

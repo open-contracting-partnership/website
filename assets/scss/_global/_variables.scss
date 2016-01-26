@@ -14,9 +14,10 @@ $colours: (
     'grey': #999,
     'body': #777,
     'border-color': #eee,
-    'brand': #d7de1f,
+    'brand': #9BAF00,
     'orange': #FFA600,
     'blue': #0FF,
+    'background': #545456
 );
 
 
@@ -62,7 +63,7 @@ $border-radius: 4px;
  //****************
 // LAYOUT SETTINGS
 
-$max-width: 1240;
+$max-width: 1400;
 $space: 1.5em; // NOTE: This is needs to be changed depending on the lineheight of the <p>
 
 $breakpoints: (
@@ -74,7 +75,7 @@ $susy: (
 	// container: 70em,
 	columns: 12,
 	// gutters: 1/6
- 	debug: (image: show)
+ 	// debug: (image: show)
 );
 
 
@@ -85,7 +86,7 @@ $susy: (
 $fonts: (
     primary: (
         family: 'Open Sans',
-        fallback: 'Helvetica Neue' 'Helvetica' 'Arial' 'sans-serif',
+        fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
         weights: (
             light: 300,
             regular: 400,
@@ -96,7 +97,7 @@ $fonts: (
     ),
     secondary: (
         family: 'Gotham',
-        fallback: 'Courier' 'Times New Roman' 'serif',
+        fallback: 'Courier, "Times New Roman", serif',
         weights: (
             regular: 400,
             bold: 700
