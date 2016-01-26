@@ -3,9 +3,7 @@
 \*------------------------------------*/
 
 .wrapper {
-	padding: 0 em(10);
-	margin: 0 auto;
-	max-width: $max-width + px;
+	@include container();
 }
 
 .l-3 {
