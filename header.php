@@ -35,7 +35,34 @@
 
 	<body <?php body_class(basename(get_permalink())); ?>>
 
-		<header>
+		<header class="wrapper">
+
+			<!-- <a href="#" class="logo"><img src="http://placehold.it/500x100" alt="" /></a> -->
+
+			<nav class="primary-nav">
+
+				<ul class="nav nav--horizontal">
+
+					<li>
+						<a href="#">Opening contracting</a>
+					</li>
+
+					<li>
+						<a href="#">How To Implement</a>
+					</li>
+
+					<li>
+						<a href="#">Blogs &amp; Updates</a>
+					</li>
+
+					<li>
+						<a href="#">About Us</a>
+					</li>
+
+				</ul>
+
+			</nav>
+
 
 		</header>
 
