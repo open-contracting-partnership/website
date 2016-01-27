@@ -23,13 +23,13 @@
 		<aside class="sidebar">
 
 			<section>
-				<h4>Written By</h4>
+				<h3 class="border-top">Written By</h3>
 				<p><?php the_authors(TRUE); ?>, <time datetime="<?php the_time(DATE_W3C); ?>"><?php the_time(); ?></time></p>
 			</section>
 
 			<section>
 
-				<h4>Share</h4>
+				<h3 class="border-top">Share</h3>
 
 				<ul>
 					<li><a href="<?php echo share_links()->twitter; ?>">Twitter</a></li>
@@ -40,12 +40,15 @@
 			</section>
 
 			<section>
-				<h4>Relevant Resources</h4>
+
+				<h3 class="border-top">Relevant Resources</h3>
+
 				<ul>
 					<li>Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper.</li>
 					<li>Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper.</li>
 					<li>Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper.</li>
 				</ul>
+
 			</section>
 
 			<?php
@@ -60,7 +63,7 @@
 
 				<section>
 
-					<h4>Related Tags</h4>
+					<h3 class="border-top">Related Tags</h3>
 
 					<ul>
 
