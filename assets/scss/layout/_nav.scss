@@ -52,22 +52,10 @@ nav h4 {
 
 .primary-nav {
 
-	a {
-		padding: 3em 0;
-		border-bottom: 3px solid transparent;
-
-		&:hover,
-		&:active,
-		&:focus {
-			text-decoration: none;
-			border-bottom-color: color('brand');
-		}
-	}
-
 	li {
 		margin: 0;
-		padding: 0 1em;
-		border-right: 1px solid color('black');
+		padding: 0 1.5em;
+		border-right: 1px solid color('mid-grey');
 	}
 
 	li:first-child {
@@ -77,5 +65,18 @@ nav h4 {
 	li:last-child {
 		border-right: none;
 		padding-right: 0;
+	}
+
+	a {
+		color: color('white');
+		padding: 3em 0;
+		border-bottom: 3px solid transparent;
+
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration: none;
+			border-bottom-color: color('brand');
+		}
 	}
 }
