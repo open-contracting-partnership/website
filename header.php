@@ -34,34 +34,59 @@
 
 	<body <?php body_class(basename(get_permalink())); ?>>
 
-		<header class="wrapper">
+		<div style="display: none; visibility: hidden;">
+			<?php require(get_template_directory() . '/assets/img/icons.svg'); ?>
+		</div>
 
-			<!-- <a href="#" class="logo"><img src="http://placehold.it/500x100" alt="" /></a> -->
+		<header class="site-header / band band--section">
 
-			<nav class="primary-nav">
+			<div class="wrapper">
 
-				<ul class="nav nav--horizontal">
+				<a href="/" class="logo">
 
-					<li>
-						<a href="#">Opening contracting</a>
-					</li>
+					<svg>
+						<use xlink:href="#ocp-logo" />
+					</svg>
 
-					<li>
-						<a href="#">How To Implement</a>
-					</li>
+				</a>
 
-					<li>
-						<a href="#">Blogs &amp; Updates</a>
-					</li>
+				<nav class="primary-nav">
 
-					<li>
-						<a href="#">About Us</a>
-					</li>
+					<ul class="nav nav--horizontal">
 
-				</ul>
+						<li>
+							<a href="#">Opening contracting</a>
+						</li>
 
-			</nav>
+						<li>
+							<a href="#">How To Implement</a>
+						</li>
 
+						<li>
+							<a href="#">Blogs &amp; Updates</a>
+						</li>
+
+						<li>
+							<a href="#">About Us</a>
+						</li>
+
+					</ul>
+
+					<ul class="nav nav--horizontal">
+
+						<li>
+							<a href="#">Worldwide</a>
+						</li>
+
+						<li>
+							<a href="#">Data Standard</a>
+						</li>
+
+					</ul>
+
+				</nav>
+
+			</div>
 
 		</header>
 

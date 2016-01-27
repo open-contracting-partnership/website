@@ -699,6 +699,14 @@ tbody tr {
 
 /*------------------------------------*	HEADER
 \*------------------------------------*/
+.site-header {
+  background-color: #373738; }
+  .site-header .logo {
+    margin: 1.45em 0;
+    display: inline-block; }
+    .site-header .logo svg {
+      height: 1.9em; }
+
 /*------------------------------------*    HERO
 \*------------------------------------*/
 /*------------------------------------*    LAYOUT
@@ -776,25 +784,30 @@ nav h4 {
 .nav--vertical a {
   display: inline-block; }
 
-.primary-nav li {
-  margin: 0;
-  padding: 0 1.5em;
-  border-right: 1px solid #69696B; }
-
-.primary-nav li:first-child {
-  padding-left: 0; }
-
-.primary-nav li:last-child {
-  border-right: none;
-  padding-right: 0; }
-
-.primary-nav a {
-  color: #FFF;
-  padding: 1.8em 0;
-  border-bottom: 5px solid transparent; }
-  .primary-nav a:hover, .primary-nav a:active, .primary-nav a:focus {
-    text-decoration: none;
-    border-bottom-color: #D6E100; }
+.primary-nav {
+  border-top: 1px solid #69696B; }
+  .primary-nav ul:first-child {
+    float: left; }
+  .primary-nav ul:last-child {
+    float: right; }
+  .primary-nav li {
+    margin: 0;
+    padding: 0 1.5em;
+    border-right: 1px solid #69696B; }
+  .primary-nav li:first-child {
+    padding-left: 0; }
+  .primary-nav li:last-child {
+    border-right: none;
+    padding-right: 0; }
+  .primary-nav a {
+    font-size: 18px;
+    font-size: 0.9rem;
+    color: #FFF;
+    padding: 1.38889em 0;
+    border-bottom: 5px solid transparent; }
+    .primary-nav a:hover, .primary-nav a:active, .primary-nav a:focus {
+      text-decoration: none;
+      border-bottom-color: #D6E100; }
 
 /*------------------------------------*    SIDEBAR
 \*------------------------------------*/
