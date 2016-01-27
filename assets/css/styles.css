@@ -347,9 +347,11 @@ h5,
   font-size: 16px;
   font-size: 0.8rem;
   text-transform: uppercase;
-  border-top: 1px solid #545456;
+  border-top: 1px solid #D5D5D7;
   position: relative;
   padding-top: 1rem; }
+  .home .border-top {
+    border-top-color: #545456; }
   .border-top:before {
     position: absolute;
     content: '';
