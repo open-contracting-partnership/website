@@ -28,8 +28,15 @@
 			</section>
 
 			<section>
+
 				<h4>Share</h4>
-				<?php // get_partial(); ?>
+
+				<ul>
+					<li><a href="<?php echo share_links()->twitter; ?>">Twitter</a></li>
+					<li><a href="<?php echo share_links()->facebook; ?>">Facebook</a></li>
+					<li><a href="<?php echo share_links()->linkedin; ?>">LinkedIn</a></li>
+				</ul>
+
 			</section>
 
 			<section>
