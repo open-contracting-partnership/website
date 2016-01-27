@@ -163,12 +163,12 @@ hr {
   margin: 0 0 1em; }
 
 ::-moz-selection {
-  background: #9BAF00;
+  background: #D6E100;
   color: #FFF;
   text-shadow: none; }
 
 ::selection {
-  background: #9BAF00;
+  background: #D6E100;
   color: #FFF;
   text-shadow: none; }
 
@@ -358,7 +358,7 @@ h5,
     left: 0;
     width: 6rem;
     height: .5rem;
-    background-color: #9BAF00; }
+    background-color: #D6E100; }
 
 /*------------------------------------*	LISTS
 \*------------------------------------*/
@@ -413,11 +413,11 @@ legend {
   font-size: 13px;
   font-size: 0.65rem;
   text-transform: uppercase;
-  color: #9BAF00;
+  color: #D6E100;
   cursor: pointer; }
 
 abbr[title="Required"] {
-  color: #9BAF00;
+  color: #D6E100;
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -446,9 +446,9 @@ textarea {
   font-size: 0.8rem;
   padding: 0.5em;
   width: 100%;
-  border: 1px solid #9BAF00;
+  border: 1px solid #D6E100;
   margin-bottom: 0.7em;
-  color: #9BAF00;
+  color: #D6E100;
   background-color: transparent;
   border-radius: 0; }
 
@@ -561,7 +561,7 @@ th {
       -webkit-font-smoothing: antialiased;
       font-family: "open-sans-n7", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
       text-transform: uppercase;
-      background-color: #9BAF00;
+      background-color: #D6E100;
       color: #FFF;
       letter-spacing: 2px;
       padding: 0.83333em;
@@ -579,7 +579,7 @@ td {
     font-size: 12px;
     font-size: 0.6rem;
     text-transform: uppercase;
-    background-color: #9BAF00;
+    background-color: #D6E100;
     color: #FFF;
     letter-spacing: 2px;
     padding-left: 0.41667em; }
@@ -612,7 +612,7 @@ tbody tr {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
-  background-color: #9BAF00;
+  background-color: #D6E100;
   color: #000;
   text-decoration: none;
   padding: 1em; }
@@ -706,13 +706,7 @@ tbody tr {
 .wrapper {
   max-width: 70em;
   margin-left: auto;
-  margin-right: auto;
-  background-image: -webkit-linear-gradient(left, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25) 80%, transparent 80%);
-  background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25) 80%, transparent 80%);
-  background-size: 8.47458%;
-  background-origin: content-box;
-  background-clip: content-box;
-  background-position: left top; }
+  margin-right: auto; }
   .wrapper:after {
     content: " ";
     display: block;
@@ -796,11 +790,11 @@ nav h4 {
 
 .primary-nav a {
   color: #FFF;
-  padding: 3em 0;
-  border-bottom: 3px solid transparent; }
+  padding: 1.8em 0;
+  border-bottom: 5px solid transparent; }
   .primary-nav a:hover, .primary-nav a:active, .primary-nav a:focus {
     text-decoration: none;
-    border-bottom-color: #9BAF00; }
+    border-bottom-color: #D6E100; }
 
 /*------------------------------------*    SIDEBAR
 \*------------------------------------*/
@@ -834,7 +828,7 @@ input[type="submit"] {
   input[type="submit"]:hover,
   input[type="submit"]:active,
   input[type="submit"]:focus {
-    color: #9BAF00; }
+    color: #D6E100; }
 
 .button--small {
   font-size: 12px;
@@ -978,7 +972,7 @@ input.button--blue:focus {
   padding-bottom: 0; }
 
 .island--bordered {
-  border: 1px solid #9BAF00;
+  border: 1px solid #D6E100;
   padding: 0.5em; }
 
 /*------------------------------------*	MEDIA OBJECT

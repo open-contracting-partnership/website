@@ -3,8 +3,8 @@
 .highlight-text p {
 	display: inline;
 	color: color('white');
-	background-color: color('brand');
-	box-shadow: .57143rem 0 0 color('brand'), -.57143rem 0 0 color('brand');
+	background-color: color('brand-dark');
+	box-shadow: .57143rem 0 0 color('brand-dark'), -.57143rem 0 0 color('brand-dark');
 	box-decoration-break: clone; // FF32 Fix - https://css-tricks.com/multi-line-padded-text/
 	line-height: 1.45;
 	padding: 5px 0;
