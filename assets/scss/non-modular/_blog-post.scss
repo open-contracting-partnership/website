@@ -1,32 +1,40 @@
-.single-post article {
+.single-post {
 
-	> section {
+	article {
 
-		background: green;
+		> section {
 
-		@include mq(M) {
-			@include span(8 of 12 last);
+			background: green;
+
+			@include mq(M) {
+				@include span(8 of 12 last);
+			}
+
+			@include mq(L) {
+				@include span(6 at 4 of 12 last);
+				margin-right: span(2 of 12) + gutter();
+			}
+
 		}
 
-		@include mq(L) {
-			@include span(6 at 4 of 12 last);
-			margin-right: span(2 of 12) + gutter();
+		aside {
+
+			background: orange;
+
+			@include mq(M) {
+				@include span(4 of 12 first);
+			}
+
+			@include mq(L) {
+				@include span(3 of 12 first);
+			}
+
 		}
 
 	}
 
-	aside {
-
-		background: orange;
-
-		@include mq(M) {
-			@include span(4 of 12 first);
-		}
-
-		@include mq(L) {
-			@include span(3 of 12 first);
-		}
-
+	.related-posts {
+		@include break;
 	}
 
 }
