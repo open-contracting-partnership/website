@@ -35,7 +35,7 @@
 
 	<body <?php body_class(basename(get_permalink())); ?>>
 
-		<header>
+		<header class="wrapper">
 
 			<!-- <a href="#" class="logo"><img src="http://placehold.it/500x100" alt="" /></a> -->
 
