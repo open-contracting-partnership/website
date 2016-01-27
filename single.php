@@ -24,7 +24,7 @@
 
 			<section>
 				<h3 class="border-top">Written By</h3>
-				<p><?php the_authors(TRUE); ?>, <time datetime="<?php the_time(DATE_W3C); ?>"><?php the_time(); ?></time></p>
+				<p><?php the_authors(TRUE); ?>, <time datetime="<?php the_time(DATE_W3C); ?>"><?php the_time(get_option('date_format')); ?></time></p>
 			</section>
 
 			<section>
