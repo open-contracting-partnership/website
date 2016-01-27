@@ -14,7 +14,8 @@ $colours: (
     'grey': #999,
     'body': #424244,
     'border-color': #eee,
-    'brand': #9BAF00,
+    'brand': #D6E100,
+    'brand-dark': #9BAF00,
     'orange': #FFA600,
     'blue': #0FF,
     'mid-grey': #69696B,
@@ -77,7 +78,7 @@ $susy: (
 	container: 70em,
 	columns: 12,
 	// gutters: 1/6
- 	debug: (image: show)
+ 	// debug: (image: show)
 );
 
 
