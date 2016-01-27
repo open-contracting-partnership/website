@@ -3,16 +3,16 @@
 \*------------------------------------*/
 
 a {
-    text-decoration: underline;
+    text-decoration: none;
     word-wrap: break-word;
 
     &:hover,
     &:focus {
-        text-decoration: none;
+        text-decoration: underline;
     }
 
     &:active {
-        text-decoration: underline;
+        text-decoration: none;
     }
 }
 
@@ -37,14 +37,14 @@ h5 {
 
 tbody tr a {
     color: inherit;
-    text-decoration: underline;
+    text-decoration: none;
 
     &:hover,
     &:focus {
-        text-decoration: none;
+        text-decoration: underline;
     }
 
     &:active {
-        text-decoration: underline;
+        text-decoration: none;
     }
 }

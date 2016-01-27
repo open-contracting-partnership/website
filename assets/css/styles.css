@@ -224,12 +224,12 @@ hr {
 /*------------------------------------*    LINKS
 \*------------------------------------*/
 a {
-  text-decoration: underline;
+  text-decoration: none;
   word-wrap: break-word; }
   a:hover, a:focus {
-    text-decoration: none; }
-  a:active {
     text-decoration: underline; }
+  a:active {
+    text-decoration: none; }
 
 h1 a,
 h2 a,
@@ -256,11 +256,11 @@ h5 a {
 
 tbody tr a {
   color: inherit;
-  text-decoration: underline; }
+  text-decoration: none; }
   tbody tr a:hover, tbody tr a:focus {
-    text-decoration: none; }
-  tbody tr a:active {
     text-decoration: underline; }
+  tbody tr a:active {
+    text-decoration: none; }
 
 /*------------------------------------*	HEADINGS
 \*------------------------------------*/
@@ -731,6 +731,8 @@ tbody tr {
       text-decoration: underline; }
     .header-social > a:active {
       text-decoration: none; }
+  .header-social .button__social a {
+    fill: #B7B7B7; }
 
 .header-language {
   margin: 27px 40px; }
@@ -854,6 +856,23 @@ nav h4 {
 
 /*------------------------------------*    SIDEBAR
 \*------------------------------------*/
+aside section,
+.sidebar section {
+  margin-bottom: 2.5rem; }
+
+aside h3,
+.sidebar h3 {
+  margin-bottom: 1em; }
+
+aside a,
+.sidebar a {
+  color: #9BAF00; }
+
+aside p,
+.sidebar p {
+  font-size: 16px;
+  font-size: 0.8rem; }
+
 /*------------------------------------*    $MODULAR
 \*------------------------------------*/
 /*------------------------------------*    BUTTONS
@@ -952,7 +971,12 @@ input[type="submit"] {
   height: 1.5rem;
   text-align: center;
   padding: 0;
-  fill: #B7B7B7; }
+  fill: #69696B;
+  border-color: #69696B; }
+  .button__social a:hover, .button__social a:focus {
+    border-color: #B7B7B7; }
+  .button__social a:active {
+    border-color: #69696B; }
 
 .button__social svg {
   height: .8rem;

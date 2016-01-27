@@ -133,7 +133,17 @@ input[type="submit"] {
 		height: 1.5rem;
 		text-align: center;
 		padding: 0;
-		fill: color('light-grey');
+		fill: color('mid-grey');
+		border-color: color('mid-grey');
+
+		&:hover,
+		&:focus {
+			border-color: color('light-grey');
+		}
+
+		&:active {
+			border-color: color('mid-grey');
+		}
 	}
 
 	svg {

@@ -31,10 +31,10 @@
 
 				<h3 class="border-top">Share</h3>
 
-				<ul class="button__list">
-					<li><a href="<?php echo share_links()->twitter; ?>">Twitter</a></li>
-					<li><a href="<?php echo share_links()->facebook; ?>">Facebook</a></li>
-					<li><a href="<?php echo share_links()->linkedin; ?>">LinkedIn</a></li>
+				<ul class="button__list button__social">
+					<li><a href="#" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
+					<li><a href="#" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
+					<li><a href="#" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
 				</ul>
 
 			</section>

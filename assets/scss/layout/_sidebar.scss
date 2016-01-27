@@ -5,4 +5,19 @@
 aside,
 .sidebar {
 
+	section {
+		margin-bottom: 2.5rem;
+	}
+
+	h3 {
+		margin-bottom: 1em;
+	}
+
+	a {
+		color: color('brand-dark');
+	}
+
+	p {
+		@include font-size(16);
+	}
 }
