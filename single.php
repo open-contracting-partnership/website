@@ -82,8 +82,17 @@
 
 	</article>
 
-	<section class="blog-post__related-posts">
-		Related Posts
+	<section class="related-posts">
+
+		<h2>Related Posts</h2>
+
+		<img src="http://placehold.it/400x300" />
+		<img src="http://placehold.it/400x300" />
+		<img src="http://placehold.it/400x300" />
+		<img src="http://placehold.it/400x300" />
+		<img src="http://placehold.it/400x300" />
+		<img src="http://placehold.it/400x300" />
+
 	</section>
 
 <?php get_footer(); ?>
