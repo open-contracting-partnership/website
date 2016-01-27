@@ -30,7 +30,6 @@
 
 		<?php wp_head(); ?>
 
-		<style>.box { border: 1px solid grey; padding: 1em; margin: 0 1em 1em 0; float: left; width: 20%; }</style>
 	</head>
 
 	<body <?php body_class(basename(get_permalink())); ?>>
