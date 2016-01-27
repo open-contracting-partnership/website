@@ -16,8 +16,8 @@
 			<p>The Open Contracting Partnership connects governments, civil society and business to open up and monitor public contracting. The result: Better deals, less fraud and corruption, higher-quality services, and a fairer business environment.</p>
 		</div>
 
-		<a href="" class="button">About Our Work</a>
-		<a href="" class="button">Visit the Data Standard</a>
+		<a href="" class="button button--white">About Our Work</a>
+		<a href="" class="button button--white">Visit the Data Standard</a>
 
 	</div> <!-- homepage-cta -->
 
