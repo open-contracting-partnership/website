@@ -704,9 +704,19 @@ tbody tr {
 /*------------------------------------*    LAYOUT
 \*------------------------------------*/
 .wrapper {
-  padding: 0 0.5em;
-  margin: 0 auto;
-  max-width: 1400px; }
+  max-width: 70em;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: -webkit-linear-gradient(left, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25) 80%, transparent 80%);
+  background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25) 80%, transparent 80%);
+  background-size: 8.47458%;
+  background-origin: content-box;
+  background-clip: content-box;
+  background-position: left top; }
+  .wrapper:after {
+    content: " ";
+    display: block;
+    clear: both; }
 
 @media screen and (min-width: 1024px) {
   .l-3 {
@@ -1138,6 +1148,37 @@ input.button--blue:focus {
 
 /*------------------------------------*    $NON-MODULAR
 \*------------------------------------*/
+.single-post article > section {
+  background: green; }
+  @media screen and (min-width: 640px) {
+    .single-post article > section {
+      width: 66.10169%;
+      float: right;
+      margin-right: 0; } }
+  @media screen and (min-width: 1024px) {
+    .single-post article > section {
+      width: 49.15254%;
+      float: right;
+      margin-right: 0;
+      margin-right: 16.94915%; } }
+
+.single-post article aside {
+  background: orange; }
+  @media screen and (min-width: 640px) {
+    .single-post article aside {
+      width: 32.20339%;
+      float: left;
+      margin-right: 1.69492%; } }
+  @media screen and (min-width: 1024px) {
+    .single-post article aside {
+      width: 23.72881%;
+      float: left;
+      margin-right: 1.69492%; } }
+
+@media screen and (min-width: 640px) {
+  .blog__mobile-date {
+    display: none; } }
+
 .blog__featured {
   background: lightgreen; }
   @media screen and (min-width: 1024px) {

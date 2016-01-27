@@ -1,5 +1,7 @@
 <?php // footer.php ?>
 
+	</main>
+
 	<div class="wrapper">
 
 		<div class="site-footer">
