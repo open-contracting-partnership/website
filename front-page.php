@@ -53,44 +53,31 @@
 
 				<h3 class="border-top">Recent Blogs</h3>
 
-				<a href="#" class="post-object post-object--horizontal / media">
+				<?php
 
-					<div href="#" class="post-object__media / media__object">
-						<img src="http://placehold.it/122x154" alt="">
-					</div>
+					$recent_posts = new query_loop([
+						'post_type' => 'post',
+						'posts_per_page' => 3
+					]);
 
-					<div class="post-object__content / media__body">
-						<h4>Why Finance Ministers should care about open contracting</h4>
-						<p>By Georg Neumann <span>C 1</span></p>
-					</div>
+				?>
 
-				</a>
+				<?php foreach ( $recent_posts as $recent_post ) : ?>
 
-				<a href="#" class="post-object post-object--horizontal / media">
+					<a href="<?php the_permalink(); ?>" class="post-object post-object--horizontal / media">
 
-					<div class="post-object__media / media__object">
-						<img src="http://placehold.it/122x154" alt="">
-					</div>
+						<div href="#" class="post-object__media / media__object">
+							<img src="http://placehold.it/122x154" alt="">
+						</div>
 
-					<div class="post-object__content / media__body">
-						<h4>Open Contracting at the OGP Summit</h4>
-						<p>By Georg Neumann <span>C 1</span></p>
-					</div>
+						<div class="post-object__content / media__body">
+							<h4><?php the_title(); ?></h4>
+							<p>By <?php the_authors(); ?></p>
+						</div>
 
-				</a>
+					</a>
 
-				<a href="#" class="post-object post-object--horizontal / media">
-
-					<div class="post-object__media / media__object">
-						<img src="http://placehold.it/122x154" alt="">
-					</div>
-
-					<div class="post-object__content / media__body">
-						<h4>Open contracting awakens: Will the light side in government contracting win?</h4>
-						<p>By Georg Neumann <span>C 1</span></p>
-					</div>
-
-				</a>
+				<?php endforeach; ?>
 
 			</section>
 
