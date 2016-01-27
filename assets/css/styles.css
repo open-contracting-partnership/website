@@ -228,6 +228,7 @@ hr {
 /*------------------------------------*    LINKS
 \*------------------------------------*/
 a {
+  color: #9BAF00;
   text-decoration: none;
   word-wrap: break-word; }
   a:hover, a:focus {
