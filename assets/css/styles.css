@@ -713,15 +713,34 @@ tbody tr {
   float: right; }
 
 .header-nav--top__item {
-  display: inline-block; }
+  float: left; }
+  .header-nav--top__item:last-child {
+    border-left: 1px solid #69696B; }
 
-.header-social > a {
-  color: #FFF;
-  text-decoration: none; }
-  .header-social > a:hover, .header-social > a:focus {
-    text-decoration: underline; }
-  .header-social > a:active {
+.header-social {
+  margin-top: .65rem; }
+  .header-social > a {
+    font-size: 14px;
+    font-size: 0.7rem;
+    color: #FFF;
     text-decoration: none; }
+    .header-social > a:hover, .header-social > a:focus {
+      text-decoration: underline; }
+    .header-social > a:active {
+      text-decoration: none; }
+
+.header-language {
+  margin: 27px 40px; }
+
+.header-search a {
+  padding: 1.35rem 2rem;
+  margin: 0;
+  border: 0;
+  fill: #FFF; }
+
+.header-search svg {
+  width: 1.25rem;
+  height: 1.25rem; }
 
 /*------------------------------------*    HERO
 \*------------------------------------*/
@@ -824,6 +843,8 @@ nav h4 {
     .primary-nav a:hover, .primary-nav a:active, .primary-nav a:focus {
       text-decoration: none;
       border-bottom-color: #D6E100; }
+  .primary-nav .nav--horizontal:last-child li {
+    border: none; }
 
 /*------------------------------------*    SIDEBAR
 \*------------------------------------*/
@@ -916,6 +937,20 @@ input[type="submit"] {
     margin: 0 0.5em 0.5em 0; }
   .button__list .button {
     margin-bottom: 0; }
+
+.button__social li {
+  margin-bottom: 0; }
+
+.button__social a {
+  width: 1.5rem;
+  height: 1.5rem;
+  text-align: center;
+  padding: 0;
+  fill: #B7B7B7; }
+
+.button__social svg {
+  height: .8rem;
+  max-width: 1.5rem; }
 
 .button--white {
   color: #FFFFFF; }

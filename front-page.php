@@ -142,7 +142,7 @@
 
 	</section>
 
-	<section class="homepage- / band band--section">
+	<section class="homepage-map / band band--section">
 
 		<div class="l-7 g-first">
 			<img src="http://placehold.it/459x400" alt="">
