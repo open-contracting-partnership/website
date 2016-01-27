@@ -1014,6 +1014,23 @@ input[type="submit"] {
     font-size: 16px;
     font-size: 0.8rem; }
 
+.related-posts {
+  border-top: 1px solid #545456; }
+
+.related-posts h2 {
+  text-transform: uppercase;
+  margin: 2.75em 0;
+  text-align: center; }
+
+.related-posts__inner {
+  margin-left: -0.5em; }
+
+.related-post {
+  width: 33.3%;
+  border-left: solid 0.5em transparent;
+  float: left;
+  margin-bottom: 0.5em; }
+
 .resource {
   width: 33%;
   border: 1px solid #999;
@@ -1112,32 +1129,30 @@ input[type="submit"] {
 
 /*------------------------------------*    $NON-MODULAR
 \*------------------------------------*/
-.single-post article > section {
-  background: green; }
-  @media screen and (min-width: 640px) {
-    .single-post article > section {
-      width: 66.10169%;
-      float: right;
-      margin-right: 0; } }
-  @media screen and (min-width: 1024px) {
-    .single-post article > section {
-      width: 49.15254%;
-      float: right;
-      margin-right: 0;
-      margin-right: 16.94915%; } }
+@media screen and (min-width: 640px) {
+  .single-post article > section {
+    width: 66.10169%;
+    float: right;
+    margin-right: 0; } }
 
-.single-post article aside {
-  background: orange; }
-  @media screen and (min-width: 640px) {
-    .single-post article aside {
-      width: 32.20339%;
-      float: left;
-      margin-right: 1.69492%; } }
-  @media screen and (min-width: 1024px) {
-    .single-post article aside {
-      width: 23.72881%;
-      float: left;
-      margin-right: 1.69492%; } }
+@media screen and (min-width: 1024px) {
+  .single-post article > section {
+    width: 49.15254%;
+    float: right;
+    margin-right: 0;
+    margin-right: 16.94915%; } }
+
+@media screen and (min-width: 640px) {
+  .single-post article aside {
+    width: 32.20339%;
+    float: left;
+    margin-right: 1.69492%; } }
+
+@media screen and (min-width: 1024px) {
+  .single-post article aside {
+    width: 23.72881%;
+    float: left;
+    margin-right: 1.69492%; } }
 
 .single-post .related-posts {
   clear: both; }

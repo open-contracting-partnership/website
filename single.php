@@ -87,14 +87,35 @@
 
 	<section class="related-posts">
 
-		<h2>Related Posts</h2>
+		<h2 class="delta">Related Posts</h2>
 
-		<img src="http://placehold.it/400x300" />
-		<img src="http://placehold.it/400x300" />
-		<img src="http://placehold.it/400x300" />
-		<img src="http://placehold.it/400x300" />
-		<img src="http://placehold.it/400x300" />
-		<img src="http://placehold.it/400x300" />
+		<div class="related-posts__inner">
+
+			<a href="#" class="related-post">
+				<img src="http://placehold.it/460x300" />
+			</a>
+
+			<a href="#" class="related-post">
+				<img src="http://placehold.it/460x300" />
+			</a>
+
+			<a href="#" class="related-post">
+				<img src="http://placehold.it/460x300" />
+			</a>
+
+			<a href="#" class="related-post">
+				<img src="http://placehold.it/460x300" />
+			</a>
+
+			<a href="#" class="related-post">
+				<img src="http://placehold.it/460x300" />
+			</a>
+
+			<a href="#" class="related-post">
+				<img src="http://placehold.it/460x300" />
+			</a>
+
+		</div>
 
 	</section>
 
