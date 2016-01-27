@@ -700,7 +700,8 @@ tbody tr {
 /*------------------------------------*	HEADER
 \*------------------------------------*/
 .site-header {
-  background-color: #373738; }
+  background-color: #373738;
+  border-bottom: 1px solid #69696B; }
   .site-header .logo {
     margin: 1.1em 0;
     display: inline-block; }
