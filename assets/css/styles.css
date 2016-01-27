@@ -700,8 +700,9 @@ tbody tr {
 /*------------------------------------*	HEADER
 \*------------------------------------*/
 .site-header {
-  background-color: #373738;
-  border-bottom: 1px solid #69696B; }
+  background-color: #373738; }
+  .home .site-header {
+    border-bottom: 1px solid #69696B; }
   .site-header .logo {
     margin: 1.1em 0;
     display: inline-block; }
@@ -843,6 +844,9 @@ nav h4 {
     .primary-nav a:hover, .primary-nav a:active, .primary-nav a:focus {
       text-decoration: none;
       border-bottom-color: #D6E100; }
+  .primary-nav .current-menu-item a {
+    text-decoration: none;
+    border-bottom-color: #D6E100; }
   .primary-nav .nav--horizontal:last-child li {
     border: none; }
 

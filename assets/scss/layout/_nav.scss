@@ -90,6 +90,11 @@ nav h4 {
 		}
 	}
 
+	.current-menu-item a {
+		text-decoration: none;
+		border-bottom-color: color('brand');
+	}
+
 	.nav--horizontal:last-child li {
 		border: none;
 	}
