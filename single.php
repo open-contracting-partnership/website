@@ -28,8 +28,15 @@
 			</section>
 
 			<section>
+
 				<h4>Share</h4>
-				<?php // get_partial(); ?>
+
+				<ul>
+					<li><a href="<?php echo share_links()->twitter; ?>">Twitter</a></li>
+					<li><a href="<?php echo share_links()->facebook; ?>">Facebook</a></li>
+					<li><a href="<?php echo share_links()->linkedin; ?>">LinkedIn</a></li>
+				</ul>
+
 			</section>
 
 			<section>
@@ -75,8 +82,17 @@
 
 	</article>
 
-	<section class="blog-post__related-posts">
-		Related Posts
+	<section class="related-posts">
+
+		<h2>Related Posts</h2>
+
+		<img src="http://placehold.it/400x300" />
+		<img src="http://placehold.it/400x300" />
+		<img src="http://placehold.it/400x300" />
+		<img src="http://placehold.it/400x300" />
+		<img src="http://placehold.it/400x300" />
+		<img src="http://placehold.it/400x300" />
+
 	</section>
 
 <?php get_footer(); ?>

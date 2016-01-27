@@ -251,3 +251,16 @@ function the_authors($with_links = FALSE) {
 	echo array_multi_implode(', ', ' and ', $authors);
 
 }
+
+function share_links() {
+
+	$url = urlencode(get_permalink());
+	$title = wp_title('&raquo;', FALSE, 'right');
+
+	return (object) array(
+		'twitter' => "http://twitter.com/home?status={$title} - {$url} via @girlsnotbrides",
+		'facebook' => "https://www.facebook.com/sharer/sharer.php?u={$url}",
+		'linkedin' => "https://www.linkedin.com/cws/share?url={$url}"
+	);
+
+}

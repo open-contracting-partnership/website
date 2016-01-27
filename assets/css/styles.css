@@ -1169,6 +1169,9 @@ input.button--blue:focus {
       float: left;
       margin-right: 1.69492%; } }
 
+.single-post .related-posts {
+  clear: both; }
+
 @media screen and (min-width: 640px) {
   .blog__mobile-date {
     display: none; } }
