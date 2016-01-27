@@ -70,7 +70,7 @@
 						<?php foreach ( $post_tags as $post_tag ) : ?>
 
 							<li>
-								<a href="<?php echo get_term_link($post_tag); ?>" class="button button--uppercase button--rounded button--thick"><?php echo $post_tag->name; ?></a>
+								<a href="<?php echo get_term_link($post_tag); ?>" class="button button--uppercase button--thick"><?php echo $post_tag->name; ?></a>
 							</li>
 
 						<?php endforeach; ?>
