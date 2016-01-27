@@ -23,15 +23,15 @@
 		<aside class="sidebar">
 
 			<section>
-				<h4>Written By</h4>
-				<p><?php the_authors(TRUE); ?>, <time datetime="<?php the_time(DATE_W3C); ?>"><?php the_time(); ?></time></p>
+				<h3 class="border-top">Written By</h3>
+				<p><?php the_authors(TRUE); ?>, <time datetime="<?php the_time(DATE_W3C); ?>"><?php the_time(get_option('date_format')); ?></time></p>
 			</section>
 
 			<section>
 
-				<h4>Share</h4>
+				<h3 class="border-top">Share</h3>
 
-				<ul>
+				<ul class="button__list">
 					<li><a href="<?php echo share_links()->twitter; ?>">Twitter</a></li>
 					<li><a href="<?php echo share_links()->facebook; ?>">Facebook</a></li>
 					<li><a href="<?php echo share_links()->linkedin; ?>">LinkedIn</a></li>
@@ -40,12 +40,15 @@
 			</section>
 
 			<section>
-				<h4>Relevant Resources</h4>
+
+				<h3 class="border-top">Relevant Resources</h3>
+
 				<ul>
 					<li>Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper.</li>
 					<li>Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper.</li>
 					<li>Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper.</li>
 				</ul>
+
 			</section>
 
 			<?php
@@ -60,14 +63,14 @@
 
 				<section>
 
-					<h4>Related Tags</h4>
+					<h3 class="border-top">Related Tags</h3>
 
-					<ul>
+					<ul class="button__list">
 
 						<?php foreach ( $post_tags as $post_tag ) : ?>
 
 							<li>
-								<a href="<?php echo get_term_link($post_tag); ?>"><?php echo $post_tag->name; ?></a>
+								<a href="<?php echo get_term_link($post_tag); ?>" class="button button--uppercase button--thick"><?php echo $post_tag->name; ?></a>
 							</li>
 
 						<?php endforeach; ?>
@@ -84,14 +87,35 @@
 
 	<section class="related-posts">
 
-		<h2>Related Posts</h2>
+		<h2 class="delta">Related Posts</h2>
 
-		<img src="http://placehold.it/400x300" />
-		<img src="http://placehold.it/400x300" />
-		<img src="http://placehold.it/400x300" />
-		<img src="http://placehold.it/400x300" />
-		<img src="http://placehold.it/400x300" />
-		<img src="http://placehold.it/400x300" />
+		<div class="related-posts__inner">
+
+			<a href="#" class="related-post">
+				<img src="http://placehold.it/460x300" />
+			</a>
+
+			<a href="#" class="related-post">
+				<img src="http://placehold.it/460x300" />
+			</a>
+
+			<a href="#" class="related-post">
+				<img src="http://placehold.it/460x300" />
+			</a>
+
+			<a href="#" class="related-post">
+				<img src="http://placehold.it/460x300" />
+			</a>
+
+			<a href="#" class="related-post">
+				<img src="http://placehold.it/460x300" />
+			</a>
+
+			<a href="#" class="related-post">
+				<img src="http://placehold.it/460x300" />
+			</a>
+
+		</div>
 
 	</section>
 
