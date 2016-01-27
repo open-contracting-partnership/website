@@ -23,6 +23,8 @@
 
 		<?php foreach ( $featured_blog as $featured_blog ) : ?>
 
+			<?php $exclude_ids[] = get_the_ID(); ?>
+
 			<article>
 				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 			</article>
@@ -50,6 +52,8 @@
 		?>
 
 		<?php foreach ( $recent_posts as $recent_post ) : ?>
+
+			<?php $exclude_ids[] = get_the_ID(); ?>
 
 			<article>
 				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
@@ -83,7 +87,7 @@
 
 			$recent_posts = new query_loop([
 				'post_type' => 'post',
-				'posts_per_page' => 4,
+				'posts_per_page' => 9,
 				'post__not_in' => $exclude_ids
 			]);
 
