@@ -65,12 +65,12 @@
 
 					<h3 class="border-top">Related Tags</h3>
 
-					<ul>
+					<ul class="button__list">
 
 						<?php foreach ( $post_tags as $post_tag ) : ?>
 
 							<li>
-								<a href="<?php echo get_term_link($post_tag); ?>"><?php echo $post_tag->name; ?></a>
+								<a href="<?php echo get_term_link($post_tag); ?>" class="button button--uppercase button--rounded button--thick"><?php echo $post_tag->name; ?></a>
 							</li>
 
 						<?php endforeach; ?>
