@@ -4,7 +4,10 @@
 
 .site-header {
 	background-color: color('dark-background');
-	border-bottom: 1px solid color('mid-grey');
+
+	.home & {
+		border-bottom: 1px solid color('mid-grey');
+	}
 
 	.logo {
 		margin: em(22) 0;
