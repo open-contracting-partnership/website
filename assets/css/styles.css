@@ -813,7 +813,7 @@ input[type="submit"] {
   padding: 0.71429em 1.07143em;
   text-decoration: none;
   margin-bottom: 0.7em;
-  color: #FFF;
+  color: #545456;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
@@ -873,53 +873,11 @@ input[type="submit"] {
   background: #999;
   color: #FFF; }
 
-.button--green {
-  background: #92D016; }
+.button--thick {
+  border-width: 2px; }
 
-a.button--green:hover, a.button--green:active, a.button--green:focus,
-button.button--green:hover,
-button.button--green:active,
-button.button--green:focus,
-input.button--green:hover,
-input.button--green:active,
-input.button--green:focus {
-  background: #BCD469; }
-
-.button--orange {
-  background: #FF811A; }
-
-a.button--orange:hover, a.button--orange:active, a.button--orange:focus,
-button.button--orange:hover,
-button.button--orange:active,
-button.button--orange:focus,
-input.button--orange:hover,
-input.button--orange:active,
-input.button--orange:focus {
-  background: #FFB17F; }
-
-.button--pink {
-  background: #F61AFF; }
-
-a.button--pink:hover, a.button--pink:active, a.button--pink:focus,
-button.button--pink:hover,
-button.button--pink:active,
-button.button--pink:focus,
-input.button--pink:hover,
-input.button--pink:active,
-input.button--pink:focus {
-  background: #E87EFE; }
-
-.button--blue {
-  background: #1169A4; }
-
-a.button--blue:hover, a.button--blue:active, a.button--blue:focus,
-button.button--blue:hover,
-button.button--blue:active,
-button.button--blue:focus,
-input.button--blue:hover,
-input.button--blue:active,
-input.button--blue:focus {
-  background: #74CAE9; }
+.button--white {
+  color: #FFFFFF; }
 
 .cta-list {
   border-top: 1px solid #FFF;
