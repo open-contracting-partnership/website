@@ -30,7 +30,6 @@
 
 		<?php wp_head(); ?>
 
-		<style>.box { border: 1px solid grey; padding: 1em; margin: 0 1em 1em 0; float: left; width: 20%; }</style>
 	</head>
 
 	<body <?php body_class(basename(get_permalink())); ?>>
@@ -79,37 +78,29 @@
 
 				<nav class="primary-nav">
 
-					<ul class="nav nav--horizontal">
+					<?php
 
-						<li>
-							<a href="#">Opening contracting</a>
-						</li>
+						wp_nav_menu([
+							'theme_location' => 'header-primary',
+							'sort_column' => 'menu_order',
+							'container' => 'ul',
+							'menu_class' => 'nav nav--horizontal',
+							'depth' => 1
+						]);
 
-						<li>
-							<a href="#">How To Implement</a>
-						</li>
+					?>
 
-						<li>
-							<a href="#">Blogs &amp; Updates</a>
-						</li>
+					<?php
 
-						<li>
-							<a href="#">About Us</a>
-						</li>
+						wp_nav_menu([
+							'theme_location' => 'header-secondary',
+							'sort_column' => 'menu_order',
+							'container' => 'ul',
+							'menu_class' => 'nav nav--horizontal',
+							'depth' => 1
+						]);
 
-					</ul>
-
-					<ul class="nav nav--horizontal">
-
-						<li>
-							<a href="#">Worldwide</a>
-						</li>
-
-						<li>
-							<a href="#">Data Standard</a>
-						</li>
-
-					</ul>
+					?>
 
 				</nav>
 

@@ -24,8 +24,8 @@ function get_menu($name) {
 add_action('after_setup_theme', function() {
 
 	// header
-	register_nav_menu('header-primary', __('Header Primary', 'ocp'));
-	register_nav_menu('header-secondary', __('Header Secondary', 'ocp'));
+	register_nav_menu('header-primary', __('Header: Primary', 'ocp'));
+	register_nav_menu('header-secondary', __('Header: Secondary', 'ocp'));
 
 	// footer
 	register_nav_menu('footer-our-organisation', __('Footer: Our Organisation', 'ocp'));
