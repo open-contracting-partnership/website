@@ -876,6 +876,17 @@ input[type="submit"] {
 .button--thick {
   border-width: 2px; }
 
+/* ul */
+.button__list {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  .button__list li {
+    float: left;
+    margin: 0 0.5em 0.5em 0; }
+  .button__list .button {
+    margin-bottom: 0; }
+
 .button--white {
   color: #FFFFFF; }
 

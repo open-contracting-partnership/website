@@ -97,6 +97,27 @@ input[type="submit"] {
 }
 
 
+ //************
+// BUTTON LIST
+
+/* ul */ .button__list {
+
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	li {
+		float: left;
+		margin: 0 em(10) em(10) 0;
+	}
+
+	.button {
+		margin-bottom: 0;
+	}
+
+}
+
+
  //**************
 // COLOR OPTIONS
 
