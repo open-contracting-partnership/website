@@ -8,7 +8,7 @@
 
 		<section>
 
-			<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+			<h1><?php the_title(); ?></h1>
 
 			<p class="blog__mobile-date">Written By <?php the_authors(TRUE); ?>, <datetime><?php the_date(); ?></datetime></p>
 
