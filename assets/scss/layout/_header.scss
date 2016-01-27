@@ -4,12 +4,14 @@
 
 .site-header {
 	background-color: color('dark-background');
+	border-bottom: 1px solid color('mid-grey');
 
 	.logo {
-		margin: em(29) 0;
+		margin: em(22) 0;
 		display: inline-block;
 
 		svg {
+			width: em(482);
 			height: em(38);
 		}
 	}
