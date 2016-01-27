@@ -30,6 +30,7 @@
 
 		<?php wp_head(); ?>
 
+		<style>.box { border: 1px solid grey; padding: 1em; margin: 0 1em 1em 0; float: left; width: 20%; }</style>
 	</head>
 
 	<body <?php body_class(basename(get_permalink())); ?>>
@@ -49,6 +50,32 @@
 					</svg>
 
 				</a>
+
+				<div class="header-nav--top">
+
+					<div class="header-nav--top__item header-social">
+
+						<ul class="button__list">
+							<li><a href="#" class="button">f</a></li>
+							<li><a href="#" class="button">in</a></li>
+							<li><a href="#" class="button">t</a></li>
+						</ul>
+
+						<a href="#">Contact &amp; Helpdesk</a>
+
+					</div>
+
+					<div class="header-nav--top__item header-language">
+						<select class="" name="">
+							<option value="">English</option>
+						</select>
+					</div>
+
+					<div class="header-nav--top__item header-search">
+						<a href="#" class="button">Search</a>
+					</div>
+
+				</div>
 
 				<nav class="primary-nav">
 

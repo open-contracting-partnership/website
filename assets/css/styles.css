@@ -707,6 +707,20 @@ tbody tr {
     .site-header .logo svg {
       height: 1.9em; }
 
+.header-nav--top {
+  float: right; }
+
+.header-nav--top__item {
+  display: inline-block; }
+
+.header-social > a {
+  color: #FFF;
+  text-decoration: none; }
+  .header-social > a:hover, .header-social > a:focus {
+    text-decoration: underline; }
+  .header-social > a:active {
+    text-decoration: none; }
+
 /*------------------------------------*    HERO
 \*------------------------------------*/
 /*------------------------------------*    LAYOUT

@@ -14,3 +14,25 @@
 		}
 	}
 }
+
+.header-nav--top {
+	float: right;
+}
+
+.header-nav--top__item {
+	display: inline-block;
+}
+
+.header-social > a {
+	color: color('white');
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+
+	&:active {
+		text-decoration: none;
+	}
+}
