@@ -31,7 +31,7 @@
 
 				<h3 class="border-top">Share</h3>
 
-				<ul>
+				<ul class="button__list">
 					<li><a href="<?php echo share_links()->twitter; ?>">Twitter</a></li>
 					<li><a href="<?php echo share_links()->facebook; ?>">Facebook</a></li>
 					<li><a href="<?php echo share_links()->linkedin; ?>">LinkedIn</a></li>
