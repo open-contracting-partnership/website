@@ -3,10 +3,6 @@
 	clear: both;
 	margin-bottom: em(10);
 
-	a {
-		display: block;
-	}
-
 	h4 {
 		line-height: 1.25;
 		margin-bottom: 1em;
@@ -19,35 +15,24 @@
 
 .home .post-object {
 	background-color: color('dark-background');
-
-	a {
-		color: color('white');
-		text-decoration: none;
-
-		&:hover,
-		&:active {
-
-			h4 {
-				text-decoration: underline;
-			}
-		}
-
-		&:focus {
-
-			h4 {
-				text-decoration: none;
-			}
-		}
-	}
+	color: color('white');
 }
 
-.post-object__media {
+.post-object {
+	text-decoration: none;
 
 	&:hover,
 	&:active {
 
-		+ a {
+		h4 {
 			text-decoration: underline;
+		}
+	}
+
+	&:focus {
+
+		h4 {
+			text-decoration: none;
 		}
 	}
 }

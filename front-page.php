@@ -55,50 +55,44 @@
 
 					<h3 class="border-top">Recent Blogs</h3>
 
-					<article class="post-object post-object--horizontal / media">
+					<a href="#" class="post-object post-object--horizontal / media">
 
-						<a href="#" class="post-object__media / media__object">
+						<div href="#" class="post-object__media / media__object">
 							<img src="http://placehold.it/122x154" alt="">
-						</a>
-
-						<div class="post-object__content / media__body">
-							<a href="#">
-								<h4>Why Finance Ministers should care about open contracting</h4>
-								<p>By Georg Neumann <span>C 1</span></p>
-							</a>
 						</div>
 
-					</article>
-
-					<article class="post-object post-object--horizontal / media">
-
-						<a href="#" class="post-object__media / media__object">
-							<img src="http://placehold.it/122x154" alt="">
-						</a>
-
 						<div class="post-object__content / media__body">
-							<a href="#">
-								<h4>Open Contracting at the OGP Summit</h4>
-								<p>By Georg Neumann <span>C 1</span></p>
-							</a>
+							<h4>Why Finance Ministers should care about open contracting</h4>
+							<p>By Georg Neumann <span>C 1</span></p>
 						</div>
 
-					</article>
+					</a>
 
-					<article class="post-object post-object--horizontal / media">
+					<a href="#" class="post-object post-object--horizontal / media">
 
-						<a href="#" class="post-object__media / media__object">
+						<div class="post-object__media / media__object">
 							<img src="http://placehold.it/122x154" alt="">
-						</a>
-
-						<div class="post-object__content / media__body">
-							<a href="#">
-								<h4>Open contracting awakens: Will the light side in government contracting win?</h4>
-								<p>By Georg Neumann <span>C 1</span></p>
-							</a>
 						</div>
 
-					</article>
+						<div class="post-object__content / media__body">
+							<h4>Open Contracting at the OGP Summit</h4>
+							<p>By Georg Neumann <span>C 1</span></p>
+						</div>
+
+					</a>
+
+					<a href="#" class="post-object post-object--horizontal / media">
+
+						<div class="post-object__media / media__object">
+							<img src="http://placehold.it/122x154" alt="">
+						</div>
+
+						<div class="post-object__content / media__body">
+							<h4>Open contracting awakens: Will the light side in government contracting win?</h4>
+							<p>By Georg Neumann <span>C 1</span></p>
+						</div>
+
+					</a>
 
 				</section>
 
@@ -110,21 +104,19 @@
 
 					<h3 class="border-top">Spotlight</h3>
 
-					<article class="post-object post-object--vertical">
+					<a href="#" class="post-object post-object--vertical">
 
-						<a href="#" class="post-object__media">
+						<div class="post-object__media">
 							<img src="http://placehold.it/459x235" alt="">
 							<span class="post-object__tag">Projects</span>
-						</a>
-
-						<div class="post-object__content">
-							<a href="#">
-								<h4>Help us define our openness</h4>
-								<p>Open is part of our name and game at the Open Contracting Partnership. This means, open is at the core of our institution. It is our mission. It is one of our core values. If we want public procurement to be open, we have to be open ourselves.</p>
-							</a>
 						</div>
 
-					</article>
+						<div class="post-object__content">
+							<h4>Help us define our openness</h4>
+							<p>Open is part of our name and game at the Open Contracting Partnership. This means, open is at the core of our institution. It is our mission. It is one of our core values. If we want public procurement to be open, we have to be open ourselves.</p>
+						</div>
+
+					</a>
 
 				</section>
 

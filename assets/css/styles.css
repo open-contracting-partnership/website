@@ -772,17 +772,10 @@ nav h4 {
 .nav--vertical a {
   display: inline-block; }
 
-.primary-nav a {
-  padding: 3em 0;
-  border-bottom: 3px solid transparent; }
-  .primary-nav a:hover, .primary-nav a:active, .primary-nav a:focus {
-    text-decoration: none;
-    border-bottom-color: #9BAF00; }
-
 .primary-nav li {
   margin: 0;
-  padding: 0 1em;
-  border-right: 1px solid #000; }
+  padding: 0 1.5em;
+  border-right: 1px solid #69696B; }
 
 .primary-nav li:first-child {
   padding-left: 0; }
@@ -790,6 +783,14 @@ nav h4 {
 .primary-nav li:last-child {
   border-right: none;
   padding-right: 0; }
+
+.primary-nav a {
+  color: #FFF;
+  padding: 3em 0;
+  border-bottom: 3px solid transparent; }
+  .primary-nav a:hover, .primary-nav a:active, .primary-nav a:focus {
+    text-decoration: none;
+    border-bottom-color: #9BAF00; }
 
 /*------------------------------------*    SIDEBAR
 \*------------------------------------*/
@@ -992,8 +993,6 @@ input.button--blue:focus {
   display: block;
   clear: both;
   margin-bottom: 0.5em; }
-  .post-object a {
-    display: block; }
   .post-object h4 {
     line-height: 1.25;
     margin-bottom: 1em; }
@@ -1001,17 +1000,15 @@ input.button--blue:focus {
     margin-bottom: 0; }
 
 .home .post-object {
-  background-color: #373738; }
-  .home .post-object a {
-    color: #FFF;
-    text-decoration: none; }
-    .home .post-object a:hover h4, .home .post-object a:active h4 {
-      text-decoration: underline; }
-    .home .post-object a:focus h4 {
-      text-decoration: none; }
+  background-color: #373738;
+  color: #FFF; }
 
-.post-object__media:hover + a, .post-object__media:active + a {
-  text-decoration: underline; }
+.post-object {
+  text-decoration: none; }
+  .post-object:hover h4, .post-object:active h4 {
+    text-decoration: underline; }
+  .post-object:focus h4 {
+    text-decoration: none; }
 
 .post-object__content {
   padding-top: 0.45em; }
