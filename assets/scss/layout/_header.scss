@@ -1,3 +1,16 @@
 /*------------------------------------*\
 	HEADER
 \*------------------------------------*/
+
+.site-header {
+	background-color: color('dark-background');
+
+	.logo {
+		margin: em(29) 0;
+		display: inline-block;
+
+		svg {
+			height: em(38);
+		}
+	}
+}

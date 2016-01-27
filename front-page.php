@@ -55,7 +55,7 @@
 
 				<a href="#" class="post-object post-object--horizontal / media">
 
-					<div href="#" class="post-object__media / media__object">
+					<div class="post-object__media / media__object">
 						<img src="http://placehold.it/122x154" alt="">
 					</div>
 
