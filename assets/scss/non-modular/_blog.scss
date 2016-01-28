@@ -1,7 +1,5 @@
 .blog__featured {
 
-	background: lightgreen;
-
 	@include mq(L) {
 		@include span(6 of 12);
 	}
@@ -10,8 +8,6 @@
 
 .blog__event-mobile {
 
-	background: orange;
-
 	@include mq(M) {
 		display: none;
 	}
@@ -19,8 +15,6 @@
 }
 
 .blog__recent {
-
-	background: red;
 
 	@include mq(L) {
 
@@ -47,8 +41,6 @@
 
 .blog__event-tablet {
 
-	background: orange;
-
 	display: none;
 	@include break;
 
@@ -63,15 +55,10 @@
 }
 
 .blog__topics {
-
-	background: green;
 	@include break;
-
 }
 
 .blog__news {
-
-	background: lightblue;
 
 	@include mq(L) {
 
@@ -99,7 +86,6 @@
 .blog__event-desktop {
 
 	display: none;
-	background: orange;
 
 	@include mq(L) {
 		display: block;
@@ -110,8 +96,6 @@
 
 .blog__newsletter-signup {
 
-	background: blue;
-
 	@include mq(L) {
 		@include span(5 of 12 last);
 	}
@@ -120,7 +104,6 @@
 
 .blog__posts {
 
-	background: yellow;
 	@include break;
 
 	@include mq(M) {
@@ -151,7 +134,6 @@
 
 .blog__authors {
 
-	background: pink;
 	display: none;
 
 	@include mq(M) {
