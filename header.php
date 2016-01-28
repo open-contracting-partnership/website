@@ -54,10 +54,10 @@
 
 					<div class="header-nav--top__item header-social">
 
-						<ul class="button__list">
-							<li><a href="#" class="button">f</a></li>
-							<li><a href="#" class="button">in</a></li>
-							<li><a href="#" class="button">t</a></li>
+						<ul class="button__list button__social">
+							<li><a href="#" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
+							<li><a href="#" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
+							<li><a href="#" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
 						</ul>
 
 						<a href="#">Contact &amp; Helpdesk</a>
@@ -71,7 +71,7 @@
 					</div>
 
 					<div class="header-nav--top__item header-search">
-						<a href="#" class="button">Search</a>
+						<a href="#" class="button"><svg><use xlink:href="#icon-search" /></svg></a>
 					</div>
 
 				</div>

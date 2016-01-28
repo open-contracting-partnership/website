@@ -120,6 +120,40 @@ input[type="submit"] {
 
 
  //**************
+// BUTTON SOCIAL
+
+.button__social {
+
+	li {
+		margin-bottom: 0;
+	}
+
+	a {
+		width: 1.5rem;
+		height: 1.5rem;
+		text-align: center;
+		padding: 0;
+		fill: color('mid-grey');
+		border-color: color('mid-grey');
+
+		&:hover,
+		&:focus {
+			border-color: color('light-grey');
+		}
+
+		&:active {
+			border-color: color('mid-grey');
+		}
+	}
+
+	svg {
+		height: .8rem;
+		max-width: 1.5rem;
+	}
+}
+
+
+ //**************
 // COLOR OPTIONS
 
 @each $name, $color in $button-colors {

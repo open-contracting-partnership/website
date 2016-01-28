@@ -73,9 +73,13 @@ h5,
 .border-top {
 	@include font-size(16);
 	text-transform: uppercase;
-	border-top: 1px solid color('background');
+	border-top: 1px solid color('lighter-grey');
 	position: relative;
 	padding-top: 1rem;
+
+	.home & {
+		border-top-color: color('background');
+	}
 
 	&:before {
 		position: absolute;
