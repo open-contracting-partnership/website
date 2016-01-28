@@ -1098,8 +1098,10 @@ input[type="submit"] {
     text-decoration: none; }
     .post-object:hover h4, .post-object:active h4 {
       text-decoration: underline; }
-  .post-object:focus h4 {
+  .post-object:focus {
     text-decoration: none; }
+    .post-object:focus h4 {
+      text-decoration: none; }
 
 .post-object__content {
   padding-top: 0.45em; }
