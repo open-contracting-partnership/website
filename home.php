@@ -81,18 +81,24 @@
 
 	<section class="blog__news">
 
-		<?php
+		<h2>Recent News</h2>
 
-			$news_posts = new query_loop([
-				'post_type' => 'news',
-				'posts_per_page' => 4,
-			]);
+		<div>
 
-		?>
+			<?php
 
-		<?php foreach ( $news_posts as $news_post ) : ?>
-			<?php get_partial('post-object', 'horizontal'); ?>
-		<?php endforeach; ?>
+				$news_posts = new query_loop([
+					'post_type' => 'news',
+					'posts_per_page' => 4,
+				]);
+
+			?>
+
+			<?php foreach ( $news_posts as $news_post ) : ?>
+				<?php get_partial('post-object', 'horizontal'); ?>
+			<?php endforeach; ?>
+
+		</div>
 
 	</section>
 
