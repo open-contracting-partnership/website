@@ -2,7 +2,7 @@
 .heading-highlight h3,
 .highlight-text p,
 .highlight-text a {
-	@include font(secondary);
+	@include font(secondary, medium);
 	display: inline;
 	color: color('white');
 	background-color: color('brand-dark');

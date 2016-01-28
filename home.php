@@ -55,7 +55,7 @@
 
 			<?php $exclude_ids[] = get_the_ID(); ?>
 
-			<?php get_partial('post-object', 'vertical'); ?>
+			<?php get_partial('post-object', 'vertical--light'); ?>
 
 		<?php endforeach; ?>
 
@@ -123,7 +123,7 @@
 		?>
 
 		<?php foreach ( $recent_posts as $recent_post ) : ?>
-			<?php get_partial('post-object', 'vertical'); ?>
+			<?php get_partial('post-object', 'vertical--light'); ?>
 		<?php endforeach; ?>
 
 	</div>

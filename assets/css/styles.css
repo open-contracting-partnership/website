@@ -1094,8 +1094,10 @@ input[type="submit"] {
 
 .post-object {
   text-decoration: none; }
-  .post-object:hover h4, .post-object:active h4 {
-    text-decoration: underline; }
+  .post-object:hover, .post-object:active {
+    text-decoration: none; }
+    .post-object:hover h4, .post-object:active h4 {
+      text-decoration: underline; }
   .post-object:focus h4 {
     text-decoration: none; }
 
@@ -1109,7 +1111,14 @@ input[type="submit"] {
   position: relative; }
 
 .post-object--vertical .post-object__tag {
-  padding: 0.45em 1.05em;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  padding: 0.5625em 1.3125em;
   background-color: #373738; }
   @media screen and (min-width: 640px) {
     .post-object--vertical .post-object__tag {
@@ -1128,6 +1137,35 @@ input[type="submit"] {
   .post-object--horizontal p {
     font-size: 16px;
     font-size: 0.8rem; }
+
+.post-object--light {
+  color: #2D2D2D; }
+  .post-object--light .post-object__tag {
+    color: #FFF; }
+    @media screen and (min-width: 640px) {
+      .post-object--light .post-object__tag {
+        bottom: 0; } }
+  .post-object--light .post-object__content {
+    background-color: #FFF; }
+  .post-object--light .post-object__content-meta {
+    font-size: 14px;
+    font-size: 0.7rem;
+    color: #69696B;
+    text-transform: uppercase;
+    margin-bottom: 1.5em; }
+  .post-object--light .post-object__author {
+    margin-right: 0.78571em; }
+  .post-object--light .post-object__comment-count {
+    float: right; }
+  .post-object--light h4 {
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    font-size: 1.2rem;
+    line-height: 1.16;
+    margin-bottom: 0; }
 
 .related-posts {
   border-top: 1px solid #545456; }

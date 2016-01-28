@@ -15,7 +15,7 @@ h5,
 .epsilon,
 h6,
 .zeta {
-	@include font(secondary);
+	@include font(secondary, medium);
 	margin-bottom: $space;
 	line-height: strip-unit($space);
 
