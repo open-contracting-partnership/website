@@ -126,11 +126,11 @@
 	</section>
 
 	<div class="blog__event-desktop">
-		#7 (desktop only)
+
 	</div>
 
 	<div class="blog__newsletter-signup">
-		#8
+
 	</div>
 
 	<div class="blog__posts">
