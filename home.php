@@ -29,7 +29,32 @@
 
 		<?php endforeach; ?>
 
-		&nbsp;
+		<?php
+
+			$popular_tags = get_terms('post_tag', [
+				'orderby' => 'count',
+				'number' => 15
+			]);
+
+		?>
+
+		<?php if ( $popular_tags ) : ?>
+
+			<section>
+
+				<h2>Popular Tags</h2>
+
+				<ul class="button__list">
+
+					<?php foreach ( $popular_tags as $popular_tag ) : ?>
+						<li><a href="<?php echo get_term_link($popular_tag); ?>" class="button button--uppercase button--thick"><?php echo $popular_tag->name; ?></a></li>
+					<?php endforeach; ?>
+
+				</ul>
+
+			</section>
+
+		<?php endif; ?>
 
 	</div>
 
@@ -219,11 +244,11 @@
 	</section>
 
 	<div class="blog__event-desktop">
-		#7 (desktop only)
+
 	</div>
 
 	<div class="blog__newsletter-signup">
-		#8
+
 	</div>
 
 	<div class="blog__posts">
@@ -244,8 +269,22 @@
 
 	</div>
 
-	<section class="blog__authors">
-		#10 (desktop / tablet only)
-	</section>
+	<?php if ( $authors = get_authors_by_count(6) ) : ?>
+
+		<section class="blog__authors">
+
+			<h3 class="border-top">Posts by Author</h3>
+
+			<ul>
+
+				<?php foreach ( $authors as $author ) : ?>
+					<li><a href="<?php echo $author->url; ?>"><?php echo $author->display_name; ?> (<?php echo $author->post_count; ?>)</a></li>
+				<?php endforeach; ?>
+
+			</ul>
+
+		</section>
+
+	<?php endif; ?>
 
 <?php get_footer(); ?>

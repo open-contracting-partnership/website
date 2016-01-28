@@ -3,9 +3,9 @@
 	<div class="post-object__media">
 
 		<?php if ( has_post_thumbnail() ) : ?>
-			<?php the_post_thumbnail('2x1_460'); ?>
+			<?php the_post_thumbnail('16x9_690'); ?>
 		<?php else : ?>
-			<img src="http://placehold.it/460x230" alt="">
+			<img src="http://placehold.it/690x388" alt="">
 		<?php endif; ?>
 
 		<div class="post-object--featured__title">
@@ -23,7 +23,7 @@
 	<div class="post-object__content">
 
 		<div class="post-object__content-meta">
-			<span class="post-object__author">By Kathryn Chen</span>
+			<span class="post-object__author">By <?php the_authors(FALSE); ?></span>
 			<span class="post-object__age">3 Days ago</span>
 		</div>
 

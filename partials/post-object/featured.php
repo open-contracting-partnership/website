@@ -1,4 +1,4 @@
-<a class="post-object post-object--vertical post-object--light" href="<?php the_permalink(); ?>">
+<a class="post-object post-object--vertical" href="<?php the_permalink(); ?>">
 
 	<div class="post-object__media">
 
@@ -13,15 +13,7 @@
 	</div>
 
 	<div class="post-object__content">
-
-		<div class="post-object__content-meta">
-			<span class="post-object__author">By <?php the_authors(FALSE); ?></span>
-			<span class="post-object__age">1H ago</span>
-			<span class="post-object__comment-count">21</span>
-		</div>
-
 		<h4><?php the_title(); ?></h4>
-
 	</div>
 
 </a>

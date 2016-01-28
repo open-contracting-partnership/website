@@ -85,6 +85,7 @@
 
 .post-object--light {
 	color: color('dark-grey');
+	border: 1px solid color('lighter-grey');
 
 	.post-object__tag {
 		color: color('white');
@@ -96,7 +97,7 @@
 
 	.post-object__content {
 		background-color: color('white');
-		border: 1px solid color('lighter-grey');
+		border-top: 1px solid color('lighter-grey');
 	}
 
 	.post-object__content-meta {
