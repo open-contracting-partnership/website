@@ -37,7 +37,7 @@
 		#2 (mobile only)
 	</div>
 
-	<section class="blog__recent">
+	<section class="blog__recent / band band--thick">
 
 		<?php
 
@@ -58,6 +58,124 @@
 		<?php endforeach; ?>
 
 	</section>
+
+	<section class="blog__filter / band band--thick">
+
+		<div class="island island--light">
+
+			<div class="blog__filter__selector">
+
+				<h3 class="border-top">Filter posts by issue</h3>
+
+				<form class="" action="index.html" method="post">
+					<ul>
+						<li><input type="radio" name="construction" value=""><label for="construction">Construction</label></li>
+						<li><input type="radio" name="land" value=""><label for="land">Land</label></li>
+						<li><input type="radio" name="health" value=""><label for="health">Health</label></li>
+						<li><input type="radio" name="water" value=""><label for="water">Water</label></li>
+						<li><input type="radio" name="natural-resources" value=""><label for="natural-resources">Natural Resources</label></li>
+						<li><input type="radio" name="education" value=""><label for="education">Education</label></li>
+						<li><input type="radio" name="procurement-law" value=""><label for="procurement-law">Procurement Law</label></li>
+					</ul>
+				</form>
+
+			</div>
+
+			<div class="blog__filter__posts">
+
+				<a class="post-object post-object--vertical post-object--light" href="<?php the_permalink(); ?>">
+
+					<div class="post-object__media">
+
+						<?php if ( has_post_thumbnail() ) : ?>
+							<?php the_post_thumbnail('2x1_460'); ?>
+						<?php else : ?>
+							<img src="http://placehold.it/460x230" alt="">
+						<?php endif; ?>
+
+						<span class="post-object__tag"><?php the_post_type_label(); ?></span>
+
+					</div>
+
+					<div class="post-object__content">
+
+						<div class="post-object__content-meta">
+							<span class="post-object__author">By Theresa Stevens</span>
+							<span class="post-object__age">1H ago</span>
+							<span class="post-object__comment-count">21</span>
+						</div>
+
+						<h4><?php the_title(); ?></h4>
+
+					</div>
+
+				</a>
+
+				<a class="post-object post-object--vertical post-object--light" href="<?php the_permalink(); ?>">
+
+					<div class="post-object__media">
+
+						<?php if ( has_post_thumbnail() ) : ?>
+							<?php the_post_thumbnail('2x1_460'); ?>
+						<?php else : ?>
+							<img src="http://placehold.it/460x230" alt="">
+						<?php endif; ?>
+
+						<span class="post-object__tag"><?php the_post_type_label(); ?></span>
+
+					</div>
+
+					<div class="post-object__content">
+
+						<div class="post-object__content-meta">
+							<span class="post-object__author">By Theresa Stevens</span>
+							<span class="post-object__age">1H ago</span>
+							<span class="post-object__comment-count">21</span>
+						</div>
+
+						<h4><?php the_title(); ?></h4>
+
+					</div>
+
+				</a>
+
+				<a class="post-object post-object--vertical post-object--light" href="<?php the_permalink(); ?>">
+
+					<div class="post-object__media">
+
+						<?php if ( has_post_thumbnail() ) : ?>
+							<?php the_post_thumbnail('2x1_460'); ?>
+						<?php else : ?>
+							<img src="http://placehold.it/460x230" alt="">
+						<?php endif; ?>
+
+						<span class="post-object__tag"><?php the_post_type_label(); ?></span>
+
+					</div>
+
+					<div class="post-object__content">
+
+						<div class="post-object__content-meta">
+							<span class="post-object__author">By Theresa Stevens</span>
+							<span class="post-object__age">1H ago</span>
+							<span class="post-object__comment-count">21</span>
+						</div>
+
+						<h4><?php the_title(); ?></h4>
+
+					</div>
+
+				</a>
+
+			</div>
+
+			<div class="blog__filter__view-all">
+				<a href="#">View all Construction Posts</a>
+			</div>
+
+		</div>
+
+	</section> <!-- blog__filter -->
 
 	<div class="blog__event-tablet">
 		#4 (tablet only)
