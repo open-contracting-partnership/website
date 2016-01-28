@@ -87,21 +87,19 @@ $susy: (
 
 $fonts: (
     primary: (
-        family: 'Open Sans',
+        family: 'proxima-nova-condensed',
         fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
         weights: (
-            light: 300,
             regular: 400,
-            semibold: 600,
             bold: 700
         ),
-        typekit: true
+        typekit: false
     ),
     secondary: (
-        family: 'Gotham',
-        fallback: 'Courier, "Times New Roman", serif',
+        family: 'stratum-1-web',
+        fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
         weights: (
-            regular: 400,
+            regular: 500,
             bold: 700
         ),
         typekit: false

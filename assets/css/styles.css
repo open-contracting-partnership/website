@@ -89,15 +89,15 @@ html {
   font-size: 20px; }
 
 body {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.4;
   background-color: #FFF;
   padding: 0;
   margin: 0;
   color: #424244;
-  line-height: 1.4em;
-  font-weight: 400;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
@@ -108,7 +108,7 @@ p,
 ul,
 ol,
 dl {
-  line-height: 1.4em;
+  line-height: 1.4;
   margin-bottom: 1.4em; }
 
 .text--bigger {
@@ -135,7 +135,7 @@ b {
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n7", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
+  font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 i,
 em {
@@ -149,7 +149,7 @@ blockquote {
     font-weight: 400;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
-    font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
+    font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 29px;
     font-size: 1.45rem;
     line-height: 1.4;
@@ -281,12 +281,12 @@ h5,
 .epsilon,
 h6,
 .zeta {
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-bottom: 1.4em;
-  line-height: 1.4em; }
+  line-height: 1.4; }
   h1.has-strap,
   .alpha.has-strap,
   h2.has-strap,
@@ -428,7 +428,7 @@ abbr[title="Required"] {
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n7", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
+  font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 input[type="text"],
 input[type="email"],
@@ -448,7 +448,7 @@ textarea {
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
+  font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-size: 0.8rem;
   padding: 0.5em;
@@ -463,7 +463,7 @@ input[type="color"] {
   width: auto; }
 
 textarea {
-  line-height: 1.4em; }
+  line-height: 1.4; }
 
 input[type="text"]:hover, input[type="text"]:focus,
 input[type="email"]:hover,
@@ -566,7 +566,7 @@ th {
       font-weight: 700;
       font-style: normal;
       -webkit-font-smoothing: antialiased;
-      font-family: "open-sans-n7", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
+      font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
       text-transform: uppercase;
       background-color: #D6E100;
       color: #FFF;
@@ -597,7 +597,7 @@ td {
         font-weight: 400;
         font-style: normal;
         -webkit-font-smoothing: antialiased;
-        font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
+        font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
         margin-top: 0.71429em;
         letter-spacing: 0;
         color: inherit;
@@ -618,7 +618,7 @@ tbody tr {
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
+  font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #D6E100;
   color: #000;
   text-decoration: none;
@@ -1395,79 +1395,6 @@ input[type="submit"] {
 
 /*------------------------------------*	$TOOLS
 \*------------------------------------*/
-/*------------------------------------*	DEMO
-\*------------------------------------*/
-.demo__block {
-  background-color: #CFD7DB;
-  border: 1px solid #95a6af;
-  color: #333;
-  font-size: 12px;
-  font-size: 0.6rem; }
-  .demo__block p,
-  .demo__block span {
-    font-size: 12px;
-    font-size: 0.6rem; }
-
-.demo__grid {
-  margin-bottom: 20px; }
-  .demo__grid span {
-    display: block;
-    text-align: center; }
-
-.demo--list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  margin-bottom: 0; }
-
-.demo__block--space {
-  padding: 1.4em; }
-
-.demo__block--space-margin {
-  margin-bottom: 1.4em; }
-
-.demo__block--space-double {
-  padding: 2.8em; }
-
-.sg-heading {
-  font-weight: 700;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n7", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif';
-  text-transform: uppercase;
-  font-size: 14px;
-  font-size: 0.7rem;
-  padding: 0.1em;
-  border-left: 10px solid #000;
-  padding-left: 0.5em;
-  margin-bottom: 1.4em;
-  margin-top: 2.8em; }
-
-.primary-font--light {
-  font-weight: 300;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n3", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
-
-.primary-font--regular {
-  font-weight: 400;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n4", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
-
-.primary-font--semibold {
-  font-weight: 600;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n6", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
-
-.primary-font--bold {
-  font-weight: 700;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "open-sans-n7", "Open Sans", '"Helvetica Neue", Helvetica, Arial, sans-serif'; }
-
 /*------------------------------------*	$PRINT STYLES
 \*------------------------------------*/
 /*------------------------------------*    PRINT STYLES
