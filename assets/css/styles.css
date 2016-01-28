@@ -1146,7 +1146,8 @@ input[type="submit"] {
       .post-object--light .post-object__tag {
         bottom: 0; } }
   .post-object--light .post-object__content {
-    background-color: #FFF; }
+    background-color: #FFF;
+    border: 1px solid #D5D5D7; }
   .post-object--light .post-object__content-meta {
     font-size: 14px;
     font-size: 0.7rem;
