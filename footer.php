@@ -1,249 +1,249 @@
 <?php // footer.php ?>
 
-	</main>
-
-	<div class="wrapper">
+		</main>
 
 		<div class="site-footer">
 
-			<div> <!-- main footer -->
+			<div class="wrapper">
 
-				<nav class="site-footer__organisation">
+				<div> <!-- main footer -->
 
-					<h4>Our Organisation</h4>
+					<nav class="site-footer__organisation">
 
-					<ul class="nav nav--vertical">
-
-						<li>
-							<a href="#">Mission</a>
-						</li>
-
-						<li>
-							<a href="#">Strategy</a>
-						</li>
-
-						<li>
-							<a href="#">Values</a>
-						</li>
-
-						<li>
-							<a href="#">Our Story</a>
-						</li>
-
-						<li>
-							<a href="#">Team</a>
-						</li>
-
-						<li>
-							<a href="#">Advisory board</a>
-						</li>
-
-						<li>
-							<a href="#">Financing</a>
-						</li>
-
-						<li>
-							<a href="#">Policies</a>
-						</li>
-
-					</ul>
-
-				</nav>
-
-				<nav class="site-footer__contracting">
-
-					<h4>Open Contracting</h4>
-
-					<ul class="nav nav--vertical">
-
-						<li>
-							<a href="#">What is Open Contracting</a>
-						</li>
-
-						<li>
-							<a href="#">Sectors</a>
-						</li>
-
-						<li>
-							<a href="#">Showcase projects</a>
-						</li>
-
-						<li>
-							<a href="#">Evidence</a>
-						</li>
-
-						<li>
-							<a href="#">Learning</a>
-						</li>
-
-						<li>
-							<a href="#">Case studies</a>
-						</li>
-
-					</ul>
-
-				</nav>
-
-				<nav class="site-footer__implement">
-
-					<h4>Implement</h4>
-
-					<ul class="nav nav--vertical">
-
-						<li>
-							<a href="#">How to implement</a>
-						</li>
-
-						<li>
-							<a href="#">Data standard</a>
-						</li>
-
-						<li>
-							<a href="#">Success stories</a>
-						</li>
-
-						<li>
-							<a href="#">Global principles</a>
-						</li>
-
-						<li>
-							<a href="#">Learning</a>
-						</li>
-
-						<li>
-							<a href="#">Case studies</a>
-						</li>
-
-						<li>
-							<a href="#">Resources and Tools</a>
-						</li>
-
-					</ul>
-
-				</nav>
-
-				<div class="site-footer__updates">
-
-					<nav>
-
-						<h4>Stay Updated</h4>
+						<h4>Our Organisation</h4>
 
 						<ul class="nav nav--vertical">
 
 							<li>
-								<a href="#">Blogs and Updates</a>
+								<a href="#">Mission</a>
 							</li>
 
 							<li>
-								<a href="#">Events</a>
+								<a href="#">Strategy</a>
+							</li>
+
+							<li>
+								<a href="#">Values</a>
+							</li>
+
+							<li>
+								<a href="#">Our Story</a>
+							</li>
+
+							<li>
+								<a href="#">Team</a>
+							</li>
+
+							<li>
+								<a href="#">Advisory board</a>
+							</li>
+
+							<li>
+								<a href="#">Financing</a>
+							</li>
+
+							<li>
+								<a href="#">Policies</a>
 							</li>
 
 						</ul>
 
 					</nav>
 
-					<nav>
+					<nav class="site-footer__contracting">
 
-						<h4>Elsewhere Online</h4>
+						<h4>Open Contracting</h4>
 
 						<ul class="nav nav--vertical">
 
 							<li>
-								<a href="#">Data Standard</a>
+								<a href="#">What is Open Contracting</a>
 							</li>
 
 							<li>
-								<a href="#">Community</a>
+								<a href="#">Sectors</a>
+							</li>
+
+							<li>
+								<a href="#">Showcase projects</a>
+							</li>
+
+							<li>
+								<a href="#">Evidence</a>
+							</li>
+
+							<li>
+								<a href="#">Learning</a>
+							</li>
+
+							<li>
+								<a href="#">Case studies</a>
 							</li>
 
 						</ul>
 
 					</nav>
 
-				</div>
+					<nav class="site-footer__implement">
 
-				<div class="site-footer__subscribe">
+						<h4>Implement</h4>
 
-					<div>
-
-						<h4>Subscribe to our newsletter</h4>
-
-						<form action="#">
-
-							<input type="email" name="newsletter" placeholder="Enter your email">
-
-							<button type="submit">Send</button>
-
-						</form>
-
-					</div>
-
-					<nav>
-
-						<h4>Follow our progress</h4>
-
-						<ul class="nav nav--horizontal">
+						<ul class="nav nav--vertical">
 
 							<li>
-								<a href="#">Twitter</a>
+								<a href="#">How to implement</a>
 							</li>
 
 							<li>
-								<a href="#">Facebook</a>
+								<a href="#">Data standard</a>
 							</li>
 
 							<li>
-								<a href="#">Linkedin</a>
+								<a href="#">Success stories</a>
+							</li>
+
+							<li>
+								<a href="#">Global principles</a>
+							</li>
+
+							<li>
+								<a href="#">Learning</a>
+							</li>
+
+							<li>
+								<a href="#">Case studies</a>
+							</li>
+
+							<li>
+								<a href="#">Resources and Tools</a>
 							</li>
 
 						</ul>
 
 					</nav>
 
-					<div>
+					<div class="site-footer__updates">
 
-						<h4>Contact us:</h4>
+						<nav>
 
-						<address>
-							<span>641 S Street NW, 20001 Washington, D.C., USA<span>
-							<a href="mailto:engage@open-contracting.org">engage@open-contracting.org</a>
-						</address>
+							<h4>Stay Updated</h4>
+
+							<ul class="nav nav--vertical">
+
+								<li>
+									<a href="#">Blogs and Updates</a>
+								</li>
+
+								<li>
+									<a href="#">Events</a>
+								</li>
+
+							</ul>
+
+						</nav>
+
+						<nav>
+
+							<h4>Elsewhere Online</h4>
+
+							<ul class="nav nav--vertical">
+
+								<li>
+									<a href="#">Data Standard</a>
+								</li>
+
+								<li>
+									<a href="#">Community</a>
+								</li>
+
+							</ul>
+
+						</nav>
 
 					</div>
 
-				</div>
+					<div class="site-footer__subscribe">
 
-			</div> <!-- main footer -->
+						<div>
 
-			<div class="sub-footer"> <!-- sub footer -->
+							<h4>Subscribe to our newsletter</h4>
 
-				<div class="site-colophon">
-					<p>This work by the Open Contracting Partnership, unless otherwise noted, is licensed under a Creative Commons Attribution 4.0 International License.</p>
-				</div>
+							<form action="#">
 
-				<img src="http://placehold.it/300x100" alt="Logo" />
+								<input type="email" name="newsletter" placeholder="Enter your email">
 
-			</div> <!-- sub footer -->
+								<button type="submit">Send</button>
 
-		</div>
+							</form>
 
-		<footer class="site-copyright"> <!-- copyright -->
+						</div>
 
-			<span>&copy; Open Contracting Partnership 2016</span>
+						<nav>
 
-			<a href="#">Site Information</a>
+							<h4>Follow our progress</h4>
 
-			<a href="#">Feedback</a>
+							<ul class="nav nav--horizontal">
 
-			<a href="#">Terms</a>
+								<li>
+									<a href="#">Twitter</a>
+								</li>
 
-			<span>Website by <a href="http://theideabureau.co">The Idea Bureau</a></span>
+								<li>
+									<a href="#">Facebook</a>
+								</li>
 
-		</footer> <!-- copyright -->
+								<li>
+									<a href="#">Linkedin</a>
+								</li>
+
+							</ul>
+
+						</nav>
+
+						<div>
+
+							<h4>Contact us:</h4>
+
+							<address>
+								<span>641 S Street NW, 20001 Washington, D.C., USA<span>
+								<a href="mailto:engage@open-contracting.org">engage@open-contracting.org</a>
+							</address>
+
+						</div>
+
+					</div>
+
+				</div> <!-- main footer -->
+
+				<div class="sub-footer"> <!-- sub footer -->
+
+					<div class="site-colophon">
+						<p>This work by the Open Contracting Partnership, unless otherwise noted, is licensed under a Creative Commons Attribution 4.0 International License.</p>
+					</div>
+
+					<img src="http://placehold.it/300x100" alt="Logo" />
+
+				</div> <!-- sub footer -->
+
+				<footer class="site-copyright"> <!-- copyright -->
+
+					<span>&copy; Open Contracting Partnership 2016</span>
+
+					<a href="#">Site Information</a>
+
+					<a href="#">Feedback</a>
+
+					<a href="#">Terms</a>
+
+					<span>Website by <a href="http://theideabureau.co">The Idea Bureau</a></span>
+
+				</footer> <!-- copyright -->
+
+			</div> <!-- / .wrapper -->
+
+		</div> <!-- / .site-footer -->
 
 		<?php wp_footer(); ?>
-
-	</div> <!-- .wrapper -->
 
 	</body>
 

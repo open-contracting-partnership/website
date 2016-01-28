@@ -663,6 +663,11 @@ tbody tr {
 
 /*------------------------------------*    FOOTER
 \*------------------------------------*/
+.site-footer {
+  padding: 2em 0 4em;
+  color: #FFF;
+  background-color: #373738; }
+
 .site-footer a {
   color: #FFF;
   text-decoration: none; }

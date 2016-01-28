@@ -2,6 +2,12 @@
     FOOTER
 \*------------------------------------*/
 
+.site-footer {
+	padding: 2em 0 4em;
+	color: color('white');
+	background-color: color('dark-background');
+}
+
 .site-footer a {
 	color: color('white');
 	text-decoration: none;
