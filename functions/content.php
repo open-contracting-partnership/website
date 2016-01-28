@@ -41,7 +41,7 @@ function slugify($string) {
 	$string = trim($string, '-');
 
 	return $string;
-	
+
 }
 
 /**
@@ -262,5 +262,98 @@ function share_links() {
 		'facebook' => "https://www.facebook.com/sharer/sharer.php?u={$url}",
 		'linkedin' => "https://www.linkedin.com/cws/share?url={$url}"
 	);
+
+}
+
+function get_authors_by_count($limit = -1, $post_type = ['post']) {
+
+	global $wpdb;
+
+	$all_posts_query = "SELECT ID, post_author
+		FROM {$wpdb->posts}
+		WHERE post_type IN ('post');";
+
+	$custom_authors_query = "SELECT {$wpdb->postmeta}.*
+		FROM {$wpdb->postmeta}
+		JOIN {$wpdb->posts} ON {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id
+		WHERE meta_key LIKE 'authors_%'
+		AND {$wpdb->posts}.post_type IN ('post');";
+
+
+ 	$authors = array();
+	$post_authors = array();
+	$custom_post_authors = array();
+
+	// get all posts with their standard authors
+	foreach ( $wpdb->get_results($all_posts_query , OBJECT) as $author_post ) {
+		$post_authors[$author_post->ID] = $author_post->post_author;
+	}
+
+	// get all custom authors
+	foreach ( $wpdb->get_results($custom_authors_query , OBJECT) as $custom_author ) {
+
+		// if the field isn't a number, forget about it
+		if ( ! is_numeric($custom_author->meta_value) ) {
+			continue;
+		}
+
+		// pre-set an array on the first time round
+		if ( ! is_array($all_posts[$custom_author->post_id]) ) {
+			$all_posts[$custom_author->post_id] = array();
+		}
+
+		// append the author to the posts
+		$all_posts[$custom_author->post_id][] = (int) $custom_author->meta_value;
+
+	}
+
+	// reset each post_authors value to be an array
+	foreach ( $post_authors as $key => $value ) {
+
+		if ( ! is_array($value) ) {
+			$post_authors[$key] = [$value];
+		}
+
+ 	}
+
+ 	// reverse the array, authors first with sub-array of posts
+ 	foreach ( $post_authors as $post_id => $author_ids ) {
+
+ 		foreach ( $author_ids as $author_id ) {
+
+ 			if ( ! isset($authors[$author_id]) ) {
+ 				$authors[$author_id] = array();
+ 			}
+
+ 			$authors[$author_id][] = $post_id;
+
+ 		}
+
+ 	}
+
+ 	// transform the sub-array to a count
+ 	foreach ( $authors as $author_id => $author_posts ) {
+ 		$authors[$author_id] = count($author_posts);
+ 	}
+
+ 	// sort by the post count
+ 	arsort($authors);
+
+ 	if ( $limit > 0 ) {
+ 		$authors = array_slice($authors, 0, $limit, TRUE);
+ 	}
+
+ 	foreach ( $authors as $author_id => $post_count ) {
+
+ 		$authors[$author_id] = (object) array(
+ 			'id' => $author_id,
+ 			'post_count' => $post_count,
+ 			'display_name' => get_the_author_meta('display_name', $author_id),
+ 			'url' => get_author_posts_url($author_id)
+ 		);
+
+ 	}
+
+ 	return $authors;
 
 }

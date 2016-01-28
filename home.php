@@ -151,8 +151,22 @@
 
 	</div>
 
-	<section class="blog__authors">
-		#10 (desktop / tablet only)
-	</section>
+	<?php if ( $authors = get_authors_by_count(6) ) : ?>
+
+		<section class="blog__authors">
+
+			<h3 class="border-top">Posts by Author</h3>
+
+			<ul>
+
+				<?php foreach ( $authors as $author ) : ?>
+					<li><a href="<?php echo $author->url; ?>"><?php echo $author->display_name; ?> (<?php echo $author->post_count; ?>)</a></li>
+				<?php endforeach; ?>
+
+			</ul>
+
+		</section>
+
+	<?php endif; ?>
 
 <?php get_footer(); ?>
