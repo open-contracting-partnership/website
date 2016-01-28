@@ -1019,6 +1019,7 @@ input[type="submit"] {
       text-decoration: underline; }
 
 .heading-highlight h3,
+.heading-highlight h4,
 .highlight-text p,
 .highlight-text a {
   font-weight: 500;
@@ -1033,6 +1034,12 @@ input[type="submit"] {
           box-decoration-break: clone;
   line-height: 1.45;
   padding: 7px 0; }
+
+.heading-highlight--dark h4 {
+  color: #FFF;
+  background-color: #373738;
+  box-shadow: 0.57143rem 0 0 #373738, -0.57143rem 0 0 #373738;
+  margin-left: .3em; }
 
 /*------------------------------------*	ICONS
 \*------------------------------------*/
@@ -1169,6 +1176,28 @@ input[type="submit"] {
     font-size: 1.2rem;
     line-height: 1.16;
     margin-bottom: 0; }
+
+.post-object--featured .post-object--featured__title {
+  position: absolute;
+  bottom: 53px;
+  left: 16px;
+  right: 55px; }
+
+.post-object--featured .post-object__tag {
+  font-size: 18px;
+  font-size: 0.9rem;
+  position: static; }
+
+.post-object--featured h4 {
+  font-size: 32px;
+  font-size: 1.6rem;
+  line-height: 1.7; }
+
+.post-object--featured p {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 .related-posts {
   border-top: 1px solid #545456; }

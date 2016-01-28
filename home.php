@@ -25,9 +25,7 @@
 
 			<?php $exclude_ids[] = get_the_ID(); ?>
 
-			<article>
-				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-			</article>
+			<?php get_partial('post-object', 'vertical--featured'); ?>
 
 		<?php endforeach; ?>
 

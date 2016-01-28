@@ -121,3 +121,27 @@
 		margin-bottom: 0;
 	}
 }
+
+.post-object--featured {
+
+	.post-object--featured__title {
+		position: absolute;
+		bottom: 53px;
+		left: 16px;
+		right: 55px;
+	}
+
+	.post-object__tag {
+		@include font-size(18);
+		position: static;
+	}
+
+	h4 {
+		@include font-size(32);
+		line-height: 1.7;
+	}
+
+	p {
+		@include font(secondary);
+	}
+}
