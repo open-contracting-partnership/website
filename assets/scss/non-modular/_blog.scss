@@ -23,8 +23,25 @@
 	background: red;
 
 	@include mq(L) {
+
 		@include span(6 of 12 last);
+
+		.post-object {
+
+			@include span(3 of 6 first);
+
+			&:nth-child(2n) {
+				@include last();
+			}
+
+			&:nth-child(2n+1) {
+				@include break();
+			}
+
+		}
+
 	}
+
 
 }
 
@@ -57,7 +74,23 @@
 	background: lightblue;
 
 	@include mq(L) {
+
 		@include span(7 of 12);
+
+		.post-object {
+
+			@include span(3 of 6 first);
+
+			&:nth-child(2n) {
+				@include last();
+			}
+
+			&:nth-child(2n+1) {
+				@include break();
+			}
+
+		}
+
 	}
 
 }
@@ -95,7 +128,23 @@
 	}
 
 	@include mq(L) {
-		@include span(8 of 12 first);
+
+		@include span(9 of 12 first);
+
+		.post-object {
+
+			@include span(2 of 6 first);
+
+			&:nth-child(3n) {
+				@include last();
+			}
+
+			&:nth-child(3n+1) {
+				@include break();
+			}
+
+		}
+
 	}
 
 }
@@ -111,7 +160,7 @@
 	}
 
 	@include mq(L) {
-		@include span(4 of 12 last);
+		@include span(3 of 12 last);
 	}
 
 }

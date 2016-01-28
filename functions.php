@@ -1,6 +1,6 @@
 <?php // functions.php
 
- 
+
  //*****************
 // FUNCTIONS LOADER
 
@@ -24,4 +24,4 @@ add_theme_support('menus');
 add_image_size('standard_image', 100, 100, TRUE);
 
 // aspect ratio
-add_aspect_ratio('4x3', 100, 4, 3);
+add_aspect_ratio('2x1', 460, 2, 1);

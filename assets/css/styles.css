@@ -1081,7 +1081,6 @@ input[type="submit"] {
 
 .post-object {
   display: block;
-  clear: both;
   margin-bottom: 0.5em; }
   .post-object h4 {
     line-height: 1.25;
@@ -1297,7 +1296,16 @@ input[type="submit"] {
     .blog__recent {
       width: 49.15254%;
       float: right;
-      margin-right: 0; } }
+      margin-right: 0; }
+      .blog__recent .post-object {
+        width: 48.27586%;
+        float: left;
+        margin-right: 3.44828%; }
+        .blog__recent .post-object:nth-child(2n) {
+          float: right;
+          margin-right: 0; }
+        .blog__recent .post-object:nth-child(2n+1) {
+          clear: both; } }
 
 .blog__event-tablet {
   background: orange;
@@ -1320,7 +1328,16 @@ input[type="submit"] {
     .blog__news {
       width: 57.62712%;
       float: left;
-      margin-right: 1.69492%; } }
+      margin-right: 1.69492%; }
+      .blog__news .post-object {
+        width: 48.27586%;
+        float: left;
+        margin-right: 3.44828%; }
+        .blog__news .post-object:nth-child(2n) {
+          float: right;
+          margin-right: 0; }
+        .blog__news .post-object:nth-child(2n+1) {
+          clear: both; } }
 
 .blog__event-desktop {
   display: none;
@@ -1350,9 +1367,18 @@ input[type="submit"] {
       margin-right: 3.44828%; } }
   @media screen and (min-width: 1024px) {
     .blog__posts {
-      width: 66.10169%;
+      width: 74.57627%;
       float: left;
-      margin-right: 1.69492%; } }
+      margin-right: 1.69492%; }
+      .blog__posts .post-object {
+        width: 31.03448%;
+        float: left;
+        margin-right: 3.44828%; }
+        .blog__posts .post-object:nth-child(3n) {
+          float: right;
+          margin-right: 0; }
+        .blog__posts .post-object:nth-child(3n+1) {
+          clear: both; } }
 
 .blog__authors {
   background: pink;
@@ -1365,7 +1391,7 @@ input[type="submit"] {
       margin-right: 0; } }
   @media screen and (min-width: 1024px) {
     .blog__authors {
-      width: 32.20339%;
+      width: 23.72881%;
       float: right;
       margin-right: 0; } }
 

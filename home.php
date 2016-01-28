@@ -55,9 +55,7 @@
 
 			<?php $exclude_ids[] = get_the_ID(); ?>
 
-			<article>
-				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-			</article>
+			<?php get_partial('post-object', 'vertical'); ?>
 
 		<?php endforeach; ?>
 
@@ -83,23 +81,24 @@
 
 	<section class="blog__news">
 
-		<?php
+		<h2>Recent News</h2>
 
-			$recent_posts = new query_loop([
-				'post_type' => 'post',
-				'posts_per_page' => 9,
-				'post__not_in' => $exclude_ids
-			]);
+		<div>
 
-		?>
+			<?php
 
-		<?php foreach ( $recent_posts as $recent_post ) : ?>
+				$news_posts = new query_loop([
+					'post_type' => 'news',
+					'posts_per_page' => 4,
+				]);
 
-			<article>
-				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-			</article>
+			?>
 
-		<?php endforeach; ?>
+			<?php foreach ( $news_posts as $news_post ) : ?>
+				<?php get_partial('post-object', 'horizontal'); ?>
+			<?php endforeach; ?>
+
+		</div>
 
 	</section>
 
@@ -112,7 +111,21 @@
 	</div>
 
 	<div class="blog__posts">
-		#9
+
+		<?php
+
+			$recent_posts = new query_loop([
+				'post_type' => 'post',
+				'posts_per_page' => 9,
+				'post__not_in' => $exclude_ids
+			]);
+
+		?>
+
+		<?php foreach ( $recent_posts as $recent_post ) : ?>
+			<?php get_partial('post-object', 'vertical'); ?>
+		<?php endforeach; ?>
+
 	</div>
 
 	<section class="blog__authors">
