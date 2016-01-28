@@ -21,6 +21,7 @@ $colours: (
     'lighter-grey': #D5D5D7,
     'light-grey': #B7B7B7,
     'mid-grey': #69696B,
+    'dark-grey': #2D2D2D,
     'background': #545456,
     'dark-background': #373738,
 );
@@ -87,21 +88,20 @@ $susy: (
 
 $fonts: (
     primary: (
-        family: 'Open Sans',
+        family: 'proxima-nova-condensed',
         fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
         weights: (
-            light: 300,
             regular: 400,
-            semibold: 600,
             bold: 700
         ),
-        typekit: true
+        typekit: false
     ),
     secondary: (
-        family: 'Gotham',
-        fallback: 'Courier, "Times New Roman", serif',
+        family: 'stratum-1-web',
+        fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
         weights: (
             regular: 400,
+            medium: 500,
             bold: 700
         ),
         typekit: false

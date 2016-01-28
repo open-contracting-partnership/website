@@ -15,9 +15,9 @@ h5,
 .epsilon,
 h6,
 .zeta {
-	@include font;
+	@include font(secondary, medium);
 	margin-bottom: $space;
-	line-height: $space;
+	line-height: strip-unit($space);
 
 	&.has-strap {
 		margin-bottom: .625em;
@@ -71,6 +71,7 @@ h5,
 }
 
 .border-top {
+	@include font(secondary, bold);
 	@include font-size(16);
 	text-transform: uppercase;
 	border-top: 1px solid color('lighter-grey');

@@ -39,7 +39,7 @@ input[type="week"],
 input[type="datetime"],
 input[type="datetime-local"],
 textarea {
-	@include font(primary, regular);
+	@include font;
 	@include font-size(16);
 	padding: em(10);
 	width: 100%;
@@ -55,7 +55,7 @@ input[type="color"] {
 }
 
 textarea {
-	line-height: $space;
+	line-height: strip-unit($space);
 }
 
 input[type="text"],

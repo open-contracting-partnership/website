@@ -1,12 +1,21 @@
 // .heading-highlight,
 .heading-highlight h3,
+.heading-highlight h4,
 .highlight-text p,
 .highlight-text a {
+	@include font(secondary, medium);
 	display: inline;
 	color: color('white');
 	background-color: color('brand-dark');
 	box-shadow: .57143rem 0 0 color('brand-dark'), -.57143rem 0 0 color('brand-dark');
 	box-decoration-break: clone; // FF32 Fix - https://css-tricks.com/multi-line-padded-text/
 	line-height: 1.45;
-	padding: 5px 0;
+	padding: 7px 0;
+}
+
+.heading-highlight--dark h4 {
+	color: color('white');
+	background-color: color('dark-background');
+	box-shadow: .57143rem 0 0 color('dark-background'), -.57143rem 0 0 color('dark-background');
+	margin-left: .3em;
 }

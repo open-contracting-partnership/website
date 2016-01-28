@@ -22,6 +22,7 @@
 
 	&:hover,
 	&:active {
+		text-decoration: none;
 
 		h4 {
 			text-decoration: underline;
@@ -29,6 +30,7 @@
 	}
 
 	&:focus {
+		text-decoration: none;
 
 		h4 {
 			text-decoration: none;
@@ -51,7 +53,10 @@
 	}
 
 	.post-object__tag {
-		padding: em(9) em(21);
+		@include font(secondary);
+		@include font-size(16)
+		text-transform: uppercase;
+		padding: em(9, 16) em(21, 16);
 		background-color: color('dark-background');
 
 		@include mq(M) {
@@ -75,5 +80,68 @@
 
 	p {
 		@include font-size(16);
+	}
+}
+
+.post-object--light {
+	color: color('dark-grey');
+
+	.post-object__tag {
+		color: color('white');
+
+		@include mq(M) {
+			bottom: 0;
+		}
+	}
+
+	.post-object__content {
+		background-color: color('white');
+		border: 1px solid color('lighter-grey');
+	}
+
+	.post-object__content-meta {
+		@include font-size(14);
+		color: color('mid-grey');
+		text-transform: uppercase;
+		margin-bottom: em(21, 14);
+	}
+
+	.post-object__author {
+		margin-right: em(11, 14);
+	}
+
+	.post-object__comment-count {
+		float: right;
+	}
+
+	h4 {
+		@include font(secondary);
+		@include font-size(24);
+		line-height: 1.16;
+		margin-bottom: 0;
+	}
+}
+
+.post-object--featured {
+
+	.post-object--featured__title {
+		position: absolute;
+		bottom: 53px;
+		left: 16px;
+		right: 55px;
+	}
+
+	.post-object__tag {
+		@include font-size(18);
+		position: static;
+	}
+
+	h4 {
+		@include font-size(32);
+		line-height: 1.7;
+	}
+
+	p {
+		@include font(secondary);
 	}
 }
