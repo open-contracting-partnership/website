@@ -71,6 +71,7 @@ h5,
 }
 
 .border-top {
+	@include font(secondary, bold);
 	@include font-size(16);
 	text-transform: uppercase;
 	border-top: 1px solid color('lighter-grey');

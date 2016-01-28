@@ -5,6 +5,7 @@
 .button,
 button,
 input[type="submit"] {
+	@include font(secondary);
 	@include font-size(14);
 	display: inline-block;
 	border: 1px solid;

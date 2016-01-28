@@ -349,6 +349,10 @@ h5,
   font-size: 0.9rem; }
 
 .border-top {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -707,6 +711,10 @@ tbody tr {
 /*------------------------------------*	HEADER
 \*------------------------------------*/
 .site-header {
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #373738; }
   .home .site-header {
     border-bottom: 1px solid #69696B; }
@@ -885,6 +893,10 @@ aside,
 .button,
 button,
 input[type="submit"] {
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-size: 0.7rem;
   display: inline-block;
@@ -1009,6 +1021,10 @@ input[type="submit"] {
 .heading-highlight h3,
 .highlight-text p,
 .highlight-text a {
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: inline;
   color: #FFF;
   background-color: #9BAF00;
@@ -1016,7 +1032,7 @@ input[type="submit"] {
   -webkit-box-decoration-break: clone;
           box-decoration-break: clone;
   line-height: 1.45;
-  padding: 5px 0; }
+  padding: 7px 0; }
 
 /*------------------------------------*	ICONS
 \*------------------------------------*/

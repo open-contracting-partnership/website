@@ -3,6 +3,7 @@
 \*------------------------------------*/
 
 .site-header {
+	@include font(secondary);
 	background-color: color('dark-background');
 
 	.home & {
