@@ -23,7 +23,7 @@
 	<div class="post-object__content">
 
 		<div class="post-object__content-meta">
-			<span class="post-object__author">By Kathryn Chen</span>
+			<span class="post-object__author">By <?php the_authors(FALSE); ?></span>
 			<span class="post-object__age">3 Days ago</span>
 		</div>
 
