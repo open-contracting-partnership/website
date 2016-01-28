@@ -25,13 +25,36 @@
 
 			<?php $exclude_ids[] = get_the_ID(); ?>
 
-			<article>
-				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-			</article>
+			<?php get_partial('post-object', 'featured'); ?>
 
 		<?php endforeach; ?>
 
-		&nbsp;
+		<?php
+
+			$popular_tags = get_terms('post_tag', [
+				'orderby' => 'count',
+				'number' => 15
+			]);
+
+		?>
+
+		<?php if ( $popular_tags ) : ?>
+
+			<section>
+
+				<h2>Popular Tags</h2>
+
+				<ul class="button__list">
+
+					<?php foreach ( $popular_tags as $popular_tag ) : ?>
+						<li><a href="<?php echo get_term_link($popular_tag); ?>" class="button button--uppercase button--thick"><?php echo $popular_tag->name; ?></a></li>
+					<?php endforeach; ?>
+
+				</ul>
+
+			</section>
+
+		<?php endif; ?>
 
 	</div>
 
