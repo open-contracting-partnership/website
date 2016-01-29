@@ -93,3 +93,11 @@ h5,
 		background-color: color('brand');
 	}
 }
+
+.border-top--dark {
+	border-top: 0;
+
+	&:before {
+		background-color: color('brand-dark');
+	}
+}

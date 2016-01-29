@@ -90,7 +90,7 @@
 
 			<div class="blog__filter__selector">
 
-				<h3 class="border-top">Filter posts by issue</h3>
+				<h3 class="border-top border-top--dark">Filter posts by issue</h3>
 
 				<form class="custom-radio" action="#" method="post">
 					<label><input type="radio" name="blog-filter"><span></span>Construction</label>
