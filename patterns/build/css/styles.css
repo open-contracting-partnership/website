@@ -124,3 +124,19 @@ body {
 .sg-panel__description {
   font-size: .8rem;
   color: #878a8c; }
+
+.sg-colour {
+  position: relative;
+  min-height: 100px;
+  margin-bottom: 1em;
+  padding: 10px 10px 10px 110px; }
+  .sg-colour:last-child {
+    margin-bottom: 0; }
+
+.sg-colour__sample {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  height: 100px;
+  width: 100px; }

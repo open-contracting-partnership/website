@@ -42,7 +42,7 @@ function onError(err) {
 
 gulp.task('templates', function() {
 
-	gulp.src('patterns/templates/**/*.html')
+	gulp.src(['patterns/templates/**/*.html', 'patterns/templates/**/*.json'])
 		.pipe(patternLibrary({
 			filename: 'paths.json'
 		}))
@@ -182,7 +182,7 @@ gulp.task('watch', function () {
 	livereload.listen();
 
 	// boilerplate
-	gulp.watch('patterns/templates/**/*.html', ['templates']);
+	gulp.watch(['patterns/templates/**/*.html', 'patterns/templates/**/*.json'], ['templates']);
 	gulp.watch('assets/scss/**/*.scss', ['scss', 'scss-lint', 'modernizr']);
 	gulp.watch('assets/js/*.js', ['js', 'modernizr']);
 

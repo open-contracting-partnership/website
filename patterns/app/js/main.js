@@ -113,6 +113,52 @@ var flattenTree = function(tree) {
 
 };
 
+var parseComponent = function(file) {
+
+	var component = JSON.parse(file.contents),
+		html = '';
+
+	if ( component.type === 'colours' ) {
+
+		// loop through the colours, outputting the markup for each
+		component.colours.forEach(function(colour) {
+			html += '<div class="sg-colour"><div class="sg-colour__sample" style="background-color: ' + colour.hex + ';"></div><p>' + colour.label + '</p><p>' + colour.hex.toUpperCase() + '</p></div>'
+		});
+
+	}
+
+	file.contents = html;
+
+	return file;
+
+};
+
+var parseComponents = function(data) {
+
+	$.each(data.items, function(key, value) {
+
+		if ( typeof value.items !== "undefined" ) {
+
+			parseComponents(value);
+
+		} else {
+
+			// set if the pattern is a component or not
+			value.isComponent = value.filepath.match('\.json$') !== null;
+
+			// if it is, parse the contents
+			if ( value.filepath.match('\.json$') ) {
+				value = parseComponent(value);
+			}
+
+		}
+
+	});
+
+	return data;
+
+};
+
 // define the item component
 Vue.component('tree', {
 	template: '#item-template',
@@ -218,7 +264,7 @@ var demo = new Vue({
 
 			css = '';
 
-			$.get('/assets/css/styles.min.css', function(data) {
+			$.get(css_url, function(data) {
 
 				// apply the response to the css var
 				css = data;
@@ -248,6 +294,9 @@ var demo = new Vue({
 
 			$.getJSON('./paths.json').done(function(data) {
 
+				// run the data through a parser to capture colours, type etc
+				data = parseComponents(data);
+
 				// apply the file structure to the vue app
 				demo.treeData = data;
 
@@ -262,6 +311,3 @@ var demo = new Vue({
 		}
 	}
 });
-
-
-

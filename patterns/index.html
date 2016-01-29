@@ -105,7 +105,7 @@
 			<div class="sg-panel sg-panel__example">
 
 				<div>
-					<style scoped></style>
+					<style scoped v-if="pattern.isComponent !== true"></style>
 					<div v-html="pattern.contents"></div>
 				</div>
 
