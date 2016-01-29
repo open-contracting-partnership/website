@@ -124,6 +124,41 @@ input[type="email"].not-valid {
 }
 
 
+ //******
+// RADIO
+
+.custom-radio {
+
+	input[type="radio"] {
+		display: none;
+	}
+
+	label {
+		@include font(secondary, bold);
+		@include font-size(14);
+		color: color('background');
+		margin-bottom: 1.4em;
+	}
+
+	span {
+		content: '';
+		display: inline-block;
+		width: 2em;
+		height: 2em;
+		border: 1em solid color('off-white');
+		outline: 1px solid;
+		margin-right: 1.35em;
+		vertical-align: middle;
+		transition: border-width ease .1s;
+	}
+
+	input[type="radio"]:checked + span {
+		background-color: currentColor;
+		border-width: .2em;
+	}
+}
+
+
  //*******************
 // PLACEHOLDER STYLES
 

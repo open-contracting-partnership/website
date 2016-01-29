@@ -92,16 +92,14 @@
 
 				<h3 class="border-top">Filter posts by issue</h3>
 
-				<form class="" action="index.html" method="post">
-					<ul>
-						<li><input type="radio" name="construction" value=""><label for="construction">Construction</label></li>
-						<li><input type="radio" name="land" value=""><label for="land">Land</label></li>
-						<li><input type="radio" name="health" value=""><label for="health">Health</label></li>
-						<li><input type="radio" name="water" value=""><label for="water">Water</label></li>
-						<li><input type="radio" name="natural-resources" value=""><label for="natural-resources">Natural Resources</label></li>
-						<li><input type="radio" name="education" value=""><label for="education">Education</label></li>
-						<li><input type="radio" name="procurement-law" value=""><label for="procurement-law">Procurement Law</label></li>
-					</ul>
+				<form class="custom-radio" action="index.html" method="post">
+					<label><input type="radio" name="blog-filter"><span></span>Construction</label>
+					<label><input type="radio" name="blog-filter"><span></span>Land</label>
+					<label><input type="radio" name="blog-filter"><span></span>Health</label>
+					<label><input type="radio" name="blog-filter"><span></span>Water</label>
+					<label><input type="radio" name="blog-filter"><span></span>Natural Resources</label>
+					<label><input type="radio" name="blog-filter"><span></span>Education</label>
+					<label><input type="radio" name="blog-filter"><span></span>Procurement Law</label>
 				</form>
 
 			</div>

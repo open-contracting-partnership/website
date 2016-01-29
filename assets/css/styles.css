@@ -524,6 +524,35 @@ textarea:focus {
     border: 0;
     color: currentColor; }
 
+.custom-radio input[type="radio"] {
+  display: none; }
+
+.custom-radio label {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 0.7rem;
+  color: #545456;
+  margin-bottom: 1.4em; }
+
+.custom-radio span {
+  content: '';
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  border: 1em solid #F6F6F6;
+  outline: 1px solid;
+  margin-right: 1.35em;
+  vertical-align: middle;
+  -webkit-transition: border-width ease .1s;
+          transition: border-width ease .1s; }
+
+.custom-radio input[type="radio"]:checked + span {
+  background-color: currentColor;
+  border-width: .2em; }
+
 ::-webkit-input-placeholder {
   /* Safari, Chrome and Opera */
   color: currentColor; }
@@ -1465,19 +1494,6 @@ input[type="submit"] {
     width: 23.72881%;
     float: left;
     margin-right: 1.69492%; }
-    .blog__filter .blog__filter__selector ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0; }
-    .blog__filter .blog__filter__selector li {
-      display: block;
-      overflow: hidden;
-      margin-bottom: 1em; }
-    .blog__filter .blog__filter__selector input,
-    .blog__filter .blog__filter__selector label {
-      float: left; }
-    .blog__filter .blog__filter__selector input {
-      margin-right: 1em; }
   .blog__filter .post-object {
     width: 23.72881%;
     float: left;
