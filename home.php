@@ -92,7 +92,7 @@
 
 				<h3 class="border-top">Filter posts by issue</h3>
 
-				<form class="custom-radio" action="index.html" method="post">
+				<form class="custom-radio" action="#" method="post">
 					<label><input type="radio" name="blog-filter"><span></span>Construction</label>
 					<label><input type="radio" name="blog-filter"><span></span>Land</label>
 					<label><input type="radio" name="blog-filter"><span></span>Health</label>
