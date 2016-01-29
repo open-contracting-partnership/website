@@ -43,10 +43,10 @@
 
 				<h3 class="border-top">Relevant Resources</h3>
 
-				<ul>
-					<li>Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper.</li>
-					<li>Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper.</li>
-					<li>Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper.</li>
+				<ul class="relevant-resources">
+					<li><a href="#">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper.</a></li>
+					<li><a href="#">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper.</a></li>
+					<li><a href="#">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper.</a></li>
 				</ul>
 
 			</section>

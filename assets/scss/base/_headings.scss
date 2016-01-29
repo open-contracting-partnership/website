@@ -101,3 +101,11 @@ h5,
 		background-color: color('brand-dark');
 	}
 }
+
+.coloured {
+	@include font(secondary);
+	display: inline-block;
+	background-color: color('brand-dark');
+	color: color('white');
+	padding: .5rem;
+}

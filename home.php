@@ -4,7 +4,11 @@
 
 	<?php $exclude_ids = []; ?>
 
-	<div class="blog__featured">
+	<div>
+		<h3 class="coloured">Recent Posts</h3>
+	</div>
+
+	<div class="blog__featured / band band--thick">
 
 		<?php
 
@@ -25,7 +29,9 @@
 
 			<?php $exclude_ids[] = get_the_ID(); ?>
 
-			<?php get_partial('post-object', 'vertical--featured'); ?>
+			<article class="band band--thick">
+				<?php get_partial('post-object', 'vertical--featured'); ?>
+			</article>
 
 		<?php endforeach; ?>
 
@@ -42,7 +48,7 @@
 
 			<section>
 
-				<h2>Popular Tags</h2>
+				<h3 class="coloured">Popular Tags</h3>
 
 				<ul class="button__list">
 
@@ -212,15 +218,15 @@
 				<p><?php echo $topic->name; ?></p>
 			<?php endforeach; ?>
 
-			<h2>Topic Highlights</h2>
+			<h3 class="coloured">Topic Highlights</h3>
 
 		</section>
 
 	<?php endif; ?>
 
-	<section class="blog__news">
+	<section class="blog__news / band band--thick">
 
-		<h2>Recent News</h2>
+		<h3 class="coloured">Recent News</h3>
 
 		<div>
 
@@ -250,6 +256,10 @@
 	</div>
 
 	<div class="blog__posts">
+
+		<div>
+			<h3 class="coloured">More Blogs</h3>
+		</div>
 
 		<?php
 

@@ -376,6 +376,16 @@ h5,
   .border-top--dark:before {
     background-color: #9BAF00; }
 
+.coloured {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: inline-block;
+  background-color: #9BAF00;
+  color: #FFF;
+  padding: .5rem; }
+
 /*------------------------------------*	LISTS
 \*------------------------------------*/
 ul {
@@ -1250,6 +1260,29 @@ input[type="submit"] {
   border-left: solid 0.5em transparent;
   float: left;
   margin-bottom: 0.5em; }
+
+.relevant-resources {
+  margin: 0;
+  padding: 0; }
+  .relevant-resources li {
+    display: block;
+    margin-bottom: 1rem;
+    margin-left: .6em; }
+  .relevant-resources a {
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-size: 0.8rem;
+    display: inline;
+    color: #FFF;
+    background-color: #9BAF00;
+    box-shadow: 0.57143rem 0 0 #9BAF00, -0.57143rem 0 0 #9BAF00;
+    -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+    line-height: 2.15;
+    padding: 7px 0; }
 
 .resource {
   width: 33%;
