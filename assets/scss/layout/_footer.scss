@@ -6,19 +6,19 @@
 	padding: 2em 0 4em;
 	color: color('white');
 	background-color: color('dark-background');
-}
 
-.site-footer a {
-	color: color('white');
-	text-decoration: none;
-
-	&:hover,
-	&:focus {
-		text-decoration: underline;
-	}
-
-	&:active {
+	a {
+		color: color('white');
 		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+
+		&:active {
+			text-decoration: none;
+		}
 	}
 }
 

@@ -72,7 +72,7 @@ nav h4 {
 	}
 
 	li:last-child {
-		border-right: none;
+		border-right: 0;
 		padding-right: 0;
 	}
 
@@ -96,6 +96,6 @@ nav h4 {
 	}
 
 	.nav--horizontal:last-child li {
-		border: none;
+		border: 0;
 	}
 }
