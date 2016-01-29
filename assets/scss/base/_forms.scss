@@ -48,6 +48,12 @@ textarea {
 	color: color('brand');
 	background-color: transparent;
 	border-radius: 0;
+
+	&:hover,
+	&:focus {
+		box-shadow: none;
+		outline: none;
+	}
 }
 
 input[type="color"] {
@@ -56,29 +62,6 @@ input[type="color"] {
 
 textarea {
 	line-height: strip-unit($space);
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="search"],
-input[type="url"],
-input[type="number"],
-input[type="color"],
-input[type="number"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="datetime"],
-input[type="datetime-local"],
-textarea {
-
-	&:hover,
-	&:focus {
-		box-shadow: none;
-		outline: none;
-	}
 }
 
 input[type="text"].valid,
@@ -120,6 +103,41 @@ input[type="email"].not-valid {
 		right: 0;
 		border: 0;
 		color: currentColor;
+	}
+}
+
+
+ //******
+// RADIO
+
+.custom-radio {
+
+	input[type="radio"] {
+		display: none;
+	}
+
+	label {
+		@include font(secondary, bold);
+		@include font-size(14);
+		color: color('background');
+		margin-bottom: 1.4em;
+	}
+
+	span {
+		content: '';
+		display: inline-block;
+		width: 2em;
+		height: 2em;
+		border: 1em solid color('off-white');
+		outline: 1px solid;
+		margin-right: 1.35em;
+		vertical-align: middle;
+		transition: border-width ease .1s;
+	}
+
+	input[type="radio"]:checked + span {
+		background-color: currentColor;
+		border-width: .2em;
 	}
 }
 

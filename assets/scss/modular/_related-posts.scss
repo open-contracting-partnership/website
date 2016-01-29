@@ -1,11 +1,11 @@
 .related-posts {
 	border-top: 1px solid color('background');
-}
 
-.related-posts h2 {
-	text-transform: uppercase;
-	margin: em(55) 0;
-	text-align: center;
+	h2 {
+		text-transform: uppercase;
+		margin: em(55) 0;
+		text-align: center;
+	}
 }
 
 .related-posts__inner {

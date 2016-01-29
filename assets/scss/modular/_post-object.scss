@@ -1,6 +1,7 @@
 .post-object {
 	display: block;
 	margin-bottom: em(10);
+	text-decoration: none;
 
 	h4 {
 		line-height: 1.25;
@@ -10,15 +11,6 @@
 	p {
 		margin-bottom: 0;
 	}
-}
-
-.home .post-object {
-	background-color: color('dark-background');
-	color: color('white');
-}
-
-.post-object {
-	text-decoration: none;
 
 	&:hover,
 	&:active {
@@ -38,6 +30,11 @@
 	}
 }
 
+.home .post-object {
+	background-color: color('dark-background');
+	color: color('white');
+}
+
 .post-object__content {
 	padding-top: em(9);
 }
@@ -54,7 +51,7 @@
 
 	.post-object__tag {
 		@include font(secondary);
-		@include font-size(16)
+		@include font-size(16);
 		text-transform: uppercase;
 		padding: em(9, 16) em(21, 16);
 		background-color: color('dark-background');

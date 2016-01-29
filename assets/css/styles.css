@@ -143,7 +143,7 @@ em {
 
 blockquote {
   padding: 0  0 0 1.5rem;
-  margin: 0 0 1.5em 0;
+  margin: 0 0 1.5em;
   border-left: 10px solid #D6E100; }
   blockquote p {
     font-weight: 400;
@@ -462,44 +462,43 @@ textarea {
   color: #D6E100;
   background-color: transparent;
   border-radius: 0; }
+  input[type="text"]:hover, input[type="text"]:focus,
+  input[type="email"]:hover,
+  input[type="email"]:focus,
+  input[type="password"]:hover,
+  input[type="password"]:focus,
+  input[type="search"]:hover,
+  input[type="search"]:focus,
+  input[type="url"]:hover,
+  input[type="url"]:focus,
+  input[type="number"]:hover,
+  input[type="number"]:focus,
+  input[type="color"]:hover,
+  input[type="color"]:focus,
+  input[type="number"]:hover,
+  input[type="number"]:focus,
+  input[type="range"]:hover,
+  input[type="range"]:focus,
+  input[type="date"]:hover,
+  input[type="date"]:focus,
+  input[type="month"]:hover,
+  input[type="month"]:focus,
+  input[type="week"]:hover,
+  input[type="week"]:focus,
+  input[type="datetime"]:hover,
+  input[type="datetime"]:focus,
+  input[type="datetime-local"]:hover,
+  input[type="datetime-local"]:focus,
+  textarea:hover,
+  textarea:focus {
+    box-shadow: none;
+    outline: none; }
 
 input[type="color"] {
   width: auto; }
 
 textarea {
   line-height: 1.4; }
-
-input[type="text"]:hover, input[type="text"]:focus,
-input[type="email"]:hover,
-input[type="email"]:focus,
-input[type="password"]:hover,
-input[type="password"]:focus,
-input[type="search"]:hover,
-input[type="search"]:focus,
-input[type="url"]:hover,
-input[type="url"]:focus,
-input[type="number"]:hover,
-input[type="number"]:focus,
-input[type="color"]:hover,
-input[type="color"]:focus,
-input[type="number"]:hover,
-input[type="number"]:focus,
-input[type="range"]:hover,
-input[type="range"]:focus,
-input[type="date"]:hover,
-input[type="date"]:focus,
-input[type="month"]:hover,
-input[type="month"]:focus,
-input[type="week"]:hover,
-input[type="week"]:focus,
-input[type="datetime"]:hover,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:hover,
-input[type="datetime-local"]:focus,
-textarea:hover,
-textarea:focus {
-  box-shadow: none;
-  outline: none; }
 
 .search {
   color: #000;
@@ -523,6 +522,35 @@ textarea:focus {
     right: 0;
     border: 0;
     color: currentColor; }
+
+.custom-radio input[type="radio"] {
+  display: none; }
+
+.custom-radio label {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 0.7rem;
+  color: #545456;
+  margin-bottom: 1.4em; }
+
+.custom-radio span {
+  content: '';
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  border: 1em solid #F6F6F6;
+  outline: 1px solid;
+  margin-right: 1.35em;
+  vertical-align: middle;
+  -webkit-transition: border-width ease .1s;
+          transition: border-width ease .1s; }
+
+.custom-radio input[type="radio"]:checked + span {
+  background-color: currentColor;
+  border-width: .2em; }
 
 ::-webkit-input-placeholder {
   /* Safari, Chrome and Opera */
@@ -652,9 +680,6 @@ tbody tr {
 .band--double-thick {
   margin-bottom: 5.6em; }
 
-.band--double-thick {
-  margin-bottom: 5.6em; }
-
 .band--section {
   margin-bottom: 6rem; }
 
@@ -667,14 +692,13 @@ tbody tr {
   padding: 2em 0 4em;
   color: #FFF;
   background-color: #373738; }
-
-.site-footer a {
-  color: #FFF;
-  text-decoration: none; }
-  .site-footer a:hover, .site-footer a:focus {
-    text-decoration: underline; }
-  .site-footer a:active {
+  .site-footer a {
+    color: #FFF;
     text-decoration: none; }
+    .site-footer a:hover, .site-footer a:focus {
+      text-decoration: underline; }
+    .site-footer a:active {
+      text-decoration: none; }
 
 .site-footer,
 .sub-footer,
@@ -855,7 +879,7 @@ nav h4 {
   .primary-nav li:first-child {
     padding-left: 0; }
   .primary-nav li:last-child {
-    border-right: none;
+    border-right: 0;
     padding-right: 0; }
   .primary-nav a {
     font-size: 18px;
@@ -870,7 +894,7 @@ nav h4 {
     text-decoration: none;
     border-bottom-color: #D6E100; }
   .primary-nav .nav--horizontal:last-child li {
-    border: none; }
+    border: 0; }
 
 /*------------------------------------*    SIDEBAR
 \*------------------------------------*/
@@ -1005,7 +1029,7 @@ input[type="submit"] {
   max-width: 1.5rem; }
 
 .button--white {
-  color: #FFFFFF; }
+  color: #FFF; }
 
 .cta-list {
   border-top: 1px solid #FFF;
@@ -1096,19 +1120,13 @@ input[type="submit"] {
 
 .post-object {
   display: block;
-  margin-bottom: 0.5em; }
+  margin-bottom: 0.5em;
+  text-decoration: none; }
   .post-object h4 {
     line-height: 1.25;
     margin-bottom: 1em; }
   .post-object p {
     margin-bottom: 0; }
-
-.home .post-object {
-  background-color: #373738;
-  color: #FFF; }
-
-.post-object {
-  text-decoration: none; }
   .post-object:hover, .post-object:active {
     text-decoration: none; }
     .post-object:hover h4, .post-object:active h4 {
@@ -1117,6 +1135,10 @@ input[type="submit"] {
     text-decoration: none; }
     .post-object:focus h4 {
       text-decoration: none; }
+
+.home .post-object {
+  background-color: #373738;
+  color: #FFF; }
 
 .post-object__content {
   padding-top: 0.45em; }
@@ -1210,11 +1232,10 @@ input[type="submit"] {
 
 .related-posts {
   border-top: 1px solid #545456; }
-
-.related-posts h2 {
-  text-transform: uppercase;
-  margin: 2.75em 0;
-  text-align: center; }
+  .related-posts h2 {
+    text-transform: uppercase;
+    margin: 2.75em 0;
+    text-align: center; }
 
 .related-posts__inner {
   margin-left: -0.5em; }
@@ -1465,19 +1486,6 @@ input[type="submit"] {
     width: 23.72881%;
     float: left;
     margin-right: 1.69492%; }
-    .blog__filter .blog__filter__selector ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0; }
-    .blog__filter .blog__filter__selector li {
-      display: block;
-      overflow: hidden;
-      margin-bottom: 1em; }
-    .blog__filter .blog__filter__selector input,
-    .blog__filter .blog__filter__selector label {
-      float: left; }
-    .blog__filter .blog__filter__selector input {
-      margin-right: 1em; }
   .blog__filter .post-object {
     width: 23.72881%;
     float: left;
