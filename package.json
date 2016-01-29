@@ -18,7 +18,7 @@
     "gulp-scss-lint": "^0.2.2",
     "gulp-svgmin": "^1.2.0",
     "gulp-svgstore": "^5.0.5",
-    "gulp-theideabureau-pattern-library": "^0.1.5",
+    "gulp-theideabureau-pattern-library": "^0.1.7",
     "gulp-uglify": "^1.2.0",
     "gulp-watch": "^4.2.4",
     "jshint-stylish": "^1.0.2",
