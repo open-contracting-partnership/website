@@ -5,7 +5,14 @@
 	}
 
 	.resource__header {
-		padding: em(145) em(180) 0;
+
+		padding-top: em(145);
+
+		@include mq(L) {
+			padding-right: em(180);
+			padding-left: em(180);
+		}
+
 	}
 
 }
@@ -31,7 +38,6 @@
 		@include font-size(18);
 		@include font('secondary', 'bold');
 
-		@include span(3 of 12);
 
 		height: em(92, 18);
 		padding: em(21, 18);
@@ -41,8 +47,35 @@
 		margin-bottom: em(10);
 	}
 
-	label:nth-of-type(4n) {
-		@include last();
+	// grids
+
+
+	label {
+
+		@include mq(M) {
+
+			@include span(2 of 4);
+
+			&:nth-of-type(2n) {
+				@include last();
+			}
+
+		}
+
+		@include mq(L) {
+
+			@include span(3 of 12);
+
+			&:nth-of-type(2n) {
+				@include span(3 of 12);
+			}
+
+			&:nth-of-type(4n) {
+				@include last();
+			}
+
+		}
+
 	}
 
 }
@@ -94,7 +127,11 @@
 }
 
 .resource-search__container {
-	padding: 0 em(130);
+
+	@include mq(L) {
+		padding: 0 em(130);
+	}
+
 }
 
 input[type="search"].resource-search {
