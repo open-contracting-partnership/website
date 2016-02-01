@@ -294,6 +294,9 @@ Vue.filter('objectValues', function (object) {
 
 		</script>
 
+		<?php get_partial('post-object', 'horizontal-resource'); ?>
+
+
 	</div> <!-- / #resources -->
 
 <?php get_footer(); ?>
