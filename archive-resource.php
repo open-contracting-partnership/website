@@ -25,13 +25,13 @@
 
 				<div class="resource__header">
 
-					<div class="resource-search__container">
-						<input type="search" placeholder="Search" v-model="search" class="resource-search">
+					<div class="resource-search__container active">
+						<input type="search" placeholder="Search for resources" v-model="search" class="resource-search">
 					</div>
 
 					<p class="resources__popular">This week's popular items are <a href="#">report 1</a>, <a href="#">report 2</a> and <a href="#">report 3</a></p>
 
-					<div class="resource__filter-container">
+					<div class="resource__filter-container" v-bind:class="{ 'active': display_filter }">
 
 						<div class="resource__filter">
 
@@ -65,16 +65,19 @@
 								<input type="checkbox" value="2016" v-model="filter_years" />
 							</label>
 
-						</div>
-
-						<div class="resource__filter">
-
 							<label v-for="resource_type in resource_types">
 								<input type="checkbox" value="{{ resource_type.slug }}" v-model="filter_resource_type" />
 								{{ resource_type.name }}
 							</label>
 
 						</div>
+
+						<p class="resource__filter-actions">
+							<a href="#" class="button button--solid-white button--solid" v-on:click.prevent="display_filter = false">Close Filter</a>
+							<a href="#" class="resource__filter-reset">Reset</a>
+						</p>
+
+						<a href="#" v-on:click.prevent="display_filter = true" class="resource__filter-button / button button--solid-white">Filter Results</a>
 
 					</div> <!-- / .resource__filter-container -->
 
@@ -160,8 +163,11 @@ Vue.filter('objectValues', function (object) {
 				el: '#resources',
 
 				data: {
+					// data
 					resources: <?php echo json_encode($resources); ?>,
 					resource_types: <?php echo json_encode($resource_types); ?>,
+					// state
+					display_filter: false,
 					// search and filters
 					search: '',
 					filter_years: [],

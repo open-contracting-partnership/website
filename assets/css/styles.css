@@ -1089,11 +1089,21 @@ input[type="submit"] {
 .button--dark {
   color: #2D2D2D; }
 
-.button--bg-white {
-  background-color: #FFF; }
+.button--solid-white {
+  background-color: #FFF;
+  border-color: #FFF;
+  color: #2D2D2D; }
+  .button--solid-white:hover, .button--solid-white:focus, .button--solid-white:active {
+    color: #2D2D2D;
+    text-decoration: underline; }
 
-.button--bg-dark {
-  background-color: #2D2D2D; }
+.button--solid-dark {
+  background-color: #2D2D2D;
+  border-color: #2D2D2D;
+  color: #FFF; }
+  .button--solid-dark:hover, .button--solid-dark:focus, .button--solid-dark:active {
+    color: #FFF;
+    text-decoration: underline; }
 
 .cta-list {
   border-top: 1px solid #FFF;
@@ -1650,39 +1660,42 @@ input[type="submit"] {
     color: #FFF;
     text-decoration: underline; }
 
-.resource__filter label {
-  font-size: 18px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  height: 5.11111em;
-  padding: 1.16667em;
-  color: #545456;
-  background-color: #FFF;
-  border-bottom: 3px solid #999;
-  margin-bottom: 0.5em; }
-  @media screen and (min-width: 640px) {
-    .resource__filter label {
-      width: 48.57143%;
-      float: left;
-      margin-right: 2.85714%; }
-      .resource__filter label:nth-of-type(2n) {
-        float: right;
-        margin-right: 0; } }
-  @media screen and (min-width: 1024px) {
-    .resource__filter label {
-      width: 24.29907%;
-      float: left;
-      margin-right: 0.93458%; }
-      .resource__filter label:nth-of-type(2n) {
+.resource__filter {
+  overflow: hidden;
+  margin-bottom: 2.3em; }
+  .resource__filter label {
+    font-size: 18px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 5.11111em;
+    padding: 1.16667em;
+    color: #545456;
+    background-color: #FFF;
+    border-bottom: 3px solid #999;
+    margin-bottom: 0.5em; }
+    @media screen and (min-width: 640px) {
+      .resource__filter label {
+        width: 48.57143%;
+        float: left;
+        margin-right: 2.85714%; }
+        .resource__filter label:nth-of-type(2n) {
+          float: right;
+          margin-right: 0; } }
+    @media screen and (min-width: 1024px) {
+      .resource__filter label {
         width: 24.29907%;
         float: left;
         margin-right: 0.93458%; }
-      .resource__filter label:nth-of-type(4n) {
-        float: right;
-        margin-right: 0; } }
+        .resource__filter label:nth-of-type(2n) {
+          width: 24.29907%;
+          float: left;
+          margin-right: 0.93458%; }
+        .resource__filter label:nth-of-type(4n) {
+          float: right;
+          margin-right: 0; } }
 
 .resource__filter-container {
   position: relative;
@@ -1693,26 +1706,42 @@ input[type="submit"] {
     opacity: .25;
     -webkit-transition: all .3s ease;
             transition: all .3s ease; }
-  .resource__filter-container:before {
-    font-size: 14px;
-    font-size: 0.7rem;
-    font-weight: 500;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  .resource__filter-container .resource__filter-button {
     position: absolute;
-    content: 'Filter Results';
-    display: block;
     bottom: 1em;
-    background-color: #FFF;
-    color: #373738;
-    padding: 1.07143em 1.57143em;
-    line-height: 1;
     left: 50%;
     -webkit-transform: translate(-50%, 0);
             transform: translate(-50%, 0);
     z-index: 1;
-    text-transform: uppercase; }
+    margin-bottom: 0; }
+  .resource__filter-container:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+  .resource__filter-container.active {
+    height: auto; }
+    .resource__filter-container.active .resource__filter-button, .resource__filter-container.active:after {
+      display: none; }
+    .resource__filter-container.active label {
+      opacity: 1; }
+
+.resource__filter-actions {
+  clear: both;
+  font-size: 16px;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-bottom: 1.875em; }
+  .resource__filter-actions .button {
+    margin: 0 1em 0 0; }
+  .resource__filter-actions .resource__filter-reset {
+    font-weight: 500;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #FFF; }
 
 @media screen and (min-width: 1024px) {
   .resource-search__container {

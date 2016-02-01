@@ -176,10 +176,21 @@ input[type="submit"] {
 
 }
 
-@each $name, $color in $button-colors {
+@each $name, $primary, $contrast in $button-colors {
 
-	.button--bg-#{$name} {
-		background-color: $color;
+	.button--solid-#{$name} {
+
+		background-color: $primary;
+		border-color: $primary;
+		color: $contrast;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: $contrast;
+			text-decoration: underline;
+		}
+
 	}
 
 }

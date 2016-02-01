@@ -34,6 +34,10 @@
 
 .resource__filter {
 
+	overflow: hidden;
+	// -9 as the filter already has this as margin-bottom
+	margin-bottom: em(55 - 9);
+
 	label {
 
 		@include font-size(18);
@@ -85,37 +89,58 @@
 		transition: all .3s ease;
 	}
 
-	&:before {
-		@include font-size(14);
-		@include font('secondary', 'medium');
+	// show filter button
+	.resource__filter-button {
 		position: absolute;
-		content: 'Filter Results';
-		display: block;
 		bottom: 1em;
-		background-color: color('white');
-		color: color('dark-background');
-		padding: em(15, 14) em(22, 14);
-		line-height: 1;
 		left: 50%;
 		transform: translate(-50%, 0);
 		z-index: 1;
-		text-transform: uppercase;
+		margin-bottom: 0;
 	}
 
-	// &:hover {
+	// a cursor guard on the filter section
+	&:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
 
-	// 	height: auto;
+	&.active {
 
-	// 	&:before {
-	// 		display: none;
-	// 	}
+		height: auto;
 
-	// 	label {
-	// 		opacity: 1
-	// 	}
+		.resource__filter-button, &:after {
+			display: none;
+		}
 
-	// }
+		label {
+			opacity: 1;
+		}
 
+	}
+
+
+}
+
+.resource__filter-actions {
+
+	@include break;
+	@include font-size(16);
+	text-align: center;
+	margin-bottom: em(30, 16);
+
+	.button {
+		margin: 0 1em 0 0;
+	}
+
+	.resource__filter-reset {
+		@include font('secondary', 'medium');
+		color: color('white');
+	}
 
 }
 

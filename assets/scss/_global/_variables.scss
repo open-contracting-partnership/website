@@ -40,8 +40,8 @@ $social-colors: (
 // styleguide colours output fails
 
 $button-colors: (
-	'white': map-get($colours, 'white'),
-    'dark': map-get($colours, 'dark-grey')
+	('white', map-get($colours, 'white'), map-get($colours, 'dark-grey')),
+	('dark', map-get($colours, 'dark-grey'), map-get($colours, 'white'))
 );
 
 $button-colors-light: (
