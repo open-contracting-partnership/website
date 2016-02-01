@@ -96,9 +96,9 @@
 
 		<div class="wrapper">
 
-			<div v-if="visibleResources.length">
+			<div v-if="visibleResources.length" class="resources-container">
 
-				<div v-for="resource in visibleResources" class="resource">
+				<div v-for="resource in visibleResources" class="post-object post-object--horizontal post-object--resource / media media--reversed">
 					<resource :resource="resource"></resource>
 				</div>
 
@@ -110,17 +110,26 @@
 
 		<template id="resource-template">
 
-			<a href="{{resource.link}}">
-				<img src="http://placehold.it/116x151" />
-			</a>
+			<div class="post-object__media / media__object">
+				<svg><use xlink:href="#icon-book"></svg>
+			</div>
 
-			<h1><a href="{{resource.link}}">{{resource.title}}</a></h1>
+			<div class="post-object__content / media__body">
 
-			<p>
-				<a v-for="type in resource.taxonomies['resource-type']" href="/resource-type/{{ $key }}">{{ type }}</a>
-			</p>
+				<a href="{{resource.link}}"><h4>{{resource.title}}</h4></a>
 
-			{{{ resource.fields.short_description }}}
+				<p>
+					By Joe Bloggs
+
+					<time>29/01/2016</time>
+
+				</p>
+
+				<ul class="button__list">
+					<li v-for="type in resource.taxonomies['resource-type']"><a href="/resource-type/{{ $key }}" class="button button--small button--uppercase button--tag">{{ type }}</a></li>
+				</ul>
+
+			</div>
 
 		</template>
 
@@ -299,8 +308,6 @@ Vue.filter('objectValues', function (object) {
 			};
 
 		</script>
-
-		<?php get_partial('post-object', 'horizontal-resource'); ?>
 
 	</div> <!-- / #resources -->
 

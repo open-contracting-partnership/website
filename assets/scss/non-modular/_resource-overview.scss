@@ -5,7 +5,9 @@
 	}
 
 	.resource__header {
+
 		padding-top: em(145);
+		margin-bottom: em(57);
 
 		@include mq(L) {
 			padding-right: em(180);
@@ -14,6 +16,15 @@
 
 	}
 
+}
+
+.resources-container {
+	@include container;
+	margin-bottom: em(250);
+}
+
+.resources-container .post-object {
+	@include span(4 of 12);
 }
 
 .resources__popular {
@@ -78,7 +89,6 @@
 	position: relative;
 	height: em(85);
 	overflow: hidden;
-	margin-bottom: 2em;
 
 	label {
 		opacity: .25;
@@ -108,6 +118,7 @@
 	&.active {
 
 		height: auto;
+		margin-bottom: 2em;
 
 		.resource__filter-button, &:after {
 			display: none;
