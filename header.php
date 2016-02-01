@@ -4,7 +4,7 @@
 	<head>
 
 		<!-- designed and developed by The Idea Bureau, http://theideabureau.co -->
-		
+
 		<script>
 		  (function(d) {
 		    var config = {
@@ -49,7 +49,7 @@
 			<?php require(get_template_directory() . '/assets/img/icons.svg'); ?>
 		</div>
 
-		<header class="site-header / band band--section">
+		<header class="site-header">
 
 			<div class="wrapper">
 
@@ -119,4 +119,4 @@
 
 		</header>
 
-		<main class="wrapper">
+		<main>

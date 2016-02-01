@@ -4,6 +4,9 @@
 
 .wrapper {
 	@include container();
+	max-width: 72em;
+	box-sizing: border-box;
+	padding: 0 1em;
 }
 
 .l-3 {
