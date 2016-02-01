@@ -81,7 +81,7 @@
 
 						<p class="resource__filter-actions">
 							<a href="#" class="button button--solid-white button--solid" v-on:click.prevent="display_filter = false">Close Filter</a>
-							<a href="#" class="resource__filter-reset">Reset</a>
+							<a href="#" class="resource__filter-reset" v-on:click.prevent="reset()">Reset</a>
 						</p>
 
 						<a href="#" v-on:click.prevent="display_filter = true" class="resource__filter-button / button button--solid-white">Filter Results</a>
@@ -272,6 +272,12 @@ Vue.filter('objectValues', function (object) {
 						}
 
 
+					},
+
+					reset: function() {
+						this.search = "";
+						this.filter_years = [];
+						this.filter_resource_type = [];
 					}
 
 				},
