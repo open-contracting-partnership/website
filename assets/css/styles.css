@@ -1463,6 +1463,9 @@ input[type="submit"] {
   .blog__mobile-date {
     display: none; } }
 
+.blog__container {
+  margin-top: 11em; }
+
 @media screen and (min-width: 1024px) {
   .blog__featured {
     width: 49.15254%;
