@@ -1,19 +1,24 @@
 .resources-overview {
 
 	header {
-		background-color: #B6C505;
+		background-color: color('brand-mid');
 	}
 
 	.resource__header {
-		padding: em(145) em(180) 0;
+		padding-top: em(145);
+
+		@include mq(L) {
+			padding-right: em(180);
+			padding-left: em(180);
+		}
+
 	}
 
 }
 
 .resources__popular {
-
-	@include font-size(20);
 	@include font('secondary', 'medium');
+	@include font-size(20);
 	color: color('white');
 	text-align: center;
 	margin-bottom: em(100, 20);
@@ -28,27 +33,44 @@
 .resource__filter {
 
 	label {
-		@include font-size(18);
 		@include font('secondary', 'bold');
-
-		@include span(3 of 12);
-
+		@include font-size(18);
 		height: em(92, 18);
 		padding: em(21, 18);
 		color: color('background');
 		background-color: color('white');
 		border-bottom: 3px solid color('grey');
 		margin-bottom: em(10);
-	}
 
-	label:nth-of-type(4n) {
-		@include last();
+		@include mq(M) {
+
+			@include span(2 of 4);
+
+			&:nth-of-type(2n) {
+				@include last();
+			}
+
+		}
+
+		@include mq(L) {
+
+			@include span(3 of 12);
+
+			&:nth-of-type(2n) {
+				@include span(3 of 12);
+			}
+
+			&:nth-of-type(4n) {
+				@include last();
+			}
+
+		}
+
 	}
 
 }
 
 .resource__filter-container {
-
 	position: relative;
 	height: em(85);
 	overflow: hidden;
@@ -60,10 +82,10 @@
 	}
 
 	&:before {
-		@include font-size(14);
 		@include font('secondary', 'medium');
+		@include font-size(14);
 		position: absolute;
-		content: "Filter Results";
+		content: 'Filter Results';
 		display: block;
 		bottom: 1em;
 		background-color: color('white');
@@ -94,7 +116,11 @@
 }
 
 .resource-search__container {
-	padding: 0 em(130);
+
+	@include mq(L) {
+		padding: 0 em(130);
+	}
+
 }
 
 input[type="search"].resource-search {
@@ -103,7 +129,7 @@ input[type="search"].resource-search {
 	@include font('secondary');
 	line-height: 1;
 	color: color('grey');
-	border: none;
+	border: 0;
 	background-color: color('white');
 	padding: em(27, 23);
 

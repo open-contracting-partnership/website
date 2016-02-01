@@ -12,6 +12,7 @@ $colours: (
     'body': #424244,
     'orange': #FD843D,
     'brand': #D6E100,
+    'brand-mid': #B6C505,
     'brand-dark': #9BAF00,
     'off-white': #F6F6F6,
     'lighter-grey': #D5D5D7,
@@ -74,8 +75,10 @@ $breakpoints: (
 $susy: (
 	container: 70em,
 	columns: 12,
-	// gutters: 1/6
  	// debug: (image: show)
+
+ 	gutters: 1/8
+
 );
 
 
