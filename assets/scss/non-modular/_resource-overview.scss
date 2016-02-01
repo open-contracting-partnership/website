@@ -1,11 +1,10 @@
 .resources-overview {
 
 	header {
-		background-color: #B6C505;
+		background-color: color('brand-mid');
 	}
 
 	.resource__header {
-
 		padding-top: em(145);
 
 		@include mq(L) {
@@ -18,9 +17,8 @@
 }
 
 .resources__popular {
-
-	@include font-size(20);
 	@include font('secondary', 'medium');
+	@include font-size(20);
 	color: color('white');
 	text-align: center;
 	margin-bottom: em(100, 20);
@@ -39,9 +37,8 @@
 	margin-bottom: em(55 - 9);
 
 	label {
-
-		@include font-size(18);
 		@include font('secondary', 'bold');
+		@include font-size(18);
 		height: em(92, 18);
 		padding: em(21, 18);
 		color: color('background');
@@ -78,7 +75,6 @@
 }
 
 .resource__filter-container {
-
 	position: relative;
 	height: em(85);
 	overflow: hidden;

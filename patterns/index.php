@@ -30,6 +30,10 @@
 
 	<script>var css_url = '/wp-content/themes/ocp-v1/assets/css/styles.min.css';</script>
 
+	<div style="display: none; visibility: hidden;">
+		<?php include_once('../assets/img/icons.svg'); ?>
+	</div>
+
 	<aside class="sg-nav">
 
 		<div class="sg-nav__pane">

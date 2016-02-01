@@ -33,40 +33,51 @@
 
 					<div class="resource__filter-container" v-bind:class="{ 'active': display_filter }">
 
-						<div class="resource__filter">
+						<div class="resource__filter / custom-checkbox">
 
 							<label>
-								2011
 								<input type="checkbox" value="2011" v-model="filter_years" />
+								<span><svg><use xlink:href="#icon-close"></svg></span>
+								2011
 							</label>
 
 							<label>
-								2012
 								<input type="checkbox" value="2012" v-model="filter_years" />
+								<span><svg><use xlink:href="#icon-close"></svg></span>
+								2012
 							</label>
 
 							<label>
-								2013
 								<input type="checkbox" value="2013" v-model="filter_years" />
+								<span><svg><use xlink:href="#icon-close"></svg></span>
+								2013
 							</label>
 
 							<label>
-								2014
 								<input type="checkbox" value="2014" v-model="filter_years" />
+								<span><svg><use xlink:href="#icon-close"></svg></span>
+								2014
 							</label>
 
 							<label>
-								2015
 								<input type="checkbox" value="2015" v-model="filter_years" />
+								<span><svg><use xlink:href="#icon-close"></svg></span>
+								2015
 							</label>
 
 							<label>
-								2016
 								<input type="checkbox" value="2016" v-model="filter_years" />
+								<span><svg><use xlink:href="#icon-close"></svg></span>
+								2016
 							</label>
+
+						</div>
+
+						<div class="resource__filter / custom-checkbox">
 
 							<label v-for="resource_type in resource_types">
 								<input type="checkbox" value="{{ resource_type.slug }}" v-model="filter_resource_type" />
+								<span><svg><use xlink:href="#icon-close"></svg></span>
 								{{ resource_type.name }}
 							</label>
 
@@ -286,6 +297,8 @@ Vue.filter('objectValues', function (object) {
 			};
 
 		</script>
+
+		<?php get_partial('post-object', 'horizontal-resource'); ?>
 
 	</div> <!-- / #resources -->
 
