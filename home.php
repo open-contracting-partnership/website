@@ -55,7 +55,7 @@
 				<ul class="button__list">
 
 					<?php foreach ( $popular_tags as $popular_tag ) : ?>
-						<li><a href="<?php echo get_term_link($popular_tag); ?>" class="button button--uppercase button--thick"><?php echo $popular_tag->name; ?></a></li>
+						<li><a href="<?php echo get_term_link($popular_tag); ?>" class="button button--uppercase button--tag"><?php echo $popular_tag->name; ?></a></li>
 					<?php endforeach; ?>
 
 				</ul>

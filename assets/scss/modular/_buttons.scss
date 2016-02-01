@@ -82,6 +82,12 @@ input[type="submit"] {
 	border: 0;
 }
 
+.button--tag {
+	@include font('secondary', 'bold');
+	@include font-size(14);
+	padding: em(10, 14) em(15, 14);
+}
+
 // Sub-heading within buttons
 // Must be used with a span element
 

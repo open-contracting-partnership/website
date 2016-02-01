@@ -1016,6 +1016,15 @@ input[type="submit"] {
 .button--open {
   border: 0; }
 
+.button--tag {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 0.7rem;
+  padding: 0.71429em 1.07143em; }
+
 .button__sub-text {
   display: block;
   font-size: 75%;
