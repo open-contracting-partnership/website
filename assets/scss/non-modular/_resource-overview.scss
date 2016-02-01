@@ -24,7 +24,31 @@
 }
 
 .resources-container .post-object {
-	@include span(4 of 12);
+
+	@include mq(M) {
+
+		@include span(1 of 2);
+
+		&:nth-of-type(2n) {
+			@include last;
+		}
+
+	}
+
+	@include mq(L) {
+
+		@include span(4 of 12);
+
+		&:nth-of-type(2n) {
+			@include span(4 of 12);
+		}
+
+		&:nth-of-type(3n) {
+			@include last;
+		}
+
+	}
+
 }
 
 .resources__popular {
