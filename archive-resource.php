@@ -10,7 +10,13 @@
 				'posts_per_page' => -1
 			),
 			'taxonomies' => ['resource-type', 'region', 'issue', 'open-contracting'],
-			'fields' => ['short_description']
+			'fields' => ['short_description', 'organisation'],
+			'custom' => array(
+				'year' => function($vue_post) {
+					return date('d/m/y', strtotime($vue_post->post_date));
+				}
+
+			)
 		]);
 
 		$resource_types = array_values(get_terms('resource-type'));
@@ -83,10 +89,8 @@
 				<a href="{{resource.link}}"><h4>{{resource.title}}</h4></a>
 
 				<p>
-					By Joe Bloggs
-
-					<time>29/01/2016</time>
-
+					By {{resource.fields.organisation}}
+					<time>{{resource.custom.year}}</time>
 				</p>
 
 				<ul class="button__list">
@@ -110,10 +114,6 @@
 				methods: {
 
 					taxonomyLabels: function(taxonomy) {
-
-
-
-
 						return objectValues(this.resource.taxonomies[taxonomy]);
 					}
 

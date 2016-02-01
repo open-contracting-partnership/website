@@ -63,7 +63,7 @@ function vue_posts($args) {
 		if ( isset($args['custom']) ) {
 
 			foreach ( $args['custom'] as $custom => $callback ) {
-				$vue_posts[$vue_post->ID][$custom] = $callback($vue_post);
+				$vue_posts[$vue_post->ID]['custom'][$custom] = $callback($vue_post);
 			}
 
 		}
