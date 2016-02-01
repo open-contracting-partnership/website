@@ -35,22 +35,15 @@
 .resource__filter {
 
 	label {
+
 		@include font-size(18);
 		@include font('secondary', 'bold');
-
-
 		height: em(92, 18);
 		padding: em(21, 18);
 		color: color('background');
 		background-color: color('white');
 		border-bottom: 3px solid color('grey');
 		margin-bottom: em(10);
-	}
-
-	// grids
-
-
-	label {
 
 		@include mq(M) {
 
@@ -96,7 +89,7 @@
 		@include font-size(14);
 		@include font('secondary', 'medium');
 		position: absolute;
-		content: "Filter Results";
+		content: 'Filter Results';
 		display: block;
 		bottom: 1em;
 		background-color: color('white');
@@ -140,7 +133,7 @@ input[type="search"].resource-search {
 	@include font('secondary');
 	line-height: 1;
 	color: color('grey');
-	border: none;
+	border: 0;
 	background-color: color('white');
 	padding: em(27, 23);
 
