@@ -71,10 +71,6 @@
 								2016
 							</label>
 
-						</div>
-
-						<div class="resource__filter / custom-checkbox">
-
 							<label v-for="resource_type in resource_types">
 								<input type="checkbox" value="{{ resource_type.slug }}" v-model="filter_resource_type" />
 								<span><svg><use xlink:href="#icon-close"></svg></span>
