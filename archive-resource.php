@@ -35,42 +35,6 @@
 
 						<div class="resource__filter / custom-checkbox">
 
-							<label>
-								<input type="checkbox" value="2011" v-model="filter_years" />
-								<span><svg><use xlink:href="#icon-close"></svg></span>
-								2011
-							</label>
-
-							<label>
-								<input type="checkbox" value="2012" v-model="filter_years" />
-								<span><svg><use xlink:href="#icon-close"></svg></span>
-								2012
-							</label>
-
-							<label>
-								<input type="checkbox" value="2013" v-model="filter_years" />
-								<span><svg><use xlink:href="#icon-close"></svg></span>
-								2013
-							</label>
-
-							<label>
-								<input type="checkbox" value="2014" v-model="filter_years" />
-								<span><svg><use xlink:href="#icon-close"></svg></span>
-								2014
-							</label>
-
-							<label>
-								<input type="checkbox" value="2015" v-model="filter_years" />
-								<span><svg><use xlink:href="#icon-close"></svg></span>
-								2015
-							</label>
-
-							<label>
-								<input type="checkbox" value="2016" v-model="filter_years" />
-								<span><svg><use xlink:href="#icon-close"></svg></span>
-								2016
-							</label>
-
 							<label v-for="resource_type in resource_types">
 								<input type="checkbox" value="{{ resource_type.slug }}" v-model="filter_resource_type" />
 								<span><svg><use xlink:href="#icon-close"></svg></span>
@@ -186,7 +150,6 @@ Vue.filter('objectValues', function (object) {
 					display_filter: false,
 					// search and filters
 					search: '',
-					filter_years: [],
 					filter_resource_type: []
 				},
 
@@ -213,10 +176,6 @@ Vue.filter('objectValues', function (object) {
 				watch: {
 
 					'search': function() {
-						this.filter();
-					},
-
-					'filter_years':  function () {
 						this.filter();
 					},
 
@@ -252,20 +211,6 @@ Vue.filter('objectValues', function (object) {
 
 						}
 
-						// apply year filter
-
-						if ( this.filter_years.length ) {
-
-							this.resources.forEach(function(resource, index) {
-
-								if ( this.filter_years.indexOf(resource.year) === -1 ) {
-									resource.display = false;
-								}
-
-							}.bind(this));
-
-						}
-
 						// apply resource type filter
 
 						if ( this.filter_resource_type.length ) {
@@ -285,7 +230,6 @@ Vue.filter('objectValues', function (object) {
 
 					reset: function() {
 						this.search = "";
-						this.filter_years = [];
 						this.filter_resource_type = [];
 					}
 
