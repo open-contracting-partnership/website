@@ -316,6 +316,7 @@ h6,
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1;
     display: inline-block;
     background-color: #9BAF00;
     color: #FFF;
