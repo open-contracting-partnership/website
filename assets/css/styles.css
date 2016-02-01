@@ -896,6 +896,16 @@ nav h4 {
 .nav--vertical a {
   display: inline-block; }
 
+.nav--thick a {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-size: 0.9rem;
+  color: #545456;
+  text-transform: uppercase; }
+
 .primary-nav {
   border-top: 1px solid #69696B; }
   .primary-nav ul:first-child {

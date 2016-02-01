@@ -291,7 +291,7 @@
 
 			<h3 class="border-top">Posts by Author</h3>
 
-			<ul>
+			<ul class="nav nav--vertical nav--thick">
 
 				<?php foreach ( $authors as $author ) : ?>
 					<li><a href="<?php echo $author->url; ?>"><?php echo $author->display_name; ?> (<?php echo $author->post_count; ?>)</a></li>
