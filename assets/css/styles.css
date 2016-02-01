@@ -582,6 +582,44 @@ textarea {
   background-color: currentColor;
   border-width: .2em; }
 
+.custom-checkbox input[type="checkbox"] {
+  display: none; }
+
+.custom-checkbox label {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-size: 0.9rem;
+  color: #545456;
+  margin-bottom: 1.4em; }
+
+.custom-checkbox span {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  outline: 1px solid;
+  background-color: #FFF;
+  margin-right: 1.35em;
+  vertical-align: middle;
+  position: relative; }
+
+.custom-checkbox svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%) scale(0);
+          transform: translateX(-50%) translateY(-50%) scale(0);
+  -webkit-transition: -webkit-transform cubic-bezier(0.82, -0.62, 0.74, 0.05) 0.2s;
+          transition: transform cubic-bezier(0.82, -0.62, 0.74, 0.05) 0.2s; }
+
+.custom-checkbox input[type="checkbox"]:checked + span svg {
+  -webkit-transform: translateX(-50%) translateY(-50%) scale(0.15);
+          transform: translateX(-50%) translateY(-50%) scale(0.15);
+  -webkit-transition: -webkit-transform cubic-bezier(0.46, -0.53, 0.03, 1.71) 0.2s;
+          transition: transform cubic-bezier(0.46, -0.53, 0.03, 1.71) 0.2s; }
+
 ::-webkit-input-placeholder {
   /* Safari, Chrome and Opera */
   color: currentColor; }

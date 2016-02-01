@@ -2,6 +2,10 @@
 
 <?php get_header(); ?>
 
+<form action="#" class="custom-checkbox">
+	<label><input type="checkbox" name="name" value=""><span><svg><use xlink:href="#icon-close"></svg></span>Checkbox</label>
+</form>
+
 	<?php
 
 		$resources = vue_posts([
