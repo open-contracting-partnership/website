@@ -50,6 +50,16 @@ nav h4 {
 	}
 }
 
+.nav--thick {
+
+	a {
+		@include font('secondary', 'bold');
+		@include font-size(18);
+		color: color('background');
+		text-transform: uppercase;
+	}
+}
+
 .primary-nav {
 	border-top: 1px solid color('mid-grey');
 

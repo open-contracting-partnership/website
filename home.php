@@ -55,7 +55,7 @@
 				<ul class="button__list">
 
 					<?php foreach ( $popular_tags as $popular_tag ) : ?>
-						<li><a href="<?php echo get_term_link($popular_tag); ?>" class="button button--uppercase button--thick"><?php echo $popular_tag->name; ?></a></li>
+						<li><a href="<?php echo get_term_link($popular_tag); ?>" class="button button--uppercase button--tag"><?php echo $popular_tag->name; ?></a></li>
 					<?php endforeach; ?>
 
 				</ul>
@@ -201,7 +201,7 @@
 			</div>
 
 			<div class="blog__filter__view-all">
-				<a href="#">View all Construction Posts</a>
+				<a href="#" class="button button--white button--open button--bg-dark">View more by this issue</a>
 			</div>
 
 		</div>
@@ -244,7 +244,7 @@
 			?>
 
 			<?php foreach ( $news_posts as $news_post ) : ?>
-				<?php get_partial('post-object', 'horizontal'); ?>
+				<?php get_partial('post-object', 'horizontal--small'); ?>
 			<?php endforeach; ?>
 
 		</div>
@@ -280,7 +280,7 @@
 			<?php foreach ( $recent_posts as $recent_post ) : ?>
 				<?php get_partial('post-object', 'vertical--light'); ?>
 			<?php endforeach; ?>
-			
+
 		</div>
 
 	</div>
@@ -291,7 +291,7 @@
 
 			<h3 class="border-top">Posts by Author</h3>
 
-			<ul>
+			<ul class="nav nav--vertical nav--thick">
 
 				<?php foreach ( $authors as $author ) : ?>
 					<li><a href="<?php echo $author->url; ?>"><?php echo $author->display_name; ?> (<?php echo $author->post_count; ?>)</a></li>

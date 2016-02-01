@@ -899,6 +899,16 @@ nav h4 {
 .nav--vertical a {
   display: inline-block; }
 
+.nav--thick a {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-size: 0.9rem;
+  color: #545456;
+  text-transform: uppercase; }
+
 .primary-nav {
   border-top: 1px solid #69696B; }
   .primary-nav ul:first-child {
@@ -959,12 +969,12 @@ input[type="submit"] {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  font-size: 0.7rem;
+  font-size: 16px;
+  font-size: 0.8rem;
   display: inline-block;
   border: 1px solid;
   border-radius: 0;
-  padding: 0.71429em 1.07143em;
+  padding: 0.625em 0.9375em;
   text-decoration: none;
   margin-bottom: 0.7em;
   color: #545456;
@@ -997,7 +1007,7 @@ input[type="submit"] {
 .button--large {
   font-size: 18px;
   font-size: 0.9rem;
-  padding: 1.11111em 1.38889em; }
+  padding: 0.83333em 1.38889em; }
 
 .button--huge {
   font-size: 22px;
@@ -1015,6 +1025,18 @@ input[type="submit"] {
 
 .button--flatten {
   margin-bottom: 0; }
+
+.button--open {
+  border: 0; }
+
+.button--tag {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 0.7rem;
+  padding: 0.71429em 1.07143em; }
 
 .button__sub-text {
   display: block;
@@ -1063,6 +1085,15 @@ input[type="submit"] {
 
 .button--white {
   color: #FFF; }
+
+.button--dark {
+  color: #2D2D2D; }
+
+.button--bg-white {
+  background-color: #FFF; }
+
+.button--bg-dark {
+  background-color: #2D2D2D; }
 
 .cta-list {
   border-top: 1px solid #FFF;
@@ -1209,6 +1240,41 @@ input[type="submit"] {
   .post-object--horizontal p {
     font-size: 16px;
     font-size: 0.8rem; }
+
+.post-object--horizontal--small .post-object__media {
+  width: 6.1em;
+  height: 4.85em;
+  background: #D6E100;
+  position: relative; }
+
+.post-object--horizontal--small img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%); }
+
+.post-object--horizontal--small h4 {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  color: #2D2D2D;
+  margin: -12px 0 0; }
+
+.post-object--horizontal--small p {
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 0.7rem;
+  line-height: 1.8;
+  color: #545456;
+  text-transform: uppercase; }
 
 .post-object--light {
   color: #2D2D2D;
