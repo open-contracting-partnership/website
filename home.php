@@ -244,7 +244,7 @@
 			?>
 
 			<?php foreach ( $news_posts as $news_post ) : ?>
-				<?php get_partial('post-object', 'horizontal'); ?>
+				<?php get_partial('post-object', 'horizontal--small'); ?>
 			<?php endforeach; ?>
 
 		</div>
