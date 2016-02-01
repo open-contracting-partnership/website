@@ -300,6 +300,27 @@ h6,
   h6.has-strap,
   .zeta.has-strap {
     margin-bottom: .625em; }
+  .coloured h1, .coloured
+  .alpha, .coloured
+  h2, .coloured
+  .beta, .coloured
+  h3, .coloured
+  .gamma, .coloured
+  h4, .coloured
+  .delta, .coloured
+  h5, .coloured
+  .epsilon, .coloured
+  h6, .coloured
+  .zeta {
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1;
+    display: inline-block;
+    background-color: #9BAF00;
+    color: #FFF;
+    padding: .5rem; }
 
 .strap {
   font-style: italic; }
@@ -337,6 +358,10 @@ h3,
     .gamma {
       font-size: 29px;
       font-size: 1.45rem; } }
+  .coloured h3, .coloured
+  .gamma {
+    font-size: 25px;
+    font-size: 1.25rem; }
 
 h4,
 .delta {
@@ -375,16 +400,6 @@ h5,
   border-top: 0; }
   .border-top--dark:before {
     background-color: #9BAF00; }
-
-.coloured {
-  font-weight: 400;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  display: inline-block;
-  background-color: #9BAF00;
-  color: #FFF;
-  padding: .5rem; }
 
 /*------------------------------------*	LISTS
 \*------------------------------------*/

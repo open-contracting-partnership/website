@@ -22,6 +22,17 @@ h6,
 	&.has-strap {
 		margin-bottom: .625em;
 	}
+
+
+	.coloured & {
+		@include font(secondary);
+		line-height: 1;
+		display: inline-block;
+		background-color: color('brand-dark');
+		color: color('white');
+		padding: .5rem;
+	}
+
 }
 
 .strap {
@@ -57,6 +68,10 @@ h3,
 
 	@include mq(M) {
 		@include font-size(29);
+	}
+
+	.coloured & {
+		@include font-size(25);
 	}
 }
 
@@ -100,12 +115,4 @@ h5,
 	&:before {
 		background-color: color('brand-dark');
 	}
-}
-
-.coloured {
-	@include font(secondary);
-	display: inline-block;
-	background-color: color('brand-dark');
-	color: color('white');
-	padding: .5rem;
 }
