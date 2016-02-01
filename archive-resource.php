@@ -9,14 +9,8 @@
 				'post_type' => 'resource',
 				'posts_per_page' => -1
 			),
-			'taxonomies' => ['resource-type', 'country', 'region'],
-			'fields' => ['short_description'],
-			'custom' => array(
-				'year' => function($vue_post) {
-					return date('Y', strtotime($vue_post->post_date));
-				}
-
-			)
+			'taxonomies' => ['resource-type', 'region', 'issue', 'open-contracting'],
+			'fields' => ['short_description']
 		]);
 
 		$resource_types = array_values(get_terms('resource-type'));
