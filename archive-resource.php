@@ -27,51 +27,86 @@
 
 	?>
 
-	<div id="resources">
+	<div id="resources" class="resources-overview">
 
-		<input type="search" placeholder="Search" v-model="search">
+		<header>
 
-		<p class="resources__popular">This week's popular items are <a href="#">report 1</a>, <a href="#">report 2</a> and <a href="#">report 3</a></p>
+			<div class="wrapper">
 
-		<div class="resource__filter-container">
+				<div class="resource__header">
 
-			<div class="resource__filter">
+					<div class="resource-search__container">
+						<input type="search" placeholder="Search" v-model="search" class="resource-search">
+					</div>
 
-				<label>
-					2014
-					<input type="checkbox" value="2014" v-model="filter_years" />
-				</label>
-				<label>
-					2015
-					<input type="checkbox" value="2015" v-model="filter_years" />
-				</label>
-				<label>
-					2016
-					<input type="checkbox" value="2016" v-model="filter_years" />
-				</label>
+					<p class="resources__popular">This week's popular items are <a href="#">report 1</a>, <a href="#">report 2</a> and <a href="#">report 3</a></p>
+
+					<div class="resource__filter-container">
+
+						<div class="resource__filter">
+
+							<label>
+								2011
+								<input type="checkbox" value="2011" v-model="filter_years" />
+							</label>
+
+							<label>
+								2012
+								<input type="checkbox" value="2012" v-model="filter_years" />
+							</label>
+
+							<label>
+								2013
+								<input type="checkbox" value="2013" v-model="filter_years" />
+							</label>
+
+							<label>
+								2014
+								<input type="checkbox" value="2014" v-model="filter_years" />
+							</label>
+
+							<label>
+								2015
+								<input type="checkbox" value="2015" v-model="filter_years" />
+							</label>
+
+							<label>
+								2016
+								<input type="checkbox" value="2016" v-model="filter_years" />
+							</label>
+
+						</div>
+
+						<div class="resource__filter">
+
+							<label v-for="resource_type in resource_types">
+								<input type="checkbox" value="{{ resource_type.slug }}" v-model="filter_resource_type" />
+								{{ resource_type.name }}
+							</label>
+
+						</div>
+
+					</div> <!-- / .resource__filter-container -->
+
+				</div> <!-- / .resource__header -->
+
+			</div> <!-- / .wrapper -->
+
+		</header>
+
+		<div class="wrapper">
+
+			<div v-if="visibleResources.length">
+
+				<div v-for="resource in visibleResources" class="resource">
+					<resource :resource="resource"></resource>
+				</div>
 
 			</div>
 
-			<div class="resource__filter">
-
-				<label v-for="resource_type in resource_types">
-					{{ resource_type.name }}
-					<input type="checkbox" value="{{ resource_type.slug }}" v-model="filter_resource_type" />
-				</label>
-
-			</div>
-
-		</div> <!-- / .resource__filter-container -->
-
-		<div v-if="visibleResources.length">
-
-			<div v-for="resource in visibleResources" class="resource">
-				<resource :resource="resource"></resource>
-			</div>
+			<p v-else>No resources available to display</p>
 
 		</div>
-
-		<p v-else>No resources available to display</p>
 
 		<template id="resource-template">
 
