@@ -5,8 +5,18 @@
 	</div>
 
 	<div class="post-object__content / media__body">
+
 		<h4><?php the_title(); ?></h4>
-		<p>By <?php the_authors(FALSE); ?> <span>C 1</span></p>
+
+		<p>
+			By <?php the_authors(FALSE); ?>
+
+			<?php if ( get_comments_number() > 0 ) : ?>
+				<span><?php echo get_comments_number(); ?></span>
+			<?php endif; ?>
+
+		</p>
+
 	</div>
 
 </a>
