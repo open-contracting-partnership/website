@@ -4,8 +4,8 @@
 
 	<?php $exclude_ids = []; ?>
 
-	<div>
-		<h3 class="coloured">Recent Posts</h3>
+	<div class="coloured">
+		<h3>Recent Posts</h3>
 	</div>
 
 	<div class="blog__featured / band band--thick">
@@ -48,7 +48,9 @@
 
 			<section>
 
-				<h3 class="coloured">Popular Tags</h3>
+				<div class="coloured">
+					<h3>Popular Tags</h3>
+				</div>
 
 				<ul class="button__list">
 
@@ -226,7 +228,9 @@
 
 	<section class="blog__news / band band--thick">
 
-		<h3 class="coloured">Recent News</h3>
+		<div class="coloured">
+			<h3>Recent News</h3>
+		</div>
 
 		<div>
 
@@ -257,8 +261,8 @@
 
 	<div class="blog__posts">
 
-		<div>
-			<h3 class="coloured">More Blogs</h3>
+		<div class="coloured">
+			<h3>More Blogs</h3>
 		</div>
 
 		<?php
@@ -271,9 +275,13 @@
 
 		?>
 
-		<?php foreach ( $recent_posts as $recent_post ) : ?>
-			<?php get_partial('post-object', 'vertical--light'); ?>
-		<?php endforeach; ?>
+		<div>
+
+			<?php foreach ( $recent_posts as $recent_post ) : ?>
+				<?php get_partial('post-object', 'vertical--light'); ?>
+			<?php endforeach; ?>
+			
+		</div>
 
 	</div>
 
