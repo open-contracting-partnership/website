@@ -6,11 +6,11 @@
 button,
 input[type="submit"] {
 	@include font(secondary, medium);
-	@include font-size(14);
+	@include font-size(16);
 	display: inline-block;
 	border: 1px solid;
 	border-radius: 0;
-	padding: em(10, 14) em(15, 14);
+	padding: em(10, 16) em(15, 16);
 	text-decoration: none;
 	margin-bottom: $space / 2;
 	color: color('background');
@@ -44,7 +44,7 @@ input[type="submit"] {
 
 .button--large {
 	@include font-size(18);
-	padding: em(20, 18) em(25, 18);
+	padding: em(15, 18) em(25, 18);
 }
 
 // This is often used inside the hero sections
@@ -75,6 +75,11 @@ input[type="submit"] {
 // Remove the Margin
 .button--flatten {
 	margin-bottom: 0;
+}
+
+// Remove the Border
+.button--open {
+	border: 0;
 }
 
 // Sub-heading within buttons
@@ -161,6 +166,14 @@ input[type="submit"] {
 
 	.button--#{$name} {
 		color: $color;
+	}
+
+}
+
+@each $name, $color in $button-colors {
+
+	.button--bg-#{$name} {
+		background-color: $color;
 	}
 
 }

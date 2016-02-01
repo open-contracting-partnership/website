@@ -956,12 +956,12 @@ input[type="submit"] {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  font-size: 0.7rem;
+  font-size: 16px;
+  font-size: 0.8rem;
   display: inline-block;
   border: 1px solid;
   border-radius: 0;
-  padding: 0.71429em 1.07143em;
+  padding: 0.625em 0.9375em;
   text-decoration: none;
   margin-bottom: 0.7em;
   color: #545456;
@@ -994,7 +994,7 @@ input[type="submit"] {
 .button--large {
   font-size: 18px;
   font-size: 0.9rem;
-  padding: 1.11111em 1.38889em; }
+  padding: 0.83333em 1.38889em; }
 
 .button--huge {
   font-size: 22px;
@@ -1012,6 +1012,9 @@ input[type="submit"] {
 
 .button--flatten {
   margin-bottom: 0; }
+
+.button--open {
+  border: 0; }
 
 .button__sub-text {
   display: block;
@@ -1060,6 +1063,15 @@ input[type="submit"] {
 
 .button--white {
   color: #FFF; }
+
+.button--dark {
+  color: #2D2D2D; }
+
+.button--bg-white {
+  background-color: #FFF; }
+
+.button--bg-dark {
+  background-color: #2D2D2D; }
 
 .cta-list {
   border-top: 1px solid #FFF;

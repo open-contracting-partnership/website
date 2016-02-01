@@ -201,7 +201,7 @@
 			</div>
 
 			<div class="blog__filter__view-all">
-				<a href="#">View all Construction Posts</a>
+				<a href="#" class="button button--white button--open button--bg-dark">View more by this issue</a>
 			</div>
 
 		</div>
@@ -280,7 +280,7 @@
 			<?php foreach ( $recent_posts as $recent_post ) : ?>
 				<?php get_partial('post-object', 'vertical--light'); ?>
 			<?php endforeach; ?>
-			
+
 		</div>
 
 	</div>
