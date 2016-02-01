@@ -357,3 +357,18 @@ function get_authors_by_count($limit = -1, $post_type = ['post']) {
  	return $authors;
 
 }
+
+function posted_ago() {
+
+	$timestamp = get_the_time('U');
+	$diff = time() - $timestamp;
+
+	if ( $diff < 86400 ) {
+		echo date('G', $diff) . 'h ago';
+	} else if ( $diff < 432000 ) {
+		echo date('j', $diff) . ' days ago';
+	} else {
+		echo date('d/m/y', $timestamp);
+	}
+
+}

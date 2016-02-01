@@ -16,7 +16,7 @@
 
 		<div class="post-object__content-meta">
 			<span class="post-object__author">By <?php the_authors(FALSE); ?></span>
-			<span class="post-object__age">1H ago</span>
+			<span class="post-object__age"><?php posted_ago(); ?></span>
 			<span class="post-object__comment-count">21</span>
 		</div>
 
