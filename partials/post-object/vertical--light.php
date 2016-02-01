@@ -17,7 +17,11 @@
 		<div class="post-object__content-meta">
 			<span class="post-object__author">By <?php the_authors(FALSE); ?></span>
 			<span class="post-object__age"><?php posted_ago(); ?></span>
-			<span class="post-object__comment-count">21</span>
+
+			<?php if ( get_comments_number() > 0 ) : ?>
+				<span class="post-object__comment-count"><?php echo get_comments_number(); ?></span>
+			<?php endif; ?>
+
 		</div>
 
 		<h4><?php the_title(); ?></h4>
