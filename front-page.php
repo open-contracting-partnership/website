@@ -4,7 +4,7 @@
 
 	<?php the_post(); ?>
 
-	<div class="wrapper">
+	<div class="wrapper / homepage-wrapper">
 
 		<div class="homepage-cta / band band--section">
 
@@ -45,7 +45,7 @@
 
 		<div class="band band--thicker">
 
-			<div class="homepage-blogs / l-4 g-first">
+			<div class="homepage-blogs">
 
 				<section>
 
@@ -81,7 +81,7 @@
 
 			</div> <!-- homepage-blogs -->
 
-			<div class="homepage-spotlight / l-4">
+			<div class="homepage-spotlight">
 
 				<section>
 
@@ -105,7 +105,7 @@
 
 			</div> <!-- homepage-spotlight -->
 
-			<div class="homepage-implement / l-3">
+			<div class="homepage-implement">
 
 				<section>
 
@@ -127,9 +127,9 @@
 
 		</div>
 
-		<section class="g-break">
+		<section class="homepage-filter">
 
-			<a href="" class="homepage-filter / band band--thicker">Filter Blogs &amp; Updates</a>
+			<a href="#" class="homepage-filter__button / band band--thicker">Filter Blogs &amp; Updates</a>
 
 			<div class="l-4 g-first"></div>
 			<div class="l-4"></div>

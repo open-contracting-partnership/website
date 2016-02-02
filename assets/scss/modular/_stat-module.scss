@@ -1,5 +1,17 @@
 .stat-module {
 
+	@include mq(M) {
+		@include span(4 of 12);
+
+		&:first-child {
+			@include first();
+		}
+
+		&:last-child {
+			@include last();
+		}
+	}
+
 	span {
 		@include font-size(52);
 		display: block;
