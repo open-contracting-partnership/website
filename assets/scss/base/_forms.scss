@@ -184,6 +184,27 @@ input[type="email"].not-valid {
 }
 
 
+ //*******
+// SELECT
+
+.custom-select {
+	@include font('secondary', 'medium');
+	@include font-size(14);
+	color: color('light-grey');
+	border: 1px solid color('mid-grey');
+	padding: em(8, 14) em(11, 14);
+	width: 100%;
+	cursor: pointer;
+	background: 0 0;
+	border-radius: 0;
+	box-sizing: border-box;
+	appearance: none;
+	line-height: 1.2;
+	position: relative;
+	z-index: 10;
+}
+
+
  //*******************
 // PLACEHOLDER STYLES
 

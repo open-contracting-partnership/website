@@ -620,6 +620,28 @@ textarea {
   -webkit-transition: -webkit-transform cubic-bezier(0.46, -0.53, 0.03, 1.71) 0.2s;
           transition: transform cubic-bezier(0.46, -0.53, 0.03, 1.71) 0.2s; }
 
+.custom-select {
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 0.7rem;
+  color: #B7B7B7;
+  border: 1px solid #69696B;
+  padding: 0.57143em 0.78571em;
+  width: 100%;
+  cursor: pointer;
+  background: 0 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  line-height: 1.2;
+  position: relative;
+  z-index: 10; }
+
 ::-webkit-input-placeholder {
   /* Safari, Chrome and Opera */
   color: currentColor; }
