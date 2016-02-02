@@ -44,16 +44,49 @@
 
 				</section>
 
-				<section>
+				<?php if ( $open_contracting = get_field('open_contracting') ) : ?>
 
-					<h3 class="border-top">Relevant Resources</h3>
+					<?php
 
-					<ul class="relevant-resources">
-						<li><a href="#">Ending child marriage in Africa: Opening the door for girls’ education, health, and freedom from violence</a></li>
-						<li><a href="#">Vows of poverty. 26 countries where child marriage eclipses girls’ education</a></li>
-					</ul>
+						$query = array(
+							'post_type' => 'resource',
+							'posts_per_page' => 3,
+							'meta_query' => ['relation' => 'OR']
+						);
 
-				</section>
+						foreach ( $open_contracting as $value ) {
+
+							$query['meta_query'][] = array(
+								'key' => 'open_contracting',
+								'value' => '"' . $value . '"',
+								'compare' => "LIKE"
+							);
+
+						}
+
+						$relevant_resources = new query_loop($query);
+
+					?>
+
+					<?php if ( $relevant_resources->have_posts() ) : ?>
+
+						<section>
+
+							<h3 class="border-top">Relevant Resources</h3>
+
+							<ul class="relevant-resources">
+
+								<?php foreach ( $relevant_resources as $relevant_resource ) : ?>
+									<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+								<?php endforeach; ?>
+
+							</ul>
+
+						</section>
+
+					<?php endif; ?>
+
+				<?php endif; ?>
 
 				<?php
 					$post_tags = wp_get_post_terms(get_the_ID(), 'post_tag', array(
