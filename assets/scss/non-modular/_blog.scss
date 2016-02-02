@@ -20,6 +20,9 @@
 
 .blog__recent {
 
+    display: flex;
+    flex-wrap: wrap;
+
 	@include mq(L) {
 
 		@include span(6 of 12 last);

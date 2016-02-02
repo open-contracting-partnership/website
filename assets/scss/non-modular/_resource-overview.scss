@@ -21,6 +21,9 @@
 .resources-container {
 	@include container;
 	margin-bottom: em(250);
+
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .resources-container .post-object {
