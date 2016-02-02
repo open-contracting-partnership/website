@@ -51,7 +51,7 @@
 
 		<header class="site-header">
 
-			<div class="wrapper">
+			<div class="site-header__top">
 
 				<a href="/" class="logo">
 
@@ -87,7 +87,11 @@
 
 				</div>
 
-				<nav class="primary-nav">
+			</div>
+
+			<nav class="primary-nav">
+
+				<div class="wrapper">
 
 					<?php
 
@@ -113,9 +117,9 @@
 
 					?>
 
-				</nav>
+				</div>
 
-			</div>
+			</nav>
 
 		</header>
 

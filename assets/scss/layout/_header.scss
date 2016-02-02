@@ -21,6 +21,10 @@
 	}
 }
 
+.site-header__top {
+	padding-left: 2.5rem;
+}
+
 .header-nav--top {
 	float: right;
 }
@@ -34,7 +38,7 @@
 }
 
 .header-social {
-	margin-top: .65rem;
+	margin-top: 1.3rem;
 
 	> a {
 		@include font-size(14);
@@ -57,13 +61,13 @@
 }
 
 .header-language {
-	margin: 27px 40px;
+	margin: 1.75rem 2rem;
 }
 
 .header-search {
 
 	a {
-		padding: 1.35rem 2rem;
+		padding: 2rem 2rem;
 		margin: 0;
 		border: 0;
 		fill: color('white');

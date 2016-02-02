@@ -844,6 +844,9 @@ tbody tr {
       width: 24.1em;
       height: 1.9em; }
 
+.site-header__top {
+  padding-left: 2.5rem; }
+
 .header-nav--top {
   float: right; }
 
@@ -853,7 +856,7 @@ tbody tr {
     border-left: 1px solid #69696B; }
 
 .header-social {
-  margin-top: .65rem; }
+  margin-top: 1.3rem; }
   .header-social > a {
     font-size: 14px;
     font-size: 0.7rem;
@@ -867,10 +870,10 @@ tbody tr {
     fill: #B7B7B7; }
 
 .header-language {
-  margin: 27px 40px; }
+  margin: 1.75rem 2rem; }
 
 .header-search a {
-  padding: 1.35rem 2rem;
+  padding: 2rem 2rem;
   margin: 0;
   border: 0;
   fill: #FFF; }
@@ -1147,6 +1150,9 @@ input[type="submit"] {
     border-color: #B7B7B7; }
   .button__social a:active {
     border-color: #69696B; }
+
+.site-header .button__social a {
+  border: 0; }
 
 .button__social svg {
   height: .8rem;
