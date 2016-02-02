@@ -1562,7 +1562,7 @@ input[type="submit"] {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: -100vw;
     bottom: -2rem;
     width: 200vw;
     z-index: -1;
