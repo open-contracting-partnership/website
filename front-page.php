@@ -158,6 +158,6 @@
 
 		</section>
 
-	</div> <!-- .wrapper -->
+	</div> <!-- / .wrapper -->
 
 <?php get_footer(); ?>
