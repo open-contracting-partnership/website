@@ -33,6 +33,10 @@
 			@include last;
 		}
 
+		&:nth-of-type(2n+1) {
+			@include break;
+		}
+
 	}
 
 	@include mq(L) {
@@ -43,8 +47,16 @@
 			@include span(4 of 12);
 		}
 
+		&:nth-of-type(2n+1) {
+			@include nobreak;
+		}
+
 		&:nth-of-type(3n) {
 			@include last;
+		}
+
+		&:nth-of-type(3n+1) {
+			@include break;
 		}
 
 	}
