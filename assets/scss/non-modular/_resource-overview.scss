@@ -5,7 +5,6 @@
 	}
 
 	.resource__header {
-
 		padding-top: em(145);
 		margin-bottom: em(57);
 
@@ -13,42 +12,35 @@
 			padding-right: em(180);
 			padding-left: em(180);
 		}
-
 	}
-
 }
 
 .resources-container {
 	@include container;
 	margin-bottom: em(250);
-}
 
-.resources-container .post-object {
+	.post-object {
 
-	@include mq(M) {
+		@include mq(M) {
+			@include span(1 of 2);
 
-		@include span(1 of 2);
-
-		&:nth-of-type(2n) {
-			@include last;
+			&:nth-of-type(2n) {
+				@include last;
+			}
 		}
 
-	}
-
-	@include mq(L) {
-
-		@include span(4 of 12);
-
-		&:nth-of-type(2n) {
+		@include mq(L) {
 			@include span(4 of 12);
-		}
 
-		&:nth-of-type(3n) {
-			@include last;
-		}
+			&:nth-of-type(2n) {
+				@include span(4 of 12);
+			}
 
+			&:nth-of-type(3n) {
+				@include last;
+			}
+		}
 	}
-
 }
 
 .resources__popular {
@@ -66,7 +58,6 @@
 }
 
 .resource__filter {
-
 	overflow: hidden;
 	// -9 as the filter already has this as margin-bottom
 	margin-bottom: em(55 - 9);
@@ -82,21 +73,18 @@
 		margin-bottom: em(10);
 
 		&:active {
-			transform: scale(0.97);
+			transform: scale(.97);
 		}
 
 		@include mq(M) {
-
 			@include span(2 of 4);
 
 			&:nth-of-type(2n) {
 				@include last();
 			}
-
 		}
 
 		@include mq(L) {
-
 			@include span(3 of 12);
 
 			&:nth-of-type(2n) {
@@ -106,11 +94,8 @@
 			&:nth-of-type(4n) {
 				@include last();
 			}
-
 		}
-
 	}
-
 }
 
 .resource__filter-container {
@@ -135,7 +120,7 @@
 
 	// a cursor guard on the filter section
 	&:after {
-		content: "";
+		content: '';
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -144,25 +129,21 @@
 	}
 
 	&.active {
-
 		height: auto;
 		margin-bottom: 2em;
 
-		.resource__filter-button, &:after {
+		.resource__filter-button,
+		&:after {
 			display: none;
 		}
 
 		label {
 			opacity: 1;
 		}
-
 	}
-
-
 }
 
 .resource__filter-actions {
-
 	@include break;
 	@include font-size(16);
 	text-align: center;
@@ -176,7 +157,6 @@
 		@include font('secondary', 'medium');
 		color: color('white');
 	}
-
 }
 
 .resource-search__container {
@@ -184,13 +164,11 @@
 	@include mq(L) {
 		padding: 0 em(130);
 	}
-
 }
 
 input[type="search"].resource-search {
-
-	@include font-size(23);
 	@include font('secondary');
+	@include font-size(23);
 	line-height: 1;
 	color: color('grey');
 	border: 0;
@@ -200,5 +178,4 @@ input[type="search"].resource-search {
 	&::-webkit-input-placeholder {
 		line-height: normal;
 	}
-
 }
