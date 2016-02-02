@@ -6,8 +6,16 @@
 			"hex": "#D6E100"
 		},
 		{
+			"label": "brand-mid",
+			"hex": "#B6C505"
+		},
+		{
 			"label": "brand-dark",
 			"hex": "#9BAF00"
+		},
+		{
+			"label": "orange",
+			"hex": "#FD843D"
 		},
 		{
 			"label": "white",
