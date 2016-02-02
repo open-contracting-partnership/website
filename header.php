@@ -76,7 +76,7 @@
 					</div>
 
 					<div class="header-nav--top__item header-language">
-						<select class="" name="">
+						<select class="custom-select" name="">
 							<option value="">English</option>
 						</select>
 					</div>
