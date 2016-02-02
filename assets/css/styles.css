@@ -1766,7 +1766,14 @@ input[type="submit"] {
   max-width: 70em;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 12.5em; }
+  margin-bottom: 12.5em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
   .resources-container:after {
     content: " ";
     display: block;
