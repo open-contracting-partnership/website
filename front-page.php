@@ -2,12 +2,14 @@
 
 <?php get_header(); ?>
 
+	<?php the_post(); ?>
+
 	<div class="wrapper / homepage-wrapper">
 
 		<div class="homepage-cta / band band--section">
 
 			<div class="highlight-text / band">
-				<p>The Open Contracting Partnership connects governments, civil society and business to open up and monitor public contracting. The result: Better deals, less fraud and corruption, higher-quality services, and a fairer business environment.</p>
+				<p><?php the_field('strapline'); ?></p>
 			</div>
 
 			<a href="" class="button button--white">About Our Work</a>
@@ -22,20 +24,22 @@
 				<h2>The number one corruption risk in government</h2>
 			</div>
 
-			<div class="stat-module">
-				<span>$9.5 Trillion</span>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed sapien quam. Sed dapibus est id enim facilisis, at posuere turpis adipiscing. Quisque sit amet dui dui.</p>
-			</div>
+			<?php if ( have_rows('statistics') ) : ?>
 
-			<div class="stat-module">
-				<span>40</span>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed sapien quam. Sed dapibus est id enim facilisis, at posuere turpis adipiscing. Quisque sit amet dui dui.</p>
-			</div>
+				<div class="stat__container">
 
-			<div class="stat-module">
-				<span>4</span>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed sapien quam. Sed dapibus est id enim facilisis, at posuere turpis adipiscing. Quisque sit amet dui dui.</p>
-			</div>
+					<?php while ( have_rows('statistics') ) : the_row(); ?>
+
+						<div class="stat-module">
+							<span><?php the_sub_field('stat'); ?></span>
+							<p><?php the_sub_field('copy'); ?></p>
+						</div>
+
+					<?php endwhile; ?>
+
+				</div> <!-- / .stat-container -->
+
+			<?php endif; ?>
 
 		</section> <!-- stat-modules -->
 
