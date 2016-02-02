@@ -2,6 +2,9 @@
 
 	article {
 
+		overflow: hidden;
+		margin-bottom: 6em;
+
 		> section {
 
 			@include mq(M) {
@@ -39,6 +42,45 @@
 
 	@include mq(M) {
 		display: none;
+	}
+
+}
+
+
+ //**************
+// RELATED POSTS
+
+.related-posts {
+
+	border-top: 1px solid color('lighter-grey');
+
+	h2 {
+		text-transform: uppercase;
+		margin: em(55) 0;
+		text-align: center;
+	}
+
+}
+
+.yarpp-related {
+
+	display: flex;
+	flex-wrap: wrap;
+
+	margin-bottom: em(108);
+
+	.post-object {
+
+		@include span(4 of 12);
+
+		&:nth-of-type(3n) {
+			@include last;
+		}
+
+		&:nth-of-type(3n+1) {
+			@include break;
+		}
+
 	}
 
 }
