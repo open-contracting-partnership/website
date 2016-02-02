@@ -1784,6 +1784,9 @@ input[type="submit"] {
     background-color: #FFF;
     border-bottom: 3px solid #999;
     margin-bottom: 0.5em; }
+    .resource__filter label:active {
+      -webkit-transform: scale(0.97);
+              transform: scale(0.97); }
     @media screen and (min-width: 640px) {
       .resource__filter label {
         width: 48.57143%;
