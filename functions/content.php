@@ -206,7 +206,7 @@ function get_authors() {
 					break;
 
 				case 'custom_user':
-					$authors[] = array('name' => get_sub_field('user'));
+					$authors[] = (object) array('name' => get_sub_field('user'));
 					break;
 
 			}
