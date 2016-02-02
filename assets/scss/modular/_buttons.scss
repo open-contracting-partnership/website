@@ -158,6 +158,10 @@ input[type="submit"] {
 		}
 	}
 
+	.site-header & a {
+		border: 0;
+	}
+
 	svg {
 		height: .8rem;
 		max-width: 1.5rem;
