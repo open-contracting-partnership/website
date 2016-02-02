@@ -1492,8 +1492,8 @@ input[type="submit"] {
     box-shadow: 0.57143rem 0 0 #9BAF00, -0.57143rem 0 0 #9BAF00;
     -webkit-box-decoration-break: clone;
             box-decoration-break: clone;
-    line-height: 2.15;
-    padding: 7px 0; }
+    line-height: 1.7;
+    padding: 4px 0; }
 
 /*------------------------------------*    $SHARE
 \*------------------------------------*/

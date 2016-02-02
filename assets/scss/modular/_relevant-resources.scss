@@ -9,14 +9,14 @@
 	}
 
 	a {
-		@include font(secondary);
+		@include font('secondary');
 		@include font-size(16);
 		display: inline;
 		color: color('white');
 		background-color: color('brand-dark');
 		box-shadow: .57143rem 0 0 color('brand-dark'), -.57143rem 0 0 color('brand-dark');
 		box-decoration-break: clone; // FF32 Fix - https://css-tricks.com/multi-line-padded-text/
-		line-height: 2.15;
-		padding: 7px 0;
+		line-height: 1.7;
+		padding: 4px 0;
 	}
 }

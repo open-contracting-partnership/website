@@ -46,9 +46,8 @@
 					<h3 class="border-top">Relevant Resources</h3>
 
 					<ul class="relevant-resources">
-						<li><a href="#">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper.</a></li>
-						<li><a href="#">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper.</a></li>
-						<li><a href="#">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper.</a></li>
+						<li><a href="#">Ending child marriage in Africa: Opening the door for girls’ education, health, and freedom from violence</a></li>
+						<li><a href="#">Vows of poverty. 26 countries where child marriage eclipses girls’ education</a></li>
 					</ul>
 
 				</section>
