@@ -1,0 +1,147 @@
+.single-post {
+
+	.blog__title {
+		@include span(6 at 4 of 12 last);
+		margin-right: span(2 of 12) + gutter();
+		padding-top: 7.5rem;
+		position: relative;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			bottom: -2rem;
+			width: 200vw;
+			z-index: -1;
+			background-color: color('brand-dark');
+		}
+	}
+
+	.post-type {
+		@include font('secondary', 'bold');
+		@include font-size(16);
+		line-height: 1;
+		text-transform: uppercase;
+		padding: .5rem 1rem;
+		color: color('dark-background');
+		background-color: color('white');
+		display: inline-block;
+	}
+
+	h1 {
+		color: color('white');
+	}
+
+	article {
+		margin-bottom: 6em;
+
+		> section {
+
+			@include mq(M) {
+				@include span(8 of 12 last);
+			}
+
+			@include mq(L) {
+				@include span(6 at 4 of 12 last);
+				margin-right: span(2 of 12) + gutter();
+			}
+
+			> img {
+				margin-bottom: 2.2em;
+			}
+
+		}
+
+		aside {
+
+			@include mq(M) {
+				@include span(4 of 12 first);
+			}
+
+			@include mq(L) {
+				@include span(3 of 12 first);
+			}
+
+		}
+
+	}
+
+	.related-posts {
+		@include break;
+	}
+
+}
+
+.blog__mobile-date {
+
+	@include mq(M) {
+		display: none;
+	}
+
+}
+
+
+ //**************
+// RELATED POSTS
+
+.related-posts {
+
+	border-top: 1px solid color('lighter-grey');
+
+	h2 {
+		text-transform: uppercase;
+		margin: em(55) 0;
+		text-align: center;
+	}
+
+}
+
+.yarpp-related {
+
+	display: flex;
+	flex-wrap: wrap;
+
+	margin-bottom: em(108);
+
+	.post-object {
+
+		@include mq(M) {
+
+			@include span(6 of 12);
+
+			&:nth-of-type(2n) {
+				@include last;
+			}
+
+			&:nth-of-type(2n+1) {
+				@include break;
+			}
+
+		}
+
+		@include mq(L) {
+
+			@include span(4 of 12);
+
+			&:nth-of-type(2n) {
+				@include span(4 of 12);
+			}
+
+			&:nth-of-type(2n+1) {
+				@include nobreak;
+			}
+
+			&:nth-of-type(3n) {
+				@include last;
+			}
+
+			&:nth-of-type(3n+1) {
+				@include break;
+			}
+
+		}
+
+	}
+
+}

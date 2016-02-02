@@ -6,7 +6,7 @@
 
 	<div class="wrapper">
 
-		<article>
+		<article class="cf">
 
 			<div class="blog__title">
 				<span class="post-type">Blog</span>
@@ -89,39 +89,25 @@
 
 		</article>
 
-		<section class="related-posts">
+		<!-- yarpp posts -->
+		<?php if ( function_exists('related_posts') ) : ?>
 
-			<h2 class="delta">Related Posts</h2>
+			<section class="related-posts">
 
-			<div class="related-posts__inner">
+				<h2 class="epsilon">Related Posts</h2>
 
-				<a href="#" class="related-post">
-					<img src="http://placehold.it/460x300" />
-				</a>
+				<?php
 
-				<a href="#" class="related-post">
-					<img src="http://placehold.it/460x300" />
-				</a>
+					related_posts([
+						'template' =>'yarpp-template-posts.php',
+						'limit' => 6
+					]);
 
-				<a href="#" class="related-post">
-					<img src="http://placehold.it/460x300" />
-				</a>
+				?>
 
-				<a href="#" class="related-post">
-					<img src="http://placehold.it/460x300" />
-				</a>
+			</section>
 
-				<a href="#" class="related-post">
-					<img src="http://placehold.it/460x300" />
-				</a>
-
-				<a href="#" class="related-post">
-					<img src="http://placehold.it/460x300" />
-				</a>
-
-			</div>
-
-		</section>
+		<?php endif; ?>
 
 	</div> <!-- / .wrapper -->
 
