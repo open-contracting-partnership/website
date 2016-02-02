@@ -1716,11 +1716,28 @@ input[type="submit"] {
     font-size: 1.3rem;
     margin-bottom: 2.5em; }
 
+@media screen and (min-width: 640px) {
+  .homepage-blogs {
+    width: 32.71028%;
+    float: left;
+    margin-right: 0.93458%; } }
+
+@media screen and (min-width: 640px) {
+  .homepage-spotlight {
+    width: 32.71028%;
+    float: left;
+    margin-right: 0.93458%; } }
+
 .homepage-spotlight .post-object {
   min-height: 24.1em; }
 
 .homepage-implement {
   margin-top: 3.45em; }
+  @media screen and (min-width: 640px) {
+    .homepage-implement {
+      width: 24.29907%;
+      float: left;
+      margin-right: 0.93458%; } }
   .homepage-implement .heading-highlight {
     margin-left: 12px;
     margin-bottom: 1.4em; }
@@ -1730,6 +1747,9 @@ input[type="submit"] {
     line-height: 1.7; }
   .homepage-implement .cta-list {
     margin-top: 1.75em; }
+
+.homepage-filter {
+  clear: both; }
 
 .resources-overview header {
   background-color: #B6C505; }

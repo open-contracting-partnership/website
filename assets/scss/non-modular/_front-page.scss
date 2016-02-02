@@ -26,12 +26,30 @@
 	}
 }
 
-.homepage-spotlight .post-object {
-	min-height: em(482);
+.homepage-blogs {
+
+	@include mq(M) {
+		@include span(4 of 12 first);
+	}
+}
+
+.homepage-spotlight {
+
+	@include mq(M) {
+		@include span(4 of 12);
+	}
+
+	.post-object {
+		min-height: em(482);
+	}
 }
 
 .homepage-implement {
 	margin-top: em(69);
+
+	@include mq(M) {
+		@include span(3 of 12);
+	}
 
 	.heading-highlight {
 		margin-left: 12px;
@@ -48,6 +66,10 @@
 	}
 }
 
+.homepage-filter {
+	@include break();
+}
+
 .homepage-map {
-	
+
 }
