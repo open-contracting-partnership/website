@@ -21,49 +21,44 @@
 .resources-container {
 	@include container;
 	margin-bottom: em(250);
-
 	display: flex;
 	flex-wrap: wrap;
-}
 
-.resources-container .post-object {
+	.post-object {
 
-	@include mq(M) {
+		@include mq(M) {
+			@include span(1 of 2);
 
-		@include span(1 of 2);
+			&:nth-of-type(2n) {
+				@include last;
+			}
 
-		&:nth-of-type(2n) {
-			@include last;
+			&:nth-of-type(2n+1) {
+				@include break;
+			}
+
 		}
 
-		&:nth-of-type(2n+1) {
-			@include break;
-		}
-
-	}
-
-	@include mq(L) {
-
-		@include span(4 of 12);
-
-		&:nth-of-type(2n) {
+		@include mq(L) {
 			@include span(4 of 12);
-		}
 
-		&:nth-of-type(2n+1) {
-			@include nobreak;
-		}
+			&:nth-of-type(2n) {
+				@include span(4 of 12);
+			}
 
-		&:nth-of-type(3n) {
-			@include last;
-		}
+			&:nth-of-type(2n+1) {
+				@include nobreak;
+			}
 
-		&:nth-of-type(3n+1) {
-			@include break;
-		}
+			&:nth-of-type(3n) {
+				@include last;
+			}
 
+			&:nth-of-type(3n+1) {
+				@include break;
+			}
+		}
 	}
-
 }
 
 .resources__popular {
@@ -146,7 +141,7 @@
 
 	// a cursor guard on the filter section
 	&:after {
-		content: "";
+		content: '';
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -155,11 +150,11 @@
 	}
 
 	&.active {
-
 		height: auto;
 		margin-bottom: 2em;
 
-		.resource__filter-button, &:after {
+		.resource__filter-button,
+		&:after {
 			display: none;
 		}
 
