@@ -1595,15 +1595,32 @@ input[type="submit"] {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
   margin-bottom: 5.4em; }
-  .yarpp-related .post-object {
-    width: 32.71028%;
-    float: left;
-    margin-right: 0.93458%; }
-    .yarpp-related .post-object:nth-of-type(3n) {
-      float: right;
-      margin-right: 0; }
-    .yarpp-related .post-object:nth-of-type(3n+1) {
-      clear: both; }
+  @media screen and (min-width: 640px) {
+    .yarpp-related .post-object {
+      width: 49.53271%;
+      float: left;
+      margin-right: 0.93458%; }
+      .yarpp-related .post-object:nth-of-type(2n) {
+        float: right;
+        margin-right: 0; }
+      .yarpp-related .post-object:nth-of-type(2n+1) {
+        clear: both; } }
+  @media screen and (min-width: 1024px) {
+    .yarpp-related .post-object {
+      width: 32.71028%;
+      float: left;
+      margin-right: 0.93458%; }
+      .yarpp-related .post-object:nth-of-type(2n) {
+        width: 32.71028%;
+        float: left;
+        margin-right: 0.93458%; }
+      .yarpp-related .post-object:nth-of-type(2n+1) {
+        clear: none; }
+      .yarpp-related .post-object:nth-of-type(3n) {
+        float: right;
+        margin-right: 0; }
+      .yarpp-related .post-object:nth-of-type(3n+1) {
+        clear: both; } }
 
 .blog__container {
   margin-top: 11em; }
