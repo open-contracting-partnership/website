@@ -1,8 +1,39 @@
 .single-post {
 
-	article {
+	.blog__title {
+		@include span(6 at 4 of 12 last);
+		margin-right: span(2 of 12) + gutter();
+		padding-top: 7.5rem;
+		position: relative;
 
-		overflow: hidden;
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			bottom: -2rem;
+			width: 200vw;
+			z-index: -1;
+			background-color: color('brand-dark');
+		}
+	}
+
+	.post-type {
+		@include font('secondary', 'bold');
+		@include font-size(16);
+		line-height: 1;
+		text-transform: uppercase;
+		padding: .5rem 1rem;
+		color: color('dark-background');
+		background-color: color('white');
+		display: inline-block;
+	}
+
+	h1 {
+		color: color('white');
+	}
+
+	article {
 		margin-bottom: 6em;
 
 		> section {

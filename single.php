@@ -6,11 +6,14 @@
 
 	<div class="wrapper">
 
-		<article>
+		<article class="cf">
+
+			<div class="blog__title">
+				<span class="post-type">Blog</span>
+				<h1><?php the_title(); ?></h1>
+			</div>
 
 			<section>
-
-				<h1><?php the_title(); ?></h1>
 
 				<p class="blog__mobile-date">Written By <?php the_authors(TRUE); ?>, <datetime><?php the_date(); ?></datetime></p>
 
