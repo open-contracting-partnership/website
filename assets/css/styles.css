@@ -1145,14 +1145,11 @@ input[type="submit"] {
   text-align: center;
   padding: 0;
   fill: #69696B;
-  border-color: #69696B; }
-  .button__social a:hover, .button__social a:focus {
-    border-color: #B7B7B7; }
-  .button__social a:active {
-    border-color: #69696B; }
-
-.site-header .button__social a {
   border: 0; }
+  .button__social a:hover, .button__social a:focus {
+    fill: #B7B7B7; }
+  .button__social a:active {
+    fill: #69696B; }
 
 .button__social svg {
   height: .8rem;
