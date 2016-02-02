@@ -203,7 +203,7 @@
 				</div>
 
 				<div class="blog__filter__view-all">
-					<a href="#" class="button button--white button--open button--bg-dark">View more by this issue</a>
+					<a href="#" class="button button--white button--open button--solid-dark">View more by this issue</a>
 				</div>
 
 			</div>
