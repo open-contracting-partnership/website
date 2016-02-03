@@ -163,7 +163,7 @@
 
 							<img src="http://placehold.it/459x300" alt="">
 
-							<div class="post-object--spotlight__title">
+							<div class="post-object--blog__title">
 								<span class="post-object__tag">Blog</span>
 								<h4>Help us define our openness</h4>
 							</div>
@@ -184,7 +184,7 @@
 
 							<img src="http://placehold.it/459x300" alt="">
 
-							<div class="post-object--spotlight__title">
+							<div class="post-object--blog__title">
 								<span class="post-object__tag">Blog</span>
 								<h4>Help us define our openness</h4>
 							</div>
@@ -205,7 +205,7 @@
 
 							<img src="http://placehold.it/459x300" alt="">
 
-							<div class="post-object--spotlight__title">
+							<div class="post-object--blog__title">
 								<span class="post-object__tag">Blog</span>
 								<h4>Help us define our openness</h4>
 							</div>
@@ -230,7 +230,7 @@
 
 							<img src="http://placehold.it/459x300" alt="">
 
-							<div class="post-object--spotlight__title">
+							<div class="post-object--blog__title">
 								<span class="post-object__tag">Blog</span>
 								<h4>Help us define our openness</h4>
 							</div>

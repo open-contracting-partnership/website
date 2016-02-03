@@ -1434,13 +1434,13 @@ input[type="submit"] {
   display: inline-block;
   background-color: #8B58EB; }
 
-.post-object--blog .post-object--spotlight__title {
+.post-object--blog .post-object--blog__title {
   position: absolute;
   bottom: -1px;
   left: 0;
   right: 0;
   opacity: .9; }
-  .post-object--blog .post-object--spotlight__title h4 {
+  .post-object--blog .post-object--blog__title h4 {
     background-color: #6c75e1;
     margin-bottom: 0;
     padding: .85rem 1.1rem; }
