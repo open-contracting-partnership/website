@@ -85,7 +85,8 @@ nav h4 {
 	}
 }
 
-.nav--sub-page {
+.nav--sub-page,
+.nav--in-page {
 
 	li,
 	a {
@@ -100,6 +101,36 @@ nav h4 {
 		@include font('secondary', 'bold');
 		@include font-size(16);
 		color: color('body');
+	}
+}
+
+.nav--in-page {
+
+	a {
+		color: color('grey');
+	}
+
+	li {
+		position: relative;
+		padding-left: 14px;
+	}
+
+	li.active {
+
+		&:before {
+			@include font-size(10);
+			content: '►';
+			position: absolute;
+			top: 55%;
+			transform: translateY(-50%);
+			left: 0;
+			display: inline-block;
+			margin-right: .2rem;
+		}
+
+		a {
+			color: color('body');
+		}
 	}
 }
 

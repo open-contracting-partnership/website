@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 
 Atomic design is philosophically complimentary with these CSS approaches:
@@ -995,19 +996,45 @@ nav h4 {
   display: inline-block; }
 
 .nav--sub-page li,
-.nav--sub-page a {
+.nav--sub-page a,
+.nav--in-page li,
+.nav--in-page a {
   line-height: 1; }
 
-.nav--sub-page li {
+.nav--sub-page li,
+.nav--in-page li {
   margin-bottom: 1rem; }
 
-.nav--sub-page a {
+.nav--sub-page a,
+.nav--in-page a {
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-size: 0.8rem;
+  color: #424244; }
+
+.nav--in-page a {
+  color: #999; }
+
+.nav--in-page li {
+  position: relative;
+  padding-left: 14px; }
+
+.nav--in-page li.active:before {
+  font-size: 10px;
+  font-size: 0.5rem;
+  content: '►';
+  position: absolute;
+  top: 55%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 0;
+  display: inline-block;
+  margin-right: .2rem; }
+
+.nav--in-page li.active a {
   color: #424244; }
 
 .primary-nav {
