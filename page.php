@@ -6,12 +6,7 @@
 
 	<div class="wrapper">
 
-		<nav>
-			<ul class="nav nav--horizontal nav--breadcrumbs">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About Us</a></li>
-			</ul>
-		</nav>
+		<?php get_partial('breadcrumbs'); ?>
 
 		<nav>
 
