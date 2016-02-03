@@ -248,6 +248,8 @@
 
 		</section>
 
+		<!--
+
 		<section class="homepage-map / band band--section">
 
 			<div class="l-7 g-first">
@@ -269,6 +271,8 @@
 			</div>
 
 		</section>
+
+		-->
 
 	</div> <!-- / .wrapper -->
 
