@@ -14,8 +14,8 @@
 					<p><?php the_field('strapline'); ?></p>
 				</div>
 
-				<a href="" class="button button--white">About Our Work</a>
-				<a href="" class="button button--white">Visit the Data Standard</a>
+				<a href="/about" class="button button--white">About Our Work</a>
+				<a href="/data-standard" class="button button--white">Visit the Data Standard</a>
 
 			</div> <!-- homepage-cta -->
 
