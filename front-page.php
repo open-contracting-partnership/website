@@ -14,8 +14,8 @@
 					<p><?php the_field('strapline'); ?></p>
 				</div>
 
-				<a href="" class="button button--white">About Our Work</a>
-				<a href="" class="button button--white">Visit the Data Standard</a>
+				<a href="/about" class="button button--white">About Our Work</a>
+				<a href="/data-standard" class="button button--white">Visit the Data Standard</a>
 
 			</div> <!-- homepage-cta -->
 
@@ -77,7 +77,7 @@
 						<a href="<?php the_permalink(); ?>" class="post-object post-object--horizontal / media">
 
 							<div href="#" class="post-object__media / media__object">
-								<img src="http://placehold.it/122x154" alt="">
+								<?php the_post_thumbnail('hemo_horizontal'); ?>
 							</div>
 
 							<div class="post-object__content / media__body">

@@ -22,6 +22,7 @@ add_theme_support('menus');
 
 // standard images
 add_image_size('standard_image', 100, 100, TRUE);
+add_image_size('hemo_horizontal', 122, 154, TRUE);
 
 // aspect ratio
 add_aspect_ratio('2x1', 460, 2, 1);

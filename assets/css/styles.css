@@ -1741,7 +1741,8 @@ input[type="submit"] {
       margin-right: 0;
       margin-right: 16.82243%; } }
   .single-post article > section > img {
-    margin-bottom: 2.2em; }
+    margin-bottom: 2.2em;
+    background-color: #FFF; }
   @media screen and (min-width: 640px) {
     .single-post article aside {
       width: 32.71028%;
