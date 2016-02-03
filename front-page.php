@@ -156,24 +156,92 @@
 					<p>Interesting job over at <b>@engnroom</b>  to coordinate a regional program on transparency, technology and <b>#opendata</b> <a href="https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/">https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/</a></p>
 				</div>
 
-				<div class="homepage-filter__twitter">
-					<p>Interesting job over at <b>@engnroom</b>  to coordinate a regional program on transparency, technology and <b>#opendata</b> <a href="https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/">https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/</a></p>
+				<div class="homepage-filter__post">
+					<a href="#" class="post-object post-object--vertical post-object--blog">
+
+						<div class="post-object__media">
+
+							<img src="http://placehold.it/459x300" alt="">
+
+							<div class="post-object--spotlight__title">
+								<span class="post-object__tag">Blog</span>
+								<h4>Help us define our openness</h4>
+							</div>
+
+						</div>
+
+						<div class="post-object__content">
+							<p>By Shane Griffiths</p>
+						</div>
+
+					</a>
+				</div>
+
+				<div class="homepage-filter__post">
+					<a href="#" class="post-object post-object--vertical post-object--blog">
+
+						<div class="post-object__media">
+
+							<img src="http://placehold.it/459x300" alt="">
+
+							<div class="post-object--spotlight__title">
+								<span class="post-object__tag">Blog</span>
+								<h4>Help us define our openness</h4>
+							</div>
+
+						</div>
+
+						<div class="post-object__content">
+							<p>By Shane Griffiths</p>
+						</div>
+
+					</a>
+				</div>
+
+				<div class="homepage-filter__post">
+					<a href="#" class="post-object post-object--vertical post-object--blog">
+
+						<div class="post-object__media">
+
+							<img src="http://placehold.it/459x300" alt="">
+
+							<div class="post-object--spotlight__title">
+								<span class="post-object__tag">Blog</span>
+								<h4>Help us define our openness</h4>
+							</div>
+
+						</div>
+
+						<div class="post-object__content">
+							<p>By Shane Griffiths</p>
+						</div>
+
+					</a>
 				</div>
 
 				<div class="homepage-filter__twitter">
 					<p>Interesting job over at <b>@engnroom</b>  to coordinate a regional program on transparency, technology and <b>#opendata</b> <a href="https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/">https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/</a></p>
 				</div>
 
-				<div class="homepage-filter__twitter">
-					<p>Interesting job over at <b>@engnroom</b>  to coordinate a regional program on transparency, technology and <b>#opendata</b> <a href="https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/">https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/</a></p>
-				</div>
+				<div class="homepage-filter__post">
+					<a href="#" class="post-object post-object--vertical post-object--blog">
 
-				<div class="homepage-filter__twitter">
-					<p>Interesting job over at <b>@engnroom</b>  to coordinate a regional program on transparency, technology and <b>#opendata</b> <a href="https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/">https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/</a></p>
-				</div>
+						<div class="post-object__media">
 
-				<div class="homepage-filter__twitter">
-					<p>Interesting job over at <b>@engnroom</b>  to coordinate a regional program on transparency, technology and <b>#opendata</b> <a href="https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/">https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/</a></p>
+							<img src="http://placehold.it/459x300" alt="">
+
+							<div class="post-object--spotlight__title">
+								<span class="post-object__tag">Blog</span>
+								<h4>Help us define our openness</h4>
+							</div>
+
+						</div>
+
+						<div class="post-object__content">
+							<p>By Shane Griffiths</p>
+						</div>
+
+					</a>
 				</div>
 
 			</div>
