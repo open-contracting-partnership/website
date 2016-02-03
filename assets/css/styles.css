@@ -900,6 +900,7 @@ nav h4 {
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     position: absolute;
     top: 100%;
+    left: 0;
     display: none;
     list-style: none;
     background-color: #FFF;
