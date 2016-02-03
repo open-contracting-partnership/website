@@ -7,7 +7,7 @@
 		<ul class="nav nav--vertical nav--in-page">
 
 			<?php foreach ( $sections as $id => $label ) : ?>
-				<li><a href="#<?php echo $id; ?>"><?php echo $label; ?></a></li>
+				<li class="active"><a href="#<?php echo $id; ?>"><?php echo $label; ?></a></li>
 			<?php endforeach; ?>
 
 		</ul>

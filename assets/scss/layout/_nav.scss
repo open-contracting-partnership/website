@@ -29,6 +29,8 @@ nav h4 {
 
 .nav--horizontal {
 
+	position: relative;
+
 	li {
 		float: left;
 		margin-right: 2em;
@@ -37,6 +39,58 @@ nav h4 {
 	a {
 		display: block;
 	}
+
+	li:hover ul {
+		display: block;
+	}
+
+	ul {
+
+		@include font('secondary', 'medium');
+		position: absolute;
+		top: 100%;
+		display: none;
+		list-style: none;
+		background-color: color('white');
+		border-bottom: 1px solid color('lighter-grey');
+		margin: 0;
+		padding: 0;
+		z-index: 10;
+
+		&:before, &:after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			bottom: -1px;
+			width: 100vw;
+			background-color: color('white');
+			border-bottom: 1px solid color('lighter-grey');
+			right: 100%;
+		}
+
+		&:after {
+			left: 100%;
+			right: auto;
+		}
+
+		li {
+			border-right: 0;
+			margin: 0 em(25);
+			padding: 0;
+		}
+
+		li:first-child {
+			margin-left: 0;
+		}
+
+		a {
+			color: color('dark-background');
+		}
+
+	}
+
+
 }
 
 .nav--vertical {
@@ -74,7 +128,7 @@ nav h4 {
 			content: '/';
 			display: inline-block;
 			vertical-align: text-top;
-			margin: 0 .1em;
+			margin: 0 em(5) 0 em(2);
 		}
 
 		&:last-child:after {
@@ -88,6 +142,7 @@ nav h4 {
 		color: color('dark-background');
 		display: inline-block;
 	}
+
 }
 
 .nav--sub-page,
