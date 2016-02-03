@@ -1,5 +1,6 @@
 .page-sidebar {
 	margin-top: 0;
+	margin-bottom: rem(200);
 
 	@include mq(M) {
 		@include span(4 of 12 first);
@@ -16,6 +17,7 @@
 }
 
 .page-content {
+	margin-bottom: rem(200);
 
 	@include mq(M) {
 		@include span(6 at 5 of 12);
