@@ -8,7 +8,6 @@
 
 	<div class="wrapper">
 
-		<?php get_partial('breadcrumbs'); ?>
 
 		<nav>
 
