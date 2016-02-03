@@ -39,6 +39,22 @@
 
 		</nav>
 
+		<a href="#" class="download-cta">
+
+			<img src="http://placehold.it/464x230" alt="" />
+
+			<div class="download-cta__content">
+
+				<span>Download</span>
+
+				<div class="heading-highlight">
+					<h4>2015 - 2018 Strategy document</h4>
+				</div>
+				
+			</div>
+
+		</a>
+
 		<article class="cf">
 
 			<div class="blog__title">

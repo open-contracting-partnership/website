@@ -1020,7 +1020,7 @@ nav h4 {
 
 .nav--in-page li {
   position: relative;
-  padding-left: 14px; }
+  padding-left: .7rem; }
 
 .nav--in-page li.active:before {
   font-size: 10px;
@@ -1254,6 +1254,36 @@ input[type="submit"] {
     padding: 1em .5em; }
     .cta-list a:hover, .cta-list a:active, .cta-list a:focus {
       text-decoration: underline; }
+
+.download-cta {
+  position: relative;
+  display: block; }
+  .download-cta:hover h4, .download-cta:active h4 {
+    text-decoration: underline; }
+
+.download-cta__content {
+  position: absolute;
+  bottom: 2.1rem;
+  left: .75rem; }
+  .download-cta__content span {
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    line-height: 1;
+    display: inline-block;
+    color: #FFF;
+    background-color: #545456;
+    margin-bottom: .3em;
+    padding: .5rem .75rem; }
+  .download-cta__content .heading-highlight {
+    margin-left: .57em; }
+  .download-cta__content h4 {
+    font-size: 28px;
+    font-size: 1.4rem; }
 
 .heading-highlight h3,
 .heading-highlight h4,

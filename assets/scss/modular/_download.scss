@@ -1,0 +1,38 @@
+.download-cta {
+	position: relative;
+	display: block;
+
+	&:hover,
+	&:active {
+
+		h4 {
+			text-decoration: underline;
+		}
+	}
+}
+
+.download-cta__content {
+	position: absolute;
+	bottom: 2.1rem;
+	left: .75rem;
+
+	span {
+		@include font('secondary', 'bold');
+		@include font-size(16);
+		text-transform: uppercase;
+		line-height: 1;
+		display: inline-block;
+		color: color('white');
+		background-color: color('background');
+		margin-bottom: .3em;
+		padding: .5rem .75rem;
+	}
+
+	.heading-highlight {
+		margin-left: .57em;
+	}
+
+	h4 {
+		@include font-size(28);
+	}
+}
