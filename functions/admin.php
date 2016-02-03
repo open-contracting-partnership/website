@@ -4,7 +4,7 @@
  //*************
 // ADD CPT MENU
 
-if ( FALSE ) {
+if ( TRUE ) {
 
 	/**
 	 * Adds custom post type archive support to the menu system
