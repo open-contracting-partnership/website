@@ -103,6 +103,15 @@
 	@include break();
 }
 
+.homepage-filter__button {
+	@include font('secondary');
+	@include font-size(18);
+	color: color('dark-background');
+	background-color: color('brand');
+	display: inline-block;
+	padding: 1.1rem 1rem;
+}
+
 .homepage-filter__items div {
 	@include span(4 of 12);
 	margin-bottom: gutter();
