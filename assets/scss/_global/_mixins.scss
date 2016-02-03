@@ -58,6 +58,10 @@
 	@return $value / $size + em;
 }
 
+@function rem($value) {
+	@return $value / $base-font-size + em;
+}
+
 
  //*******************
 // COLOR BASED FUNCTIONS
