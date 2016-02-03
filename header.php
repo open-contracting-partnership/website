@@ -100,7 +100,7 @@
 							'sort_column' => 'menu_order',
 							'container' => 'ul',
 							'menu_class' => 'nav nav--horizontal',
-							'depth' => 1
+							'depth' => 2
 						]);
 
 					?>
