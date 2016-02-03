@@ -159,7 +159,7 @@ nav h4 {
 	}
 
 	a {
-		@include font('secondary', 'bold');
+		@include font('secondary', 'medium');
 		@include font-size(16);
 		color: color('body');
 	}
