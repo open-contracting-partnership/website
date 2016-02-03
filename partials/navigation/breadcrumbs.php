@@ -1,4 +1,4 @@
-<?php // partials/breadcrumbs/default.php ?>
+<?php // partials/navigation/breadcrumbs.php ?>
 
 <?php if ( $breadcrumbs = get_breadcrumbs() ) : ?>
 
