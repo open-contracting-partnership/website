@@ -668,12 +668,7 @@ table {
   text-align: left;
   border-collapse: collapse; }
 
-th {
-  padding: 0;
-  display: block;
-  text-align: left; }
-
-td {
+th, td {
   text-align: left;
   padding: 0.83333em;
   border: 1px solid #69696B;

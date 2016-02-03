@@ -9,13 +9,12 @@ table {
 	border-collapse: collapse;
 }
 
-th {
-	padding: 0;
-	display: block;
-	text-align: left;
-}
+// th {
+// 	padding: 0;
+// 	text-align: left;
+// }
 
-td {
+th, td {
 	text-align: left;
 	padding: em(10, 12);
 	border: 1px solid color('mid-grey');
