@@ -22,6 +22,18 @@
 
 		</nav>
 
+		<nav>
+
+			<h3 class="border-top border-top--clean">Jump to section</h3>
+
+			<ul class="nav nav--vertical nav--in-page">
+				<li class="active"><a href="#">What we do</a></li>
+				<li><a href="#">Why we do it</a></li>
+				<li><a href="#">Our Story</a></li>
+			</ul>
+
+		</nav>
+
 		<article class="cf">
 
 			<div class="blog__title">
