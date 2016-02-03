@@ -3,6 +3,34 @@
 	color: color('white');
 }
 
+.homepage-hero {
+	padding-top: 3em;
+	position: relative;
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: url('https://unsplash.it/1811/603');
+		background-size: cover;
+		filter: grayscale(100%);
+		z-index: -1;
+		opacity: .5;
+	}
+
+	@include mq(M) {
+		padding-top: 5em;
+	}
+
+	@include mq(L) {
+		padding-top: 7.5em;
+	}
+}
+
 .homepage-cta {
 	@include font-size(25);
 	line-height: 1.9;

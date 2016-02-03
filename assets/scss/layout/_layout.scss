@@ -9,18 +9,6 @@
 	padding: 0 1em;
 }
 
-.homepage-wrapper {
-	padding-top: 3em;
-
-	@include mq(M) {
-		padding-top: 5em;
-	}
-
-	@include mq(L) {
-		padding-top: 7.5em;
-	}
-}
-
 .l-3 {
 
 	@include mq(L) {

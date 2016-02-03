@@ -4,18 +4,22 @@
 
 	<?php the_post(); ?>
 
-	<div class="wrapper / homepage-wrapper">
+	<div class="homepage-hero">
 
-		<div class="homepage-cta / band band--section">
+		<div class="wrapper">
 
-			<div class="highlight-text / band">
-				<p><?php the_field('strapline'); ?></p>
-			</div>
+			<div class="homepage-cta / band band--section">
 
-			<a href="" class="button button--white">About Our Work</a>
-			<a href="" class="button button--white">Visit the Data Standard</a>
+				<div class="highlight-text / band">
+					<p><?php the_field('strapline'); ?></p>
+				</div>
 
-		</div> <!-- homepage-cta -->
+				<a href="" class="button button--white">About Our Work</a>
+				<a href="" class="button button--white">Visit the Data Standard</a>
+
+			</div> <!-- homepage-cta -->
+
+		</div>
 
 	</div>
 
