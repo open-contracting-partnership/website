@@ -4,31 +4,13 @@
 
 	<?php the_post(); ?>
 
-	<?php $sections = get_sections(); ?>
-
 	<div class="wrapper">
 
 		<?php get_partial('navigation', 'breadcrumbs'); ?>
 
 		<?php get_partial('navigation', 'sub-pages'); ?>
 
-		<?php if ( $sections ) : ?>
-
-			<nav>
-
-				<h3 class="border-top border-top--clean">Jump to section</h3>
-
-				<ul class="nav nav--vertical nav--in-page">
-
-					<?php foreach ( $sections as $id => $label ) : ?>
-						<li><a href="#<?php echo $id; ?>"><?php echo $label; ?></a></li>
-					<?php endforeach; ?>
-
-				</ul>
-
-			</nav>
-
-		<?php endif; ?>
+		<?php get_partial('navigation', 'sections'); ?>
 
 		<a href="#" class="download-cta">
 
@@ -48,19 +30,9 @@
 
 		<article class="cf">
 
-			<?php
-
-				$title = get_the_title();
-
-				if ( $sections = get_sections() ) {
-					$title = current($sections);
-				}
-
-			?>
-
 			<div class="blog__title">
 
-				<?php if ( $sections ) : ?>
+				<?php if ( $sections = get_sections() ) : ?>
 					<h1 id="<?php echo key($sections); ?>"><?php echo current($sections); ?></h1>
 				<?php else : ?>
 					<h1><?php the_title(); ?></h1>
