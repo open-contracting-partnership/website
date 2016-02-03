@@ -43,6 +43,10 @@ nav h4 {
 
 	li {
 		margin-bottom: 1em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	a {
@@ -61,6 +65,7 @@ nav h4 {
 }
 
 .nav--breadcrumbs {
+	margin: 2rem 0 4.5rem;
 
 	li {
 		margin: 0;

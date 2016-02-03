@@ -8,27 +8,35 @@
 
 		<?php get_partial('navigation', 'breadcrumbs'); ?>
 
-		<?php get_partial('navigation', 'sub-pages'); ?>
+		<aside class="page-sidebar">
 
-		<?php get_partial('navigation', 'sections'); ?>
+			<div class="page-navigation cf">
 
-		<a href="#" class="download-cta">
+				<?php get_partial('navigation', 'sub-pages'); ?>
 
-			<img src="http://placehold.it/464x230" alt="" />
-
-			<div class="download-cta__content">
-
-				<span>Download</span>
-
-				<div class="heading-highlight">
-					<h4>2015 - 2018 Strategy document</h4>
-				</div>
+				<?php get_partial('navigation', 'sections'); ?>
 
 			</div>
 
-		</a>
+			<a href="#" class="download-cta">
 
-		<article class="cf">
+				<img src="http://placehold.it/464x230" alt="" />
+
+				<div class="download-cta__content">
+
+					<span>Download</span>
+
+					<div class="heading-highlight">
+						<h4>2015 - 2018 Strategy document</h4>
+					</div>
+
+				</div>
+
+			</a>
+
+		</aside>
+
+		<article class="page-content cf">
 
 			<div class="blog__title">
 
