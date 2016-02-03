@@ -60,6 +60,31 @@ nav h4 {
 	}
 }
 
+.nav--breadcrumbs {
+
+	li {
+		margin: 0;
+
+		&:after {
+			content: '/';
+			display: inline-block;
+			vertical-align: text-top;
+			margin: 0 .1em;
+		}
+
+		&:last-child:after {
+			display: none;
+		}
+	}
+
+	a {
+		@include font('secondary');
+		@include font-size(16);
+		color: color('dark-background');
+		display: inline-block;
+	}
+}
+
 .primary-nav {
 	border-top: 1px solid color('mid-grey');
 

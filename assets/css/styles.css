@@ -973,6 +973,26 @@ nav h4 {
   color: #545456;
   text-transform: uppercase; }
 
+.nav--breadcrumbs li {
+  margin: 0; }
+  .nav--breadcrumbs li:after {
+    content: '/';
+    display: inline-block;
+    vertical-align: text-top;
+    margin: 0 .1em; }
+  .nav--breadcrumbs li:last-child:after {
+    display: none; }
+
+.nav--breadcrumbs a {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-size: 0.8rem;
+  color: #373738;
+  display: inline-block; }
+
 .primary-nav {
   border-top: 1px solid #69696B; }
   .primary-nav ul:first-child {
