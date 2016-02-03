@@ -1,4 +1,5 @@
 .stat-module {
+	text-align: center;
 
 	@include mq(M) {
 		@include span(4 of 12);
@@ -13,16 +14,19 @@
 	}
 
 	span {
-		@include font-size(52);
+		@include font('secondary')
+		@include font-size(84);
+		color: color('brand');
 		display: block;
-		text-align: center;
 		line-height: 1.2;
 		margin-bottom: .5em;
 	}
 
 	p {
+		@include font('secondary', 'medium');
 		@include font-size(18);
-		width: 80%;
+		color: color('light-grey');
+		width: 60%;
 		margin: 0 auto;
 	}
 }

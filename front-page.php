@@ -17,7 +17,11 @@
 
 		</div> <!-- homepage-cta -->
 
-		<section class="g-break / band band--section">
+	</div>
+
+	<section class="homepage-contracting / band band--thick / island island--thick island--dark">
+
+		<div class="wrapper">
 
 			<div class="homepage-title">
 				<h1>Public contracting</h1>
@@ -41,7 +45,11 @@
 
 			<?php endif; ?>
 
-		</section> <!-- stat-modules -->
+		</div>
+
+	</section> <!-- stat-modules -->
+
+	<div class="wrapper">
 
 		<div class="band band--thicker">
 
@@ -127,16 +135,37 @@
 
 		</div>
 
-		<section class="homepage-filter">
+		<section class="homepage-filter / band band--extra-thick">
 
 			<a href="#" class="homepage-filter__button / band band--thicker">Filter Blogs &amp; Updates</a>
 
-			<div class="l-4 g-first"></div>
-			<div class="l-4"></div>
-			<div class="l-4 g-last"></div>
-			<div class="l-4 g-first"></div>
-			<div class="l-4"></div>
-			<div class="l-4 g-last"></div>
+			<div class="homepage-filter__items">
+
+				<div class="homepage-filter__twitter">
+					<p>Interesting job over at <b>@engnroom</b>  to coordinate a regional program on transparency, technology and <b>#opendata</b> <a href="https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/">https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/</a></p>
+				</div>
+
+				<div class="homepage-filter__twitter">
+					<p>Interesting job over at <b>@engnroom</b>  to coordinate a regional program on transparency, technology and <b>#opendata</b> <a href="https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/">https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/</a></p>
+				</div>
+
+				<div class="homepage-filter__twitter">
+					<p>Interesting job over at <b>@engnroom</b>  to coordinate a regional program on transparency, technology and <b>#opendata</b> <a href="https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/">https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/</a></p>
+				</div>
+
+				<div class="homepage-filter__twitter">
+					<p>Interesting job over at <b>@engnroom</b>  to coordinate a regional program on transparency, technology and <b>#opendata</b> <a href="https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/">https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/</a></p>
+				</div>
+
+				<div class="homepage-filter__twitter">
+					<p>Interesting job over at <b>@engnroom</b>  to coordinate a regional program on transparency, technology and <b>#opendata</b> <a href="https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/">https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/</a></p>
+				</div>
+
+				<div class="homepage-filter__twitter">
+					<p>Interesting job over at <b>@engnroom</b>  to coordinate a regional program on transparency, technology and <b>#opendata</b> <a href="https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/">https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/</a></p>
+				</div>
+
+			</div>
 
 		</section>
 

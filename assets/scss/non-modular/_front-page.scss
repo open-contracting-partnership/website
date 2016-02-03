@@ -12,6 +12,10 @@
 	}
 }
 
+.homepage-contracting {
+	@include break();
+}
+
 .homepage-title {
 	text-align: center;
 
@@ -21,7 +25,8 @@
 	}
 
 	h2 {
-		@include font-size(26);
+		@include font-size(24);
+		color: color('light-grey');
 		margin-bottom: em(65, 26);
 	}
 }
@@ -68,6 +73,30 @@
 
 .homepage-filter {
 	@include break();
+}
+
+.homepage-filter__items div {
+	@include span(4 of 12);
+	margin-bottom: gutter();
+
+	&:nth-child(3n+1) {
+		@include first;
+	}
+
+	&:nth-child(3n) {
+		@include last;
+	}
+}
+
+.homepage-filter__twitter {
+	@include font('secondary', 'medium');
+	@include font-size(25);
+	background-color: color('dark-background');
+	padding: 3rem 1.5rem;
+
+	p {
+		margin-bottom: 0;
+	}
 }
 
 .homepage-map {

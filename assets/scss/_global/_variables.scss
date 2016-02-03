@@ -8,6 +8,9 @@
 $colours: (
     'white': #FFF,
     'black': #000,
+    'blue': #00aced,
+    'lilac': #6c75e1,
+    'purple': #8B58EB,
     'orange': #FD843D,
     'brand': #D6E100,
     'brand-mid': #B6C505,
@@ -17,11 +20,31 @@ $colours: (
     'light-grey': #B7B7B7,
     'grey': #999,
     'mid-grey': #69696B,
-    'background': #545456,
+    'background': #4D4D54,
     'body': #424244,
-    'dark-background': #373738,
+    'dark-background': #323238,
     'dark-grey': #2D2D2D,
 );
+
+// LEGACY
+//
+// $colours: (
+//     'white': #FFF,
+//     'black': #000,
+//     'orange': #FD843D,
+//     'brand': #D6E100,
+//     'brand-mid': #B6C505,
+//     'brand-dark': #9BAF00,
+//     'off-white': #F6F6F6,
+//     'lighter-grey': #D5D5D7,
+//     'light-grey': #B7B7B7,
+//     'grey': #999,
+//     'mid-grey': #69696B,
+//     'background': #545456,
+//     'body': #424244,
+//     'dark-background': #373738,
+//     'dark-grey': #2D2D2D,
+// );
 
 
  //***************

@@ -6,7 +6,6 @@
 
 .island {
 	padding: em(10);
-	margin-bottom: $space;
 
 	@include mq(M) {
 		padding: em(25);
@@ -45,4 +44,8 @@
 
 .island--light {
 	background-color: color('off-white');
+}
+
+.island--dark {
+	background-color: color('dark-background');
 }
