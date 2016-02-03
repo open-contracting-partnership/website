@@ -77,7 +77,7 @@
 						<a href="<?php the_permalink(); ?>" class="post-object post-object--horizontal / media">
 
 							<div href="#" class="post-object__media / media__object">
-								<img src="http://placehold.it/122x154" alt="">
+								<?php the_post_thumbnail('hemo_horizontal'); ?>
 							</div>
 
 							<div class="post-object__content / media__body">
