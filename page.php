@@ -8,20 +8,9 @@
 
 	<div class="wrapper">
 
+		<?php get_partial('navigation', 'breadcrumbs'); ?>
 
-		<nav>
-
-			<h3 class="border-top border-top--clean">Further Information</h3>
-
-			<ul class="nav nav--vertical nav--sub-page">
-				<li><a href="#">Team</a></li>
-				<li><a href="#">Financing</a></li>
-				<li><a href="#">Contracts</a></li>
-				<li><a href="#">Advisory Board</a></li>
-				<li><a href="#">Partners</a></li>
-			</ul>
-
-		</nav>
+		<?php get_partial('navigation', 'sub-pages'); ?>
 
 		<?php if ( $sections ) : ?>
 
