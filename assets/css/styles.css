@@ -105,6 +105,9 @@ body {
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
 
+main {
+  overflow: hidden; }
+
 p,
 ul,
 ol,
