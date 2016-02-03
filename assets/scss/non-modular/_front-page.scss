@@ -89,13 +89,31 @@
 }
 
 .homepage-filter__twitter {
-	@include font('secondary', 'medium');
+	@include font('secondary', 'regular');
 	@include font-size(25);
 	background-color: color('dark-background');
 	padding: 3rem 1.5rem;
 
 	p {
 		margin-bottom: 0;
+	}
+
+	b {
+		@include font('secondary', 'bold');
+	}
+
+	a {
+		color: color('blue');
+		text-decoration: underline;
+
+		&:hover,
+		&:active {
+			text-decoration: none;
+		}
+
+		&:focus {
+			text-decoration: underline;
+		}
 	}
 }
 

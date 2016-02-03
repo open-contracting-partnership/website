@@ -1941,7 +1941,7 @@ input[type="submit"] {
     margin-right: 0; }
 
 .homepage-filter__twitter {
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1951,6 +1951,18 @@ input[type="submit"] {
   padding: 3rem 1.5rem; }
   .homepage-filter__twitter p {
     margin-bottom: 0; }
+  .homepage-filter__twitter b {
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .homepage-filter__twitter a {
+    color: #00aced;
+    text-decoration: underline; }
+    .homepage-filter__twitter a:hover, .homepage-filter__twitter a:active {
+      text-decoration: none; }
+    .homepage-filter__twitter a:focus {
+      text-decoration: underline; }
 
 .page-sidebar {
   margin-top: 0; }
