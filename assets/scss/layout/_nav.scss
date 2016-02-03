@@ -85,6 +85,24 @@ nav h4 {
 	}
 }
 
+.nav--sub-page {
+
+	li,
+	a {
+		line-height: 1;
+	}
+
+	li {
+		margin-bottom: 1rem;
+	}
+
+	a {
+		@include font('secondary', 'bold');
+		@include font-size(16);
+		color: color('body');
+	}
+}
+
 .primary-nav {
 	border-top: 1px solid color('mid-grey');
 

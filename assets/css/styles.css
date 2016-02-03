@@ -388,10 +388,11 @@ h5,
     height: .5rem;
     background-color: #D6E100; }
 
-.border-top--dark {
+.border-top--clean {
   border-top: 0; }
-  .border-top--dark:before {
-    background-color: #9BAF00; }
+
+.border-top--dark:before {
+  background-color: #9BAF00; }
 
 /*------------------------------------*	LISTS
 \*------------------------------------*/
@@ -992,6 +993,22 @@ nav h4 {
   font-size: 0.8rem;
   color: #373738;
   display: inline-block; }
+
+.nav--sub-page li,
+.nav--sub-page a {
+  line-height: 1; }
+
+.nav--sub-page li {
+  margin-bottom: 1rem; }
+
+.nav--sub-page a {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-size: 0.8rem;
+  color: #424244; }
 
 .primary-nav {
   border-top: 1px solid #69696B; }
