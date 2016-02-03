@@ -824,15 +824,6 @@ th, td {
     display: block;
     clear: both; }
 
-.homepage-wrapper {
-  padding-top: 3em; }
-  @media screen and (min-width: 640px) {
-    .homepage-wrapper {
-      padding-top: 5em; } }
-  @media screen and (min-width: 1024px) {
-    .homepage-wrapper {
-      padding-top: 7.5em; } }
-
 @media screen and (min-width: 1024px) {
   .l-3 {
     width: 24.29907%;
@@ -1320,13 +1311,10 @@ input[type="submit"] {
   display: block; }
 
 .media__object {
-  float: left;
-  margin-right: 1em; }
+  float: left; }
 
 .media--reversed .media__object {
-  float: right;
-  margin-left: 1em;
-  margin-right: 0; }
+  float: right; }
 
 .media__body {
   overflow: hidden;
@@ -1351,8 +1339,7 @@ input[type="submit"] {
       text-decoration: none; }
 
 .home .post-object {
-  background-color: #323238;
-  color: #FFF; }
+  background-color: #323238; }
   .home .post-object h4 {
     font-weight: 700;
     font-style: normal;
@@ -1360,10 +1347,31 @@ input[type="submit"] {
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 22px;
     font-size: 1.1rem;
-    color: #ECECEC; }
+    color: #ECECEC;
+    background-color: #6c75e1;
+    padding: 0; }
+  .home .post-object p {
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #D5D5D7; }
+
+.home .post-object--horizontal {
+  height: 7.7em; }
+  .home .post-object--horizontal h4 {
+    display: inline;
+    background-color: #6c75e1;
+    box-shadow: 5px 0 0 #6c75e1, -5px 0 0 #6c75e1;
+    -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+    line-height: 1.3;
+    padding: 0; }
+  .home .post-object--horizontal p {
+    margin-top: .5rem; }
 
 .post-object__content {
-  padding-top: 0.45em; }
+  padding: .5rem .5rem .5rem 1em; }
 
 .post-object--vertical .post-object__content {
   padding: 1.05em; }
@@ -1391,12 +1399,29 @@ input[type="submit"] {
   font-size: 18px;
   font-size: 0.9rem; }
 
+.post-object--spotlight .post-object--spotlight__title {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  opacity: .9; }
+  .post-object--spotlight .post-object--spotlight__title h4 {
+    background-color: #8B58EB;
+    margin-bottom: 0;
+    padding: .85rem 1.1rem; }
+
+.post-object--spotlight .post-object__tag {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #FFF;
+  position: static;
+  display: inline-block;
+  background-color: #8B58EB; }
+
 .post-object--horizontal {
   overflow: hidden; }
-  .post-object--horizontal .post-object__media {
-    margin-right: 0.8em; }
-  .media--reversed .post-object--horizontal .post-object__media {
-    margin-right: 0; }
   .post-object--horizontal p {
     font-size: 16px;
     font-size: 0.8rem; }
@@ -1877,6 +1902,30 @@ input[type="submit"] {
 .home {
   background-color: #4D4D54;
   color: #FFF; }
+
+.homepage-hero {
+  padding-top: 3em;
+  position: relative; }
+  .homepage-hero:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("https://unsplash.it/1811/603");
+    background-size: cover;
+    -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+    z-index: -1;
+    opacity: .5; }
+  @media screen and (min-width: 640px) {
+    .homepage-hero {
+      padding-top: 5em; } }
+  @media screen and (min-width: 1024px) {
+    .homepage-hero {
+      padding-top: 7.5em; } }
 
 .homepage-cta {
   font-size: 25px;
