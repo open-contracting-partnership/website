@@ -884,51 +884,60 @@ nav h4 {
     .nav a:active {
       text-decoration: none; }
 
-.nav--horizontal {
+.primary-nav {
   position: relative; }
-  .nav--horizontal li {
-    float: left;
-    margin-right: 2em; }
-  .nav--horizontal a {
-    display: block; }
-  .nav--horizontal li:hover ul {
-    display: block; }
-  .nav--horizontal ul {
-    font-weight: 500;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+.nav--horizontal li {
+  float: left;
+  margin-right: 2em; }
+
+.nav--horizontal a {
+  display: block; }
+
+.nav--horizontal li:hover ul {
+  display: block; }
+
+.nav--horizontal ul {
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  max-width: 72em;
+  width: 100%;
+  display: none;
+  list-style: none;
+  background-color: #FFF;
+  border-bottom: 1px solid #D5D5D7;
+  margin: 0;
+  padding: 0 1em;
+  z-index: 10; }
+  .nav--horizontal ul:before {
+    content: "";
+    display: block;
     position: absolute;
-    top: 100%;
-    left: 0;
-    display: none;
-    list-style: none;
+    width: 100vw;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    top: 0;
+    left: 50%;
+    bottom: -1px;
     background-color: #FFF;
     border-bottom: 1px solid #D5D5D7;
-    margin: 0;
-    padding: 0;
-    z-index: 10; }
-    .nav--horizontal ul:before, .nav--horizontal ul:after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      bottom: -1px;
-      width: 100vw;
-      background-color: #FFF;
-      border-bottom: 1px solid #D5D5D7;
-      right: 100%; }
-    .nav--horizontal ul:after {
-      left: 100%;
-      right: auto; }
-    .nav--horizontal ul li {
-      border-right: 0;
-      margin: 0 1.25em;
-      padding: 0; }
-    .nav--horizontal ul li:first-child {
-      margin-left: 0; }
-    .nav--horizontal ul a {
-      color: #323238; }
+    z-index: -1; }
+  .nav--horizontal ul li {
+    border-right: 0;
+    margin: 0 1.25em;
+    padding: 0; }
+  .nav--horizontal ul li:first-child {
+    margin-left: 0; }
+  .nav--horizontal ul a {
+    color: #323238; }
 
 .nav--vertical li {
   margin-bottom: 1em; }
