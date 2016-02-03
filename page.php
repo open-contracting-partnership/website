@@ -10,55 +10,63 @@
 
 		<?php get_partial('breadcrumbs'); ?>
 
-		<nav>
+		<aside class="page-sidebar">
 
-			<h3 class="border-top border-top--clean">Further Information</h3>
+			<div class="page-navigation cf">
 
-			<ul class="nav nav--vertical nav--sub-page">
-				<li><a href="#">Team</a></li>
-				<li><a href="#">Financing</a></li>
-				<li><a href="#">Contracts</a></li>
-				<li><a href="#">Advisory Board</a></li>
-				<li><a href="#">Partners</a></li>
-			</ul>
+				<nav>
 
-		</nav>
+					<h3 class="border-top border-top--clean">Further Information</h3>
 
-		<?php if ( $sections ) : ?>
+					<ul class="nav nav--vertical nav--sub-page">
+						<li><a href="#">Team</a></li>
+						<li><a href="#">Financing</a></li>
+						<li><a href="#">Contracts</a></li>
+						<li><a href="#">Advisory Board</a></li>
+						<li><a href="#">Partners</a></li>
+					</ul>
 
-			<nav>
+				</nav>
 
-				<h3 class="border-top border-top--clean">Jump to section</h3>
+				<?php if ( $sections ) : ?>
 
-				<ul class="nav nav--vertical nav--in-page">
+					<nav>
 
-					<?php foreach ( $sections as $id => $label ) : ?>
-						<li><a href="#<?php echo $id; ?>"><?php echo $label; ?></a></li>
-					<?php endforeach; ?>
+						<h3 class="border-top border-top--clean">Jump to section</h3>
 
-				</ul>
+						<ul class="nav nav--vertical nav--in-page">
 
-			</nav>
+							<?php foreach ( $sections as $id => $label ) : ?>
+								<li><a href="#<?php echo $id; ?>"><?php echo $label; ?></a></li>
+							<?php endforeach; ?>
 
-		<?php endif; ?>
+						</ul>
 
-		<a href="#" class="download-cta">
+					</nav>
 
-			<img src="http://placehold.it/464x230" alt="" />
-
-			<div class="download-cta__content">
-
-				<span>Download</span>
-
-				<div class="heading-highlight">
-					<h4>2015 - 2018 Strategy document</h4>
-				</div>
+				<?php endif; ?>
 
 			</div>
 
-		</a>
+			<a href="#" class="download-cta">
 
-		<article class="cf">
+				<img src="http://placehold.it/464x230" alt="" />
+
+				<div class="download-cta__content">
+
+					<span>Download</span>
+
+					<div class="heading-highlight">
+						<h4>2015 - 2018 Strategy document</h4>
+					</div>
+
+				</div>
+
+			</a>
+
+		</aside>
+
+		<article class="page-content cf">
 
 			<?php
 
