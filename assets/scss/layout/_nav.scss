@@ -49,6 +49,7 @@ nav h4 {
 		@include font('secondary', 'medium');
 		position: absolute;
 		top: 100%;
+		left: 0;
 		display: none;
 		list-style: none;
 		background-color: color('white');

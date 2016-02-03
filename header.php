@@ -18,7 +18,7 @@
 
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/assets/css/styles.css">
 
-		<title><?php wp_title(); ?></title>
+		<title><?php wp_title('&raquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
