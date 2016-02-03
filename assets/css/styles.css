@@ -176,17 +176,9 @@ hr {
   color: #FFF;
   text-shadow: none; }
 
-.cf, .band, .nav {
-  *zoom: 1; }
-
-.cf:before, .band:before, .nav:before,
-.cf:after,
-.band:after,
-.nav:after {
-  content: ' ';
-  display: table; }
-
 .cf:after, .band:after, .nav:after {
+  content: '';
+  display: block;
   clear: both; }
 
 .is-hidden {

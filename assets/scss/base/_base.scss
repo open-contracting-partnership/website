@@ -125,17 +125,9 @@ hr {
  //*********
 // CLEARFIX
 
-.cf {
-    *zoom: 1;
-}
-
-.cf:before,
 .cf:after {
-    content: ' ';
-    display: table;
-}
-
-.cf:after {
+    content: '';
+    display: block;
     clear: both;
 }
 
