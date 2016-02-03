@@ -33,6 +33,12 @@
 .home .post-object {
 	background-color: color('dark-background');
 	color: color('white');
+
+	h4 {
+		@include font('secondary', 'bold')
+		@include font-size(22);
+		color: color('lightest-grey');
+	}
 }
 
 .post-object__content {

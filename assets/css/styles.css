@@ -1352,6 +1352,14 @@ input[type="submit"] {
 .home .post-object {
   background-color: #323238;
   color: #FFF; }
+  .home .post-object h4 {
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    font-size: 1.1rem;
+    color: #ECECEC; }
 
 .post-object__content {
   padding-top: 0.45em; }
