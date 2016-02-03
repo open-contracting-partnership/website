@@ -2001,6 +2001,18 @@ input[type="submit"] {
 .homepage-filter {
   clear: both; }
 
+.homepage-filter__button {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-size: 0.9rem;
+  color: #323238;
+  background-color: #D6E100;
+  display: inline-block;
+  padding: 1.1rem 1rem; }
+
 .homepage-filter__items div {
   width: 32.71028%;
   float: left;

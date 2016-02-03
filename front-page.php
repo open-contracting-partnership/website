@@ -148,7 +148,7 @@
 
 		<section class="homepage-filter / band band--extra-thick">
 
-			<a href="#" class="homepage-filter__button / band band--thicker">Filter Blogs &amp; Updates</a>
+			<a href="#" class="homepage-filter__button / band band--thicker">Blogs &amp; Updates</a>
 
 			<div class="homepage-filter__items">
 
