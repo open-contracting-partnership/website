@@ -888,8 +888,11 @@ nav h4 {
   position: relative; }
 
 .nav--horizontal li {
-  float: left;
-  margin-right: 2em; }
+  display: inline-block;
+  margin-right: 1.05em; }
+
+.nav--horizontal li:last-child {
+  margin-right: 0; }
 
 .nav--horizontal a {
   display: block; }
@@ -1035,6 +1038,8 @@ nav h4 {
   .primary-nav li:last-child {
     border-right: 0;
     padding-right: 0; }
+    .primary-nav li:last-child ul {
+      text-align: right; }
   .primary-nav a {
     font-size: 18px;
     font-size: 0.9rem;

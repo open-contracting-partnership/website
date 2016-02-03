@@ -34,8 +34,12 @@ nav h4 {
 .nav--horizontal {
 
 	li {
-		float: left;
-		margin-right: 2em;
+		display: inline-block;
+		margin-right: em(21);
+	}
+
+	li:last-child {
+		margin-right: 0;
 	}
 
 	a {
@@ -222,6 +226,11 @@ nav h4 {
 	li:last-child {
 		border-right: 0;
 		padding-right: 0;
+
+		ul {
+			text-align: right;
+		}
+
 	}
 
 	a {
