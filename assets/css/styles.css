@@ -1245,15 +1245,15 @@ input[type="submit"] {
 
 .download-cta__content {
   position: absolute;
-  bottom: 2.1rem;
+  bottom: 1.6rem;
   left: .75rem; }
   .download-cta__content span {
     font-weight: 700;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    font-size: 0.8rem;
+    font-size: 14px;
+    font-size: 0.7rem;
     text-transform: uppercase;
     line-height: 1;
     display: inline-block;
@@ -1264,8 +1264,8 @@ input[type="submit"] {
   .download-cta__content .heading-highlight {
     margin-left: .57em; }
   .download-cta__content h4 {
-    font-size: 28px;
-    font-size: 1.4rem; }
+    font-size: 22px;
+    font-size: 1.1rem; }
 
 .heading-highlight h3,
 .heading-highlight h4,
@@ -2078,7 +2078,7 @@ input[type="submit"] {
   margin-bottom: 10em; }
   @media screen and (min-width: 640px) {
     .page-sidebar {
-      width: 32.71028%;
+      width: 24.29907%;
       float: left;
       margin-right: 0.93458%; } }
 
