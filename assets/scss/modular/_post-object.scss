@@ -28,6 +28,20 @@
 			text-decoration: none;
 		}
 	}
+
+	.archive-posts & {
+		@include mq(M) {
+			@include span(4 of 12 first);
+
+			&:nth-child(3n) {
+				@include last();
+			}
+
+			&:nth-child(3n+1) {
+				@include break();
+			}
+		}
+	}
 }
 
 .home {

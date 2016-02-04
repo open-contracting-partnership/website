@@ -2,34 +2,36 @@
 
 <?php get_header(); ?>
 
-	<?php if ( is_category() ) : ?>
-		<h1><?php single_cat_title(); ?></h1>
-	<?php elseif( is_tag() ) : ?>
-		<h1><?php single_tag_title(); ?></h1>
-	<?php elseif( is_tax() ) : ?>
-		<h1><?php single_cat_title(); ?></h1>
-	<?php elseif (is_day()) : ?>
-		<h1>Archive for <?php the_time('F jS, Y'); ?></h1>
-	<?php elseif (is_month()) : ?>
-		<h1>Archive for <?php the_time('F, Y'); ?></h1>
-	<?php elseif (is_year()) : ?>
-		<h1>Archive for <?php the_time('Y'); ?></h1>
-	<?php elseif (is_author()) : ?>
-		<h1>Author Archive</h1>
-	<?php else : ?>
-		<h1><?php the_post_type_label(NULL, TRUE); ?></h1>
-	<?php endif;?>
+	<div class="wrapper">
 
-	<?php if ( have_posts() ) : the_post(); ?>
+		<?php if ( is_category() ) : ?>
+			<h1><?php single_cat_title(); ?></h1>
+		<?php elseif( is_tag() ) : ?>
+			<h1><?php single_tag_title(); ?></h1>
+		<?php elseif( is_tax() ) : ?>
+			<h1><?php single_cat_title(); ?></h1>
+		<?php elseif (is_day()) : ?>
+			<h1>Archive for <?php the_time('F jS, Y'); ?></h1>
+		<?php elseif (is_month()) : ?>
+			<h1>Archive for <?php the_time('F, Y'); ?></h1>
+		<?php elseif (is_year()) : ?>
+			<h1>Archive for <?php the_time('Y'); ?></h1>
+		<?php elseif (is_author()) : ?>
+			<h1>Author Archive</h1>
+		<?php else : ?>
+			<h1><?php the_post_type_label(NULL, TRUE); ?></h1>
+		<?php endif;?>
 
-		<article>
+		<div class="archive-posts">
 
-			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+			<?php if ( have_posts() ) : while(have_posts()) : the_post(); ?>
 
-			<?php the_content(); ?>
+				<?php get_partial('post-object', 'vertical--light'); ?>
 
-		</article>
+			<?php endwhile; endif; ?>
 
-	<?php endif; ?>
+		</div>
+
+	</div>
 
 <?php get_footer(); ?>

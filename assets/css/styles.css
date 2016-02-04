@@ -1354,6 +1354,16 @@ input[type="submit"] {
     text-decoration: none; }
     .post-object:focus h4 {
       text-decoration: none; }
+  @media screen and (min-width: 640px) {
+    .archive-posts .post-object {
+      width: 32.71028%;
+      float: left;
+      margin-right: 0.93458%; }
+      .archive-posts .post-object:nth-child(3n) {
+        float: right;
+        margin-right: 0; }
+      .archive-posts .post-object:nth-child(3n+1) {
+        clear: both; } }
 
 .home .post-object {
   background-color: #323238; }
