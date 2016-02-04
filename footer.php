@@ -241,7 +241,7 @@
 
 								<li><a href="https://twitter.com/opencontracting" target="_blank"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
 								<li><a href="https://www.facebook.com/OpenContracting" target="_blank"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
-								<li><a href="https://www.linkedin.com/shareArticle?mini=true&url=" target="_blank"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
+								<li><a href="https://www.linkedin.com/company/open-contracting-partnership" target="_blank"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
 
 							</ul>
 
