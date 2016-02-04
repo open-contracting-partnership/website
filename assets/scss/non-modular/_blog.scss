@@ -110,7 +110,6 @@
 }
 
 .blog__posts {
-
 	@include break;
 
 	@include mq(M) {
@@ -118,12 +117,11 @@
 	}
 
 	@include mq(L) {
-
 		@include span(9 of 12 first);
 
 		.post-object {
-
 			@include span(2 of 6 first);
+			margin-bottom: gutter() * 2;
 
 			&:nth-child(3n) {
 				@include last();
@@ -137,6 +135,10 @@
 
 	}
 
+	div {
+		display: flex;
+		flex-wrap: wrap;
+	}
 }
 
 .blog__authors {
