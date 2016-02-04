@@ -12,7 +12,7 @@
 
 			<div class="page-navigation cf">
 
-				<?php get_partial('navigation', 'sub-pages'); ?>
+				<?php //get_partial('navigation', 'sub-pages'); ?>
 
 				<?php get_partial('navigation', 'sections'); ?>
 
