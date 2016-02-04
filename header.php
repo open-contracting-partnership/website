@@ -71,7 +71,7 @@
 							<li><a href="#" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
 						</ul>
 
-						<a href="#">Contact &amp; Helpdesk</a>
+						<a href="/contact">Contact &amp; Helpdesk</a>
 
 					</div>
 
