@@ -44,6 +44,7 @@
 		@include font-size(14);
 		color: color('white');
 		text-decoration: none;
+		text-transform: uppercase;
 
 		&:hover,
 		&:focus {
@@ -57,6 +58,10 @@
 
 	.button__social a {
 		fill: color('light-grey');
+	}
+
+	.button__list {
+		margin-left: .3em;
 	}
 }
 

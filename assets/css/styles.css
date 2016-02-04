@@ -787,13 +787,16 @@ th, td {
     font-size: 14px;
     font-size: 0.7rem;
     color: #FFF;
-    text-decoration: none; }
+    text-decoration: none;
+    text-transform: uppercase; }
     .header-social > a:hover, .header-social > a:focus {
       text-decoration: underline; }
     .header-social > a:active {
       text-decoration: none; }
   .header-social .button__social a {
     fill: #B7B7B7; }
+  .header-social .button__list {
+    margin-left: .3em; }
 
 .header-language {
   margin: 1.75rem 2rem; }
