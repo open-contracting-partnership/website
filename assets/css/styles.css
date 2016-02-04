@@ -2178,6 +2178,11 @@ input[type="submit"] {
   background-color: #D6E100;
   display: inline-block;
   padding: 1.1rem 1rem; }
+  .homepage-filter__button svg {
+    width: 1.5em;
+    height: 1em;
+    margin-right: 1em;
+    vertical-align: text-top; }
 
 .homepage-filter__items > div {
   width: 32.71028%;
