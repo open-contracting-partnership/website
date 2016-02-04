@@ -164,5 +164,22 @@
 }
 
 .homepage-map {
+	background-color: color('dark-background');
+}
 
+.homepage-map__image {
+	@include span(7 of 12 first);
+}
+
+.homepage-map__content {
+	@include span(4 of 12);
+	padding: 2rem;
+
+	span {
+		@include font('secondary', 'medium');
+		@include font-size(20);
+		color: color('brand');
+		display: block;
+		margin-bottom: 1.5rem;
+	}
 }

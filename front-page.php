@@ -246,17 +246,18 @@
 
 		</section>
 
-		<!--
+	</div> <!-- / .wrapper -->
 
-		<section class="homepage-map / band band--section">
+	<section class="homepage-map / band band--section">
 
-			<div class="l-7 g-first">
-				<img src="http://unsplash.it/459/400" alt="">
+		<div class="wrapper">
+
+			<div class="homepage-map__image">
 			</div>
 
-			<div class="l-5 g-last">
+			<div class="homepage-map__content">
 
-				<h3>Worldwide</h3>
+				<h3 class="border-top border-top--clean">Worldwide</h3>
 
 				<span>Learn how to implement open contracting or use contracting data.</span>
 
@@ -268,10 +269,8 @@
 
 			</div>
 
-		</section>
+		</div> <!-- / .wrapper -->
 
-		-->
-
-	</div> <!-- / .wrapper -->
+	</section>
 
 <?php get_footer(); ?>

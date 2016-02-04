@@ -1338,11 +1338,15 @@ input[type="submit"] {
   .cta-list li {
     border-bottom: 1px solid #FFF; }
   .cta-list a {
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     display: block;
     color: #FFF;
     text-decoration: none;
     line-height: 1;
-    padding: 1em .5em; }
+    padding: 1.25rem .5em; }
     .cta-list a:hover, .cta-list a:active, .cta-list a:focus {
       text-decoration: underline; }
 
@@ -2209,6 +2213,30 @@ input[type="submit"] {
       text-decoration: none; }
     .homepage-filter__twitter a:focus {
       text-decoration: underline; }
+
+.homepage-map {
+  background-color: #323238; }
+
+.homepage-map__image {
+  width: 57.94393%;
+  float: left;
+  margin-right: 0.93458%; }
+
+.homepage-map__content {
+  width: 32.71028%;
+  float: left;
+  margin-right: 0.93458%;
+  padding: 2rem; }
+  .homepage-map__content span {
+    font-weight: 500;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-size: 1rem;
+    color: #D6E100;
+    display: block;
+    margin-bottom: 1.5rem; }
 
 .page-sidebar {
   margin-top: 0;
