@@ -668,7 +668,8 @@ table {
   text-align: left;
   border-collapse: collapse; }
 
-th, td {
+th,
+td {
   text-align: left;
   padding: 0.83333em;
   border: 1px solid #69696B;
@@ -878,9 +879,6 @@ nav h4 {
     .nav a:active {
       text-decoration: none; }
 
-.primary-nav {
-  position: relative; }
-
 .nav--horizontal li {
   display: inline-block;
   margin-right: 1.05em; }
@@ -915,7 +913,7 @@ nav h4 {
   padding: 0 1em;
   z-index: 10; }
   .nav--horizontal ul:before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     width: 100vw;
@@ -1002,7 +1000,7 @@ nav h4 {
   position: relative;
   padding-left: .7rem; }
 
-.nav--in-page li.active:before {
+.nav--in-page .active:before {
   font-size: 10px;
   font-size: 0.5rem;
   content: '►';
@@ -1014,11 +1012,12 @@ nav h4 {
   display: inline-block;
   margin-right: .2rem; }
 
-.nav--in-page li.active a {
+.nav--in-page .active a {
   color: #424244; }
 
 .primary-nav {
-  border-top: 1px solid #69696B; }
+  border-top: 1px solid #69696B;
+  position: relative; }
   .primary-nav ul:first-child {
     float: left; }
   .primary-nav ul:last-child {

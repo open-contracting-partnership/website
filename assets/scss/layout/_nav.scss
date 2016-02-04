@@ -27,10 +27,6 @@ nav h4 {
 	}
 }
 
-.primary-nav {
-	position: relative;
-}
-
 .nav--horizontal {
 
 	li {
@@ -69,7 +65,7 @@ nav h4 {
 		z-index: 10;
 
 		&:before {
-			content: "";
+			content: '';
 			display: block;
 			position: absolute;
 			width: 100vw;
@@ -183,7 +179,7 @@ nav h4 {
 		padding-left: .7rem;
 	}
 
-	li.active {
+	.active {
 
 		&:before {
 			@include font-size(10);
@@ -204,6 +200,7 @@ nav h4 {
 
 .primary-nav {
 	border-top: 1px solid color('mid-grey');
+	position: relative;
 
 	ul:first-child {
 		float: left;

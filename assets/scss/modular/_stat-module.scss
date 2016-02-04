@@ -14,7 +14,7 @@
 	}
 
 	span {
-		@include font('secondary')
+		@include font('secondary');
 		@include font-size(84);
 		color: color('brand');
 		display: block;
