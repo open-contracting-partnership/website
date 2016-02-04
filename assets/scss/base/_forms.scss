@@ -205,6 +205,33 @@ input[type="email"].not-valid {
 }
 
 
+ //*****
+// DARK
+
+.form--dark {
+
+	input,
+	button {
+		@include font('secondary');
+		@include font-size(16);
+		border: 1px solid color('brand');
+		color: color('lighter-grey');
+	}
+
+	button {
+		text-transform: uppercase;
+	}
+}
+
+.flex-field {
+	display: flex;
+
+	input {
+		margin-right: .5rem;
+	}
+}
+
+
  //*******************
 // PLACEHOLDER STYLES
 

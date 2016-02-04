@@ -639,6 +639,28 @@ textarea {
   position: relative;
   z-index: 10; }
 
+.form--dark input,
+.form--dark button {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-size: 0.8rem;
+  border: 1px solid #D6E100;
+  color: #D5D5D7; }
+
+.form--dark button {
+  text-transform: uppercase; }
+
+.flex-field {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .flex-field input {
+    margin-right: .5rem; }
+
 ::-webkit-input-placeholder {
   /* Safari, Chrome and Opera */
   color: currentColor; }
@@ -706,9 +728,8 @@ td {
 /*------------------------------------*    FOOTER
 \*------------------------------------*/
 .site-footer {
-  padding: 2em 0 4em;
   color: #FFF;
-  background-color: #323238; }
+  background-color: #4D4D54; }
   .site-footer a {
     color: #FFF;
     text-decoration: none; }
@@ -721,6 +742,21 @@ td {
 .sub-footer,
 .site-copyright {
   clear: both; }
+
+.main-footer {
+  display: block;
+  margin-bottom: 5rem; }
+  .main-footer h4 {
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-size: 0.8rem; }
+  .main-footer .nav a {
+    font-size: 19px;
+    font-size: 0.95rem;
+    color: #D5D5D7; }
 
 @media screen and (min-width: 1024px) {
   .site-footer__organisation {
@@ -736,23 +772,97 @@ td {
     float: left;
     margin-right: 0.93458%; } }
 
+.site-footer__updates nav:first-child {
+  margin-bottom: 3rem; }
+
 @media screen and (min-width: 1024px) {
   .site-footer__subscribe {
     width: 32.71028%;
     float: right;
     margin-right: 0; } }
 
-@media screen and (min-width: 1024px) {
-  .site-colophon {
-    width: 32.71028%;
-    float: left;
-    margin-right: 0.93458%; } }
+.site-footer__email {
+  margin-bottom: 3rem; }
 
-@media screen and (min-width: 1024px) {
-  .sub-footer img {
-    width: 15.88785%;
-    float: right;
-    margin-right: 0; } }
+.site-footer__follow {
+  margin-bottom: 3rem; }
+  .site-footer__follow svg {
+    width: 1em;
+    height: 1em;
+    fill: #D5D5D7; }
+  .site-footer__follow a:hover svg,
+  .site-footer__follow a:active svg {
+    fill: #D6E100; }
+
+.site-footer__subscribe h4,
+.site-footer__contact h4 {
+  text-transform: uppercase; }
+
+.site-footer__contact address {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-size: 0.8rem; }
+
+.site-footer__contact span,
+.site-footer__contact a {
+  color: #D5D5D7; }
+
+.site-footer__contact a {
+  display: block; }
+
+.sub-footer {
+  display: block;
+  margin-bottom: 2.2rem; }
+
+.site-colophon {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-size: 0.8rem;
+  color: #B7B7B7; }
+  .site-colophon p {
+    margin: 0; }
+  @media screen and (min-width: 1024px) {
+    .site-colophon {
+      width: 32.71028%;
+      float: left;
+      margin-right: 0.93458%; } }
+
+.sub-footer svg {
+  max-width: 9.4em;
+  max-height: 2.55em; }
+  @media screen and (min-width: 1024px) {
+    .sub-footer svg {
+      width: 15.88785%;
+      float: right;
+      margin-right: 0; } }
+
+.site-copyright {
+  padding: .9rem 0;
+  background-color: #323238; }
+  .site-copyright span,
+  .site-copyright a {
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-size: 0.8rem;
+    color: #B7B7B7; }
+  .site-copyright span,
+  .site-copyright div > a {
+    float: left; }
+  .site-copyright span:first-child {
+    margin-right: 3rem; }
+  .site-copyright a {
+    margin-right: 1rem; }
+  .site-copyright span:last-child {
+    float: right; }
 
 /*------------------------------------*	HEADER
 \*------------------------------------*/

@@ -3,9 +3,8 @@
 \*------------------------------------*/
 
 .site-footer {
-	padding: 2em 0 4em;
 	color: color('white');
-	background-color: color('dark-background');
+	background-color: color('background');
 
 	a {
 		color: color('white');
@@ -28,6 +27,21 @@
 	@include break;
 }
 
+.main-footer {
+	display: block;
+	margin-bottom: 5rem;
+
+	h4 {
+		@include font('secondary', 'bold');
+		@include font-size(16);
+	}
+
+	.nav a {
+		@include font-size(19);
+		color: color('lighter-grey');
+	}
+}
+
 .site-footer__organisation {
 
 	@include mq(L) {
@@ -44,6 +58,10 @@
 	}
 }
 
+.site-footer__updates nav:first-child {
+	margin-bottom: 3rem;
+}
+
 .site-footer__subscribe {
 
 	@include mq(L) {
@@ -51,16 +69,107 @@
 	}
 }
 
+.site-footer__email {
+	margin-bottom: 3rem;
+}
+
+.site-footer__follow {
+	margin-bottom: 3rem;
+
+	svg {
+		width: 1em;
+		height: 1em;
+		fill: color('lighter-grey');
+	}
+
+	a:hover,
+	a:active {
+
+		svg {
+			fill: color('brand');
+		}
+	}
+}
+
+.site-footer__subscribe,
+.site-footer__contact {
+
+	h4 {
+		text-transform: uppercase;
+	}
+
+}
+
+.site-footer__contact {
+
+	address {
+		@include font('secondary');
+		@include font-size(16);
+	}
+
+	span,
+	a {
+		color: color('lighter-grey');
+	}
+
+	a {
+		display: block;
+	}
+}
+
+.sub-footer {
+	display: block;
+	margin-bottom: 2.2rem;
+}
+
 .site-colophon {
+	@include font('secondary');
+	@include font-size(16);
+	color: color('light-grey');
+
+	p {
+		margin: 0;
+	}
 
 	@include mq(L) {
 		@include span(4 of 12 first);
 	}
 }
 
-.sub-footer img {
+.sub-footer svg {
+	max-width: em(188);
+	max-height: em(51);
 
 	@include mq(L) {
 		@include span(2 at 10 of 12 last);
+	}
+}
+
+.site-copyright {
+	padding: .9rem 0;
+	background-color: color('dark-background');
+
+	span,
+	a {
+		@include font('secondary');
+		@include font-size(16);
+		color: color('light-grey');
+	}
+
+	span,
+	div > a {
+		float: left;
+	}
+
+	span:first-child {
+		margin-right: 3rem;
+	}
+
+	a {
+		margin-right: 1rem;
+	}
+
+	span:last-child {
+		float: right;
 	}
 }

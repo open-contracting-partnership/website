@@ -6,13 +6,13 @@
 
 			<div class="wrapper">
 
-				<div> <!-- main footer -->
+				<div class="main-footer cf"> <!-- main footer -->
 
 					<nav class="site-footer__organisation">
 
 						<h4>Our Organisation</h4>
 
-						<ul class="nav nav--vertical">
+						<!-- <ul class="nav nav--vertical">
 
 							<li>
 								<a href="#">Mission</a>
@@ -46,7 +46,18 @@
 								<a href="#">Policies</a>
 							</li>
 
-						</ul>
+						</ul> -->
+
+						<?php
+
+							wp_nav_menu([
+								'theme_location' => 'footer-our-organisation',
+								'sort_column' => 'menu_order',
+								'container' => 'ul',
+								'menu_class' => 'nav nav--vertical'
+							]);
+
+						?>
 
 					</nav>
 
@@ -54,7 +65,7 @@
 
 						<h4>Open Contracting</h4>
 
-						<ul class="nav nav--vertical">
+						<!-- <ul class="nav nav--vertical">
 
 							<li>
 								<a href="#">What is Open Contracting</a>
@@ -80,7 +91,18 @@
 								<a href="#">Case studies</a>
 							</li>
 
-						</ul>
+						</ul> -->
+
+						<?php
+
+							wp_nav_menu([
+								'theme_location' => 'footer-open-contracting',
+								'sort_column' => 'menu_order',
+								'container' => 'ul',
+								'menu_class' => 'nav nav--vertical'
+							]);
+
+						?>
 
 					</nav>
 
@@ -88,7 +110,7 @@
 
 						<h4>Implement</h4>
 
-						<ul class="nav nav--vertical">
+						<!-- <ul class="nav nav--vertical">
 
 							<li>
 								<a href="#">How to implement</a>
@@ -118,7 +140,18 @@
 								<a href="#">Resources and Tools</a>
 							</li>
 
-						</ul>
+						</ul> -->
+
+						<?php
+
+							wp_nav_menu([
+								'theme_location' => 'footer-implement',
+								'sort_column' => 'menu_order',
+								'container' => 'ul',
+								'menu_class' => 'nav nav--vertical'
+							]);
+
+						?>
 
 					</nav>
 
@@ -128,7 +161,7 @@
 
 							<h4>Stay Updated</h4>
 
-							<ul class="nav nav--vertical">
+							<!-- <ul class="nav nav--vertical">
 
 								<li>
 									<a href="#">Blogs and Updates</a>
@@ -138,7 +171,18 @@
 									<a href="#">Events</a>
 								</li>
 
-							</ul>
+							</ul> -->
+
+							<?php
+
+								wp_nav_menu([
+									'theme_location' => 'footer-stay-updated',
+									'sort_column' => 'menu_order',
+									'container' => 'ul',
+									'menu_class' => 'nav nav--vertical'
+								]);
+
+							?>
 
 						</nav>
 
@@ -146,7 +190,7 @@
 
 							<h4>Elsewhere Online</h4>
 
-							<ul class="nav nav--vertical">
+							<!-- <ul class="nav nav--vertical">
 
 								<li>
 									<a href="#">Data Standard</a>
@@ -156,7 +200,18 @@
 									<a href="#">Community</a>
 								</li>
 
-							</ul>
+							</ul> -->
+
+							<?php
+
+								wp_nav_menu([
+									'theme_location' => 'footer-elsewhere-online',
+									'sort_column' => 'menu_order',
+									'container' => 'ul',
+									'menu_class' => 'nav nav--vertical'
+								]);
+
+							?>
 
 						</nav>
 
@@ -164,11 +219,11 @@
 
 					<div class="site-footer__subscribe">
 
-						<div>
+						<div class="site-footer__email">
 
 							<h4>Subscribe to our newsletter</h4>
 
-							<form action="#">
+							<form action="#" class="form--dark flex-field">
 
 								<input type="email" name="newsletter" placeholder="Enter your email">
 
@@ -178,29 +233,21 @@
 
 						</div>
 
-						<nav>
+						<nav class="site-footer__follow">
 
 							<h4>Follow our progress</h4>
 
 							<ul class="nav nav--horizontal">
 
-								<li>
-									<a href="#">Twitter</a>
-								</li>
-
-								<li>
-									<a href="#">Facebook</a>
-								</li>
-
-								<li>
-									<a href="#">Linkedin</a>
-								</li>
+								<li><a href="http://twitter.com/home?status=" target="_blank"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
+								<li><a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
+								<li><a href="https://www.linkedin.com/shareArticle?mini=true&url=" target="_blank"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
 
 							</ul>
 
 						</nav>
 
-						<div>
+						<div class="site-footer__contact">
 
 							<h4>Contact us:</h4>
 
@@ -215,17 +262,21 @@
 
 				</div> <!-- main footer -->
 
-				<div class="sub-footer"> <!-- sub footer -->
+				<div class="sub-footer cf"> <!-- sub footer -->
 
 					<div class="site-colophon">
 						<p>This work by the Open Contracting Partnership, unless otherwise noted, is licensed under a Creative Commons Attribution 4.0 International License.</p>
 					</div>
 
-					<img src="http://placehold.it/300x100" alt="Logo" />
+					<svg><use xlink:href="#ocp-logo-small" /></svg>
 
 				</div> <!-- sub footer -->
 
-				<footer class="site-copyright"> <!-- copyright -->
+			</div> <!-- / .wrapper -->
+
+			<footer class="site-copyright"> <!-- copyright -->
+
+				<div class="wrapper">
 
 					<span>&copy; Open Contracting Partnership 2016</span>
 
@@ -237,9 +288,9 @@
 
 					<span>Website by <a href="http://theideabureau.co">The Idea Bureau</a></span>
 
-				</footer> <!-- copyright -->
+				</div>
 
-			</div> <!-- / .wrapper -->
+			</footer> <!-- copyright -->
 
 		</div> <!-- / .site-footer -->
 
