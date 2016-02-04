@@ -8,7 +8,7 @@
 
 		<h4><?php the_title(); ?></h4>
 
-		<p>By <?php the_authors(FALSE); ?></p>
+		<!-- <p>By <?php the_authors(FALSE); ?></p> -->
 
 	</div>
 
