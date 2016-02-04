@@ -15,9 +15,9 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background-image: url('https://unsplash.it/1811/603');
+		background-image: url('../img/hero-rocket.jpg');
 		background-size: cover;
-		filter: grayscale(100%);
+		background-position: center bottom;
 		z-index: -1;
 		opacity: .5;
 	}
