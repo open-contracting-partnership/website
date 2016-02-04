@@ -922,6 +922,20 @@ td {
   width: 1.25rem;
   height: 1.25rem; }
 
+#menu-header-secondary li:before {
+  display: inline-block;
+  margin-right: .5em;
+  vertical-align: sub; }
+
+#menu-header-secondary li:first-child:before {
+  content: url("../img/icons/icon-world.svg"); }
+
+#menu-header-secondary li:last-child:before {
+  content: url("../img/icons/icon-data.svg"); }
+
+#menu-header-secondary a {
+  display: inline-block; }
+
 /*------------------------------------*    HERO
 \*------------------------------------*/
 /*------------------------------------*    LAYOUT
