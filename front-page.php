@@ -10,9 +10,7 @@
 
 			<div class="homepage-cta / band band--section">
 
-				<div class="highlight-text / band">
-					<p><?php the_field('strapline'); ?></p>
-				</div>
+				<p><?php the_field('strapline'); ?></p>
 
 				<a href="/about" class="button button--white">About Our Work</a>
 				<a href="/data-standard" class="button button--white">Visit the Data Standard</a>

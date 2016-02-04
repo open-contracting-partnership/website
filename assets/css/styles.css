@@ -1975,6 +1975,16 @@ input[type="submit"] {
       width: 41.1215%;
       float: left;
       margin-right: 0.93458%; } }
+  .homepage-cta p {
+    font-weight: 500;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: inline;
+    color: #FFF;
+    line-height: 1.9;
+    padding: 5px 0;
+    display: block; }
 
 .homepage-contracting {
   clear: both; }
