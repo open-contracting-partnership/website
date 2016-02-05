@@ -122,25 +122,29 @@
 
 			</div> <!-- homepage-spotlight -->
 
-			<div class="homepage-implement">
+			<?php if ( have_rows('implement_links') ) : ?>
 
-				<section>
+				<div class="homepage-implement">
 
-					<div class="heading-highlight">
-						<h3>Implement Open Contracting</h3>
-					</div>
+					<section>
 
-					<span>Learn how to implement open contracting or use contracting data.</span>
+						<div class="heading-highlight">
+							<h3>Implement Open Contracting</h3>
+						</div>
 
-					<ul class="cta-list">
-						<?php if ( have_rows('implement_links') ) : while ( have_rows('implement_links') ) : the_row(); ?>
-							<li><a href="<?php the_sub_field('link_address'); ?>"><?php the_sub_field('link_title'); ?></a></li>
-						<?php endwhile; endif; ?>
-					</ul>
+						<span>Learn how to implement open contracting or use contracting data.</span>
 
-				</section>
+						<ul class="cta-list">
+							<?php while ( have_rows('implement_links') ) : the_row(); ?>
+								<li><a href="<?php the_sub_field('link_address'); ?>"><?php the_sub_field('link_title'); ?></a></li>
+							<?php endwhile; ?>
+						</ul>
 
-			</div> <!-- homepage-implement -->
+					</section>
+
+				</div> <!-- homepage-implement -->
+
+			<?php endif; ?>
 
 		</div>
 
@@ -256,19 +260,23 @@
 				<img src="<?php echo bloginfo('template_directory'); ?>/assets/img/map.svg" alt="Map highlighting Ukraine and Mexico" />
 			</div>
 
-			<div class="homepage-map__content">
+			<?php if ( have_rows('worldwide_links') ) : ?>
 
-				<h3 class="border-top border-top--clean">Worldwide</h3>
+				<div class="homepage-map__content">
 
-				<span>Learn how to implement open contracting or use contracting data.</span>
+					<h3 class="border-top border-top--clean">Worldwide</h3>
 
-				<ul class="cta-list">
-					<li><a href="#">World Overview</a></li>
-					<li><a href="#">Showcase on Ukraine</a></li>
-					<li><a href="#">Showcase on Mexico</a></li>
-				</ul>
+					<span>Learn how to implement open contracting or use contracting data.</span>
 
-			</div>
+					<ul class="cta-list">
+						<?php while ( have_rows('worldwide_links') ) : the_row(); ?>
+							<li><a href="<?php the_sub_field('link_address'); ?>"><?php the_sub_field('link_title'); ?></a></li>
+						<?php endwhile; ?>
+					</ul>
+
+				</div>
+
+			<?php endif; ?>
 
 		</div> <!-- / .wrapper -->
 
