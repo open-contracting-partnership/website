@@ -253,7 +253,7 @@
 		<div class="wrapper">
 
 			<div class="homepage-map__image">
-				<img src="<?php echo bloginfo('template_directory'); ?>/assets/img/map.svg" alt="" />
+				<img src="<?php echo bloginfo('template_directory'); ?>/assets/img/map.svg" alt="Map highlighting Ukraine and Mexico" />
 			</div>
 
 			<div class="homepage-map__content">
