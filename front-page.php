@@ -133,9 +133,9 @@
 					<span>Learn how to implement open contracting or use contracting data.</span>
 
 					<ul class="cta-list">
-						<li><a href="#">Showcases and evidence</a></li>
-						<li><a href="#">How to get started</a></li>
-						<li><a href="#">Global guidelines</a></li>
+						<?php if ( have_rows('implement_links') ) : while ( have_rows('implement_links') ) : the_row(); ?>
+							<li><a href="<?php the_sub_field('link_address'); ?>"><?php the_sub_field('link_title'); ?></a></li>
+						<?php endwhile; endif; ?>
 					</ul>
 
 				</section>
