@@ -43,9 +43,20 @@
 	}
 }
 
+.site-footer__organisation,
+.site-footer__contracting,
+.site-footer__implement,
+.site-footer__updates {
+	display: none;
+
+	@include mq(M) {
+		display: block;
+	}
+}
+
 .site-footer__organisation {
 
-	@include mq(L) {
+	@include mq(M) {
 		@include span(2 of 12 first);
 	}
 }
@@ -54,7 +65,7 @@
 .site-footer__implement,
 .site-footer__updates {
 
-	@include mq(L) {
+	@include mq(M) {
 		@include span(2 of 12);
 	}
 }
@@ -121,6 +132,15 @@
 .sub-footer {
 	display: block;
 	margin-bottom: 2.2rem;
+
+	svg {
+		max-width: em(188);
+		max-height: em(51);
+
+		@include mq(L) {
+			@include span(2 at 10 of 12 last);
+		}
+	}
 }
 
 .site-colophon {
@@ -137,40 +157,47 @@
 	}
 }
 
-.sub-footer svg {
-	max-width: em(188);
-	max-height: em(51);
-
-	@include mq(L) {
-		@include span(2 at 10 of 12 last);
-	}
-}
-
 .site-copyright {
 	padding: .9rem 0;
 	background-color: color('dark-background');
+
+	span a,
+	span:last-child {
+		display: inline-block;
+		margin-bottom: 0;
+	}
 
 	span,
 	a {
 		@include font('secondary');
 		@include font-size(16);
 		color: color('light-grey');
+		display: block;
+		margin-bottom: $space;
 	}
 
-	span,
-	div > a {
-		float: left;
-	}
+	@include mq(M) {
 
-	span:first-child {
-		margin-right: 3rem;
-	}
+		span,
+		a {
+			margin-bottom: 0;
+		}
 
-	a {
-		margin-right: 1rem;
-	}
+		span,
+		div > a {
+			float: left;
+		}
 
-	span:last-child {
-		float: right;
+		span:first-child {
+			margin-right: 3rem;
+		}
+
+		a {
+			margin-right: 1rem;
+		}
+
+		span:last-child {
+			float: right;
+		}
 	}
 }

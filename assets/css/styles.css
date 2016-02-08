@@ -759,13 +759,25 @@ td {
     font-size: 0.95rem;
     color: #D5D5D7; }
 
-@media screen and (min-width: 1024px) {
+.site-footer__organisation,
+.site-footer__contracting,
+.site-footer__implement,
+.site-footer__updates {
+  display: none; }
+  @media screen and (min-width: 640px) {
+    .site-footer__organisation,
+    .site-footer__contracting,
+    .site-footer__implement,
+    .site-footer__updates {
+      display: block; } }
+
+@media screen and (min-width: 640px) {
   .site-footer__organisation {
     width: 15.88785%;
     float: left;
     margin-right: 0.93458%; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 640px) {
   .site-footer__contracting,
   .site-footer__implement,
   .site-footer__updates {
@@ -817,6 +829,14 @@ td {
 .sub-footer {
   display: block;
   margin-bottom: 2.2rem; }
+  .sub-footer svg {
+    max-width: 9.4em;
+    max-height: 2.55em; }
+    @media screen and (min-width: 1024px) {
+      .sub-footer svg {
+        width: 15.88785%;
+        float: right;
+        margin-right: 0; } }
 
 .site-colophon {
   font-weight: 400;
@@ -834,18 +854,13 @@ td {
       float: left;
       margin-right: 0.93458%; } }
 
-.sub-footer svg {
-  max-width: 9.4em;
-  max-height: 2.55em; }
-  @media screen and (min-width: 1024px) {
-    .sub-footer svg {
-      width: 15.88785%;
-      float: right;
-      margin-right: 0; } }
-
 .site-copyright {
   padding: .9rem 0;
   background-color: #323238; }
+  .site-copyright span a,
+  .site-copyright span:last-child {
+    display: inline-block;
+    margin-bottom: 0; }
   .site-copyright span,
   .site-copyright a {
     font-weight: 400;
@@ -854,16 +869,22 @@ td {
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-size: 0.8rem;
-    color: #B7B7B7; }
-  .site-copyright span,
-  .site-copyright div > a {
-    float: left; }
-  .site-copyright span:first-child {
-    margin-right: 3rem; }
-  .site-copyright a {
-    margin-right: 1rem; }
-  .site-copyright span:last-child {
-    float: right; }
+    color: #B7B7B7;
+    display: block;
+    margin-bottom: 1.4em; }
+  @media screen and (min-width: 640px) {
+    .site-copyright span,
+    .site-copyright a {
+      margin-bottom: 0; }
+    .site-copyright span,
+    .site-copyright div > a {
+      float: left; }
+    .site-copyright span:first-child {
+      margin-right: 3rem; }
+    .site-copyright a {
+      margin-right: 1rem; }
+    .site-copyright span:last-child {
+      float: right; } }
 
 /*------------------------------------*	HEADER
 \*------------------------------------*/
@@ -1435,7 +1456,7 @@ input[type="submit"] {
 
 @media screen and (min-width: 640px) {
   .island--thick {
-    padding: 2.5em 2.5em 5em; } }
+    padding: 2.5em 0 5em; } }
 
 .island--flat-bottom {
   padding-bottom: 0; }
@@ -1799,12 +1820,14 @@ input[type="submit"] {
     color: #005983; }
 
 .stat-module {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 2em; }
   @media screen and (min-width: 640px) {
     .stat-module {
       width: 32.71028%;
       float: left;
-      margin-right: 0.93458%; }
+      margin-right: 0.93458%;
+      margin-bottom: 0; }
       .stat-module:first-child {
         margin-left: 0; }
       .stat-module:last-child {
@@ -1815,12 +1838,16 @@ input[type="submit"] {
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 84px;
-    font-size: 4.2rem;
+    font-size: 64px;
+    font-size: 3.2rem;
     color: #D6E100;
     display: block;
     line-height: 1.2;
     margin-bottom: .5em; }
+    @media screen and (min-width: 1024px) {
+      .stat-module span {
+        font-size: 84px;
+        font-size: 4.2rem; } }
   .stat-module p {
     font-weight: 500;
     font-style: normal;
@@ -1829,8 +1856,10 @@ input[type="submit"] {
     font-size: 18px;
     font-size: 0.9rem;
     color: #B7B7B7;
-    width: 60%;
     margin: 0 auto; }
+    @media screen and (min-width: 1024px) {
+      .stat-module p {
+        width: 60%; } }
 
 /*------------------------------------*    $NON-MODULAR
 \*------------------------------------*/
@@ -2091,6 +2120,7 @@ input[type="submit"] {
 
 .homepage-hero {
   padding-top: 3em;
+  padding-bottom: 6rem;
   position: relative; }
   .homepage-hero:before {
     content: '';
@@ -2166,6 +2196,11 @@ input[type="submit"] {
   margin-top: 3.45em; }
   @media screen and (min-width: 640px) {
     .homepage-implement {
+      width: 32.71028%;
+      float: right;
+      margin-right: 0; } }
+  @media screen and (min-width: 1024px) {
+    .homepage-implement {
       width: 24.29907%;
       float: left;
       margin-right: 0.93458%; } }
@@ -2200,15 +2235,27 @@ input[type="submit"] {
     vertical-align: text-top; }
 
 .homepage-filter__items > div {
-  width: 32.71028%;
-  float: left;
-  margin-right: 0.93458%;
   margin-bottom: 0.93458%; }
-  .homepage-filter__items > div:nth-child(3n+1) {
-    margin-left: 0; }
-  .homepage-filter__items > div:nth-child(3n) {
-    float: right;
-    margin-right: 0; }
+  @media screen and (min-width: 640px) {
+    .homepage-filter__items > div {
+      width: 49.53271%;
+      float: left;
+      margin-right: 0.93458%; }
+      .homepage-filter__items > div:nth-child(2n+1) {
+        margin-left: 0; }
+      .homepage-filter__items > div:nth-child(2n) {
+        float: right;
+        margin-right: 0; } }
+  @media screen and (min-width: 1024px) {
+    .homepage-filter__items > div {
+      width: 32.71028%;
+      float: left;
+      margin-right: 0.93458%; }
+      .homepage-filter__items > div:nth-child(3n+1) {
+        margin-left: 0; }
+      .homepage-filter__items > div:nth-child(3n) {
+        float: right;
+        margin-right: 0; } }
 
 .homepage-filter__twitter {
   font-weight: 400;
@@ -2238,15 +2285,26 @@ input[type="submit"] {
   background-color: #323238; }
 
 .homepage-map__image {
-  width: 57.94393%;
-  float: left;
-  margin-right: 0.93458%; }
+  display: none; }
+  @media screen and (min-width: 640px) {
+    .homepage-map__image {
+      width: 57.94393%;
+      float: left;
+      margin-right: 0.93458%;
+      display: block; } }
 
 .homepage-map__content {
-  width: 32.71028%;
-  float: left;
-  margin-right: 0.93458%;
   padding: 2rem; }
+  @media screen and (min-width: 640px) {
+    .homepage-map__content {
+      width: 41.1215%;
+      float: right;
+      margin-right: 0; } }
+  @media screen and (min-width: 1024px) {
+    .homepage-map__content {
+      width: 32.71028%;
+      float: left;
+      margin-right: 0.93458%; } }
   .homepage-map__content span {
     font-weight: 500;
     font-style: normal;

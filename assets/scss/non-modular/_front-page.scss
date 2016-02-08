@@ -5,6 +5,7 @@
 
 .homepage-hero {
 	padding-top: 3em;
+	padding-bottom: 6rem;
 	position: relative;
 
 	&:before {
@@ -90,6 +91,10 @@
 	margin-top: em(69);
 
 	@include mq(M) {
+		@include span(4 of 12 last);
+	}
+
+	@include mq(L) {
 		@include span(3 of 12);
 	}
 
@@ -129,15 +134,30 @@
 }
 
 .homepage-filter__items > div {
-	@include span(4 of 12);
 	margin-bottom: gutter();
 
-	&:nth-child(3n+1) {
-		@include first;
+	@include mq(M) {
+		@include span(6 of 12);
+
+		&:nth-child(2n+1) {
+			@include first;
+		}
+
+		&:nth-child(2n) {
+			@include last;
+		}
 	}
 
-	&:nth-child(3n) {
-		@include last;
+	@include mq(L) {
+		@include span(4 of 12);
+
+		&:nth-child(3n+1) {
+			@include first;
+		}
+
+		&:nth-child(3n) {
+			@include last;
+		}
 	}
 }
 
@@ -175,12 +195,24 @@
 }
 
 .homepage-map__image {
-	@include span(7 of 12 first);
+	display: none;
+
+	@include mq(M) {
+		@include span(7 of 12 first);
+		display: block;
+	}
 }
 
 .homepage-map__content {
-	@include span(4 of 12);
 	padding: 2rem;
+
+	@include mq(M) {
+		@include span(5 of 12 last);
+	}
+
+	@include mq(L) {
+		@include span(4 of 12);
+	}
 
 	span {
 		@include font('secondary', 'medium');

@@ -8,7 +8,7 @@
 
 		<div class="wrapper">
 
-			<div class="homepage-cta / band band--section">
+			<div class="homepage-cta">
 
 				<p><?php the_field('strapline'); ?></p>
 
@@ -268,7 +268,7 @@
 
 	</div> <!-- / .wrapper -->
 
-	<section class="homepage-map / band band--section">
+	<section class="homepage-map / band">
 
 		<div class="wrapper">
 

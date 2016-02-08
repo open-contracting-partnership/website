@@ -23,7 +23,7 @@
 .island--thick {
 
 	@include mq(M) {
-		padding: em(50) em(50) em(100);
+		padding: em(50) 0 em(100);
 	}
 }
 
