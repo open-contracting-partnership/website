@@ -101,20 +101,36 @@
 
 					<a href="#" class="post-object post-object--vertical post-object--spotlight">
 
-						<div class="post-object__media">
+						<?php if ( have_rows('spotlight') ) : while( have_rows('spotlight') ) : the_row(); ?>
 
-							<img src="http://unsplash.it/459/235" alt="">
+							<div class="post-object__media">
 
-							<div class="post-object--spotlight__title">
-								<span class="post-object__tag">Projects</span>
-								<h4>Help us define our openness</h4>
+								<img src="http://unsplash.it/459/235" alt="">
+
+								<div class="post-object--spotlight__title">
+									<span class="post-object__tag">Projects</span>
+
+									<?php if ( get_sub_field('title') ) : ?>
+										<h4><?php the_sub_field('title') ?></h4>
+									<?php else : ?>
+										<h4>Help us define our openness</h4>
+									<?php endif; ?>
+
+								</div>
+
 							</div>
 
-						</div>
+							<div class="post-object__content">
 
-						<div class="post-object__content">
-							<p>Open is part of our name and game at the Open Contracting Partnership. This means, open is at the core of our institution. It is our mission. It is one of our core values. If we want public procurement to be open, we have to be open ourselves.</p>
-						</div>
+								<?php if ( get_sub_field('description') ) : ?>
+									<p><?php the_sub_field('description') ?></p>
+								<?php else : ?>
+									<p>Open is part of our name and game at the Open Contracting Partnership. This means, open is at the core of our institution. It is our mission. It is one of our core values. If we want public procurement to be open, we have to be open ourselves.</p>
+								<?php endif; ?>
+
+							</div>
+
+						<?php endwhile; endif; ?>
 
 					</a>
 
