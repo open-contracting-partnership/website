@@ -1,27 +1,27 @@
 <?php
 
 	// allow access from all origins
-	header('Access-Control-Allow-Origin: *');
+	// header('Access-Control-Allow-Origin: *');
 
 	/**
 	 * Twitter feed which uses twitteroauth for authentication
-	 * 
+	 *
 	 * @version	1.0
 	 * @author	Andrew Biggart
 	 * @link	https://github.com/andrewbiggart/latest-tweets-php-o-auth/
-	 * 
+	 *
 	 * Notes:
 	 * Caching is employed because Twitter only allows their RSS and json feeds to be accesssed 150
 	 * times an hour per user client.
 	 * --
-	 * Dates can be displayed in Twitter style (e.g. "1 hour ago") by setting the 
+	 * Dates can be displayed in Twitter style (e.g. "1 hour ago") by setting the
 	 * $settings->twitter_style_dates param to true.
 	 *
 	 * You will also need to register your application with Twitter, to get your keys and tokens.
 	 * You can do this here: (https://dev.twitter.com/).
 	 *
 	 * Don't forget to add your username to the bottom of the script.
-	 * 
+	 *
 	 * Credits:
 	 ***************************************************************************************
 	 * Initial script before API v1.0 was retired
@@ -45,19 +45,17 @@
 	 *
 	 *
 	**/
-	
+
 	// Set timezone. (Modify to match your timezone) If you need help with this, you can find it here. (http://php.net/manual/en/timezones.php)
 	date_default_timezone_set('Europe/London');
 
-	function get_settings() {
+	function get_tweet_settings() {
 
 		$settings_json = array();
 
-		if ( file_exists('settings.json') ) {
-			$settings_json = json_decode(file_get_contents('settings.json'), TRUE);
+		if ( file_exists(dirname(__FILE__) . '/settings.json') ) {
+			$settings_json = json_decode(file_get_contents(dirname(__FILE__) . '/settings.json'), TRUE);
 		}
-
-		// print_r($settings_json);
 
 		return (object) array_merge([
 			'consumer_key' => '',
@@ -77,26 +75,26 @@
 
 	// Require TwitterOAuth files. (Downloadable from : https://github.com/abraham/twitteroauth)
 	require_once("twitteroauth/twitteroauth/twitteroauth.php");
-	
+
 	// Function to authenticate app with Twitter.
 	function getConnectionWithAccessToken($cons_key, $cons_secret, $oauth_token, $oauth_token_secret) {
 		$connection = new TwitterOAuth($cons_key, $cons_secret, $oauth_token, $oauth_token_secret);
 		return $connection;
 	}
-	
+
 	// Function to display the latest tweets.
 	function display_latest_tweets($twitter_user_id) {
 
-		$settings = get_settings();
+		$settings = get_tweet_settings();
 
 		// Time that the cache was last updtaed.
 		$cache_file_created  = ((file_exists($settings->cache_file))) ? filemtime($settings->cache_file) : 0;
- 
+
 		// A flag so we know if the feed was successfully parsed.
 		$tweet_found         = false;
-		
+
 		// Show cached version of tweets, if it's less than $settings->cache_time.
-		if ( time() - $settings->cache_time < $cache_file_created ) {
+		if ( time() - $settings->cache_time < $cache_file_created AND FALSE ) {
 
 			$tweet_found = true;
 
@@ -104,27 +102,27 @@
 			readfile($settings->cache_file);
 
 		} else {
-		
+
 			// Cache file not found, or old. Authenticae app.
 			$connection = getConnectionWithAccessToken($settings->consumer_key, $settings->consumer_secret, $settings->access_token, $settings->access_token_secret);
-			
+
 			if ( $connection ) {
 
 				// Get the latest tweets from Twitter
 				$get_tweets = $connection->get("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=".$twitter_user_id."&count=".$settings->tweets_to_display."&include_rts=".$settings->include_rts."&exclude_replies=".$settings->ignore_replies);
-				
+
 				// Error check: Make sure there is at least one item.
 				if (count($get_tweets)) {
-					
+
 					// Define tweet_count as zero
 					$tweet_count = 0;
- 
+
 					// Start output buffering.
 					ob_start();
- 
+
 					// Open the twitter wrapping element.
 					$tweets = array();
- 
+
 					// Iterate over tweets.
 					foreach ( $get_tweets as $tweet ) {
 
@@ -164,18 +162,18 @@
 							switch ( $time_diff )  {
 
 								case ( $time_diff < 60 ):
-									$display_time = $time_diff.' seconds ago';                  
+									$display_time = $time_diff.' seconds ago';
 									break;
 
 								case ( $time_diff >= 60 && $time_diff < 3600 ):
 									$min = floor($time_diff/60);
-									$display_time = $min.' minutes ago';                  
+									$display_time = $min.' minutes ago';
 									break;
 
 								case ( $time_diff >= 3600 && $time_diff < 86400 ):
 									$hour = floor($time_diff / 3600);
 									$display_time = 'about '.$hour.' hour';
-									
+
 									if ( $hour > 1 ) {
 										$display_time .= 's';
 									}
@@ -199,7 +197,7 @@
 						if ($tweet_count >= $settings->tweets_to_display){
 							break;
 						}
- 
+
 					}
 
 					$output = array(
@@ -207,24 +205,24 @@
 						'tweets' => $tweets
 					);
 
-					echo json_encode($output);
- 
+					// echo json_encode($output);
+
 					// Generate a new cache file.
-					$file = fopen($settings->cache_file, 'w');
- 
-					// Save the contents of output buffer to the file, and flush the buffer. 
-					fwrite($file, json_encode($output)); 
+					$file = fopen(dirname(__FILE__) . '/' . $settings->cache_file, 'w');
+
+					// Save the contents of output buffer to the file, and flush the buffer.
+					fwrite($file, json_encode($output));
 					fclose($file);
-					
+
+					return $output;
+
 				}
-				
+
 			}
-			
+
 		}
-		
+
 	}
-	
-	// Display latest tweets. (Modify username to your Twitter handle)
-	display_latest_tweets('theideabureau');
+
 
 ?>
