@@ -1,17 +1,17 @@
 .posts-filter {
 	display: block;
 	clear: both;
+}
+
+.posts-filter__inner {
+	position: relative;
+	display: inline-block;
 
 	&.active .posts-filter__form {
 		opacity: 1;
 		transform: translateY(0);
 		pointer-events: all;
 	}
-}
-
-.posts-filter__inner {
-	position: relative;
-	display: inline-block;
 }
 
 .posts-filter__button,

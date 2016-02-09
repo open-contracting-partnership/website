@@ -1684,15 +1684,15 @@ input[type="submit"] {
 .posts-filter {
   display: block;
   clear: both; }
-  .posts-filter.active .posts-filter__form {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    pointer-events: all; }
 
 .posts-filter__inner {
   position: relative;
   display: inline-block; }
+  .posts-filter__inner.active .posts-filter__form {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    pointer-events: all; }
 
 .posts-filter__button,
 .posts-filter__form {

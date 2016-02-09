@@ -37,16 +37,31 @@ $(document).ready(function() {
 	 //*************
 	// POSTS FILTER
 
-	if ( $('.posts-filter__button').length ) {
+	if ( document.querySelector('.posts-filter__button') ) {
 
-		$('.posts-filter__button').on('click', function(e) {
+		document.querySelector('.posts-filter__button').addEventListener('click', function(e) {
 
 			e.preventDefault();
+			e.stopPropagation();
 
-			$(this).parents('.posts-filter').toggleClass('active');
+			this.parentNode.classList.toggle('active');
 
-		});
+		}, false);
 
 	}
+
+	document.querySelector('.posts-filter__inner').addEventListener('click', function(e) {
+		e.stopPropagation();
+	}, false);
+
+	document.body.addEventListener('click', function() {
+
+		var posts_filter = document.querySelector('.posts-filter__inner');
+
+		if ( posts_filter.classList.contains('active') ) {
+			posts_filter.classList.remove('active');
+		}
+
+	}, false);
 
 });
