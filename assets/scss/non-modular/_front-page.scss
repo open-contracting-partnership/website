@@ -151,6 +151,11 @@
 	@include mq(L) {
 		@include span(4 of 12);
 
+		&:nth-child(2n+1),
+		&:nth-child(2n) {
+			@include span(4 of 12);
+		}
+
 		&:nth-child(3n+1) {
 			@include first;
 		}
