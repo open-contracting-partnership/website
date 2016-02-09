@@ -96,6 +96,22 @@
 
 		<section class="blog__filter / band band--thick">
 
+			<div class="posts-filter / band">
+
+				<div class="posts-filter__inner">
+
+					<a href="#" class="posts-filter__button"><svg><use xlink:href="#icon-menu" /></svg>Filter Blogs &amp; Updates</a>
+
+					<form action="#" class="posts-filter__form / custom-checkbox">
+						<label><input type="checkbox" name="name" value="" checked><span><svg><use xlink:href="#icon-close"></svg></span>Menu Item</label>
+						<label><input type="checkbox" name="name" value=""><span><svg><use xlink:href="#icon-close"></svg></span>Menu Item</label>
+						<label><input type="checkbox" name="name" value=""><span><svg><use xlink:href="#icon-close"></svg></span>Menu Item</label>
+					</form>
+
+				</div>
+
+			</div>
+
 			<div class="island island--light">
 
 				<div class="blog__filter__selector">

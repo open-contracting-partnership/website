@@ -16,6 +16,8 @@
 		  })(document);
 		</script>
 
+		<script type="text/javascript" src="<?php echo bloginfo('template_directory'); ?>/assets/js/libs/modernizr.js"></script>
+
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/assets/css/styles.css">
 
 		<title><?php wp_title('&raquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>

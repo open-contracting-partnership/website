@@ -117,22 +117,6 @@
 	@include break();
 }
 
-.homepage-filter__button {
-	@include font('secondary');
-	@include font-size(18);
-	color: color('dark-background');
-	background-color: color('brand');
-	display: inline-block;
-	padding: 1.1rem 1rem;
-
-	svg {
-		width: 1.5em;
-		height: 1em;
-		margin-right: 1em;
-		vertical-align: text-top;
-	}
-}
-
 .homepage-filter__items > div {
 	margin-bottom: gutter();
 
@@ -150,6 +134,11 @@
 
 	@include mq(L) {
 		@include span(4 of 12);
+
+		&:nth-child(2n+1),
+		&:nth-child(2n) {
+			@include span(4 of 12);
+		}
 
 		&:nth-child(3n+1) {
 			@include first;
