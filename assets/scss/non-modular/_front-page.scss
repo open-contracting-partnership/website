@@ -142,6 +142,7 @@
 
 		&:nth-child(3n+1) {
 			@include first;
+			clear: both;
 		}
 
 		&:nth-child(3n) {
