@@ -182,99 +182,47 @@
 
 			</div>
 
+			<?php
+
+				$tweets = get_tweets(); //print_r($tweets);// die();
+				$tweets['tweets'] = array_values($tweets['tweets']);
+
+				$latest_posts = new query_loop([
+					'posts_per_page' => 6
+				]);
+
+				$latest_posts = $latest_posts->query->posts;
+
+				// print_r();
+				// die();
+
+			?>
+
 			<div class="homepage-filter__items">
 
 				<div class="homepage-filter__twitter">
-					<p>Interesting job over at <b>@engnroom</b>  to coordinate a regional program on transparency, technology and <b>#opendata</b> <a href="https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/">https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/</a></p>
+					<p><?php echo $tweets['tweets'][0]['content']; ?></p>
 				</div>
 
-				<div class="homepage-filter__post">
-					<a href="#" class="post-object post-object--vertical post-object--blog">
+				<?php if ( load_post($latest_posts, 0) ) : ?>
+					<?php get_partial('post-object', 'homepage-filter--post'); ?>
+				<?php endif; ?>
 
-						<div class="post-object__media">
+				<?php if ( load_post($latest_posts, 1) ) : ?>
+					<?php get_partial('post-object', 'homepage-filter--post'); ?>
+				<?php endif; ?>
 
-							<img src="http://unsplash.it/459/300/?image=9" alt="">
-
-							<div class="post-object--blog__title">
-								<span class="post-object__tag">Blog</span>
-								<h4>Help us define our openness</h4>
-							</div>
-
-						</div>
-
-						<div class="post-object__content">
-							<p>By Shane Griffiths</p>
-						</div>
-
-					</a>
-				</div>
-
-				<div class="homepage-filter__post">
-					<a href="#" class="post-object post-object--vertical post-object--blog">
-
-						<div class="post-object__media">
-
-							<img src="http://unsplash.it/459/300/?image=21" alt="">
-
-							<div class="post-object--blog__title">
-								<span class="post-object__tag">Blog</span>
-								<h4>Help us define our openness</h4>
-							</div>
-
-						</div>
-
-						<div class="post-object__content">
-							<p>By Shane Griffiths</p>
-						</div>
-
-					</a>
-				</div>
-
-				<div class="homepage-filter__post">
-					<a href="#" class="post-object post-object--vertical post-object--blog">
-
-						<div class="post-object__media">
-
-							<img src="http://unsplash.it/459/300/?image=7" alt="">
-
-							<div class="post-object--blog__title">
-								<span class="post-object__tag">Blog</span>
-								<h4>Help us define our openness</h4>
-							</div>
-
-						</div>
-
-						<div class="post-object__content">
-							<p>By Shane Griffiths</p>
-						</div>
-
-					</a>
-				</div>
+				<?php if ( load_post($latest_posts, 2) ) : ?>
+					<?php get_partial('post-object', 'homepage-filter--post'); ?>
+				<?php endif; ?>
 
 				<div class="homepage-filter__twitter">
-					<p>Interesting job over at <b>@engnroom</b>  to coordinate a regional program on transparency, technology and <b>#opendata</b> <a href="https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/">https://www.theengineroom.org/were-hiring-a-regional-matchbox-lead-for-latin-america-maybe-its-you/</a></p>
+					<p><?php echo $tweets['tweets'][1]['content']; ?></p>
 				</div>
 
-				<div class="homepage-filter__post">
-					<a href="#" class="post-object post-object--vertical post-object--blog">
-
-						<div class="post-object__media">
-
-							<img src="http://unsplash.it/459/300/?image=13" alt="">
-
-							<div class="post-object--blog__title">
-								<span class="post-object__tag">Blog</span>
-								<h4>Help us define our openness</h4>
-							</div>
-
-						</div>
-
-						<div class="post-object__content">
-							<p>By Shane Griffiths</p>
-						</div>
-
-					</a>
-				</div>
+				<?php if ( load_post($latest_posts, 3) ) : ?>
+					<?php get_partial('post-object', 'homepage-filter--post'); ?>
+				<?php endif; ?>
 
 			</div>
 
