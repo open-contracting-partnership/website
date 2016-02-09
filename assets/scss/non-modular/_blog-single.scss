@@ -1,17 +1,24 @@
 .single-post {
 
 	.blog__title {
-		@include span(6 at 4 of 12 last);
-		margin-right: span(2 of 12) + gutter();
 		padding-top: 7.5rem;
 		position: relative;
+
+		@include mq(M) {
+			@include span(8 at 4 of 12 last);
+		}
+
+		@include mq(L) {
+			@include span(6 at 4 of 12 last);
+			margin-right: span(2 of 12) + gutter();
+		}
 
 		&:before {
 			content: '';
 			position: absolute;
 			top: 0;
 			left: -100vw;
-			bottom: -2rem;
+			bottom: 0;
 			width: 200vw;
 			z-index: -1;
 			background-color: color('brand-dark');
@@ -31,6 +38,11 @@
 
 	h1 {
 		color: color('white');
+		padding-bottom: 1.4em;
+
+		@include mq(M) {
+			padding-bottom: 0;
+		}
 	}
 
 	article {
@@ -40,6 +52,7 @@
 
 			@include mq(M) {
 				@include span(8 of 12 last);
+				margin-top: -2rem;
 			}
 
 			@include mq(L) {
