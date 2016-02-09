@@ -294,6 +294,9 @@
 
 		</div> <!-- / .site-footer -->
 
+		<script type="text/javascript" src="<?php echo bloginfo('template_directory'); ?>/assets/js/libs/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="<?php echo bloginfo('template_directory'); ?>/assets/js/main.js"></script>
+
 		<?php wp_footer(); ?>
 
 	</body>
