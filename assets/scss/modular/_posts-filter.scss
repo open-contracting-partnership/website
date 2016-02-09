@@ -1,0 +1,82 @@
+.posts-filter {
+	display: block;
+	clear: both;
+
+	&.active .posts-filter__form {
+		opacity: 1;
+		transform: translateY(0);
+		pointer-events: all;
+	}
+}
+
+.posts-filter__inner {
+	position: relative;
+	display: inline-block;
+}
+
+.posts-filter__button,
+.posts-filter__form {
+	@include font('secondary');
+	color: color('dark-background');
+}
+
+.posts-filter__button {
+	@include font-size(18);
+	padding: 1.1rem 1rem;
+	background-color: color('brand');
+	display: inline-block;
+	position: relative;
+	z-index: 10;
+
+	svg {
+		width: 1.5em;
+		height: 1em;
+		margin-right: 1em;
+		vertical-align: text-top;
+	}
+}
+
+.posts-filter__form {
+	pointer-events: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 9;
+	opacity: 0;
+	padding: 0 1rem;
+	background-color: color('brand-mid');
+	transform: translateY(-10%);
+	transition: transform .2s ease, opacity .12s linear;
+
+	label {
+		@include font('secondary');
+		@include font-size(16);
+		text-transform: none;
+		border-bottom: 1px solid color('brand-dark');
+		margin: 0;
+		padding: 1.1rem 0;
+	}
+
+	span {
+		width: .8rem;
+		height: .8rem;
+		margin-right: 1.8em;
+		background-color: color('dark-background');
+	}
+
+	label:first-child {
+	}
+
+	label:last-child {
+		border-bottom: 0;
+	}
+
+	svg {
+		fill: color('white');
+	}
+
+	input[type="checkbox"]:checked + span svg {
+		transform: translateX(-50%) translateY(-50%) scale(.05);
+	}
+}

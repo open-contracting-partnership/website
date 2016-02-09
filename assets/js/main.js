@@ -33,4 +33,20 @@ $(document).ready(function() {
 
 	});
 
+
+	 //*************
+	// POSTS FILTER
+
+	if ( $('.posts-filter__button').length ) {
+
+		$('.posts-filter__button').on('click', function(e) {
+
+			e.preventDefault();
+
+			$(this).parents('.posts-filter').toggleClass('active');
+
+		});
+
+	}
+
 });
