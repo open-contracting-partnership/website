@@ -1072,12 +1072,19 @@ nav h4 {
     font-size: 0.9rem;
     color: #FFF;
     padding: 1.38889em 0;
-    border-bottom: 5px solid transparent; }
+    border-bottom: 5px solid transparent;
+    -webkit-transition: border .3s ease;
+            transition: border .3s ease; }
     .primary-nav a:hover, .primary-nav a:active, .primary-nav a:focus {
       text-decoration: none;
       border-bottom-color: #D6E100; }
-  .primary-nav .current-menu-item a {
+  .primary-nav .current-menu-ancestor > a,
+  .primary-nav .current-menu-item > a {
     text-decoration: none;
+    border-bottom-color: #D6E100; }
+  .primary-nav:hover a {
+    border-bottom-color: transparent; }
+  .primary-nav li:hover > a {
     border-bottom-color: #D6E100; }
   .primary-nav .nav--horizontal:last-child li {
     border: 0; }

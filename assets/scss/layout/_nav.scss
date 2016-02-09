@@ -235,6 +235,7 @@ nav h4 {
 		color: color('white');
 		padding: em(25, 18) 0;
 		border-bottom: 5px solid transparent;
+		transition: border .3s ease;
 
 		&:hover,
 		&:active,
@@ -244,8 +245,20 @@ nav h4 {
 		}
 	}
 
-	.current-menu-item a {
+	// set hover styles on WP classes
+	.current-menu-ancestor > a,
+	.current-menu-item > a {
 		text-decoration: none;
+		border-bottom-color: color('brand');
+	}
+
+	// remove all hover colours when hover over the entire nav
+	&:hover a {
+		border-bottom-color: transparent;
+	}
+
+	// but re-enable hover colour when hovering in a specific item (inc sub-item)
+	li:hover > a {
 		border-bottom-color: color('brand');
 	}
 
