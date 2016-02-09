@@ -372,3 +372,11 @@ function posted_ago() {
 	}
 
 }
+
+function get_tweets() {
+
+	require dirname(__FILE__) . '/../tweets/tweets.php';
+
+	return display_latest_tweets('opencontracting');
+
+}
