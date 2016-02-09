@@ -221,6 +221,16 @@ hr {
 .inline-space--double {
   margin-right: 1em; }
 
+.alignleft {
+  float: left; }
+
+.aligncenter {
+  display: block;
+  margin: 0 auto; }
+
+.alignright {
+  float: right; }
+
 /*------------------------------------*    LINKS
 \*------------------------------------*/
 a {
