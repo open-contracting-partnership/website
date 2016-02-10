@@ -2607,6 +2607,7 @@ input[type="search"].resource-search {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-appearance: textfield;
   line-height: 1;
   color: #999;
   border: 0;
