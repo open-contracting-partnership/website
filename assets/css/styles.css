@@ -830,7 +830,7 @@ td {
     margin-left: .3em; }
 
 .header-language {
-  margin: 1.75rem 2rem; }
+  margin: 1.75rem 2rem 0; }
 
 .header-search a {
   padding: 2rem;
