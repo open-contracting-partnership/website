@@ -117,7 +117,16 @@
 	@include break();
 }
 
-.homepage-filter__items > div {
+.homepage-filter__items-pool {
+	display: none;
+}
+
+.homepage-filter__items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.homepage-filter__item {
 	margin-bottom: gutter();
 
 	@include mq(M) {

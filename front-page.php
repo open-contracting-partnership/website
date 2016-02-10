@@ -172,10 +172,10 @@
 
 					<a href="#" class="posts-filter__button"><svg><use xlink:href="#icon-menu" /></svg>Filter Blogs &amp; Updates</a>
 
-					<form action="#" class="posts-filter__form / custom-checkbox">
-						<label><input type="checkbox" name="name" value="" checked><span><svg><use xlink:href="#icon-close"></svg></span>Menu Item</label>
-						<label><input type="checkbox" name="name" value=""><span><svg><use xlink:href="#icon-close"></svg></span>Menu Item</label>
-						<label><input type="checkbox" name="name" value=""><span><svg><use xlink:href="#icon-close"></svg></span>Menu Item</label>
+					<form action="#" class="posts-filter__form / custom-radio / js-homepage-filter">
+						<label><input type="radio" name="name" value="all" checked="checked"><span></span>All</label>
+						<label><input type="radio" name="name" value="post"><span></span>Blog</label>
+						<label><input type="radio" name="name" value="tweet"><span></span>Tweets</label>
 					</form>
 
 				</div>
@@ -184,23 +184,31 @@
 
 			<?php
 
-				$tweets = get_tweets(); //print_r($tweets);// die();
+				// tweets
+				$tweets = get_tweets();
 				$tweets['tweets'] = array_values($tweets['tweets']);
 
+				// latest posts
 				$latest_posts = new query_loop([
+					'post_type' => 'post',
 					'posts_per_page' => 6
 				]);
-
 				$latest_posts = $latest_posts->query->posts;
 
-				// print_r();
-				// die();
+				// latest resources
+				$latest_resourcs = new query_loop([
+					'post_type' => 'resource',
+					'posts_per_page' => 6
+				]);
+				$latest_resourcs = $latest_resourcs->query->posts;
 
 			?>
 
-			<div class="homepage-filter__items">
+			<div class="homepage-filter__items"></div>
 
-				<div class="homepage-filter__twitter">
+			<div class="homepage-filter__items-pool">
+
+				<div class="homepage-filter__item / homepage-filter__twitter">
 					<p><?php echo $tweets['tweets'][0]['content']; ?></p>
 				</div>
 
@@ -216,13 +224,29 @@
 					<?php get_partial('post-object', 'homepage-filter--post'); ?>
 				<?php endif; ?>
 
-				<div class="homepage-filter__twitter">
+				<div class="homepage-filter__item / homepage-filter__twitter">
 					<p><?php echo $tweets['tweets'][1]['content']; ?></p>
 				</div>
 
 				<?php if ( load_post($latest_posts, 3) ) : ?>
 					<?php get_partial('post-object', 'homepage-filter--post'); ?>
 				<?php endif; ?>
+
+				<?php for ( $i = 2; $i < 6; $i++ ) : ?>
+
+					<div class="homepage-filter__item / homepage-filter__twitter">
+						<p><?php echo $tweets['tweets'][$i]['content']; ?></p>
+					</div>
+
+				<?php endfor; ?>
+
+				<?php for ( $i = 4; $i < 6; $i++ ) : ?>
+
+					<?php if ( load_post($latest_posts, $i) ) : ?>
+						<?php get_partial('post-object', 'homepage-filter--post'); ?>
+					<?php endif; ?>
+
+				<?php endfor; ?>
 
 			</div>
 

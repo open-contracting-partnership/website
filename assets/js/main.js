@@ -64,4 +64,33 @@ $(document).ready(function() {
 
 	}, false);
 
+
+	 //****************
+	// HOMEPAGE FILTER
+
+	$('.js-homepage-filter').on('change', 'input', function() {
+
+		$('.homepage-filter__items').html($('.homepage-filter__items-pool').html());
+
+		var $self = $(this),
+			$context = $('.homepage-filter__items');
+
+		switch ( $self.val() ) {
+
+			case 'post':
+				$('.homepage-filter__twitter', $context).remove();
+				break;
+
+			case 'tweet':
+				$('.homepage-filter__post', $context).remove();
+				break;
+
+		}
+
+		$('.homepage-filter__item', $context).slice(6).remove();
+
+	});
+
+	$('.js-homepage-filter input[checked]').trigger('change');
+
 });

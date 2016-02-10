@@ -1261,7 +1261,8 @@ input[type="submit"] {
     color: #FFF;
     text-decoration: underline; }
 
-.custom-checkbox input[type="checkbox"] {
+.custom-checkbox input[type="checkbox"],
+.custom-checkbox input[type="radio"] {
   display: none; }
 
 .custom-checkbox label {
@@ -1294,6 +1295,7 @@ input[type="submit"] {
   -webkit-transition: -webkit-transform cubic-bezier(0.82, -0.62, 0.74, 0.05) 0.2s;
           transition: transform cubic-bezier(0.82, -0.62, 0.74, 0.05) 0.2s; }
 
+.custom-checkbox input[type="radio"]:checked + span svg,
 .custom-checkbox input[type="checkbox"]:checked + span svg {
   -webkit-transform: translateX(-50%) translateY(-50%) scale(0.15);
           transform: translateX(-50%) translateY(-50%) scale(0.15);
@@ -2310,31 +2312,43 @@ input[type="submit"] {
 .homepage-filter {
   clear: both; }
 
-.homepage-filter__items > div {
+.homepage-filter__items-pool {
+  display: none; }
+
+.homepage-filter__items {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+
+.homepage-filter__item {
   margin-bottom: 0.93458%; }
   @media screen and (min-width: 640px) {
-    .homepage-filter__items > div {
+    .homepage-filter__item {
       width: 49.53271%;
       float: left;
       margin-right: 0.93458%; }
-      .homepage-filter__items > div:nth-child(2n+1) {
+      .homepage-filter__item:nth-child(2n+1) {
         margin-left: 0; }
-      .homepage-filter__items > div:nth-child(2n) {
+      .homepage-filter__item:nth-child(2n) {
         float: right;
         margin-right: 0; } }
   @media screen and (min-width: 1024px) {
-    .homepage-filter__items > div {
+    .homepage-filter__item {
       width: 32.71028%;
       float: left;
       margin-right: 0.93458%; }
-      .homepage-filter__items > div:nth-child(2n+1), .homepage-filter__items > div:nth-child(2n) {
+      .homepage-filter__item:nth-child(2n+1), .homepage-filter__item:nth-child(2n) {
         width: 32.71028%;
         float: left;
         margin-right: 0.93458%; }
-      .homepage-filter__items > div:nth-child(3n+1) {
+      .homepage-filter__item:nth-child(3n+1) {
         margin-left: 0;
         clear: both; }
-      .homepage-filter__items > div:nth-child(3n) {
+      .homepage-filter__item:nth-child(3n) {
         float: right;
         margin-right: 0; } }
 

@@ -1,6 +1,5 @@
-<div class="homepage-filter__post">
 
-	<a href="<?php the_permalink(); ?>" class="post-object post-object--vertical post-object--blog">
+	<a href="<?php the_permalink(); ?>" class="post-object post-object--vertical post-object--blog / homepage-filter__item homepage-filter__post">
 
 		<div class="post-object__media">
 
@@ -19,4 +18,3 @@
 
 	</a>
 
-</div>
