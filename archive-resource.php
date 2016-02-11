@@ -10,12 +10,11 @@
 				'posts_per_page' => -1
 			),
 			'taxonomies' => ['resource-type', 'region', 'issue', 'open-contracting'],
-			'fields' => ['short_description', 'organisation'],
+			'fields' => ['short_description', 'organisation', 'attachments'],
 			'custom' => array(
 				'year' => function($vue_post) {
 					return date('d/m/y', strtotime($vue_post->post_date));
 				}
-
 			)
 		]);
 
@@ -78,6 +77,63 @@
 
 		</div>
 
+		<div class="resource__overlay" v-if="open_resource !== null" v-on:click.prevent="open_resource = null"></div>
+
+		<div class="resource" v-if="open_resource !== null">
+
+			<div class="resource__title">
+				<img src="<?php bloginfo('template_directory'); ?>/assets/img/icons/icon--book.svg" />
+			</div>
+
+			<h1 class="gamma">{{ open_resource.title }}</h1>
+
+			<p class="resource__meta">
+				<span class="resource__published-date">{{ open_resource.date }}</span>
+				By {{ open_resource.fields.organisation}}
+			</p>
+
+			<hr />
+
+			{{{ open_resource.content }}}
+
+			<hr />
+
+			<div class="band band--extra-thick">
+
+				<div v-if="hasTerms(open_resource.taxonomies['region'])" class="resource__terms / band">
+
+					<p>Region</p>
+					<ul class="button__list">
+						<li v-for="region in open_resource.taxonomies['region']"><a href="/region/{{ $key }}" class="button button--small button--uppercase button--tag">{{{ region }}}</a></li>
+					</ul>
+
+				</div>
+
+
+				<div v-if="hasTerms(open_resource.taxonomies['issue'])" class="resource__terms / band">
+
+					<p>Issue</p>
+					<ul class="button__list">
+						<li v-for="issue in open_resource.taxonomies['issue']"><a href="/issue/{{ $key }}" class="button button--small button--uppercase button--tag">{{{ issue }}}</a></li>
+					</ul>
+
+				</div>
+
+				<div v-if="hasTerms(open_resource.taxonomies['open-contracting'])" class="resource__terms / band">
+
+					<p>OC Framework</p>
+					<ul class="button__list">
+						<li v-for="open_contracting in open_resource.taxonomies['open-contracting']"><a href="/open-contracting/{{ $key }}" class="button button--small button--uppercase button--tag">{{{ open_contracting }}}</a></li>
+					</ul>
+
+				</div>
+
+			</div>
+
+			<p v-if="open_resource.fields.attachments"><a href="{{ open_resource.fields.attachments[0].file }}" class="button button--block button--large">Download</a></p>
+
+		</div>
+
 		<template id="resource-template">
 
 			<div class="post-object__media / media__object">
@@ -86,7 +142,7 @@
 
 			<div class="post-object__content / media__body">
 
-				<a href="{{resource.link}}"><h4>{{resource.title}}</h4></a>
+				<a href="{{resource.link}}" v-on:click.prevent="openResource(resource)"><h4>{{resource.open | json}} {{resource.title}}</h4></a>
 
 				<p>
 					By {{resource.fields.organisation}}
@@ -115,6 +171,12 @@
 
 					taxonomyLabels: function(taxonomy) {
 						return objectValues(this.resource.taxonomies[taxonomy]);
+					},
+
+					openResource: function(resource) {
+
+						this._context.open_resource = resource;
+
 					}
 
 				}
@@ -150,7 +212,9 @@ Vue.filter('objectValues', function (object) {
 					display_filter: false,
 					// search and filters
 					search: '',
-					filter_resource_type: []
+					filter_resource_type: [],
+					// open resource
+					open_resource: null
 				},
 
 				computed: {
@@ -231,6 +295,10 @@ Vue.filter('objectValues', function (object) {
 					reset: function() {
 						this.search = "";
 						this.filter_resource_type = [];
+					},
+
+					hasTerms: function(taxonomy) {
+						return Object.keys(taxonomy).length > 0;
 					}
 
 				},

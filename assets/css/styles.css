@@ -1198,6 +1198,9 @@ input[type="submit"] {
   font-size: 0.7rem;
   padding: 0.71429em 1.07143em; }
 
+.button--tag.button--small {
+  padding: 0.35714em 0.57143em; }
+
 .button__sub-text {
   display: block;
   font-size: 75%;
@@ -2615,6 +2618,62 @@ input[type="search"].resource-search {
   padding: 1.17391em; }
   input[type="search"].resource-search::-webkit-input-placeholder {
     line-height: normal; }
+
+body.resource-open {
+  overflow: hidden; }
+
+.resource__overlay {
+  background-color: rgba(255, 255, 255, 0.6);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15; }
+
+.resource {
+  font-size: 16px;
+  font-size: 0.8rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 33%;
+  max-width: 32.8125em;
+  padding: 6.25em 2.75em;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-left: 1px solid #B7B7B7;
+  overflow: scroll;
+  z-index: 16; }
+
+.resource__title {
+  font-size: 20px;
+  font-size: 1rem;
+  padding-bottom: 0.75em;
+  border-bottom: 10px solid #fb6045;
+  margin-bottom: 1.4em;
+  width: 19.25em; }
+  .resource__title img {
+    width: 2.4em; }
+
+.resource__meta {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  position: relative;
+  padding-right: 5.71429em; }
+
+.resource__published-date {
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.resource__terms p {
+  margin-bottom: 0.4em; }
 
 /*------------------------------------*	$TOOLS
 \*------------------------------------*/

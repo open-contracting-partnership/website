@@ -88,6 +88,10 @@ input[type="submit"] {
 	padding: em(10, 14) em(15, 14);
 }
 
+.button--tag.button--small {
+	padding: em(5, 14) em(8, 14);
+}
+
 // Sub-heading within buttons
 // Must be used with a span element
 

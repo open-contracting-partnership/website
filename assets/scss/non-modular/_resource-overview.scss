@@ -209,3 +209,69 @@ input[type="search"].resource-search {
 	}
 
 }
+
+body.resource-open {
+	overflow: hidden;
+}
+
+.resource__overlay {
+	// display: none;
+	background-color: color('white', .6);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 15;
+}
+
+.resource {
+	@include font-size(16);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 33%;
+	max-width: em(525, 16);
+	padding: em(100, 16) em(44, 16);
+	background-color: color('white', .95);
+	border-left: 1px solid color('light-grey');
+	overflow: scroll;
+	z-index: 16;
+}
+
+.resource__title {
+
+	@include font-size(20);
+	padding-bottom: em(15);
+	border-bottom: 10px solid color('dark-orange');
+	margin-bottom: em(28);
+	width: em(385);
+
+	img {
+		width: em(48);
+	}
+
+}
+
+.resource__meta {
+	@include font('secondary', 'bold');
+	@include font-size(14);
+	text-transform: uppercase;
+	position: relative;
+	padding-right: em(80, 14);
+}
+
+.resource__published-date {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.resource__terms {
+
+	p {
+		margin-bottom: em(8);
+	}
+
+}

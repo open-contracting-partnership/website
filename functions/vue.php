@@ -16,9 +16,10 @@ function vue_posts($args) {
 			'id' => get_the_ID(),
 			'title' => get_the_title(),
 			'slug' => basename(get_the_permalink()),
-			'content' => get_the_content(),
+			'content' => wpautop(get_the_content()),
 			'excerpt' => get_the_excerpt(),
 			'link' => get_the_permalink(),
+			'date' => get_the_time(get_option('date_format')),
 			'taxonomies' => array(),
 			'custom' => array(),
 			'display' => true
