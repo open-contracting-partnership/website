@@ -2676,6 +2676,14 @@ body.resource-open {
 .resource__terms p {
   margin-bottom: 0.4em; }
 
+.single-resource article {
+  width: 66.35514%;
+  float: left;
+  margin-right: 0.93458%;
+  margin-left: 16.82243%;
+  margin-top: 6em;
+  margin-bottom: 6em; }
+
 /*------------------------------------*	$TOOLS
 \*------------------------------------*/
 /*------------------------------------*	$PRINT STYLES

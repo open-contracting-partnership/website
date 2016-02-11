@@ -1,0 +1,10 @@
+.single-resource {
+
+	article {
+		@include span(8 of 12);
+		@include push(2);
+		margin-top: 6em;
+		margin-bottom: 6em;
+	}
+
+}
