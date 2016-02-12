@@ -10,43 +10,7 @@
 
 					<nav class="site-footer__organisation">
 
-						<h4>Our Organisation</h4>
-
-						<!-- <ul class="nav nav--vertical">
-
-							<li>
-								<a href="#">Mission</a>
-							</li>
-
-							<li>
-								<a href="#">Strategy</a>
-							</li>
-
-							<li>
-								<a href="#">Values</a>
-							</li>
-
-							<li>
-								<a href="#">Our Story</a>
-							</li>
-
-							<li>
-								<a href="#">Team</a>
-							</li>
-
-							<li>
-								<a href="#">Advisory board</a>
-							</li>
-
-							<li>
-								<a href="#">Financing</a>
-							</li>
-
-							<li>
-								<a href="#">Policies</a>
-							</li>
-
-						</ul> -->
+						<h4><?php pll_e('Our Organisation'); ?></h4>
 
 						<?php
 
@@ -63,35 +27,7 @@
 
 					<nav class="site-footer__contracting">
 
-						<h4>Open Contracting</h4>
-
-						<!-- <ul class="nav nav--vertical">
-
-							<li>
-								<a href="#">What is Open Contracting</a>
-							</li>
-
-							<li>
-								<a href="#">Sectors</a>
-							</li>
-
-							<li>
-								<a href="#">Showcase projects</a>
-							</li>
-
-							<li>
-								<a href="#">Evidence</a>
-							</li>
-
-							<li>
-								<a href="#">Learning</a>
-							</li>
-
-							<li>
-								<a href="#">Case studies</a>
-							</li>
-
-						</ul> -->
+						<h4><?php pll_e('Open Contracting'); ?></h4>
 
 						<?php
 
@@ -108,39 +44,7 @@
 
 					<nav class="site-footer__implement">
 
-						<h4>Implement</h4>
-
-						<!-- <ul class="nav nav--vertical">
-
-							<li>
-								<a href="#">How to implement</a>
-							</li>
-
-							<li>
-								<a href="#">Data standard</a>
-							</li>
-
-							<li>
-								<a href="#">Success stories</a>
-							</li>
-
-							<li>
-								<a href="#">Global principles</a>
-							</li>
-
-							<li>
-								<a href="#">Learning</a>
-							</li>
-
-							<li>
-								<a href="#">Case studies</a>
-							</li>
-
-							<li>
-								<a href="#">Resources and Tools</a>
-							</li>
-
-						</ul> -->
+						<h4><?php pll_e('Implement'); ?></h4>
 
 						<?php
 
@@ -159,19 +63,7 @@
 
 						<nav>
 
-							<h4>Stay Updated</h4>
-
-							<!-- <ul class="nav nav--vertical">
-
-								<li>
-									<a href="#">Blogs and Updates</a>
-								</li>
-
-								<li>
-									<a href="#">Events</a>
-								</li>
-
-							</ul> -->
+							<h4><?php pll_e('Stay Updated'); ?></h4>
 
 							<?php
 
@@ -188,19 +80,7 @@
 
 						<nav>
 
-							<h4>Elsewhere Online</h4>
-
-							<!-- <ul class="nav nav--vertical">
-
-								<li>
-									<a href="#">Data Standard</a>
-								</li>
-
-								<li>
-									<a href="#">Community</a>
-								</li>
-
-							</ul> -->
+							<h4><?php pll_e('Elsewhere Online'); ?></h4>
 
 							<?php
 
@@ -221,13 +101,13 @@
 
 						<div class="site-footer__email">
 
-							<h4>Subscribe to our newsletter</h4>
+							<h4><?php pll_e('Subscribe to our newsletter'); ?></h4>
 
 							<form action="#" class="form--dark flex-field">
 
 								<input type="email" name="newsletter" placeholder="Enter your email">
 
-								<button type="submit">Send</button>
+								<button type="submit"><?php pll_e('Send'); ?></button>
 
 							</form>
 
@@ -235,7 +115,7 @@
 
 						<nav class="site-footer__follow">
 
-							<h4>Follow our progress</h4>
+							<h4><?php pll_e('Follow our progress'); ?></h4>
 
 							<ul class="nav nav--horizontal">
 
@@ -249,7 +129,7 @@
 
 						<div class="site-footer__contact">
 
-							<h4>Contact us:</h4>
+							<h4><?php pll_e('Contact us'); ?>:</h4>
 
 							<address>
 								<span>641 S Street NW, 20001 Washington, D.C., USA<span>
@@ -265,7 +145,7 @@
 				<div class="sub-footer cf"> <!-- sub footer -->
 
 					<div class="site-colophon">
-						<p>This work by the Open Contracting Partnership, unless otherwise noted, is licensed under a Creative Commons Attribution 4.0 International License.</p>
+						<p><?php pll_e('This work by the Open Contracting Partnership, unless otherwise noted, is licensed under a Creative Commons Attribution 4.0 International License.'); ?></p>
 					</div>
 
 					<svg><use xlink:href="#ocp-logo-small" /></svg>
@@ -280,11 +160,9 @@
 
 					<span>&copy; Open Contracting Partnership 2016</span>
 
-					<a href="#">Site Information</a>
-
-					<a href="#">Feedback</a>
-
-					<a href="#">Terms</a>
+					<a href="#"><?php pll_e('Site Information'); ?></a>
+					<a href="#"><?php pll_e('Feedback'); ?></a>
+					<a href="#"><?php pll_e('Terms'); ?></a>
 
 					<span>Website by <a href="http://theideabureau.co">The Idea Bureau</a></span>
 

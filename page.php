@@ -24,7 +24,7 @@
 
 				<div class="download-cta__content">
 
-					<span>Download</span>
+					<span><?php pll_e('Download'); ?></span>
 
 					<div class="heading-highlight">
 						<h4>2015 - 2018 Strategy document</h4>

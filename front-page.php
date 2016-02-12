@@ -12,8 +12,8 @@
 
 				<p><?php the_field('strapline'); ?></p>
 
-				<a href="/about" class="button button--white">About Our Work</a>
-				<a href="/data-standard" class="button button--white">Visit the Data Standard</a>
+				<a href="/about" class="button button--white"><?php pll_e('About Our Work'); ?></a>
+				<a href="/data-standard" class="button button--white"><?php pll_e('Visit the Data Standard'); ?></a>
 
 			</div> <!-- homepage-cta -->
 
@@ -26,8 +26,8 @@
 		<div class="wrapper">
 
 			<div class="homepage-title">
-				<h1>Public contracting</h1>
-				<h2>The number one corruption risk in government</h2>
+				<h1><?php pll_e('Public contracting'); ?></h1>
+				<h2><?php pll_e('The number one corruption risk in government'); ?></h2>
 			</div>
 
 			<?php if ( have_rows('statistics') ) : ?>
@@ -59,7 +59,7 @@
 
 				<section>
 
-					<h3 class="border-top">Recent Blogs</h3>
+					<h3 class="border-top"><?php pll_e('Recent Blogs'); ?></h3>
 
 					<?php
 
@@ -97,7 +97,7 @@
 
 				<section>
 
-					<h3 class="border-top">Spotlight</h3>
+					<h3 class="border-top"><?php pll_e('Spotlight'); ?></h3>
 
 					<a href="#" class="post-object post-object--vertical post-object--spotlight">
 
@@ -113,7 +113,7 @@
 									<?php if ( get_sub_field('title') ) : ?>
 										<h4><?php the_sub_field('title') ?></h4>
 									<?php else : ?>
-										<h4>Help us define our openness</h4>
+										<h4><?php pll_e('Help us define our openness'); ?></h4>
 									<?php endif; ?>
 
 								</div>
@@ -145,10 +145,10 @@
 					<section>
 
 						<div class="heading-highlight">
-							<h3>Implement Open Contracting</h3>
+							<h3><?php pll_e('Implement Open Contracting'); ?></h3>
 						</div>
 
-						<span>Learn how to implement open contracting or use contracting data.</span>
+						<span><?php pll_e('Learn how to implement open contracting or use contracting data.'); ?></span>
 
 						<ul class="cta-list">
 							<?php while ( have_rows('implement_links') ) : the_row(); ?>
@@ -170,7 +170,7 @@
 
 				<div class="posts-filter__inner">
 
-					<a href="#" class="posts-filter__button"><svg><use xlink:href="#icon-menu" /></svg>Filter Blogs &amp; Updates</a>
+					<a href="#" class="posts-filter__button"><svg><use xlink:href="#icon-menu" /></svg><?php pll_e('Filter Blogs & Updates'); ?></a>
 
 					<form action="#" class="posts-filter__form / custom-radio / js-homepage-filter">
 						<label><input type="radio" name="name" value="all" checked="checked"><span></span>All</label>
@@ -266,9 +266,9 @@
 
 				<div class="homepage-map__content">
 
-					<h3 class="border-top border-top--clean">Worldwide</h3>
+					<h3 class="border-top border-top--clean"><?php pll_e('Worldwide'); ?></h3>
 
-					<span>Learn how to implement open contracting or use contracting data.</span>
+					<span><?php pll_e('Learn how to implement open contracting or use contracting data.'); ?></span>
 
 					<ul class="cta-list">
 						<?php while ( have_rows('worldwide_links') ) : the_row(); ?>

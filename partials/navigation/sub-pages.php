@@ -23,7 +23,7 @@
 
 	<nav>
 
-		<h3 class="border-top border-top--clean">Further Information</h3>
+		<h3 class="border-top border-top--clean"><?php pll_e('Further Information'); ?></h3>
 
 		<ul class="nav nav--vertical nav--sub-page">
 

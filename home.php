@@ -7,7 +7,7 @@
 		<?php $exclude_ids = []; ?>
 
 		<div class="coloured">
-			<h3>Recent Posts</h3>
+			<h3><?php pll_e('Recent Posts'); ?></h3>
 		</div>
 
 		<div class="blog__featured / band band--thick">
@@ -100,7 +100,7 @@
 
 				<div class="posts-filter__inner">
 
-					<a href="#" class="posts-filter__button"><svg><use xlink:href="#icon-menu" /></svg>Filter Blogs &amp; Updates</a>
+					<a href="#" class="posts-filter__button"><svg><use xlink:href="#icon-menu" /></svg><?php pll_e('Filter Blogs & Updates'); ?></a>
 
 					<form action="#" class="posts-filter__form / custom-checkbox">
 						<label><input type="checkbox" name="name" value="" checked><span><svg><use xlink:href="#icon-close"></svg></span>Menu Item</label>
@@ -116,7 +116,7 @@
 
 				<div class="blog__filter__selector">
 
-					<h3 class="border-top border-top--dark border-top--clean">Filter posts by issue</h3>
+					<h3 class="border-top border-top--dark border-top--clean"><?php pll_e('Filter posts by issue'); ?></h3>
 
 					<form class="custom-radio" action="#" method="post">
 						<label><input type="radio" name="blog-filter"><span></span>Construction</label>
@@ -219,7 +219,7 @@
 				</div>
 
 				<div class="blog__filter__view-all">
-					<a href="#" class="button button--white button--open button--solid-dark">View more by this issue</a>
+					<a href="#" class="button button--white button--open button--solid-dark"><?php pll_e('View more by this issue'); ?></a>
 				</div>
 
 			</div>
@@ -238,7 +238,7 @@
 					<p><?php echo $topic->name; ?></p>
 				<?php endforeach; ?>
 
-				<h3 class="coloured">Topic Highlights</h3>
+				<h3 class="coloured"><?php pll_e('Topic Highlights'); ?></h3>
 
 			</section>
 
@@ -247,7 +247,7 @@
 		<section class="blog__news / band band--thick">
 
 			<div class="coloured">
-				<h3>Recent News</h3>
+				<h3><?php pll_e('Recent News'); ?></h3>
 			</div>
 
 			<div>
