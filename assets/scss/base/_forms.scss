@@ -21,7 +21,7 @@ legend {
 
 abbr[title="Required"] {
 	color: color('brand');
-	@include font(primary, bold);
+	@include font(primary-alt, bold);
 }
 
 input[type="text"],

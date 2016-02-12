@@ -137,7 +137,7 @@ b {
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 i,
 em {
@@ -467,7 +467,7 @@ abbr[title="Required"] {
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 input[type="text"],
 input[type="email"],
