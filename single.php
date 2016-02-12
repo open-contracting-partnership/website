@@ -15,7 +15,7 @@
 
 			<section>
 
-				<p class="blog__mobile-date">Written By <?php the_authors(TRUE); ?>, <datetime><?php the_date(); ?></datetime></p>
+				<p class="blog__mobile-date"><?php pll_e('Written By'); ?> <?php the_authors(TRUE); ?>, <datetime><?php the_date(); ?></datetime></p>
 
 				<?php if ( has_post_thumbnail() ) : ?>
 					<?php the_post_thumbnail(); ?>
@@ -28,13 +28,13 @@
 			<aside class="sidebar">
 
 				<section>
-					<h3 class="border-top">Written By</h3>
+					<h3 class="border-top"><?php pll_e('Written By'); ?></h3>
 					<p><?php the_authors(TRUE); ?>, <time datetime="<?php the_time(DATE_W3C); ?>"><?php the_time(get_option('date_format')); ?></time></p>
 				</section>
 
 				<section>
 
-					<h3 class="border-top">Share</h3>
+					<h3 class="border-top"><?php pll_e('Share'); ?></h3>
 
 					<ul class="button__list button__social">
 						<li><a href="#" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>

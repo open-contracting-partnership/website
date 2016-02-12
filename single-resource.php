@@ -18,7 +18,7 @@
 
 				<p class="resource__meta">
 					<span class="resource__published-date"><?php the_date(); ?></span>
-					By <?php the_field('organisation'); ?>
+					<?php echo sprintf(pll__('By %s'), get_field('organisation')); ?>
 				</p>
 
 				<hr />
@@ -33,7 +33,7 @@
 
 						<div class="resource__terms / band">
 
-							<p>Region</p>
+							<p><?php pll_e('Region'); ?></p>
 
 							<ul class="button__list">
 
@@ -51,7 +51,7 @@
 
 						<div class="resource__terms / band">
 
-							<p>Issue</p>
+							<p><?php pll_e('Issue'); ?></p>
 
 							<ul class="button__list">
 
@@ -69,7 +69,7 @@
 
 						<div class="resource__terms / band">
 
-							<p>OC Framework</p>
+							<p><?php pll_e('OC Framework'); ?></p>
 
 							<ul class="button__list">
 

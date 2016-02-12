@@ -4,7 +4,7 @@
 
 	<?php $author = get_userdata(get_query_var('author')); ?>
 
-	<h3>Author Archive:</h3>
+	<h3><?php pll_e('Author Archive'); ?>:</h3>
 	<h1><?php echo $author->display_name; ?></h1>
 
 	<?php

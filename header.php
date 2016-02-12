@@ -73,7 +73,7 @@
 							<li><a href="#" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
 						</ul>
 
-						<a href="/contact">Contact &amp; Helpdesk</a>
+						<a href="/contact"><?php pll_e('Contact & Helpdesk'); ?></a>
 
 					</div>
 
