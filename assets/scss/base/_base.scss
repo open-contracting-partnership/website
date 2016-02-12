@@ -65,8 +65,10 @@ small {
 abbr {
 }
 
-strong,
-b {
+p > strong,
+p > b,
+span > strong,
+span > strong {
 	@include font(primary-alt, bold);
 }
 
