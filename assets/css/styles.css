@@ -420,6 +420,15 @@ ul {
   ul.no-bullet {
     list-style-type: none; }
 
+ol {
+  list-style: decimal; }
+
+ol ol {
+  list-style: lower-alpha; }
+
+ol ol ol {
+  list-style: lower-alpha; }
+
 ul ul,
 ol ol {
   margin-bottom: 0; }
