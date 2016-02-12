@@ -105,7 +105,7 @@
 					<div class="wrapper">
 
 						<form action="/" method="GET">
-							<input type="search" placeholder="Search" name="s" />
+							<input type="search" placeholder="Search" name="s" autocomplete="off">
 						</form>
 
 					</div>
