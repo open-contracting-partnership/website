@@ -37,7 +37,11 @@
 	<aside class="sg-nav">
 
 		<div class="sg-nav__pane">
-			<h1>Patern Library</h1>
+			<h1>OCP Patterns</h1>
+
+			<p>
+				test
+			</p>
 		</div>
 
 		<div class="sg-nav__pane">
