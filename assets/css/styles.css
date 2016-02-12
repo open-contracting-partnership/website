@@ -58,8 +58,6 @@ hgroup,
 figure {
   display: block; }
 
-/*------------------------------------*	FONTS
-\*------------------------------------*/
 /*------------------------------------*    GLOBAL MIXINS
 \*------------------------------------*/
 /**
@@ -87,14 +85,14 @@ figure {
 /*------------------------------------*    BASE
 \*------------------------------------*/
 html {
-  font-size: 20px; }
+  font-size: 18px; }
 
 body {
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1.4;
+  font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
   background-color: #FFF;
   padding: 0;
   margin: 0;
@@ -112,34 +110,36 @@ p,
 ul,
 ol,
 dl {
-  line-height: 1.4;
-  margin-bottom: 1.4em; }
+  line-height: 1.5;
+  margin-bottom: 1.5em; }
 
 .text--bigger {
   font-size: 18px;
-  font-size: 0.9rem; }
+  font-size: 1rem; }
 
 .text--mini, small {
   font-size: 14px;
-  font-size: 0.7rem; }
+  font-size: 0.77778rem; }
 
 .text--micro {
   font-size: 12px;
-  font-size: 0.6rem; }
+  font-size: 0.66667rem; }
 
 .text--nano {
   font-size: 10px;
-  font-size: 0.5rem; }
+  font-size: 0.55556rem; }
 
 .text--style-italic {
   font-style: italic; }
 
-strong,
-b {
+p > strong,
+p > b,
+span > strong,
+span > strong {
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 i,
 em {
@@ -155,12 +155,12 @@ blockquote {
     -webkit-font-smoothing: antialiased;
     font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 29px;
-    font-size: 1.45rem;
+    font-size: 1.61111rem;
     line-height: 1.4;
-    margin-bottom: 0.7em; }
+    margin-bottom: 0.75em; }
   blockquote footer {
     font-size: 14px;
-    font-size: 0.7rem;
+    font-size: 0.77778rem;
     text-transform: uppercase;
     display: block; }
 
@@ -216,10 +216,10 @@ hr {
   text-align: left; }
 
 .inline-space {
-  margin-right: 0.5em; }
+  margin-right: 0.55556em; }
 
 .inline-space--double {
-  margin-right: 1em; }
+  margin-right: 1.11111em; }
 
 .alignleft {
   float: left; }
@@ -291,8 +291,22 @@ h6,
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin-bottom: 1.4em;
-  line-height: 1.4; }
+  margin-bottom: 1.3em;
+  line-height: 1.3; }
+  article h1, article
+  .alpha, article
+  h2, article
+  .beta, article
+  h3, article
+  .gamma, article
+  h4, article
+  .delta, article
+  h5, article
+  .epsilon, article
+  h6, article
+  .zeta {
+    margin-top: calc(1.3em + 1.5rem);
+    margin-bottom: 1.5rem; }
   h1.has-strap,
   .alpha.has-strap,
   h2.has-strap,
@@ -328,56 +342,60 @@ h6,
     color: #FFF;
     padding: .5rem; }
 
+article h1, h1 {
+  margin-top: 0;
+  margin-bottom: 1.3em; }
+
 .strap {
   font-style: italic; }
 
 .giga {
   font-size: 40px;
-  font-size: 2rem; }
+  font-size: 2.22222rem; }
 
 h1,
 .alpha {
   font-size: 39px;
-  font-size: 1.95rem; }
+  font-size: 2.16667rem; }
   @media screen and (min-width: 640px) {
     h1,
     .alpha {
       font-size: 54px;
-      font-size: 2.7rem; } }
+      font-size: 3rem; } }
 
 h2,
 .beta {
   font-size: 29px;
-  font-size: 1.45rem; }
+  font-size: 1.61111rem; }
   @media screen and (min-width: 640px) {
     h2,
     .beta {
       font-size: 39px;
-      font-size: 1.95rem; } }
+      font-size: 2.16667rem; } }
 
 h3,
 .gamma {
   font-size: 22px;
-  font-size: 1.1rem; }
+  font-size: 1.22222rem; }
   @media screen and (min-width: 640px) {
     h3,
     .gamma {
       font-size: 29px;
-      font-size: 1.45rem; } }
+      font-size: 1.61111rem; } }
   .coloured h3, .coloured
   .gamma {
     font-size: 25px;
-    font-size: 1.25rem; }
+    font-size: 1.38889rem; }
 
 h4,
 .delta {
   font-size: 20px;
-  font-size: 1rem; }
+  font-size: 1.11111rem; }
 
 h5,
 .epsilon {
   font-size: 18px;
-  font-size: 0.9rem; }
+  font-size: 1rem; }
 
 .border-top {
   font-weight: 700;
@@ -385,7 +403,7 @@ h5,
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  font-size: 0.8rem;
+  font-size: 0.88889rem;
   text-transform: uppercase;
   border-top: 1px solid #D5D5D7;
   position: relative;
@@ -415,7 +433,7 @@ ul {
 
 ol,
 ul {
-  margin-bottom: 1.4em; }
+  margin-bottom: 1.5em; }
   ol.no-bullet,
   ul.no-bullet {
     list-style-type: none; }
@@ -468,7 +486,7 @@ legend {
   display: block;
   margin-bottom: 0;
   font-size: 13px;
-  font-size: 0.65rem;
+  font-size: 0.72222rem;
   text-transform: uppercase;
   color: #D6E100;
   cursor: pointer; }
@@ -478,7 +496,7 @@ abbr[title="Required"] {
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 input[type="text"],
 input[type="email"],
@@ -500,11 +518,11 @@ textarea {
   -webkit-font-smoothing: antialiased;
   font-family: "proxima-nova-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  font-size: 0.8rem;
-  padding: 0.5em;
+  font-size: 0.88889rem;
+  padding: 0.55556em;
   width: 100%;
   border: 1px solid #D6E100;
-  margin-bottom: 0.7em;
+  margin-bottom: 0.75em;
   color: #D6E100;
   background-color: transparent;
   border-radius: 0; }
@@ -544,7 +562,7 @@ input[type="color"] {
   width: auto; }
 
 textarea {
-  line-height: 1.4; }
+  line-height: 1.5; }
 
 .form--dark input,
 .form--dark button {
@@ -553,7 +571,7 @@ textarea {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  font-size: 0.8rem;
+  font-size: 0.88889rem;
   border: 1px solid #D6E100;
   color: #D5D5D7; }
 
@@ -592,7 +610,7 @@ textarea {
 \*------------------------------------*/
 table {
   font-size: 16px;
-  font-size: 0.8rem;
+  font-size: 0.88889rem;
   width: 100%;
   text-align: left;
   border-collapse: collapse; }
@@ -609,22 +627,22 @@ td {
 /*------------------------------------*	BAND
 \*------------------------------------*/
 .band {
-  margin-bottom: 1.4em; }
+  margin-bottom: 1.5em; }
 
 .band--thin {
-  margin-bottom: 0.7em; }
+  margin-bottom: 0.75em; }
 
 .band--thick {
-  margin-bottom: 2.8em; }
+  margin-bottom: 3em; }
 
 .band--thicker {
-  margin-bottom: 3.5em; }
+  margin-bottom: 3.75em; }
 
 .band--extra-thick {
-  margin-bottom: 4.2em; }
+  margin-bottom: 4.5em; }
 
 .band--double-thick {
-  margin-bottom: 5.6em; }
+  margin-bottom: 6em; }
 
 .band--section {
   margin-bottom: 6rem; }
@@ -660,10 +678,10 @@ td {
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
-    font-size: 0.8rem; }
+    font-size: 0.88889rem; }
   .main-footer .nav a {
     font-size: 19px;
-    font-size: 0.95rem;
+    font-size: 1.05556rem;
     color: #D5D5D7; }
 
 .site-footer__organisation,
@@ -724,7 +742,7 @@ td {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  font-size: 0.8rem; }
+  font-size: 0.88889rem; }
 
 .site-footer__contact span,
 .site-footer__contact a {
@@ -737,8 +755,8 @@ td {
   display: block;
   margin-bottom: 2.2rem; }
   .sub-footer svg {
-    max-width: 9.4em;
-    max-height: 2.55em; }
+    max-width: 10.44444em;
+    max-height: 2.83333em; }
     @media screen and (min-width: 1024px) {
       .sub-footer svg {
         width: 15.88785%;
@@ -751,7 +769,7 @@ td {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  font-size: 0.8rem;
+  font-size: 0.88889rem;
   color: #B7B7B7; }
   .site-colophon p {
     margin: 0; }
@@ -775,10 +793,10 @@ td {
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
-    font-size: 0.8rem;
+    font-size: 0.88889rem;
     color: #B7B7B7;
     display: block;
-    margin-bottom: 1.4em; }
+    margin-bottom: 1.5em; }
   @media screen and (min-width: 640px) {
     .site-copyright span,
     .site-copyright a {
@@ -804,11 +822,11 @@ td {
   .home .site-header {
     border-bottom: 1px solid #69696B; }
   .site-header .logo {
-    margin: 1.65em 0;
+    margin: 1.83333em 0;
     display: inline-block; }
     .site-header .logo svg {
-      width: 24.1em;
-      height: 1.9em; }
+      width: 26.77778em;
+      height: 2.11111em; }
 
 .site-header__top {
   padding-left: 2.5rem; }
@@ -825,7 +843,7 @@ td {
   margin-top: 1.3rem; }
   .header-social > a {
     font-size: 14px;
-    font-size: 0.7rem;
+    font-size: 0.77778rem;
     color: #FFF;
     text-decoration: none;
     text-transform: uppercase; }
@@ -934,7 +952,7 @@ nav h4 {
 
 .nav--horizontal li {
   display: inline-block;
-  margin-right: 1.05em; }
+  margin-right: 1.16667em; }
 
 .nav--horizontal li:last-child {
   margin-right: 0; }
@@ -980,7 +998,7 @@ nav h4 {
     z-index: -1; }
   .nav--horizontal ul li {
     border-right: 0;
-    margin: 0 1.25em;
+    margin: 0 1.38889em;
     padding: 0; }
   .nav--horizontal ul li:first-child {
     margin-left: 0; }
@@ -1001,7 +1019,7 @@ nav h4 {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #4D4D54;
   text-transform: uppercase; }
 
@@ -1013,7 +1031,7 @@ nav h4 {
       content: '/';
       display: inline-block;
       vertical-align: text-top;
-      margin: 0 0.25em 0 0.1em; }
+      margin: 0 0.27778em 0 0.11111em; }
     .nav--breadcrumbs li:last-child:after {
       display: none; }
   .nav--breadcrumbs a {
@@ -1022,7 +1040,7 @@ nav h4 {
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
-    font-size: 0.8rem;
+    font-size: 0.88889rem;
     color: #323238;
     display: inline-block; }
 
@@ -1043,7 +1061,7 @@ nav h4 {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  font-size: 0.8rem;
+  font-size: 0.88889rem;
   color: #424244; }
 
 .nav--in-page a {
@@ -1055,7 +1073,7 @@ nav h4 {
 
 .nav--in-page .active:before {
   font-size: 10px;
-  font-size: 0.5rem;
+  font-size: 0.55556rem;
   content: '►';
   position: absolute;
   top: 55%;
@@ -1088,7 +1106,7 @@ nav h4 {
       text-align: right; }
   .primary-nav a {
     font-size: 18px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #FFF;
     padding: 1.38889em 0;
     border-bottom: 5px solid transparent;
@@ -1125,7 +1143,7 @@ aside,
   aside p,
   .sidebar p {
     font-size: 16px;
-    font-size: 0.8rem; }
+    font-size: 0.88889rem; }
 
 /*------------------------------------*    $MODULAR
 \*------------------------------------*/
@@ -1139,13 +1157,13 @@ input[type="submit"] {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  font-size: 0.8rem;
+  font-size: 0.88889rem;
   display: inline-block;
   border: 1px solid;
   border-radius: 0;
   padding: 0.625em 0.9375em;
   text-decoration: none;
-  margin-bottom: 0.7em;
+  margin-bottom: 0.75em;
   color: #4D4D54;
   text-align: center;
   vertical-align: middle;
@@ -1165,22 +1183,22 @@ input[type="submit"] {
 
 .button--small {
   font-size: 12px;
-  font-size: 0.6rem;
+  font-size: 0.66667rem;
   padding: 0.41667em 0.66667em; }
 
 .button--medium {
   font-size: 16px;
-  font-size: 0.8rem;
+  font-size: 0.88889rem;
   padding: 0.9375em 1.25em; }
 
 .button--large {
   font-size: 18px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   padding: 0.83333em 1.38889em; }
 
 .button--huge {
   font-size: 22px;
-  font-size: 1.1rem;
+  font-size: 1.22222rem;
   padding: 1.25em 5em; }
 
 .button--uppercase {
@@ -1204,7 +1222,7 @@ input[type="submit"] {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  font-size: 0.7rem;
+  font-size: 0.77778rem;
   padding: 0.71429em 1.07143em; }
 
 .button--tag.button--small {
@@ -1232,7 +1250,7 @@ input[type="submit"] {
   overflow: hidden; }
   .button__list li {
     float: left;
-    margin: 0 0.5em 0.5em 0; }
+    margin: 0 0.55556em 0.55556em 0; }
   .button__list .button {
     margin-bottom: 0; }
 
@@ -1293,7 +1311,7 @@ input[type="submit"] {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #4D4D54;
   margin-bottom: 1.4em; }
 
@@ -1360,7 +1378,7 @@ input[type="submit"] {
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
-    font-size: 0.7rem;
+    font-size: 0.77778rem;
     text-transform: uppercase;
     line-height: 1;
     display: inline-block;
@@ -1372,7 +1390,7 @@ input[type="submit"] {
     margin-left: .57em; }
   .download-cta__content h4 {
     font-size: 22px;
-    font-size: 1.1rem; }
+    font-size: 1.22222rem; }
 
 .heading-highlight h3,
 .heading-highlight h4,
@@ -1402,26 +1420,26 @@ input[type="submit"] {
 /*------------------------------------*	ISLAND
 \*------------------------------------*/
 .island {
-  padding: 0.5em; }
+  padding: 0.55556em; }
   @media screen and (min-width: 640px) {
     .island {
-      padding: 1.25em; } }
+      padding: 1.38889em; } }
   .island img {
     width: 100%; }
 
 .island--thin {
-  padding: 0.6em; }
+  padding: 0.66667em; }
 
 @media screen and (min-width: 640px) {
   .island--thick {
-    padding: 2.5em 0 5em; } }
+    padding: 2.77778em 0 5.55556em; } }
 
 .island--flat-bottom {
   padding-bottom: 0; }
 
 .island--bordered {
   border: 1px solid #D6E100;
-  padding: 0.5em; }
+  padding: 0.55556em; }
 
 .island--light {
   background-color: #F6F6F6; }
@@ -1446,7 +1464,7 @@ input[type="submit"] {
 
 .post-object {
   display: block;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.55556em;
   text-decoration: none; }
   .post-object h4 {
     line-height: 1.25;
@@ -1480,7 +1498,7 @@ input[type="submit"] {
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 22px;
-    font-size: 1.1rem;
+    font-size: 1.22222rem;
     color: #ECECEC;
     background-color: #6c75e1;
     padding: 0; }
@@ -1492,7 +1510,7 @@ input[type="submit"] {
     color: #D5D5D7; }
 
 .home .post-object--horizontal {
-  height: 7.7em; }
+  height: 8.55556em; }
   .home .post-object--horizontal h4 {
     display: inline;
     background-color: #6c75e1;
@@ -1508,7 +1526,7 @@ input[type="submit"] {
   padding: .5rem .5rem .5rem 1em; }
 
 .post-object--vertical .post-object__content {
-  padding: 1.05em; }
+  padding: 1.16667em; }
 
 .post-object--vertical .post-object__media {
   position: relative; }
@@ -1519,7 +1537,7 @@ input[type="submit"] {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  font-size: 0.8rem;
+  font-size: 0.88889rem;
   text-transform: uppercase;
   padding: 0.5625em 1.3125em;
   background-color: #323238; }
@@ -1531,7 +1549,7 @@ input[type="submit"] {
 
 .post-object--vertical p {
   font-size: 18px;
-  font-size: 0.9rem; }
+  font-size: 1rem; }
 
 .post-object--spotlight .post-object--spotlight__title {
   position: absolute;
@@ -1579,11 +1597,11 @@ input[type="submit"] {
   overflow: hidden; }
   .post-object--horizontal p {
     font-size: 16px;
-    font-size: 0.8rem; }
+    font-size: 0.88889rem; }
 
 .post-object--horizontal--small .post-object__media {
-  width: 6.1em;
-  height: 4.85em;
+  width: 6.77778em;
+  height: 5.38889em;
   background: #D6E100;
   position: relative; }
 
@@ -1600,7 +1618,7 @@ input[type="submit"] {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 22px;
-  font-size: 1.1rem;
+  font-size: 1.22222rem;
   line-height: 1.2;
   color: #2D2D2D;
   margin: -12px 0 0; }
@@ -1611,7 +1629,7 @@ input[type="submit"] {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  font-size: 0.7rem;
+  font-size: 0.77778rem;
   line-height: 1.8;
   color: #4D4D54;
   text-transform: uppercase; }
@@ -1623,14 +1641,14 @@ input[type="submit"] {
     content: '';
     position: absolute;
     right: 0;
-    width: 4.65em;
+    width: 5.16667em;
     top: 0;
     bottom: 0;
     background: #FD843D;
     display: block; }
   .post-object--resource .post-object__media {
-    width: 4.65em;
-    height: 9.7em;
+    width: 5.16667em;
+    height: 10.77778em;
     margin: 0; }
   .post-object--resource .post-object__content {
     padding: .5rem; }
@@ -1640,21 +1658,21 @@ input[type="submit"] {
     right: 18px;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
-    width: 2.85em;
-    height: 3.2em; }
+    width: 3.16667em;
+    height: 3.55556em; }
   .post-object--resource h4 {
     font-weight: 500;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 20px;
-    font-size: 1rem;
+    font-size: 1.11111rem;
     line-height: 1.3;
     color: #4D4D54;
     margin-bottom: 1.3em; }
   .post-object--resource p {
     font-size: 14px;
-    font-size: 0.7rem;
+    font-size: 0.77778rem;
     color: #69696B;
     text-transform: uppercase;
     margin-bottom: 1.85em; }
@@ -1672,7 +1690,7 @@ input[type="submit"] {
     border-top: 1px solid #D5D5D7; }
   .post-object--light .post-object__content-meta {
     font-size: 14px;
-    font-size: 0.7rem;
+    font-size: 0.77778rem;
     color: #69696B;
     text-transform: uppercase;
     margin-bottom: 1.5em; }
@@ -1686,7 +1704,7 @@ input[type="submit"] {
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 24px;
-    font-size: 1.2rem;
+    font-size: 1.33333rem;
     line-height: 1.16;
     margin-bottom: 0; }
 
@@ -1698,12 +1716,12 @@ input[type="submit"] {
 
 .post-object--featured .post-object__tag {
   font-size: 18px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   position: static; }
 
 .post-object--featured h4 {
   font-size: 32px;
-  font-size: 1.6rem;
+  font-size: 1.77778rem;
   line-height: 1.7; }
 
 .post-object--featured p {
@@ -1735,7 +1753,7 @@ input[type="submit"] {
 
 .posts-filter__button {
   font-size: 18px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   padding: 1.1rem 1rem;
   background-color: #D6E100;
   display: inline-block;
@@ -1767,7 +1785,7 @@ input[type="submit"] {
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
-    font-size: 0.8rem;
+    font-size: 0.88889rem;
     text-transform: none;
     border-bottom: 1px solid #9BAF00;
     margin: 0;
@@ -1794,7 +1812,7 @@ input[type="submit"] {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  font-size: 0.7rem;
+  font-size: 0.77778rem;
   color: #4D4D54;
   margin-bottom: 1.4em; }
 
@@ -1827,7 +1845,7 @@ input[type="submit"] {
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
-    font-size: 0.8rem;
+    font-size: 0.88889rem;
     display: inline;
     color: #FFF;
     background-color: #9BAF00;
@@ -1849,7 +1867,7 @@ input[type="submit"] {
     left: 7px;
     background: currentColor; }
   .search input[type="search"] {
-    padding: 0.5em 0;
+    padding: 0.55556em 0;
     margin: 0;
     border: 0;
     color: currentColor; }
@@ -1869,7 +1887,7 @@ input[type="submit"] {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  font-size: 0.7rem;
+  font-size: 0.77778rem;
   color: #B7B7B7;
   border: 1px solid #69696B;
   padding: 0.57143em 0.78571em;
@@ -1944,7 +1962,7 @@ input[type="submit"] {
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 64px;
-    font-size: 3.2rem;
+    font-size: 3.55556rem;
     color: #D6E100;
     display: block;
     line-height: 1.2;
@@ -1952,14 +1970,14 @@ input[type="submit"] {
     @media screen and (min-width: 1024px) {
       .stat-module span {
         font-size: 84px;
-        font-size: 4.2rem; } }
+        font-size: 4.66667rem; } }
   .stat-module p {
     font-weight: 500;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 18px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #B7B7B7;
     margin: 0 auto; }
     @media screen and (min-width: 1024px) {
@@ -1998,7 +2016,7 @@ input[type="submit"] {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  font-size: 0.8rem;
+  font-size: 0.88889rem;
   line-height: 1;
   text-transform: uppercase;
   padding: .5rem 1rem;
@@ -2052,7 +2070,7 @@ input[type="submit"] {
   border-top: 1px solid #D5D5D7; }
   .related-posts h2 {
     text-transform: uppercase;
-    margin: 2.75em 0;
+    margin: 3.05556em 0;
     text-align: center; }
 
 .yarpp-related {
@@ -2063,7 +2081,7 @@ input[type="submit"] {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  margin-bottom: 5.4em; }
+  margin-bottom: 6em; }
   @media screen and (min-width: 640px) {
     .yarpp-related .post-object {
       width: 49.53271%;
@@ -2261,7 +2279,7 @@ input[type="submit"] {
 
 .homepage-cta {
   font-size: 25px;
-  font-size: 1.25rem;
+  font-size: 1.38889rem;
   line-height: 1.9; }
   @media screen and (min-width: 1024px) {
     .homepage-cta {
@@ -2286,11 +2304,11 @@ input[type="submit"] {
   text-align: center; }
   .homepage-title h1 {
     font-size: 45px;
-    font-size: 2.25rem;
+    font-size: 2.5rem;
     margin-bottom: 0.46667em; }
   .homepage-title h2 {
     font-size: 24px;
-    font-size: 1.2rem;
+    font-size: 1.33333rem;
     color: #B7B7B7;
     margin-bottom: 2.5em; }
 
@@ -2307,10 +2325,10 @@ input[type="submit"] {
     margin-right: 0.93458%; } }
 
 .homepage-spotlight .post-object {
-  min-height: 24.1em; }
+  min-height: 26.77778em; }
 
 .homepage-implement {
-  margin-top: 3.45em; }
+  margin-top: 3.83333em; }
   @media screen and (min-width: 640px) {
     .homepage-implement {
       width: 32.71028%;
@@ -2326,10 +2344,10 @@ input[type="submit"] {
     margin-bottom: 1.4em; }
   .homepage-implement h3 {
     font-size: 35px;
-    font-size: 1.75rem;
+    font-size: 1.94444rem;
     line-height: 1.7; }
   .homepage-implement .cta-list {
-    margin-top: 1.75em; }
+    margin-top: 1.94444em; }
 
 .homepage-filter {
   clear: both; }
@@ -2380,7 +2398,7 @@ input[type="submit"] {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 25px;
-  font-size: 1.25rem;
+  font-size: 1.38889rem;
   background-color: #323238;
   padding: 3rem 1.5rem; }
   .homepage-filter__twitter p {
@@ -2428,14 +2446,14 @@ input[type="submit"] {
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 20px;
-    font-size: 1rem;
+    font-size: 1.11111rem;
     color: #D6E100;
     display: block;
     margin-bottom: 1.5rem; }
 
 .page-sidebar {
   margin-top: 0;
-  margin-bottom: 10em; }
+  margin-bottom: 11.11111em; }
   @media screen and (min-width: 640px) {
     .page-sidebar {
       width: 24.29907%;
@@ -2449,7 +2467,7 @@ input[type="submit"] {
     width: 50%; }
 
 .page-content {
-  margin-bottom: 10em; }
+  margin-bottom: 11.11111em; }
   @media screen and (min-width: 640px) {
     .page-content {
       width: 49.53271%;
@@ -2461,18 +2479,18 @@ input[type="submit"] {
   background-color: #B6C505; }
 
 .resources-overview .resource__header {
-  padding-top: 7.25em;
-  margin-bottom: 2.85em; }
+  padding-top: 8.05556em;
+  margin-bottom: 3.16667em; }
   @media screen and (min-width: 1024px) {
     .resources-overview .resource__header {
-      padding-right: 9em;
-      padding-left: 9em; } }
+      padding-right: 10em;
+      padding-left: 10em; } }
 
 .resources-container {
   max-width: 70em;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 12.5em;
+  margin-bottom: 13.88889em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2517,7 +2535,7 @@ input[type="submit"] {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 20px;
-  font-size: 1rem;
+  font-size: 1.11111rem;
   color: #FFF;
   text-align: center;
   margin-bottom: 5em; }
@@ -2527,20 +2545,20 @@ input[type="submit"] {
 
 .resource__filter {
   overflow: hidden;
-  margin-bottom: 2.3em; }
+  margin-bottom: 2.55556em; }
   .resource__filter label {
     font-weight: 700;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 18px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     height: 5.11111em;
     padding: 1.16667em;
     color: #4D4D54;
     background-color: #FFF;
     border-bottom: 3px solid #999;
-    margin-bottom: 0.5em; }
+    margin-bottom: 0.55556em; }
     @media screen and (min-width: 640px) {
       .resource__filter label {
         width: 48.57143%;
@@ -2564,7 +2582,7 @@ input[type="submit"] {
 
 .resource__filter-container {
   position: relative;
-  height: 4.25em;
+  height: 4.72222em;
   overflow: hidden; }
   .resource__filter-container label {
     opacity: .25;
@@ -2596,7 +2614,7 @@ input[type="submit"] {
 .resource__filter-actions {
   clear: both;
   font-size: 16px;
-  font-size: 0.8rem;
+  font-size: 0.88889rem;
   text-align: center;
   margin-bottom: 1.875em; }
   .resource__filter-actions .button {
@@ -2610,11 +2628,11 @@ input[type="submit"] {
 
 @media screen and (min-width: 1024px) {
   .resource-search__container {
-    padding: 0 6.5em; } }
+    padding: 0 7.22222em; } }
 
 input[type="search"].resource-search {
   font-size: 23px;
-  font-size: 1.15rem;
+  font-size: 1.27778rem;
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -2642,7 +2660,7 @@ body.resource-open {
 
 .resource {
   font-size: 16px;
-  font-size: 0.8rem;
+  font-size: 0.88889rem;
   position: fixed;
   top: 0;
   right: 0;
@@ -2658,13 +2676,13 @@ body.resource-open {
 
 .resource__title {
   font-size: 20px;
-  font-size: 1rem;
-  padding-bottom: 0.75em;
+  font-size: 1.11111rem;
+  padding-bottom: 0.83333em;
   border-bottom: 10px solid #fb6045;
-  margin-bottom: 1.4em;
+  margin-bottom: 1.55556em;
   width: 90%; }
   .resource__title img {
-    width: 2.4em; }
+    width: 2.66667em; }
 
 .resource__meta {
   font-weight: 700;
@@ -2672,7 +2690,7 @@ body.resource-open {
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  font-size: 0.7rem;
+  font-size: 0.77778rem;
   text-transform: uppercase;
   position: relative;
   padding-right: 5.71429em; }
@@ -2683,7 +2701,7 @@ body.resource-open {
   top: 0; }
 
 .resource__terms p {
-  margin-bottom: 0.4em; }
+  margin-bottom: 0.44444em; }
 
 .single-resource article {
   width: 66.35514%;
