@@ -107,6 +107,8 @@ $(document).ready(function() {
 
 		$('.site-header__top').toggleClass('search--active');
 
+		$('.site-header__top [type="search"]').focus();
+
 	});
 
 });
