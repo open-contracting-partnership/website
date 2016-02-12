@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    @include font;
+    @include font(primary-alt);
     line-height: strip-unit($space);
 	background-color: color('white');
     padding: 0;

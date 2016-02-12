@@ -122,6 +122,16 @@ $fonts: (
         ),
         typekit: false
     ),
+	primary-alt: (
+		family: 'source-sans-pro',
+		fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+		weights: (
+			light: 300,
+			regular: 400,
+			bold: 700
+		),
+		typekit: false
+	),
     secondary: (
         family: 'stratum-1-web',
         fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
