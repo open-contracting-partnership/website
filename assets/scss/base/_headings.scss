@@ -16,8 +16,8 @@ h5,
 h6,
 .zeta {
 	@include font(secondary, medium);
-	margin-bottom: $space;
-	line-height: strip-unit($space);
+	margin-bottom: 1.3em;
+	line-height: 1.3;
 
 	&.has-strap {
 		margin-bottom: .625em;
