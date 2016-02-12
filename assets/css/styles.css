@@ -916,7 +916,8 @@ td {
           transform: translate(0, -50%);
   border: 0;
   color: #424244;
-  margin: 0; }
+  margin: 0;
+  padding: 1em; }
 
 .header-nav--top__item.header-search {
   display: block; }
@@ -1913,29 +1914,6 @@ input[type="submit"] {
             box-decoration-break: clone;
     line-height: 1.7;
     padding: 4px 0; }
-
-.search {
-  color: #000;
-  position: relative; }
-  .search:after {
-    content: '';
-    height: 1px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 7px;
-    background: currentColor; }
-  .search input[type="search"] {
-    padding: 0.55556em 0;
-    margin: 0;
-    border: 0;
-    color: currentColor; }
-  .search button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: 0;
-    color: currentColor; }
 
 .section__title:first-child {
   display: none; }
