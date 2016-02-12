@@ -232,6 +232,7 @@ body.resource-open {
 	right: 0;
 	bottom: 0;
 	width: 33%;
+	min-width: em(350, 16);
 	max-width: em(525, 16);
 	padding: em(100, 16) em(44, 16);
 	background-color: color('white', .95);
@@ -246,7 +247,7 @@ body.resource-open {
 	padding-bottom: em(15);
 	border-bottom: 10px solid color('dark-orange');
 	margin-bottom: em(28);
-	width: em(385);
+	width: 90%;
 
 	img {
 		width: em(48);

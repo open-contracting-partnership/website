@@ -142,7 +142,7 @@
 
 			<div class="post-object__content / media__body">
 
-				<a href="{{resource.link}}" v-on:click.prevent="openResource(resource)"><h4>{{resource.open | json}} {{resource.title}}</h4></a>
+				<a href="{{resource.link}}" v-on:click="openResource(resource, $event)"><h4>{{resource.open | json}} {{resource.title}}</h4></a>
 
 				<p>
 					By {{resource.fields.organisation}}
@@ -173,9 +173,17 @@
 						return objectValues(this.resource.taxonomies[taxonomy]);
 					},
 
-					openResource: function(resource) {
+					openResource: function(resource, event) {
 
-						this._context.open_resource = resource;
+						var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+
+						if ( width > 1024 ) {
+
+							event.preventDefault();
+
+							this._context.open_resource = resource;
+
+						}
 
 					}
 

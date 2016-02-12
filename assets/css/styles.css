@@ -2639,6 +2639,7 @@ body.resource-open {
   right: 0;
   bottom: 0;
   width: 33%;
+  min-width: 21.875em;
   max-width: 32.8125em;
   padding: 6.25em 2.75em;
   background-color: rgba(255, 255, 255, 0.95);
@@ -2652,7 +2653,7 @@ body.resource-open {
   padding-bottom: 0.75em;
   border-bottom: 10px solid #fb6045;
   margin-bottom: 1.4em;
-  width: 19.25em; }
+  width: 90%; }
   .resource__title img {
     width: 2.4em; }
 
@@ -2674,6 +2675,14 @@ body.resource-open {
 
 .resource__terms p {
   margin-bottom: 0.4em; }
+
+.single-resource article {
+  width: 66.35514%;
+  float: left;
+  margin-right: 0.93458%;
+  margin-left: 16.82243%;
+  margin-top: 6em;
+  margin-bottom: 6em; }
 
 /*------------------------------------*	$TOOLS
 \*------------------------------------*/
