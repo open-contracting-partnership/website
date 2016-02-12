@@ -52,22 +52,21 @@ $(document).ready(function() {
 
 		}, false);
 
+		document.querySelector('.posts-filter__inner').addEventListener('click', function(e) {
+			e.stopPropagation();
+		}, false);
+
+		document.body.addEventListener('click', function() {
+
+			var posts_filter = document.querySelector('.posts-filter__inner');
+
+			if ( posts_filter.classList.contains('active') ) {
+				posts_filter.classList.remove('active');
+			}
+
+		}, false);
+
 	}
-
-	document.querySelector('.posts-filter__inner').addEventListener('click', function(e) {
-		e.stopPropagation();
-	}, false);
-
-	document.body.addEventListener('click', function() {
-
-		var posts_filter = document.querySelector('.posts-filter__inner');
-
-		if ( posts_filter.classList.contains('active') ) {
-			posts_filter.classList.remove('active');
-		}
-
-	}, false);
-
 
 	 //****************
 	// HOMEPAGE FILTER
@@ -96,5 +95,18 @@ $(document).ready(function() {
 	});
 
 	$('.js-homepage-filter input[checked]').trigger('change');
+
+
+
+	 //*******
+	// SEARCH
+
+	$('.header-search a').on('click', function(event) {
+
+		event.preventDefault();
+
+		$('.site-header__top').toggleClass('search--active');
+
+	});
 
 });

@@ -55,45 +55,61 @@
 
 			<div class="site-header__top">
 
-				<a href="/" class="logo">
+				<div class="wrapper">
 
-					<svg>
-						<use xlink:href="#ocp-logo" />
-					</svg>
+					<a href="/" class="logo">
 
-				</a>
+						<svg>
+							<use xlink:href="#ocp-logo" />
+						</svg>
 
-				<div class="header-nav--top">
+					</a>
 
-					<div class="header-nav--top__item header-social">
+					<div class="header-nav--top">
 
-						<ul class="button__list button__social">
-							<li><a href="#" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
-							<li><a href="#" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
-							<li><a href="#" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
-						</ul>
+						<div class="header-nav--top__item header-social">
 
-						<a href="/contact"><?php pll_e('Contact & Helpdesk'); ?></a>
+							<ul class="button__list button__social">
+								<li><a href="#" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
+								<li><a href="#" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
+								<li><a href="#" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
+							</ul>
+
+							<a href="/contact"><?php pll_e('Contact & Helpdesk'); ?></a>
+
+						</div>
+
+						<div class="header-nav--top__item header-language">
+
+							<?php
+
+								pll_the_languages([
+									'dropdown' => TRUE,
+									'display_names_as' => 'slug'
+								]);
+
+							?>
+
+						</div>
+
+						<div class="header-nav--top__item header-search">
+							<a href="#" class="button"><svg><use xlink:href="#icon-search" /></svg></a>
+						</div>
 
 					</div>
 
-					<div class="header-nav--top__item header-language">
+				</div> <!-- / .wrapper -->
 
-						<?php
+				<div class="header__search">
 
-							pll_the_languages([
-								'dropdown' => TRUE,
-								'display_names_as' => 'slug'
-							]);
-
-						?>
-
+					<div class="wrapper">
+						<input type="search" placeholder="Search" />
 					</div>
 
-					<div class="header-nav--top__item header-search">
-						<a href="#" class="button"><svg><use xlink:href="#icon-search" /></svg></a>
-					</div>
+				</div>
 
+				<div class="header-search">
+					<a href="#" class="button"><svg><use xlink:href="#icon-search" /></svg></a>
 				</div>
 
 			</div>
