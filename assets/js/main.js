@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+
+	$('#lang_choice_1').addClass('custom-select');
+
+
 	 //********************
 	// SVG ERROR REPORTING
 

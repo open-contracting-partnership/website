@@ -78,9 +78,16 @@
 					</div>
 
 					<div class="header-nav--top__item header-language">
-						<select class="custom-select" name="">
-							<option value="">EN</option>
-						</select>
+
+						<?php
+
+							pll_the_languages([
+								'dropdown' => TRUE,
+								'display_names_as' => 'slug'
+							]);
+
+						?>
+
 					</div>
 
 					<div class="header-nav--top__item header-search">
