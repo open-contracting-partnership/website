@@ -103,7 +103,11 @@
 				<div class="header__search">
 
 					<div class="wrapper">
-						<input type="search" placeholder="Search" />
+
+						<form action="/" method="GET">
+							<input type="search" placeholder="Search" name="s" />
+						</form>
+
 					</div>
 
 				</div>
