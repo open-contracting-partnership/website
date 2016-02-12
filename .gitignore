@@ -4,3 +4,4 @@ node_modules/
 styleguide/core
 import
 tweets/settings.json
+tweets/tweets.json
