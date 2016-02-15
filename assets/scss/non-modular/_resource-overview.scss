@@ -214,8 +214,14 @@ body.resource-open {
 	overflow: hidden;
 }
 
+.resource__overlay,
+.resource {
+	animation-duration: .4s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in-out;
+}
+
 .resource__overlay {
-	// display: none;
 	background-color: color('white', .6);
 	position: fixed;
 	top: 0;
@@ -223,6 +229,8 @@ body.resource-open {
 	bottom: 0;
 	left: 0;
 	z-index: 15;
+	animation-name: resource-fade;
+	cursor: pointer;
 }
 
 .resource {
@@ -239,6 +247,26 @@ body.resource-open {
 	border-left: 1px solid color('light-grey');
 	overflow: scroll;
 	z-index: 16;
+	transform: translateX(100%);
+	animation-name: resource-slide;
+}
+
+@keyframes resource-slide {
+	from {
+		transform: translateX(100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes resource-fade {
+	from {
+		background-color: color('white', 0);
+	}
+	to {
+		background-color: color('white', .6);
+	}
 }
 
 .resource__title {

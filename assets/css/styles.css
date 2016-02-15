@@ -2736,6 +2736,15 @@ input[type="search"].resource-search {
 body.resource-open {
   overflow: hidden; }
 
+.resource__overlay,
+.resource {
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out; }
+
 .resource__overlay {
   background-color: rgba(255, 255, 255, 0.6);
   position: fixed;
@@ -2743,7 +2752,10 @@ body.resource-open {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 15; }
+  z-index: 15;
+  -webkit-animation-name: resource-fade;
+          animation-name: resource-fade;
+  cursor: pointer; }
 
 .resource {
   font-size: 16px;
@@ -2759,7 +2771,39 @@ body.resource-open {
   background-color: rgba(255, 255, 255, 0.95);
   border-left: 1px solid #B7B7B7;
   overflow: scroll;
-  z-index: 16; }
+  z-index: 16;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-animation-name: resource-slide;
+          animation-name: resource-slide; }
+
+@-webkit-keyframes resource-slide {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@keyframes resource-slide {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@-webkit-keyframes resource-fade {
+  from {
+    background-color: rgba(255, 255, 255, 0); }
+  to {
+    background-color: rgba(255, 255, 255, 0.6); } }
+
+@keyframes resource-fade {
+  from {
+    background-color: rgba(255, 255, 255, 0); }
+  to {
+    background-color: rgba(255, 255, 255, 0.6); } }
 
 .resource__title {
   font-size: 20px;
