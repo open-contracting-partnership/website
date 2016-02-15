@@ -342,7 +342,8 @@ h6,
     color: #FFF;
     padding: .5rem; }
 
-article h1, h1 {
+article h1,
+h1 {
   margin-top: 0;
   margin-bottom: 1.3em; }
 
@@ -440,12 +441,10 @@ ul {
 
 ol {
   list-style: decimal; }
-
-ol ol {
-  list-style: lower-alpha; }
-
-ol ol ol {
-  list-style: lower-alpha; }
+  ol ol {
+    list-style: lower-alpha; }
+    ol ol ol {
+      list-style: lower-alpha; }
 
 ul ul,
 ol ol {
@@ -829,6 +828,7 @@ td {
       height: 2.11111em; }
 
 .site-header__top {
+  position: relative;
   padding-left: 2.5rem; }
 
 .header-nav--top {
@@ -883,9 +883,6 @@ td {
 #menu-header-secondary a {
   display: inline-block; }
 
-.site-header__top {
-  position: relative; }
-
 .header__search {
   display: none;
   position: absolute;
@@ -894,39 +891,34 @@ td {
   bottom: 0;
   left: 0;
   background-color: #F6F6F6;
-  z-index: 20; }
+  z-index: 99; }
   .search--active .header__search {
     display: block; }
-
-.header__search .wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0; }
-
-.header__search [type="search"] {
-  font-size: 28px;
-  font-size: 1.55556rem;
-  position: absolute;
-  top: 50%;
-  right: 90px;
-  left: 0;
-  -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-  border: 0;
-  color: #424244;
-  margin: 0;
-  padding: 1em; }
+  .header__search .wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+  .header__search [type="search"] {
+    font-size: 28px;
+    font-size: 1.55556rem;
+    position: absolute;
+    top: 50%;
+    right: 90px;
+    left: 0;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    border: 0;
+    color: #424244;
+    margin: 0;
+    padding: 1em; }
 
 .header-nav--top__item.header-search {
   display: block; }
   @media screen and (min-width: 1450px) {
     .header-nav--top__item.header-search {
       display: none; } }
-
-.header-search {
-  z-index: 99; }
 
 .site-header__top > .header-search {
   display: none;
@@ -1284,9 +1276,8 @@ input[type="submit"] {
   font-size: 14px;
   font-size: 0.77778rem;
   padding: 0.71429em 1.07143em; }
-
-.button--tag.button--small {
-  padding: 0.35714em 0.57143em; }
+  .button--tag.button--small {
+    padding: 0.35714em 0.57143em; }
 
 .button__sub-text {
   display: block;
