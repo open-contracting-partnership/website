@@ -7,6 +7,13 @@
 	}
 }
 
+.page-sidebar--wide {
+
+	@include mq(M) {
+		@include span(4 of 12 first);
+	}
+}
+
 .page-navigation {
 	margin-bottom: 3.5rem;
 
