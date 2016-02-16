@@ -186,8 +186,7 @@
 		x.parentNode.insertBefore(s, x);
 	
 	var _usersnapconfig = {
-	
-		tools: ['pen', 'blackout', 'note', 'arrow', 'highlight', 'arrow', 'pixelruler', 'comment']
+		tools: ['pen', 'blackout', 'note', 'highlight', 'arrow', 'pixelruler', 'comment']
 	};
 	}
 	})();
