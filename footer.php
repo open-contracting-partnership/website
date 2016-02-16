@@ -185,9 +185,10 @@
 	var x = document.getElementsByTagName('script')[0];
 		x.parentNode.insertBefore(s, x);
 	
-	var _usersnapconfig = {
-		tools: ['pen', 'blackout', 'note', 'highlight', 'arrow', 'pixelruler', 'comment']
-	};
+		
+ var _usersnapconfig = {
+     tools: ['pen', 'blackout', 'note']
+ };
 	}
 	})();
 </script>
