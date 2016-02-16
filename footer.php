@@ -184,14 +184,13 @@
         '6ddaa8e5-14cd-4b9d-8140-de7409c93f30.js';
 	var x = document.getElementsByTagName('script')[0];
 		x.parentNode.insertBefore(s, x);
-	
-		
+	})();
+</script>
+<script type="text/javascript">
  var _usersnapconfig = {
      tools: ['pen', 'blackout', 'note']
  };
-	}
-	})();
-</script>
+</script
 
 		<?php wp_footer(); ?>
 
