@@ -175,7 +175,7 @@
 		<script type="text/javascript" src="<?php echo bloginfo('template_directory'); ?>/assets/js/libs/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="<?php echo bloginfo('template_directory'); ?>/assets/js/main.js"></script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	(function() {
 	var s = document.createElement("script");
 	s.type = "text/javascript";
@@ -190,7 +190,21 @@
  var _usersnapconfig = {
      tools: ['pen', 'blackout', 'note', 'highlight', 'arrow', 'pixelruler', 'comment']
  };
-</script
+</script> -->
+
+<script type="text/javascript">
+    (function (t, d) {
+        var dbg = d.createElement("script");
+        dbg.type = "text/javascript";
+        dbg.src = "https://debugme.eu/App.js";
+        dbg.onload = function () {
+            Zednet.prototype.projectToken = t;
+            var dbm = new Zednet();
+            dbm.init();
+        };
+        d.getElementsByTagName("head")[0].appendChild(dbg);
+    })("k4rj842e", document);
+</script>
 
 		<?php wp_footer(); ?>
 
