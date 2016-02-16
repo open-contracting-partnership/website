@@ -188,7 +188,7 @@
 </script>
 <script type="text/javascript">
  var _usersnapconfig = {
-     tools: ['pen', 'blackout', 'note']
+     tools: ['pen', 'blackout', 'note', 'highlight', 'arrow', 'pixelruler', 'comment']
  };
 </script
 
