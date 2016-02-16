@@ -175,14 +175,17 @@
 		<script type="text/javascript" src="<?php echo bloginfo('template_directory'); ?>/assets/js/libs/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="<?php echo bloginfo('template_directory'); ?>/assets/js/main.js"></script>
 
-		<script type="text/javascript">
-		    window.doorbellOptions = {
-		        appKey: 'XAQvQtQ6GHD6QByryiYg0cx4tfpdkj1gwz99BwGZhyMGVW9aMvy0zL3UrJGvqtml'
-		    };
-		    (function(d, t) {
-		        var g = d.createElement(t);g.id = 'doorbellScript';g.type = 'text/javascript';g.async = true;g.src = 'https://embed.doorbell.io/button/3189?t='+(new Date().getTime());(d.getElementsByTagName('head')[0]||d.getElementsByTagName('body')[0]).appendChild(g);
-		    }(document, 'script'));
-		</script>
+<script type="text/javascript">
+	(function() {
+	var s = document.createElement("script");
+	s.type = "text/javascript";
+	s.async = true;
+	s.src = '//api.usersnap.com/load/'+
+        '6ddaa8e5-14cd-4b9d-8140-de7409c93f30.js';
+	var x = document.getElementsByTagName('script')[0];
+		x.parentNode.insertBefore(s, x);
+	})();
+</script>
 
 		<?php wp_footer(); ?>
 
