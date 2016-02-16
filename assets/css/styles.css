@@ -2736,16 +2736,7 @@ input[type="search"].resource-search {
 body.resource-open {
   overflow: hidden; }
 
-.resource__overlay,
-.resource {
-  -webkit-animation-duration: .4s;
-          animation-duration: .4s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out; }
-
-.resource__overlay {
+.resource-transition.resource__overlay {
   background-color: rgba(255, 255, 255, 0.6);
   position: fixed;
   top: 0;
@@ -2753,11 +2744,11 @@ body.resource-open {
   bottom: 0;
   left: 0;
   z-index: 15;
-  -webkit-animation-name: resource-fade;
-          animation-name: resource-fade;
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-transition: background-color .4s ease-in-out;
+          transition: background-color .4s ease-in-out; }
 
-.resource {
+.resource-transition.resource {
   font-size: 16px;
   font-size: 0.88889rem;
   position: fixed;
@@ -2772,38 +2763,19 @@ body.resource-open {
   border-left: 1px solid #B7B7B7;
   overflow: scroll;
   z-index: 16;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: -webkit-transform .4s ease-in-out;
+          transition: transform .4s ease-in-out; }
+
+.resource-enter.resource__overlay,
+.resource-leave.resource__overlay {
+  background-color: rgba(255, 255, 255, 0); }
+
+.resource-enter.resource,
+.resource-leave.resource {
   -webkit-transform: translateX(100%);
-          transform: translateX(100%);
-  -webkit-animation-name: resource-slide;
-          animation-name: resource-slide; }
-
-@-webkit-keyframes resource-slide {
-  from {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%); }
-  to {
-    -webkit-transform: translateX(0);
-            transform: translateX(0); } }
-
-@keyframes resource-slide {
-  from {
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%); }
-  to {
-    -webkit-transform: translateX(0);
-            transform: translateX(0); } }
-
-@-webkit-keyframes resource-fade {
-  from {
-    background-color: rgba(255, 255, 255, 0); }
-  to {
-    background-color: rgba(255, 255, 255, 0.6); } }
-
-@keyframes resource-fade {
-  from {
-    background-color: rgba(255, 255, 255, 0); }
-  to {
-    background-color: rgba(255, 255, 255, 0.6); } }
+          transform: translateX(100%); }
 
 .resource__title {
   font-size: 20px;

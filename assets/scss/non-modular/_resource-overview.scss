@@ -214,14 +214,7 @@ body.resource-open {
 	overflow: hidden;
 }
 
-.resource__overlay,
-.resource {
-	animation-duration: .4s;
-	animation-fill-mode: forwards;
-	animation-timing-function: ease-in-out;
-}
-
-.resource__overlay {
+.resource-transition.resource__overlay {
 	background-color: color('white', .6);
 	position: fixed;
 	top: 0;
@@ -229,11 +222,11 @@ body.resource-open {
 	bottom: 0;
 	left: 0;
 	z-index: 15;
-	animation-name: resource-fade;
 	cursor: pointer;
+	transition: background-color .4s ease-in-out;
 }
 
-.resource {
+.resource-transition.resource {
 	@include font-size(16);
 	position: fixed;
 	top: 0;
@@ -247,25 +240,19 @@ body.resource-open {
 	border-left: 1px solid color('light-grey');
 	overflow: scroll;
 	z-index: 16;
-	transform: translateX(100%);
-	animation-name: resource-slide;
+	transform: translateX(0);
+	transition: transform .4s ease-in-out;
 }
 
-@keyframes resource-slide {
-	from {
-		transform: translateX(100%);
-	}
-	to {
-		transform: translateX(0);
-	}
-}
+.resource-enter,
+.resource-leave {
 
-@keyframes resource-fade {
-	from {
+	&.resource__overlay {
 		background-color: color('white', 0);
 	}
-	to {
-		background-color: color('white', .6);
+
+	&.resource {
+		transform: translateX(100%);
 	}
 }
 
