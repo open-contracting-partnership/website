@@ -86,11 +86,12 @@ input[type="submit"] {
 	@include font('secondary', 'bold');
 	@include font-size(14);
 	padding: em(10, 14) em(15, 14);
+
+	&.button--small {
+		padding: em(5, 14) em(8, 14);
+	}
 }
 
-.button--tag.button--small {
-	padding: em(5, 14) em(8, 14);
-}
 
 // Sub-heading within buttons
 // Must be used with a span element
@@ -184,13 +185,11 @@ input[type="submit"] {
 	.button--#{$name} {
 		color: $color;
 	}
-
 }
 
 @each $name, $primary, $contrast in $button-colors {
 
 	.button--solid-#{$name} {
-
 		background-color: $primary;
 		border-color: $primary;
 		color: $contrast;

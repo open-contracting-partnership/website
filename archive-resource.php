@@ -88,9 +88,9 @@
 
 		</div>
 
-		<div class="resource__overlay" v-if="open_resource !== null" v-on:click.prevent="open_resource = null"></div>
+		<div class="resource__overlay" v-if="open_resource !== null" transition="resource" v-on:click.prevent="open_resource = null"></div>
 
-		<div class="resource" v-if="open_resource !== null">
+		<div class="resource" v-if="open_resource !== null" transition="resource">
 
 			<div class="resource__title">
 				<img src="<?php bloginfo('template_directory'); ?>/assets/img/icons/icon--book.svg" />

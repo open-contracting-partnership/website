@@ -214,8 +214,7 @@ body.resource-open {
 	overflow: hidden;
 }
 
-.resource__overlay {
-	// display: none;
+.resource-transition.resource__overlay {
 	background-color: color('white', .6);
 	position: fixed;
 	top: 0;
@@ -223,9 +222,11 @@ body.resource-open {
 	bottom: 0;
 	left: 0;
 	z-index: 15;
+	cursor: pointer;
+	transition: background-color .4s ease-in-out;
 }
 
-.resource {
+.resource-transition.resource {
 	@include font-size(16);
 	position: fixed;
 	top: 0;
@@ -239,6 +240,20 @@ body.resource-open {
 	border-left: 1px solid color('light-grey');
 	overflow: scroll;
 	z-index: 16;
+	transform: translateX(0);
+	transition: transform .4s ease-in-out;
+}
+
+.resource-enter,
+.resource-leave {
+
+	&.resource__overlay {
+		background-color: color('white', 0);
+	}
+
+	&.resource {
+		transform: translateX(100%);
+	}
 }
 
 .resource__title {
