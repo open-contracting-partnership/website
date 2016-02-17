@@ -189,18 +189,13 @@
 
 <script type="text/javascript">
  var _usersnapconfig = {
-     tools: ['pen', 'blackout', 'note', 'highlight', 'arrow', 'pixelruler', 'comment']
- };
-</script>
-
-<script type="text/javascript">
- var _usersnapconfig = {
      emailBox: true,
      emailRequired: false,
      commentBox: true,
      commentRequired: false,
      commentBoxPlaceholder: 'Please enter your mood here.',
-     emailBoxValue: '[NAME]@theideabureau.co'
+     emailBoxValue: '[NAME]@theideabureau.co',
+     tools: ['pen', 'blackout', 'note', 'highlight', 'arrow', 'pixelruler', 'comment']
  };
 </script>
 
