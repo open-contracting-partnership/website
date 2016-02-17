@@ -28,13 +28,9 @@
 
 			<aside class="page-sidebar">
 
-				<div class="page-navigation cf">
+				<a class="button" href="#">Back to Implementation</a>
 
-					<a class="button" href="#">Back to Implementation</a>
-
-					<?php get_partial('navigation', 'sections'); ?>
-
-				</div>
+				<?php get_partial('navigation', 'sections'); ?>
 
 			</aside>
 

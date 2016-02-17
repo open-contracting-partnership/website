@@ -10,9 +10,7 @@
 
 		<aside class="page-sidebar">
 
-			<div class="page-navigation cf">
-				<?php get_partial('navigation', 'sections'); ?>
-			</div>
+			<?php get_partial('navigation', 'sections'); ?>
 
 			<a href="#" class="download-cta">
 

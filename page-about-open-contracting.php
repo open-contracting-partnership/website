@@ -23,11 +23,7 @@
 		<div class="wrapper">
 
 			<aside class="page-sidebar">
-
-				<div class="page-navigation cf">
-					<?php get_partial('navigation', 'sections'); ?>
-				</div>
-
+				<?php get_partial('navigation', 'sections'); ?>
 			</aside>
 
 			<article class="page-content cf">

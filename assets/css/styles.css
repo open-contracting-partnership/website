@@ -2597,11 +2597,8 @@ input[type="submit"] {
     float: left;
     margin-right: 0.93458%; } }
 
-.page-navigation {
+.page__section-nav {
   margin-bottom: 3.5rem; }
-  .page-navigation nav {
-    float: left;
-    width: 50%; }
 
 .page-content {
   margin-bottom: 11.11111em; }

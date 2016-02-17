@@ -1,6 +1,6 @@
 <?php if ( $sections = get_sections() ) : ?>
 
-	<nav>
+	<nav class="page__section-nav">
 
 		<h3 class="border-top border-top--clean"><?php pll_e('Jump to section'); ?></h3>
 
