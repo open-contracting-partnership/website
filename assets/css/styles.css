@@ -1182,13 +1182,13 @@ nav h4 {
   color: #424244; }
 
 .nav--in-page a {
-  color: #999; }
+  color: #424244; }
 
 .nav--in-page li {
   position: relative;
   padding-left: .7rem; }
 
-.nav--in-page .active:before {
+.nav--in-page .active:before, .nav--in-page a:hover:before {
   font-size: 10px;
   font-size: 0.55556rem;
   content: '►';
@@ -1199,9 +1199,6 @@ nav h4 {
   left: 0;
   display: inline-block;
   margin-right: .2rem; }
-
-.nav--in-page .active a {
-  color: #424244; }
 
 .primary-nav {
   border-top: 1px solid #69696B;

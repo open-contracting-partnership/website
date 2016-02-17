@@ -199,7 +199,7 @@ nav h4 {
 .nav--in-page {
 
 	a {
-		color: color('grey');
+		color: color('body');
 	}
 
 	li {
@@ -207,7 +207,7 @@ nav h4 {
 		padding-left: .7rem;
 	}
 
-	.active {
+	.active, a:hover {
 
 		&:before {
 			@include font-size(10);
@@ -220,9 +220,6 @@ nav h4 {
 			margin-right: .2rem;
 		}
 
-		a {
-			color: color('body');
-		}
 	}
 }
 

@@ -125,4 +125,14 @@ $(document).ready(function() {
 		$('main').addClass('menu--open');
 	}
 
+	$('.nav--in-page a').on('click', function(event) {
+
+		$('.nav--in-page li.active').removeClass('active');
+
+		$(this).closest('li').addClass('active');
+		
+	});
+
+	$('.nav--in-page li:first-child').addClass('active');
+
 });
