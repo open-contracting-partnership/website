@@ -32,8 +32,6 @@
 
 					<a class="button" href="#">Back to Implementation</a>
 
-					<?php //get_partial('navigation', 'sub-pages'); ?>
-
 					<?php get_partial('navigation', 'sections'); ?>
 
 				</div>

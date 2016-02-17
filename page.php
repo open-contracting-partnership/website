@@ -11,11 +11,7 @@
 		<aside class="page-sidebar">
 
 			<div class="page-navigation cf">
-
-				<?php //get_partial('navigation', 'sub-pages'); ?>
-
 				<?php get_partial('navigation', 'sections'); ?>
-
 			</div>
 
 			<a href="#" class="download-cta">

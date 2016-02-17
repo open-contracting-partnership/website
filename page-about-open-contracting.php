@@ -22,16 +22,10 @@
 
 		<div class="wrapper">
 
-			<?php // get_partial('navigation', 'breadcrumbs'); ?>
-
-			<aside class="page-sidebar page-sidebar--wide">
+			<aside class="page-sidebar">
 
 				<div class="page-navigation cf">
-
-					<?php get_partial('navigation', 'sub-pages'); ?>
-
 					<?php get_partial('navigation', 'sections'); ?>
-
 				</div>
 
 			</aside>
