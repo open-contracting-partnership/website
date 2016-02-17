@@ -42,7 +42,8 @@ nav h4 {
 		display: block;
 	}
 
-	li:hover ul {
+	li.current-menu-item ul,
+	li.current-menu-ancestor ul {
 		display: block;
 	}
 
@@ -80,7 +81,7 @@ nav h4 {
 
 		li {
 			border-right: 0;
-			margin: 0 em(25);
+			margin: 0 em(15);
 			padding: 0;
 		}
 
@@ -94,6 +95,33 @@ nav h4 {
 
 	}
 
+	li.nav__home {
+
+		padding-right: 1.5em;
+		margin-right: .5em;
+		position: relative;
+
+		&:after {
+			content: '/';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			height: 1em;
+			line-height: 1;
+		}
+
+		a {
+			background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4gICAgPHBhdGggZD0iTTEwIDIwdi02aDR2Nmg1di04aDNMMTIgMyAyIDEyaDN2OHoiIGZpbGw9IiMzMjMyMzgiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==);
+			background-repeat: no-repeat;
+			background-position: left center;
+			display: block;
+			width: 24px;
+			box-sizing: content-box;
+		}
+
+	}
 
 }
 
@@ -265,4 +293,8 @@ nav h4 {
 	.nav--horizontal:last-child li {
 		border: 0;
 	}
+}
+
+main.menu--open {
+	padding-top: em(82);
 }

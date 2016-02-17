@@ -1020,7 +1020,8 @@ nav h4 {
 .nav--horizontal a {
   display: block; }
 
-.nav--horizontal li:hover ul {
+.nav--horizontal li.current-menu-item ul,
+.nav--horizontal li.current-menu-ancestor ul {
   display: block; }
 
 .nav--horizontal ul {
@@ -1058,12 +1059,33 @@ nav h4 {
     z-index: -1; }
   .nav--horizontal ul li {
     border-right: 0;
-    margin: 0 1.38889em;
+    margin: 0 0.83333em;
     padding: 0; }
   .nav--horizontal ul li:first-child {
     margin-left: 0; }
   .nav--horizontal ul a {
     color: #323238; }
+
+.nav--horizontal li.nav__home {
+  padding-right: 1.5em;
+  margin-right: .5em;
+  position: relative; }
+  .nav--horizontal li.nav__home:after {
+    content: '/';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 1em;
+    line-height: 1; }
+  .nav--horizontal li.nav__home a {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4gICAgPHBhdGggZD0iTTEwIDIwdi02aDR2Nmg1di04aDNMMTIgMyAyIDEyaDN2OHoiIGZpbGw9IiMzMjMyMzgiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==);
+    background-repeat: no-repeat;
+    background-position: left center;
+    display: block;
+    width: 24px;
+    box-sizing: content-box; }
 
 .nav--vertical li {
   margin-bottom: 1em; }
@@ -1185,6 +1207,9 @@ nav h4 {
     border-bottom-color: #D6E100; }
   .primary-nav .nav--horizontal:last-child li {
     border: 0; }
+
+main.menu--open {
+  padding-top: 4.55556em; }
 
 /*------------------------------------*    SIDEBAR
 \*------------------------------------*/

@@ -111,4 +111,18 @@ $(document).ready(function() {
 
 	});
 
+
+	 //*****
+	// MENU
+
+	$('.sub-menu').each(function() {
+
+		$(this).prepend('<li class="nav__home"><a href="/">&nbsp;</a></li>');
+
+	});
+
+	if ( $('li.current-menu-item, li.current-menu-ancestor').length ) {
+		$('main').addClass('menu--open');
+	}
+
 });
