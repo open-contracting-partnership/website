@@ -273,6 +273,19 @@ tbody tr a {
   tbody tr a:active {
     text-decoration: none; }
 
+article.page-content a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid #D6E100;
+  padding-left: 2px;
+  margin-left: -2px;
+  padding-right: 2px;
+  margin-right: -2px;
+  -webkit-transition: background .3s ease;
+          transition: background .3s ease; }
+  article.page-content a:hover, article.page-content a:active, article.page-content a:focus {
+    background-color: #D6E100; }
+
 /*------------------------------------*	HEADINGS
 \*------------------------------------*/
 h1,
