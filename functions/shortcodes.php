@@ -1,7 +1,7 @@
 <?php // functions/shortcodes.php
 
 add_shortcode('section', function($atts, $content = null) {
-	return '<p class="section__title" id="' . sanitize_title($content) . '"><span class="button">' . $content . '</span></p>';
+	return '<p class="section__title" id="' . sanitize_title($content) . '"><span class="button">' . strip_tags($content) . '</span></p>';
 });
 
 function get_sections() {
@@ -17,7 +17,7 @@ function get_sections() {
 		foreach ( $matches as $match ) {
 
 			if ( $match[2] === 'section' ) {
-				$sections[sanitize_title($match[5])] = $match[5];
+				$sections[sanitize_title($match[5])] = strip_tags($match[5]);
 			}
 
 		}
