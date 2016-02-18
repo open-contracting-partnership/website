@@ -24,8 +24,6 @@
 
 		<div class="wrapper">
 
-			<?php // get_partial('navigation', 'breadcrumbs'); ?>
-
 			<aside class="page-sidebar">
 
 				<a class="button" href="#">Back to Implementation</a>
