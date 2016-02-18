@@ -235,7 +235,7 @@
 
 	.post-object__content {
 		flex: 1;
-		padding: .5rem;
+		padding: 1rem;
 	}
 
 	svg {
@@ -254,7 +254,7 @@
 		@include font-size(20);
 		line-height: 1.3;
 		color: color('background');
-		margin-bottom: 1.3em;
+		margin-bottom: 0;
 	}
 
 	p {
@@ -263,7 +263,7 @@
 		color: color('mid-grey');
 		display: flex;
 		text-transform: uppercase;
-		margin-bottom: 1.85em;
+		margin-bottom: 1rem;
 
 		span {
 			flex: 1;
