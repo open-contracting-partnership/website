@@ -13,7 +13,7 @@
 			'fields' => ['short_description', 'organisation', 'attachments'],
 			'custom' => array(
 				'year' => function($vue_post) {
-					return date('d/m/y', strtotime($vue_post->post_date));
+					return date('Y', strtotime($vue_post->post_date));
 				}
 			)
 		]);
@@ -147,22 +147,26 @@
 
 		<template id="resource-template">
 
-			<div class="post-object__media / media__object">
-				<svg><use xlink:href="#icon-book"></svg>
+			<div class="post-object--resource__media">
+
+				<div class="post-object--resource__icon">
+					<svg><use xlink:href="#icon-book"></svg>
+				</div>
+
+				<div class="post-object--resource__type">
+					<a v-for="type in resource.taxonomies['resource-type']" href="/resource-type/{{ $key }}" class="button button--small button--uppercase button--tag">{{ type }}</a>
+				</div>
+
 			</div>
 
 			<div class="post-object__content / media__body">
 
-				<a href="{{resource.link}}" v-on:click="openResource(resource, $event)"><h4>{{resource.open | json}} {{resource.title}}</h4></a>
-
 				<p>
-					<?php pll_e('By'); ?> {{resource.fields.organisation}}
+					<span><?php pll_e('By'); ?> {{resource.fields.organisation}}</span>
 					<time>{{resource.custom.year}}</time>
 				</p>
 
-				<ul class="button__list">
-					<li v-for="type in resource.taxonomies['resource-type']"><a href="/resource-type/{{ $key }}" class="button button--small button--uppercase button--tag">{{ type }}</a></li>
-				</ul>
+				<a href="{{resource.link}}" v-on:click="openResource(resource, $event)"><h4>{{resource.open | json}} {{resource.title}}</h4></a>
 
 			</div>
 
@@ -201,22 +205,22 @@
 				}
 			});
 
-function objectValues(object) {
+			function objectValues(object) {
 
-	var array = [];
+				var array = [];
 
-	Object.keys(object).forEach(function (key) {
-		array.push(object[key]);
-	});
+				Object.keys(object).forEach(function (key) {
+					array.push(object[key]);
+				});
 
-	return array;
+				return array;
 
-}
+			}
 
-Vue.filter('objectValues', function (object) {
-	console.log(objectValues(object));
-  return objectValues(object);
-});
+			Vue.filter('objectValues', function (object) {
+				console.log(objectValues(object));
+			  return objectValues(object);
+			});
 
 			// bootstrap the demo
 			var demo = new Vue({
