@@ -20,6 +20,7 @@
 		@include font('secondary', 'bold');
 		@include font-size(14);
 		text-transform: uppercase;
+		letter-spacing: 1px;
 		line-height: 1;
 		display: inline-block;
 		color: color('white');
