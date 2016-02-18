@@ -2,29 +2,33 @@
 
 <?php get_header(); ?>
 
-	<?php
+	<div class="wrapper">
 
-		$search_title = sprintf(
-			pll_e("Search Results for '%s'"),
-			get_search_query()
-		);
+		<?php
 
-	?>
+			$search_title = sprintf(
+				pll__("Search Results for '%s'"),
+				get_search_query()
+			);
 
-	<h2><?php echo $search_title; ?></h2>
+		?>
 
-	<?php if ( have_posts() ) : ?>
+		<h2><?php echo $search_title; ?></h2>
 
-		<article>
+		<?php if ( have_posts() ) : ?>
 
-			<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+			<article>
 
-			<?php the_content(); ?>
+				<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 
-		</article>
+				<?php the_content(); ?>
 
-	<?php else : ?>
-		<p><?php pll_e('There are no search results'); ?></p>
-	<?php endif; ?>
+			</article>
+
+		<?php else : ?>
+			<p><?php pll_e('There are no search results'); ?></p>
+		<?php endif; ?>
+
+	</div>
 
 <?php get_footer(); ?>
