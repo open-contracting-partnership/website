@@ -100,6 +100,7 @@ h5,
 	@include font(secondary, bold);
 	@include font-size(16);
 	text-transform: uppercase;
+	letter-spacing: 1px;
 	border-top: 1px solid color('lighter-grey');
 	position: relative;
 	padding-top: 1rem;

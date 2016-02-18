@@ -422,6 +422,7 @@ h5,
   font-size: 16px;
   font-size: 0.88889rem;
   text-transform: uppercase;
+  letter-spacing: 1px;
   border-top: 1px solid #D5D5D7;
   position: relative;
   padding-top: 1rem; }
@@ -862,7 +863,8 @@ td {
     font-size: 0.77778rem;
     color: #FFF;
     text-decoration: none;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    letter-spacing: 1px; }
     .header-social > a:hover, .header-social > a:focus {
       text-decoration: underline; }
     .header-social > a:active {
@@ -1534,6 +1536,7 @@ input[type="submit"] {
     font-size: 14px;
     font-size: 0.77778rem;
     text-transform: uppercase;
+    letter-spacing: 1px;
     line-height: 1;
     display: inline-block;
     color: #FFF;
@@ -1693,6 +1696,7 @@ input[type="submit"] {
   font-size: 16px;
   font-size: 0.88889rem;
   text-transform: uppercase;
+  letter-spacing: 1px;
   padding: 0.5625em 1.3125em;
   background-color: #323238; }
   @media screen and (min-width: 640px) {
@@ -1849,7 +1853,7 @@ input[type="submit"] {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
-    background: #4D4D54; }
+    border-left: 1px solid #D5D5D7; }
   .post-object--resource .post-object__content {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -1860,7 +1864,9 @@ input[type="submit"] {
     width: 4.26667em;
     height: 1.73em; }
   .post-object--resource .button {
-    color: #FFF;
+    font-size: 12px;
+    font-size: 0.66667rem;
+    letter-spacing: 1px;
     border: 0;
     margin: 0; }
   .post-object--resource h4 {
@@ -1878,14 +1884,15 @@ input[type="submit"] {
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-size: 0.77778rem;
+    font-size: 13px;
+    font-size: 0.72222rem;
     color: #69696B;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     text-transform: uppercase;
+    letter-spacing: 1px;
     margin-bottom: 1rem; }
     .post-object--resource p span {
       -webkit-box-flex: 1;

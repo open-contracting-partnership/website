@@ -99,6 +99,7 @@
 		@include font(secondary);
 		@include font-size(16);
 		text-transform: uppercase;
+		letter-spacing: 1px;
 		padding: em(9, 16) em(21, 16);
 		background-color: color('dark-background');
 
@@ -230,7 +231,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background: color('background');
+		border-left: 1px solid color('lighter-grey');
 	}
 
 	.post-object__content {
@@ -244,7 +245,8 @@
 	}
 
 	.button {
-		color: color('white');
+		@include font-size(12);
+		letter-spacing: 1px;
 		border: 0;
 		margin: 0;
 	}
@@ -259,10 +261,11 @@
 
 	p {
 		@include font('secondary');
-		@include font-size(14);
+		@include font-size(13);
 		color: color('mid-grey');
 		display: flex;
 		text-transform: uppercase;
+		letter-spacing: 1px;
 		margin-bottom: 1rem;
 
 		span {
