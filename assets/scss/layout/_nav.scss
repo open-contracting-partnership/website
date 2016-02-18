@@ -241,7 +241,7 @@ nav h4 {
 		}
 
 	}
-	
+
 }
 
 .primary-nav {
@@ -273,9 +273,10 @@ nav h4 {
 	}
 
 	a {
+
 		@include font-size(18);
 		color: color('white');
-		padding: em(25, 18) 0;
+		padding: em(25, 18) 0 em(20, 18);
 		border-bottom: 5px solid transparent;
 		transition: border .3s ease;
 
@@ -285,6 +286,7 @@ nav h4 {
 			text-decoration: none;
 			border-bottom-color: color('brand');
 		}
+
 	}
 
 	// set hover styles on WP classes

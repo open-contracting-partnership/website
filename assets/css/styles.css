@@ -1250,7 +1250,7 @@ nav h4 {
     font-size: 18px;
     font-size: 1rem;
     color: #FFF;
-    padding: 1.38889em 0;
+    padding: 1.38889em 0 1.11111em;
     border-bottom: 5px solid transparent;
     -webkit-transition: border .3s ease;
             transition: border .3s ease; }
