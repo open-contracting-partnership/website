@@ -215,7 +215,7 @@ body.resource-open {
 }
 
 .resource-transition.resource__overlay {
-	background-color: color('white', .6);
+	background-color: color('white', .8);
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -223,7 +223,7 @@ body.resource-open {
 	left: 0;
 	z-index: 15;
 	cursor: pointer;
-	transition: background-color .4s ease-in-out;
+	transition: background-color .3s ease-in-out;
 }
 
 .resource-transition.resource {
@@ -236,12 +236,12 @@ body.resource-open {
 	min-width: em(350, 16);
 	max-width: em(525, 16);
 	padding: em(100, 16) em(44, 16);
-	background-color: color('white', .95);
+	background-color: color('white', .8);
 	border-left: 1px solid color('light-grey');
 	overflow: scroll;
 	z-index: 16;
 	transform: translateX(0);
-	transition: transform .4s ease-in-out;
+	transition: transform .3s ease-in-out;
 }
 
 .resource-enter,
@@ -260,7 +260,7 @@ body.resource-open {
 
 	@include font-size(20);
 	padding-bottom: em(15);
-	border-bottom: 10px solid color('dark-orange');
+	border-bottom: 10px solid color('teal');
 	margin-bottom: em(28);
 	width: 90%;
 
@@ -271,9 +271,11 @@ body.resource-open {
 }
 
 .resource__meta {
-	@include font('secondary', 'bold');
+	@include font('secondary');
 	@include font-size(14);
 	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: color('off-grey');
 	position: relative;
 	padding-right: em(80, 14);
 }
@@ -287,7 +289,19 @@ body.resource-open {
 .resource__terms {
 
 	p {
+		@include font('secondary');
+		@include font-size(14);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: color('off-grey');
+		float: left;
+		min-width: 110px;
+		margin-right: 1em;
 		margin-bottom: em(8);
 	}
 
+}
+
+.resource hr {
+	border-color: color('lighter-grey');
 }

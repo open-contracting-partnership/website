@@ -299,6 +299,7 @@
 		@include font-size(14);
 		color: color('mid-grey');
 		text-transform: uppercase;
+		letter-spacing: 1px;
 		margin-bottom: em(21, 14);
 	}
 

@@ -147,6 +147,7 @@ nav h4 {
 		@include font-size(18);
 		color: color('background');
 		text-transform: uppercase;
+		letter-spacing: 1px;
 	}
 }
 

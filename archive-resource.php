@@ -103,6 +103,8 @@
 				By {{ open_resource.fields.organisation}}
 			</p>
 
+			<p v-if="open_resource.fields.attachments"><a href="{{ open_resource.fields.attachments[0].file }}" class="button button--block button--large">Download</a></p>
+
 			<hr />
 
 			{{{ open_resource.content }}}
@@ -113,7 +115,7 @@
 
 				<div v-if="hasTerms(open_resource.taxonomies['region'])" class="resource__terms / band">
 
-					<p><?php pll_e('Region'); ?></p>
+					<p><?php pll_e('Region'); ?>:</p>
 					<ul class="button__list">
 						<li v-for="region in open_resource.taxonomies['region']"><a href="/region/{{ $key }}" class="button button--small button--uppercase button--tag">{{{ region }}}</a></li>
 					</ul>
@@ -123,7 +125,7 @@
 
 				<div v-if="hasTerms(open_resource.taxonomies['issue'])" class="resource__terms / band">
 
-					<p><?php pll_e('Issue'); ?></p>
+					<p><?php pll_e('Issue'); ?>:</p>
 					<ul class="button__list">
 						<li v-for="issue in open_resource.taxonomies['issue']"><a href="/issue/{{ $key }}" class="button button--small button--uppercase button--tag">{{{ issue }}}</a></li>
 					</ul>
@@ -132,7 +134,7 @@
 
 				<div v-if="hasTerms(open_resource.taxonomies['open-contracting'])" class="resource__terms / band">
 
-					<p><?php pll_e('OC Framework'); ?></p>
+					<p><?php pll_e('OC Framework'); ?>:</p>
 					<ul class="button__list">
 						<li v-for="open_contracting in open_resource.taxonomies['open-contracting']"><a href="/open-contracting/{{ $key }}" class="button button--small button--uppercase button--tag">{{{ open_contracting }}}</a></li>
 					</ul>
@@ -140,8 +142,6 @@
 				</div>
 
 			</div>
-
-			<p v-if="open_resource.fields.attachments"><a href="{{ open_resource.fields.attachments[0].file }}" class="button button--block button--large">Download</a></p>
 
 		</div>
 
