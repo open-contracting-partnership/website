@@ -1118,7 +1118,7 @@ nav h4 {
     color: #323238; }
 
 .nav--horizontal li.nav__home {
-  padding-right: 1.5em;
+  padding-right: 1em;
   margin-right: .5em;
   position: relative; }
   .nav--horizontal li.nav__home:after {
