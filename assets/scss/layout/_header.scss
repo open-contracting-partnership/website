@@ -23,7 +23,6 @@
 
 .site-header__top {
 	position: relative;
-	padding-left: 2.5rem;
 }
 
 .header-nav--top {
@@ -67,10 +66,12 @@
 }
 
 .header-language {
-	margin: 1.75rem 2rem 0;
+	margin: 1.75rem 0 0 2rem;
 }
 
 .header-search {
+
+	margin-left: 2em;
 
 	a {
 		padding: 2rem;

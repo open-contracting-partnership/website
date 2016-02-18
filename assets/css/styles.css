@@ -844,8 +844,7 @@ td {
       height: 2.11111em; }
 
 .site-header__top {
-  position: relative;
-  padding-left: 2.5rem; }
+  position: relative; }
 
 .header-nav--top {
   float: right; }
@@ -873,17 +872,18 @@ td {
     margin-left: .3em; }
 
 .header-language {
-  margin: 1.75rem 2rem 0; }
+  margin: 1.75rem 0 0 2rem; }
 
-.header-search a {
-  padding: 2rem;
-  margin: 0;
-  border: 0;
-  fill: #FFF; }
-
-.header-search svg {
-  width: 1.25rem;
-  height: 1.25rem; }
+.header-search {
+  margin-left: 2em; }
+  .header-search a {
+    padding: 2rem;
+    margin: 0;
+    border: 0;
+    fill: #FFF; }
+  .header-search svg {
+    width: 1.25rem;
+    height: 1.25rem; }
 
 #menu-header-secondary > li:before {
   display: inline-block;
