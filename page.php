@@ -4,9 +4,7 @@
 
 	<?php the_post(); ?>
 
-	<div class="wrapper">
-
-		<?php get_partial('navigation', 'breadcrumbs'); ?>
+	<div class="wrapper / page--padding">
 
 		<aside class="page-sidebar">
 

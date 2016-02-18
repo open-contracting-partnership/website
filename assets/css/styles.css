@@ -2687,6 +2687,9 @@ input[type="submit"] {
       margin-right: 0.93458%;
       margin-left: 8.41121%; } }
 
+.page--padding {
+  padding-top: 8em; }
+
 .resources-overview header {
   background-color: #23b2a7; }
 
