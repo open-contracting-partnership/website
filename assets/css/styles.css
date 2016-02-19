@@ -1794,6 +1794,10 @@ input[type="submit"] {
       margin-bottom: 0; }
   .post-object--vertical .post-object__media {
     position: relative; }
+    .post-object--vertical .post-object__media .post-object__tag {
+      position: absolute;
+      bottom: 0;
+      left: 0; }
 
 .post-object--spotlight .post-object--spotlight__title {
   position: absolute;

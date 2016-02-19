@@ -183,7 +183,15 @@
 	}
 
 	.post-object__media {
+		
 		position: relative;
+
+		.post-object__tag {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+
 	}
 
 }
