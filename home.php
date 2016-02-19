@@ -73,7 +73,7 @@
 
 		</div>
 
-		<div class="blog__popular-tags">
+		<div class="blog__popular-tags / band--extra-thick">
 
 			<?php
 
