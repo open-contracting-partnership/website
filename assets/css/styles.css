@@ -1004,7 +1004,7 @@ td {
   max-width: 70em;
   margin-left: auto;
   margin-right: auto;
-  max-width: 72em;
+  max-width: 77.78rem;
   box-sizing: border-box;
   padding: 0 1em; }
   .wrapper:after {
@@ -1940,27 +1940,82 @@ input[type="submit"] {
     line-height: 1.16;
     margin-bottom: 0; }
 
-.post-object--featured .post-object--featured__title {
-  position: absolute;
-  bottom: 53px;
-  left: 16px;
-  right: 55px; }
-
-.post-object--featured .post-object__tag {
-  font-size: 18px;
-  font-size: 1rem;
-  position: static; }
-
-.post-object--featured h4 {
-  font-size: 32px;
-  font-size: 1.77778rem;
-  line-height: 1.7; }
-
-.post-object--featured p {
-  font-weight: 400;
+.post-object--basic h3 {
+  font-size: 30px;
+  font-size: 1.66667rem;
+  font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 0.2em; }
+
+.post-object--basic a {
+  color: #4D4D54; }
+
+.post-object--basic .post-object__meta {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #4D4D54;
+  letter-spacing: 1px;
+  text-transform: uppercase; }
+
+.post-object--featured {
+  position: relative; }
+  .post-object--featured .post-object__content {
+    position: absolute;
+    bottom: 2.77778em;
+    left: 1.38889em;
+    right: 3.61111em; }
+  .post-object--featured .post-object__tag {
+    font-size: 16px;
+    font-size: 0.88889rem;
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #323238;
+    color: #FFF;
+    padding: 0.72222em;
+    display: inline-block;
+    margin-left: -10px;
+    letter-spacing: 1px;
+    text-transform: uppercase; }
+  .post-object--featured h4 {
+    font-size: 40px;
+    font-size: 2.22222rem;
+    color: #FFF;
+    margin: 0; }
+    .post-object--featured h4 span {
+      font-weight: 700;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      display: inline;
+      background-color: #323238;
+      box-shadow: 0.57143rem 0 0 #323238, -0.57143rem 0 0 #323238;
+      -webkit-box-decoration-break: clone;
+              box-decoration-break: clone;
+      line-height: 1.45;
+      padding: 7px 0; }
+  .post-object--featured .post-object__meta {
+    font-size: 14px;
+    font-size: 0.77778rem;
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #323238;
+    display: inline-block;
+    color: #FFF;
+    padding: 0.72222em;
+    display: inline-block;
+    margin-left: -10px;
+    letter-spacing: 1px;
+    text-transform: uppercase; }
 
 .posts-filter {
   display: block;
@@ -2323,9 +2378,41 @@ input[type="submit"] {
 
 @media screen and (min-width: 1024px) {
   .blog__featured {
-    width: 49.53271%;
+    width: 66.35514%;
     float: left;
     margin-right: 0.93458%; } }
+
+.blog__recent-news {
+  clear: both;
+  width: 66.35514%;
+  float: left;
+  margin-right: 0.93458%; }
+
+.blog__recent-news-items {
+  border-top: 1px solid #ECECEC;
+  border-bottom: 1px solid #ECECEC;
+  padding: 0.66667em 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+
+.blog__recent-news-items .post-object {
+  width: 50%;
+  float: left;
+  padding: 0 1.94444em;
+  border-right: 1px solid #ECECEC; }
+  .blog__recent-news-items .post-object:first-child {
+    padding-left: 0; }
+  .blog__recent-news-items .post-object:last-child {
+    padding-right: 0;
+    border-right: 0; }
+
+.blog__popular-tags {
+  clear: both; }
 
 @media screen and (min-width: 640px) {
   .blog__event-mobile {
