@@ -21,14 +21,12 @@
 					)
 				]);
 
+				$exclude_ids += $featured_blog->post_ids;
+
 			?>
 
 			<?php foreach ( $featured_blog as $featured_blog ) : ?>
-
-				<?php $exclude_ids[] = get_the_ID(); ?>
-
 				<?php get_partial('post-object', 'featured'); ?>
-
 			<?php endforeach; ?>
 
 		</div>
@@ -47,14 +45,12 @@
 						'post__not_in' => $exclude_ids
 					]);
 
+					$exclude_ids += $recent_posts->post_ids;
+
 				?>
 
 				<?php foreach ( $recent_posts as $recent_post ) : ?>
-
-					<?php $exclude_ids[] = get_the_ID(); ?>
-
 					<?php get_partial('post-object', 'basic'); ?>
-
 				<?php endforeach; ?>
 
 			</div>
