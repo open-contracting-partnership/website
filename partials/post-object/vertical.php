@@ -8,11 +8,12 @@
 			<img src="http://placehold.it/460x230" alt="">
 		<?php endif; ?>
 
-		<span class="post-object__tag"><?php the_post_type_label(); ?></span>
+		<span class="post-object__tag post-object__tag--light"><?php the_post_type_label(); ?></span>
 
 	</div>
 
 	<div class="post-object__content">
+		<p class="post-object__meta"><?php the_authors(); ?>&nbsp;&nbsp;<?php the_time(get_option('date_format')); ?></p>
 		<h4><?php the_title(); ?></h4>
 	</div>
 

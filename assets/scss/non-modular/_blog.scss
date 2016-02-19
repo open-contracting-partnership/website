@@ -1,5 +1,5 @@
 .blog__container {
-	margin-top: 11em;
+	margin-top: em(100);
 }
 
 .blog__featured {
@@ -77,7 +77,7 @@
 }
 
 .blog__recent-news {
-	@include break();
+	@include break;
 	@include span(8 of 12);
 }
 
@@ -108,18 +108,30 @@
 }
 
 .blog__popular-tags {
-	@include break();
+	@include break;
 }
 
+.blog__posts {
+	@include break;
+}
 
+.blog__post-items {
 
+    display: flex;
+	flex-wrap: wrap;
 
+	.post-object {
 
+		@include span(4 of 12);
 
-.blog__event-mobile {
+		&:nth-child(3n) {
+			@include last;
+		}
 
-	@include mq(M) {
-		display: none;
+		&:nth-child(3n+1) {
+			@include break;
+		}
+
 	}
 
 }
@@ -142,7 +154,7 @@
 			}
 
 			&:nth-child(2n+1) {
-				@include break();
+				@include break;
 			}
 
 		}
@@ -174,21 +186,29 @@
 .blog__news {
 
 	@include mq(L) {
+
 		@include span(8 of 12);
 
 		.post-object {
+
 			@include span(1 of 2 first);
 
 			&:last-child {
 				@include last();
 			}
+
+			&:nth-child(2n+1) {
+				@include break;
+			}
+
 		}
+
 	}
+
 }
 
 
-.blog__event-desktop {
-	display: none;
+.blog__event {
 
 	@include mq(L) {
 		@include span(4 of 12 last);
@@ -214,38 +234,6 @@
 		@include span(5 of 12 last);
 	}
 
-}
-
-.blog__posts {
-	@include break;
-
-	@include mq(M) {
-		@include span(4 of 6 first);
-	}
-
-	@include mq(L) {
-		@include span(9 of 12 first);
-
-		.post-object {
-			@include span(2 of 6 first);
-			margin-bottom: gutter() * 2;
-
-			&:nth-child(3n) {
-				@include last();
-			}
-
-			&:nth-child(3n+1) {
-				@include break();
-			}
-
-		}
-
-	}
-
-	div {
-		display: flex;
-		flex-wrap: wrap;
-	}
 }
 
 .blog__authors {

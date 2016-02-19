@@ -8,9 +8,22 @@
 		margin-bottom: 1em;
 	}
 
-	p {
-		margin-bottom: 0;
+	.archive-posts & {
+		@include mq(M) {
+			@include span(4 of 12 first);
+
+			&:nth-child(3n) {
+				@include last();
+			}
+
+			&:nth-child(3n+1) {
+				@include break();
+			}
+		}
 	}
+}
+
+a.post-object {
 
 	&:hover,
 	&:active {
@@ -29,20 +42,39 @@
 		}
 	}
 
-	.archive-posts & {
-		@include mq(M) {
-			@include span(4 of 12 first);
-
-			&:nth-child(3n) {
-				@include last();
-			}
-
-			&:nth-child(3n+1) {
-				@include break();
-			}
-		}
-	}
 }
+
+.post-object__meta {
+	@include font-size(14);
+	@include font('secondary', 'medium');
+	color: color('background');
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin-bottom: 1em;
+}
+
+
+ //****
+// TAG
+
+.post-object__tag {
+	@include font-size(16);
+	@include font('secondary', 'medium');
+	display: inline-block;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: em(9, 16) em(21, 16);
+	background-color: color('dark-background');
+	color: color('white');
+}
+
+.post-object__tag--light {
+	background-color: color('white');
+	color: color('background');
+
+}
+
+
 
 .home {
 
@@ -130,35 +162,47 @@
 	padding: .5rem .5rem .5rem 1em;
 }
 
+
+ //*********
+// VERTICAL
+
 .post-object--vertical {
 
+	border: 1px solid color('lightest-grey');
+
+	h4 {
+		@include font-size(22);
+		@include font('secondary', 'bold');
+		line-height: 1.2;
+	}
+
 	.post-object__content {
+
 		padding: em(21);
+
+		:last-child {
+			margin-bottom: 0;
+		}
+
 	}
 
 	.post-object__media {
+
 		position: relative;
-	}
 
-	.post-object__tag {
-		@include font(secondary);
-		@include font-size(16);
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		padding: em(9, 16) em(21, 16);
-		background-color: color('dark-background');
-
-		@include mq(M) {
+		.post-object__tag {
 			position: absolute;
-			bottom: -1px;
+			bottom: 0;
 			left: 0;
 		}
+
 	}
 
-	p {
-		@include font-size(18);
-	}
 }
+
+
+ //**********
+// SPOTLIGHT
 
 .post-object--spotlight {
 
@@ -406,15 +450,8 @@
 	}
 
 	.post-object__tag {
-		@include font-size(16);
-		@include font('secondary', 'bold');
-		background-color: color('dark-background');
-		color: color('white');
-		padding: em(13);
-		display: inline-block;
 		margin-left: -10px;
-		letter-spacing: 1px;
-		text-transform: uppercase;
+		padding: em(13);
 	}
 
 	h4 {

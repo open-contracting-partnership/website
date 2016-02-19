@@ -6,7 +6,7 @@
 
 		<?php $exclude_ids = []; ?>
 
-		<div class="blog__featured / band band--thick">
+		<div class="blog__featured / band">
 
 			<?php
 
@@ -21,16 +21,12 @@
 					)
 				]);
 
+				$exclude_ids += $featured_blog->post_ids;
+
 			?>
 
 			<?php foreach ( $featured_blog as $featured_blog ) : ?>
-
-				<?php $exclude_ids[] = get_the_ID(); ?>
-
-				<article class="band band--thick">
-					<?php get_partial('post-object', 'featured'); ?>
-				</article>
-
+				<?php get_partial('post-object', 'featured'); ?>
 			<?php endforeach; ?>
 
 		</div>
@@ -66,21 +62,19 @@
 						'post__not_in' => $exclude_ids
 					]);
 
+					$exclude_ids += $recent_posts->post_ids;
+
 				?>
 
 				<?php foreach ( $recent_posts as $recent_post ) : ?>
-
-					<?php $exclude_ids[] = get_the_ID(); ?>
-
 					<?php get_partial('post-object', 'basic'); ?>
-
 				<?php endforeach; ?>
 
 			</div>
 
 		</div>
 
-		<div class="blog__event-desktop">
+		<div class="blog__event">
 
 			<h4 class="border-top border-top--blue border-top--clean">Upcoming Events</h4>
 
@@ -90,7 +84,7 @@
 
 		</div>
 
-		<div class="blog__popular-tags">
+		<div class="blog__popular-tags / band--extra-thick">
 
 			<?php
 
@@ -110,7 +104,7 @@
 					<ul class="button__list">
 
 						<?php foreach ( $popular_tags as $popular_tag ) : ?>
-							<li><a href="<?php echo get_term_link($popular_tag); ?>" class="button button--uppercase button--tag"><?php echo $popular_tag->name; ?></a></li>
+							<li><a href="<?php echo get_term_link($popular_tag); ?>" class="button button--uppercase button--tag button--small"><?php echo $popular_tag->name; ?></a></li>
 						<?php endforeach; ?>
 
 					</ul>
@@ -121,33 +115,7 @@
 
 		</div>
 
-		<div class="blog__event-mobile">
-			#2 (mobile only)
-		</div>
-
-		<section class="blog__recent / band band--thick">
-
-			<?php
-
-				$recent_posts = new query_loop([
-					'post_type' => 'post',
-					'posts_per_page' => 4,
-					'post__not_in' => $exclude_ids
-				]);
-
-			?>
-
-			<?php foreach ( $recent_posts as $recent_post ) : ?>
-
-				<?php $exclude_ids[] = get_the_ID(); ?>
-
-				<?php get_partial('post-object', 'vertical--light'); ?>
-
-			<?php endforeach; ?>
-
-		</section>
-
-		<section class="blog__filter / band band--thick">
+		<section class="blog__posts / band band--thick">
 
 			<div class="posts-filter / band">
 
@@ -165,185 +133,29 @@
 
 			</div>
 
-			<div class="island island--light">
+			<div class="blog__post-items">
 
-				<div class="blog__filter__selector">
+				<?php
 
-					<h3 class="border-top border-top--dark border-top--clean"><?php pll_e('Filter posts by issue'); ?></h3>
+					$recent_posts = new query_loop([
+						'post_type' => 'post',
+						'posts_per_page' => 12,
+						'post__not_in' => $exclude_ids
+					]);
 
-					<form class="custom-radio" action="#" method="post">
-						<label><input type="radio" name="blog-filter"><span></span>Construction</label>
-						<label><input type="radio" name="blog-filter"><span></span>Land</label>
-						<label><input type="radio" name="blog-filter"><span></span>Health</label>
-						<label><input type="radio" name="blog-filter"><span></span>Water</label>
-						<label><input type="radio" name="blog-filter"><span></span>Natural Resources</label>
-						<label><input type="radio" name="blog-filter"><span></span>Education</label>
-						<label><input type="radio" name="blog-filter"><span></span>Procurement Law</label>
-					</form>
-
-				</div>
-
-				<div class="blog__filter__posts">
-
-					<a class="post-object post-object--vertical post-object--light" href="<?php the_permalink(); ?>">
-
-						<div class="post-object__media">
-
-							<?php if ( has_post_thumbnail() ) : ?>
-								<?php the_post_thumbnail('2x1_460'); ?>
-							<?php else : ?>
-								<img src="http://placehold.it/460x230" alt="">
-							<?php endif; ?>
-
-							<span class="post-object__tag"><?php the_post_type_label(); ?></span>
-
-						</div>
-
-						<div class="post-object__content">
-
-							<div class="post-object__content-meta">
-								<span class="post-object__author">By Theresa Stevens</span>
-								<span class="post-object__age">1H ago</span>
-								<span class="post-object__comment-count">21</span>
-							</div>
-
-							<h4><?php the_title(); ?></h4>
-
-						</div>
-
-					</a>
-
-					<a class="post-object post-object--vertical post-object--light" href="<?php the_permalink(); ?>">
-
-						<div class="post-object__media">
-
-							<?php if ( has_post_thumbnail() ) : ?>
-								<?php the_post_thumbnail('2x1_460'); ?>
-							<?php else : ?>
-								<img src="http://placehold.it/460x230" alt="">
-							<?php endif; ?>
-
-							<span class="post-object__tag"><?php the_post_type_label(); ?></span>
-
-						</div>
-
-						<div class="post-object__content">
-
-							<div class="post-object__content-meta">
-								<span class="post-object__author">By Theresa Stevens</span>
-								<span class="post-object__age">1H ago</span>
-								<span class="post-object__comment-count">21</span>
-							</div>
-
-							<h4><?php the_title(); ?></h4>
-
-						</div>
-
-					</a>
-
-					<a class="post-object post-object--vertical post-object--light" href="<?php the_permalink(); ?>">
-
-						<div class="post-object__media">
-
-							<?php if ( has_post_thumbnail() ) : ?>
-								<?php the_post_thumbnail('2x1_460'); ?>
-							<?php else : ?>
-								<img src="http://placehold.it/460x230" alt="">
-							<?php endif; ?>
-
-							<span class="post-object__tag"><?php the_post_type_label(); ?></span>
-
-						</div>
-
-						<div class="post-object__content">
-
-							<div class="post-object__content-meta">
-								<span class="post-object__author">By Theresa Stevens</span>
-								<span class="post-object__age">1H ago</span>
-								<span class="post-object__comment-count">21</span>
-							</div>
-
-							<h4><?php the_title(); ?></h4>
-
-						</div>
-
-					</a>
-
-				</div>
-
-				<div class="blog__filter__view-all">
-					<a href="#" class="button button--white button--open button--solid-dark"><?php pll_e('View more by this issue'); ?></a>
-				</div>
-
-			</div>
-
-		</section> <!-- blog__filter -->
-
-		<div class="blog__event-tablet">
-			#4 (tablet only)
-		</div>
-
-		<?php if ( $topics = get_field('featured_topics', 'options') ) : ?>
-
-			<section class="blog__topics">
-
-				<?php foreach ( $topics as $topic ) : ?>
-					<p><?php echo $topic->name; ?></p>
-				<?php endforeach; ?>
-
-				<h3 class="coloured"><?php pll_e('Topic Highlights'); ?></h3>
-
-			</section>
-
-		<?php endif; ?>
-
-		<div class="blog__newsletter-signup">
-
-		</div>
-
-		<div class="blog__posts">
-
-			<div class="coloured">
-				<h3>More Blogs</h3>
-			</div>
-
-			<?php
-
-				$recent_posts = new query_loop([
-					'post_type' => 'post',
-					'posts_per_page' => 9,
-					'post__not_in' => $exclude_ids
-				]);
-
-			?>
-
-			<div>
+				?>
 
 				<?php foreach ( $recent_posts as $recent_post ) : ?>
-					<?php get_partial('post-object', 'vertical--light'); ?>
+
+					<?php $exclude_ids[] = get_the_ID(); ?>
+
+					<?php get_partial('post-object', 'vertical'); ?>
+
 				<?php endforeach; ?>
 
-			</div>
+			</div> <!-- / .blog__post-items -->
 
-		</div>
-
-		<?php if ( $authors = get_authors_by_count(6) ) : ?>
-
-			<section class="blog__authors">
-
-				<h3 class="border-top">Posts by Author</h3>
-
-				<ul class="nav nav--vertical nav--thick">
-
-					<?php foreach ( $authors as $author ) : ?>
-						<li><a href="<?php echo $author->url; ?>"><?php echo $author->display_name; ?> (<?php echo $author->post_count; ?>)</a></li>
-					<?php endforeach; ?>
-
-				</ul>
-
-			</section>
-
-		<?php endif; ?>
+		</section>
 
 	</div> <!-- / .wrapper -->
 

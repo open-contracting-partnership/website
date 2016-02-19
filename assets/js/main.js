@@ -121,7 +121,7 @@ $(document).ready(function() {
 
 	});
 
-	if ( $('li.current-menu-item, li.current-menu-ancestor').length ) {
+	if ( $('li.current-menu-item ul, li.current-menu-ancestor ul').length ) {
 		$('main').addClass('menu--open');
 	}
 
@@ -130,7 +130,7 @@ $(document).ready(function() {
 		$('.nav--in-page li.active').removeClass('active');
 
 		$(this).closest('li').addClass('active');
-		
+
 	});
 
 	$('.nav--in-page li:first-child').addClass('active');
