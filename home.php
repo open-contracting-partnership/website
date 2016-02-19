@@ -63,7 +63,17 @@
 
 		</div>
 
-		<div class="blog__popular-tags / band--double-thick">
+		<div class="blog__event-desktop">
+
+			<h4 class="border-top border-top--blue border-top--clean">Upcoming Events</h4>
+
+			<?php get_partial('post-object', 'event'); ?>
+
+			<a class="view-more" href="#">View all events</a>
+
+		</div>
+
+		<div class="blog__popular-tags">
 
 			<?php
 
