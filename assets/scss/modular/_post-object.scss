@@ -8,6 +8,23 @@
 		margin-bottom: 1em;
 	}
 
+	.archive-posts & {
+		@include mq(M) {
+			@include span(4 of 12 first);
+
+			&:nth-child(3n) {
+				@include last();
+			}
+
+			&:nth-child(3n+1) {
+				@include break();
+			}
+		}
+	}
+}
+
+a.post-object {
+
 	&:hover,
 	&:active {
 		text-decoration: none;
@@ -25,19 +42,6 @@
 		}
 	}
 
-	.archive-posts & {
-		@include mq(M) {
-			@include span(4 of 12 first);
-
-			&:nth-child(3n) {
-				@include last();
-			}
-
-			&:nth-child(3n+1) {
-				@include break();
-			}
-		}
-	}
 }
 
 .post-object__meta {
@@ -183,7 +187,7 @@
 	}
 
 	.post-object__media {
-		
+
 		position: relative;
 
 		.post-object__tag {

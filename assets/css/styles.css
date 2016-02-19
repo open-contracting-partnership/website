@@ -1643,14 +1643,6 @@ input[type="submit"] {
   .post-object h4 {
     line-height: 1.25;
     margin-bottom: 1em; }
-  .post-object:hover, .post-object:active {
-    text-decoration: none; }
-    .post-object:hover h4, .post-object:active h4 {
-      text-decoration: underline; }
-  .post-object:focus {
-    text-decoration: none; }
-    .post-object:focus h4 {
-      text-decoration: none; }
   @media screen and (min-width: 640px) {
     .archive-posts .post-object {
       width: 32.71028%;
@@ -1661,6 +1653,16 @@ input[type="submit"] {
         margin-right: 0; }
       .archive-posts .post-object:nth-child(3n+1) {
         clear: both; } }
+
+a.post-object:hover, a.post-object:active {
+  text-decoration: none; }
+  a.post-object:hover h4, a.post-object:active h4 {
+    text-decoration: underline; }
+
+a.post-object:focus {
+  text-decoration: none; }
+  a.post-object:focus h4 {
+    text-decoration: none; }
 
 .post-object__meta {
   font-size: 14px;

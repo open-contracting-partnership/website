@@ -1,4 +1,4 @@
-<div class="post-object post-object--vertical">
+<a class="post-object post-object--vertical" href="<?php the_permalink(); ?>">
 
 	<div class="post-object__media">
 
@@ -17,4 +17,4 @@
 		<h4><?php the_title(); ?></h4>
 	</div>
 
-</div>
+</a>
