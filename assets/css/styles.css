@@ -444,6 +444,9 @@ h5,
 .border-top--dark:before {
   background-color: #9BAF00; }
 
+.border-top--blue:before {
+  background-color: #6991f5; }
+
 /*------------------------------------*	LISTS
 \*------------------------------------*/
 ul {

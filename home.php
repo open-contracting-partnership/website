@@ -63,8 +63,15 @@
 
 		</div>
 
+		<div class="blog__event-desktop">
 
+			<h4 class="border-top border-top--blue border-top--clean">Upcoming Events</h4>
 
+			<?php get_partial('post-object', 'event'); ?>
+
+			<a class="view-more" href="#">View all events</a>
+
+		</div>
 
 		<div class="blog__popular-tags">
 
@@ -272,36 +279,6 @@
 			</section>
 
 		<?php endif; ?>
-
-		<section class="blog__news / band band--thick">
-
-			<div class="coloured">
-				<h3><?php pll_e('Recent News'); ?></h3>
-			</div>
-
-			<div>
-
-				<?php
-
-					$news_posts = new query_loop([
-						'post_type' => 'news',
-						'posts_per_page' => 2,
-					]);
-
-				?>
-
-				<?php foreach ( $news_posts as $news_post ) : ?>
-					<?php get_partial('post-object', 'horizontal--small'); ?>
-				<?php endforeach; ?>
-
-			</div>
-
-		</section>
-
-		<div class="blog__event-desktop">
-			<?php get_partial('post-object', 'event'); ?>
-			<a class="view-more" href="#">View all events</a>
-		</div>
 
 		<div class="blog__newsletter-signup">
 
