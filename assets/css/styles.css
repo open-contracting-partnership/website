@@ -287,6 +287,7 @@ tbody tr a {
   .post-content a:hover,
   .post-content a:active,
   .post-content a:focus {
+    text-decoration: none;
     background-color: #D6E100; }
 
 /*------------------------------------*	HEADINGS
@@ -2027,28 +2028,30 @@ a.post-object:focus {
     line-height: 1.16;
     margin-bottom: 0; }
 
-.post-object--basic h3 {
-  font-size: 30px;
-  font-size: 1.66667rem;
-  font-weight: 700;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin-bottom: 0.2em; }
-
-.post-object--basic a {
-  color: #4D4D54; }
-
-.post-object--basic .post-object__meta {
-  font-size: 14px;
-  font-size: 0.77778rem;
-  font-weight: 500;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #4D4D54;
-  letter-spacing: 1px;
-  text-transform: uppercase; }
+.post-object--basic {
+  padding-top: 0.44444em;
+  padding-bottom: 0.44444em; }
+  .post-object--basic h3 {
+    font-size: 30px;
+    font-size: 1.66667rem;
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 0.2em; }
+  .post-object--basic a {
+    color: #4D4D54; }
+  .post-object--basic .post-object__meta {
+    font-size: 14px;
+    font-size: 0.77778rem;
+    font-weight: 500;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #4D4D54;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0; }
 
 .post-object--featured {
   position: relative; }
@@ -2544,7 +2547,8 @@ a.post-object:focus {
 .blog__recent-news-items .post-object {
   width: 50%;
   float: left;
-  padding: 0 1.94444em;
+  padding-right: 1.94444em;
+  padding-left: 1.94444em;
   border-right: 1px solid #ECECEC; }
   .blog__recent-news-items .post-object:first-child {
     padding-left: 0; }

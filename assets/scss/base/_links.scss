@@ -65,6 +65,7 @@ tbody tr a {
     &:hover,
     &:active,
     &:focus {
+        text-decoration: none;
         background-color: color('brand');
     }
 

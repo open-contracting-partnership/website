@@ -48,7 +48,7 @@
 
 		</div>
 
-		<div class="blog__recent-news">
+		<div class="blog__recent-news / band--thick">
 
 			<h4 class="border-top border-top--clean">Recent News</h4>
 
@@ -74,7 +74,7 @@
 
 		</div>
 
-		<div class="blog__event">
+		<div class="blog__event / band--thick">
 
 			<h4 class="border-top border-top--blue border-top--clean">Upcoming Events</h4>
 

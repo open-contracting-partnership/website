@@ -415,6 +415,9 @@ a.post-object {
 
 .post-object--basic {
 
+	padding-top: em(8);
+	padding-bottom: em(8);
+
 	h3 {
 		@include font-size(30);
 		@include font('secondary', 'bold');
@@ -431,6 +434,7 @@ a.post-object {
 		color: color('background');
 		letter-spacing: 1px;
 		text-transform: uppercase;
+		margin-bottom: 0;
 	}
 
 }

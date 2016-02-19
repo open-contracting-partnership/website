@@ -93,7 +93,8 @@
 
 	width: 50%;
 	float: left;
-	padding: 0 em(35);
+	padding-right: em(35);
+	padding-left: em(35);
 	border-right: 1px solid color('lightest-grey');
 
 	&:first-child {
