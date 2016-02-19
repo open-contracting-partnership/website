@@ -1789,7 +1789,8 @@ a.post-object:focus {
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.2; }
+    line-height: 1.2;
+    color: #4D4D54; }
   .post-object--vertical .post-object__content {
     padding: 1.16667em; }
     .post-object--vertical .post-object__content :last-child {
