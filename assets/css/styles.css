@@ -1092,7 +1092,7 @@ nav h4 {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  max-width: 72em;
+  max-width: 77.78rem;
   width: 100%;
   display: none;
   list-style: none;
