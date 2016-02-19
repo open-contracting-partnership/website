@@ -2056,6 +2056,8 @@ a.post-object:focus {
     bottom: 2.77778em;
     left: 1.38889em;
     right: 3.61111em; }
+    .post-object--featured .post-object__content :last-child {
+      margin-bottom: 0; }
   .post-object--featured .post-object__tag {
     margin-left: -10px;
     padding: 0.72222em; }

@@ -443,10 +443,16 @@ a.post-object {
 	position: relative;
 
 	.post-object__content {
+
 		position: absolute;
 		bottom: em(50);
 		left: em(25);
 		right: em(65);
+
+		:last-child {
+			margin-bottom: 0;
+		}
+
 	}
 
 	.post-object__tag {
