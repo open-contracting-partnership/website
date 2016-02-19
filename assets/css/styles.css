@@ -1640,8 +1640,6 @@ input[type="submit"] {
   .post-object h4 {
     line-height: 1.25;
     margin-bottom: 1em; }
-  .post-object p {
-    margin-bottom: 0; }
   .post-object:hover, .post-object:active {
     text-decoration: none; }
     .post-object:hover h4, .post-object:active h4 {
@@ -1660,6 +1658,39 @@ input[type="submit"] {
         margin-right: 0; }
       .archive-posts .post-object:nth-child(3n+1) {
         clear: both; } }
+
+.post-object__meta {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #4D4D54;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1em; }
+
+.post-object__tag {
+  font-size: 16px;
+  font-size: 0.88889rem;
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.5625em 1.3125em;
+  background-color: #323238; }
+  @media screen and (min-width: 640px) {
+    .post-object__tag {
+      position: absolute;
+      bottom: -1px;
+      left: 0; } }
+
+.post-object__tag--light {
+  background-color: #FFF;
+  color: #4D4D54; }
 
 .home .post-object {
   background-color: #323238; }
@@ -1696,32 +1727,22 @@ input[type="submit"] {
 .post-object__content {
   padding: .5rem .5rem .5rem 1em; }
 
-.post-object--vertical .post-object__content {
-  padding: 1.16667em; }
-
-.post-object--vertical .post-object__media {
-  position: relative; }
-
-.post-object--vertical .post-object__tag {
-  font-weight: 400;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-size: 0.88889rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 0.5625em 1.3125em;
-  background-color: #323238; }
-  @media screen and (min-width: 640px) {
-    .post-object--vertical .post-object__tag {
-      position: absolute;
-      bottom: -1px;
-      left: 0; } }
-
-.post-object--vertical p {
-  font-size: 18px;
-  font-size: 1rem; }
+.post-object--vertical {
+  border: 1px solid #ECECEC; }
+  .post-object--vertical h4 {
+    font-size: 22px;
+    font-size: 1.22222rem;
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.2; }
+  .post-object--vertical .post-object__content {
+    padding: 1.16667em; }
+    .post-object--vertical .post-object__content :last-child {
+      margin-bottom: 0; }
+  .post-object--vertical .post-object__media {
+    position: relative; }
 
 .post-object--spotlight .post-object--spotlight__title {
   position: absolute;
@@ -2422,6 +2443,27 @@ input[type="submit"] {
 .blog__popular-tags {
   clear: both; }
 
+.blog__posts {
+  clear: both; }
+
+.blog__post-items {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+  .blog__post-items .post-object {
+    width: 32.71028%;
+    float: left;
+    margin-right: 0.93458%; }
+    .blog__post-items .post-object:nth-child(3n) {
+      float: right;
+      margin-right: 0; }
+    .blog__post-items .post-object:nth-child(3n+1) {
+      clear: both; }
+
 @media screen and (min-width: 640px) {
   .blog__event-mobile {
     display: none; } }
@@ -2491,37 +2533,6 @@ input[type="submit"] {
     width: 41.1215%;
     float: right;
     margin-right: 0; } }
-
-.blog__posts {
-  clear: both; }
-  @media screen and (min-width: 640px) {
-    .blog__posts {
-      width: 66.03774%;
-      float: left;
-      margin-right: 1.88679%; } }
-  @media screen and (min-width: 1024px) {
-    .blog__posts {
-      width: 74.76636%;
-      float: left;
-      margin-right: 0.93458%; }
-      .blog__posts .post-object {
-        width: 32.07547%;
-        float: left;
-        margin-right: 1.88679%;
-        margin-bottom: 1.86916%; }
-        .blog__posts .post-object:nth-child(3n) {
-          float: right;
-          margin-right: 0; }
-        .blog__posts .post-object:nth-child(3n+1) {
-          clear: both; } }
-  .blog__posts div {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap; }
 
 .blog__authors {
   display: none; }
