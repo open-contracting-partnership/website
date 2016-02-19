@@ -68,35 +68,36 @@
 .blog__news {
 
 	@include mq(L) {
-
-		@include span(7 of 12);
+		@include span(8 of 12);
 
 		.post-object {
+			@include span(1 of 2 first);
 
-			@include span(3 of 6 first);
-
-			&:nth-child(2n) {
+			&:last-child {
 				@include last();
 			}
-
-			&:nth-child(2n+1) {
-				@include break();
-			}
-
 		}
-
 	}
-
 }
 
 
 .blog__event-desktop {
-
 	display: none;
 
 	@include mq(L) {
+		@include span(4 of 12 last);
 		display: block;
-		@include span(5 of 12 last);
+	}
+
+	.view-more {
+		@include font('secondary', 'medium');
+		@include font-size(12);
+		color: color('background');
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		display: inline-block;
+		float: right;
+		clear: both;
 	}
 
 }

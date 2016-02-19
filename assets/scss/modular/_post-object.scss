@@ -81,6 +81,51 @@
 	}
 }
 
+.post-object--event {
+	display: flex;
+	border: 1px solid color('lightest-grey');
+
+	.post-object__media,
+	.post-object__content {
+		padding: 1rem;
+	}
+
+	.post-object__media {
+		@include font('secondary', 'bold');
+		@include font-size(48);
+		background-color: color('blue');
+		color: color('white');
+		text-align: center;
+		line-height: .9;
+		width: em(127, 48);
+
+		span {
+			@include font-size(20);
+		}
+	}
+
+	.post-object__content {
+		flex: 1;
+	}
+
+	h4 {
+		@include font('secondary', 'medium');
+		@include font-size(28);
+		color: color('background');
+		margin-bottom: em(10, 28);
+	}
+
+	.event__location {
+		@include font('secondary', 'medium');
+		@include font-size(14);
+		color: color('background');
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		display: block;
+		margin-bottom: 1em;
+	}
+}
+
 .post-object__content {
 	padding: .5rem .5rem .5rem 1em;
 }

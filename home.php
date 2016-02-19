@@ -256,7 +256,7 @@
 
 					$news_posts = new query_loop([
 						'post_type' => 'news',
-						'posts_per_page' => 4,
+						'posts_per_page' => 2,
 					]);
 
 				?>
@@ -270,7 +270,8 @@
 		</section>
 
 		<div class="blog__event-desktop">
-
+			<?php get_partial('post-object', 'event'); ?>
+			<a class="view-more" href="#">View all events</a>
 		</div>
 
 		<div class="blog__newsletter-signup">
