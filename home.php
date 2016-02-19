@@ -31,9 +31,26 @@
 
 		</div>
 
+		<div class="blog__subscribe">
+
+			<h4 class="border-top border-top--clean">Subscribe to our newsletter</h4>
+
+			<img src="http://placehold.it/400x75/D7DE20/3C3333?text=GRAPHIC" alt="" />
+
+			<p class="blog__subscribe-copy">Stay updated with latest developments on the Open Contracting Partnership</p>
+
+			<form class="flex-field" action="index.html" method="post">
+				<input type="email" placeholder="Enter your email">
+				<button>Send</button>
+			</form>
+
+			<p class="blog__subscribe-follow">Alternatively, follow us on <a href="#">Facebook</a>, <a href="#">Twitter</a>, &amp; <a href="#">Linkedin</a></p>
+
+		</div>
+
 		<div class="blog__recent-news">
 
-			<h4 class="border-top border-top--dark border-top--clean">Recent News</h4>
+			<h4 class="border-top border-top--clean">Recent News</h4>
 
 			<div class="blog__recent-news-items / cf">
 
@@ -82,7 +99,7 @@
 
 				<section>
 
-					<h4 class="border-top border-top--dark border-top--clean">Popular Tags</h4>
+					<h4 class="border-top border-top--clean">Popular Tags</h4>
 
 					<ul class="button__list">
 

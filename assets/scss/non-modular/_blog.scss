@@ -5,9 +5,75 @@
 .blog__featured {
 
 	@include mq(L) {
-		@include span(8 of 12);
+		@include span(8 of 12 first);
 	}
 
+}
+
+.blog__subscribe {
+
+	@include mq(L) {
+		@include span(4 of 12 last);
+	}
+
+	input[type="email"],
+	button {
+		@include font('secondary', 'bold');
+		color: color('white');
+		background-color: color('background');
+		border: 0;
+	}
+
+	input[type="email"] {
+		@include font-size(16);
+		padding: .8em;
+		margin-bottom: em(10, 16);
+	}
+
+	button {
+		@include font-size(14);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+}
+
+.blog__subscribe-copy {
+	@include font('secondary');
+	@include font-size(12);
+	color: color('background');
+	margin-top: em(18, 12);
+}
+
+.blog__subscribe-follow {
+	@include font('secondary', 'bold');
+	@include font-size(15);
+	color: color('background');
+
+	a {
+		color: color('background');
+		position: relative;
+
+		&:before {
+			position: absolute;
+			display: block;
+			content: '';
+			top: 100%;
+			left: 0;
+			right: 0;
+			height: 2px;
+			background: color('brand-dark');
+		}
+
+		&:hover,
+		&:active {
+			text-decoration: none;
+
+			&:before {
+				background: color('brand');
+			}
+		}
+
+	}
 }
 
 .blog__recent-news {

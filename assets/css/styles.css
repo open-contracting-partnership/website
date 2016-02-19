@@ -1789,7 +1789,8 @@ a.post-object:focus {
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.2; }
+    line-height: 1.2;
+    color: #4D4D54; }
   .post-object--vertical .post-object__content {
     padding: 1.16667em; }
     .post-object--vertical .post-object__content :last-child {
@@ -2458,6 +2459,69 @@ a.post-object:focus {
     width: 66.35514%;
     float: left;
     margin-right: 0.93458%; } }
+
+@media screen and (min-width: 1024px) {
+  .blog__subscribe {
+    width: 32.71028%;
+    float: right;
+    margin-right: 0; } }
+
+.blog__subscribe input[type="email"],
+.blog__subscribe button {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #FFF;
+  background-color: #4D4D54;
+  border: 0; }
+
+.blog__subscribe input[type="email"] {
+  font-size: 16px;
+  font-size: 0.88889rem;
+  padding: .8em;
+  margin-bottom: 0.625em; }
+
+.blog__subscribe button {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  text-transform: uppercase;
+  letter-spacing: 1px; }
+
+.blog__subscribe-copy {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-size: 0.66667rem;
+  color: #4D4D54;
+  margin-top: 1.5em; }
+
+.blog__subscribe-follow {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-size: 0.83333rem;
+  color: #4D4D54; }
+  .blog__subscribe-follow a {
+    color: #4D4D54;
+    position: relative; }
+    .blog__subscribe-follow a:before {
+      position: absolute;
+      display: block;
+      content: '';
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #9BAF00; }
+    .blog__subscribe-follow a:hover, .blog__subscribe-follow a:active {
+      text-decoration: none; }
+      .blog__subscribe-follow a:hover:before, .blog__subscribe-follow a:active:before {
+        background: #D6E100; }
 
 .blog__recent-news {
   clear: both;
