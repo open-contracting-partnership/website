@@ -6,7 +6,7 @@
 
 		<?php $exclude_ids = []; ?>
 
-		<div class="blog__featured / band band--thick">
+		<div class="blog__featured / band">
 
 			<?php
 
@@ -27,9 +27,7 @@
 
 				<?php $exclude_ids[] = get_the_ID(); ?>
 
-				<article class="band band--thick">
-					<?php get_partial('post-object', 'featured'); ?>
-				</article>
+				<?php get_partial('post-object', 'featured'); ?>
 
 			<?php endforeach; ?>
 

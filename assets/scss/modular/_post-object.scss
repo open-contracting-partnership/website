@@ -56,16 +56,12 @@
 .post-object__tag {
 	@include font-size(16);
 	@include font('secondary', 'medium');
+	display: inline-block;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	padding: em(9, 16) em(21, 16);
 	background-color: color('dark-background');
-
-	@include mq(M) {
-		position: absolute;
-		bottom: -1px;
-		left: 0;
-	}
+	color: color('white');
 }
 
 .post-object__tag--light {
@@ -442,15 +438,8 @@
 	}
 
 	.post-object__tag {
-		@include font-size(16);
-		@include font('secondary', 'bold');
-		background-color: color('dark-background');
-		color: color('white');
-		padding: em(13);
-		display: inline-block;
 		margin-left: -10px;
-		letter-spacing: 1px;
-		text-transform: uppercase;
+		padding: em(13);
 	}
 
 	h4 {
