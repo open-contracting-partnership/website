@@ -70,17 +70,6 @@
 
 }
 
-
-
-
-.blog__event-mobile {
-
-	@include mq(M) {
-		display: none;
-	}
-
-}
-
 .blog__recent {
 
     display: flex;
@@ -153,8 +142,7 @@
 }
 
 
-.blog__event-desktop {
-	display: none;
+.blog__event {
 
 	@include mq(L) {
 		@include span(4 of 12 last);

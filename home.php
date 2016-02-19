@@ -57,7 +57,7 @@
 
 		</div>
 
-		<div class="blog__event-desktop">
+		<div class="blog__event">
 
 			<h4 class="border-top border-top--blue border-top--clean">Upcoming Events</h4>
 
@@ -87,7 +87,7 @@
 					<ul class="button__list">
 
 						<?php foreach ( $popular_tags as $popular_tag ) : ?>
-							<li><a href="<?php echo get_term_link($popular_tag); ?>" class="button button--uppercase button--tag"><?php echo $popular_tag->name; ?></a></li>
+							<li><a href="<?php echo get_term_link($popular_tag); ?>" class="button button--uppercase button--tag button--small"><?php echo $popular_tag->name; ?></a></li>
 						<?php endforeach; ?>
 
 					</ul>
