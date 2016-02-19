@@ -6,21 +6,7 @@
 
 	<div class="accent--orange">
 
-		<section class="page-hero">
-
-			<div class="wrapper">
-
-				<div class="page-hero__content">
-
-					<h1><span>Why Open Contracting</span></h1>
-
-				</div>
-
-			</div>
-
-		</section>
-
-		<div class="wrapper">
+		<div class="wrapper / page--padding">
 
 			<aside class="page-sidebar">
 				<?php get_partial('navigation', 'sections'); ?>
