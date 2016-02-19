@@ -364,26 +364,88 @@
 	}
 }
 
+
+ //******
+// BASIC
+
+.post-object--basic {
+
+	h3 {
+		@include font-size(30);
+		@include font('secondary', 'bold');
+		margin-bottom: em(6, 30);
+	}
+
+	a {
+		color: color('background');
+	}
+
+	.post-object__meta {
+		@include font-size(14);
+		@include font('secondary', 'medium');
+		color: color('background');
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+
+}
+
+
+ //*********
+// FEATURED
+
 .post-object--featured {
 
-	.post-object--featured__title {
+	position: relative;
+
+	.post-object__content {
 		position: absolute;
-		bottom: 53px;
-		left: 16px;
-		right: 55px;
+		bottom: em(50);
+		left: em(25);
+		right: em(65);
 	}
 
 	.post-object__tag {
-		@include font-size(18);
-		position: static;
+		@include font-size(16);
+		@include font('secondary', 'bold');
+		background-color: color('dark-background');
+		color: color('white');
+		padding: em(13);
+		display: inline-block;
+		margin-left: -10px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
 	}
 
 	h4 {
-		@include font-size(32);
-		line-height: 1.7;
+
+		@include font-size(40);
+		color: color('white');
+		margin: 0;
+
+		span {
+			@include font(secondary, bold);
+			display: inline;
+			background-color: color('dark-background');
+			box-shadow: .57143rem 0 0 color('dark-background'), -.57143rem 0 0 color('dark-background');
+			box-decoration-break: clone; // FF32 Fix - https://css-tricks.com/multi-line-padded-text/
+			line-height: 1.45;
+			padding: 7px 0;
+		}
+
 	}
 
-	p {
-		@include font(secondary);
+	.post-object__meta {
+		@include font-size(14);
+		@include font('secondary', 'bold');
+		background-color: color('dark-background');
+		display: inline-block;
+		color: color('white');
+		padding: em(13);
+		display: inline-block;
+		margin-left: -10px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
 	}
+
 }

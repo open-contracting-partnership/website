@@ -5,10 +5,50 @@
 .blog__featured {
 
 	@include mq(L) {
-		@include span(6 of 12);
+		@include span(8 of 12);
 	}
 
 }
+
+.blog__recent-news {
+	@include break();
+	@include span(8 of 12);
+}
+
+.blog__recent-news-items {
+	border-top: 1px solid color('lightest-grey');
+	border-bottom: 1px solid color('lightest-grey');
+	padding: em(12) 0;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.blog__recent-news-items .post-object {
+
+	width: 50%;
+	float: left;
+	padding: 0 em(35);
+	border-right: 1px solid color('lightest-grey');
+
+	&:first-child {
+		padding-left: 0;
+	}
+
+	&:last-child {
+		padding-right: 0;
+		border-right: 0;
+	}
+
+}
+
+.blog__popular-tags {
+	@include break();
+}
+
+
+
+
+
 
 .blog__event-mobile {
 

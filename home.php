@@ -6,10 +6,6 @@
 
 		<?php $exclude_ids = []; ?>
 
-		<div class="coloured">
-			<h3><?php pll_e('Recent Posts'); ?></h3>
-		</div>
-
 		<div class="blog__featured / band band--thick">
 
 			<?php
@@ -32,16 +28,51 @@
 				<?php $exclude_ids[] = get_the_ID(); ?>
 
 				<article class="band band--thick">
-					<?php get_partial('post-object', 'vertical--featured'); ?>
+					<?php get_partial('post-object', 'featured'); ?>
 				</article>
 
 			<?php endforeach; ?>
+
+		</div>
+
+		<div class="blog__recent-news">
+
+			<h4 class="border-top border-top--dark border-top--clean">Recent News</h4>
+
+			<div class="blog__recent-news-items / cf">
+
+				<?php
+
+					$recent_posts = new query_loop([
+						'post_type' => 'post',
+						'posts_per_page' => 2,
+						'post__not_in' => $exclude_ids
+					]);
+
+				?>
+
+				<?php foreach ( $recent_posts as $recent_post ) : ?>
+
+					<?php $exclude_ids[] = get_the_ID(); ?>
+
+					<?php get_partial('post-object', 'basic'); ?>
+
+				<?php endforeach; ?>
+
+			</div>
+
+		</div>
+
+
+
+
+		<div class="blog__popular-tags">
 
 			<?php
 
 				$popular_tags = get_terms('post_tag', [
 					'orderby' => 'count',
-					'number' => 15
+					'number' => 40
 				]);
 
 			?>
@@ -50,9 +81,7 @@
 
 				<section>
 
-					<div class="coloured">
-						<h3>Popular Tags</h3>
-					</div>
+					<h4 class="border-top border-top--dark border-top--clean">Popular Tags</h4>
 
 					<ul class="button__list">
 
