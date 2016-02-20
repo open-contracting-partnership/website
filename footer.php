@@ -10,7 +10,7 @@
 
 					<nav class="site-footer__organisation">
 
-						<h4><?php pll_e('Our Organisation'); ?></h4>
+						<h4><?php pll_e('About Us'); ?></h4>
 
 						<?php
 
@@ -27,7 +27,7 @@
 
 					<nav class="site-footer__contracting">
 
-						<h4><?php pll_e('Open Contracting'); ?></h4>
+						<h4><?php pll_e('Why Open Contracting'); ?></h4>
 
 						<?php
 
@@ -44,7 +44,7 @@
 
 					<nav class="site-footer__implement">
 
-						<h4><?php pll_e('Implement'); ?></h4>
+						<h4><?php pll_e('Get Started'); ?></h4>
 
 						<?php
 
@@ -113,20 +113,6 @@
 
 						</div>
 
-						<nav class="site-footer__follow">
-
-							<h4><?php pll_e('Follow our progress'); ?></h4>
-
-							<ul class="nav nav--horizontal">
-
-								<li><a href="https://twitter.com/opencontracting" target="_blank"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
-								<li><a href="https://www.facebook.com/OpenContracting" target="_blank"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
-								<li><a href="https://www.linkedin.com/company/open-contracting-partnership" target="_blank"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
-
-							</ul>
-
-						</nav>
-
 						<div class="site-footer__contact">
 
 							<h4><?php pll_e('Contact us'); ?>:</h4>
@@ -138,6 +124,18 @@
 
 						</div>
 
+						<nav class="site-footer__follow">
+
+							<ul class="nav nav--horizontal">
+
+								<li><a href="https://twitter.com/opencontracting" target="_blank"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
+								<li><a href="https://www.facebook.com/OpenContracting" target="_blank"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
+								<li><a href="https://www.linkedin.com/company/open-contracting-partnership" target="_blank"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
+
+							</ul>
+
+						</nav>
+
 					</div>
 
 				</div> <!-- main footer -->
@@ -145,7 +143,7 @@
 				<div class="sub-footer cf"> <!-- sub footer -->
 
 					<div class="site-colophon">
-						<p><?php pll_e('This work by the Open Contracting Partnership, unless otherwise noted, is licensed under a Creative Commons Attribution 4.0 International License.'); ?></p>
+						<p class="text--micro"><?php pll_e('This work by the Open Contracting Partnership, unless otherwise noted, is licensed under a Creative Commons Attribution 4.0 International License.'); ?></p>
 					</div>
 
 					<svg><use xlink:href="#ocp-logo-small" /></svg>

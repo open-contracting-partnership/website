@@ -29,6 +29,7 @@ $colours: (
     'body': #424244,
     'dark-background': #323238,
     'dark-grey': #2D2D2D,
+	'super-dark-grey': #26262B,
 );
 
 // LEGACY
@@ -84,7 +85,7 @@ $button-colors-light: (
  //**************
 // TYPE SETTINGS
 
-$base-font-size: 18;
+$base-font-size: 20;
 $copy: color('body');
 $border-radius: 4px;
 
@@ -115,16 +116,7 @@ $susy: (
 // FONTS
 
 $fonts: (
-    primary: (
-        family: 'proxima-nova-condensed',
-        fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-        weights: (
-            regular: 400,
-            bold: 700
-        ),
-        typekit: false
-    ),
-	primary-alt: (
+	primary: (
 		family: 'source-sans-pro',
 		fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
 		weights: (
