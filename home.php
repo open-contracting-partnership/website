@@ -143,6 +143,7 @@
 						'post_type' => ['post', 'news'],
 						'posts_per_page' => -1
 					),
+					'ignore' => ['content', 'excerpt', 'slug'],
 					'taxonomies' => ['issue'],
 					'custom' => array(
 						'authors' => function() {
@@ -205,6 +206,25 @@
 
 	<script>
 
+		$(document).ready(function() {
+
+			var $window = $(window),
+				$main = $('main');
+
+			$(window).on('scroll', $.throttle(500, function() {
+
+				if ( ($window.scrollTop() + $window.height()) > ($main.position().top + $main.height()) - 500 ) {
+					posts.increaseLimit();
+				}
+
+			}));
+
+		});
+
+	</script>
+
+	<script>
+
 		// register the grid component
 		Vue.component('post', {
 			template: '#post-template',
@@ -253,6 +273,15 @@
 			},
 
 			methods: {
+
+				increaseLimit: function() {
+
+					if ( this.limit < this.posts.length ) {
+						this.limit += 12;
+						console.log('incresing post limit');
+					}
+
+				},
 
 				filter: function() {
 

@@ -184,7 +184,7 @@ gulp.task('watch', function () {
 	// boilerplate
 	gulp.watch(['patterns/templates/**/*.html', 'patterns/templates/**/*.json'], ['templates']);
 	gulp.watch('assets/scss/**/*.scss', ['scss', 'scss-lint', 'modernizr']);
-	gulp.watch('assets/js/*.js', ['js', 'modernizr']);
+	gulp.watch('assets/js/main.js', ['js', 'modernizr']);
 
 	// pattern library (app only)
 	gulp.watch('patterns/app/scss/**/*.scss', ['pattern-styles']);

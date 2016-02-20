@@ -41,6 +41,8 @@
 		<!-- <link rel="apple-touch-icon" sizes="144x144" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/apple-touch-icon-144x144.png" /> -->
 		<!-- <link rel="apple-touch-icon" sizes="152x152" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/apple-touch-icon-152x152.png" /> -->
 
+		<script type="text/javascript" src="<?php echo bloginfo('template_directory'); ?>/assets/js/libs/jquery-2.1.4.min.js"></script>
+
 		<?php wp_head(); ?>
 
 	</head>

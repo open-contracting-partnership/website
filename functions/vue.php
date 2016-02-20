@@ -2,6 +2,10 @@
 
 function vue_posts($args) {
 
+	if ( ! isset($args['ignore']) ) {
+		$args['ignore'] = array();
+	}
+
 	$query = new query_loop($args['query']);
 	$vue_posts = [];
 	$post_ids = [];
@@ -13,17 +17,35 @@ function vue_posts($args) {
 		$post_ids[] = $vue_post->ID;
 
 		$vue_posts[$vue_post->ID] = array(
-			'id' => get_the_ID(),
-			'title' => get_the_title(),
-			'slug' => basename(get_the_permalink()),
-			'content' => wpautop(get_the_content()),
-			'excerpt' => get_the_excerpt(),
-			'link' => get_the_permalink(),
-			'date' => get_the_time(get_option('date_format')),
 			'taxonomies' => array(),
 			'custom' => array(),
 			'display' => true
 		);
+		
+		if ( ! in_array('id', $args['ignore']) ) {
+			$vue_posts[$vue_post->ID]['id'] = get_the_ID();
+		}
+
+		if ( ! in_array('title', $args['ignore']) ) {
+			$vue_posts[$vue_post->ID]['title'] = get_the_title();
+		}
+
+		if ( ! in_array('slug', $args['ignore']) ) {
+			$vue_posts[$vue_post->ID]['slug'] = basename(get_the_permalink());
+		}
+
+		if ( ! in_array('content', $args['ignore']) ) {
+			$vue_posts[$vue_post->ID]['content'] = wpautop(get_the_content());
+		}
+
+		if ( ! in_array('link', $args['ignore']) ) {
+			$vue_posts[$vue_post->ID]['link'] = get_the_permalink();
+		}
+
+		if ( ! in_array('date', $args['ignore']) ) {
+			$vue_posts[$vue_post->ID]['date'] = get_the_time(get_option('date_format'));
+		}
+
 
 		if ( isset($args['taxonomies']) && ! empty($args['taxonomies']) ) {
 
