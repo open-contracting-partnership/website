@@ -4,7 +4,7 @@
 
 .site-footer {
 	color: color('white');
-	background-color: color('background');
+	background-color: color('dark-background');
 
 	a {
 		color: color('white');
@@ -29,17 +29,21 @@
 
 .main-footer {
 	display: block;
-	margin-bottom: 5rem;
-	padding-top: 2.2rem;
+	margin-bottom: em(0);
+	padding-top: em(80);
 
 	h4 {
 		@include font('secondary', 'bold');
 		@include font-size(16);
+		text-transform: uppercase;
+		margin-bottom: em(25);
+		letter-spacing: 1px;
 	}
 
 	.nav a {
-		@include font-size(19);
+		@include font-size(16);
 		color: color('lighter-grey');
+		@include font('secondary');
 	}
 }
 
@@ -71,7 +75,7 @@
 }
 
 .site-footer__updates nav:first-child {
-	margin-bottom: 3rem;
+	margin-bottom: em(40);
 }
 
 .site-footer__subscribe {
@@ -82,7 +86,7 @@
 }
 
 .site-footer__email {
-	margin-bottom: 3rem;
+	margin-bottom: em(40);
 }
 
 .site-footer__follow {
@@ -103,6 +107,10 @@
 	}
 }
 
+.main-footer .site-footer__follow a {
+	@include font-size(20);
+}
+
 .site-footer__subscribe,
 .site-footer__contact {
 
@@ -113,10 +121,10 @@
 }
 
 .site-footer__contact {
-
+	margin-bottom: em(25);
 	address {
 		@include font('secondary');
-		@include font-size(16);
+		@include font-size(14);
 	}
 
 	span,
@@ -131,7 +139,7 @@
 
 .sub-footer {
 	display: block;
-	margin-bottom: 2.2rem;
+	margin-bottom: em(20);
 
 	svg {
 		max-width: em(188);
@@ -141,6 +149,10 @@
 			@include span(2 at 10 of 12 last);
 		}
 	}
+}
+
+.site-footer .nav--vertical li {
+	margin-bottom: em(10, 20);
 }
 
 .site-colophon {
@@ -159,7 +171,7 @@
 
 .site-copyright {
 	padding: .9rem 0;
-	background-color: color('dark-background');
+	background-color: color('super-dark-grey');
 
 	span a,
 	span:last-child {
@@ -169,8 +181,8 @@
 
 	span,
 	a {
-		@include font('secondary');
-		@include font-size(16);
+		@include font('secondary', 'medium');
+		@include font-size(14);
 		color: color('light-grey');
 		display: block;
 		margin-bottom: $space;
@@ -188,16 +200,16 @@
 			float: left;
 		}
 
-		span:first-child {
-			margin-right: 3rem;
-		}
-
+		span:first-child,
 		a {
-			margin-right: 1rem;
+			margin-right: em(20, 14);
 		}
 
 		span:last-child {
 			float: right;
+			a {
+				margin-right: 0;
+			}
 		}
 	}
 }
