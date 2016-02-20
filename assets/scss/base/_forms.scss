@@ -83,12 +83,21 @@ input[type="email"].not-valid {
 	button {
 		@include font('secondary');
 		@include font-size(16);
-		border: 1px solid color('brand');
-		color: color('lighter-grey');
+		border: none;
+		color: color('body');
+		background: color('white');
 	}
 
 	button {
 		text-transform: uppercase;
+		&:hover,
+		&:active,
+		&:focus {
+			background: color('brand');
+			color: color('white');
+			border:none;
+			transition: none;
+		}
 	}
 }
 

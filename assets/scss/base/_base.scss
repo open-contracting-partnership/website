@@ -39,19 +39,19 @@ dl {
 }
 
 .text--bigger {
-	@include font-size(18);
+	@include font-size(22);
 }
 
 .text--mini {
-	@include font-size(14);
+	@include font-size(16);
 }
 
 .text--micro {
-	@include font-size(12);
+	@include font-size(14);
 }
 
 .text--nano {
-	@include font-size(10);
+	@include font-size(12);
 }
 
 small {
