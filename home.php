@@ -2,6 +2,46 @@
 
 <?php get_header(); ?>
 
+	<?php
+
+		// get a feed of blog posts, this will include news post types,
+		// as well as invluding taxonomies to filter on, e.g. issue
+
+		$blog_posts = vue_posts([
+			'query' => array(
+				'post_type' => ['post', 'news'],
+				'posts_per_page' => -1
+			),
+			'ignore' => ['content', 'excerpt', 'slug'],
+			'taxonomies' => ['issue'],
+			'custom' => array(
+				'authors' => function() {
+					return get_authors();
+				},
+				'post_type' => function() {
+					return get_post_type_label();
+				},
+				'thumbnail' => function() {
+
+					$image = get_the_post_thumbnail(NULL, '2x1_460');
+
+					if ( trim($image) === '' ) {
+						$image = FALSE;
+					}
+
+					return $image;
+
+				}
+			)
+		]);
+
+		$issue_terms = array_values(get_terms('issue', [
+			'post_type' => ['post', 'news'],
+			'fields' => 'all'
+		]));
+
+	?>
+
 	<div id="blog-posts" class="wrapper / blog__container">
 
 		<?php $exclude_ids = []; ?>
@@ -122,7 +162,7 @@
 					<form action="#" class="posts-filter__form / custom-checkbox">
 
 						<label v-for="issue in issue_terms">
-							<input type="checkbox" name="name" value="{{ issue.slug }}" v-model="filter_resource_type" />
+							<input type="checkbox" value="{{ issue.slug }}" v-model="filter_issue" />
 							<span><svg><use xlink:href="#icon-close"></svg></span>
 							{{ issue.name }}
 						</label>
@@ -132,43 +172,6 @@
 				</div>
 
 			</div>
-
-			<?php
-
-				// get a feed of blog posts, this will include news post types,
-				// as well as invluding taxonomies to filter on, e.g. issue
-
-				$blog_posts = vue_posts([
-					'query' => array(
-						'post_type' => ['post', 'news'],
-						'posts_per_page' => -1
-					),
-					'ignore' => ['content', 'excerpt', 'slug'],
-					'taxonomies' => ['issue'],
-					'custom' => array(
-						'authors' => function() {
-							return get_authors();
-						},
-						'post_type' => function() {
-							return get_post_type_label();
-						},
-						'thumbnail' => function() {
-
-							$image = get_the_post_thumbnail(NULL, '2x1_460');
-
-							if ( trim($image) === '' ) {
-								$image = FALSE;
-							}
-
-							return $image;
-
-						}
-					)
-				]);
-
-				$issue_terms = array_values(get_terms('issue'));
-
-			?>
 
 			<div class="blog__post-items">
 
@@ -198,7 +201,7 @@
 		</div>
 
 		<div class="post-object__content">
-			<p class="post-object__meta">{{ post.custom.authors }}&nbsp;&nbsp;{{ post.date }}</p>
+			<p class="post-object__meta">{{{ post.custom.authors }}}&nbsp;&nbsp;{{ post.date }}</p>
 			<h4><?php the_title(); ?></h4>
 		</div>
 
@@ -258,7 +261,7 @@
 
 			watch: {
 
-				'filter_issue':  function() {
+				filter_issue: function() {
 					this.filter();
 				}
 
@@ -267,7 +270,18 @@
 			computed: {
 
 				visiblePosts: function() {
-					return this.posts.slice(0, this.limit);
+
+					var posts = [];
+
+					this.posts.forEach(function(post) {
+
+						if ( post.display === true ) {
+							posts.push(post);
+						}
+
+					});
+
+					return posts.slice(0, this.limit);
 				}
 
 			},
@@ -278,7 +292,6 @@
 
 					if ( this.limit < this.posts.length ) {
 						this.limit += 12;
-						console.log('incresing post limit');
 					}
 
 				},
@@ -287,34 +300,18 @@
 
 					// reset all resources
 
-					this.resources.forEach(function(resource, index) {
-						resource.display = true;
+					this.posts.forEach(function(post, index) {
+						post.display = true;
 					});
 
-					// apply search
+					// apply issue filter
 
-					if ( this.search !== "" ) {
+					if ( this.filter_issue.length ) {
 
-						var re = new RegExp(this.search, "gi");
+						this.posts.forEach(function(post, index) {
 
-						this.resources.forEach(function(resource, index) {
-
-							if ( resource.title.match(re) === null ) {
-								resource.display = false;
-							}
-
-						});
-
-					}
-
-					// apply resource type filter
-
-					if ( this.filter_resource_type.length ) {
-
-						this.resources.forEach(function(resource, index) {
-
-							if ( ! intersection(Object.keys(resource.taxonomies['resource-type']), this.filter_resource_type) ) {
-								resource.display = false;
+							if ( intersection(Object.keys(post.taxonomies['issue']), this.filter_issue).length === 0 ) {
+								post.display = false;
 							}
 
 						}.bind(this));
@@ -322,11 +319,6 @@
 					}
 
 
-				},
-
-				reset: function() {
-					this.search = "";
-					this.filter_issue = [];
 				},
 
 				hasTerms: function(taxonomy) {
@@ -337,11 +329,26 @@
 
 		});
 
-		var intersection = function (haystack, arr) {
-			return arr.some(function (v) {
-				return haystack.indexOf(v) >= 0;
-			});
-		};
+		var intersection = function (a, b) {
+
+			var ai=0, bi=0;
+			var result = new Array();
+
+			while( ai < a.length && bi < b.length ) {
+
+				if      (a[ai] < b[bi] ){ ai++; }
+				else if (a[ai] > b[bi] ){ bi++; }
+				else {
+					result.push(a[ai]);
+					ai++;
+					bi++;
+				}
+
+			}
+
+			return result;
+
+		}
 
 	</script>
 
