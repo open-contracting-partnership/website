@@ -184,7 +184,7 @@ function the_post_type_label($post_type = NULL, $plural = FALSE) {
 	echo get_post_type_label($post_type, $plural);
 }
 
-function get_authors() {
+function get_post_authors() {
 
 	// set the initial authors array as the normal post author...
 	$authors = array(get_author_object());
@@ -232,11 +232,11 @@ function get_author_object($author_id = NULL) {
 
 }
 
-function the_authors($with_links = FALSE) {
+function get_authors($with_links = FALSE) {
 
 	$link_template = '<a href="%s">%s</a>';
 
-	$authors = get_authors();
+	$authors = get_post_authors();
 
 	foreach ( $authors as $key => $author ) {
 
@@ -248,8 +248,13 @@ function the_authors($with_links = FALSE) {
 
 	}
 
-	echo array_multi_implode(', ', ' and ', $authors);
+	return array_multi_implode(', ', ' and ', $authors);
 
+}
+
+
+function the_authors($with_links = FALSE) {
+	echo get_authors($with_links);
 }
 
 function share_links() {
@@ -395,7 +400,7 @@ add_filter('the_title', function($title) {
 		array_pop($arr);
 		$title = implode(' ',$arr);
 	}
-	
+
 	return $title;
 
 
