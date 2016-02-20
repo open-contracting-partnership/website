@@ -115,16 +115,7 @@ $susy: (
 // FONTS
 
 $fonts: (
-    primary: (
-        family: 'proxima-nova-condensed',
-        fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-        weights: (
-            regular: 400,
-            bold: 700
-        ),
-        typekit: false
-    ),
-	primary-alt: (
+	primary: (
 		family: 'source-sans-pro',
 		fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
 		weights: (
