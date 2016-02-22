@@ -620,7 +620,7 @@ textarea {
   display: -ms-flexbox;
   display: flex; }
   .flex-field input {
-    margin-right: .5rem; }
+    margin-right: .5em; }
 
 ::-webkit-input-placeholder {
   /* Safari, Chrome and Opera */
@@ -766,7 +766,7 @@ td {
   margin-bottom: 2em; }
 
 .site-footer__follow {
-  margin-bottom: 3rem; }
+  margin-bottom: 3em; }
   .site-footer__follow svg {
     width: 1em;
     height: 1em;
@@ -830,7 +830,7 @@ td {
       margin-right: 0.93458%; } }
 
 .site-copyright {
-  padding: .9rem 0;
+  padding: .9em 0;
   background-color: #26262B; }
   .site-copyright span a,
   .site-copyright span:last-child {
@@ -891,7 +891,7 @@ td {
     border-left: 1px solid #69696B; }
 
 .header-social {
-  margin-top: 1.3rem; }
+  margin-top: 1.3em; }
   .header-social > a {
     font-size: 14px;
     font-size: 0.7rem;
@@ -909,7 +909,7 @@ td {
     margin-left: .3em; }
 
 .header-language {
-  margin: 1.75rem 0 0 2rem; }
+  margin: 1.75em 0 0 2em; }
 
 .header-search {
   margin-left: 2em; }
@@ -1667,8 +1667,7 @@ input[type="submit"] {
   clear: both;
   overflow: hidden;
   display: block;
-  margin-bottom: 2em;
-  padding: 3.75em 0; }
+  margin-bottom: 2em; }
 
 .page-strip__media {
   margin-bottom: 3em; }
@@ -1687,7 +1686,7 @@ input[type="submit"] {
     margin-right: 0;
     margin-right: 16.82243%; } }
 
-.page-strip__content p:last-child {
+.page-strip__content > :last-child {
   margin-bottom: 0; }
 
 @media screen and (min-width: 1024px) {
@@ -1703,6 +1702,12 @@ input[type="submit"] {
 
 .page-strip--brand {
   background-color: #D6E100; }
+
+.page-strip--teal,
+.page-strip--dark-background,
+.page-strip--background,
+.page-strip--teal {
+  padding: 3.75em 0; }
 
 .page-strip--teal,
 .page-strip--dark-background,
@@ -2960,7 +2965,7 @@ a.post-object:focus {
 
 .page-sidebar {
   margin-top: 0;
-  margin-bottom: 10em; }
+  margin-bottom: 10rem; }
   @media screen and (min-width: 640px) {
     .page-sidebar {
       width: 24.29907%;
@@ -2977,7 +2982,7 @@ a.post-object:focus {
   margin-bottom: 3.5rem; }
 
 .page-content {
-  margin-bottom: 10em; }
+  margin-bottom: 10rem; }
   @media screen and (min-width: 640px) {
     .page-content {
       width: 49.53271%;
