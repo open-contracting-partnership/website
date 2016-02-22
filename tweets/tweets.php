@@ -134,20 +134,13 @@
 						$tweet_desc = $tweet->text;
 
 						// Add hyperlink html tags to any urls, twitter ids or hashtags in the tweet.
-						$tweet_desc = preg_replace("/((http)+(s)?:\/\/[^<>\s]+)/i", "<a href=\"\\0\" target=\"_blank\">\\0</a>", $tweet_desc );
-						$tweet_desc = preg_replace("/[@]+([A-Za-z0-9-_]+)/", "<a href=\"http://twitter.com/\\1\" target=\"_blank\">\\0</a>", $tweet_desc );
-						$tweet_desc = preg_replace("/[#]+([A-Za-z0-9-_]+)/", "<a href=\"http://twitter.com/search?q=%23\\1\" target=\"_blank\">\\0</a>", $tweet_desc );
+						$tweet_desc = preg_replace("/((http)+(s)?:\/\/[^<>\s]+)/i", "<a href=\"\\0\" class=\"tweet__link\" target=\"_blank\">\\0</a>", $tweet_desc );
+						$tweet_desc = preg_replace("/[@]+([A-Za-z0-9-_]+)/", "<a href=\"http://twitter.com/\\1\" class=\"tweet__hashtag\" target=\"_blank\">\\0</a>", $tweet_desc );
+						$tweet_desc = preg_replace("/[#]+([A-Za-z0-9-_]+)/", "<a href=\"http://twitter.com/search?q=%23\\1\" class=\"tweet__mention\" target=\"_blank\">\\0</a>", $tweet_desc );
 
 						// replace t.co links with expanded link, if present
 						$entities = $tweet->entities;
 
-						if ( isset($entities->urls) && ! empty($entities->urls) ) {
-
-							foreach ( $entities->urls as $url ) {
-								$tweet_desc = str_replace($url->url, $url->expanded_url, $tweet_desc);
-							}
-
-						}
 						$tweets[$tweet->id]['content'] = html_entity_decode($tweet_desc);
 
 						// Convert Tweet display time to a UNIX timestamp. Twitter timestamps are in UTC/GMT time.
