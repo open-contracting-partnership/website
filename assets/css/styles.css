@@ -145,7 +145,7 @@ em {
   font-style: italic; }
 
 blockquote {
-  padding: 0  0 0 1.5rem;
+  padding: 0  0 0 1.5em;
   margin: 0 0 1.5em;
   border-left: 10px solid #D6E100; }
   blockquote p {
@@ -1686,6 +1686,9 @@ input[type="submit"] {
     float: right;
     margin-right: 0;
     margin-right: 16.82243%; } }
+
+.page-strip__content p:last-child {
+  margin-bottom: 0; }
 
 @media screen and (min-width: 1024px) {
   .page-strip--reverse .page-strip__content {

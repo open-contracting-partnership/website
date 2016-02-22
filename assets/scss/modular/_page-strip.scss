@@ -22,6 +22,10 @@
 		@include span(6 at 5 of 12 last);
 		margin-right: span(2 of 12) + gutter();
 	}
+
+	p:last-child {
+		margin-bottom: 0;
+	}
 }
 
 .page-strip--reverse {
