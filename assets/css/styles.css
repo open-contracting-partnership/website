@@ -2523,7 +2523,8 @@ a.post-object:focus {
   .blog__subscribe {
     width: 32.71028%;
     float: right;
-    margin-right: 0; } }
+    margin-right: 0;
+    padding: 0 1.1em; } }
 
 .blog__subscribe input[type="email"],
 .blog__subscribe button {
