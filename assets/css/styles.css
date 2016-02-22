@@ -2627,20 +2627,13 @@ a.post-object:focus {
   color: #4D4D54; }
   .blog__subscribe-follow a {
     color: #4D4D54;
-    position: relative; }
-    .blog__subscribe-follow a:before {
-      position: absolute;
-      display: block;
-      content: '';
-      top: 100%;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: #9BAF00; }
-    .blog__subscribe-follow a:hover, .blog__subscribe-follow a:active {
-      text-decoration: none; }
-      .blog__subscribe-follow a:hover:before, .blog__subscribe-follow a:active:before {
-        background: #D6E100; }
+    position: relative;
+    border-bottom: 2px solid #9BAF00;
+    -webkit-transition: border .3s ease;
+            transition: border .3s ease; }
+    .blog__subscribe-follow a:hover, .blog__subscribe-follow a:active, .blog__subscribe-follow a:focus {
+      text-decoration: none;
+      border-bottom-color: #D6E100; }
 
 .blog__recent-news {
   clear: both; }
