@@ -2811,6 +2811,24 @@ a.post-object:focus {
       text-decoration: none; }
     .homepage-filter__twitter a:focus {
       text-decoration: underline; }
+  .homepage-filter__twitter .tweet__mention,
+  .homepage-filter__twitter .tweet__hashtag {
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #FFF;
+    text-decoration: none; }
+    .homepage-filter__twitter .tweet__mention:hover, .homepage-filter__twitter .tweet__mention:active,
+    .homepage-filter__twitter .tweet__hashtag:hover,
+    .homepage-filter__twitter .tweet__hashtag:active {
+      text-decoration: underline; }
+    .homepage-filter__twitter .tweet__mention:focus,
+    .homepage-filter__twitter .tweet__hashtag:focus {
+      text-decoration: none; }
+  .homepage-filter__twitter .tweet__link {
+    font-size: 20px;
+    font-size: 1rem; }
 
 .homepage-map {
   background-color: #323238; }

@@ -187,6 +187,26 @@
 			text-decoration: underline;
 		}
 	}
+
+	.tweet__mention,
+	.tweet__hashtag {
+		@include font('secondary', 'bold');
+		color: color('white');
+		text-decoration: none;
+
+		&:hover,
+		&:active {
+			text-decoration: underline;
+		}
+
+		&:focus {
+			text-decoration: none;
+		}
+	}
+
+	.tweet__link {
+		@include font-size(20);
+	}
 }
 
 .homepage-map {
