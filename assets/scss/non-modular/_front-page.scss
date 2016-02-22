@@ -166,6 +166,15 @@
 	background-color: color('dark-background');
 	padding: 3rem 1.5rem;
 
+	svg {
+		display: inline;
+		fill: color('twitter');
+		width: 2em;
+		height: 2em;
+		vertical-align: bottom;
+		margin-right: .5em;
+	}
+
 	p {
 		margin-bottom: 0;
 	}
@@ -186,6 +195,26 @@
 		&:focus {
 			text-decoration: underline;
 		}
+	}
+
+	.tweet__mention,
+	.tweet__hashtag {
+		@include font('secondary', 'bold');
+		color: color('white');
+		text-decoration: none;
+
+		&:hover,
+		&:active {
+			text-decoration: underline;
+		}
+
+		&:focus {
+			text-decoration: none;
+		}
+	}
+
+	.tweet__link {
+		@include font-size(20);
 	}
 }
 

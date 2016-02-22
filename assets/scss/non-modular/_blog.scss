@@ -92,7 +92,7 @@
 
 	@include break;
 
-	@include mq(1300) {
+	@include mq(L) {
 		@include span(8 of 12);
 	}
 
@@ -135,7 +135,7 @@
 
 .blog__event {
 
-	@include mq(1300) {
+	@include mq(L) {
 		@include span(4 of 12 last);
 		display: block;
 	}
@@ -152,7 +152,6 @@
 	}
 
 }
-
 
 
  //*************

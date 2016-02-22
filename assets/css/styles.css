@@ -290,6 +290,14 @@ tbody tr a {
     text-decoration: none;
     background-color: #D6E100; }
 
+input,
+textarea,
+button,
+select,
+label,
+a {
+  -webkit-tap-highlight-color: transparent; }
+
 /*------------------------------------*	HEADINGS
 \*------------------------------------*/
 h1,
@@ -1717,24 +1725,50 @@ a.post-object:focus {
   background-color: #FFF;
   color: #4D4D54; }
 
-.home .post-object {
-  background-color: #323238; }
-  .home .post-object h4 {
+.post-object--panel {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #FFF;
+  padding: 1.6em; }
+  .post-object--panel[data-type='news'] {
+    background-color: #6991f5; }
+  .post-object--panel[data-type='showcase'] {
+    background-color: #fb6045; }
+  .post-object--panel[data-type='report'] {
+    background-color: #23b2a7; }
+  .post-object--panel .post-object--panel__tag,
+  .post-object--panel .post-object--panel__meta {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block; }
+  .post-object--panel .post-object--panel__tag {
     font-weight: 700;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 22px;
-    font-size: 1.1rem;
-    color: #ECECEC;
-    background-color: #6c75e1;
-    padding: 0; }
-  .home .post-object p {
-    font-weight: 400;
+    font-size: 20px;
+    font-size: 1rem;
+    margin-bottom: .7em; }
+  .post-object--panel .post-object--panel__meta {
+    font-size: 16px;
+    font-size: 0.8rem;
+    margin-bottom: 1.7em;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+    .post-object--panel .post-object--panel__meta span {
+      margin-left: 1em; }
+  .post-object--panel h4 {
+    font-weight: 700;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #D5D5D7; }
+    font-size: 32px;
+    font-size: 1.6rem;
+    margin: 0; }
 
 .home .post-object--horizontal {
   height: 7.7em; }
@@ -2550,7 +2584,7 @@ a.post-object:focus {
 
 .blog__recent-news {
   clear: both; }
-  @media screen and (min-width: 1300px) {
+  @media screen and (min-width: 1024px) {
     .blog__recent-news {
       width: 66.35514%;
       float: left;
@@ -2581,7 +2615,7 @@ a.post-object:focus {
       padding-right: 0;
       border-right: 0; } }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1024px) {
   .blog__event {
     width: 32.71028%;
     float: right;
@@ -2797,6 +2831,13 @@ a.post-object:focus {
   font-size: 1.25rem;
   background-color: #323238;
   padding: 3rem 1.5rem; }
+  .homepage-filter__twitter svg {
+    display: inline;
+    fill: #00aced;
+    width: 2em;
+    height: 2em;
+    vertical-align: bottom;
+    margin-right: .5em; }
   .homepage-filter__twitter p {
     margin-bottom: 0; }
   .homepage-filter__twitter b {
@@ -2811,6 +2852,24 @@ a.post-object:focus {
       text-decoration: none; }
     .homepage-filter__twitter a:focus {
       text-decoration: underline; }
+  .homepage-filter__twitter .tweet__mention,
+  .homepage-filter__twitter .tweet__hashtag {
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #FFF;
+    text-decoration: none; }
+    .homepage-filter__twitter .tweet__mention:hover, .homepage-filter__twitter .tweet__mention:active,
+    .homepage-filter__twitter .tweet__hashtag:hover,
+    .homepage-filter__twitter .tweet__hashtag:active {
+      text-decoration: underline; }
+    .homepage-filter__twitter .tweet__mention:focus,
+    .homepage-filter__twitter .tweet__hashtag:focus {
+      text-decoration: none; }
+  .homepage-filter__twitter .tweet__link {
+    font-size: 20px;
+    font-size: 1rem; }
 
 .homepage-map {
   background-color: #323238; }
