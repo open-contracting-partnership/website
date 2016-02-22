@@ -48,4 +48,6 @@
 
 	</div> <!-- / .wrapper -->
 
+	<?php get_partial('page', 'strips'); ?>
+
 <?php get_footer(); ?>

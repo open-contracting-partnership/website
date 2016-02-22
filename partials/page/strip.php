@@ -1,17 +1,37 @@
-<section class="page-strip page-strip--reverse page-strip--brand page-strip--teal page-strip--dark-background page-strip--background">
+<?php
+
+	$options = get_partial_options($options, array(
+		'reverse' => FALSE,
+		'colour' => NULL
+	));
+
+	$classes = ['page-strip'];
+
+	if ( get_sub_field('float') === 'left' ) {
+		$classes[] = 'page-strip--reverse';
+	}
+
+	if ( $colour = get_sub_field('colour') ) {
+		$classes[] = 'page-strip--' . $colour;
+	}
+
+?>
+
+
+<section class="<?php echo implode(' ', $classes); ?>">
 
 	<div class="wrapper">
 
-		<div class="page-strip__media">
-			<img src="//placehold.it/500x350" alt="" />
-		</div>
+		<?php if ( $image = get_sub_field('image') ) : ?>
+
+			<div class="page-strip__media">
+				<img src="<?php echo $image['url']; ?>" alt="" />
+			</div>
+
+		<?php endif; ?>
 
 		<div class="page-strip__content">
-
-			<h3>The Title</h3>
-
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
+			<?php the_sub_field('content'); ?>
 		</div>
 
 	</div>
