@@ -166,7 +166,7 @@
 					<time>{{resource.custom.year}}</time>
 				</p>
 
-				<a href="{{resource.link}}" v-on:click="openResource(resource, $event)"><h4>{{resource.open | json}} {{resource.title}}</h4></a>
+				<a href="{{resource.link}}" v-on:click="openResource(resource, $event)"><h4>{{{resource.title}}}</h4></a>
 
 			</div>
 
