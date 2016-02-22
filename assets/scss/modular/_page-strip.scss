@@ -1,0 +1,50 @@
+.page-strip {
+	@include break;
+	overflow: hidden;
+	display: block;
+	margin-bottom: em(40);
+	padding: em(75) 0;
+}
+
+.page-strip__media {
+	@include span(5 of 12 first);
+	padding-right: span(1 of 12) / 2;
+}
+
+.page-strip__content {
+	@include span(6 of 12);
+}
+
+.page-strip--reverse {
+
+	.page-strip__content {
+		@include span(6 at 2 of 12 first);
+		margin-left: span(1 of 12) + gutter();
+	}
+
+	.page-strip__media {
+		@include span(5 at 7 of 12 last);
+	}
+}
+
+.page-strip--brand {
+	background-color: color('brand');
+}
+
+.page-strip--teal,
+.page-strip--dark-background,
+.page-strip--background {
+	color: color('white');
+}
+
+.page-strip--teal {
+	background-color: color('teal');
+}
+
+.page-strip--dark-background {
+	background-color: color('dark-background');
+}
+
+.page-strip--background {
+	background-color: color('background');
+}

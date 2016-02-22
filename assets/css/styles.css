@@ -1667,6 +1667,52 @@ input[type="submit"] {
   overflow: hidden;
   display: block; }
 
+.page-strip {
+  clear: both;
+  overflow: hidden;
+  display: block;
+  margin-bottom: 2em;
+  padding: 3.75em 0; }
+
+.page-strip__media {
+  width: 41.1215%;
+  float: left;
+  margin-right: 0.93458%;
+  padding-right: 3.73832%; }
+
+.page-strip__content {
+  width: 49.53271%;
+  float: left;
+  margin-right: 0.93458%; }
+
+.page-strip--reverse .page-strip__content {
+  width: 49.53271%;
+  float: left;
+  margin-right: 0.93458%;
+  margin-left: 8.41121%; }
+
+.page-strip--reverse .page-strip__media {
+  width: 41.1215%;
+  float: right;
+  margin-right: 0; }
+
+.page-strip--brand {
+  background-color: #D6E100; }
+
+.page-strip--teal,
+.page-strip--dark-background,
+.page-strip--background {
+  color: #FFF; }
+
+.page-strip--teal {
+  background-color: #23b2a7; }
+
+.page-strip--dark-background {
+  background-color: #323238; }
+
+.page-strip--background {
+  background-color: #4D4D54; }
+
 .post-object {
   display: block;
   margin-bottom: 0.5em;
