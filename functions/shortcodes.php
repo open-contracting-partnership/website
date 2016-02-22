@@ -1,5 +1,9 @@
 <?php // functions/shortcodes.php
 
+
+ //********
+// SECTION
+
 add_shortcode('section', function($atts, $content = null) {
 	return '<p class="section__title" id="' . sanitize_title($content) . '"><span class="button">' . strip_tags($content) . '</span></p>';
 });
@@ -27,3 +31,18 @@ function get_sections() {
 	return $sections;
 
 }
+
+
+ //*****
+// PULL
+
+
+add_shortcode('pull', function($atts, $content = null) {
+
+	$find = ['<div class="pull"></p>', '<p></div>'];
+	$replace = ['<div class="pull">', '</div>'];
+
+	// var_Dump($content);
+	return str_replace($find, $replace, '<div class="pull">' . trim(wpautop($content)) . '</div>');
+
+});

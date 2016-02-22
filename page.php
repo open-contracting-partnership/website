@@ -4,7 +4,7 @@
 
 	<?php the_post(); ?>
 
-	<div class="wrapper / page--padding">
+	<div class="wrapper / page__wrapper / page--padding">
 
 		<aside class="page-sidebar">
 
