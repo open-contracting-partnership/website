@@ -25,7 +25,7 @@
 		<?php if ( $image = get_sub_field('image') ) : ?>
 
 			<div class="page-strip__media">
-				<img src="<?php echo $image['url']; ?>" alt="" />
+				<img src="<?php echo $image['sizes']['large']; ?>" alt="" />
 			</div>
 
 		<?php endif; ?>
