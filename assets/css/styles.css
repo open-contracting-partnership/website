@@ -1075,10 +1075,6 @@ td {
 
 /*------------------------------------*    NAVIGATION
 \*------------------------------------*/
-nav h4 {
-  text-transform: uppercase;
-  margin-bottom: 2em; }
-
 .nav {
   list-style-type: none;
   padding: 0;
@@ -1283,8 +1279,8 @@ nav h4 {
     border-right: 0;
     padding-right: 0; }
   .primary-nav a {
-    font-size: 18px;
-    font-size: 0.9rem;
+    font-size: 16px;
+    font-size: 0.8rem;
     color: #FFF;
     padding: 1.38889em 0 1.11111em;
     border-bottom: 5px solid transparent; }
