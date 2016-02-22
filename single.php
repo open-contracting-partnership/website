@@ -54,11 +54,11 @@
 							'meta_query' => ['relation' => 'OR']
 						);
 
-						foreach ( $open_contracting as $value ) {
+						foreach ( $open_contracting as $term ) {
 
 							$query['meta_query'][] = array(
 								'key' => 'open_contracting',
-								'value' => '"' . $value . '"',
+								'value' => '"' . $slug->term . '"',
 								'compare' => "LIKE"
 							);
 
