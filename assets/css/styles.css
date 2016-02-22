@@ -1675,26 +1675,32 @@ input[type="submit"] {
   padding: 3.75em 0; }
 
 .page-strip__media {
-  width: 41.1215%;
-  float: left;
-  margin-right: 0.93458%;
-  padding-right: 3.73832%; }
+  margin-bottom: 3em; }
+  @media screen and (min-width: 1024px) {
+    .page-strip__media {
+      width: 32.71028%;
+      float: left;
+      margin-right: 0.93458%;
+      padding-right: 3.73832%;
+      margin-bottom: 0; } }
 
-.page-strip__content {
-  width: 49.53271%;
-  float: left;
-  margin-right: 0.93458%; }
+@media screen and (min-width: 1024px) {
+  .page-strip__content {
+    width: 49.53271%;
+    float: right;
+    margin-right: 0;
+    margin-right: 16.82243%; } }
 
-.page-strip--reverse .page-strip__content {
-  width: 49.53271%;
-  float: left;
-  margin-right: 0.93458%;
-  margin-left: 8.41121%; }
-
-.page-strip--reverse .page-strip__media {
-  width: 41.1215%;
-  float: right;
-  margin-right: 0; }
+@media screen and (min-width: 1024px) {
+  .page-strip--reverse .page-strip__content {
+    width: 49.53271%;
+    float: left;
+    margin-right: 0.93458%;
+    margin-left: 8.41121%; }
+  .page-strip--reverse .page-strip__media {
+    width: 41.1215%;
+    float: right;
+    margin-right: 0; } }
 
 .page-strip--brand {
   background-color: #D6E100; }

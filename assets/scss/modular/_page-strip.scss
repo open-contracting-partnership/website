@@ -7,23 +7,34 @@
 }
 
 .page-strip__media {
-	@include span(5 of 12 first);
-	padding-right: span(1 of 12) / 2;
+	margin-bottom: 3em;
+
+	@include mq(L) {
+		@include span(4 of 12 first);
+		padding-right: span(1 of 12) / 2;
+		margin-bottom: 0;
+	}
 }
 
 .page-strip__content {
-	@include span(6 of 12);
+
+	@include mq(L) {
+		@include span(6 at 5 of 12 last);
+		margin-right: span(2 of 12) + gutter();
+	}
 }
 
 .page-strip--reverse {
 
-	.page-strip__content {
-		@include span(6 at 2 of 12 first);
-		margin-left: span(1 of 12) + gutter();
-	}
+	@include mq(L) {
+		.page-strip__content {
+			@include span(6 at 2 of 12 first);
+			margin-left: span(1 of 12) + gutter();
+		}
 
-	.page-strip__media {
-		@include span(5 at 7 of 12 last);
+		.page-strip__media {
+			@include span(5 at 7 of 12 last);
+		}
 	}
 }
 
