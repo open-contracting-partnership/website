@@ -290,6 +290,14 @@ tbody tr a {
     text-decoration: none;
     background-color: #D6E100; }
 
+input,
+textarea,
+button,
+select,
+label,
+a {
+  -webkit-tap-highlight-color: transparent; }
+
 /*------------------------------------*	HEADINGS
 \*------------------------------------*/
 h1,
