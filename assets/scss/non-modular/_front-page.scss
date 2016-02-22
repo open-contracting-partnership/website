@@ -166,6 +166,15 @@
 	background-color: color('dark-background');
 	padding: 3rem 1.5rem;
 
+	svg {
+		display: inline;
+		fill: color('twitter');
+		width: 2em;
+		height: 2em;
+		vertical-align: bottom;
+		margin-right: .5em;
+	}
+
 	p {
 		margin-bottom: 0;
 	}

@@ -2823,6 +2823,13 @@ a.post-object:focus {
   font-size: 1.25rem;
   background-color: #323238;
   padding: 3rem 1.5rem; }
+  .homepage-filter__twitter svg {
+    display: inline;
+    fill: #00aced;
+    width: 2em;
+    height: 2em;
+    vertical-align: bottom;
+    margin-right: .5em; }
   .homepage-filter__twitter p {
     margin-bottom: 0; }
   .homepage-filter__twitter b {
