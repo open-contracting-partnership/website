@@ -22,6 +22,7 @@
 
 	@include mq(L) {
 		@include span(4 of 12 last);
+		padding: 0 em(22);
 	}
 
 	input[type="email"],
