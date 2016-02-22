@@ -2,11 +2,6 @@
     NAVIGATION
 \*------------------------------------*/
 
-nav h4 {
-	text-transform: uppercase;
-	margin-bottom: 2em;
-}
-
 .nav {
 	@extend .cf;
 	list-style-type: none;
@@ -277,7 +272,7 @@ nav h4 {
 	}
 
 	a {
-		@include font-size(18);
+		@include font-size(16);
 		color: color('white');
 		padding: em(25, 18) 0 em(20, 18);
 		border-bottom: 5px solid transparent;
