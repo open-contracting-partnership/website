@@ -82,6 +82,16 @@
 
 			<p class="blog__subscribe-follow">Alternatively, follow us on <a href="#">Facebook</a>, <a href="#">Twitter</a>, &amp; <a href="#">Linkedin</a></p>
 
+			<div class="blog__event blog__event--medium">
+
+				<h4 class="border-top border-top--blue border-top--clean">Upcoming Events</h4>
+
+				<?php get_partial('post-object', 'event'); ?>
+
+				<a class="view-more" href="#">View all events</a>
+
+			</div>
+
 		</div>
 
 		<div class="blog__recent-news / band--thick">

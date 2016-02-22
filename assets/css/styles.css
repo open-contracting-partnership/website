@@ -2607,6 +2607,10 @@ a.post-object:focus {
       padding-right: 0;
       border-right: 0; } }
 
+@media screen and (min-width: 1024px) {
+  .blog__event {
+    display: none; } }
+
 @media screen and (min-width: 1300px) {
   .blog__event {
     width: 32.71028%;
@@ -2627,6 +2631,18 @@ a.post-object:focus {
   display: inline-block;
   float: right;
   clear: both; }
+
+.blog__event--medium {
+  display: none; }
+  @media screen and (min-width: 1024px) {
+    .blog__event--medium {
+      display: block; } }
+  @media screen and (min-width: 1300px) {
+    .blog__event--medium {
+      display: none; } }
+  .blog__event--medium .post-object h4 {
+    font-size: 22px;
+    font-size: 1.1rem; }
 
 .blog__popular-tags {
   display: none;

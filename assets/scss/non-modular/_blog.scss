@@ -135,6 +135,10 @@
 
 .blog__event {
 
+	@include mq(1024) {
+		display: none;
+	}
+
 	@include mq(1300) {
 		@include span(4 of 12 last);
 		display: block;
@@ -151,6 +155,22 @@
 		clear: both;
 	}
 
+}
+
+.blog__event--medium {
+	display: none;
+
+	@include mq(1024) {
+		display: block;
+	}
+
+	@include mq(1300) {
+		display: none;
+	}
+
+	.post-object h4 {
+		@include font-size(22);
+	}
 }
 
 
