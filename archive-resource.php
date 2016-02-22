@@ -99,7 +99,7 @@
 			<h1 class="gamma">{{ open_resource.title }}</h1>
 
 			<p class="resource__meta">
-				<span class="resource__published-date">{{ open_resource.date }}</span>
+				<span class="resource__published-date">{{ open_resource.custom.year }}</span>
 				By {{ open_resource.fields.organisation}}
 			</p>
 
@@ -162,11 +162,11 @@
 			<div class="post-object__content / media__body">
 
 				<p>
-					<span><?php pll_e('By'); ?> {{resource.fields.organisation}}</span>
-					<time>{{resource.custom.year}}</time>
+					<span><?php pll_e('By'); ?> {{ resource.fields.organisation }}</span>
+					<time>{{ resource.custom.year }}</time>
 				</p>
 
-				<a href="{{resource.link}}" v-on:click="openResource(resource, $event)"><h4>{{{resource.title}}}</h4></a>
+				<a href="{{ resource.link }}" v-on:click="openResource(resource, $event)"><h4>{{{ resource.title }}}</h4></a>
 
 			</div>
 
