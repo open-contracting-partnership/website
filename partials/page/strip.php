@@ -31,6 +31,7 @@
 		<?php endif; ?>
 
 		<div class="page-strip__content">
+			<h3><?php the_sub_field('title'); ?></h3>
 			<?php the_sub_field('content'); ?>
 		</div>
 

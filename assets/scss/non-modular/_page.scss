@@ -1,6 +1,6 @@
 .page-sidebar {
 	margin-top: 0;
-	margin-bottom: rem(200);
+	margin-bottom: 1rem;
 
 	@include mq(M) {
 		@include span(3 of 12 first);
@@ -19,12 +19,14 @@
 }
 
 .page-content {
-	margin-bottom: rem(200);
+
+	margin-bottom: 1rem;
 
 	@include mq(M) {
 		@include span(6 at 4 of 12);
 		margin-left: span(1 of 12) + gutter();
 	}
+
 }
 
 .page--padding {
@@ -34,6 +36,10 @@
 
  //*************
 // PAGE WRAPPER
+
+.page__container {
+	margin-bottom: rem(200);
+}
 
 .page__wrapper {
 	position: relative;
