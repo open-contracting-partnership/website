@@ -1040,7 +1040,7 @@ td {
   max-width: 70em;
   margin-left: auto;
   margin-right: auto;
-  max-width: 77.78rem;
+  max-width: 72rem;
   box-sizing: border-box;
   padding: 0 1em; }
   .wrapper:after {
@@ -1699,7 +1699,9 @@ input[type="submit"] {
   .page-strip--reverse .page-strip__media {
     width: 41.1215%;
     float: right;
-    margin-right: 0; } }
+    margin-right: 0;
+    padding-left: 3.73832%;
+    padding-right: 0; } }
 
 .page-strip--brand {
   background-color: #D6E100; }
@@ -2966,7 +2968,7 @@ a.post-object:focus {
 
 .page-sidebar {
   margin-top: 0;
-  margin-bottom: 10rem; }
+  margin-bottom: 1rem; }
   @media screen and (min-width: 640px) {
     .page-sidebar {
       width: 24.29907%;
@@ -2983,7 +2985,7 @@ a.post-object:focus {
   margin-bottom: 3.5rem; }
 
 .page-content {
-  margin-bottom: 10rem; }
+  margin-bottom: 1rem; }
   @media screen and (min-width: 640px) {
     .page-content {
       width: 49.53271%;
@@ -2993,6 +2995,9 @@ a.post-object:focus {
 
 .page--padding {
   padding-top: 8em; }
+
+.page__container {
+  margin-bottom: 10rem; }
 
 .page__wrapper {
   position: relative; }
