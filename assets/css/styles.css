@@ -1698,7 +1698,9 @@ input[type="submit"] {
   .page-strip--reverse .page-strip__media {
     width: 41.1215%;
     float: right;
-    margin-right: 0; } }
+    margin-right: 0;
+    padding-left: 3.73832%;
+    padding-right: 0; } }
 
 .page-strip--brand {
   background-color: #D6E100; }
