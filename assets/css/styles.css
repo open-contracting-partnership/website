@@ -649,7 +649,8 @@ table {
   font-size: 0.8rem;
   width: 100%;
   text-align: left;
-  border-collapse: collapse; }
+  border-collapse: collapse;
+  margin-bottom: 1.5em; }
 
 th,
 td {
