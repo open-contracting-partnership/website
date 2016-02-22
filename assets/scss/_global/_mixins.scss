@@ -59,7 +59,7 @@
 }
 
 @function rem($value) {
-	@return $value / $base-font-size + em;
+	@return $value / $base-font-size + rem;
 }
 
 

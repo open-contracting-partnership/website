@@ -3,7 +3,6 @@
 	overflow: hidden;
 	display: block;
 	margin-bottom: em(40);
-	padding: em(75) 0;
 }
 
 .page-strip__media {
@@ -22,6 +21,10 @@
 		@include span(6 at 5 of 12 last);
 		margin-right: span(2 of 12) + gutter();
 	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
 }
 
 .page-strip--reverse {
@@ -38,8 +41,17 @@
 	}
 }
 
+
+
 .page-strip--brand {
 	background-color: color('brand');
+}
+
+.page-strip--teal,
+.page-strip--dark-background,
+.page-strip--background,
+.page-strip--teal {
+	padding: em(75) 0;
 }
 
 .page-strip--teal,
