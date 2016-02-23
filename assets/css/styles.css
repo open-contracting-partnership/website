@@ -145,23 +145,34 @@ em {
   font-style: italic; }
 
 blockquote {
-  padding: 0  0 0 1.5em;
+  font-size: 29px;
+  font-size: 1.45rem;
+  padding: 0 0 0 1.2069em;
   margin: 0 0 1.5em;
-  border-left: 10px solid #D6E100; }
+  position: relative; }
+  blockquote:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0.27586em;
+    left: 0;
+    height: 80%;
+    width: 10px;
+    background-color: #D6E100; }
   blockquote p {
     font-weight: 400;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
-    font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 29px;
-    font-size: 1.45rem;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1em;
     line-height: 1.4;
     margin-bottom: 0.75em; }
   blockquote footer {
-    font-size: 14px;
-    font-size: 0.7rem;
+    font-size: 0.48276em;
     text-transform: uppercase;
     display: block; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
 
 hr {
   border: 0 solid #424244;
@@ -1316,12 +1327,14 @@ td {
     border-bottom: 5px solid #D6E100; }
 
 main.menu--open {
-  margin-top: 3.85em; }
+  margin-top: 3.45em; }
 
 /*------------------------------------*    SIDEBAR
 \*------------------------------------*/
 aside,
 .sidebar {
+  font-size: 16px;
+  font-size: 0.8rem;
   margin-top: 4.5rem; }
   aside section,
   .sidebar section {
@@ -1332,10 +1345,6 @@ aside,
   aside a,
   .sidebar a {
     color: #9BAF00; }
-  aside p,
-  .sidebar p {
-    font-size: 16px;
-    font-size: 0.8rem; }
 
 /*------------------------------------*    $MODULAR
 \*------------------------------------*/
@@ -2958,6 +2967,27 @@ a.post-object:focus {
     color: #D6E100;
     display: block;
     margin-bottom: 1.5rem; }
+
+@media screen and (min-width: 1024px) {
+  .page-team__sidebar {
+    width: 32.71028%;
+    float: left;
+    margin-right: 0.93458%; } }
+
+@media screen and (min-width: 1024px) {
+  .page-team__content {
+    width: 49.53271%;
+    float: left;
+    margin-right: 0.93458%;
+    margin-left: 8.41121%; } }
+
+.page-team__sidebar {
+  padding-top: 2.75em; }
+
+@media screen and (min-width: 1024px) {
+  .team-member__image {
+    margin-left: -6.54206%;
+    margin-right: -6.54206%; } }
 
 .page-sidebar {
   margin-top: 0;

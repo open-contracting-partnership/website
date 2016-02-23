@@ -4,6 +4,8 @@
 
 aside,
 .sidebar {
+	
+	@include font-size(16);
 	margin-top: 4.5rem;
 
 	section {
@@ -18,7 +20,4 @@ aside,
 		color: color('brand-dark');
 	}
 
-	p {
-		@include font-size(16);
-	}
 }
