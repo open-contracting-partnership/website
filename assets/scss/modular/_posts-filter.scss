@@ -21,17 +21,25 @@
 }
 
 .posts-filter__button {
+	@include font('secondary', 'medium');
 	@include font-size(18);
 	padding: 1.1rem 1rem;
 	background-color: color('brand');
 	display: inline-block;
 	position: relative;
 	z-index: 10;
+	transition: background-color .4s ease;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		background-color: color('brand-dark');
+	}
 
 	svg {
 		width: 1.5em;
 		height: 1em;
-		margin-right: 1em;
+		margin-right: .8em;
 		vertical-align: text-top;
 	}
 }

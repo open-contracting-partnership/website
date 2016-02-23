@@ -1879,7 +1879,7 @@ a.post-object:focus {
   -webkit-transition: box-shadow .4s ease;
           transition: box-shadow .4s ease; }
   .post-object--panel:hover, .post-object--panel:focus {
-    box-shadow: inset 0px 0px 40px -2px rgba(0, 0, 0, 0.2); }
+    box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.3); }
     .post-object--panel:hover h4, .post-object--panel:focus h4 {
       text-decoration: none; }
   .post-object--panel[data-type='news'] {
@@ -2330,17 +2330,26 @@ a.post-object:focus {
   color: #323238; }
 
 .posts-filter__button {
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-size: 0.9rem;
   padding: 1.1rem 1rem;
   background-color: #D6E100;
   display: inline-block;
   position: relative;
-  z-index: 10; }
+  z-index: 10;
+  -webkit-transition: background-color .4s ease;
+          transition: background-color .4s ease; }
+  .posts-filter__button:hover, .posts-filter__button:focus {
+    text-decoration: none;
+    background-color: #9BAF00; }
   .posts-filter__button svg {
     width: 1.5em;
     height: 1em;
-    margin-right: 1em;
+    margin-right: .8em;
     vertical-align: text-top; }
 
 .posts-filter__form {
