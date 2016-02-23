@@ -18,8 +18,10 @@
 
 				<?php while ( have_rows('team_members') ) : the_row(); ?>
 
-					<h3><?php the_sub_field('name'); ?></h3>
-					<h5><?php the_sub_field('role'); ?></h3>
+					<a class="team-member__selector" href="#<?php echo sanitize_title(get_sub_field('name')); ?>">
+						<h3><?php the_sub_field('name'); ?></h3>
+						<h5><?php the_sub_field('role'); ?></h3>
+					</a>
 
 				<?php endwhile; ?>
 
@@ -34,7 +36,7 @@
 
 				<?php while ( have_rows('team_members') ) : the_row(); ?>
 
-					<div class="team-member" id="#<?php echo sanitize_title(get_sub_field('name')); ?>">
+					<div class="team-member" id="<?php echo sanitize_title(get_sub_field('name')); ?>">
 
 						<div class="team-member__image">
 							<img src="http://placehold.it/926x395" />
