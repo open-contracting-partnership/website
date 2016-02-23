@@ -16,8 +16,8 @@
 		</p>
 
 		<ul class="button__list">
-			<li><a href="#" class="button button--small button--uppercase button--tag">Open Gov</a></li>
-			<li><a href="#" class="button button--small button--uppercase button--tag">2016</a></li>
+			<li><a href="#" class="button button--small button--tag">Open Gov</a></li>
+			<li><a href="#" class="button button--small button--tag">2016</a></li>
 		</ul>
 
 	</div>

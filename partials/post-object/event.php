@@ -10,7 +10,7 @@
 
 		<span class="event__location">London, UK</span>
 
-		<a href="#" class="button button--small button--uppercase button--tag">Details</a>
+		<a href="#" class="button button--small button--tag">Details</a>
 
 	</div>
 
