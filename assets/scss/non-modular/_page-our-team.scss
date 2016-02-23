@@ -31,11 +31,15 @@
 
 /* a */ .team-member__selector {
 
-	display: block;
+	display: none;
 	margin-bottom: em(40);
 	color: color('light-grey');
 	transition: color .3s ease;
 	padding-left: em(22);
+
+	@include mq(L) {
+		display: block;
+	}
 
 	html.no-js & {
 		color: color('dark-background');
@@ -78,6 +82,20 @@
 		h3:before {
 			left: -1.7em;
 			opacity: 1;
+		}
+
+	}
+
+}
+
+@include mq(L) {
+
+	.team-member {
+
+		display: none;
+
+		&.active {
+			display: block;
 		}
 
 	}

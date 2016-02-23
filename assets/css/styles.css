@@ -2988,12 +2988,15 @@ a.post-object:focus {
 
 /* a */
 .team-member__selector {
-  display: block;
+  display: none;
   margin-bottom: 2em;
   color: #B7B7B7;
   -webkit-transition: color .3s ease;
           transition: color .3s ease;
   padding-left: 1.1em; }
+  @media screen and (min-width: 1024px) {
+    .team-member__selector {
+      display: block; } }
   html.no-js .team-member__selector {
     color: #323238; }
   .team-member__selector h3 {
@@ -3023,6 +3026,12 @@ a.post-object:focus {
     .team-member__selector:hover h3:before, .team-member__selector:focus h3:before, .team-member__selector:active h3:before, .team-member__selector.active h3:before {
       left: -1.7em;
       opacity: 1; }
+
+@media screen and (min-width: 1024px) {
+  .team-member {
+    display: none; }
+    .team-member.active {
+      display: block; } }
 
 @media screen and (min-width: 1024px) {
   .team-member__image {

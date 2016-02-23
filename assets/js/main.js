@@ -158,9 +158,9 @@ $(document).ready(function() {
 		var $team_member = $(this);
 
 		$team_members
-			.hide()
+			.removeClass('active')
 			.filter($team_member.attr('href'))
-				.show();
+				.addClass('active');
 
 		$('.team-member__selector').removeClass('active');
 		$team_member.addClass('active');
