@@ -145,4 +145,28 @@ $(document).ready(function() {
 
 	$('.nav--in-page li:first-child').addClass('active');
 
+
+	 //*************
+	// TEAM MEMBERS
+
+	var $team_members = $('.team-member');
+
+	$('.team-member__selector').on('click', function(event) {
+
+		event.preventDefault();
+
+		var $team_member = $(this);
+
+		$team_members
+			.removeClass('active')
+			.filter($team_member.attr('href'))
+				.addClass('active');
+
+		$('.team-member__selector').removeClass('active');
+		$team_member.addClass('active');
+
+	});
+
+	$('.team-member__selector').first().trigger('click');
+
 });

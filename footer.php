@@ -128,9 +128,17 @@
 
 							<ul class="nav nav--horizontal">
 
-								<li><a href="https://twitter.com/opencontracting" target="_blank"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
-								<li><a href="https://www.facebook.com/OpenContracting" target="_blank"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
-								<li><a href="https://www.linkedin.com/company/open-contracting-partnership" target="_blank"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
+								<?php if ( $twitter_url = get_field('twitter_url', 'options') ) : ?>
+									<li><a href="<?php echo $twitter_url; ?>" target="_blank"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
+								<?php endif; ?>
+
+								<?php if ( $facebook_url = get_field('facebook_url', 'options') ) : ?>
+									<li><a href="<?php echo $facebook_url; ?>" target="_blank"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
+								<?php endif; ?>
+
+								<?php if ( $linkedin_url = get_field('linkedin_url', 'options') ) : ?>
+									<li><a href="<?php echo $linkedin_url; ?>" target="_blank"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
+								<?php endif; ?>
 
 							</ul>
 

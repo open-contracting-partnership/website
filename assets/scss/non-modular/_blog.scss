@@ -54,6 +54,7 @@
 }
 
 .blog__subscribe-follow {
+
 	@include font('secondary', 'bold');
 	@include font-size(15);
 	color: color('background');
@@ -61,28 +62,18 @@
 	a {
 		color: color('background');
 		position: relative;
-
-		&:before {
-			position: absolute;
-			display: block;
-			content: '';
-			top: 100%;
-			left: 0;
-			right: 0;
-			height: 2px;
-			background: color('brand-dark');
-		}
+		border-bottom: 2px solid color('brand-dark');
+		transition: border .3s ease;
 
 		&:hover,
-		&:active {
+		&:active,
+		&:focus {
 			text-decoration: none;
-
-			&:before {
-				background: color('brand');
-			}
+			border-bottom-color: color('brand');
 		}
 
 	}
+
 }
 
 
