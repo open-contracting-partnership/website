@@ -1884,6 +1884,10 @@ a.post-object:focus {
     font-size: 1rem;
     margin-bottom: .7em; }
   .post-object--panel .post-object--panel__meta {
+    font-weight: 500;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-size: 0.8rem;
     margin-bottom: 1.7em;
@@ -2971,7 +2975,8 @@ a.post-object:focus {
     vertical-align: bottom;
     margin-right: .5em; }
   .homepage-filter__twitter p {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    line-height: 1.3; }
   .homepage-filter__twitter b {
     font-weight: 700;
     font-style: normal;
