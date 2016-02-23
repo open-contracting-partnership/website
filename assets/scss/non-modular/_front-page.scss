@@ -34,7 +34,7 @@
 
 .homepage-cta {
 	@include font-size(25);
-	line-height: 1.9;
+	line-height: 1.3;
 
 	@include mq(L) {
 		@include span(5 of 12 first);
@@ -42,9 +42,8 @@
 
 	p {
 		@include font(secondary, medium);
-		display: inline;
 		color: color('white');
-		line-height: 1.9;
+		line-height: 1.3;
 		padding: 5px 0;
 		display: block;
 	}
