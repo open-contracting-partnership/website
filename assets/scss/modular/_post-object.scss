@@ -107,6 +107,7 @@ a.post-object {
 	}
 
 	.post-object--panel__meta {
+		@include font('secondary', 'medium');
 		@include font-size(16);
 		margin-bottom: 1.7em;
 		display: flex;

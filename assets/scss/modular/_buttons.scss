@@ -5,26 +5,32 @@
 .button,
 button,
 input[type="submit"] {
-	@include font(secondary, medium);
-	@include font-size(16);
+	@include font('secondary', 'bold');
+	@include font-size(14);
 	display: inline-block;
 	border: 1px solid;
 	border-radius: 0;
-	padding: em(10, 16) em(15, 16);
+	padding: em(10, 14) em(15, 14);
 	text-decoration: none;
 	margin-bottom: $space / 2;
 	color: color('background');
+	background-color: transparent;
 	text-align: center;
 	vertical-align: middle;
 	white-space: nowrap;
 	background: transparent;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 	cursor: pointer;
-	transition: color .2s ease;
+	transition: background-color .2s linear,
+				border-color .2s linear;
 
 	&:hover,
 	&:active,
 	&:focus {
-		color: color('brand');
+		background-color: rgba(color('brand'), .5);
+		text-decoration: none;
+		border-color: rgba(color('brand'), .5);
 	}
 }
 
@@ -57,14 +63,15 @@ input[type="submit"] {
  //***********
 // VARIATIONS
 
-// Uppercase
-.button--uppercase {
-	text-transform: uppercase;
-}
 
 // Full bleed
 .button--block {
 	display: block;
+}
+
+// More padding
+.button--padded {
+	padding: em(15, 14) em(20, 14);
 }
 
 // Left Align

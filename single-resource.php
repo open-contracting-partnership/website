@@ -38,7 +38,7 @@
 							<ul class="button__list">
 
 								<?php foreach ( $terms as $term ) : ?>
-									<li><a href="/region/<?php echo $term->slug; ?>" class="button button--small button--uppercase button--tag"><?php echo $term->name; ?></a></li>
+									<li><a href="/region/<?php echo $term->slug; ?>" class="button button--small button--tag"><?php echo $term->name; ?></a></li>
 								<?php endforeach; ?>
 
 							</ul>
@@ -56,7 +56,7 @@
 							<ul class="button__list">
 
 								<?php foreach ( $terms as $term ) : ?>
-									<li><a href="/issue/<?php echo $term->slug; ?>" class="button button--small button--uppercase button--tag"><?php echo $term->name; ?></a></li>
+									<li><a href="/issue/<?php echo $term->slug; ?>" class="button button--small button--tag"><?php echo $term->name; ?></a></li>
 								<?php endforeach; ?>
 
 							</ul>
@@ -74,7 +74,7 @@
 							<ul class="button__list">
 
 								<?php foreach ( $terms as $term ) : ?>
-									<li><a href="/open-contracting/<?php echo $term->slug; ?>" class="button button--small button--uppercase button--tag"><?php echo $term->name; ?></a></li>
+									<li><a href="/open-contracting/<?php echo $term->slug; ?>" class="button button--small button--tag"><?php echo $term->name; ?></a></li>
 								<?php endforeach; ?>
 
 							</ul>

@@ -12,14 +12,54 @@
 
 				<p><?php the_field('strapline'); ?></p>
 
-				<a href="/about" class="button button--white"><?php pll_e('About Our Work'); ?></a>
-				<a href="/data-standard" class="button button--white"><?php pll_e('Visit the Data Standard'); ?></a>
+				<a href="/about" class="button button--padded button--white"><?php pll_e('About Our Work'); ?></a>
+				<a href="/data-standard" class="button button--padded button--white"><?php pll_e('Visit the Data Standard'); ?></a>
 
 			</div> <!-- homepage-cta -->
 
 		</div>
 
 	</div>
+
+	<section class="band band--thick">
+
+		<div class="wrapper">
+
+			<div class="cta-block__container">
+
+				<div class="cta-block cta-block--report cta-block--brand">
+
+					<img src="<?php bloginfo('template_directory'); ?>/assets/img/rocket-2.png" alt="" />
+
+					<time>05-04-2016</time>
+
+					<h2>Open Contracting in 2015: Annual Report</h2>
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed sapien quam. Sed dapibus est id enim facilisis, at posuere turpis adipiscing. Quisque sit amet dui dui.</p>
+
+					<a href="#" class="button button--padded">View report</a>
+
+				</div>
+
+				<div class="cta-block cta-block--background">
+
+					<img src="<?php bloginfo('template_directory'); ?>/assets/img/street.png" alt="" />
+
+					<h2>Implement Open Contracting</h2>
+
+					<p>Learn how to implement open contracting or use contracting data.</p>
+
+					<div><a href="#" class="button">Showcases and evidence</a></div>
+					<div><a href="#" class="button">How to get started</a></div>
+					<div><a href="#" class="button">Data standard</a></div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
 
 	<section class="homepage-contracting / band band--thick / island island--thick island--dark">
 
@@ -259,7 +299,7 @@
 		<div class="wrapper">
 
 			<div class="homepage-map__image">
-				<img src="<?php echo bloginfo('template_directory'); ?>/assets/img/map.svg" alt="Map highlighting Ukraine and Mexico" />
+				<img src="<?php bloginfo('template_directory'); ?>/assets/img/map.svg" alt="Map highlighting Ukraine and Mexico" />
 			</div>
 
 			<?php if ( have_rows('worldwide_links') ) : ?>

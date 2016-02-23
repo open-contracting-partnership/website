@@ -8,7 +8,7 @@
 	display: inline-block;
 
 	&.active .posts-filter__form {
-		opacity: 1;
+		opacity: .9;
 		transform: translateY(0);
 		pointer-events: all;
 	}
@@ -44,18 +44,22 @@
 	right: 0;
 	z-index: 9;
 	opacity: 0;
-	padding: 0 1rem;
+	padding: .4em 1em;
 	background-color: color('brand-mid');
 	transform: translateY(-10%);
 	transition: transform .2s ease, opacity .12s linear;
 
 	label {
-		@include font('secondary');
+		@include font('secondary', 'medium');
 		@include font-size(16);
-		text-transform: none;
 		border-bottom: 1px solid color('brand-dark');
 		margin: 0;
-		padding: 1.1rem 0;
+		padding: 1em 0;
+
+		&:hover,
+		&:focus {
+			color: color('black');
+		}
 	}
 
 	span {
