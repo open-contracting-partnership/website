@@ -80,7 +80,26 @@
 				<button>Send</button>
 			</form>
 
-			<p class="blog__subscribe-follow">Alternatively, follow us on <a href="#">Facebook</a>, <a href="#">Twitter</a>, &amp; <a href="#">Linkedin</a></p>
+
+			<?php
+
+				$social_media = [];
+
+				if ( $facebook_url = get_field('facebook_url', 'options') ) {
+					$social_media[] = '<a href="' . $facebook_url . '" target="_blank">Facebook</a>';
+				}
+
+				if ( $twitter_url = get_field('twitter_url', 'options') ) {
+					$social_media[] = '<a href="' . $twitter_url . '" target="_blank">Twitter</a>';
+				}
+
+				if ( $linkedin_url = get_field('linkedin_url', 'options') ) {
+					$social_media[] = '<a href="' . $linkedin_url . '" target="_blank">LinkedIn</a>';
+				}
+
+			?>
+
+			<p class="blog__subscribe-follow">Alternatively, follow us on <?php echo array_multi_implode(', ', ' &amp; ', $social_media); ?></p>
 
 		</div>
 
