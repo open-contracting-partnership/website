@@ -38,7 +38,7 @@
 
 						<div class="stat-module">
 							<span><?php the_sub_field('stat'); ?></span>
-							<p><?php the_sub_field('copy'); ?></p>
+							<div><p><?php the_sub_field('copy'); ?></p></div>
 						</div>
 
 					<?php endwhile; ?>

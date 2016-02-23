@@ -2,6 +2,29 @@
 	text-align: center;
 	margin-bottom: 2em;
 
+	&:first-child {
+
+		span:before {
+			content: '$';
+			font-size: 40px;
+			line-height: 1;
+			vertical-align: top;
+
+			@include mq(L) {
+				font-size: 60px;
+			}
+		}
+
+		span:after {
+			content: 'Tn';
+			font-size: 20px;
+
+			@include mq(L) {
+				font-size: 40px;
+			}
+		}
+	}
+
 	@include mq(M) {
 		@include span(4 of 12);
 		margin-bottom: 0;
@@ -16,26 +39,38 @@
 	}
 
 	span {
-		@include font('secondary');
+		@include font('secondary', 'bold');
 		@include font-size(64);
-		color: color('brand');
+		color: color('white');
 		display: block;
-		line-height: 1.2;
-		margin-bottom: .5em;
+		line-height: .8;
+		margin-bottom: 30px;
 
 		@include mq(L) {
-			@include font-size(84);
+			@include font-size(95);
+		}
+	}
+
+	div {
+		text-align: left;
+		margin: 0 auto;
+
+		@include mq(L) {
+			width: 65%;
 		}
 	}
 
 	p {
-		@include font('secondary', 'medium');
-		@include font-size(18);
-		color: color('light-grey');
-		margin: 0 auto;
-
-		@include mq(L) {
-			width: 60%;
-		}
+		@include font('secondary', 'bold');
+		@include font-size(16);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		display: inline;
+		color: color('white');
+		background-color: color('background');
+		box-shadow: .57143rem 0 0 color('background'), -.57143rem 0 0 color('background');
+		box-decoration-break: clone; // FF32 Fix - https://css-tricks.com/multi-line-padded-text/
+		line-height: 1.45;
+		padding: 5px 0;
 	}
 }

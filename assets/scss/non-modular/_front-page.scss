@@ -57,14 +57,13 @@
 	text-align: center;
 
 	h1 {
-		@include font-size(45);
-		margin-bottom: em(21, 45);
+		@include font-size(35);
+		margin-bottom: em(22, 35);
 	}
 
 	h2 {
-		@include font-size(24);
-		color: color('light-grey');
-		margin-bottom: em(65, 26);
+		@include font-size(29);
+		margin-bottom: em(65, 29);
 	}
 }
 
