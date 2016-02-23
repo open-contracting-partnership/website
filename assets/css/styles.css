@@ -1883,7 +1883,7 @@ a.post-object:focus {
     .post-object--panel:hover h4, .post-object--panel:focus h4 {
       text-decoration: none; }
   .post-object--panel[data-type='news'] {
-    background-color: #6991f5; }
+    background-color: #6c75e1; }
   .post-object--panel[data-type='showcase'] {
     background-color: #fb6045; }
   .post-object--panel[data-type='report'] {
