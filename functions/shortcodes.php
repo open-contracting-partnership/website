@@ -5,7 +5,7 @@
 // SECTION
 
 add_shortcode('section', function($atts, $content = null) {
-	return '<h3 id="' . sanitize_title($content) . '">' . strip_tags($content) . '</h3>';
+	return '<h3 class="section__title" id="' . sanitize_title($content) . '">' . strip_tags($content) . '</h3>';
 });
 
 function get_sections() {
