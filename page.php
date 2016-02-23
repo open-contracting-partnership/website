@@ -12,21 +12,7 @@
 
 				<?php get_partial('navigation', 'sections'); ?>
 
-				<a href="#" class="download-cta">
-
-					<img src="http://placehold.it/464x230" alt="" />
-
-					<div class="download-cta__content">
-
-						<span><?php pll_e('Download'); ?></span>
-
-						<div class="heading-highlight">
-							<h4>2015 - 2018 Strategy document</h4>
-						</div>
-
-					</div>
-
-				</a>
+				<?php get_partial('sidebar', 'page-download'); ?>
 
 			</aside>
 
