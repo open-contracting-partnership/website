@@ -221,7 +221,7 @@
 
 		<div class="post-object__content">
 			<p class="post-object__meta">{{{ post.custom.authors }}}&nbsp;&nbsp;{{ post.date }}</p>
-			<h4><?php the_title(); ?></h4>
+			<h4>{{{ post.title }}}</h4>
 		</div>
 
 	</template>
