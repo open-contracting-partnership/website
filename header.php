@@ -67,6 +67,18 @@
 
 					</a>
 
+					<a href="/" class="logo--mobile">
+
+						<svg>
+							<use xlink:href="#ocp-logo-small" />
+						</svg>
+
+					</a>
+
+					<svg class="mobile-menu">
+						<use xlink:href="#icon-menu" />
+					</svg>
+
 					<div class="header-nav--top">
 
 						<div class="header-nav--top__item header-social">
@@ -76,8 +88,6 @@
 								<li><a href="#" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
 								<li><a href="#" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
 							</ul>
-
-							<a href="/contact"><?php pll_e('Contact & Helpdesk'); ?></a>
 
 						</div>
 
@@ -128,18 +138,6 @@
 
 						wp_nav_menu([
 							'theme_location' => 'header-primary',
-							'sort_column' => 'menu_order',
-							'container' => 'ul',
-							'menu_class' => 'nav nav--horizontal',
-							'depth' => 2
-						]);
-
-					?>
-
-					<?php
-
-						wp_nav_menu([
-							'theme_location' => 'header-secondary',
 							'sort_column' => 'menu_order',
 							'container' => 'ul',
 							'menu_class' => 'nav nav--horizontal',
