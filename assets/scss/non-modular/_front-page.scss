@@ -227,6 +227,54 @@
 	background-image: url('../img/map.png');
 	background-repeat: no-repeat;
 	background-size: cover;
+	position: relative;
+
+	.button {
+		position: absolute;
+		bottom: 100%;
+		transform: translateX(-50%);
+
+		// &:first-child {
+		// 	top: 30%;
+		// 	left: 13%;
+		// }
+		//
+		// &:last-child {
+		// 	top: 7%;
+		// 	left: 53%;
+		// }
+
+		&:after {
+			// content: '';
+			// position: absolute;
+			// top: 155%;
+			// left: 43%;
+			// display: block;
+			// height: 0.8em;
+			// width: 0.8em;
+			// border: 2px solid #D7DE20;
+			// border-radius: 50%;
+		}
+	}
+}
+
+.homepage-map__image-item {
+	position: absolute;
+	display: block;
+	height: 0.5em;
+	width: 0.5em;
+	border: 2px solid #D7DE20;
+	border-radius: 50%;
+
+	&:first-child {
+		top: 42.8%;
+		left: 16.5%;
+	}
+
+	&:last-child {
+		top: 19.8%;
+		left: 56.5%;
+	}
 }
 
 .homepage-map__content {

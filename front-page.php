@@ -187,6 +187,14 @@
 
 			<div class="homepage-map__image">
 
+				<div class="homepage-map__image-item">
+					<a href="#" class="button button--white">Mexico</a>
+				</div>
+
+				<div class="homepage-map__image-item">
+					<a href="#" class="button button--white">Ukraine</a>
+				</div>
+
 			</div>
 
 			<?php if ( have_rows('worldwide_links') ) : ?>
