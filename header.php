@@ -77,8 +77,6 @@
 								<li><a href="#" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
 							</ul>
 
-							<a href="/contact"><?php pll_e('Contact & Helpdesk'); ?></a>
-
 						</div>
 
 						<div class="header-nav--top__item header-language">
@@ -128,18 +126,6 @@
 
 						wp_nav_menu([
 							'theme_location' => 'header-primary',
-							'sort_column' => 'menu_order',
-							'container' => 'ul',
-							'menu_class' => 'nav nav--horizontal',
-							'depth' => 2
-						]);
-
-					?>
-
-					<?php
-
-						wp_nav_menu([
-							'theme_location' => 'header-secondary',
 							'sort_column' => 'menu_order',
 							'container' => 'ul',
 							'menu_class' => 'nav nav--horizontal',

@@ -887,7 +887,7 @@ td {
   .home .site-header {
     border-bottom: 1px solid #69696B; }
   .site-header .logo {
-    margin: 1.65em 0;
+    margin: 1.1em 0;
     display: inline-block; }
     .site-header .logo svg {
       width: 24.1em;
@@ -923,12 +923,12 @@ td {
     margin-left: .3em; }
 
 .header-language {
-  margin: 1.75em 0 0 2em; }
+  margin: 1.2em 0 0 2em; }
 
 .header-search {
   margin-left: 2em; }
   .header-search a {
-    padding: 2rem;
+    padding: 1.4rem;
     margin: 0;
     border: 0;
     fill: #FFF; }
@@ -1287,10 +1287,6 @@ td {
 .primary-nav {
   border-top: 1px solid #69696B;
   position: relative; }
-  .primary-nav ul:first-child {
-    float: left; }
-  .primary-nav ul:last-child {
-    float: right; }
   .primary-nav li {
     margin: 0;
     padding: 0 1.5em;
