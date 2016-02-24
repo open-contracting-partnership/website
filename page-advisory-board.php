@@ -24,27 +24,27 @@
 
 				<div class="timeline-item">
 					<span class="timeline-item__date">19-11-2014</span>
-					<p>1st Advisory <br />Board Meeting</p>
+					<a class="timeline-item__title" href="#">1st Advisory <br />Board Meeting</a>
 				</div>
 
 				<div class="timeline-item">
 					<span class="timeline-item__date">19-11-2014</span>
-					<p>1st Advisory <br />Board Meeting</p>
+					<a class="timeline-item__title" href="#">1st Advisory <br />Board Meeting</a>
 				</div>
 
 				<div class="timeline-item">
 					<span class="timeline-item__date">19-11-2014</span>
-					<p>1st Advisory <br />Board Meeting</p>
+					<a class="timeline-item__title" href="#">1st Advisory <br />Board Meeting</a>
 				</div>
 
 				<div class="timeline-item">
 					<span class="timeline-item__date">19-11-2014</span>
-					<p>1st Advisory <br />Board Meeting</p>
+					<a class="timeline-item__title" href="#">1st Advisory <br />Board Meeting</a>
 				</div>
 
 				<div class="timeline-item">
 					<span class="timeline-item__date">19-11-2014</span>
-					<p>1st Advisory <br />Board Meeting</p>
+					<a class="timeline-item__title" href="#">1st Advisory <br />Board Meeting</a>
 				</div>
 
 			</div>
