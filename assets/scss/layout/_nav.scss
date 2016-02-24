@@ -318,6 +318,11 @@
 		bottom: auto;
 		left: auto;
 
+		body.mobile-active & {
+			left: auto;
+			overflow: hidden;
+		}
+
 		li {
 			margin: 0;
 			padding: 0 1.5em;

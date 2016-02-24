@@ -108,6 +108,10 @@ body {
   body.mobile-active {
     right: 90%;
     overflow: hidden; }
+  @media screen and (min-width: 640px) {
+    body.mobile-active {
+      right: auto;
+      overflow: initial; } }
 
 main {
   overflow: hidden; }
@@ -1373,6 +1377,9 @@ td {
       top: auto;
       bottom: auto;
       left: auto; }
+      body.mobile-active .primary-nav {
+        left: auto;
+        overflow: hidden; }
       .primary-nav li {
         margin: 0;
         padding: 0 1.5em;

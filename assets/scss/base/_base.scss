@@ -29,6 +29,14 @@ body {
 		right: 90%;
 		overflow: hidden;
 	}
+
+	@include mq(M) {
+
+		&.mobile-active {
+			right: auto;
+			overflow: initial;
+		}
+	}
 }
 
 main {
