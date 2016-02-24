@@ -3314,17 +3314,30 @@ a.post-object:focus {
   clear: both; }
 
 .page-advisory-board__members {
-  clear: both;
-  width: 32.71028%;
-  float: left;
-  margin-right: 0.93458%; }
+  display: none; }
+  @media screen and (min-width: 640px) {
+    .page-advisory-board__members {
+      width: 32.71028%;
+      float: left;
+      margin-right: 0.93458%;
+      clear: both;
+      display: block; } }
 
-.page-advisory-board__member-bio {
-  padding-top: 4em;
-  width: 49.53271%;
-  float: left;
-  margin-right: 0.93458%;
-  margin-left: 8.41121%; }
+@media screen and (min-width: 640px) {
+  .page-advisory-board__member-bio {
+    width: 66.35514%;
+    float: right;
+    margin-right: 0; } }
+
+@media screen and (min-width: 1024px) {
+  .page-advisory-board__member-bio {
+    width: 49.53271%;
+    float: left;
+    margin-right: 0.93458%;
+    margin-left: 8.41121%; } }
+
+.team-member {
+  clear: both; }
 
 .team-member__avatar {
   width: 15.09434%;

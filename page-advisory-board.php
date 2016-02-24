@@ -41,9 +41,9 @@
 
 		<?php if ( have_rows('advisory_members') ) : ?>
 
-			<div class="page-advisory-board__members">
+			<h3>Meet our Advisory Board members</h3>
 
-				<h3>Meet our Advisory Board members</h3>
+			<div class="page-advisory-board__members">
 
 				<?php while ( have_rows('advisory_members') ) : the_row(); ?>
 
