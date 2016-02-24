@@ -59,7 +59,7 @@
 
 				<div class="cta-block cta-block--report cta-block--brand">
 
-					<img src="<?php bloginfo('template_directory'); ?>/assets/img/rocket-2.png" alt="" />
+					<img src="<?php bloginfo('template_directory'); ?>/assets/img/rocket-2.jpg" alt="" />
 
 					<time>05-04-2016</time>
 
@@ -73,7 +73,7 @@
 
 				<div class="cta-block cta-block--background">
 
-					<img src="<?php bloginfo('template_directory'); ?>/assets/img/street.png" alt="" />
+					<img src="<?php bloginfo('template_directory'); ?>/assets/img/street.jpg" alt="" />
 
 					<h2>Implement Open Contracting</h2>
 
@@ -177,40 +177,36 @@
 
 				<?php endfor; ?>
 
+				<?php wp_reset_postdata(); ?>
+
 			</div>
 
 		</section>
 
-	</div> <!-- / .wrapper -->
-
-	<section class="homepage-map / band">
-
-		<div class="wrapper">
+		<section class="homepage-map / band">
 
 			<div class="homepage-map__image">
-				<img src="<?php bloginfo('template_directory'); ?>/assets/img/map.svg" alt="Map highlighting Ukraine and Mexico" />
+
 			</div>
 
 			<?php if ( have_rows('worldwide_links') ) : ?>
 
 				<div class="homepage-map__content">
 
-					<h3 class="border-top border-top--clean"><?php pll_e('Worldwide'); ?></h3>
+					<h3><?php pll_e('Open Contracting Worldwide'); ?></h3>
 
-					<span><?php pll_e('Learn how to implement open contracting or use contracting data.'); ?></span>
+					<p><?php pll_e('Learn how to implement open contracting or use contracting data.'); ?></p>
 
-					<ul class="cta-list">
-						<?php while ( have_rows('worldwide_links') ) : the_row(); ?>
-							<li><a href="<?php the_sub_field('link_address'); ?>"><?php the_sub_field('link_title'); ?></a></li>
-						<?php endwhile; ?>
-					</ul>
+					<?php while ( have_rows('worldwide_links') ) : the_row(); ?>
+						<div><a class="button button--white" href="<?php the_sub_field('link_address'); ?>"><?php the_sub_field('link_title'); ?></a></div>
+					<?php endwhile; ?>
 
 				</div>
 
 			<?php endif; ?>
 
-		</div> <!-- / .wrapper -->
+		</section>
 
-	</section>
+	</div> <!-- / .wrapper -->
 
 <?php get_footer(); ?>

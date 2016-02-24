@@ -3053,39 +3053,53 @@ a.post-object:focus {
     font-size: 1rem; }
 
 .homepage-map {
-  background-color: #323238; }
+  position: relative; }
 
 .homepage-map__image {
-  display: none; }
-  @media screen and (min-width: 640px) {
-    .homepage-map__image {
-      width: 57.94393%;
-      float: left;
-      margin-right: 0.93458%;
-      display: block; } }
+  width: 83.17757%;
+  float: left;
+  margin-right: 0.93458%;
+  position: relative;
+  background-image: url("../img/map.png");
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .homepage-map__image:before {
+    display: block;
+    content: '';
+    width: 100%;
+    padding-top: 46.64948%; }
+  .homepage-map__image > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
 
 .homepage-map__content {
+  color: #FFF;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 37.38318%;
+  background-color: rgba(50, 50, 56, 0.5);
   padding: 2rem; }
-  @media screen and (min-width: 640px) {
-    .homepage-map__content {
-      width: 41.1215%;
-      float: right;
-      margin-right: 0; } }
-  @media screen and (min-width: 1024px) {
-    .homepage-map__content {
-      width: 32.71028%;
-      float: left;
-      margin-right: 0.93458%; } }
-  .homepage-map__content span {
+  .homepage-map__content h3 {
+    margin-bottom: 1em; }
+    .homepage-map__content h3:before {
+      content: url("../img/icons/icon-world.svg");
+      margin-right: .5em; }
+  .homepage-map__content p {
     font-weight: 500;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 20px;
-    font-size: 1rem;
-    color: #D6E100;
+    font-size: 22px;
+    font-size: 1.1rem;
     display: block;
-    margin-bottom: 1.5rem; }
+    margin-bottom: 1.81818em; }
+  .homepage-map__content .button {
+    margin-bottom: 1rem; }
 
 @media screen and (min-width: 1024px) {
   .page-team__sidebar {
