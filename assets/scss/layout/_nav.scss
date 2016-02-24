@@ -244,8 +244,13 @@
 }
 
 .primary-nav {
+	display: none;
 	border-top: 1px solid color('mid-grey');
 	position: relative;
+
+	@include mq(M) {
+		display: block;
+	}
 
 	li {
 		margin: 0;

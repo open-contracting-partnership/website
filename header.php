@@ -67,6 +67,18 @@
 
 					</a>
 
+					<a href="/" class="logo--mobile">
+
+						<svg>
+							<use xlink:href="#ocp-logo-small" />
+						</svg>
+
+					</a>
+
+					<svg class="mobile-menu">
+						<use xlink:href="#icon-menu" />
+					</svg>
+
 					<div class="header-nav--top">
 
 						<div class="header-nav--top__item header-social">

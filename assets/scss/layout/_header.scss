@@ -11,13 +11,43 @@
 	}
 
 	.logo {
+		display: none;
 		margin: 1.1em 0;
-		display: inline-block;
+
+		@include mq(M) {
+			display: inline-block;
+		}
 
 		svg {
 			width: em(482);
 			height: em(38);
 		}
+	}
+
+	.logo--mobile {
+		display: inline-block;
+		margin: 1.1em 0;
+
+		@include mq(M) {
+			display: none;
+		}
+
+		svg {
+			width: 7em;
+			height: em(38);
+		}
+	}
+}
+
+.mobile-menu {
+	width: 1em;
+	height: 1em;
+	fill: color('white');
+	float: right;
+	margin-top: 1.5em;
+
+	@include mq(M) {
+		display: none;
 	}
 }
 
@@ -26,7 +56,12 @@
 }
 
 .header-nav--top {
-	float: right;
+	display: none;
+
+	@include mq(M) {
+		display: block;
+		float: right;
+	}
 }
 
 .header-nav--top__item {
