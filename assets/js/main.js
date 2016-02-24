@@ -125,10 +125,13 @@ $(document).ready(function() {
 	 //*****
 	// MENU
 
+	$('.mobile-menu').on('click', function() {
+		$('body').toggleClass('mobile-active');
+	});
+
+	// SHAME
 	$('.sub-menu').each(function() {
-
 		$(this).prepend('<li class="nav__home"><a href="/">&nbsp;</a></li>');
-
 	});
 
 	if ( $('li.current-menu-item ul, li.current-menu-ancestor ul').length ) {
