@@ -1,0 +1,77 @@
+.page-advisory-board__intro {
+
+	@include mq(L) {
+		@include span(6 of 12);
+	}
+
+}
+
+.page-advisory-board__minutes {
+
+	@include break;
+
+
+}
+
+.timeline {
+
+	@include mq(L) {
+
+		display: flex;
+		justify-content: space-around;
+
+
+		@include span(10 at 1 of 12);
+		@include push(1);
+		position: relative;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto 0;
+			height: 3px;
+			background-color: color('lightest-grey');
+		}
+
+	}
+
+}
+
+.timeline-item {
+
+	position: relative;
+	display: block;
+	// background: red;
+	width: 100px;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		width: 15px;
+		height: 15px;
+		background-color: color('brand');
+		border-radius: 50%;
+		box-shadow: 0 0 6px 7px color('brand', 0.25);
+	}
+
+}
+
+.timeline-item__date {
+	@include font-size(18);
+	@include font('secondary', 'medium');
+	line-height: 1;
+	letter-spacing: 1px;
+	background-color: color('dark-background');
+	color: color('white');
+	padding: 1em;
+
+}
