@@ -6,73 +6,87 @@
 
 	<div class="wrapper / page__container page--padding">
 
-		<div class="page-advisory-board__intro">
+		<div class="page-advisory-board__intro / band band--extra-thick">
 
 			<h1><?php the_title(); ?></h1>
 
 			<blockquote>
-				<?php the_content(); ?>
+				<?php the_field('advisory_introduction'); ?>
 			</blockquote>
 
 		</div>
 
-		<div class="page-advisory-board__minutes">
+		<?php if ( have_rows('advisory_meeting_notes') ) : ?>
 
-			<h3>Download minutes from the Advisory Board meetings:</h3>
+			<div class="page-advisory-board__minutes / band band--extra-thick">
 
-			<div class="timeline">
+				<h3>Download minutes from the Advisory Board meetings:</h3>
 
-				<div class="timeline-item">
-					<span class="timeline-item__date">19-11-2014</span>
-					<a class="timeline-item__title" href="#">1st Advisory <br />Board Meeting</a>
-				</div>
+				<div class="timeline">
 
-				<div class="timeline-item">
-					<span class="timeline-item__date">19-11-2014</span>
-					<a class="timeline-item__title" href="#">1st Advisory <br />Board Meeting</a>
-				</div>
+					<?php while ( have_rows('advisory_meeting_notes') ) : the_row(); ?>
 
-				<div class="timeline-item">
-					<span class="timeline-item__date">19-11-2014</span>
-					<a class="timeline-item__title" href="#">1st Advisory <br />Board Meeting</a>
-				</div>
+						<div class="timeline-item">
+							<span class="timeline-item__date"><?php the_sub_field('date'); ?></span>
+							<a class="timeline-item__title" href="<?php the_sub_field('file'); ?>"><?php the_sub_field('title'); ?></a>
+						</div>
 
-				<div class="timeline-item">
-					<span class="timeline-item__date">19-11-2014</span>
-					<a class="timeline-item__title" href="#">1st Advisory <br />Board Meeting</a>
-				</div>
+					<?php endwhile; ?>
 
-				<div class="timeline-item">
-					<span class="timeline-item__date">19-11-2014</span>
-					<a class="timeline-item__title" href="#">1st Advisory <br />Board Meeting</a>
 				</div>
 
 			</div>
 
-		</div>
+		<?php endif; ?>
 
-		<article class="page-team__content">
+		<?php if ( have_rows('advisory_members') ) : ?>
 
-			<?php if ( have_rows('team_members') ) : ?>
+			<div class="page-advisory-board__members">
 
-				<?php while ( have_rows('team_members') ) : the_row(); ?>
+				<h3>Meet our Advisory Board members</h3>
 
-					<div class="team-member" id="<?php echo sanitize_title(get_sub_field('name')); ?>">
+				<?php while ( have_rows('advisory_members') ) : the_row(); ?>
 
-						<div class="team-member__image">
-							<img src="http://placehold.it/926x395" />
-						</div>
+					<a class="team-member__selector" href="#<?php echo sanitize_title(get_sub_field('name')); ?>">
 
 						<h3><?php the_sub_field('name'); ?></h3>
-						<?php the_sub_field('bio'); ?>
+
+						<?php if ( get_sub_field('role') ) : ?>
+							<h5><?php the_sub_field('role'); ?></h5>
+						<?php endif; ?>
+
+					</a>
+
+				<?php endwhile; ?>
+
+			</div>
+
+			<div class="page-advisory-board__member-bio">
+
+				<?php while ( have_rows('advisory_members') ) : the_row(); ?>
+
+					<div class="team-member team-member--" id="<?php echo sanitize_title(get_sub_field('name')); ?>">
+
+						<?php if ( $avatar = get_sub_field('image') ) : ?>
+
+							<div class="team-member__avatar">
+								<img src="<?php echo $avatar['sizes']['thumbnail']; ?>" />
+							</div>
+
+						<?php endif; ?>
+
+						<div class="team-member__bio">
+							<h3><?php the_sub_field('name'); ?></h3>
+							<?php the_sub_field('bio'); ?>
+						</div>
 
 					</div>
 
 				<?php endwhile; ?>
 
-			<?php endif; ?>
+			</div>
 
-		</article>
+		<?php endif; ?>
 
 	</div> <!-- / .wrapper -->
 

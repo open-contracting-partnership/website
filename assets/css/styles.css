@@ -3087,6 +3087,9 @@ a.post-object:focus {
     display: block;
     margin-bottom: 1.5rem; }
 
+.page-advisory-board__intro blockquote {
+  margin-bottom: 0; }
+
 @media screen and (min-width: 1024px) {
   .page-advisory-board__intro {
     width: 49.53271%;
@@ -3170,6 +3173,32 @@ a.post-object:focus {
   background-position: right 50%; }
   .timeline-item__title:hover, .timeline-item__title:focus, .timeline-item__title:active {
     text-decoration: underline; }
+
+.page-advisory-board__members {
+  clear: both;
+  width: 32.71028%;
+  float: left;
+  margin-right: 0.93458%; }
+
+.page-advisory-board__member-bio {
+  padding-top: 4em;
+  width: 49.53271%;
+  float: left;
+  margin-right: 0.93458%;
+  margin-left: 8.41121%; }
+
+.team-member__avatar {
+  width: 15.09434%;
+  float: left;
+  margin-right: 1.88679%; }
+  .team-member__avatar img {
+    border-radius: 50%; }
+
+.team-member__bio {
+  width: 83.01887%;
+  float: right;
+  margin-right: 0;
+  padding: 0 4.6729%; }
 
 @media screen and (min-width: 1024px) {
   .page-team__sidebar {

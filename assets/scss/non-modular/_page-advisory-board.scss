@@ -1,5 +1,9 @@
 .page-advisory-board__intro {
 
+	blockquote {
+		margin-bottom: 0;
+	}
+
 	@include mq(L) {
 		@include span(6 of 12);
 	}
@@ -93,4 +97,29 @@
 		text-decoration: underline;
 	}
 
+}
+
+.page-advisory-board__members {
+	@include break;
+	@include span(4 of 12);
+}
+
+.page-advisory-board__member-bio {
+	padding-top: em(80);
+	@include span(6 of 12);
+	@include push(1);
+}
+
+.team-member__avatar {
+	@include span(1 of 6);
+
+	img {
+		border-radius: 50%;
+	}
+}
+
+
+.team-member__bio {
+	@include span(5 of 6 last);
+	padding: 0 ((span(1) / 2) + gutter());
 }
