@@ -305,3 +305,17 @@ body.resource-open {
 .resource hr {
 	border-color: color('lighter-grey');
 }
+
+.resource__close {
+
+	position: absolute;
+	top: em(26);
+	right: em(26);
+
+	svg {
+		width: em(18);
+		height: em(18);
+		fill: color('background');
+	}
+
+}

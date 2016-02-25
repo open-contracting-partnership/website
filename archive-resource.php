@@ -143,7 +143,9 @@
 
 			</div>
 
-		</div>
+			<a href="#" class="resource__close" v-on:click.prevent="open_resource = null"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg></a>
+
+		</div> <!-- / .resource -->
 
 		<template id="resource-template">
 
@@ -162,7 +164,7 @@
 			<div class="post-object__content / media__body">
 
 				<p>
-					<span><?php pll_e('By'); ?> {{ resource.fields.organisation }}</span>
+					<span v-if="resource.fields.organisation !== ''"><?php pll_e('By'); ?> {{ resource.fields.organisation }}</span>
 					<time>{{ resource.custom.year }}</time>
 				</p>
 

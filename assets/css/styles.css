@@ -3794,6 +3794,15 @@ body.resource-open {
 .resource hr {
   border-color: #D5D5D7; }
 
+.resource__close {
+  position: absolute;
+  top: 1.3em;
+  right: 1.3em; }
+  .resource__close svg {
+    width: 0.9em;
+    height: 0.9em;
+    fill: #4D4D54; }
+
 .single-resource article {
   width: 66.35514%;
   float: left;
