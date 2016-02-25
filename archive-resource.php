@@ -96,7 +96,7 @@
 				<img src="<?php bloginfo('template_directory'); ?>/assets/img/icons/icon--book.svg" />
 			</div>
 
-			<h1 class="gamma">{{ open_resource.title }}</h1>
+			<h1 class="gamma">{{{ open_resource.title }}}</h1>
 
 			<p class="resource__meta">
 				<span class="resource__published-date">{{ open_resource.custom.year }}</span>
