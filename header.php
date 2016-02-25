@@ -5,6 +5,8 @@
 
 		<!-- designed and developed by The Idea Bureau, http://theideabureau.co -->
 
+		<script>var template_url = '<?php bloginfo('template_directory'); ?>';</script>
+
 		<script>
 		  (function(d) {
 		    var config = {

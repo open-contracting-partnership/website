@@ -191,4 +191,39 @@ $(document).ready(function() {
 
 	});
 
+
+	 //**********
+	// SUBSCRIBE
+
+	$('.js-subscribe form').on('submit', function(event) {
+
+		event.preventDefault();
+
+		var $form = $(this);
+
+		$.ajax({
+			url: template_url + '/endpoints/subscribe.php',
+			dataType: 'json',
+			method: 'POST',
+			data: {
+				email: $form.find('[name="email"]').val()
+			}
+		})
+		.done(function(response) {
+
+			// remove any existing alerts
+			$('.subscribe__alert').remove();
+
+			var $alert = $('<p class="subscribe__alert"></p>').insertAfter($form);
+
+			if ( response.success === true ) {
+				$alert.html('Subscribed successful!');
+			} else {
+				$alert.html('<svg><use xlink:href="#icon-close"></use></svg> Subscribe unsuccessful');
+			}
+
+		});
+
+	});
+
 });

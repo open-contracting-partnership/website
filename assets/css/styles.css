@@ -2232,6 +2232,22 @@ input[type="submit"] {
     line-height: 1.45;
     padding: 5px 0; }
 
+.subscribe__alert {
+  font-size: 14px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px; }
+  .subscribe__alert svg {
+    height: .8em;
+    width: .8em;
+    margin-right: .5em;
+    vertical-align: baseline;
+    fill: currentColor; }
+
 .timeline {
   overflow: hidden;
   position: relative; }
