@@ -210,7 +210,7 @@
 .header-nav--top__item.header-search {
 	display: block;
 
-	@include mq(1450) {
+	@include mq(1550) {
 		display: none;
 	}
 }
@@ -221,7 +221,7 @@
 	top: 0;
 	right: 0;
 
-	@include mq(1450) {
+	@include mq(1550) {
 		display: block;
 	}
 }

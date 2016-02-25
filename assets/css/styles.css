@@ -1035,7 +1035,7 @@ td {
 
 .header-nav--top__item.header-search {
   display: block; }
-  @media screen and (min-width: 1450px) {
+  @media screen and (min-width: 1550px) {
     .header-nav--top__item.header-search {
       display: none; } }
 
@@ -1044,7 +1044,7 @@ td {
   position: absolute;
   top: 0;
   right: 0; }
-  @media screen and (min-width: 1450px) {
+  @media screen and (min-width: 1550px) {
     .site-header__top > .header-search {
       display: block; } }
 
