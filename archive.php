@@ -34,9 +34,10 @@
 			<?php elseif( is_tax() ) : ?>
 				<span class="archive-content__sub-title"><?php pll_e('Results for Taxonomy /'); ?></span>
 				<h1><?php single_cat_title(); ?></h1>
-				<?php elseif (is_author()) : ?>
+			<?php elseif (is_author()) : ?>
+				<?php $author = get_userdata( get_query_var('author') ); ?>
 				<span class="archive-content__sub-title"><?php pll_e('Results for Author /'); ?></span>
-				<h1><?php pll_e('Author Archive'); ?></h1>
+				<h1><?php echo $author->display_name;?></h1>
 			<?php else : ?>
 				<span class="archive-content__sub-title"><?php pll_e('Results for Post /'); ?></span>
 				<h1><?php the_post_type_label(NULL, TRUE); ?></h1>
