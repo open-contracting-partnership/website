@@ -121,6 +121,17 @@ $(document).ready(function() {
 
 	});
 
+	$('.header-search, .header__search').on('click', function(event) {
+		event.stopPropagation();
+	});
+
+	$('body, .search__close').on('click', function() {
+
+		// close the search box
+		$('.site-header__top').removeClass('search--active');
+
+	});
+
 
 	 //*****
 	// MENU
@@ -171,5 +182,13 @@ $(document).ready(function() {
 	});
 
 	$('.team-member__selector').first().trigger('click');
+
+	$('.team-member__view-bio').on('click', function(event) {
+
+		event.preventDefault();
+
+		$(this).closest('.team-member').find('.team-member__bio').toggleClass('active');
+
+	});
 
 });

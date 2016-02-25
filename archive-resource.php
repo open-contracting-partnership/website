@@ -10,7 +10,7 @@
 				'posts_per_page' => -1
 			),
 			'taxonomies' => ['resource-type', 'region', 'issue', 'open-contracting'],
-			'fields' => ['short_description', 'organisation', 'attachments'],
+			'fields' => ['short_description', 'organisation', 'attachments', 'link'],
 			'custom' => array(
 				'year' => function($vue_post) {
 					return date('Y', strtotime($vue_post->post_date));
@@ -78,9 +78,9 @@
 
 			<div v-if="visibleResources.length" class="resources-container">
 
-				<div v-for="resource in visibleResources" class="post-object post-object--horizontal post-object--resource / media media--reversed">
+				<a v-for="resource in visibleResources" v-on:click="openResource(resource, $event)" href="{{ resource.link }}" class="post-object post-object--horizontal post-object--resource / media media--reversed">
 					<resource :resource="resource"></resource>
-				</div>
+				</a>
 
 			</div>
 
@@ -96,7 +96,7 @@
 				<img src="<?php bloginfo('template_directory'); ?>/assets/img/icons/icon--book.svg" />
 			</div>
 
-			<h1 class="gamma">{{ open_resource.title }}</h1>
+			<h1 class="gamma">{{{ open_resource.title }}}</h1>
 
 			<p class="resource__meta">
 				<span class="resource__published-date">{{ open_resource.custom.year }}</span>
@@ -104,6 +104,8 @@
 			</p>
 
 			<p v-if="open_resource.fields.attachments"><a href="{{ open_resource.fields.attachments[0].file }}" class="button button--block button--large">Download</a></p>
+
+			<p v-if="open_resource.fields.link"><a href="{{ open_resource.fields.link }}" class="button button--block button--large">View</a></p>
 
 			<hr />
 
@@ -143,7 +145,9 @@
 
 			</div>
 
-		</div>
+			<a href="#" class="resource__close" v-on:click.prevent="open_resource = null"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg></a>
+
+		</div> <!-- / .resource -->
 
 		<template id="resource-template">
 
@@ -154,7 +158,7 @@
 				</div>
 
 				<div class="post-object--resource__type">
-					<a v-for="type in resource.taxonomies['resource-type']" href="/resource-type/{{ $key }}" class="button button--small button--tag">{{ type }}</a>
+					<span v-for="type in resource.taxonomies['resource-type']">{{ type }}</span>
 				</div>
 
 			</div>
@@ -162,11 +166,11 @@
 			<div class="post-object__content / media__body">
 
 				<p>
-					<span><?php pll_e('By'); ?> {{ resource.fields.organisation }}</span>
+					<span v-if="resource.fields.organisation !== ''"><?php pll_e('By'); ?> {{ resource.fields.organisation }}</span>
 					<time>{{ resource.custom.year }}</time>
 				</p>
 
-				<a href="{{ resource.link }}" v-on:click="openResource(resource, $event)"><h4>{{{ resource.title }}}</h4></a>
+				<span><h4>{{{ resource.title }}}</h4></span>
 
 			</div>
 
@@ -186,20 +190,6 @@
 
 					taxonomyLabels: function(taxonomy) {
 						return objectValues(this.resource.taxonomies[taxonomy]);
-					},
-
-					openResource: function(resource, event) {
-
-						var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-
-						if ( width > 1024 ) {
-
-							event.preventDefault();
-
-							this._context.open_resource = resource;
-
-						}
-
 					}
 
 				}
@@ -322,6 +312,20 @@
 
 					hasTerms: function(taxonomy) {
 						return Object.keys(taxonomy).length > 0;
+					},
+
+					openResource: function(resource, event) {
+
+						var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+						if ( width > 1024 ) {
+
+							event.preventDefault();
+
+							this.open_resource = resource;
+
+						}
+
 					}
 
 				},

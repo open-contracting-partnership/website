@@ -21,6 +21,14 @@
 					<?php echo sprintf(pll__('By %s'), get_field('organisation')); ?>
 				</p>
 
+				<?php if ( $attachments = get_field('attachments') ) : ?>
+					<p><a href="<?php echo $attachments[0]['file']; ?>" class="button button--block button--large">Download</a></p>
+				<?php endif; ?>
+
+				<?php if ( $link = get_field('link') ) : ?>
+					<p><a href="<?php echo $link; ?>" class="button button--block button--large">View</a></p>
+				<?php endif; ?>
+
 				<hr />
 
 				<?php the_content(); ?>
@@ -84,10 +92,6 @@
 					<?php endif; ?>
 
 				</div>
-
-				<?php if ( $attachments = get_field('attachments') ) : ?>
-					<p><a href="<?php echo $attachments[0]['file']; ?>" class="button button--block button--large">Download</a></p>
-				<?php endif; ?>
 
 			</section>
 

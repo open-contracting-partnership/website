@@ -22,9 +22,13 @@
 	display: none;
 
 	@include mq(M) {
-		@include span(4 of 12);
+		@include span(2 of 6);
 		@include break;
 		display: block;
+	}
+
+	@include mq(L) {
+		@include span(4 of 12);
 	}
 
 }
@@ -32,7 +36,7 @@
 .page-advisory-board__member-bio {
 
 	@include mq(M) {
-		@include span(8 of 12 last);
+		@include span(4 of 6 last);
 	}
 
 	@include mq(L) {
@@ -40,22 +44,4 @@
 		@include push(1);
 	}
 
-}
-
-.team-member {
-	@include break;
-}
-
-.team-member__avatar {
-	@include span(1 of 6);
-
-	img {
-		border-radius: 50%;
-	}
-}
-
-
-.team-member__bio {
-	@include span(5 of 6 last);
-	padding: 0 ((span(1) / 2) + gutter());
 }
