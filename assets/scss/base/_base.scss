@@ -110,7 +110,8 @@ em {
  //***********
 // BLOCKQUOTE
 
-blockquote {
+blockquote,
+.strapline {
 	@include font('secondary', 'medium');
     @include font-size(29);
     padding: 0 0 0 em(35, 29);
@@ -127,6 +128,7 @@ blockquote {
         width: 10px;
         background-color: color('brand');
     }
+
     p {
         @include font('secondary');
         font-size: 1em;
@@ -143,7 +145,11 @@ blockquote {
     > :last-child {
         margin-bottom: 0;
     }
+}
 
+.strapline {
+	@include font('secondary', 'regular');
+	@include font-size(22);
 }
 
 
