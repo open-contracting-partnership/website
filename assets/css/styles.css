@@ -3915,10 +3915,11 @@ input[type="search"].resource-search {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-appearance: none;
   line-height: 1;
   color: #999;
   border: 0;
-  border-radius: none;
+  border-radius: 0;
   background-color: #FFF;
   padding: 1.17391em; }
   input[type="search"].resource-search::-webkit-input-placeholder {

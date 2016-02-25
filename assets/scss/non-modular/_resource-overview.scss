@@ -196,10 +196,11 @@
 input[type="search"].resource-search {
 	@include font-size(23);
 	@include font('secondary');
+	-webkit-appearance: none;
 	line-height: 1;
 	color: color('grey');
 	border: 0;
-	border-radius: none;
+	border-radius: 0;
 	background-color: color('white');
 	padding: em(27, 23);
 
