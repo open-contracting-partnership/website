@@ -78,9 +78,9 @@
 
 			<div v-if="visibleResources.length" class="resources-container">
 
-				<div v-for="resource in visibleResources" class="post-object post-object--horizontal post-object--resource / media media--reversed">
+				<a v-for="resource in visibleResources" v-on:click="openResource(resource, $event)" href="{{ resource.link }}" class="post-object post-object--horizontal post-object--resource / media media--reversed">
 					<resource :resource="resource"></resource>
-				</div>
+				</a>
 
 			</div>
 
@@ -154,7 +154,7 @@
 				</div>
 
 				<div class="post-object--resource__type">
-					<a v-for="type in resource.taxonomies['resource-type']" href="/resource-type/{{ $key }}" class="button button--small button--tag">{{ type }}</a>
+					<span v-for="type in resource.taxonomies['resource-type']">{{ type }}</span>
 				</div>
 
 			</div>
@@ -166,7 +166,7 @@
 					<time>{{ resource.custom.year }}</time>
 				</p>
 
-				<a href="{{ resource.link }}" v-on:click="openResource(resource, $event)"><h4>{{{ resource.title }}}</h4></a>
+				<span><h4>{{{ resource.title }}}</h4></span>
 
 			</div>
 
@@ -186,20 +186,6 @@
 
 					taxonomyLabels: function(taxonomy) {
 						return objectValues(this.resource.taxonomies[taxonomy]);
-					},
-
-					openResource: function(resource, event) {
-
-						var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-
-						if ( width > 1024 ) {
-
-							event.preventDefault();
-
-							this._context.open_resource = resource;
-
-						}
-
 					}
 
 				}
@@ -322,6 +308,20 @@
 
 					hasTerms: function(taxonomy) {
 						return Object.keys(taxonomy).length > 0;
+					},
+
+					openResource: function(resource, event) {
+
+						var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+						if ( width > 1024 ) {
+
+							event.preventDefault();
+
+							this.open_resource = resource;
+
+						}
+
 					}
 
 				},
