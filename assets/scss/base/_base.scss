@@ -55,6 +55,18 @@ dl {
     margin-bottom: $space; // Typically the margin-bottom matches the line-height.
 }
 
+
+
+article ul,
+article ol {
+	padding-left: 0;
+
+	li {
+		margin-bottom: $space / 2;
+		list-style-type: square;
+	}
+}
+
 .text--bigger {
 	@include font-size(22);
 }
@@ -98,8 +110,9 @@ em {
  //***********
 // BLOCKQUOTE
 
-blockquote {
-
+blockquote,
+.strapline {
+	@include font('secondary', 'medium');
     @include font-size(29);
     padding: 0 0 0 em(35, 29);
     margin: 0 0 1.5em;
@@ -115,6 +128,7 @@ blockquote {
         width: 10px;
         background-color: color('brand');
     }
+
     p {
         @include font('secondary');
         font-size: 1em;
@@ -131,7 +145,11 @@ blockquote {
     > :last-child {
         margin-bottom: 0;
     }
+}
 
+.strapline {
+	@include font('secondary', 'regular');
+	@include font-size(22);
 }
 
 

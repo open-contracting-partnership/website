@@ -4,13 +4,24 @@
 }
 
 .archive-filtering {
-	@include span(4 of 12 last);
-	margin-right: span(1 of 12) + gutter();
-	padding-left: span(1 of 12) / 2;
+	padding-bottom: $space * 2;
+	margin-bottom: $space * 2;
+	border-bottom: 1px solid color('lighter-grey');
+
+	@include mq(M) {
+		@include span(4 of 12 last);
+		margin-right: span(1 of 12) + gutter();
+		padding-left: span(1 of 12) / 2;
+		margin-bottom: 0;
+		border-bottom: 0;
+	}
 }
 
 .archive-content {
-	@include span(7 of 12 first);
+
+	@include mq(M) {
+		@include span(7 of 12 first);
+	}
 
 	h1 {
 		@include font('secondary', 'medium');
@@ -26,8 +37,11 @@
 }
 
 .archive-content__posts {
-	padding-right: span(1 of 12) / 2;
-	border-right: 1px solid color('lighter-grey');
+
+	@include mq(M) {
+		padding-right: span(1 of 12) / 2;
+		border-right: 1px solid color('lighter-grey');
+	}
 }
 
 .archive-filtering__search {

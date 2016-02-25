@@ -40,11 +40,19 @@ h6,
 
 }
 
-article h1,
 h1 {
 	margin-top: 0;
 	margin-bottom: 1.3em;
 }
+article h1 {
+	margin-top: 0;
+	margin-bottom: 0.65em;
+}
+
+article h4 {
+	margin-top: 0;
+}
+
 
 .strap {
 	font-style: italic;
@@ -58,9 +66,10 @@ h1 {
 h1,
 .alpha {
 	@include font-size(39);
+	margin-bottom: .65em;
 
 	@include mq(M) {
-		@include font-size(54);
+		@include font-size(44);
 	}
 }
 
