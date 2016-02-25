@@ -3043,10 +3043,16 @@ a.post-object:focus {
             transform: translateY(-50%);
     border: 0;
     padding: 0; }
+    .archive-filtering__search button:hover, .archive-filtering__search button:active, .archive-filtering__search button:focus {
+      background: none; }
+      .archive-filtering__search button:hover svg, .archive-filtering__search button:active svg, .archive-filtering__search button:focus svg {
+        fill: #4D4D54; }
   .archive-filtering__search svg {
     width: 1.5em;
     height: 1.5em;
-    fill: #D5D5D7; }
+    fill: #D5D5D7;
+    -webkit-transition: fill .2s ease;
+            transition: fill .2s ease; }
 
 .single-post .blog__title {
   padding-top: 7.5rem;

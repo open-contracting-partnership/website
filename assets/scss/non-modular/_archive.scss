@@ -50,11 +50,22 @@
 		transform: translateY(-50%);
 		border: 0;
 		padding: 0;
+
+		&:hover,
+		&:active,
+		&:focus {
+			background: none;
+
+			svg {
+				fill: color('background');
+			}
+		}
 	}
 
 	svg {
 		width: 1.5em;
 		height: 1.5em;
 		fill: color('lighter-grey');
+		transition: fill .2s ease;
 	}
 }
