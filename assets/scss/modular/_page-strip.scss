@@ -1,8 +1,23 @@
 .page-strip {
+
 	@include break;
 	overflow: hidden;
 	display: block;
 	margin-bottom: em(40);
+
+	a {
+
+		color: inherit;
+		text-decoration: underline;
+
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration: none;
+		}
+
+	}
+
 }
 
 .page-strip__media {
@@ -43,17 +58,8 @@
 	}
 }
 
-
-
 .page-strip--brand {
-
 	background-color: color('brand');
-
-	a {
-		color: inherit;
-		text-decoration: underline;
-	}
-	
 }
 
 .page-strip--teal,
@@ -66,14 +72,7 @@
 .page-strip--teal,
 .page-strip--dark-background,
 .page-strip--background {
-
 	color: color('white');
-
-	a {
-		color: inherit;
-		text-decoration: underline;
-	}
-
 }
 
 .page-strip--teal {

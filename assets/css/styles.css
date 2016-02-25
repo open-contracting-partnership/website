@@ -1833,6 +1833,11 @@ input[type="submit"] {
   overflow: hidden;
   display: block;
   margin-bottom: 2em; }
+  .page-strip a {
+    color: inherit;
+    text-decoration: underline; }
+    .page-strip a:hover, .page-strip a:focus, .page-strip a:active {
+      text-decoration: none; }
 
 .page-strip__media {
   margin-bottom: 3em; }
@@ -1869,9 +1874,6 @@ input[type="submit"] {
 
 .page-strip--brand {
   background-color: #D6E100; }
-  .page-strip--brand a {
-    color: inherit;
-    text-decoration: underline; }
 
 .page-strip--teal,
 .page-strip--dark-background,
@@ -1883,11 +1885,6 @@ input[type="submit"] {
 .page-strip--dark-background,
 .page-strip--background {
   color: #FFF; }
-  .page-strip--teal a,
-  .page-strip--dark-background a,
-  .page-strip--background a {
-    color: inherit;
-    text-decoration: underline; }
 
 .page-strip--teal {
   background-color: #23B2A7; }
