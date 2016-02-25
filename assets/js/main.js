@@ -172,4 +172,12 @@ $(document).ready(function() {
 
 	$('.team-member__selector').first().trigger('click');
 
+	$('.team-member__view-bio').on('click', function(event) {
+
+		event.preventDefault();
+
+		$(this).closest('.team-member').find('.team-member__bio').toggleClass('active');
+
+	});
+
 });
