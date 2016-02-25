@@ -46,13 +46,20 @@
 
 
 .page-strip--brand {
+
 	background-color: color('brand');
+
+	a {
+		color: inherit;
+		text-decoration: underline;
+	}
+	
 }
 
 .page-strip--teal,
 .page-strip--dark-background,
 .page-strip--background,
-.page-strip--teal {
+.page-strip--brand {
 	padding: em(75) 0;
 }
 

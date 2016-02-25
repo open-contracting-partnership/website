@@ -1869,11 +1869,14 @@ input[type="submit"] {
 
 .page-strip--brand {
   background-color: #D6E100; }
+  .page-strip--brand a {
+    color: inherit;
+    text-decoration: underline; }
 
 .page-strip--teal,
 .page-strip--dark-background,
 .page-strip--background,
-.page-strip--teal {
+.page-strip--brand {
   padding: 3.75em 0; }
 
 .page-strip--teal,
