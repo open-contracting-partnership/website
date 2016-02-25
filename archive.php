@@ -2,32 +2,39 @@
 
 <?php get_header(); ?>
 
-	<div class="wrapper">
+	<div class="wrapper page--padding">
 
-		<?php if ( is_category() ) : ?>
-			<h1><?php single_cat_title(); ?></h1>
-		<?php elseif( is_tag() ) : ?>
+		<div class="archive-filtering">
+
+			<form class="archive-filtering__search" action="index.html" method="post">
+				<input type="search" placeholder="Search tags">
+				<button type="button" name="button"><svg><use xlink:href="#icon-search"></svg></button>
+			</form>
+
+			<div class="archive-filtering__sort">
+
+				<select class="" name="">
+					<option>All</option>
+				</select>
+
+				<h3>Sort by category</h3>
+
+				<ul class="nav nav--vertical nav--in-page">
+					<li><a href="#">All</a></li>
+				</ul>
+
+			</div>
+
+		</div>
+
+		<div class="archive-content">
+
+			<span>Results for Tag /</span>
+
 			<h1><?php single_tag_title(); ?></h1>
-		<?php elseif( is_tax() ) : ?>
-			<h1><?php single_cat_title(); ?></h1>
-		<?php elseif (is_day()) : ?>
-			<h1><?php pll_e('Archive for'); ?> <?php the_time('F jS, Y'); ?></h1>
-		<?php elseif (is_month()) : ?>
-			<h1><?php pll_e('Archive for'); ?> <?php the_time('F, Y'); ?></h1>
-		<?php elseif (is_year()) : ?>
-			<h1><?php pll_e('Archive for'); ?> <?php the_time('Y'); ?></h1>
-		<?php elseif (is_author()) : ?>
-			<h1><?php pll_e('Author Archive'); ?></h1>
-		<?php else : ?>
-			<h1><?php the_post_type_label(NULL, TRUE); ?></h1>
-		<?php endif;?>
-
-		<div class="archive-posts">
 
 			<?php if ( have_posts() ) : while(have_posts()) : the_post(); ?>
-
-				<?php get_partial('post-object', 'vertical--light'); ?>
-
+				<?php get_partial('post-object', 'horizontal-archive'); ?>
 			<?php endwhile; endif; ?>
 
 		</div>
