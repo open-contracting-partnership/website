@@ -341,6 +341,7 @@
 
 		a {
 			padding: em(25, 18) 0 em(20, 18);
+			@include font-size(18);
 		}
 	}
 }
