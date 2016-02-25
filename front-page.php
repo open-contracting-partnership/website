@@ -53,7 +53,7 @@
 
 	<section class="band band--thick">
 
-		<div class="wrapper">
+		<div class="wrapper--inner">
 
 			<div class="cta-block__container">
 

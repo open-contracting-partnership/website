@@ -90,7 +90,11 @@
 }
 
 .site-footer__follow {
-	margin-bottom: 3em;
+	margin-bottom: 1em;
+
+	@include mq(M) {
+	    margin-bottom: 3em;
+	}
 
 	svg {
 		width: 1em;
@@ -107,8 +111,20 @@
 	}
 }
 
-.main-footer .site-footer__follow a {
-	@include font-size(20);
+.main-footer .site-footer__follow {
+
+	li {
+		display: inline-block;
+		margin-right: em(10);
+
+		@include mq(M) {
+		    margin-right: em(21);
+		}
+	}
+
+	a {
+		@include font-size(20);
+	}
 }
 
 .site-footer__subscribe,
@@ -122,6 +138,7 @@
 
 .site-footer__contact {
 	margin-bottom: em(25);
+	
 	address {
 		@include font('secondary');
 		@include font-size(14);
@@ -144,9 +161,11 @@
 	svg {
 		max-width: em(188);
 		max-height: em(51);
+		margin: .5em 0;
 
-		@include mq(L) {
+		@include mq(M) {
 			@include span(2 at 10 of 12 last);
+			margin: 0;
 		}
 	}
 }
@@ -159,13 +178,15 @@
 	@include font('secondary');
 	@include font-size(16);
 	color: color('light-grey');
+	margin-bottom: 1em;
+
+	@include mq(M) {
+		@include span(4 of 12 first);
+		margin-bottom: 0;
+	}
 
 	p {
 		margin: 0;
-	}
-
-	@include mq(L) {
-		@include span(4 of 12 first);
 	}
 }
 
@@ -207,6 +228,7 @@
 
 		span:last-child {
 			float: right;
+
 			a {
 				margin-right: 0;
 			}

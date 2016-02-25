@@ -1,16 +1,23 @@
 .cta-block__container {
-	display: flex;
+
+	@include mq(M) {
+	    display: flex;
+	}
 }
 
 .cta-block {
 	@include font-size(22);
 	color: color('white');
 	line-height: 1.45;
-	width: 50%;
-	float: left;
-	padding: em(50, 22) em(50, 22) em(160, 22);
+	padding: em(25, 22) em(25, 22);
 	position: relative;
 	overflow: hidden;
+
+	@include mq(M) {
+		width: 50%;
+		float: left;
+		padding: em(50, 22) em(50, 22) em(160, 22);
+	}
 
 	&:before {
 		content: '';
