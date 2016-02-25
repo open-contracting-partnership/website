@@ -164,6 +164,10 @@ em {
   font-style: italic; }
 
 blockquote {
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 29px;
   font-size: 1.45rem;
   padding: 0 0 0 1.2069em;
