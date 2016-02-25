@@ -10,7 +10,7 @@
 				'posts_per_page' => -1
 			),
 			'taxonomies' => ['resource-type', 'region', 'issue', 'open-contracting'],
-			'fields' => ['short_description', 'organisation', 'attachments'],
+			'fields' => ['short_description', 'organisation', 'attachments', 'link'],
 			'custom' => array(
 				'year' => function($vue_post) {
 					return date('Y', strtotime($vue_post->post_date));
@@ -104,6 +104,8 @@
 			</p>
 
 			<p v-if="open_resource.fields.attachments"><a href="{{ open_resource.fields.attachments[0].file }}" class="button button--block button--large">Download</a></p>
+
+			<p v-if="open_resource.fields.link"><a href="{{ open_resource.fields.link }}" class="button button--block button--large">View</a></p>
 
 			<hr />
 
