@@ -121,6 +121,17 @@ $(document).ready(function() {
 
 	});
 
+	$('.header-search, .header__search').on('click', function(event) {
+		event.stopPropagation();
+	});
+
+	$('body, .search__close').on('click', function() {
+
+		// close the search box
+		$('.site-header__top').removeClass('search--active');
+
+	});
+
 
 	 //*****
 	// MENU
