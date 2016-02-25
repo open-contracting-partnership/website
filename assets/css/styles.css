@@ -1880,6 +1880,11 @@ input[type="submit"] {
 .page-strip--dark-background,
 .page-strip--background {
   color: #FFF; }
+  .page-strip--teal a,
+  .page-strip--dark-background a,
+  .page-strip--background a {
+    color: inherit;
+    text-decoration: underline; }
 
 .page-strip--teal {
   background-color: #23B2A7; }

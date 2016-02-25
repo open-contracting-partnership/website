@@ -59,7 +59,14 @@
 .page-strip--teal,
 .page-strip--dark-background,
 .page-strip--background {
+
 	color: color('white');
+
+	a {
+		color: inherit;
+		text-decoration: underline;
+	}
+
 }
 
 .page-strip--teal {
