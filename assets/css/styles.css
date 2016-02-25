@@ -2027,7 +2027,9 @@ input[type="submit"] {
     color: #323238; }
   .team-member__selector h3 {
     position: relative;
-    margin-bottom: 0.13793em; }
+    margin-bottom: 0.13793em;
+    font-size: 22px;
+    font-size: 1.1rem; }
     .team-member__selector h3:before {
       font-size: 10px;
       font-size: 0.5rem;
