@@ -9,7 +9,7 @@
 	<div class="post-object__content">
 
 		<div>
-			<span class="tag tag--<?php echo $post_type; ?>"><?php the_post_type_label(); ?></span>
+			<span class="post-object__tag post-object__tag--<?php echo $post_type; ?>"><?php the_post_type_label(); ?></span>
 			<a href="<?php the_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
 		</div>
 
