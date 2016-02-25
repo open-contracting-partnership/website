@@ -1,3 +1,8 @@
+.archive--padding {
+	padding-top: em(60);
+	padding-bottom: em(80);
+}
+
 .archive-filtering {
 	@include span(4 of 12 last);
 	margin-right: span(1 of 12) + gutter();
@@ -27,6 +32,7 @@
 
 .archive-filtering__search {
 	position: relative;
+	margin-bottom: 4em;
 
 	input {
 		@include font('secondary');

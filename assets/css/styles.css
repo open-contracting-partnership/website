@@ -2979,6 +2979,10 @@ a.post-object:focus {
 
 /*------------------------------------*    $NON-MODULAR
 \*------------------------------------*/
+.archive--padding {
+  padding-top: 3em;
+  padding-bottom: 4em; }
+
 .archive-filtering {
   width: 32.71028%;
   float: right;
@@ -3013,7 +3017,8 @@ a.post-object:focus {
   border-right: 1px solid #D5D5D7; }
 
 .archive-filtering__search {
-  position: relative; }
+  position: relative;
+  margin-bottom: 4em; }
   .archive-filtering__search input {
     font-weight: 400;
     font-style: normal;
