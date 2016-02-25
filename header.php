@@ -46,7 +46,7 @@
 		<link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/android-chrome-192x192.png" sizes="192x192">
 		<link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/favicon-16x16.png" sizes="16x16">
 		<link rel="manifest" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/manifest.json">
-		<link rel="mask-icon" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+		<link rel="mask-icon" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/safari-pinned-tab.svg" color="#323238">
 		<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/favicon.ico">
 		<meta name="msapplication-TileColor" content="#323238">
 		<meta name="msapplication-TileImage" content="<?php bloginfo('template_directory'); ?>/assets/img/favicons/mstile-144x144.png">
