@@ -12,7 +12,7 @@
 
 	.logo {
 		display: none;
-		margin: 1.1em 0;
+		margin: em(40) 0 em(20);
 
 		@include mq(M) {
 			display: inline-block;

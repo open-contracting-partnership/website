@@ -40,11 +40,20 @@ h6,
 
 }
 
-article h1,
 h1 {
 	margin-top: 0;
 	margin-bottom: 1.3em;
 }
+article h1 {
+	margin-top: 0;
+	margin-bottom: 0.65em;
+	@include font-size(44);
+}
+
+article h4 {
+	margin-top: 0;
+}
+
 
 .strap {
 	font-style: italic;
