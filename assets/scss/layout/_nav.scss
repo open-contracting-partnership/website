@@ -90,13 +90,13 @@
 			right: 0;
 			left: 50%;
 			transform: translateX(-50%);
-			max-width: 72rem;
+			max-width: 76rem;
 			width: 100%;
 			display: none;
 			background-color: color('white');
 			border-bottom: 1px solid color('lighter-grey');
 			margin: 0;
-			padding: 0 1em;
+			padding: 0 3em;
 			z-index: 10;
 
 			&:before {
