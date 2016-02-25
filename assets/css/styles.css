@@ -1105,9 +1105,9 @@ td {
   max-width: 70em;
   margin-left: auto;
   margin-right: auto;
-  max-width: 72rem;
+  max-width: 76rem;
   box-sizing: border-box;
-  padding: 0 1em; }
+  padding: 0 3em; }
   .wrapper:after {
     content: " ";
     display: block;
@@ -1215,13 +1215,13 @@ td {
       left: 50%;
       -webkit-transform: translateX(-50%);
               transform: translateX(-50%);
-      max-width: 72rem;
+      max-width: 76rem;
       width: 100%;
       display: none;
       background-color: #FFF;
       border-bottom: 1px solid #D5D5D7;
       margin: 0;
-      padding: 0 1em;
+      padding: 0 3em;
       z-index: 10; }
       .nav--horizontal ul:before {
         content: '';
