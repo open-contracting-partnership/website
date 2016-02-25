@@ -111,7 +111,7 @@ em {
 // BLOCKQUOTE
 
 blockquote {
-
+	@include font('secondary', 'medium');
     @include font-size(29);
     padding: 0 0 0 em(35, 29);
     margin: 0 0 1.5em;

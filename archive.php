@@ -13,10 +13,10 @@
 
 			<div class="archive-filtering__sort">
 
-				<h4>Sort by category</h4>
+				<h4><?php pll_e('Sort by category'); ?></h4>
 
 				<ul class="nav nav--vertical nav--in-page">
-					<li><a href="#">All</a></li>
+					<li><a href="#"><?php pll_e('All'); ?></a></li>
 				</ul>
 
 			</div>
@@ -25,9 +25,23 @@
 
 		<div class="archive-content">
 
-			<span class="archive-content__sub-title">Results for Tag /</span>
-
-			<h1><?php single_tag_title(); ?></h1>
+			<?php if ( is_category() ) : ?>
+				<span class="archive-content__sub-title"><?php pll_e('Results for Category /'); ?></span>
+				<h1><?php single_cat_title(); ?></h1>
+			<?php elseif( is_tag() ) : ?>
+				<span class="archive-content__sub-title"><?php pll_e('Results for Tag /'); ?></span>
+				<h1><?php single_tag_title(); ?></h1>
+			<?php elseif( is_tax() ) : ?>
+				<span class="archive-content__sub-title"><?php pll_e('Results for Taxonomy /'); ?></span>
+				<h1><?php single_cat_title(); ?></h1>
+			<?php elseif (is_author()) : ?>
+				<?php $author = get_userdata( get_query_var('author') ); ?>
+				<span class="archive-content__sub-title"><?php pll_e('Results for Author /'); ?></span>
+				<h1><?php echo $author->display_name;?></h1>
+			<?php else : ?>
+				<span class="archive-content__sub-title"><?php pll_e('Results for Post /'); ?></span>
+				<h1><?php the_post_type_label(NULL, TRUE); ?></h1>
+			<?php endif;?>
 
 			<div class="archive-content__posts">
 

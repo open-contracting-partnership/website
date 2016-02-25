@@ -132,6 +132,23 @@ $(document).ready(function() {
 
 	});
 
+	// escape key
+	$(document).keyup(function(event) {
+
+		if (event.keyCode == 27) {
+
+			if ( $('.site-header__top.search--active') ) {
+				$('.site-header__top').removeClass('search--active');
+			}
+
+			if ( typeof resource_vue !== 'undefined' ) {
+				resource_vue.open_resource = null;
+			}
+
+		}
+
+	});
+
 
 	 //*****
 	// MENU

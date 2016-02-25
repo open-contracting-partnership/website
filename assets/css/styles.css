@@ -164,6 +164,10 @@ em {
   font-style: italic; }
 
 blockquote {
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 29px;
   font-size: 1.45rem;
   padding: 0 0 0 1.2069em;
@@ -2819,7 +2823,8 @@ a.post-object:focus {
   -webkit-box-direction: reverse;
   -webkit-flex-direction: row-reverse;
       -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse; }
+          flex-direction: row-reverse;
+  width: 100%; }
   .post-object--resource .post-object--resource__media {
     display: -webkit-box;
     display: -webkit-flex;
@@ -3024,7 +3029,8 @@ a.post-object:focus {
       margin-right: 0;
       margin-right: 8.41121%;
       padding-left: 3.73832%;
-      margin-bottom: 0; } }
+      margin-bottom: 0;
+      border-bottom: 0; } }
 
 @media screen and (min-width: 640px) {
   .archive-content {
@@ -3913,10 +3919,11 @@ input[type="search"].resource-search {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  -webkit-appearance: textfield;
+  -webkit-appearance: none;
   line-height: 1;
   color: #999;
   border: 0;
+  border-radius: 0;
   background-color: #FFF;
   padding: 1.17391em; }
   input[type="search"].resource-search::-webkit-input-placeholder {

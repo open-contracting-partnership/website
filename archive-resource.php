@@ -212,8 +212,7 @@
 			  return objectValues(object);
 			});
 
-			// bootstrap the demo
-			var demo = new Vue({
+			var resource_vue = new Vue({
 
 				el: '#resources',
 
