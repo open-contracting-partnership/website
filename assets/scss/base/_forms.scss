@@ -65,12 +65,10 @@ textarea {
 	line-height: strip-unit($space);
 }
 
-input[type="text"].valid,
-input[type="email"].valid {
-}
-
-input[type="text"].not-valid,
-input[type="email"].not-valid {
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button {
+	display: none;
 }
 
 
