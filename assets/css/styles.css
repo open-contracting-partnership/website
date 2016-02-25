@@ -3009,7 +3009,8 @@ a.post-object:focus {
       margin-right: 0;
       margin-right: 8.41121%;
       padding-left: 3.73832%;
-      margin-bottom: 0; } }
+      margin-bottom: 0;
+      border-bottom: 0; } }
 
 @media screen and (min-width: 640px) {
   .archive-content {
