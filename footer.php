@@ -103,14 +103,15 @@
 
 							<h4><?php pll_e('Subscribe to our newsletter'); ?></h4>
 
-							<form action="#" class="form--dark flex-field">
+							<div class="js-subscribe">
 
-								<input type="email" name="newsletter" placeholder="Enter your email">
+								<form class="form--dark flex-field" action="" method="post">
+									<input type="email" placeholder="Enter your email" name="email" required>
+									<button><?php pll_e('Send'); ?></button>
+								</form>
 
-								<button type="submit"><?php pll_e('Send'); ?></button>
-
-							</form>
-
+							</div>
+							
 						</div>
 
 						<div class="site-footer__contact">

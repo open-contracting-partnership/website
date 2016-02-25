@@ -75,11 +75,14 @@
 
 			<h4 class="border-top border-top--clean">Subscribe to our newsletter</h4>
 
-			<form class="flex-field" action="index.html" method="post">
-				<input type="email" placeholder="Enter your email">
-				<button>Send</button>
-			</form>
+			<div class="js-subscribe">
 
+				<form class="flex-field" action="" method="post">
+					<input type="email" placeholder="Enter your email" name="email" required>
+					<button>Send</button>
+				</form>
+
+			</div>
 
 			<?php
 

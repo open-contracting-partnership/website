@@ -10,9 +10,9 @@
 
 			<h1><?php the_title(); ?></h1>
 
-			<blockquote>
+			<p class="strapline">
 				<?php the_field('advisory_introduction'); ?>
-			</blockquote>
+			</p>
 
 		</div>
 

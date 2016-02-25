@@ -163,7 +163,8 @@ i,
 em {
   font-style: italic; }
 
-blockquote {
+blockquote,
+.strapline {
   font-weight: 500;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -173,7 +174,8 @@ blockquote {
   padding: 0 0 0 1.2069em;
   margin: 0 0 1.5em;
   position: relative; }
-  blockquote:before {
+  blockquote:before,
+  .strapline:before {
     content: '';
     display: block;
     position: absolute;
@@ -182,7 +184,8 @@ blockquote {
     height: 80%;
     width: 10px;
     background-color: #D6E100; }
-  blockquote p {
+  blockquote p,
+  .strapline p {
     font-weight: 400;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
@@ -190,12 +193,22 @@ blockquote {
     font-size: 1em;
     line-height: 1.4;
     margin-bottom: 0.75em; }
-  blockquote footer {
+  blockquote footer,
+  .strapline footer {
     font-size: 0.48276em;
     text-transform: uppercase;
     display: block; }
-  blockquote > :last-child {
+  blockquote > :last-child,
+  .strapline > :last-child {
     margin-bottom: 0; }
+
+.strapline {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  font-size: 1.1rem; }
 
 hr {
   border: 0 solid #424244;
@@ -2286,6 +2299,22 @@ input[type="submit"] {
     line-height: 1.45;
     padding: 5px 0; }
 
+.subscribe__alert {
+  font-size: 14px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px; }
+  .subscribe__alert svg {
+    height: .8em;
+    width: .8em;
+    margin-right: .5em;
+    vertical-align: baseline;
+    fill: currentColor; }
+
 .timeline {
   overflow: hidden;
   position: relative; }
@@ -3647,7 +3676,7 @@ a.post-object:focus {
   .homepage-map__content .button {
     margin-bottom: 1rem; }
 
-.page-advisory-board__intro blockquote {
+.page-advisory-board__intro .strapline {
   margin-bottom: 0; }
 
 @media screen and (min-width: 1024px) {

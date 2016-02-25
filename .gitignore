@@ -5,3 +5,6 @@ styleguide/core
 import
 tweets/settings.json
 tweets/tweets.json
+composer.phar
+composer.lock
+/vendor/
