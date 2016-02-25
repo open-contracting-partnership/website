@@ -17,7 +17,7 @@
 				<h1 class="gamma"><?php the_title(); ?></h1>
 
 				<p class="resource__meta">
-					<span class="resource__published-date"><?php the_date(); ?></span>
+					<span class="resource__published-date"><?php the_date('Y'); ?></span>
 					<?php echo sprintf(pll__('By %s'), get_field('organisation')); ?>
 				</p>
 
