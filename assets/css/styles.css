@@ -1112,45 +1112,14 @@ td {
   margin-right: auto;
   max-width: 76rem;
   box-sizing: border-box;
-  padding: 0 3em; }
+  padding: 0 1em; }
   .wrapper:after {
     content: " ";
     display: block;
     clear: both; }
-
-@media screen and (min-width: 1024px) {
-  .l-3 {
-    width: 24.29907%;
-    float: left;
-    margin-right: 0.93458%; } }
-
-@media screen and (min-width: 1024px) {
-  .l-4 {
-    width: 32.71028%;
-    float: left;
-    margin-right: 0.93458%; } }
-
-@media screen and (min-width: 1024px) {
-  .l-5 {
-    width: 41.1215%;
-    float: left;
-    margin-right: 0.93458%; } }
-
-@media screen and (min-width: 1024px) {
-  .l-7 {
-    width: 57.94393%;
-    float: left;
-    margin-right: 0.93458%; } }
-
-.g-first {
-  margin-left: 0; }
-
-.g-last {
-  float: right;
-  margin-right: 0; }
-
-.g-break {
-  clear: both; }
+  @media screen and (min-width: 640px) {
+    .wrapper {
+      padding: 0 3em; } }
 
 /*------------------------------------*    NAVIGATION
 \*------------------------------------*/
