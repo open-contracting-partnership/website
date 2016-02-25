@@ -6,4 +6,16 @@
 
 .archive-content {
 	@include span(7 of 12 first);
+
+	h1 {
+		@include font('secondary', 'medium');
+		@include font-size(48);
+		margin-bottom: em(55, 48);
+	}
+}
+
+.archive-content__sub-title {
+	@include font('secondary');
+	@include font-size(22);
+	margin-bottom: 1.2em;
 }

@@ -29,7 +29,7 @@
 
 		<div class="archive-content">
 
-			<span>Results for Tag /</span>
+			<span class="archive-content__sub-title">Results for Tag /</span>
 
 			<h1><?php single_tag_title(); ?></h1>
 
