@@ -1,0 +1,24 @@
+.post-object--spotlight {
+
+	.post-object--spotlight__title {
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		right: 0;
+		opacity: .9;
+
+		h4 {
+			background-color: color('purple');
+			margin-bottom: 0;
+			padding: .85rem 1.1rem;
+		}
+	}
+
+	.post-object__tag {
+		@include font('secondary', 'bold');
+		color: color('white');
+		position: static;
+		display: inline-block;
+		background-color: color('purple');
+	}
+}

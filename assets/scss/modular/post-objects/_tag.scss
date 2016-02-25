@@ -1,0 +1,41 @@
+.post-object__tag {
+	@include font('secondary', 'medium');
+	@include font-size(12);
+	color: color('white');
+	background-color: color('dark-orange');
+	line-height: 1;
+	padding: 6px 7px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	float: left;
+	margin-top: .5em;
+	margin-right: 2em;
+}
+
+.post-object__tag--post {
+	background-color: color('dark-orange');
+}
+
+.post-object__tag--news {
+	background-color: color('lilac');
+}
+
+.post-object__tag--event {
+	background-color: color('blue');
+}
+
+.post-object__tag--report {
+	background-color: color('teal');
+}
+
+.post-object__tag--newsletter {
+	background-color: color('purple');
+}
+
+.post-object__tag--success {
+	background-color: color('pink');
+}
+
+.post-object__tag--media-clipping {
+	background-color: color('light-blue');
+}

@@ -1,0 +1,16 @@
+.home .post-object--horizontal {
+	height: em(154);
+
+	h4 {
+		display: inline;
+		background-color: color('lilac');
+		box-shadow: 5px 0 0 color('lilac'), -5px 0 0 color('lilac');
+		box-decoration-break: clone; // FF32 Fix - https://css-tricks.com/multi-line-padded-text/
+		line-height: 1.3;
+		padding: 0;
+	}
+
+	p {
+		margin-top: .5rem;
+	}
+}
