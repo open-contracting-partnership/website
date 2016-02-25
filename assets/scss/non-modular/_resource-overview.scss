@@ -196,7 +196,6 @@
 input[type="search"].resource-search {
 	@include font-size(23);
 	@include font('secondary');
-	-webkit-appearance: textfield;
 	line-height: 1;
 	color: color('grey');
 	border: 0;
