@@ -6,4 +6,49 @@
 
 .archive-content {
 	@include span(7 of 12 first);
+
+	h1 {
+		@include font('secondary', 'medium');
+		@include font-size(48);
+		margin-bottom: em(55, 48);
+	}
+}
+
+.archive-content__sub-title {
+	@include font('secondary');
+	@include font-size(22);
+	margin-bottom: 1.2em;
+}
+
+.archive-content__posts {
+	padding-right: span(1 of 12) / 2;
+	border-right: 1px solid color('lighter-grey');
+}
+
+.archive-filtering__search {
+	position: relative;
+
+	input {
+		@include font('secondary');
+		@include font-size(29);
+		color: color('lighter-grey');
+		border: 1px solid color('lighter-grey');
+		margin: 0;
+		padding: .5em;
+	}
+
+	button {
+		position: absolute;
+		top: 50%;
+		right: 1em;
+		transform: translateY(-50%);
+		border: 0;
+		padding: 0;
+	}
+
+	svg {
+		width: 1.5em;
+		height: 1.5em;
+		fill: color('lighter-grey');
+	}
 }
