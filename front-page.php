@@ -188,7 +188,7 @@
 			<div class="homepage-map__image">
 
 				<div class="homepage-map__image-item">
-					<a href="#" class="button button--white">Mexico</a>
+					<a href="#" class="button button--white">Mexico City</a>
 				</div>
 
 				<div class="homepage-map__image-item">

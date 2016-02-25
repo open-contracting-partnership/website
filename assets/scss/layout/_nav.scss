@@ -312,7 +312,6 @@
 		padding: 0;
 		display: block;
 		width: auto;
-		border-top: 1px solid color('mid-grey');
 		position: relative;
 		top: auto;
 		bottom: auto;
@@ -341,6 +340,7 @@
 
 		a {
 			padding: em(25, 18) 0 em(20, 18);
+			@include font-size(18);
 		}
 	}
 }
