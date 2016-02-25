@@ -3919,6 +3919,7 @@ input[type="search"].resource-search {
   line-height: 1;
   color: #999;
   border: 0;
+  border-radius: none;
   background-color: #FFF;
   padding: 1.17391em; }
   input[type="search"].resource-search::-webkit-input-placeholder {

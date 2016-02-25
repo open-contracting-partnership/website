@@ -194,20 +194,19 @@
 }
 
 input[type="search"].resource-search {
-
 	@include font-size(23);
 	@include font('secondary');
 	-webkit-appearance: textfield;
 	line-height: 1;
 	color: color('grey');
 	border: 0;
+	border-radius: none;
 	background-color: color('white');
 	padding: em(27, 23);
 
 	&::-webkit-input-placeholder {
 		line-height: normal;
 	}
-
 }
 
 body.resource-open {
