@@ -120,8 +120,11 @@
 }
 
 .homepage-filter__items {
-    display: flex;
-    flex-wrap: wrap;
+
+	@include mq(M) {
+		display: flex;
+	    flex-wrap: wrap;
+	}
 }
 
 .homepage-filter__item {
@@ -219,6 +222,11 @@
 
 .homepage-map {
 	position: relative;
+	display: none;
+
+	@include mq(M) {
+		display: block;
+	}
 }
 
 .homepage-map__image {

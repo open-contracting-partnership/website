@@ -3449,14 +3449,15 @@ a.post-object:focus {
 .homepage-filter__items-pool {
   display: none; }
 
-.homepage-filter__items {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+@media screen and (min-width: 640px) {
+  .homepage-filter__items {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; } }
 
 .homepage-filter__item {
   margin-bottom: 0.93458%; }
@@ -3537,7 +3538,11 @@ a.post-object:focus {
     font-size: 1rem; }
 
 .homepage-map {
-  position: relative; }
+  position: relative;
+  display: none; }
+  @media screen and (min-width: 640px) {
+    .homepage-map {
+      display: block; } }
 
 .homepage-map__image {
   width: 83.17757%;
