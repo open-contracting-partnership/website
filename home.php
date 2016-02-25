@@ -213,7 +213,7 @@
 
 		<div class="post-object__media">
 
-			<img v-if="! hasThumbnail()" src="http://placehold.it/460x230" alt="">
+			<img v-if="! hasThumbnail()" src="<?php bloginfo('template_directory'); ?>/assets/img/fallback.jpg" alt="">
 			<div v-else>
 				{{{ post.custom.thumbnail }}}
 			</div>
