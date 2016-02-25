@@ -1387,7 +1387,6 @@ td {
       padding: 0;
       display: block;
       width: auto;
-      border-top: 1px solid #69696B;
       position: relative;
       top: auto;
       bottom: auto;
@@ -1405,7 +1404,9 @@ td {
         border-right: 0;
         padding-right: 0; }
       .primary-nav a {
-        padding: 1.38889em 0 1.11111em; } }
+        padding: 1.38889em 0 1.11111em;
+        font-size: 18px;
+        font-size: 0.9rem; } }
 
 main.menu--open {
   margin-top: 3.45em; }
