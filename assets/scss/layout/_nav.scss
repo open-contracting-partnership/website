@@ -372,6 +372,9 @@
 	}
 }
 
-main.menu--open {
-	margin-top: em(69);
+@include mq(M) {
+
+	main.menu--open {
+		margin-top: em(69);
+	}
 }
