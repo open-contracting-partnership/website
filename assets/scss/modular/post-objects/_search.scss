@@ -1,0 +1,24 @@
+.search-main {
+
+	@include mq(M) {
+	    @include span(9 of 12 first);
+	}
+}
+
+.post-object--search {
+	display: flex;
+
+	.post-object__tag {
+		max-height: 24px;
+		margin-top: 5px;
+		margin-right: 10px;
+	}
+
+	h4 {
+		@include font('secondary', 'medium');
+		@include font-size(29);
+		color: color('background');
+		padding-left: 10px;
+		border-left: 1px solid color('lighter-grey');
+	}
+}
