@@ -58,7 +58,7 @@
 	@include mq(L) {
 		@include span(3 of 12);
 	    position: absolute;
-	    left: 20px;
+	    left: 3rem;
 		padding: 0 .7% 0 0;
 		border: 0;
 	}
