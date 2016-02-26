@@ -116,9 +116,6 @@ body {
 main {
   overflow: hidden; }
 
-article section {
-  overflow: scroll; }
-
 p,
 ul,
 ol,
@@ -534,13 +531,14 @@ ul {
     list-style-type: none; }
 
 ol {
-  list-style: decimal; }
+  list-style-type: decimal;
+  padding: 0; }
 
 ol ol {
-  list-style: lower-alpha; }
+  list-style-type: lower-alpha; }
 
 ol ol ol {
-  list-style: lower-roman; }
+  list-style-type: lower-roman; }
 
 ul ul,
 ol ol {
@@ -722,7 +720,12 @@ table {
   width: 100%;
   text-align: left;
   border-collapse: collapse;
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5em;
+  table-layout: fixed; }
+
+tbody {
+  display: block;
+  overflow: scroll; }
 
 th,
 td {
