@@ -311,8 +311,8 @@ tbody tr a {
   tbody tr a:active {
     text-decoration: none; }
 
-.page-content a,
-.post-content a {
+.page-content a:not(.post-object):not(.post-object a),
+.post-content a:not(.post-object):not(.post-object a) {
   color: inherit;
   text-decoration: none;
   border-bottom: 2px solid #D6E100;
@@ -322,10 +322,10 @@ tbody tr a {
   margin-right: -2px;
   -webkit-transition: background .3s ease;
           transition: background .3s ease; }
-  .page-content a:hover, .page-content a:active, .page-content a:focus,
-  .post-content a:hover,
-  .post-content a:active,
-  .post-content a:focus {
+  .page-content a:not(.post-object):not(.post-object a):hover, .page-content a:not(.post-object):not(.post-object a):active, .page-content a:not(.post-object):not(.post-object a):focus,
+  .post-content a:not(.post-object):not(.post-object a):hover,
+  .post-content a:not(.post-object):not(.post-object a):active,
+  .post-content a:not(.post-object):not(.post-object a):focus {
     text-decoration: none;
     background-color: #D6E100; }
 
@@ -2171,6 +2171,16 @@ input[type="submit"] {
 .custom-radio input[type="radio"]:checked + span {
   border-width: .5em; }
 
+.related-posts--inline {
+  background-color: #F6F6F6;
+  padding: 1.5em;
+  margin: 0 -1.5em 1.5rem; }
+  .related-posts--inline h5 {
+    text-transform: uppercase;
+    letter-spacing: 1px; }
+  .related-posts--inline .post-object:last-child {
+    margin-bottom: 0; }
+
 .relevant-resources {
   margin: 0;
   padding: 0; }
@@ -2739,10 +2749,16 @@ a.post-object:focus {
     margin-top: .5rem; }
 
 .post-object--horizontal {
-  overflow: hidden; }
-  .post-object--horizontal p {
-    font-size: 16px;
-    font-size: 0.8rem; }
+  overflow: hidden;
+  color: #424244;
+  background-color: #FFF;
+  border: 1px solid #D5D5D7; }
+  .post-object--horizontal .post-object__content {
+    padding: 1em 1.5em; }
+  .post-object--horizontal .post-object__meta {
+    margin-bottom: .357em; }
+  .post-object--horizontal h4 {
+    margin-top: 15px; }
 
 .post-object--horizontal--small .post-object__media {
   width: 6.1em;

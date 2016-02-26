@@ -27,6 +27,7 @@ add_image_size('hemo_horizontal', 122, 154, TRUE);
 // aspect ratio
 add_aspect_ratio('2x1', 460, 2, 1);
 
+add_aspect_ratio('4x3', 230, 4, 3);
 add_aspect_ratio('4x3', 460, 4, 3);
 
 add_aspect_ratio('16x9', 690, 16, 9);

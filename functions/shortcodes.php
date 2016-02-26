@@ -55,7 +55,8 @@ add_shortcode('related', function($atts, $content = null) {
 	$args = (object) array_merge([
 		'taxonomy' => NULL,
 		'term' => NULL,
-		'post_type' => 'any'
+		'post_type' => 'any',
+		'posts_per_page' => 6
 	], $atts);
 
 	// don't proceed is the tax/term combination hasn't been set
@@ -63,9 +64,13 @@ add_shortcode('related', function($atts, $content = null) {
 		return FALSE;
 	}
 
+	$term = get_term_by('slug', $args->term, $args->taxonomy);
+	// print_r($term);
+	// die();
+
 	$related_posts = new query_loop([
 		'post_type' => $args->post_type,
-		'posts_per_page' => 6,
+		'posts_per_page' => $args->posts_per_page,
 		'tax_query' => array(
 			array(
 				'taxonomy' => $args->taxonomy,
@@ -80,9 +85,15 @@ add_shortcode('related', function($atts, $content = null) {
 
 	?>
 
-		<?php foreach ( $related_posts as $related_post ) : ?>
-			<?php get_partial('post-object', 'basic'); ?>
-		<?php endforeach; ?>
+		<div class="related-posts--inline">
+
+			<h4>Posts by: <a href="/<?php echo $term->slug; ?>/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a></h4>
+
+			<?php foreach ( $related_posts as $related_post ) : ?>
+				<?php get_partial('post-object', 'horizontal'); ?>
+			<?php endforeach; ?>
+
+		</div>
 
 	<?php
 
