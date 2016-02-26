@@ -114,17 +114,14 @@
 
 				<?php
 
-					$recent_posts = new query_loop([
-						'post_type' => 'post',
-						'posts_per_page' => 2,
-						'post__not_in' => $exclude_ids
+					$recent_news_items = new query_loop([
+						'post_type' => 'news',
+						'posts_per_page' => 2
 					]);
-
-					$exclude_ids += $recent_posts->post_ids;
 
 				?>
 
-				<?php foreach ( $recent_posts as $recent_post ) : ?>
+				<?php foreach ( $recent_news_items as $recent_news ) : ?>
 					<?php get_partial('post-object', 'basic'); ?>
 				<?php endforeach; ?>
 
@@ -221,7 +218,7 @@
 					<div v-else>
 						{{{ post.custom.thumbnail }}}
 					</div>
-					
+
 				</div>
 
 			</div>
