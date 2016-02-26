@@ -81,25 +81,31 @@ add_shortcode('related', function($atts, $content = null) {
 
 	]);
 
-	ob_start();
+	$output = '';
 
-	?>
+	if ( $related_posts->have_posts() ) {
 
-		<div class="related-posts--inline">
+		ob_start();
 
-			<h4>Posts by: <a href="/<?php echo $term->slug; ?>/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a></h4>
+		?>
 
-			<?php foreach ( $related_posts as $related_post ) : ?>
-				<?php get_partial('post-object', 'horizontal'); ?>
-			<?php endforeach; ?>
+			<div class="related-posts--inline">
 
-		</div>
+				<h4>Posts by: <a href="/<?php echo $term->slug; ?>/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a></h4>
 
-	<?php
+				<?php foreach ( $related_posts as $related_post ) : ?>
+					<?php get_partial('post-object', 'horizontal'); ?>
+				<?php endforeach; ?>
 
-	$var = ob_get_contents();
-	ob_end_clean();
+			</div>
 
-	return $var;
+		<?php
+
+		$output = ob_get_contents();
+		ob_end_clean();
+
+	}
+
+	return $output;
 
 });
