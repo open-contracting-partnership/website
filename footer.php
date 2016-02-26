@@ -111,7 +111,7 @@
 								</form>
 
 							</div>
-							
+
 						</div>
 
 						<div class="site-footer__contact">
@@ -181,30 +181,6 @@
 
 		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/assets/js/libs/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/assets/js/main.js"></script>
-
-<script type="text/javascript">
-	(function() {
-	var s = document.createElement("script");
-	s.type = "text/javascript";
-	s.async = true;
-	s.src = '//api.usersnap.com/load/'+
-        '6ddaa8e5-14cd-4b9d-8140-de7409c93f30.js';
-	var x = document.getElementsByTagName('script')[0];
-		x.parentNode.insertBefore(s, x);
-	})();
-</script>
-
-<script type="text/javascript">
- var _usersnapconfig = {
-     emailBox: true,
-     emailRequired: false,
-     commentBox: true,
-     commentRequired: false,
-     commentBoxPlaceholder: 'Please enter your mood here.',
-     emailBoxValue: '[NAME]@theideabureau.co',
-     tools: ['pen', 'blackout', 'note', 'highlight', 'arrow', 'pixelruler', 'comment']
- };
-</script>
 
 		<?php wp_footer(); ?>
 
