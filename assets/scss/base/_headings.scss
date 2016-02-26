@@ -44,15 +44,15 @@ h1 {
 	margin-top: 0;
 	margin-bottom: 1.3em;
 }
+
 article h1 {
 	margin-top: 0;
-	margin-bottom: 0.65em;
+	margin-bottom: .65em;
 }
 
 article h4 {
 	margin-top: 0;
 }
-
 
 .strap {
 	font-style: italic;
@@ -61,7 +61,6 @@ article h4 {
 .giga {
 	@include font-size(40);
 }
-
 
 h1,
 .alpha {

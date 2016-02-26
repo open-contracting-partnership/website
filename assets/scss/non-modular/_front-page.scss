@@ -247,9 +247,9 @@
 .homepage-map__image-item {
 	position: absolute;
 	display: block;
-	height: 0.5em;
-	width: 0.5em;
-	border: 2px solid #D7DE20;
+	height: .5em;
+	width: .5em;
+	border: 2px solid color('brand');
 	border-radius: 50%;
 
 	&:first-child {

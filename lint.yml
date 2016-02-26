@@ -72,7 +72,7 @@ linters:
     enabled: true
 
   IdSelector:
-    enabled: true
+    enabled: false
 
   ImportantRule:
     enabled: false
@@ -93,8 +93,8 @@ linters:
     style: exclude_zero # or 'include_zero'
 
   MergeableSelector:
-    enabled: true
-    force_nesting: true
+    enabled: false
+    force_nesting: false
 
   NameFormat:
     enabled: false
@@ -103,7 +103,7 @@ linters:
 
   NestingDepth:
     enabled: true
-    max_depth: 3
+    max_depth: 4
     ignore_parent_selectors: false
 
   PlaceholderInExtend:
@@ -145,10 +145,10 @@ linters:
 
   SelectorDepth:
     enabled: true
-    max_depth: 3
+    max_depth: 5
 
   SelectorFormat:
-    enabled: true
+    enabled: false
     convention: hyphenated_BEM # or 'strict_BEM', or 'hyphenated_BEM', or 'snake_case', or 'camel_case', or a regex pattern
 
   Shorthand:
