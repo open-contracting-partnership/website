@@ -4,7 +4,7 @@
 
 aside,
 .sidebar {
-	
+
 	@include font-size(16);
 	margin-top: 4.5rem;
 
@@ -16,7 +16,7 @@ aside,
 		margin-bottom: 1em;
 	}
 
-	a {
+	a:not(.button) {
 		color: color('brand-dark');
 	}
 
