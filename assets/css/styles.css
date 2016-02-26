@@ -2991,25 +2991,19 @@ a.post-object:focus {
     float: left;
     margin-right: 0.93458%; } }
 
-.post-object--search {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
-  .post-object--search .post-object__tag {
-    max-height: 24px;
-    margin-top: 5px;
-    margin-right: 10px; }
-  .post-object--search h4 {
-    font-weight: 500;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 29px;
-    font-size: 1.45rem;
-    color: #4D4D54;
-    padding-left: 10px;
-    border-left: 1px solid #D5D5D7; }
+.post-object--search .post-object__tag {
+  margin-top: 5px;
+  margin-right: 10px;
+  float: left; }
+
+.post-object--search h4 {
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 29px;
+  font-size: 1.45rem;
+  color: #4D4D54; }
 
 .post-object--spotlight .post-object--spotlight__title {
   position: absolute;
