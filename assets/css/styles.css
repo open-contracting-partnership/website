@@ -3449,8 +3449,8 @@ a.post-object:focus {
   clear: both; }
 
 .blog__popular-tags {
-  display: none;
-  clear: both; }
+  clear: both;
+  display: none; }
   @media screen and (min-width: 1024px) {
     .blog__popular-tags {
       display: block; } }
@@ -3466,30 +3466,32 @@ a.post-object:focus {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
-  @media screen and (min-width: 640px) {
-    .blog__post-items .post-object {
-      width: 49.0566%;
-      float: left;
-      margin-right: 1.88679%; }
-      .blog__post-items .post-object:nth-child(2n) {
-        float: right;
-        margin-right: 0; }
-      .blog__post-items .post-object:nth-child(2n+1) {
-        clear: both; } }
-  @media screen and (min-width: 1024px) {
-    .blog__post-items .post-object {
-      width: 32.71028%;
-      float: left;
-      margin-right: 0.93458%; }
-      .blog__post-items .post-object:nth-child(2n) {
+  .blog__post-items .post-object {
+    width: 100%; }
+    @media screen and (min-width: 640px) {
+      .blog__post-items .post-object {
+        width: 49.0566%;
+        float: left;
+        margin-right: 1.88679%; }
+        .blog__post-items .post-object:nth-child(2n) {
+          float: right;
+          margin-right: 0; }
+        .blog__post-items .post-object:nth-child(2n+1) {
+          clear: both; } }
+    @media screen and (min-width: 1024px) {
+      .blog__post-items .post-object {
         width: 32.71028%;
         float: left;
         margin-right: 0.93458%; }
-      .blog__post-items .post-object:nth-child(3n) {
-        float: right;
-        margin-right: 0; }
-      .blog__post-items .post-object:nth-child(3n+1) {
-        clear: both; } }
+        .blog__post-items .post-object:nth-child(2n) {
+          width: 32.71028%;
+          float: left;
+          margin-right: 0.93458%; }
+        .blog__post-items .post-object:nth-child(3n) {
+          float: right;
+          margin-right: 0; }
+        .blog__post-items .post-object:nth-child(3n+1) {
+          clear: both; } }
 
 .home {
   background-color: #4D4D54;
