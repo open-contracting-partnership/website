@@ -2021,9 +2021,8 @@ input[type="submit"] {
     background-color: #9BAF00; }
   .posts-filter__button svg {
     width: 1.5em;
-    height: 1em;
-    margin-right: .8em;
-    vertical-align: text-top; }
+    height: 2em;
+    margin-right: .8em; }
 
 .posts-filter__form {
   pointer-events: none;
@@ -2720,7 +2719,7 @@ a.post-object:focus {
   border: 1px solid #D5D5D7; }
   @media screen and (min-width: 640px) {
     .post-object--featured {
-      border: none; } }
+      border: 0; } }
   .post-object--featured .post-object__content {
     bottom: 2.5em;
     left: 1.25em;

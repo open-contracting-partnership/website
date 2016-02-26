@@ -99,7 +99,7 @@
 
 				<div class="posts-filter__inner">
 
-					<a href="#" class="posts-filter__button"><svg><use xlink:href="#icon-menu" /></svg><?php pll_e('Filter Blogs & Updates'); ?></a>
+					<a href="#" class="posts-filter__button"><svg><use xlink:href="#icon-filter" /></svg><?php pll_e('Filter Blogs & Updates'); ?></a>
 
 					<form action="#" class="posts-filter__form / custom-radio / js-homepage-filter">
 						<label><input type="radio" name="name" value="all" checked="checked"><span></span>All</label>
