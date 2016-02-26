@@ -9,7 +9,7 @@
 		<article class="cf">
 
 			<div class="blog__title">
-				<span class="post-type">Blog</span>
+				<span class="button button--tag button--small button--white">Blog</span>
 				<h1><?php the_title(); ?></h1>
 			</div>
 
