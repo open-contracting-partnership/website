@@ -168,9 +168,21 @@ $(document).ready(function() {
 
 	$('.nav--in-page a').on('click', function(event) {
 
+		event.preventDefault();
+
+		var $link = $(this),
+			$target = $($link.attr('href'));
+
+		// remove any existing active classes
 		$('.nav--in-page li.active').removeClass('active');
 
-		$(this).closest('li').addClass('active');
+		// set the current li to active
+		$link.closest('li').addClass('active');
+
+		// scroll to the target
+		$('html, body').animate({
+			scrollTop: $target.offset().top - parseInt($target.css('margin-top'))
+		}, 1000);
 
 	});
 
