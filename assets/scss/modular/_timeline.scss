@@ -59,7 +59,7 @@
 		height: 15px;
 		background-color: color('brand');
 		border-radius: 50%;
-		box-shadow: 0 0 6px 7px color('brand', 0.25);
+		box-shadow: 0 0 6px 7px color('brand', .25);
 	}
 
 	@include mq(L) {
@@ -80,7 +80,7 @@
 			height: 15px;
 			background-color: color('brand');
 			border-radius: 50%;
-			box-shadow: 0 0 6px 7px color('brand', 0.25);
+			box-shadow: 0 0 6px 7px color('brand', .25);
 		}
 
 	}

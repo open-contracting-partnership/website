@@ -81,21 +81,23 @@ input[type="search"]::-webkit-search-results-button {
 	button {
 		@include font('secondary');
 		@include font-size(16);
-		border: none;
+		border: 0;
 		color: color('body');
 		background: color('white');
 	}
 
 	button {
 		text-transform: uppercase;
+
 		&:hover,
 		&:active,
 		&:focus {
 			background: color('brand');
 			color: color('white');
-			border:none;
+			border: 0;
 			transition: none;
 		}
+
 	}
 }
 
