@@ -28,6 +28,11 @@ ol ol ol {
 ol,
 ul {
 	margin-bottom: $space;
+	list-style-position: inside;
+
+	@include mq(M) {
+	    list-style-position: initial;
+	}
 
 	&.no-bullet {
 		list-style-type: none;
