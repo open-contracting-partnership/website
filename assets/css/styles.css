@@ -1398,10 +1398,23 @@ td {
     font-size: 0.8rem;
     color: #FFF;
     padding: .4em 0;
-    border-bottom: 5px solid transparent; }
+    border-bottom: 5px solid transparent;
+    position: relative; }
+    .primary-nav a:after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -5px;
+      height: 0;
+      background-color: #D6E100;
+      -webkit-transition: height .2s ease;
+              transition: height .2s ease; }
     .primary-nav a:hover, .primary-nav a:active, .primary-nav a:focus {
-      text-decoration: none;
-      border-color: #D6E100; }
+      text-decoration: none; }
+      .primary-nav a:hover:after, .primary-nav a:active:after, .primary-nav a:focus:after {
+        height: 5px; }
   .primary-nav .current-menu-ancestor > a,
   .primary-nav .current-menu-item > a {
     text-decoration: none;
@@ -1410,6 +1423,11 @@ td {
     background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMjJweCIgaGVpZ2h0PSIxMHB4IiB2aWV3Qm94PSIwIDAgMjIgMTAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICA8ZyBpZD0iLVJlc291cmNlcyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+ICAgICAgICA8ZyBpZD0iU2xpZGUtb3V0LW1lbnUtLS1SZXNvdXJjZXMtT3ZlcnZpZXciIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zNzcuMDAwMDAwLCAtMTY2LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJUcmlhbmdsZS0xIiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIiBwb2ludHM9IjM4OCAxNjYgMzk5IDE3NiAzNzcgMTc2ICI+PC9wb2x5Z29uPiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+);
     background-repeat: no-repeat;
     background-position: center bottom; }
+    .primary-nav .current-menu-ancestor > a:after,
+    .primary-nav .current-menu-item > a:after {
+      bottom: 0; }
+  .primary-nav .current-menu-ancestor > a:hover:after {
+    display: none; }
   .primary-nav .nav--horizontal:last-child li {
     border: 0; }
   .primary-nav ul ul li.current_page_item a,
@@ -1417,9 +1435,13 @@ td {
   .primary-nav ul ul a:hover,
   .primary-nav ul ul a:active,
   .primary-nav ul ul a:focus {
-    padding: 1.38889em 0 1.11111em;
-    background: none;
-    border-bottom: 5px solid #D6E100; }
+    background: none; }
+    .primary-nav ul ul li.current_page_item a:after,
+    .primary-nav ul ul li.current-menu-item a:after,
+    .primary-nav ul ul a:hover:after,
+    .primary-nav ul ul a:active:after,
+    .primary-nav ul ul a:focus:after {
+      height: 5px; }
   @media screen and (min-width: 640px) {
     .primary-nav {
       padding: 0;
