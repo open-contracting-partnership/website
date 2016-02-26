@@ -1,9 +1,22 @@
 .post-object--horizontal {
-	overflow: hidden;
 
-	p {
-		@include font-size(16);
+	overflow: hidden;
+	color: color('body');
+	background-color: color('white');
+	border: 1px solid color('lighter-grey');
+
+	.post-object__content {
+		padding: 1em 1.5em;
 	}
+
+	.post-object__meta {
+		margin-bottom: .357em;
+	}
+
+	h4 {
+		margin-top: 15px;
+	}
+
 }
 
 .post-object--horizontal--small {
