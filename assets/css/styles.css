@@ -106,7 +106,7 @@ body {
   -webkit-transition: right .3s ease;
           transition: right .3s ease; }
   body.mobile-active {
-    right: 80%;
+    right: 85%;
     overflow: hidden; }
   @media screen and (min-width: 640px) {
     body.mobile-active {
@@ -991,6 +991,18 @@ td {
     .mobile-menu {
       display: none; } }
 
+.mobile-menu__open {
+  opacity: 1; }
+
+.mobile-menu__close {
+  opacity: 0; }
+
+.mobile-active .mobile-menu__open {
+  opacity: 0; }
+
+.mobile-active .mobile-menu__close {
+  opacity: 1; }
+
 .site-header__top {
   position: relative; }
 
@@ -1402,7 +1414,7 @@ td {
   -webkit-transition: left .3s ease;
           transition: left .3s ease; }
   body.mobile-active .primary-nav {
-    left: 20%;
+    left: 15%;
     overflow: scroll; }
   .primary-nav a {
     font-size: 16px;
