@@ -12,7 +12,9 @@
 
 			<?php if ( have_posts() ) : ?>
 
-				<?php get_partial('post-object', 'horizontal-search'); ?>
+				<?php while ( have_posts() ) : the_post(); ?>
+					<?php get_partial('post-object', 'horizontal-search'); ?>
+				<?php endwhile; ?>
 
 			<?php else : ?>
 				<p><?php pll_e('There are no search results'); ?></p>
