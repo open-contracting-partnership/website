@@ -75,11 +75,14 @@
 
 			<h4 class="border-top border-top--clean">Subscribe to our newsletter</h4>
 
-			<form class="flex-field" action="index.html" method="post">
-				<input type="email" placeholder="Enter your email">
-				<button>Send</button>
-			</form>
+			<div class="js-subscribe">
 
+				<form class="flex-field" action="" method="post">
+					<input type="email" placeholder="Enter your email" name="email" required>
+					<button>Send</button>
+				</form>
+
+			</div>
 
 			<?php
 
@@ -210,7 +213,7 @@
 
 		<div class="post-object__media">
 
-			<img v-if="! hasThumbnail()" src="http://placehold.it/460x230" alt="">
+			<img v-if="! hasThumbnail()" src="<?php bloginfo('template_directory'); ?>/assets/img/fallback.jpg" alt="">
 			<div v-else>
 				{{{ post.custom.thumbnail }}}
 			</div>

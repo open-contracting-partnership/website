@@ -2040,7 +2040,9 @@ input[type="submit"] {
     color: #323238; }
   .team-member__selector h3 {
     position: relative;
-    margin-bottom: 0.13793em; }
+    margin-bottom: 0.13793em;
+    font-size: 22px;
+    font-size: 1.1rem; }
     .team-member__selector h3:before {
       font-size: 10px;
       font-size: 0.5rem;
@@ -2296,6 +2298,22 @@ input[type="submit"] {
             box-decoration-break: clone;
     line-height: 1.45;
     padding: 5px 0; }
+
+.subscribe__alert {
+  font-size: 14px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px; }
+  .subscribe__alert svg {
+    height: .8em;
+    width: .8em;
+    margin-right: .5em;
+    vertical-align: baseline;
+    fill: currentColor; }
 
 .timeline {
   overflow: hidden;
