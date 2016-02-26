@@ -1,3 +1,11 @@
+.page-title {
+
+	@include mq(M) {
+		margin-left: span(4 of 12) + gutter();
+	}
+
+}
+
 .page-sidebar {
 	margin-top: 0;
 	margin-bottom: 1rem;
@@ -15,11 +23,9 @@
 }
 
 .page__section-nav {
-	margin-top: em(20);
 	margin-bottom: em(30);
 
 	@include mq(M) {
-		margin-top: em(100);
 		margin-bottom: em(70);
 	}
 }
