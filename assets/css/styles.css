@@ -1484,8 +1484,8 @@ aside,
   aside h3,
   .sidebar h3 {
     margin-bottom: 1em; }
-  aside a:not(.button),
-  .sidebar a:not(.button) {
+  aside p a,
+  .sidebar p a {
     color: #9BAF00; }
 
 /*------------------------------------*    $MODULAR
