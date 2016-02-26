@@ -2172,9 +2172,6 @@ input[type="submit"] {
     line-height: 1.7;
     padding: 4px 0; }
 
-.section__title:first-child {
-  display: none; }
-
 .custom-select {
   font-weight: 500;
   font-style: normal;
