@@ -106,7 +106,7 @@ body {
   -webkit-transition: right .3s ease;
           transition: right .3s ease; }
   body.mobile-active {
-    right: 90%;
+    right: 80%;
     overflow: hidden; }
   @media screen and (min-width: 640px) {
     body.mobile-active {
@@ -1402,7 +1402,7 @@ td {
   -webkit-transition: left .3s ease;
           transition: left .3s ease; }
   body.mobile-active .primary-nav {
-    left: 10%;
+    left: 20%;
     overflow: scroll; }
   .primary-nav a {
     font-size: 16px;
