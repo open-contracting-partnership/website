@@ -2004,12 +2004,14 @@ input[type="submit"] {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 18px;
-  font-size: 0.9rem;
+  font-size: 14px;
+  font-size: 0.7rem;
   padding: 1.1rem 1rem;
   background-color: #D6E100;
   display: block;
   position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   z-index: 10;
   -webkit-transition: background-color .4s ease;
           transition: background-color .4s ease; }
