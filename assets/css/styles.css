@@ -3091,6 +3091,28 @@ a.post-object:focus {
       position: absolute;
       bottom: 0;
       left: 0; }
+  .post-object--vertical .post-object__media-wrapper {
+    position: relative; }
+    .post-object--vertical .post-object__media-wrapper:before {
+      display: block;
+      content: '';
+      width: 100%;
+      padding-top: 50%; }
+    .post-object--vertical .post-object__media-wrapper > .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+    .post-object--vertical .post-object__media-wrapper .content {
+      overflow: hidden; }
+    .post-object--vertical .post-object__media-wrapper img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto; }
 
 /*------------------------------------*    $NON-MODULAR
 \*------------------------------------*/

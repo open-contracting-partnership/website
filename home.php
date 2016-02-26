@@ -213,9 +213,17 @@
 
 		<div class="post-object__media">
 
-			<img v-if="! hasThumbnail()" src="<?php bloginfo('template_directory'); ?>/assets/img/fallback.jpg" alt="">
-			<div v-else>
-				{{{ post.custom.thumbnail }}}
+			<div class="post-object__media-wrapper">
+
+				<div class="content">
+
+					<img v-if="! hasThumbnail()" src="<?php bloginfo('template_directory'); ?>/assets/img/fallback.jpg" alt="">
+					<div v-else>
+						{{{ post.custom.thumbnail }}}
+					</div>
+					
+				</div>
+
 			</div>
 
 			<span class="post-object__tag post-object__tag--light">{{ post.custom.post_type }}</span>
