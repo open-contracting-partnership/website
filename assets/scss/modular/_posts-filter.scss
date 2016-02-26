@@ -5,7 +5,11 @@
 
 .posts-filter__inner {
 	position: relative;
-	display: inline-block;
+	display: block;
+
+	@include mq(L) {
+	    display: inline-block;
+	}
 
 	&.active .posts-filter__form {
 		opacity: .9;
@@ -25,10 +29,14 @@
 	@include font-size(18);
 	padding: 1.1rem 1rem;
 	background-color: color('brand');
-	display: inline-block;
+	display: block;
 	position: relative;
 	z-index: 10;
 	transition: background-color .4s ease;
+
+	@include mq(L) {
+	    display: inline-block;
+	}
 
 	&:hover,
 	&:focus {
@@ -73,8 +81,12 @@
 	span {
 		width: .8rem;
 		height: .8rem;
-		margin-right: 1.8em;
+		margin-right: .8em;
 		background-color: color('dark-background');
+
+		@include mq(M) {
+		    margin-right: 1.8em;
+		}
 	}
 
 	label:first-child {
