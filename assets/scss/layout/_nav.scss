@@ -306,6 +306,10 @@
 		background-repeat: no-repeat;
 		background-position: center bottom;
 
+		&:hover:after {
+			height: 0;
+		}
+
 		&:after {
 			bottom: 0;
 		}
