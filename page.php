@@ -8,19 +8,16 @@
 
 		<div class="wrapper / page__wrapper / page--padding">
 
+			<div class="page-title">
+				<h1><?php the_title(); ?></h1>
+			</div>
+
 			<aside class="page-sidebar">
-
 				<?php get_partial('navigation', 'sections'); ?>
-
 				<?php get_partial('sidebar', 'page-download'); ?>
-
 			</aside>
 
 			<article class="page-content cf">
-
-				<div class="blog__title">
-					<h1><?php the_title(); ?></h1>
-				</div>
 
 				<section>
 					<?php the_content(); ?>
