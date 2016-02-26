@@ -2192,7 +2192,8 @@ input[type="submit"] {
   margin: 0 -1.5em 1.5rem; }
   .related-posts--inline h5 {
     text-transform: uppercase;
-    letter-spacing: 1px; }
+    letter-spacing: 1px;
+    margin-top: 0; }
   .related-posts--inline .post-object:last-child {
     margin-bottom: 0; }
 

@@ -65,8 +65,7 @@ add_shortcode('related', function($atts, $content = null) {
 	}
 
 	$term = get_term_by('slug', $args->term, $args->taxonomy);
-	// print_r($term);
-	// die();
+	$term_link = get_term_link($term);
 
 	$related_posts = new query_loop([
 		'post_type' => $args->post_type,
@@ -91,7 +90,7 @@ add_shortcode('related', function($atts, $content = null) {
 
 			<div class="related-posts--inline">
 
-				<h4>Posts by: <a href="/<?php echo $term->slug; ?>/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a></h4>
+				<h5>Posts by: <a href="<?php echo $term_link; ?>"><?php echo $term->name; ?></a></h5>
 
 				<?php foreach ( $related_posts as $related_post ) : ?>
 					<?php get_partial('post-object', 'horizontal'); ?>
