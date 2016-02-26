@@ -105,18 +105,22 @@
 
 						</div>
 
-						<div class="header-nav--top__item header-language">
+						<?php if ( function_exists('pll_the_languages') ) : ?>
 
-							<?php
+							<div class="header-nav--top__item header-language">
 
-								pll_the_languages([
-									'dropdown' => TRUE,
-									'display_names_as' => 'slug'
-								]);
+								<?php
 
-							?>
+									pll_the_languages([
+										'dropdown' => TRUE,
+										'display_names_as' => 'slug'
+									]);
 
-						</div>
+								?>
+
+							</div>
+
+						<?php endif; ?>
 
 						<div class="header-nav--top__item header-search">
 							<a href="#" class="button"><svg><use xlink:href="#icon-search" /></svg></a>
