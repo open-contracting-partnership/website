@@ -116,6 +116,9 @@ body {
 main {
   overflow: hidden; }
 
+article {
+  overflow: scroll; }
+
 p,
 ul,
 ol,
