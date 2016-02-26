@@ -15,8 +15,13 @@
 }
 
 .page__section-nav {
-	margin-bottom: em(70);
-	margin-top: em(100);
+	margin-top: em(20);
+	margin-bottom: em(30);
+
+	@include mq(M) {
+		margin-top: em(100);
+		margin-bottom: em(70);
+	}
 }
 
 .page-content {
@@ -31,7 +36,11 @@
 }
 
 .page--padding {
-	padding-top: 5em;
+	padding-top: 2em;
+
+	@include mq(M) {
+	    padding-top: 5em;
+	}
 }
 
 

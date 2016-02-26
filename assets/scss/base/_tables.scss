@@ -8,6 +8,12 @@ table {
 	text-align: left;
 	border-collapse: collapse;
 	margin-bottom: $space;
+	table-layout: fixed;
+}
+
+tbody {
+	display: block;
+	overflow: scroll;
 }
 
 th,

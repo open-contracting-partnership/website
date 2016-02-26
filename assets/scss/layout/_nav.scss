@@ -306,6 +306,10 @@
 		background-repeat: no-repeat;
 		background-position: center bottom;
 
+		&:hover:after {
+			height: 0;
+		}
+
 		&:after {
 			bottom: 0;
 		}
@@ -372,6 +376,9 @@
 	}
 }
 
-main.menu--open {
-	margin-top: em(69);
+@include mq(M) {
+
+	main.menu--open {
+		margin-top: em(69);
+	}
 }
