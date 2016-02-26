@@ -55,18 +55,6 @@ dl {
     margin-bottom: $space; // Typically the margin-bottom matches the line-height.
 }
 
-
-
-article ul,
-article ol {
-	padding-left: 0;
-
-	li {
-		margin-bottom: $space / 2;
-		list-style-type: square;
-	}
-}
-
 .text--bigger {
 	@include font-size(22);
 }

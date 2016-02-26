@@ -123,14 +123,6 @@ dl {
   line-height: 1.5;
   margin-bottom: 1.5em; }
 
-article ul,
-article ol {
-  padding-left: 0; }
-  article ul li,
-  article ol li {
-    margin-bottom: 0.75em;
-    list-style-type: square; }
-
 .text--bigger {
   font-size: 22px;
   font-size: 1.1rem; }
@@ -512,8 +504,19 @@ h5,
 
 /*------------------------------------*	LISTS
 \*------------------------------------*/
-ul {
-  list-style: disc; }
+article ul {
+  padding-left: 0; }
+  article ul li {
+    list-style-type: square; }
+
+article li {
+  margin-bottom: 0.75em; }
+
+ul ul,
+ul ul ul,
+ol ol,
+ol ol ol {
+  margin-top: 0.75em; }
 
 ol,
 ul {
@@ -1582,7 +1585,8 @@ input[type="submit"] {
   overflow: hidden; }
   .button__list li {
     float: left;
-    margin: 0 0.5em 0.5em 0; }
+    margin: 0 0.5em 0.5em 0;
+    list-style-type: none; }
   .button__list .button {
     margin-bottom: 0; }
 
