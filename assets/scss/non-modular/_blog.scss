@@ -81,7 +81,6 @@
 // RECENT NEWS
 
 .blog__recent-news {
-
 	@include break;
 
 	@include mq(L) {
@@ -101,7 +100,6 @@
 .blog__recent-news-items .post-object {
 
 	@include mq(L) {
-
 		width: 50%;
 		float: left;
 		padding-right: em(35);
@@ -116,9 +114,7 @@
 			padding-right: 0;
 			border-right: 0;
 		}
-
 	}
-
 }
 
 
@@ -142,7 +138,6 @@
 		float: right;
 		clear: both;
 	}
-
 }
 
 
@@ -150,14 +145,12 @@
 // POPULAR TAGS
 
 .blog__popular-tags {
-
-	display: none;
 	@include break;
+	display: none;
 
 	@include mq(1024) {
 		display: block;
 	}
-
 }
 
 
@@ -169,14 +162,13 @@
 }
 
 .blog__post-items {
-
     display: flex;
 	flex-wrap: wrap;
 
 	.post-object {
+		width: 100%;
 
 		@include mq(M) {
-
 			@include span(3 of 6);
 
 			&:nth-child(2n) {
@@ -186,11 +178,9 @@
 			&:nth-child(2n+1) {
 				@include break;
 			}
-
 		}
 
 		@include mq(L) {
-
 			@include span(4 of 12);
 
 			&:nth-child(2n) {
@@ -204,9 +194,6 @@
 			&:nth-child(3n+1) {
 				@include break;
 			}
-
 		}
-
 	}
-
 }
