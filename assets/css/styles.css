@@ -1981,7 +1981,10 @@ input[type="submit"] {
 
 .posts-filter__inner {
   position: relative;
-  display: inline-block; }
+  display: block; }
+  @media screen and (min-width: 1024px) {
+    .posts-filter__inner {
+      display: inline-block; } }
   .posts-filter__inner.active .posts-filter__form {
     opacity: .9;
     -webkit-transform: translateY(0);
@@ -2005,11 +2008,14 @@ input[type="submit"] {
   font-size: 0.9rem;
   padding: 1.1rem 1rem;
   background-color: #D6E100;
-  display: inline-block;
+  display: block;
   position: relative;
   z-index: 10;
   -webkit-transition: background-color .4s ease;
           transition: background-color .4s ease; }
+  @media screen and (min-width: 1024px) {
+    .posts-filter__button {
+      display: inline-block; } }
   .posts-filter__button:hover, .posts-filter__button:focus {
     text-decoration: none;
     background-color: #9BAF00; }
@@ -2048,8 +2054,11 @@ input[type="submit"] {
   .posts-filter__form span {
     width: .8rem;
     height: .8rem;
-    margin-right: 1.8em;
+    margin-right: .8em;
     background-color: #323238; }
+    @media screen and (min-width: 640px) {
+      .posts-filter__form span {
+        margin-right: 1.8em; } }
   .posts-filter__form label:last-child {
     border-bottom: 0; }
   .posts-filter__form svg {
@@ -2707,34 +2716,51 @@ a.post-object:focus {
     margin-bottom: 1em; }
 
 .post-object--featured {
-  position: relative; }
+  position: relative;
+  border: 1px solid #D5D5D7; }
+  @media screen and (min-width: 640px) {
+    .post-object--featured {
+      border: none; } }
   .post-object--featured .post-object__content {
-    position: absolute;
     bottom: 2.5em;
     left: 1.25em;
     right: 3.25em; }
+    @media screen and (min-width: 640px) {
+      .post-object--featured .post-object__content {
+        position: absolute; } }
     .post-object--featured .post-object__content :last-child {
       margin-bottom: 0; }
   .post-object--featured .post-object__tag {
-    margin-left: -10px;
-    padding: 0.65em; }
+    padding: 0.65em;
+    float: none;
+    margin-bottom: 1em; }
+    @media screen and (min-width: 640px) {
+      .post-object--featured .post-object__tag {
+        float: left;
+        margin-left: -10px; } }
   .post-object--featured h4 {
-    font-size: 40px;
-    font-size: 2rem;
-    color: #FFF;
+    font-size: 20px;
+    font-size: 1rem;
+    color: #4D4D54;
     margin: 0; }
     .post-object--featured h4 span {
       font-weight: 700;
       font-style: normal;
       -webkit-font-smoothing: antialiased;
-      font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      display: inline;
-      background-color: #323238;
-      box-shadow: 0.57143rem 0 0 #323238, -0.57143rem 0 0 #323238;
-      -webkit-box-decoration-break: clone;
-              box-decoration-break: clone;
-      line-height: 1.45;
-      padding: 7px 0; }
+      font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    @media screen and (min-width: 640px) {
+      .post-object--featured h4 {
+        font-size: 40px;
+        font-size: 2rem;
+        color: #FFF; }
+        .post-object--featured h4 span {
+          display: inline;
+          background-color: #323238;
+          box-shadow: 0.57143rem 0 0 #323238, -0.57143rem 0 0 #323238;
+          -webkit-box-decoration-break: clone;
+                  box-decoration-break: clone;
+          line-height: 1.45;
+          padding: 7px 0; } }
   .post-object--featured .post-object__meta {
     font-size: 14px;
     font-size: 0.7rem;
@@ -2742,14 +2768,16 @@ a.post-object:focus {
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #323238;
-    display: inline-block;
-    color: #FFF;
-    padding: 0.65em;
-    display: inline-block;
-    margin-left: -10px;
     letter-spacing: 1px;
     text-transform: uppercase; }
+    @media screen and (min-width: 640px) {
+      .post-object--featured .post-object__meta {
+        background-color: #323238;
+        display: inline-block;
+        color: #FFF;
+        padding: 0.65em;
+        display: inline-block;
+        margin-left: -10px; } }
 
 .home .post-object--horizontal {
   height: 7.7em; }
