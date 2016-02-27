@@ -102,7 +102,7 @@
 		<div class="resource" v-if="open_resource !== null" transition="resource">
 
 			<div class="resource__title">
-				<svg><use xlink:href="#icon-book" /></svg>
+				<svg><use xlink:href="#icon-resource" /></svg>
 			</div>
 
 			<h1 class="gamma">{{{ open_resource.title }}}</h1>
@@ -167,7 +167,7 @@
 			<div class="post-object--resource__media">
 
 				<div class="post-object--resource__icon">
-					<svg><use xlink:href="#icon-book"></svg>
+					<svg><use xlink:href="#icon-resource"></svg>
 				</div>
 
 				<div class="post-object--resource__type">

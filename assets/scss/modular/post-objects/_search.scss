@@ -1,22 +1,16 @@
-.search-main {
-
-	@include mq(M) {
-	    @include span(9 of 12 first);
-	}
-}
-
 .post-object--search {
-
 
 	.post-object__tag {
 		margin-top: 5px;
 		margin-right: 10px;
-		float: left;
+	}
+
+	a {
+		color: color('background');
 	}
 
 	h4 {
 		@include font('secondary', 'medium');
 		@include font-size(29);
-		color: color('background');
 	}
 }
