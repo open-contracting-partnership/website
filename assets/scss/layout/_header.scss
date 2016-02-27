@@ -87,7 +87,7 @@
 	float: left;
 
 	&:last-child {
-		border-left: 1px solid color('mid-grey');
+		border-left: 0;
 	}
 }
 
