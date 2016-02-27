@@ -3884,7 +3884,7 @@ a.post-object--panel {
   padding: 2em 0 1em;
   margin-bottom: 2em; }
   @media screen and (min-width: 1024px) {
-    .pull {
+    .page--template-a .pull {
       width: 24.29907%;
       float: left;
       margin-right: 0.93458%;
