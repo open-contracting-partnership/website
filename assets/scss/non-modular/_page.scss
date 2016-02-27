@@ -87,11 +87,15 @@
 
 
 	@include mq(L) {
-		@include span(3 of 12);
-	    position: absolute;
-	    left: 3rem;
-		padding: 0 .7% 0 0;
-		border: 0;
+
+		.page--template-a & {
+			@include span(3 of 12);
+			position: absolute;
+			left: 3rem;
+			padding: 0 .7% 0 0;
+			border: 0;
+		}
+
 	}
 
 }
