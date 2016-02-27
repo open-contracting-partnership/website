@@ -16,15 +16,15 @@
 	}
 
 	span {
-		@include font('secondary', 'bold');
-		@include font-size(64);
-		color: color('white');
+		@include font('secondary', 'medium');
+		@include font-size(50);
+		color: color('brand-hero');
 		display: block;
 		line-height: .8;
 		margin-bottom: 30px;
 
 		@include mq(L) {
-			@include font-size(95);
+			@include font-size(70);
 		}
 	}
 
