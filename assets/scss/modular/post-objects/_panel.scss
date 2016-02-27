@@ -12,29 +12,20 @@ a.post-object--panel {
 			text-decoration: none;
 		}
 
-		&[data-type='news'] {
-			background-color: mix(color('black'), color('lilac'), 10%);
+		@each $name, $colour in $post-types {
+
+			&[data-type='#{$name}'] {
+				background-color: mix(color('black'), post-color(#{$name}), 10%);
+			}
 		}
 
-		&[data-type='showcase'] {
-			background-color: mix(color('black'), color('dark-orange'), 10%);
+	}
+
+	@each $name, $colour in $post-types {
+
+		&[data-type='#{$name}'] {
+			background-color: post-color(#{$name});
 		}
-
-		&[data-type='report'] {
-			background-color: mix(color('black'), color('teal'), 10%);
-		}
-	}
-
-	&[data-type='news'] {
-		background-color: color('lilac');
-	}
-
-	&[data-type='showcase'] {
-		background-color: color('dark-orange');
-	}
-
-	&[data-type='report'] {
-		background-color: color('teal');
 	}
 
 	.post-object--panel__tag,

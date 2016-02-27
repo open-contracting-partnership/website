@@ -2869,18 +2869,34 @@ a.post-object--panel {
     box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, 0.3); }
     a.post-object--panel:hover h4, a.post-object--panel:focus h4 {
       text-decoration: none; }
+    a.post-object--panel:hover[data-type='post'], a.post-object--panel:focus[data-type='post'] {
+      background-color: #e2563e; }
     a.post-object--panel:hover[data-type='news'], a.post-object--panel:focus[data-type='news'] {
       background-color: #6169cb; }
-    a.post-object--panel:hover[data-type='showcase'], a.post-object--panel:focus[data-type='showcase'] {
-      background-color: #e2563e; }
+    a.post-object--panel:hover[data-type='event'], a.post-object--panel:focus[data-type='event'] {
+      background-color: #5f83dd; }
     a.post-object--panel:hover[data-type='report'], a.post-object--panel:focus[data-type='report'] {
       background-color: #20a096; }
+    a.post-object--panel:hover[data-type='newsletter'], a.post-object--panel:focus[data-type='newsletter'] {
+      background-color: #8f46d1; }
+    a.post-object--panel:hover[data-type='success'], a.post-object--panel:focus[data-type='success'] {
+      background-color: #d45fe0; }
+    a.post-object--panel:hover[data-type='media-clipping'], a.post-object--panel:focus[data-type='media-clipping'] {
+      background-color: #7bbce0; }
+  a.post-object--panel[data-type='post'] {
+    background-color: #FB6045; }
   a.post-object--panel[data-type='news'] {
     background-color: #6c75e1; }
-  a.post-object--panel[data-type='showcase'] {
-    background-color: #FB6045; }
+  a.post-object--panel[data-type='event'] {
+    background-color: #6991F5; }
   a.post-object--panel[data-type='report'] {
     background-color: #23B2A7; }
+  a.post-object--panel[data-type='newsletter'] {
+    background-color: #9F4EE8; }
+  a.post-object--panel[data-type='success'] {
+    background-color: #EC69F9; }
+  a.post-object--panel[data-type='media-clipping'] {
+    background-color: #89D1F9; }
   a.post-object--panel .post-object--panel__tag,
   a.post-object--panel .post-object--panel__meta {
     text-transform: uppercase;
