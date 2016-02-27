@@ -165,7 +165,7 @@
 
 				<div class="wrapper">
 
-					<span>&copy; Open Contracting Partnership <?php echo date('Y'); ?></span>
+					<span>Open Contracting Partnership <?php echo date('Y'); ?></span>
 
 					<a href="/terms-of-use/"><?php pll_e('Terms'); ?></a>
 
