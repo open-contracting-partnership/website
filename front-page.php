@@ -10,10 +10,10 @@
 
 			<div class="homepage-cta">
 
-				<p><?php the_field('strapline'); ?></p>
+				<p class="heading-highlight"><span><?php the_field('strapline'); ?></span></p>
 
-				<a href="/about" class="button button--padded button--white"><?php pll_e('About Our Work'); ?></a>
-				<a href="/data-standard" class="button button--padded button--white"><?php pll_e('Visit the Data Standard'); ?></a>
+				<!-- <a href="/about" class="button button--padded button--white"><?php pll_e('About Our Work'); ?></a>
+				<a href="/data-standard" class="button button--padded button--white"><?php pll_e('Visit the Data Standard'); ?></a> -->
 
 			</div> <!-- homepage-cta -->
 

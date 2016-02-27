@@ -37,6 +37,9 @@ ul {
 	&.no-bullet {
 		list-style-type: none;
 	}
+	li {
+		margin-bottom: $space / 2;
+	}
 }
 
 ol {
@@ -55,6 +58,7 @@ ol ol ol {
 ul ul,
 ol ol {
 	margin-bottom: 0;
+	padding-left: 30px;
 }
 
 
