@@ -28,6 +28,8 @@
 
 				<?php the_content(); ?>
 
+				<?php comment_form(); ?>
+
 			</section>
 
 			<aside class="sidebar">
