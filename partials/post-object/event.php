@@ -1,16 +1,16 @@
 <div class="post-object post-object--horizontal post-object--event">
 
 	<div class="post-object__media">
-		<time>22<span>nd</span> OCT</time>
+		<time><?php the_time('j'); ?><span><?php the_time('S'); ?></span> <em><?php the_time('M'); ?></em></time>
 	</div>
 
 	<div class="post-object__content">
 
-		<a href="#"><h4>Contracts, Cocktails, Piscos and PSAs</h4></a>
+		<a href="/events"><h4><?php the_title(); ?></h4></a>
 
-		<span class="event__location">London, UK</span>
+		<?php //<span class="event__location">London, UK</span> ?>
 
-		<a href="#" class="button button--small button--tag">Details</a>
+		<?php /* <a href="<?php the_permalink(); ?>" class="button button--small button--tag">Details</a> */ ?>
 
 	</div>
 

@@ -131,11 +131,22 @@
 
 		<div class="blog__event / band--thick">
 
+			<?php
+
+				$upcoming_events = new query_loop([
+					'post_type' => 'event',
+					'posts_per_page' => 1
+				]);
+
+			?>
+
 			<h4 class="border-top border-top--blue border-top--clean">Upcoming Events</h4>
 
-			<?php get_partial('post-object', 'event'); ?>
+			<?php foreach( $upcoming_events as $event ) : ?>
+				<?php get_partial('post-object', 'event'); ?>
+			<?php endforeach; ?>
 
-			<a class="view-more" href="#">View all events</a>
+			<a class="view-more" href="/events">View all events</a>
 
 		</div>
 

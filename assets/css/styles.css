@@ -2671,6 +2671,9 @@ a.post-object:focus {
     .post-object--event .post-object__media span {
       font-size: 20px;
       font-size: 1rem; }
+    .post-object--event .post-object__media em {
+      font-style: normal;
+      text-transform: uppercase; }
   .post-object--event .post-object__content {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
