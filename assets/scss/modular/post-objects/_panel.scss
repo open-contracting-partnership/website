@@ -1,8 +1,8 @@
-.post-object--panel {
+a.post-object--panel {
 	@include font('secondary');
 	color: color('white');
 	padding: 1.6em;
-	transition: box-shadow .4s ease;
+	transition: box-shadow .3s ease, background-color .3s ease;
 
 	&:hover,
 	&:focus {
@@ -10,6 +10,18 @@
 
 		h4 {
 			text-decoration: none;
+		}
+
+		&[data-type='news'] {
+			background-color: mix(color('black'), color('lilac'), 10%);
+		}
+
+		&[data-type='showcase'] {
+			background-color: mix(color('black'), color('dark-orange'), 10%);
+		}
+
+		&[data-type='report'] {
+			background-color: mix(color('black'), color('teal'), 10%);
 		}
 	}
 
