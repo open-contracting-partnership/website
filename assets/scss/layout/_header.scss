@@ -136,8 +136,8 @@
 	}
 
 	svg {
-		width: 1.25rem;
-		height: 1.25rem;
+		width: .95rem;
+		height: .95rem;
 	}
 
 }
@@ -174,7 +174,7 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-color: color('off-white');
+	background-color: color('dark-background');
 	z-index: 99;
 
 	.search--active & {
@@ -202,7 +202,7 @@
 		bottom: 0;
 		left: 0;
 		border: 0;
-		color: color('body');
+		color: color('white');
 		margin: 0;
 		padding: 0;
 		-webkit-appearance: none;
@@ -219,7 +219,7 @@
 	svg {
 		width: 25px;
 		height: 25px;
-		fill: color('body');
+		fill: color('white');
 		vertical-align: initial;
 	}
 
