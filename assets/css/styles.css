@@ -1810,7 +1810,7 @@ input[type="submit"] {
   margin-top: 0; }
 
 .cta-block--brand:before {
-  background-color: #9BAF00; }
+  background-color: #B8BD35; }
 
 .cta-block--background:before {
   background-color: #4D4D54; }
@@ -2335,20 +2335,20 @@ input[type="submit"] {
         float: right;
         margin-right: 0; } }
   .stat-module span {
-    font-weight: 700;
+    font-weight: 500;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 64px;
-    font-size: 3.2rem;
-    color: #FFF;
+    font-size: 50px;
+    font-size: 2.5rem;
+    color: #B8BD35;
     display: block;
     line-height: .8;
     margin-bottom: 30px; }
     @media screen and (min-width: 1024px) {
       .stat-module span {
-        font-size: 95px;
-        font-size: 4.75rem; } }
+        font-size: 70px;
+        font-size: 3.5rem; } }
   .stat-module div {
     text-align: left;
     margin: 0 auto; }

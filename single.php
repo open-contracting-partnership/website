@@ -17,7 +17,7 @@
 
 				<div class="blog__author-meta">
 
-					<p class="blog__mobile-date"><?php pll_e('Written By'); ?> <?php the_authors(TRUE); ?>, <datetime><?php the_date(); ?></datetime></p>	
+					<p class="blog__mobile-date"><?php pll_e('Written By'); ?> <?php the_authors(TRUE); ?>, <datetime><?php the_date(); ?></datetime></p>
 
 				</div>
 
