@@ -1,12 +1,4 @@
-.search-main {
-
-	@include mq(M) {
-	    @include span(9 of 12 first);
-	}
-}
-
 .post-object--search {
-
 
 	.post-object__tag {
 		margin-top: 5px;
