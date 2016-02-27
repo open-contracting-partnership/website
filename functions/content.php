@@ -260,10 +260,10 @@ function the_authors($with_links = FALSE) {
 function share_links() {
 
 	$url = urlencode(get_permalink());
-	$title = wp_title('&raquo;', FALSE, 'right');
+	$title = urlencode(trim(wp_title('', FALSE)));
 
 	return (object) array(
-		'twitter' => "http://twitter.com/home?status={$title} - {$url} via @girlsnotbrides",
+		'twitter' => "http://twitter.com/home?status={$title} - {$url}",
 		'facebook' => "https://www.facebook.com/sharer/sharer.php?u={$url}",
 		'linkedin' => "https://www.linkedin.com/cws/share?url={$url}"
 	);

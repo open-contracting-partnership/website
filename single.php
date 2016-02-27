@@ -6,7 +6,7 @@
 
 	<div class="wrapper">
 
-		<article class="cf">
+		<article class="<?php if ( has_post_thumbnail() ) : ?>post--has-thumbnail<?php endif; ?> cf">
 
 			<div class="blog__title">
 				<span class="button button--tag button--small button--white">Blog</span>
@@ -37,9 +37,9 @@
 					<h3 class="border-top"><?php pll_e('Share'); ?></h3>
 
 					<ul class="button__list button__social">
-						<li><a href="#" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
-						<li><a href="#" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
-						<li><a href="#" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
+						<li><a href="<?php echo share_links()->facebook; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
+						<li><a href="<?php echo share_links()->linkedin; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
+						<li><a href="<?php echo share_links()->twitter; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
 					</ul>
 
 				</section>
