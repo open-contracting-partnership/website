@@ -2,11 +2,19 @@
 
 	<div class="post-object__media">
 
-		<?php if ( has_post_thumbnail() ) : ?>
-			<?php the_post_thumbnail('2x1_460'); ?>
-		<?php else : ?>
-			<img src="http://placehold.it/460x230" alt="">
-		<?php endif; ?>
+		<div class="post-object__media-wrapper">
+
+			<div class="content">
+
+				<?php if ( has_post_thumbnail() ) : ?>
+					<?php the_post_thumbnail('2x1_460'); ?>
+				<?php else : ?>
+					<img src="<?php bloginfo('template_directory'); ?>/assets/img/fallback.jpg">
+				<?php endif; ?>
+
+			</div>
+
+		</div>
 
 		<span class="post-object__tag post-object__tag--light"><?php the_post_type_label(); ?></span>
 
