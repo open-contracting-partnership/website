@@ -49,18 +49,3 @@ hgroup,
 figure {
 	display: block;
 }
-
-
- //*****************
-// BROWSER SPECIFIC
-
-// Removes hidden spacing in FF
-button::-moz-focus-inner {
-	padding: 0;
-	border: 0;
-}
-
-input {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-}

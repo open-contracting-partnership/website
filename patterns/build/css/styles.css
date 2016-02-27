@@ -1,0 +1,142 @@
+html {
+  box-sizing: border-box; }
+
+*, :after, :before {
+  box-sizing: inherit; }
+
+blockquote, body, div, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, iframe, label, legend, nav, object, p, section, table {
+  margin: 0;
+  padding: 0; }
+
+article, figure, footer, header, hgroup, nav, section {
+  display: block; }
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
+body {
+  font-family: Helvetica, sans-serif;
+  color: #333;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden; }
+
+.sg-nav,
+.sg-main {
+  height: 100vh;
+  overflow-y: scroll; }
+
+.sg-nav {
+  min-width: 250px;
+  position: relative;
+  overflow-x: hidden;
+  background: #232629;
+  color: white; }
+
+.sg-nav__pane {
+  padding: 1.5em;
+  border-bottom: 1px solid #444; }
+
+.sg-nav__pane:last-child {
+  border-bottom: 0; }
+
+.sg-panel__title h1,
+.sg-nav h1 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  line-height: 1; }
+
+.sg-nav input[type=search] {
+  border: 0;
+  background: none;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #878a8c;
+  width: 100%;
+  padding: initial;
+  margin: initial; }
+
+.sg-nav input[type=search]:hover {
+  background: none;
+  border: 0; }
+
+.sg-nav input[type=search]:focus {
+  outline: 0; }
+
+::-webkit-input-placeholder {
+  color: #666; }
+
+::-moz-placeholder {
+  color: #666; }
+
+:-ms-input-placeholder {
+  color: #666; }
+
+.sg-nav ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+
+.sg-nav ol ol {
+  padding-left: 1em; }
+
+.sg-nav li {
+  padding: 0; }
+
+.sg-nav a {
+  display: block;
+  margin: .5em 0;
+  color: #878a8c;
+  text-decoration: none; }
+
+.sg-nav a:hover {
+  color: white; }
+
+.sg-main {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 2em;
+  background: #EDEFF0; }
+
+.sg-section {
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1em; }
+
+.sg-panel {
+  padding: 1em;
+  border-bottom: 1px solid #DCDEDF;
+  overflow: scroll; }
+
+.sg-panel:last-child {
+  border-bottom: 0; }
+
+.sg-panel__description {
+  font-size: .8rem;
+  color: #878a8c; }
+
+.sg-colour {
+  position: relative;
+  min-height: 100px;
+  margin-bottom: 1em;
+  padding: 10px 10px 10px 110px; }
+  .sg-colour:last-child {
+    margin-bottom: 0; }
+
+.sg-colour__sample {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  height: 100px;
+  width: 100px; }

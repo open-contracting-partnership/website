@@ -3,91 +3,23 @@
 \*------------------------------------*/
 
 table {
-	background: color('white');
+	@include font-size(16);
 	width: 100%;
 	text-align: left;
-	border-spacing: 0;
-
-	&:before {
-		// this is where the magic happens
-		content: attr(aria-label) '';
-
-		@include mq(M) {
-			display: none;
-		}
-	}
-
-	&:last-child {
-		margin-bottom: $space;
-	}
+	border-collapse: collapse;
+	margin-bottom: $space;
+	table-layout: fixed;
 }
 
-th {
-	padding: 0;
+tbody {
 	display: block;
-	text-align: left;
-
-	@include mq(M) {
-		@include font-size(12);
-		@include font(primary, bold);
-		text-transform: uppercase;
-		background-color: color('brand');
-		color: color('white');
-		letter-spacing: 2px;
-		padding: em(10, 12);
-		display: table-cell;
-	}
+	overflow: scroll;
 }
 
+th,
 td {
-	display: block;
 	text-align: left;
 	padding: em(10, 12);
-
-	@include mq(M) {
-		padding: em(10, 12);
-		display: table-cell;
-	}
-
-	&:first-child {
-		@include font-size(12);
-		text-transform: uppercase;
-		background-color: color('brand');
-		color: color('white');
-		letter-spacing: 2px;
-		padding-left: em(5, 12);
-
-		@include mq(M) {
-			@include font-size(14);
-			@include font;
-			margin-top: em(10, 14);
-			letter-spacing: 0;
-			color: inherit;
-			background: inherit;
-			text-transform: none;
-		}
-	}
-}
-
-thead tr {
-	color: transparent;
-	font: 0/0 a;
-
-	@include mq(M) {
-		color: inherit;
-		font: inherit;
-	}
-}
-
-tbody tr {
-	@include font-size(14);
-	@include font;
-	background-color: color('brand');
-	color: color('black');
-	text-decoration: none;
-	padding: em(14, 14);
-
-	&:nth-child(odd) {
-		background: color('body');
-	}
+	border: 1px solid color('mid-grey');
+	vertical-align: top;
 }

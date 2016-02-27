@@ -2,22 +2,63 @@
 	LISTS
 \*------------------------------------*/
 
-ul {
-	list-style: disc;
+
+article {
+
+	ul {
+		padding-left: 0;
+
+		li {
+			list-style-type: square;
+		}
+	}
+
+	li {
+		margin-bottom: $space / 2;
+	}
+}
+
+ul ul,
+ul ul ul,
+ol ol,
+ol ol ol {
+	margin-top: $space / 2;
 }
 
 ol,
 ul {
 	margin-bottom: $space;
+	list-style-position: inside;
+
+	@include mq(M) {
+	    list-style-position: initial;
+	}
 
 	&.no-bullet {
 		list-style-type: none;
 	}
+	li {
+		margin-bottom: $space / 2;
+	}
+}
+
+ol {
+	list-style-type: decimal;
+	padding: 0;
+}
+
+ol ol {
+	list-style-type: lower-alpha;
+}
+
+ol ol ol {
+	list-style-type: lower-roman;
 }
 
 ul ul,
 ol ol {
 	margin-bottom: 0;
+	padding-left: 30px;
 }
 
 

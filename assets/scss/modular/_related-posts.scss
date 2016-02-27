@@ -1,0 +1,17 @@
+.related-posts--inline {
+
+	background-color: color('off-white');
+	padding: 1.5em;
+	margin: 0 -1.5em 1.5rem;
+
+	h5 {
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-top: 0;
+	}
+
+	.post-object:last-child {
+		margin-bottom: 0;
+	}
+
+}

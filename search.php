@@ -2,20 +2,26 @@
 
 <?php get_header(); ?>
 
-	<h2>Search Results for '<?php echo get_search_query(); ?>'</h2>
+	<div class="wrapper archive--padding">
 
-	<?php if ( have_posts() ) : ?>
+		<main class="search-main">
 
-		<article>
+			<span class="archive-content__sub-title"><?php pll_e("Search Results /"); ?></span>
 
-			<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+			<h1><?php echo get_search_query(); ?></h1>
 
-			<?php the_content(); ?>
+			<?php if ( have_posts() ) : ?>
 
-		</article>
+				<?php while ( have_posts() ) : the_post(); ?>
+					<?php get_partial('post-object', 'horizontal-search'); ?>
+				<?php endwhile; ?>
 
-	<?php else : ?>
-		<p>There are no search results</p>
-	<?php endif; ?>
+			<?php else : ?>
+				<p><?php pll_e('There are no search results'); ?></p>
+			<?php endif; ?>
+
+		</main>
+
+	</div>
 
 <?php get_footer(); ?>

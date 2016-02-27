@@ -14,7 +14,7 @@
 		@error 'Incorrect use of fonts';
 	}
 
-	$fallback: map-get($font-choice, fallback);
+	$fallback: unquote(map-get($font-choice, fallback));
 	$weight: map-get(map-get($font-choice, weights), $weight);
 
 	@if ($weight == null) {
@@ -58,6 +58,10 @@
 	@return $value / $size + em;
 }
 
+@function rem($value) {
+	@return $value / $base-font-size + rem;
+}
+
 
  //*******************
 // COLOR BASED FUNCTIONS
@@ -79,6 +83,17 @@
 
 }
 
+@function post-color($type) {
+	$color: map-get($post-types, $type);
+
+	@if ($color == null) {
+		@error 'Post type "#{$type}" passed to `post-color` mixin does not exist';
+		@return false;
+	}
+
+	@return $color;
+}
+
 
  //***************
 // STRING REPLACE
@@ -94,6 +109,21 @@
 }
 
 
+ //***********
+// STRIP UNIT
+
+// Remove the unit of a length
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
+@function strip-unit($number) {
+	@if type-of($number) == 'number' and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
+
+	@return $number;
+}
+
+
  //*************
 // SVG FALLBACK
 
@@ -103,6 +133,29 @@
 	.no-svg & {
 		background-image: url($path + '.png');
 		background-size: 100%;
+	}
+}
+
+
+ //*************
+// ASPECT RATIO
+
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+
+	&:before {
+		display: block;
+		content: '';
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+
+	> .content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
 	}
 }
 

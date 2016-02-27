@@ -17,10 +17,22 @@
 	margin-bottom: $space * 2;
 }
 
+.band--thicker {
+	margin-bottom: $space * 2.5;
+}
+
 .band--extra-thick {
 	margin-bottom: $space * 3;
 }
 
 .band--double-thick {
 	margin-bottom: $space * 4;
+}
+
+.band--section {
+	margin-bottom: 6rem;
+}
+
+.band--dark {
+	background-color: color('body');
 }

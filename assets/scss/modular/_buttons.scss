@@ -5,25 +5,33 @@
 .button,
 button,
 input[type="submit"] {
-	display: inline-block;
-	border: 0;
+	@include font('secondary', 'bold');
 	@include font-size(14);
-	border-radius: $border-radius;
+	display: inline-block;
+	border: 1px solid;
+	border-radius: 0;
 	padding: em(10, 14) em(15, 14);
 	text-decoration: none;
 	margin-bottom: $space / 2;
-	font-weight: bold;
-	color: color('white');
+	color: color('background');
+	background-color: transparent;
 	text-align: center;
 	vertical-align: middle;
-	white-space: nowrap;
-	background: color('brand');
+	background: transparent;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 	cursor: pointer;
+	transition: background-color .2s ease,
+				border-color .2s ease,
+				color .2s ease;
 
 	&:hover,
 	&:active,
 	&:focus {
-		background: lighten(color('brand'), 10%);
+		color: color('white');
+		background-color: color('dark-background');
+		text-decoration: none;
+		border-color: color('dark-background');
 	}
 }
 
@@ -43,7 +51,7 @@ input[type="submit"] {
 
 .button--large {
 	@include font-size(18);
-	padding: em(20, 18) em(25, 18);
+	padding: em(15, 18) em(25, 18);
 }
 
 // This is often used inside the hero sections
@@ -56,14 +64,15 @@ input[type="submit"] {
  //***********
 // VARIATIONS
 
-// Uppercase
-.button--uppercase {
-	text-transform: uppercase;
-}
 
 // Full bleed
 .button--block {
 	display: block;
+}
+
+// More padding
+.button--padded {
+	padding: em(15, 14) em(20, 14);
 }
 
 // Left Align
@@ -75,6 +84,22 @@ input[type="submit"] {
 .button--flatten {
 	margin-bottom: 0;
 }
+
+// Remove the Border
+.button--open {
+	border: 0;
+}
+
+.button--tag {
+	@include font('secondary', 'bold');
+	@include font-size(14);
+	padding: em(10, 14) em(15, 14);
+
+	&.button--small {
+		padding: em(5, 14) em(8, 14);
+	}
+}
+
 
 // Sub-heading within buttons
 // Must be used with a span element
@@ -92,23 +117,121 @@ input[type="submit"] {
 	color: color('white');
 }
 
+.button--thick {
+	border-width: 2px;
+}
+
+
+ //************
+// BUTTON LIST
+
+/* ul */ .button__list {
+
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+
+	li {
+		float: left;
+		margin: 0 em(10) em(10) 0;
+		list-style-type: none;
+	}
+
+	.button {
+		margin-bottom: 0;
+	}
+
+}
+
+
+ //**************
+// BUTTON SOCIAL
+
+.button__social {
+
+	li {
+		margin-bottom: 0;
+	}
+
+	a {
+		width: 1.5rem;
+		height: 1.5rem;
+		text-align: center;
+		padding: 0;
+		fill: color('mid-grey');
+		border-color: color('mid-grey');
+
+		&:hover,
+		&:focus {
+			fill: color('light-grey');
+			border-color: color('light-grey');
+		}
+
+		&:active {
+			fill: color('mid-grey');
+			border-color: color('mid-grey');
+		}
+	}
+
+	.site-header & a {
+		border: 0;
+	}
+
+	svg {
+		height: .8rem;
+		max-width: 1.5rem;
+		vertical-align: bottom;
+	}
+}
+
+
+ //*************
+// ICON BUTTONS
+
+.button--icon svg {
+	width: 1em;
+	height: 1em;
+	margin-right: .5em;
+	margin-top: -3px;
+	fill: currentColor;
+}
+
+.button--icon--reverse svg {
+	margin-right: 0;
+	margin-left: .5em;
+}
+
+.button--icon--stroke {
+	stroke: currentColor;
+}
+
+
  //**************
 // COLOR OPTIONS
 
 @each $name, $color in $button-colors {
 
 	.button--#{$name} {
-		background: $color;
+		color: $color;
 	}
+}
 
-	a.button--#{$name},
-	button.button--#{$name},
-	input.button--#{$name} {
+@each $name, $primary, $contrast in $button-colors {
+
+	.button--solid-#{$name} {
+		background-color: $primary;
+		border-color: $primary;
+		color: $contrast;
+
 		&:hover,
-		&:active,
-		&:focus {
-			background: map-get($button-colors-light, $name);
+		&:focus,
+		&:active {
+			background-color: $contrast;
+			border-color: $contrast;
+			color: $primary;
 		}
+
 	}
 
 }

@@ -15,6 +15,7 @@ legend {
 	margin-bottom: 0;
 	@include font-size(13);
 	text-transform: uppercase;
+	letter-spacing: 1px;
 	color: color('brand');
 	cursor: pointer;
 }
@@ -39,16 +40,21 @@ input[type="week"],
 input[type="datetime"],
 input[type="datetime-local"],
 textarea {
-	@include font(primary, regular);
+	@include font;
 	@include font-size(16);
-	padding: em(20) em(10);
+	padding: em(10);
 	width: 100%;
 	border: 1px solid color('brand');
 	margin-bottom: $space / 2;
-	line-height: 1;
-	color: color('body');
-	background-color: color('white');
-	border-radius: $border-radius;
+	color: color('brand');
+	background-color: transparent;
+	border-radius: 0;
+
+	&:hover,
+	&:focus {
+		box-shadow: none;
+		outline: none;
+	}
 }
 
 input[type="color"] {
@@ -56,56 +62,73 @@ input[type="color"] {
 }
 
 textarea {
-	line-height: $space;
+	line-height: strip-unit($space);
 }
 
-input[type="password"],
-input[type="search"],
-input[type="url"],
-input[type="number"],
-input[type="color"],
-input[type="number"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="datetime"],
-input[type="datetime-local"],
-textarea {
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button {
+	display: none;
+}
 
-	&:hover,
-	&:focus {
-		box-shadow: none;
-		outline: none;
-		border: solid 1px color('brand');
-		background-color: color('brand');
+
+ //*****
+// DARK
+
+.form--dark {
+
+	input,
+	button {
+		@include font('secondary');
+		@include font-size(16);
+		border: 0;
+		color: color('body');
+		background: color('white');
+	}
+
+	button {
+		text-transform: uppercase;
+
+		&:hover,
+		&:active,
+		&:focus {
+			background: color('brand');
+			color: color('white');
+			border: 0;
+			transition: none;
+		}
+
 	}
 }
 
-input[type="text"].valid,
-input[type="email"].valid {
-}
+.flex-field {
+	display: flex;
 
-input[type="text"].not-valid,
-input[type="email"].not-valid {
+	input {
+		margin-right: .5em;
+	}
 }
 
 
  //*******************
 // PLACEHOLDER STYLES
 
-::-webkit-input-placeholder {
-   color: color('brand');
+::-webkit-input-placeholder { /* Safari, Chrome and Opera */
+	color: currentColor;
 }
 
 :-moz-placeholder { /* Firefox 18- */
- 	color: color('brand');
+	color: currentColor;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
-   color: color('brand');
+::-moz-placeholder { /* Firefox 19+ */
+	color: currentColor;
 }
 
-:-ms-input-placeholder {
-   color: color('brand');
+:-ms-input-placeholder { /* IE 10+ */
+	color: currentColor;
+}
+
+::-ms-input-placeholder { /* Edge */
+	color: currentColor;
 }

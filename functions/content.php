@@ -41,7 +41,7 @@ function slugify($string) {
 	$string = trim($string, '-');
 
 	return $string;
-	
+
 }
 
 /**
@@ -183,3 +183,254 @@ function get_post_type_label($post_type = NULL, $plural = FALSE) {
 function the_post_type_label($post_type = NULL, $plural = FALSE) {
 	echo get_post_type_label($post_type, $plural);
 }
+
+function get_post_authors() {
+
+	// set the initial authors array as the normal post author...
+	$authors = array(get_author_object());
+
+	// but if multiple authors have been set, completely overwrite this array
+	if ( have_rows('authors') ) {
+
+		$authors = array();
+
+		// loop through the rows of data
+		while ( have_rows('authors') ) {
+
+			the_row();
+
+			switch ( get_row_layout() ) {
+
+				case 'wordpress_user':
+					$authors[] = get_author_object(get_sub_field('user')['ID']);
+					break;
+
+				case 'custom_user':
+					$authors[] = (object) array('name' => get_sub_field('user'));
+					break;
+
+			}
+
+		}
+
+	}
+
+	return $authors;
+
+}
+
+function get_author_object($author_id = NULL) {
+
+	if ( ! $author_id ) {
+		$author_id = get_the_author_meta('ID');
+	}
+
+	return (object) array(
+		'name' => get_the_author_meta('display_name', $author_id),
+		'url' => get_author_posts_url($author_id)
+	);
+
+}
+
+function get_authors($with_links = FALSE) {
+
+	$link_template = '<a href="%s">%s</a>';
+
+	$authors = get_post_authors();
+
+	foreach ( $authors as $key => $author ) {
+
+		if ( $with_links && isset($author->url) ) {
+			$authors[$key] = sprintf($link_template, $author->url, $author->name);
+		} else {
+			$authors[$key] = $author->name;
+		}
+
+	}
+
+	return array_multi_implode(', ', ' and ', $authors);
+
+}
+
+
+function the_authors($with_links = FALSE) {
+	echo get_authors($with_links);
+}
+
+function share_links() {
+
+	$url = urlencode(get_permalink());
+	$title = urlencode(trim(wp_title('', FALSE)));
+
+	return (object) array(
+		'twitter' => "http://twitter.com/home?status={$title} - {$url}",
+		'facebook' => "https://www.facebook.com/sharer/sharer.php?u={$url}",
+		'linkedin' => "https://www.linkedin.com/cws/share?url={$url}"
+	);
+
+}
+
+function get_authors_by_count($limit = -1, $post_type = ['post']) {
+
+	global $wpdb;
+
+	$all_posts_query = "SELECT ID, post_author
+		FROM {$wpdb->posts}
+		WHERE post_type IN ('post');";
+
+	$custom_authors_query = "SELECT {$wpdb->postmeta}.*
+		FROM {$wpdb->postmeta}
+		JOIN {$wpdb->posts} ON {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id
+		WHERE meta_key LIKE 'authors_%'
+		AND {$wpdb->posts}.post_type IN ('post');";
+
+
+ 	$authors = array();
+	$post_authors = array();
+	$custom_post_authors = array();
+
+	// get all posts with their standard authors
+	foreach ( $wpdb->get_results($all_posts_query , OBJECT) as $author_post ) {
+		$post_authors[$author_post->ID] = $author_post->post_author;
+	}
+
+	// get all custom authors
+	foreach ( $wpdb->get_results($custom_authors_query , OBJECT) as $custom_author ) {
+
+		// if the field isn't a number, forget about it
+		if ( ! is_numeric($custom_author->meta_value) ) {
+			continue;
+		}
+
+		// pre-set an array on the first time round
+		if ( ! is_array($all_posts[$custom_author->post_id]) ) {
+			$all_posts[$custom_author->post_id] = array();
+		}
+
+		// append the author to the posts
+		$all_posts[$custom_author->post_id][] = (int) $custom_author->meta_value;
+
+	}
+
+	// reset each post_authors value to be an array
+	foreach ( $post_authors as $key => $value ) {
+
+		if ( ! is_array($value) ) {
+			$post_authors[$key] = [$value];
+		}
+
+ 	}
+
+ 	// reverse the array, authors first with sub-array of posts
+ 	foreach ( $post_authors as $post_id => $author_ids ) {
+
+ 		foreach ( $author_ids as $author_id ) {
+
+ 			if ( ! isset($authors[$author_id]) ) {
+ 				$authors[$author_id] = array();
+ 			}
+
+ 			$authors[$author_id][] = $post_id;
+
+ 		}
+
+ 	}
+
+ 	// transform the sub-array to a count
+ 	foreach ( $authors as $author_id => $author_posts ) {
+ 		$authors[$author_id] = count($author_posts);
+ 	}
+
+ 	// sort by the post count
+ 	arsort($authors);
+
+ 	if ( $limit > 0 ) {
+ 		$authors = array_slice($authors, 0, $limit, TRUE);
+ 	}
+
+ 	foreach ( $authors as $author_id => $post_count ) {
+
+ 		$authors[$author_id] = (object) array(
+ 			'id' => $author_id,
+ 			'post_count' => $post_count,
+ 			'display_name' => get_the_author_meta('display_name', $author_id),
+ 			'url' => get_author_posts_url($author_id)
+ 		);
+
+ 	}
+
+ 	return $authors;
+
+}
+
+function posted_ago() {
+
+	$timestamp = get_the_time('U');
+	$diff = time() - $timestamp;
+
+	if ( $diff < 86400 ) {
+		echo date('G', $diff) . 'h ago';
+	} else if ( $diff < 432000 ) {
+		echo date('j', $diff) . ' days ago';
+	} else {
+		echo date('d/m/y', $timestamp);
+	}
+
+}
+
+function get_tweets() {
+
+	require dirname(__FILE__) . '/../tweets/tweets.php';
+
+	return display_latest_tweets('opencontracting');
+
+}
+
+
+ //*******************
+// TITLE WIDOW FILTER
+
+add_filter('the_title', function($title) {
+
+	$minWords = 3;
+	$arr = explode(' ', $title);
+
+	if ( count($arr) >= $minWords ) {
+		$arr[count($arr) - 2].= '&nbsp;' . $arr[count($arr) - 1];
+		array_pop($arr);
+		$title = implode(' ',$arr);
+	}
+
+	return $title;
+
+
+}, 10, 1);
+
+
+ //*******************
+// TERMS (POST TYPES)
+
+add_filter('terms_clauses', function($clauses, $taxonomy, $args) {
+
+	if ( ! empty($args['post_type']) ) {
+
+		global $wpdb;
+
+		$post_types = array();
+
+		foreach($args['post_type'] as $cpt)	{
+			$post_types[] = "'".$cpt."'";
+		}
+
+	    if(!empty($post_types))	{
+			$clauses['fields'] = 'DISTINCT '.str_replace('tt.*', 'tt.term_taxonomy_id, tt.term_id, tt.taxonomy, tt.description, tt.parent', $clauses['fields']).', COUNT(t.term_id) AS count';
+			$clauses['join'] .= ' INNER JOIN '.$wpdb->term_relationships.' AS r ON r.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN '.$wpdb->posts.' AS p ON p.ID = r.object_id';
+			$clauses['where'] .= ' AND p.post_status = "publish" AND p.post_type IN ('.implode(',', $post_types).')';
+			$clauses['orderby'] = 'GROUP BY t.term_id '.$clauses['orderby'];
+		}
+
+    }
+
+    return $clauses;
+
+}, 10, 3);

@@ -6,7 +6,6 @@
 
 .island {
 	padding: em(10);
-	margin-bottom: $space;
 
 	@include mq(M) {
 		padding: em(25);
@@ -24,7 +23,7 @@
 .island--thick {
 
 	@include mq(M) {
-		padding: em(50) em(50) em(100);
+		padding: em(50) 0 em(100);
 	}
 }
 
@@ -37,4 +36,16 @@
 .island--bordered {
 	border: 1px solid color('brand');
 	padding: em(10);
+}
+
+
+ //***************
+// ISLAND COLOURS
+
+.island--light {
+	background-color: color('off-white');
+}
+
+.island--dark {
+	background-color: color('dark-background');
 }

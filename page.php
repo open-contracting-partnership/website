@@ -2,12 +2,26 @@
 
 <?php get_header(); ?>
 
-	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+	<?php the_post(); ?>
 
-		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+	<div class="page__container">
 
-		<?php the_content(); ?>
+		<div class="wrapper / page__wrapper / page--padding">
 
-	<?php endwhile; ?>
+			<?php get_partial('page', 'title'); ?>
+
+			<article class="page-content cf">
+
+				<section>
+					<?php the_content(); ?>
+				</section>
+
+			</article>
+
+		</div> <!-- / .wrapper -->
+
+		<?php get_partial('page', 'strips'); ?>
+
+	</div> <!-- / .page__container -->
 
 <?php get_footer(); ?>
