@@ -6,7 +6,8 @@
 
 	<div class="post-object__content">
 
-		<a href="/events"><h4><?php the_title(); ?></h4></a>
+		<h4><?php the_title(); ?></h4>
+		<?php /* <a href="/events"><h4><?php the_title(); ?></h4></a> */ ?>
 
 		<?php //<span class="event__location">London, UK</span> ?>
 

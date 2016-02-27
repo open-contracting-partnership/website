@@ -146,7 +146,7 @@
 				<?php get_partial('post-object', 'event'); ?>
 			<?php endforeach; ?>
 
-			<a class="view-more" href="/events">View all events</a>
+			<?php // <a class="view-more" href="/events">View all events</a> ?>
 
 		</div>
 
