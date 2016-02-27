@@ -93,7 +93,7 @@
 		<div class="resource" v-if="open_resource !== null" transition="resource">
 
 			<div class="resource__title">
-				<img src="<?php bloginfo('template_directory'); ?>/assets/img/icons/icon--book.svg" />
+				<svg><use xlink:href="#icon-book" /></svg>
 			</div>
 
 			<h1 class="gamma">{{{ open_resource.title }}}</h1>
@@ -103,7 +103,7 @@
 				By {{ open_resource.fields.organisation}}
 			</p>
 
-			<p v-if="open_resource.fields.attachments"><a href="{{ open_resource.fields.attachments[0].file }}" class="button button--block button--large">Download</a></p>
+			<p v-if="open_resource.fields.attachments"><a href="{{ open_resource.fields.attachments[0].file }}" class="button button--block button--large button--icon button--icon--reverse button--icon--stroke">Download<svg><use xlink:href="#icon-download" /></svg></a></p>
 
 			<p v-if="open_resource.fields.link"><a href="{{ open_resource.fields.link }}" class="button button--block button--large">View</a></p>
 

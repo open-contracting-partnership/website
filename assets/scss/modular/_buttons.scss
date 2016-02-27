@@ -197,6 +197,15 @@ input[type="submit"] {
 	fill: currentColor;
 }
 
+.button--icon--reverse svg {
+	margin-right: 0;
+	margin-left: .5em;
+}
+
+.button--icon--stroke {
+	stroke: currentColor;
+}
+
 
  //**************
 // COLOR OPTIONS

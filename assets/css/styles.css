@@ -1671,6 +1671,13 @@ input[type="submit"] {
   margin-top: -3px;
   fill: currentColor; }
 
+.button--icon--reverse svg {
+  margin-right: 0;
+  margin-left: .5em; }
+
+.button--icon--stroke {
+  stroke: currentColor; }
+
 .button--white {
   color: #FFF; }
 
@@ -4169,8 +4176,10 @@ body.resource-open {
   border-bottom: 10px solid #23B2A7;
   margin-bottom: 1.4em;
   width: 90%; }
-  .resource__title img {
-    width: 2.4em; }
+  .resource__title svg {
+    width: 2.4em;
+    height: 2.4em;
+    fill: #23B2A7; }
 
 .resource__meta {
   font-weight: 400;
