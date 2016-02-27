@@ -2709,6 +2709,8 @@ a.post-object:focus {
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1; }
+  .post-object--event a {
+    color: #4D4D54; }
   .post-object--event h4 {
     font-weight: 500;
     font-style: normal;
@@ -2716,7 +2718,6 @@ a.post-object:focus {
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 28px;
     font-size: 1.4rem;
-    color: #4D4D54;
     margin-bottom: 0.35714em; }
   .post-object--event .event__location {
     font-weight: 500;
@@ -2855,31 +2856,37 @@ a.post-object:focus {
   color: #4D4D54;
   text-transform: uppercase; }
 
-.post-object--panel {
+a.post-object--panel {
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #FFF;
   padding: 1.6em;
-  -webkit-transition: box-shadow .4s ease;
-          transition: box-shadow .4s ease; }
-  .post-object--panel:hover, .post-object--panel:focus {
+  -webkit-transition: box-shadow .3s ease, background-color .3s ease;
+          transition: box-shadow .3s ease, background-color .3s ease; }
+  a.post-object--panel:hover, a.post-object--panel:focus {
     box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, 0.3); }
-    .post-object--panel:hover h4, .post-object--panel:focus h4 {
+    a.post-object--panel:hover h4, a.post-object--panel:focus h4 {
       text-decoration: none; }
-  .post-object--panel[data-type='news'] {
+    a.post-object--panel:hover[data-type='news'], a.post-object--panel:focus[data-type='news'] {
+      background-color: #6169cb; }
+    a.post-object--panel:hover[data-type='showcase'], a.post-object--panel:focus[data-type='showcase'] {
+      background-color: #e2563e; }
+    a.post-object--panel:hover[data-type='report'], a.post-object--panel:focus[data-type='report'] {
+      background-color: #20a096; }
+  a.post-object--panel[data-type='news'] {
     background-color: #6c75e1; }
-  .post-object--panel[data-type='showcase'] {
+  a.post-object--panel[data-type='showcase'] {
     background-color: #FB6045; }
-  .post-object--panel[data-type='report'] {
+  a.post-object--panel[data-type='report'] {
     background-color: #23B2A7; }
-  .post-object--panel .post-object--panel__tag,
-  .post-object--panel .post-object--panel__meta {
+  a.post-object--panel .post-object--panel__tag,
+  a.post-object--panel .post-object--panel__meta {
     text-transform: uppercase;
     letter-spacing: 1px;
     display: block; }
-  .post-object--panel .post-object--panel__tag {
+  a.post-object--panel .post-object--panel__tag {
     font-weight: 700;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
@@ -2887,7 +2894,7 @@ a.post-object:focus {
     font-size: 20px;
     font-size: 1rem;
     margin-bottom: .7em; }
-  .post-object--panel .post-object--panel__meta {
+  a.post-object--panel .post-object--panel__meta {
     font-weight: 500;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
@@ -2899,9 +2906,9 @@ a.post-object:focus {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
-    .post-object--panel .post-object--panel__meta span {
+    a.post-object--panel .post-object--panel__meta span {
       margin-left: 1em; }
-  .post-object--panel h4 {
+  a.post-object--panel h4 {
     font-weight: 700;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
