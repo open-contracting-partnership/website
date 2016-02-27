@@ -223,7 +223,7 @@
 
 			</div>
 
-			<span class="post-object__tag post-object__tag--light">{{ post.custom.post_type }}</span>
+			<span class="post-object__tag-overlay post-object__tag--light">{{ post.custom.post_type }}</span>
 
 		</div>
 

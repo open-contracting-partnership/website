@@ -27,7 +27,6 @@
 
 		@include mq(M) {
 			float: left;
-		    margin-left: -10px;
 		}
 	}
 
@@ -43,11 +42,12 @@
 		@include mq(M) {
 			@include font-size(40);
 			color: color('white');
+			margin: 0 0 0 em(11, 40);
 
 			span {
 				display: inline;
 				background-color: color('dark-background');
-				box-shadow: .57143rem 0 0 color('dark-background'), -.57143rem 0 0 color('dark-background');
+				box-shadow: .54rem 0 0 color('dark-background'), -.54rem 0 0 color('dark-background');
 				box-decoration-break: clone; // FF32 Fix - https://css-tricks.com/multi-line-padded-text/
 				line-height: 1.45;
 				padding: 7px 0;
@@ -67,7 +67,6 @@
 			color: color('white');
 			padding: em(13);
 			display: inline-block;
-			margin-left: -10px;
 		}
 	}
 }
