@@ -7,7 +7,7 @@
 <?php elseif ( get_field('title_type') === 'custom' ) : ?>
 
 	<div class="page-title">
-		<<?php the_field('title_level'); ?>><?php the_field('title'); ?></<?php the_field('title_level'); ?>>
+		<h1 class="<?php the_field('title_level'); ?>"><?php the_field('title'); ?></h1>
 	</div>
 
 <?php endif; ?>
