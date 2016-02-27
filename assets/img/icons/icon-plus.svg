@@ -1,0 +1,15 @@
+<svg width="20px" height="21px" viewBox="0 0 20 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <g id="-Resources" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Slide-out-menu---Resources-Overview" sketch:type="MSArtboardGroup" transform="translate(-685.000000, -610.000000)" fill="#4D4D53">
+            <g id="Main-Search-Area" sketch:type="MSLayerGroup" transform="translate(0.000000, 259.000000)">
+                <g id="Filter-btn" transform="translate(665.000000, 339.262087)" sketch:type="MSShapeGroup">
+                    <g id="ic-add-circle-outline-24-px" transform="translate(18.000000, 10.127226)">
+                        <g id="Group">
+                            <path d="M13,7.08905852 L11,7.08905852 L11,11.1399491 L7,11.1399491 L7,13.1653944 L11,13.1653944 L11,17.216285 L13,17.216285 L13,13.1653944 L17,13.1653944 L17,11.1399491 L13,11.1399491 L13,7.08905852 L13,7.08905852 Z M12,2.02544529 C6.48,2.02544529 2,6.56244275 2,12.1526718 C2,17.7429008 6.48,22.2798982 12,22.2798982 C17.52,22.2798982 22,17.7429008 22,12.1526718 C22,6.56244275 17.52,2.02544529 12,2.02544529 L12,2.02544529 Z M12,20.2544529 C7.59,20.2544529 4,16.6187786 4,12.1526718 C4,7.68656489 7.59,4.05089059 12,4.05089059 C16.41,4.05089059 20,7.68656489 20,12.1526718 C20,16.6187786 16.41,20.2544529 12,20.2544529 L12,20.2544529 Z" id="Shape"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
