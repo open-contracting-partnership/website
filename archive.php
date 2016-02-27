@@ -4,7 +4,7 @@
 
 	<div class="wrapper archive--padding">
 
-		<div class="archive-filtering">
+		<!-- <div class="archive-filtering">
 
 			<form class="archive-filtering__search" action="index.html" method="post">
 				<input type="search" placeholder="Search tags">
@@ -21,7 +21,7 @@
 
 			</div>
 
-		</div>
+		</div> -->
 
 		<div class="archive-content">
 
