@@ -1,7 +1,14 @@
 .page-title {
 
 	@include mq(M) {
-		margin-left: span(4 of 12) + gutter();
+
+		@include span(10 of 12);
+		margin-left: span(1 of 12) + gutter();
+
+		.page--template-a & {
+			margin-left: span(4 of 12) + gutter();
+		}
+
 	}
 
 }
@@ -32,11 +39,19 @@
 
 .page-content {
 
+	@include break;
 	margin-bottom: 1rem;
 
 	@include mq(M) {
-		@include span(6 at 4 of 12);
+
+		@include span(10 of 12);
 		margin-left: span(1 of 12) + gutter();
+
+		.page--template-a & {
+			@include span(6 at 4 of 12);
+			margin-left: span(1 of 12) + gutter();
+		}
+
 	}
 
 }

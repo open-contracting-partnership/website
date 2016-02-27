@@ -10,10 +10,10 @@
 
 			<div class="homepage-cta">
 
-				<p><?php the_field('strapline'); ?></p>
+				<p class="heading-highlight"><span><?php the_field('strapline'); ?></span></p>
 
-				<a href="/about" class="button button--padded button--white"><?php pll_e('About Our Work'); ?></a>
-				<a href="/data-standard" class="button button--padded button--white"><?php pll_e('Visit the Data Standard'); ?></a>
+				<!-- <a href="/about" class="button button--padded button--white"><?php pll_e('About Our Work'); ?></a>
+				<a href="/data-standard" class="button button--padded button--white"><?php pll_e('Visit the Data Standard'); ?></a> -->
 
 			</div> <!-- homepage-cta -->
 
@@ -59,15 +59,30 @@
 
 				<div class="cta-block cta-block--report cta-block--brand">
 
+					<?php
+
+						$temp_post = new query_loop([
+							'post_type' => 'post',
+							'posts_per_page' => 1
+						]);
+
+						$temp_post = $temp_post->query->posts;
+
+					?>
+
+					<?php if ( load_post($temp_post, 0) ) : ?>
+
 					<img src="<?php bloginfo('template_directory'); ?>/assets/img/rocket-2.jpg" alt="" />
 
-					<time>05-04-2016</time>
+						<time><?php the_time(get_option('date_format')); ?></time>
 
-					<h2>Open Contracting in 2015: Annual Report</h2>
+						<h2><?php the_title(); ?></h2>
 
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed sapien quam. Sed dapibus est id enim facilisis, at posuere turpis adipiscing. Quisque sit amet dui dui.</p>
+						<?php the_excerpt(); ?>
 
-					<a href="#" class="button button--padded">View report</a>
+						<a href="<?php the_permalink(); ?>" class="button button--padded">View Blog</a>
+
+					<?php endif; /* AND */ wp_reset_postdata(); ?>
 
 				</div>
 

@@ -39,17 +39,17 @@ a.post-object--panel {
 		@include font('secondary', 'bold');
 		@include font-size(20);
 		margin-bottom: .7em;
-	}
-
-	.post-object--panel__meta {
-		@include font('secondary', 'medium');
-		@include font-size(16);
-		margin-bottom: 1.7em;
-		display: flex;
 
 		span {
 			margin-left: 1em;
 		}
+	}
+
+	.post-object--panel__meta,
+	.post-object--panel__tag span {
+		@include font('secondary', 'medium');
+		@include font-size(16);
+		margin-bottom: 1.7em;
 	}
 
 	h4 {
