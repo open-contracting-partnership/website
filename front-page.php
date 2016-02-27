@@ -104,6 +104,8 @@
 					<form action="#" class="posts-filter__form / custom-radio / js-homepage-filter">
 						<label><input type="radio" name="name" value="all" checked="checked"><span></span>All</label>
 						<label><input type="radio" name="name" value="post"><span></span>Blog</label>
+						<label><input type="radio" name="name" value="news"><span></span>News</label>
+						<label><input type="radio" name="name" value="resource"><span></span>Resources</label>
 						<label><input type="radio" name="name" value="tweet"><span></span>Tweets</label>
 					</form>
 
@@ -124,12 +126,19 @@
 				]);
 				$latest_posts = $latest_posts->query->posts;
 
+				// latest news
+				$latest_news = new query_loop([
+					'post_type' => 'news',
+					'posts_per_page' => 6
+				]);
+				$latest_news = $latest_news->query->posts;
+
 				// latest resources
-				$latest_resourcs = new query_loop([
+				$latest_resources = new query_loop([
 					'post_type' => 'resource',
 					'posts_per_page' => 6
 				]);
-				$latest_resourcs = $latest_resourcs->query->posts;
+				$latest_resources = $latest_resources->query->posts;
 
 			?>
 
@@ -142,24 +151,32 @@
 				</div>
 
 				<?php if ( load_post($latest_posts, 0) ) : ?>
-					<?php get_partial('post-object', 'homepage-filter--post'); ?>
+					<?php get_partial('post-object', 'homepage-filter'); ?>
 				<?php endif; ?>
 
-				<?php if ( load_post($latest_posts, 1) ) : ?>
-					<?php get_partial('post-object', 'homepage-filter--post'); ?>
+				<?php if ( load_post($latest_news, 1) ) : ?>
+					<?php get_partial('post-object', 'homepage-filter'); ?>
 				<?php endif; ?>
 
 				<?php if ( load_post($latest_posts, 2) ) : ?>
-					<?php get_partial('post-object', 'homepage-filter--post'); ?>
+					<?php get_partial('post-object', 'homepage-filter'); ?>
 				<?php endif; ?>
 
 				<div class="homepage-filter__item / homepage-filter__twitter">
 					<p><svg><use xlink:href="#icon-twitter" /></svg><?php echo $tweets['tweets'][1]['content']; ?></p>
 				</div>
 
-				<?php if ( load_post($latest_posts, 3) ) : ?>
-					<?php get_partial('post-object', 'homepage-filter--post'); ?>
+				<?php if ( load_post($latest_resources, 0) ) : ?>
+					<?php get_partial('post-object', 'homepage-filter'); ?>
 				<?php endif; ?>
+
+				<?php
+
+					//
+					// SHOW EXCESS POST TYPES BELOW FOR FILTER PURPOSES
+					//
+
+				?>
 
 				<?php for ( $i = 2; $i < 6; $i++ ) : ?>
 
@@ -169,10 +186,26 @@
 
 				<?php endfor; ?>
 
-				<?php for ( $i = 4; $i < 6; $i++ ) : ?>
+				<?php for ( $i = 2; $i < 6; $i++ ) : ?>
 
 					<?php if ( load_post($latest_posts, $i) ) : ?>
-						<?php get_partial('post-object', 'homepage-filter--post'); ?>
+						<?php get_partial('post-object', 'homepage-filter'); ?>
+					<?php endif; ?>
+
+				<?php endfor; ?>
+
+				<?php for ( $i = 1; $i < 6; $i++ ) : ?>
+
+					<?php if ( load_post($latest_news, $i) ) : ?>
+						<?php get_partial('post-object', 'homepage-filter'); ?>
+					<?php endif; ?>
+
+				<?php endfor; ?>
+
+				<?php for ( $i = 1; $i < 6; $i++ ) : ?>
+
+					<?php if ( load_post($latest_resources, $i) ) : ?>
+						<?php get_partial('post-object', 'homepage-filter'); ?>
 					<?php endif; ?>
 
 				<?php endfor; ?>
