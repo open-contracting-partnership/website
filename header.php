@@ -20,7 +20,7 @@
 
 		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/assets/js/libs/modernizr.js"></script>
 
-		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/assets/css/styles.css">
+		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/assets/css/styles.min.css">
 
 		<title><?php wp_title('&raquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
