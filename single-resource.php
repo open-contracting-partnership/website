@@ -22,11 +22,11 @@
 				</p>
 
 				<?php if ( $attachments = get_field('attachments') ) : ?>
-					<p><a href="<?php echo $attachments[0]['file']; ?>" class="button button--block button--large button--icon button--icon--reverse button--icon--stroke">Download<svg><use xlink:href="#icon-download" /></svg></a></p>
+					<p><a onclick="_gaq.push(['_trackEvent', 'Resources', 'Download', '<?php the_title(); ?>']);" href="<?php echo $attachments[0]['file']; ?>" class="button button--block button--large button--icon button--icon--reverse button--icon--stroke">Download<svg><use xlink:href="#icon-download" /></svg></a></p>
 				<?php endif; ?>
 
 				<?php if ( $link = get_field('link') ) : ?>
-					<p><a href="<?php echo $link; ?>" class="button button--block button--large">View</a></p>
+					<p><a onclick="_gaq.push(['_trackEvent', 'Resources', 'Visit', '<?php the_title(); ?>']);" href="<?php echo $link; ?>" class="button button--block button--large">View</a></p>
 				<?php endif; ?>
 
 				<hr />

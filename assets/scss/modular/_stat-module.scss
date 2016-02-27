@@ -2,29 +2,6 @@
 	text-align: center;
 	margin-bottom: 2em;
 
-	&:first-child {
-
-		span:before {
-			content: '$';
-			font-size: 40px;
-			line-height: 1;
-			vertical-align: top;
-
-			@include mq(L) {
-				font-size: 60px;
-			}
-		}
-
-		span:after {
-			content: 'Tn';
-			font-size: 20px;
-
-			@include mq(L) {
-				font-size: 40px;
-			}
-		}
-	}
-
 	@include mq(M) {
 		@include span(4 of 12);
 		margin-bottom: 0;
