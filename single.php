@@ -15,7 +15,12 @@
 
 			<section class="post-content">
 
-				<p class="blog__mobile-date"><?php pll_e('Written By'); ?> <?php the_authors(TRUE); ?>, <datetime><?php the_date(); ?></datetime></p>
+				<div class="blog__author-meta">
+
+					<p class="blog__mobile-date"><?php pll_e('Written By'); ?> <?php the_authors(TRUE); ?>, <datetime><?php the_date(); ?></datetime></p>	
+
+				</div>
+
 
 				<?php if ( has_post_thumbnail() ) : ?>
 					<?php the_post_thumbnail(); ?>
@@ -29,7 +34,10 @@
 
 				<section>
 					<h3 class="border-top"><?php pll_e('Written By'); ?></h3>
-					<p><?php the_authors(TRUE); ?>, <time datetime="<?php the_time(DATE_W3C); ?>"><?php the_time(get_option('date_format')); ?></time></p>
+					<div class="blog__author-meta">
+						<p><?php the_authors(TRUE); ?> <time datetime="<?php the_time(DATE_W3C); ?>"><br /><?php the_time(get_option('date_format')); ?></time></p>
+					</div>
+
 				</section>
 
 				<section>
