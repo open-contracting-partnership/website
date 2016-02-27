@@ -119,8 +119,8 @@
 							<h4><?php pll_e('Contact us'); ?>:</h4>
 
 							<address>
-								<span>641 S Street NW, 20001 Washington, D.C., USA<span>
 								<a href="mailto:engage@open-contracting.org">engage@open-contracting.org</a>
+								<span>Open Contracting Partnership, 641 S Street NW, 20001 Washington, D.C., USA<span>
 							</address>
 
 						</div>
