@@ -26,11 +26,13 @@
 
 .posts-filter__button {
 	@include font('secondary', 'medium');
-	@include font-size(18);
+	@include font-size(14);
 	padding: 1.1rem 1rem;
 	background-color: color('brand');
 	display: block;
 	position: relative;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 	z-index: 10;
 	transition: background-color .4s ease;
 
@@ -46,9 +48,8 @@
 
 	svg {
 		width: 1.5em;
-		height: 1em;
+		height: 2em;
 		margin-right: .8em;
-		vertical-align: text-top;
 	}
 }
 

@@ -153,8 +153,25 @@ $(document).ready(function() {
 	 //*****
 	// MENU
 
-	$('.mobile-menu').on('click', function() {
+	$('.mobile-menu').on('click', function(event) {
+		event.stopPropagation();
 		$('body').toggleClass('mobile-active');
+	});
+
+	// stop event bubbling for next handler
+	$('.primary-nav').on('click', function(event) {
+		event.stopPropagation();
+	});
+
+	// close mobile menu on body click
+	$('body').on('click', function(event) {
+
+		var $this = $(this);
+
+		if ( $this.hasClass('mobile-active') ) {
+			$this.removeClass('mobile-active');
+		}
+
 	});
 
 	// SHAME

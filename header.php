@@ -90,7 +90,8 @@
 					</a>
 
 					<svg class="mobile-menu">
-						<use xlink:href="#icon-menu" />
+						<use class="mobile-menu__open" xlink:href="#icon-menu" />
+						<use class="mobile-menu__close" xlink:href="#icon-close" />
 					</svg>
 
 					<div class="header-nav--top">

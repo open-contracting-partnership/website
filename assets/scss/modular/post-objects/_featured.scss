@@ -3,7 +3,7 @@
 	border: 1px solid color('lighter-grey');
 
 	@include mq(M) {
-	    border: none;
+	    border: 0;
 	}
 
 	.post-object__content {
