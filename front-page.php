@@ -10,7 +10,7 @@
 
 			<div class="homepage-cta">
 
-				<p class="heading-highlight"><span><?php the_field('strapline'); ?></span></p>
+				<p><?php the_field('strapline'); ?></p>
 
 				<!-- <a href="/about" class="button button--padded button--white"><?php pll_e('About Our Work'); ?></a>
 				<a href="/data-standard" class="button button--padded button--white"><?php pll_e('Visit the Data Standard'); ?></a> -->
@@ -26,8 +26,7 @@
 		<div class="wrapper">
 
 			<div class="homepage-title">
-				<h1><?php pll_e('Public contracting'); ?></h1>
-				<h2><?php pll_e('The number one corruption risk in government'); ?></h2>
+				<h1><?php pll_e('A Revolutionary Approach'); ?></h1>
 			</div>
 
 			<?php if ( have_rows('statistics') ) : ?>
