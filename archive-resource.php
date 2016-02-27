@@ -34,18 +34,27 @@
 						<input type="search" placeholder="<?php pll_e('Search for resources'); ?>" v-model="search" class="resource-search">
 					</div>
 
-					<?php
+					<?php if ( $popular_resources = get_field('popular_resources', 'option') ) : ?>
 
-						$popular_reports = sprintf(
-							pll__("This week's popular items are %s, %s and %s"),
-							'<a href="#">report 1</a>',
-							'<a href="#">report 2</a>',
-							'<a href="#">report 1</a>'
-						);
+						<?php
 
-					?>
+							$popular_resources_links = array();
 
-					<p class="resources__popular"><?php echo $popular_reports; ?></p>
+							foreach ( $popular_resources as $popular_resource ) {
+								$popular_resources_links[] = '<a href="' . get_the_permalink($popular_resource) . '">' . get_the_title($popular_resource) . '</a>';
+							}
+
+							$popular_reports = sprintf(
+								pll__("This week's popular items are %s and %s"),
+								implode(', ', array_slice($popular_resources_links, 0, -1)),
+								end($popular_resources_links)
+							);
+
+						?>
+
+						<p class="resources__popular"><?php echo $popular_reports; ?></p>
+
+					<?php endif; ?>
 
 					<div class="resource__filter-container" v-bind:class="{ 'active': display_filter }">
 
