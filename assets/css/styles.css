@@ -1664,6 +1664,13 @@ input[type="submit"] {
   max-width: 1.5rem;
   vertical-align: bottom; }
 
+.button--icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: .5em;
+  margin-top: -3px;
+  fill: currentColor; }
+
 .button--white {
   color: #FFF; }
 
@@ -1675,16 +1682,18 @@ input[type="submit"] {
   border-color: #FFF;
   color: #2D2D2D; }
   .button--solid-white:hover, .button--solid-white:focus, .button--solid-white:active {
-    color: #2D2D2D;
-    text-decoration: underline; }
+    background-color: #2D2D2D;
+    border-color: #2D2D2D;
+    color: #FFF; }
 
 .button--solid-dark {
   background-color: #2D2D2D;
   border-color: #2D2D2D;
   color: #FFF; }
   .button--solid-dark:hover, .button--solid-dark:focus, .button--solid-dark:active {
-    color: #FFF;
-    text-decoration: underline; }
+    background-color: #FFF;
+    border-color: #FFF;
+    color: #2D2D2D; }
 
 .custom-checkbox input[type="checkbox"],
 .custom-checkbox input[type="radio"] {
@@ -4057,14 +4066,7 @@ a.post-object:focus {
     -webkit-transform: translate(-50%, 0);
             transform: translate(-50%, 0);
     z-index: 1;
-    margin-bottom: 0;
-    background-color: #FFF;
-    border-color: #FFF; }
-    .resource__filter-container .resource__filter-button:hover, .resource__filter-container .resource__filter-button:active, .resource__filter-container .resource__filter-button:focus {
-      color: #FFF;
-      background-color: #2D2D2D;
-      border-color: #2D2D2D;
-      text-decoration: none; }
+    margin-bottom: 0; }
   .resource__filter-container:after {
     content: '';
     position: absolute;

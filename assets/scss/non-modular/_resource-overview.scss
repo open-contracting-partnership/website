@@ -137,17 +137,6 @@
 		transform: translate(-50%, 0);
 		z-index: 1;
 		margin-bottom: 0;
-		background-color: color('white');
-		border-color: color('white');
-
-		&:hover,
-		&:active,
-		&:focus {
-			color: color('white');
-			background-color: color('dark-grey');
-			border-color: color('dark-grey');
-			text-decoration: none;
-		}
 	}
 
 	// a cursor guard on the filter section

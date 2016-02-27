@@ -1,10 +1,6 @@
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <g id="-Resources" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Resources-Open-Filter" sketch:type="MSArtboardGroup" transform="translate(-673.000000, -935.000000)">
-            <g id="Oval-1-+-Line" sketch:type="MSLayerGroup" transform="translate(673.000000, 935.000000)">
-                <circle id="Oval-1" fill="#4D4D53" sketch:type="MSShapeGroup" cx="10" cy="10" r="10"></circle>
-                <path d="M5,10 L15,10" id="Line" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
-            </g>
-        </g>
-    </g>
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-521.4 -282.8 20 20"
+	 style="enable-background:new -521.4 -282.8 20 20;" xml:space="preserve">
+<path fill="inherit" d="M-511.4-282.8c-5.5,0-10,4.5-10,10s4.5,10,10,10s10-4.5,10-10S-505.9-282.8-511.4-282.8z M-505.4-271.8h-12v-2h12V-271.8z"
+	/>
 </svg>

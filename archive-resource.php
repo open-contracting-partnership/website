@@ -60,11 +60,11 @@
 						</div>
 
 						<p class="resource__filter-actions">
-							<a href="#" class="button button--solid-white button--solid" v-on:click.prevent="display_filter = false"><?php pll_e('Close Filter'); ?></a>
+							<a href="#" class="button button--solid-white button--icon" v-on:click.prevent="display_filter = false"><svg><use xlink:href="#icon-stop" /></svg><?php pll_e('Close Filter'); ?></a>
 							<a href="#" class="resource__filter-reset" v-on:click.prevent="reset()"><?php pll_e('Reset'); ?></a>
 						</p>
 
-						<a href="#" v-on:click.prevent="display_filter = true" class="resource__filter-button / button button--solid-white"><?php pll_e('Filter Results'); ?></a>
+						<a href="#" v-on:click.prevent="display_filter = true" class="resource__filter-button / button button--solid-white button--icon"><svg><use xlink:href="#icon-plus" /></svg><?php pll_e('Filter Results'); ?></a>
 
 					</div> <!-- / .resource__filter-container -->
 

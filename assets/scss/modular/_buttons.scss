@@ -186,6 +186,18 @@ input[type="submit"] {
 }
 
 
+ //*************
+// ICON BUTTONS
+
+.button--icon svg {
+	width: 1em;
+	height: 1em;
+	margin-right: .5em;
+	margin-top: -3px;
+	fill: currentColor;
+}
+
+
  //**************
 // COLOR OPTIONS
 
@@ -206,8 +218,9 @@ input[type="submit"] {
 		&:hover,
 		&:focus,
 		&:active {
-			color: $contrast;
-			text-decoration: underline;
+			background-color: $contrast;
+			border-color: $contrast;
+			color: $primary;
 		}
 
 	}
