@@ -213,6 +213,10 @@ body.resource-open {
 	overflow: hidden;
 }
 
+.resource .button--icon svg {
+	stroke-width: 1.5px;
+}
+
 .resource-transition.resource__overlay {
 	background-color: color('white', .8);
 	position: fixed;
@@ -270,7 +274,7 @@ body.resource-open {
 }
 
 .resource__meta {
-	@include font('secondary');
+	@include font('secondary', 'medium');
 	@include font-size(14);
 	text-transform: uppercase;
 	letter-spacing: 1px;

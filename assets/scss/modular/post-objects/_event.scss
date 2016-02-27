@@ -25,10 +25,13 @@
 		flex: 1;
 	}
 
+	a {
+		color: color('background');
+	}
+
 	h4 {
 		@include font('secondary', 'medium');
 		@include font-size(28);
-		color: color('background');
 		margin-bottom: em(10, 28);
 	}
 

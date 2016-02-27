@@ -8,7 +8,7 @@
 
 		<a href="<?php the_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
 
-		<p>
+		<p class="post-object__meta">
 			By <?php the_authors(FALSE); ?>
 
 			<time>29/01/2016</time>

@@ -28,7 +28,7 @@
 
 						<div class="timeline-item">
 							<span class="timeline-item__date"><?php the_sub_field('date'); ?></span>
-							<a class="timeline-item__title" href="<?php the_sub_field('file'); ?>"><?php the_sub_field('title'); ?></a>
+							<a class="timeline-item__title" href="<?php the_sub_field('file'); ?>" title="Download minutes from <?php echo strip_tags(get_sub_field('title')); ?>"><?php the_sub_field('title'); ?></a>
 						</div>
 
 					<?php endwhile; ?>

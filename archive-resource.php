@@ -169,7 +169,7 @@
 
 			<div class="post-object__content / media__body">
 
-				<p>
+				<p class="post-object__meta">
 					<span v-if="resource.fields.organisation !== ''"><?php pll_e('By'); ?> {{ resource.fields.organisation }}</span>
 					<time>{{ resource.custom.year }}</time>
 				</p>
