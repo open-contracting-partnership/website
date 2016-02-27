@@ -103,9 +103,13 @@
 				By {{ open_resource.fields.organisation}}
 			</p>
 
-			<p v-if="open_resource.fields.attachments"><a href="{{ open_resource.fields.attachments[0].file }}" class="button button--block button--large">Download</a></p>
+			<p v-if="open_resource.fields.attachments">
+				<a onclick="_gaq.push(['_trackEvent', 'Resources', 'Download', '{{{ open_resource.title }}}']);" href="{{ open_resource.fields.attachments[0].file }}" class="button button--block button--large">Download</a>
+			</p>
 
-			<p v-if="open_resource.fields.link"><a href="{{ open_resource.fields.link }}" class="button button--block button--large">View</a></p>
+			<p v-if="open_resource.fields.link">
+				<a onclick="_gaq.push(['_trackEvent', 'Resources', 'Visit', '{{{ open_resource.title }}}']);" href="{{ open_resource.fields.link }}" class="button button--block button--large">View</a>
+			</p>
 
 			<hr />
 
