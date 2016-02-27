@@ -11,7 +11,7 @@
 			<section>
 
 				<div class="resource__title">
-					<img src="<?php bloginfo('template_directory'); ?>/assets/img/icons/icon--book.svg" />
+					<svg><use xlink:href="#icon-book" /></svg>
 				</div>
 
 				<h1 class="gamma"><?php the_title(); ?></h1>
@@ -22,7 +22,7 @@
 				</p>
 
 				<?php if ( $attachments = get_field('attachments') ) : ?>
-					<p><a onclick="_gaq.push(['_trackEvent', 'Resources', 'Download', '<?php the_title(); ?>']);" href="<?php echo $attachments[0]['file']; ?>" class="button button--block button--large">Download</a></p>
+					<p><a onclick="_gaq.push(['_trackEvent', 'Resources', 'Download', '<?php the_title(); ?>']);" href="<?php echo $attachments[0]['file']; ?>" class="button button--block button--large button--icon button--icon--reverse button--icon--stroke">Download<svg><use xlink:href="#icon-download" /></svg></a></p>
 				<?php endif; ?>
 
 				<?php if ( $link = get_field('link') ) : ?>

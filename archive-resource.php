@@ -60,11 +60,11 @@
 						</div>
 
 						<p class="resource__filter-actions">
-							<a href="#" class="button button--solid-white button--solid" v-on:click.prevent="display_filter = false"><?php pll_e('Close Filter'); ?></a>
+							<a href="#" class="button button--solid-white button--icon" v-on:click.prevent="display_filter = false"><svg><use xlink:href="#icon-stop" /></svg><?php pll_e('Close Filter'); ?></a>
 							<a href="#" class="resource__filter-reset" v-on:click.prevent="reset()"><?php pll_e('Reset'); ?></a>
 						</p>
 
-						<a href="#" v-on:click.prevent="display_filter = true" class="resource__filter-button / button button--solid-white"><?php pll_e('Filter Results'); ?></a>
+						<a href="#" v-on:click.prevent="display_filter = true" class="resource__filter-button / button button--solid-white button--icon"><svg><use xlink:href="#icon-plus" /></svg><?php pll_e('Filter Results'); ?></a>
 
 					</div> <!-- / .resource__filter-container -->
 
@@ -93,7 +93,7 @@
 		<div class="resource" v-if="open_resource !== null" transition="resource">
 
 			<div class="resource__title">
-				<img src="<?php bloginfo('template_directory'); ?>/assets/img/icons/icon--book.svg" />
+				<svg><use xlink:href="#icon-book" /></svg>
 			</div>
 
 			<h1 class="gamma">{{{ open_resource.title }}}</h1>
@@ -104,7 +104,7 @@
 			</p>
 
 			<p v-if="open_resource.fields.attachments">
-				<a onclick="_gaq.push(['_trackEvent', 'Resources', 'Download', '{{{ open_resource.title }}}']);" href="{{ open_resource.fields.attachments[0].file }}" class="button button--block button--large">Download</a>
+				<a onclick="_gaq.push(['_trackEvent', 'Resources', 'Download', '{{{ open_resource.title }}}']);" href="{{ open_resource.fields.attachments[0].file }}" class="button button--block button--large button--icon button--icon--reverse button--icon--stroke">Download<svg><use xlink:href="#icon-download" /></svg></a>
 			</p>
 
 			<p v-if="open_resource.fields.link">

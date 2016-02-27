@@ -1664,6 +1664,20 @@ input[type="submit"] {
   max-width: 1.5rem;
   vertical-align: bottom; }
 
+.button--icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: .5em;
+  margin-top: -3px;
+  fill: currentColor; }
+
+.button--icon--reverse svg {
+  margin-right: 0;
+  margin-left: .5em; }
+
+.button--icon--stroke {
+  stroke: currentColor; }
+
 .button--white {
   color: #FFF; }
 
@@ -1675,16 +1689,18 @@ input[type="submit"] {
   border-color: #FFF;
   color: #2D2D2D; }
   .button--solid-white:hover, .button--solid-white:focus, .button--solid-white:active {
-    color: #2D2D2D;
-    text-decoration: underline; }
+    background-color: #2D2D2D;
+    border-color: #2D2D2D;
+    color: #FFF; }
 
 .button--solid-dark {
   background-color: #2D2D2D;
   border-color: #2D2D2D;
   color: #FFF; }
   .button--solid-dark:hover, .button--solid-dark:focus, .button--solid-dark:active {
-    color: #FFF;
-    text-decoration: underline; }
+    background-color: #FFF;
+    border-color: #FFF;
+    color: #2D2D2D; }
 
 .custom-checkbox input[type="checkbox"],
 .custom-checkbox input[type="radio"] {
@@ -2938,7 +2954,8 @@ a.post-object:focus {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
-    background: #23B2A7; }
+    background: #23B2A7;
+    fill: #FFF; }
   .post-object--resource .post-object--resource__type {
     font-size: 14px;
     font-size: 0.7rem;
@@ -4114,8 +4131,10 @@ body.resource-open {
   border-bottom: 10px solid #23B2A7;
   margin-bottom: 1.4em;
   width: 90%; }
-  .resource__title img {
-    width: 2.4em; }
+  .resource__title svg {
+    width: 2.4em;
+    height: 2.4em;
+    fill: #23B2A7; }
 
 .resource__meta {
   font-weight: 400;
