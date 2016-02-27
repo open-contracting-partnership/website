@@ -479,7 +479,6 @@ h5,
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border-top: 1px solid #D5D5D7;
   position: relative;
   padding-top: 1rem; }
   .home .border-top {
@@ -3528,6 +3527,16 @@ a.post-object--panel {
           margin-right: 0; }
         .blog__post-items .post-object:nth-child(3n+1) {
           clear: both; } }
+
+.blog__author-meta p a,
+.blog__author-meta p {
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-size: 0.9rem;
+  color: #4D4D54; }
 
 .home {
   background-color: #4D4D54;
