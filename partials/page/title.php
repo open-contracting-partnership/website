@@ -1,4 +1,4 @@
-<?php if ( ! get_field('title_type') || get_field('title_type') === 'original' ) : ?>
+<?php if ( ! get_field('title_type') || get_field('title_type') === 'default' ) : ?>
 
 	<div class="page-title">
 		<h1><?php the_title(); ?></h1>
