@@ -3810,7 +3810,12 @@ a.post-object--panel {
 
 @media screen and (min-width: 640px) {
   .page-title {
-    margin-left: 33.64486%; } }
+    width: 83.17757%;
+    float: left;
+    margin-right: 0.93458%;
+    margin-left: 8.41121%; }
+    .page--template-a .page-title {
+      margin-left: 33.64486%; } }
 
 .page-sidebar {
   margin-top: 0;
@@ -3834,13 +3839,19 @@ a.post-object--panel {
       margin-bottom: 3.5em; } }
 
 .page-content {
+  clear: both;
   margin-bottom: 1rem; }
   @media screen and (min-width: 640px) {
     .page-content {
-      width: 49.53271%;
+      width: 83.17757%;
       float: left;
       margin-right: 0.93458%;
-      margin-left: 8.41121%; } }
+      margin-left: 8.41121%; }
+      .page--template-a .page-content {
+        width: 49.53271%;
+        float: left;
+        margin-right: 0.93458%;
+        margin-left: 8.41121%; } }
 
 .page--padding {
   padding-top: 2em; }

@@ -10,11 +10,6 @@
 
 			<?php get_partial('page', 'title'); ?>
 
-			<aside class="page-sidebar">
-				<?php get_partial('navigation', 'sections'); ?>
-				<?php get_partial('sidebar', 'page-download'); ?>
-			</aside>
-
 			<article class="page-content cf">
 
 				<section>
