@@ -91,11 +91,19 @@ $(document).ready(function() {
 		switch ( $self.val() ) {
 
 			case 'post':
-				$('.homepage-filter__twitter', $context).remove();
+				$('.homepage-filter__item:not(.homepage-filter__post)', $context).remove();
+				break;
+
+			case 'news':
+				$('.homepage-filter__item:not(.homepage-filter__news)', $context).remove();
 				break;
 
 			case 'tweet':
-				$('.homepage-filter__post', $context).remove();
+				$('.homepage-filter__item:not(.homepage-filter__twitter)', $context).remove();
+				break;
+
+			case 'resource':
+				$('.homepage-filter__item:not(.homepage-filter__resource)', $context).remove();
 				break;
 
 		}
