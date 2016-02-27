@@ -28,9 +28,9 @@
 	input[type="email"],
 	button {
 		@include font('secondary', 'bold');
-		color: color('white');
-		background-color: color('background');
-		border: 0;
+		color: color('background');
+		background-color: none;
+		border: 1px solid;
 	}
 
 	input[type="email"] {
@@ -43,6 +43,11 @@
 		@include font-size(14);
 		text-transform: uppercase;
 		letter-spacing: 1px;
+		&:hover,
+		&:active,
+		&:focus {
+			color: color('white');
+		}
 	}
 }
 
@@ -55,7 +60,7 @@
 
 .blog__subscribe-follow {
 
-	@include font('secondary', 'bold');
+	@include font('secondary', 'medium');
 	@include font-size(15);
 	color: color('background');
 
@@ -195,5 +200,18 @@
 				@include break;
 			}
 		}
+	}
+}
+
+
+ //*****
+// AUTHOR META
+
+.blog__author-meta {
+	p a,
+	p {
+		@include font('secondary', 'medium');
+		@include font-size(18);
+		color: color('background');
 	}
 }
