@@ -1,10 +1,12 @@
 .page-team__title {
 
 	@include mq(L) {
-		margin-top: 4.25em;
-		@include span(4 of 12);
+		margin-top: 100px;
+		@include span(5 of 12);
 	}
-
+	.strapline {
+		margin-bottom: 0;
+	}
 }
 
 .page-team__sidebar {

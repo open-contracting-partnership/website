@@ -10,9 +10,9 @@
 
 			<h1><?php the_title(); ?></h1>
 
-			<blockquote>
+			<div class="strapline">
 				<?php the_content(); ?>
-			</blockquote>
+			</div>
 
 		</aside>
 
