@@ -4057,7 +4057,14 @@ a.post-object:focus {
     -webkit-transform: translate(-50%, 0);
             transform: translate(-50%, 0);
     z-index: 1;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    background-color: #FFF;
+    border-color: #FFF; }
+    .resource__filter-container .resource__filter-button:hover, .resource__filter-container .resource__filter-button:active, .resource__filter-container .resource__filter-button:focus {
+      color: #FFF;
+      background-color: #2D2D2D;
+      border-color: #2D2D2D;
+      text-decoration: none; }
   .resource__filter-container:after {
     content: '';
     position: absolute;
