@@ -2306,20 +2306,6 @@ input[type="submit"] {
 .stat-module {
   text-align: center;
   margin-bottom: 2em; }
-  .stat-module:first-child span:before {
-    content: '$';
-    font-size: 40px;
-    line-height: 1;
-    vertical-align: top; }
-    @media screen and (min-width: 1024px) {
-      .stat-module:first-child span:before {
-        font-size: 60px; } }
-  .stat-module:first-child span:after {
-    content: 'Tn';
-    font-size: 20px; }
-    @media screen and (min-width: 1024px) {
-      .stat-module:first-child span:after {
-        font-size: 40px; } }
   @media screen and (min-width: 640px) {
     .stat-module {
       width: 32.71028%;
