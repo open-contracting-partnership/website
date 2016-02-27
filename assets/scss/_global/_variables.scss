@@ -36,13 +36,14 @@ $colours: (
 
 
 $post-types: (
+	'page': map-get($colours, 'brand-dark'),
 	'post': map-get($colours, 'dark-orange'),
 	'news': map-get($colours, 'lilac'),
 	'event': map-get($colours, 'blue'),
-	'report': map-get($colours, 'teal'),
+	'resource': map-get($colours, 'teal'),
 	'newsletter': map-get($colours, 'purple'),
 	'success': map-get($colours, 'pink'),
-	'media-clipping': map-get($colours, 'light-blue')
+	'media-clipping': map-get($colours, 'light-blue'),
 );
 
 
