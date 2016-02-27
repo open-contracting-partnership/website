@@ -2842,20 +2842,17 @@ a.post-object--panel {
     font-size: 20px;
     font-size: 1rem;
     margin-bottom: .7em; }
-  a.post-object--panel .post-object--panel__meta {
+    a.post-object--panel .post-object--panel__tag span {
+      margin-left: 1em; }
+  a.post-object--panel .post-object--panel__meta,
+  a.post-object--panel .post-object--panel__tag span {
     font-weight: 500;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-size: 0.8rem;
-    margin-bottom: 1.7em;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
-    a.post-object--panel .post-object--panel__meta span {
-      margin-left: 1em; }
+    margin-bottom: 1.7em; }
   a.post-object--panel h4 {
     font-weight: 700;
     font-style: normal;
