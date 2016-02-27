@@ -48,6 +48,7 @@
 		margin-left: span(1 of 12) + gutter();
 
 		.page--template-a & {
+			@include nobreak;
 			@include span(6 at 4 of 12);
 			margin-left: span(1 of 12) + gutter();
 		}

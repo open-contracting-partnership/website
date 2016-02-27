@@ -3848,6 +3848,7 @@ a.post-object--panel {
       margin-right: 0.93458%;
       margin-left: 8.41121%; }
       .page--template-a .page-content {
+        clear: none;
         width: 49.53271%;
         float: left;
         margin-right: 0.93458%;
