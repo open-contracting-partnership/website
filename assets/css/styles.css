@@ -2167,7 +2167,7 @@ input[type="submit"] {
   padding: 0 4.6729%;
   margin-bottom: 1.9em; }
   .team-member__name h3 {
-    margin-bottom: 0; }
+    margin: 0; }
   @media screen and (min-width: 640px) {
     .team-member__name {
       width: 100%;
@@ -3861,22 +3861,28 @@ a.post-object--panel {
     margin-left: 8.41121%; } }
 
 @media screen and (min-width: 1024px) {
-  .page-team__sidebar {
+  .page-team__title {
+    margin-top: 4.25em;
     width: 32.71028%;
     float: left;
     margin-right: 0.93458%; } }
 
+.page-team__sidebar {
+  clear: both; }
+  @media screen and (min-width: 1024px) {
+    .page-team__sidebar {
+      margin-top: 4.5rem;
+      width: 32.71028%;
+      float: left;
+      margin-right: 0.93458%; } }
+
 @media screen and (min-width: 1024px) {
   .page-team__content {
+    margin-top: 4.5rem;
     width: 49.53271%;
     float: left;
     margin-right: 0.93458%;
     margin-left: 8.41121%; } }
-
-.page-team__sidebar {
-  padding-top: 2.75em; }
-  .page-team__sidebar blockquote {
-    margin-bottom: 4em; }
 
 @media screen and (min-width: 640px) {
   .page-title {
