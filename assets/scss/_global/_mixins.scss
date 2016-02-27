@@ -83,6 +83,17 @@
 
 }
 
+@function post-color($type) {
+	$color: map-get($post-types, $type);
+
+	@if ($color == null) {
+		@error 'Post type "#{$type}" passed to `post-color` mixin does not exist';
+		@return false;
+	}
+
+	@return $color;
+}
+
 
  //***************
 // STRING REPLACE
