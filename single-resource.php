@@ -11,7 +11,7 @@
 			<section>
 
 				<div class="resource__title">
-					<svg><use xlink:href="#icon-book" /></svg>
+					<svg><use xlink:href="#icon-resource" /></svg>
 				</div>
 
 				<h1 class="gamma"><?php the_title(); ?></h1>

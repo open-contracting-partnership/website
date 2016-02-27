@@ -39,9 +39,16 @@
 		margin: 0;
 	}
 
+	a {
+		color: color('background');
+	}
+
 	h4 {
 		@include font('secondary', 'medium');
 		@include font-size(30);
-		color: color('background');
 	}
+}
+
+.post-object--archive-resource {
+	stroke: post-color('resource');
 }
