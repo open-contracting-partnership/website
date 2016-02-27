@@ -37,12 +37,14 @@
 	}
 
 	h1 {
+
 		color: color('white');
 		padding-bottom: 1.4em;
 
 		@include mq(M) {
 			padding-bottom: 0;
 		}
+
 	}
 
 	article {
@@ -51,8 +53,14 @@
 		> section {
 
 			@include mq(M) {
+
 				@include span(8 of 12 last);
-				margin-top: -2rem;
+				margin-top: 2em;
+
+				article.post--has-thumbnail & {
+					margin-top: -2rem;
+				}
+
 			}
 
 			@include mq(L) {

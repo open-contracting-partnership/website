@@ -411,8 +411,9 @@ h1 {
   margin-bottom: 1.3em; }
 
 article h1 {
-  margin-top: 0;
-  margin-bottom: 1.5em; }
+  margin-top: 0; }
+  article.post--has-thumbnail article h1 {
+    margin-bottom: 1.5em; }
 
 article h4 {
   margin-top: 0; }
@@ -3286,7 +3287,9 @@ a.post-object:focus {
       width: 66.35514%;
       float: right;
       margin-right: 0;
-      margin-top: -2rem; } }
+      margin-top: 2em; }
+      article.post--has-thumbnail .single-post article > section {
+        margin-top: -2rem; } }
   @media screen and (min-width: 1024px) {
     .single-post article > section {
       width: 49.53271%;
