@@ -167,9 +167,7 @@
 
 					<span>&copy; Open Contracting Partnership <?php echo date('Y'); ?></span>
 
-					<a href="#"><?php pll_e('Site Information'); ?></a>
-					<a href="#"><?php pll_e('Feedback'); ?></a>
-					<a href="#"><?php pll_e('Terms'); ?></a>
+					<a href="/terms-of-use/"><?php pll_e('Terms'); ?></a>
 
 					<span>Website by <a href="http://theideabureau.co">The Idea Bureau</a></span>
 
