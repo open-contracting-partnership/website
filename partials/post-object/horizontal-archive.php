@@ -15,7 +15,7 @@
 
 		<div class="post-object__meta">
 			<span><?php the_authors(FALSE); ?></span>
-			<time>29/01/2016</time>
+			<time><?php the_time(get_option('date_format')); ?></time>
 		</div>
 
 	</div>
