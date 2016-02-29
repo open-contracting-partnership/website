@@ -21,6 +21,29 @@
 			}
 		}
 	}
+
+	.post-object__media-wrapper {
+
+		.content {
+			overflow: hidden;
+		}
+
+		img, svg {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+		}
+
+	}
+
+	svg {
+		width: em(50);
+		height: em(50);
+	}
+
 }
 
 a.post-object {
@@ -55,4 +78,15 @@ a.post-object {
 
 .post-object__content {
 	padding: .5rem .5rem .5rem 1em;
+}
+
+// post-object--type-[post-type]
+.post-object--type {
+
+
+	&-resource {
+		stroke: post-color('resource');
+	}
+
+
 }

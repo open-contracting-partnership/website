@@ -1,6 +1,6 @@
 <?php $post_type = get_post_type(); ?>
 
-<div class="post-object post-object--archive post-object--archive-<?php echo $post_type; ?>">
+<div class="post-object post-object--archive post-object--type-<?php echo $post_type; ?>">
 
 	<div class="post-object__media">
 		<svg><use xlink:href="#icon-<?php echo $post_type; ?>"></svg>
@@ -15,7 +15,7 @@
 
 		<div class="post-object__meta">
 			<span><?php the_authors(FALSE); ?></span>
-			<time>29/01/2016</time>
+			<time><?php the_time(get_option('date_format')); ?></time>
 		</div>
 
 	</div>

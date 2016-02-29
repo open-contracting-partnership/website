@@ -16,11 +16,6 @@
 		}
 	}
 
-	svg {
-		width: em(50);
-		height: em(50);
-	}
-
 	.post-object__content,
 	.post-object__meta {
 		display: flex;
@@ -47,8 +42,4 @@
 		@include font('secondary', 'medium');
 		@include font-size(30);
 	}
-}
-
-.post-object--archive-resource {
-	stroke: post-color('resource');
 }

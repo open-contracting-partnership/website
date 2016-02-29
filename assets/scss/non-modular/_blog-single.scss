@@ -27,12 +27,13 @@
 
 	.post-type {
 		@include font('secondary', 'bold');
-		@include font-size(16);
-		line-height: 1;
+		@include font-size(14);
 		text-transform: uppercase;
-		padding: .5rem 1rem;
-		color: color('dark-background');
-		background-color: color('white');
+		letter-spacing: 1px;
+		color: color('white');
+		border: 1px solid;
+		margin-bottom: .75em;
+		padding: .35714em .57143em;
 		display: inline-block;
 	}
 

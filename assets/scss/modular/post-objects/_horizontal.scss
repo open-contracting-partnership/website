@@ -32,4 +32,15 @@
 			margin-top: .5rem;
 		}
 	}
+
+	.post-object__media-wrapper {
+		@include aspect-ratio(4, 3);
+		width: 230px;
+	}
+
+	svg {
+		width: 3.5em;
+		height: 3.5em;
+	}
+
 }

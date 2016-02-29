@@ -1550,7 +1550,6 @@ input[type="submit"] {
   background-color: transparent;
   text-align: center;
   vertical-align: middle;
-  background: transparent;
   text-transform: uppercase;
   letter-spacing: 1px;
   cursor: pointer;
@@ -2535,9 +2534,6 @@ input[type="submit"] {
         -webkit-flex-shrink: 0;
             -ms-flex-negative: 0;
                 flex-shrink: 0; } }
-  .post-object.post-object--archive svg {
-    width: 2.5em;
-    height: 2.5em; }
   .post-object.post-object--archive .post-object__content,
   .post-object.post-object--archive .post-object__meta {
     display: -webkit-box;
@@ -2575,9 +2571,6 @@ input[type="submit"] {
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 30px;
     font-size: 1.5rem; }
-
-.post-object--archive-resource {
-  stroke: #23B2A7; }
 
 .post-object--basic {
   padding-top: 0.4em;
@@ -2621,6 +2614,18 @@ input[type="submit"] {
         margin-right: 0; }
       .archive-posts .post-object:nth-child(3n+1) {
         clear: both; } }
+  .post-object .post-object__media-wrapper .content {
+    overflow: hidden; }
+  .post-object .post-object__media-wrapper img, .post-object .post-object__media-wrapper svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto; }
+  .post-object svg {
+    width: 2.5em;
+    height: 2.5em; }
 
 a.post-object:hover, a.post-object:active {
   text-decoration: none; }
@@ -2646,6 +2651,9 @@ a.post-object:focus {
 
 .post-object__content {
   padding: .5rem .5rem .5rem 1em; }
+
+.post-object--type-resource {
+  stroke: #23B2A7; }
 
 .post-object--event {
   display: -webkit-box;
@@ -2788,6 +2796,23 @@ a.post-object:focus {
       padding: 0; }
     .home .post-object--horizontal p {
       margin-top: .5rem; }
+  .post-object--horizontal .post-object__media-wrapper {
+    position: relative;
+    width: 230px; }
+    .post-object--horizontal .post-object__media-wrapper:before {
+      display: block;
+      content: '';
+      width: 100%;
+      padding-top: 75%; }
+    .post-object--horizontal .post-object__media-wrapper > .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+  .post-object--horizontal svg {
+    width: 3.5em;
+    height: 3.5em; }
 
 a.post-object--panel {
   font-weight: 400;
@@ -3090,15 +3115,6 @@ a.post-object--panel {
       left: 0;
       right: 0;
       bottom: 0; }
-    .post-object--vertical .post-object__media-wrapper .content {
-      overflow: hidden; }
-    .post-object--vertical .post-object__media-wrapper img {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto; }
 
 /*------------------------------------*    $NON-MODULAR
 \*------------------------------------*/
@@ -3211,13 +3227,14 @@ a.post-object--panel {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-size: 0.8rem;
-  line-height: 1;
+  font-size: 14px;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  padding: .5rem 1rem;
-  color: #323238;
-  background-color: #FFF;
+  letter-spacing: 1px;
+  color: #FFF;
+  border: 1px solid;
+  margin-bottom: .75em;
+  padding: .35714em .57143em;
   display: inline-block; }
 
 .single-post h1 {
@@ -3512,7 +3529,7 @@ a.post-object--panel {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: black;
+    background-color: #000;
     opacity: .4; }
   @media screen and (min-width: 1024px) {
     .homepage-hero {
@@ -3797,10 +3814,10 @@ a.post-object--panel {
 
 @media screen and (min-width: 1024px) {
   .page-team__title {
-    margin-top: 100px;
     width: 41.1215%;
     float: left;
-    margin-right: 0.93458%; } }
+    margin-right: 0.93458%;
+    margin-top: 100px; } }
 
 .page-team__title .strapline {
   margin-bottom: 0; }
@@ -3809,17 +3826,17 @@ a.post-object--panel {
   clear: both; }
   @media screen and (min-width: 1024px) {
     .page-team__sidebar {
-      margin-top: 4.5rem;
       width: 32.71028%;
       float: left;
-      margin-right: 0.93458%; } }
+      margin-right: 0.93458%;
+      margin-top: 4.5rem; } }
 
 @media screen and (min-width: 1024px) {
   .page-team__content {
-    margin-top: 4.5rem;
     width: 49.53271%;
     float: left;
     margin-right: 0.93458%;
+    margin-top: 4.5rem;
     margin-left: 8.41121%; } }
 
 @media screen and (min-width: 1024px) {

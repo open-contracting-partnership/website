@@ -60,7 +60,7 @@ register_post_type('resource', array(
 	'rewrite'				=> array('slug' => 'resources', 'with_front' => FALSE),
 	'capability_type'		=> 'post',
 	'taxonomies'			=> array(),
-	'supports'				=> array('title', 'editor', 'thumbnail'),
+	'supports'				=> array('title', 'editor'),
 	'has_archive'			=> TRUE,
 	'menu_icon'				=> 'dashicons-book-alt'
 ));
