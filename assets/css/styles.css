@@ -4147,7 +4147,7 @@ body.resource-open {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 33%;
+  width: 50%;
   min-width: 21.875em;
   max-width: 32.8125em;
   padding: 6.25em 2.75em;
@@ -4159,6 +4159,9 @@ body.resource-open {
           transform: translateX(0);
   -webkit-transition: -webkit-transform .3s ease-in-out;
           transition: transform .3s ease-in-out; }
+  @media screen and (min-width: 1024px) {
+    .resource-transition.resource {
+      width: 33%; } }
 
 .resource-enter.resource__overlay,
 .resource-leave.resource__overlay {
