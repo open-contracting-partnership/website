@@ -157,6 +157,9 @@
 
 					<?php
 
+						// output the entire multi-level navigation
+						// we won't show it all, but on mobile it's used for the slide out
+
 						wp_nav_menu([
 							'theme_location' => 'header-primary',
 							'sort_column' => 'menu_order',
@@ -167,9 +170,99 @@
 
 					?>
 
+					<?php
+
+						$primary_nav = get_menu('header-primary');
+						$secondary_nav = array();
+
+						$menu = array();
+						$flat_menu = array();
+
+						// iterate through the array, re-create a simple structure
+						foreach ( $primary_nav as $key => $menu_item ) {
+
+							$menu[$menu_item->ID] = (object) array(
+								'ID' => $menu_item->ID,
+								'title' => $menu_item->title,
+								'url' => $menu_item->url,
+								'classes' => $menu_item->classes,
+								'menu_parent' => $menu_item->menu_item_parent,
+								'children' => array()
+							);
+
+						}
+
+						// keep a copy of the flat menu
+						$flat_menu = $menu;
+
+						// adjust $menu to put children under parents
+						foreach ( $menu as $key => $menu_item ) {
+
+							if ( $menu_item->menu_parent > 0 ) {
+
+								// append the child item to the parent
+								$menu[$menu_item->menu_parent]->children[$menu_item->ID] = $menu_item;
+
+								// unset the original child from the top level
+								unset($menu[$menu_item->ID]);
+
+							}
+
+						}
+
+						global $wp;
+						$current_url = home_url(add_query_arg(array(),$wp->request)) . '/';
+
+						// match the current page to the items within the nav
+						$matched_page = current(array_filter($flat_menu, function($menu_item) use ($current_url) {
+							return $menu_item->url === $current_url;
+						}));
+
+						if ( ! empty($matched_page) ) {
+
+							$menu_parent = $matched_page->menu_parent;
+
+							if ( $menu_parent > 0 ) {
+
+								// set the parent item as the current ancestor
+								// this is likely already applied, but in some instances it isn't
+								$menu[$menu_parent]->classes[] = 'current-menu-ancestor';
+
+								$secondary_nav = $menu[$menu_parent]->children;
+
+							} else {
+								$secondary_nav = $matched_page->children;
+							}
+
+						}
+
+					?>
+
 				</div>
 
-			</nav>
+			</nav> <!-- / .primary-nav -->
+
+			<?php if ( ! empty($secondary_nav) ) : ?>
+
+				<nav class="secondary-nav">
+
+					<div class="wrapper">
+
+						<ul class="nav nav--horizontal">
+
+							<li class="nav__home"><a href="/">&nbsp;</a></li>
+
+							<?php foreach ( $secondary_nav as $menu_item ) : ?>
+								<li class="<?php echo implode(' ', $menu_item->classes); ?>"><a href="<?php echo $menu_item->url; ?>"><?php echo $menu_item->title; ?></a></li>
+							<?php endforeach; ?>
+
+						</ul>
+
+					</div> <!-- / .wrapper -->
+
+				</nav> <!-- / .secondary-nav -->
+
+			<?php endif; ?>
 
 		</header>
 
