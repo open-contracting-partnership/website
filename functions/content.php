@@ -234,6 +234,10 @@ function get_author_object($author_id = NULL) {
 
 function get_authors($with_links = FALSE) {
 
+	if ( get_post_type() === 'resource' ) {
+		return get_field('organisation');
+	}
+
 	$link_template = '<a href="%s">%s</a>';
 
 	$authors = get_post_authors();
