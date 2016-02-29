@@ -78,23 +78,6 @@
 
 						</nav>
 
-						<nav>
-
-							<h4><?php pll_e('Elsewhere Online'); ?></h4>
-
-							<?php
-
-								wp_nav_menu([
-									'theme_location' => 'footer-elsewhere-online',
-									'sort_column' => 'menu_order',
-									'container' => 'ul',
-									'menu_class' => 'nav nav--vertical'
-								]);
-
-							?>
-
-						</nav>
-
 					</div>
 
 					<div class="site-footer__subscribe">
