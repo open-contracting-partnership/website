@@ -107,7 +107,8 @@ body {
           transition: right .3s ease; }
   body.mobile-active {
     right: 85%;
-    overflow: hidden; }
+    overflow: hidden;
+    cursor: pointer; }
   @media screen and (min-width: 810px) {
     body.mobile-active {
       right: auto;
