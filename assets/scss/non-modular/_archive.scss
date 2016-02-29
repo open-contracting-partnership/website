@@ -19,7 +19,7 @@
 
 .archive-content {
 
-	@include mq(M) {
+	@include mq(L) {
 		@include span(7 of 12 first);
 	}
 
@@ -40,7 +40,7 @@
 
 	@include mq(M) {
 		padding-right: span(1 of 12) / 2;
-		border-right: 1px solid color('lighter-grey');
+		// border-right: 1px solid color('lighter-grey');
 	}
 }
 

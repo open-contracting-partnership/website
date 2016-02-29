@@ -1837,7 +1837,8 @@ input[type="submit"] {
 
 .download-cta {
   position: relative;
-  display: block; }
+  display: block;
+  max-width: 380px; }
   .download-cta:hover h4, .download-cta:active h4 {
     text-decoration: underline; }
 
@@ -3144,7 +3145,7 @@ a.post-object--panel {
       margin-bottom: 0;
       border-bottom: 0; } }
 
-@media screen and (min-width: 810px) {
+@media screen and (min-width: 1024px) {
   .archive-content {
     width: 57.94393%;
     float: left;
@@ -3170,8 +3171,7 @@ a.post-object--panel {
 
 @media screen and (min-width: 810px) {
   .archive-content__posts {
-    padding-right: 3.73832%;
-    border-right: 1px solid #D5D5D7; } }
+    padding-right: 3.73832%; } }
 
 .archive-filtering__search {
   position: relative;
