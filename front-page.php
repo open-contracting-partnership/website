@@ -250,8 +250,6 @@
 
 					<h3><?php pll_e('Open Contracting Worldwide'); ?></h3>
 
-					<p><?php pll_e('Learn how to implement open contracting or use contracting data.'); ?></p>
-
 					<?php while ( have_rows('worldwide_links') ) : the_row(); ?>
 						<div><a class="button button--white" href="<?php the_sub_field('link_address'); ?>"><?php the_sub_field('link_title'); ?></a></div>
 					<?php endwhile; ?>
