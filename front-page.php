@@ -73,7 +73,7 @@
 
 					<img src="<?php bloginfo('template_directory'); ?>/assets/img/rocket-2.jpg" alt="" />
 
-						<time><?php the_time(get_option('date_format')); ?></time>
+						<time><?php OCP::the_date(); ?></time>
 
 						<h2><?php the_title(); ?></h2>
 
@@ -249,8 +249,6 @@
 				<div class="homepage-map__content">
 
 					<h3><?php pll_e('Open Contracting Worldwide'); ?></h3>
-
-					<p><?php pll_e('Learn how to implement open contracting or use contracting data.'); ?></p>
 
 					<?php while ( have_rows('worldwide_links') ) : the_row(); ?>
 						<div><a class="button button--white" href="<?php the_sub_field('link_address'); ?>"><?php the_sub_field('link_title'); ?></a></div>

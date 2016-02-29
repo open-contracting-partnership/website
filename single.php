@@ -37,7 +37,7 @@
 				<section>
 					<h3 class="border-top"><?php pll_e('Written By'); ?></h3>
 					<div class="blog__author-meta">
-						<p><?php the_authors(TRUE); ?> <time datetime="<?php the_time(DATE_W3C); ?>"><br /><?php the_time(get_option('date_format')); ?></time></p>
+						<p><?php the_authors(TRUE); ?> <time datetime="<?php the_time(DATE_W3C); ?>"><br /><?php OCP::the_date(); ?></time></p>
 					</div>
 
 				</section>

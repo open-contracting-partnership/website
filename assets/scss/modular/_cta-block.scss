@@ -1,6 +1,6 @@
 .cta-block__container {
 
-	@include mq(M) {
+	@include mq(1100) {
 	    display: flex;
 	}
 }
@@ -13,7 +13,7 @@
 	position: relative;
 	overflow: hidden;
 
-	@include mq(M) {
+	@include mq(1100) {
 		width: 50%;
 		float: left;
 		padding: em(50, 22) em(50, 22) em(160, 22);

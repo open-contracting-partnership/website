@@ -182,15 +182,6 @@ $(document).ready(function() {
 
 	});
 
-	// SHAME
-	$('.sub-menu').each(function() {
-		$(this).prepend('<li class="nav__home"><a href="/">&nbsp;</a></li>');
-	});
-
-	if ( $('li.current-menu-item ul, li.current-menu-ancestor ul').length ) {
-		$('main').addClass('menu--open');
-	}
-
 	$('.nav--in-page a').on('click', function(event) {
 
 		event.preventDefault();

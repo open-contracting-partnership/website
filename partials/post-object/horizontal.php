@@ -28,7 +28,7 @@
 
 	<div class="post-object__content / media__body">
 
-		<p class="post-object__meta"><?php the_time(get_option('date_format')); ?></p>
+		<p class="post-object__meta"><?php OCP::the_date(); ?></p>
 		<p class="post-object__meta">By <?php the_authors(FALSE); ?></p>
 
 		<h4><?php the_title(); ?></h4>
