@@ -188,6 +188,7 @@
 		height: 2em;
 		vertical-align: bottom;
 		margin-right: .5em;
+		transition: fill .3s ease;
 	}
 
 	p {
@@ -232,6 +233,25 @@
 	.tweet__link {
 		@include font-size(20);
 	}
+
+	.tweet__status-link {
+
+		text-decoration: none;
+
+		&:hover,
+		&:focus,
+		&:active {
+
+			text-decoration: none;
+
+			svg {
+				fill: mix(color('black'), color('twitter'), 20%);
+			}
+
+		}
+
+	}
+
 }
 
 .homepage-map {

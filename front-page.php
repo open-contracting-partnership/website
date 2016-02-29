@@ -161,7 +161,17 @@
 			<div class="homepage-filter__items-pool">
 
 				<div class="homepage-filter__item / homepage-filter__twitter">
-					<p><svg><use xlink:href="#icon-twitter" /></svg><?php echo $tweets['tweets'][0]['content']; ?></p>
+
+					<p>
+
+						<a href="https://twitter.com/opencontracting/status/<?php echo $tweets['tweets'][0]['id']; ?>" class="tweet__status-link">
+							<svg><use xlink:href="#icon-twitter" /></svg>
+						</a>
+
+						<?php echo $tweets['tweets'][0]['content']; ?>
+
+					</p>
+
 				</div>
 
 				<?php if ( load_post($latest_posts, 0) ) : ?>
@@ -177,7 +187,17 @@
 				<?php endif; ?>
 
 				<div class="homepage-filter__item / homepage-filter__twitter">
-					<p><svg><use xlink:href="#icon-twitter" /></svg><?php echo $tweets['tweets'][1]['content']; ?></p>
+
+					<p>
+
+						<a href="https://twitter.com/opencontracting/status/<?php echo $tweets['tweets'][1]['id']; ?>" class="tweet__status-link">
+							<svg><use xlink:href="#icon-twitter" /></svg>
+						</a>
+
+						<?php echo $tweets['tweets'][1]['content']; ?>
+
+					</p>
+
 				</div>
 
 				<?php if ( load_post($latest_resources, 0) ) : ?>
@@ -195,7 +215,17 @@
 				<?php for ( $i = 2; $i < 6; $i++ ) : ?>
 
 					<div class="homepage-filter__item / homepage-filter__twitter">
-						<p><svg><use xlink:href="#icon-twitter" /></svg><?php echo $tweets['tweets'][$i]['content']; ?></p>
+
+						<p>
+
+							<a href="https://twitter.com/opencontracting/status/<?php echo $tweets['tweets'][$i]['id']; ?>" class="tweet__status-link">
+								<svg><use xlink:href="#icon-twitter" /></svg>
+							</a>
+
+							<?php echo $tweets['tweets'][$i]['content']; ?>
+
+						</p>
+
 					</div>
 
 				<?php endfor; ?>
