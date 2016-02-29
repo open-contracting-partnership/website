@@ -157,26 +157,12 @@
 
 					<?php
 
-						// output the entire multi-level navigation
-						// we won't show it all, but on mobile it's used for the slide out
-
-						wp_nav_menu([
-							'theme_location' => 'header-primary',
-							'sort_column' => 'menu_order',
-							'container' => 'ul',
-							'menu_class' => 'nav nav--horizontal',
-							'depth' => 2
-						]);
-
-					?>
-
-					<?php
-
 						$primary_nav = get_menu('header-primary');
 						$secondary_nav = array();
 
 						$menu = array();
 						$flat_menu = array();
+						$parent_pages = array();
 
 						// iterate through the array, re-create a simple structure
 						foreach ( $primary_nav as $key => $menu_item ) {
@@ -228,6 +214,9 @@
 								// this is likely already applied, but in some instances it isn't
 								$menu[$menu_parent]->classes[] = 'current-menu-ancestor';
 
+								// also, store the parent page ID for use within the standard nav functions
+								$parent_pages[] = $menu_parent;
+
 								$secondary_nav = $menu[$menu_parent]->children;
 
 							} else {
@@ -235,6 +224,34 @@
 							}
 
 						}
+
+						add_filter('nav_menu_css_class', function($classes, $item) use ($parent_pages) {
+
+							// if the current array item is within the parent pages array
+							// it has been marked as a parent, add the class
+
+							if ( in_array($item->ID, $parent_pages) ) {
+								$classes[] = 'current-menu-ancestor';
+							}
+							return $classes;
+
+						}, 10, 2);
+
+
+					?>
+
+					<?php
+
+						// output the entire multi-level navigation
+						// we won't show it all, but on mobile it's used for the slide out
+
+						wp_nav_menu([
+							'theme_location' => 'header-primary',
+							'sort_column' => 'menu_order',
+							'container' => 'ul',
+							'menu_class' => 'nav nav--horizontal',
+							'depth' => 2
+						]);
 
 					?>
 
