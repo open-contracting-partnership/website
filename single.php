@@ -9,7 +9,7 @@
 		<article class="<?php if ( has_post_thumbnail() ) : ?>post--has-thumbnail<?php endif; ?> cf">
 
 			<div class="blog__title">
-				<span class="button button--tag button--small button--white">Blog</span>
+				<span class="post-type"><?php the_post_type_label(); ?></span>
 				<h1><?php the_title(); ?></h1>
 			</div>
 

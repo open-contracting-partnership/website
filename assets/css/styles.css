@@ -1550,7 +1550,6 @@ input[type="submit"] {
   background-color: transparent;
   text-align: center;
   vertical-align: middle;
-  background: transparent;
   text-transform: uppercase;
   letter-spacing: 1px;
   cursor: pointer;
@@ -3228,13 +3227,14 @@ a.post-object--panel {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-size: 0.8rem;
-  line-height: 1;
+  font-size: 14px;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  padding: .5rem 1rem;
-  color: #323238;
-  background-color: #FFF;
+  letter-spacing: 1px;
+  color: #FFF;
+  border: 1px solid;
+  margin-bottom: .75em;
+  padding: .35714em .57143em;
   display: inline-block; }
 
 .single-post h1 {
@@ -3529,7 +3529,7 @@ a.post-object--panel {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: black;
+    background-color: #000;
     opacity: .4; }
   @media screen and (min-width: 1024px) {
     .homepage-hero {
@@ -3814,10 +3814,10 @@ a.post-object--panel {
 
 @media screen and (min-width: 1024px) {
   .page-team__title {
-    margin-top: 100px;
     width: 41.1215%;
     float: left;
-    margin-right: 0.93458%; } }
+    margin-right: 0.93458%;
+    margin-top: 100px; } }
 
 .page-team__title .strapline {
   margin-bottom: 0; }
@@ -3826,17 +3826,17 @@ a.post-object--panel {
   clear: both; }
   @media screen and (min-width: 1024px) {
     .page-team__sidebar {
-      margin-top: 4.5rem;
       width: 32.71028%;
       float: left;
-      margin-right: 0.93458%; } }
+      margin-right: 0.93458%;
+      margin-top: 4.5rem; } }
 
 @media screen and (min-width: 1024px) {
   .page-team__content {
-    margin-top: 4.5rem;
     width: 49.53271%;
     float: left;
     margin-right: 0.93458%;
+    margin-top: 4.5rem;
     margin-left: 8.41121%; } }
 
 @media screen and (min-width: 1024px) {
