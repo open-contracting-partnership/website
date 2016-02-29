@@ -1,6 +1,6 @@
 <?php $post_type = get_post_type(); ?>
 
-<div class="post-object post-object--archive post-object--archive-<?php echo $post_type; ?>">
+<div class="post-object post-object--archive post-object--type-<?php echo $post_type; ?>">
 
 	<div class="post-object__media">
 		<svg><use xlink:href="#icon-<?php echo $post_type; ?>"></svg>
