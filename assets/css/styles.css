@@ -1348,25 +1348,7 @@ td {
   .primary-nav a {
     font-size: 16px;
     font-size: 0.8rem;
-    color: #FFF;
-    padding: .4em 0;
-    border-bottom: 5px solid transparent;
-    position: relative; }
-    .primary-nav a:after {
-      content: '';
-      display: block;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -5px;
-      height: 0;
-      background-color: #D6E100;
-      -webkit-transition: height .2s ease;
-              transition: height .2s ease; }
-    .primary-nav a:hover, .primary-nav a:active, .primary-nav a:focus {
-      text-decoration: none; }
-      .primary-nav a:hover:after, .primary-nav a:active:after, .primary-nav a:focus:after {
-        height: 5px; }
+    color: #FFF; }
   .primary-nav .nav--horizontal:last-child li {
     border: 0; }
   .primary-nav ul ul li.current_page_item a,
@@ -1404,6 +1386,27 @@ td {
       .primary-nav li:last-child {
         border-right: 0;
         padding-right: 0; }
+      .primary-nav a {
+        font-size: 18px;
+        font-size: 0.9rem;
+        padding: 1.38889em 0 1.11111em;
+        border-bottom: 5px solid transparent;
+        position: relative; }
+        .primary-nav a:after {
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -5px;
+          height: 0;
+          background-color: #D6E100;
+          -webkit-transition: height .2s ease;
+                  transition: height .2s ease; }
+        .primary-nav a:hover, .primary-nav a:active, .primary-nav a:focus {
+          text-decoration: none; }
+          .primary-nav a:hover:after, .primary-nav a:active:after, .primary-nav a:focus:after {
+            height: 5px; }
       .primary-nav .current-menu-ancestor > a,
       .primary-nav .current-menu-item > a {
         text-decoration: none;
@@ -1419,11 +1422,7 @@ td {
         .primary-nav .current-menu-item > a:after {
           bottom: 0; }
       .primary-nav .current-menu-ancestor > a:hover:after {
-        display: none; }
-      .primary-nav a {
-        padding: 1.38889em 0 1.11111em;
-        font-size: 18px;
-        font-size: 0.9rem; } }
+        display: none; } }
   @media screen and (min-width: 810px) {
     .primary-nav li:last-child {
       margin-right: 0; } }
