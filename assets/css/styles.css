@@ -2624,7 +2624,8 @@ input[type="submit"] {
         clear: both; } }
   .post-object .post-object__media-wrapper .content {
     overflow: hidden; }
-  .post-object .post-object__media-wrapper img, .post-object .post-object__media-wrapper svg {
+  .post-object .post-object__media-wrapper img,
+  .post-object .post-object__media-wrapper svg {
     position: absolute;
     top: 0;
     right: 0;

@@ -7,7 +7,7 @@
 	<div class="post-object__content">
 		<span class="post-object__tag-overlay">Featured Blog</span>
 		<h4><span><?php the_title(); ?></span></h4>
-		<span class="post-object__meta"><?php the_authors(); ?>&nbsp;&nbsp;<?php the_time(get_option('date_format')); ?></span>
+		<span class="post-object__meta"><?php the_authors(); ?>&nbsp;&nbsp;<?php OCP::the_date(); ?></span>
 	</div>
 
 </a>

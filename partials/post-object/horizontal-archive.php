@@ -15,7 +15,7 @@
 
 		<div class="post-object__meta">
 			<span><?php the_authors(FALSE); ?></span>
-			<time><?php the_time(get_option('date_format')); ?></time>
+			<time><?php OCP::the_date(); ?></time>
 		</div>
 
 	</div>

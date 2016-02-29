@@ -73,7 +73,7 @@
 
 					<img src="<?php bloginfo('template_directory'); ?>/assets/img/rocket-2.jpg" alt="" />
 
-						<time><?php the_time(get_option('date_format')); ?></time>
+						<time><?php OCP::the_date(); ?></time>
 
 						<h2><?php the_title(); ?></h2>
 
