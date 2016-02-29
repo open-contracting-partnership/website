@@ -1349,25 +1349,24 @@ td {
     color: #323238;
     display: inline-block; }
 
-.nav--sub-page li,
-.nav--sub-page a,
-.nav--in-page li,
-.nav--in-page a {
-  line-height: 1; }
-
-.nav--sub-page li,
-.nav--in-page li {
-  margin-bottom: 1rem; }
-
-.nav--sub-page a,
-.nav--in-page a {
-  font-weight: 500;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-size: 0.8rem;
-  color: #424244; }
+.nav--in-page {
+  display: none; }
+  @media screen and (min-width: 810px) {
+    .nav--in-page {
+      display: block; } }
+  .nav--in-page li,
+  .nav--in-page a {
+    line-height: 1; }
+  .nav--in-page li {
+    margin-bottom: 1rem; }
+  .nav--in-page a {
+    font-weight: 500;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-size: 0.8rem;
+    color: #424244; }
 
 .nav--in-page a {
   color: #69696B;
@@ -3859,14 +3858,19 @@ a.post-object--panel {
     width: 83.17757%;
     float: left;
     margin-right: 0.93458%;
-    margin-left: 8.41121%; }
-    .page--template-a .page-title {
-      margin-left: 33.64486%; } }
+    margin-left: 8.41121%; } }
+
+.page--template-a .page-title {
+  margin-left: 0; }
+
+@media screen and (min-width: 810px) {
+  .page--template-a .page-title {
+    margin-left: 33.64486%; } }
 
 .page-sidebar {
   margin-top: 0;
   margin-bottom: 1rem; }
-  @media screen and (min-width: 640px) {
+  @media screen and (min-width: 810px) {
     .page-sidebar {
       width: 24.29907%;
       float: left;
@@ -3879,15 +3883,28 @@ a.post-object--panel {
     margin-right: 0.93458%; } }
 
 .page__section-nav {
-  margin-bottom: 1.5em; }
-  @media screen and (min-width: 640px) {
+  display: none; }
+  @media screen and (min-width: 810px) {
     .page__section-nav {
+      display: block;
       margin-bottom: 3.5em; } }
 
 .page-content {
   clear: both;
   margin-bottom: 1rem; }
-  @media screen and (min-width: 640px) {
+  @media screen and (min-width: 810px) {
+    .page-content {
+      width: 83.17757%;
+      float: left;
+      margin-right: 0.93458%;
+      margin-left: 8.41121%; }
+      .page--template-a .page-content {
+        clear: none;
+        width: 57.94393%;
+        float: left;
+        margin-right: 0.93458%;
+        margin-left: 8.41121%; } }
+  @media screen and (min-width: 1024px) {
     .page-content {
       width: 83.17757%;
       float: left;
