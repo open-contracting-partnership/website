@@ -108,7 +108,7 @@ body {
   body.mobile-active {
     right: 85%;
     overflow: hidden; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     body.mobile-active {
       right: auto;
       overflow: initial; } }
@@ -430,7 +430,7 @@ h1,
   font-size: 39px;
   font-size: 1.95rem;
   margin-bottom: .65em; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     h1,
     .alpha {
       font-size: 44px;
@@ -440,7 +440,7 @@ h2,
 .beta {
   font-size: 29px;
   font-size: 1.45rem; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     h2,
     .beta {
       font-size: 39px;
@@ -450,7 +450,7 @@ h3,
 .gamma {
   font-size: 22px;
   font-size: 1.1rem; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     h3,
     .gamma {
       font-size: 29px;
@@ -522,7 +522,7 @@ ol,
 ul {
   margin-bottom: 1.5em;
   list-style-position: inside; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     ol,
     ul {
       list-style-position: initial; } }
@@ -969,7 +969,7 @@ td {
   .site-header .logo {
     display: none;
     margin: 2em 0 1em; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 640px) {
       .site-header .logo {
         display: inline-block; } }
     .site-header .logo svg {
@@ -978,7 +978,7 @@ td {
   .site-header .logo--mobile {
     display: inline-block;
     margin: 1.1em 0; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 640px) {
       .site-header .logo--mobile {
         display: none; } }
     .site-header .logo--mobile svg {
@@ -991,7 +991,7 @@ td {
   fill: #FFF;
   float: right;
   margin-top: 1.5em; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .mobile-menu {
       display: none; } }
 
@@ -1012,7 +1012,7 @@ td {
 
 .header-nav--top {
   display: none; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .header-nav--top {
       display: block;
       float: right; } }
@@ -1191,7 +1191,7 @@ td {
     content: " ";
     display: block;
     clear: both; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .wrapper {
       padding: 0 3em; } }
 
@@ -1206,7 +1206,7 @@ td {
     content: " ";
     display: block;
     clear: both; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .wrapper--inner {
       padding: 0 3em; } }
 
@@ -1230,7 +1230,7 @@ td {
 .nav--horizontal li.current-menu-ancestor ul {
   display: block; }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 640px) {
   .nav--horizontal li {
     display: inline-block;
     margin-right: 1.05em; }
@@ -1270,7 +1270,7 @@ td {
   padding-left: 1em; }
   .nav--horizontal ul li:first-child {
     display: none; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .nav--horizontal ul {
       position: absolute;
       top: 100%;
@@ -1470,7 +1470,7 @@ td {
     .primary-nav ul ul a:active:after,
     .primary-nav ul ul a:focus:after {
       height: 5px; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .primary-nav {
       padding: 0;
       display: block;
@@ -1496,7 +1496,7 @@ td {
         font-size: 18px;
         font-size: 0.9rem; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 640px) {
   main.menu--open {
     margin-top: 3.45em; } }
 
@@ -1744,7 +1744,7 @@ input[type="submit"] {
   -webkit-transition: -webkit-transform cubic-bezier(0.46, -0.53, 0.03, 1.71) 0.2s;
           transition: transform cubic-bezier(0.46, -0.53, 0.03, 1.71) 0.2s; }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1100px) {
   .cta-block__container {
     display: -webkit-box;
     display: -webkit-flex;
@@ -1759,7 +1759,7 @@ input[type="submit"] {
   padding: 1.13636em;
   position: relative;
   overflow: hidden; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1100px) {
     .cta-block {
       width: 50%;
       float: left;
@@ -1896,7 +1896,7 @@ input[type="submit"] {
 \*------------------------------------*/
 .island {
   padding: 0.5em; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .island {
       padding: 1.25em; } }
   .island img {
@@ -1905,7 +1905,7 @@ input[type="submit"] {
 .island--thin {
   padding: 0.6em; }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 640px) {
   .island--thick {
     padding: 2.5em 0 5em; } }
 
@@ -2086,7 +2086,7 @@ input[type="submit"] {
     height: .8rem;
     margin-right: .8em;
     background-color: #323238; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 640px) {
       .posts-filter__form span {
         margin-right: 1.8em; } }
   .posts-filter__form label:last-child {
@@ -2099,7 +2099,7 @@ input[type="submit"] {
 
 .team-member {
   clear: both; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .team-member {
       display: none; }
       .team-member.active {
@@ -2113,7 +2113,7 @@ input[type="submit"] {
   -webkit-transition: color .3s ease;
           transition: color .3s ease;
   padding-left: 1.1em; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .team-member__selector {
       display: block; } }
   html.no-js .team-member__selector {
@@ -2169,7 +2169,7 @@ input[type="submit"] {
   margin-bottom: 1.9em; }
   .team-member__name h3 {
     margin: 0; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .team-member__name {
       width: 100%;
       float: left;
@@ -2180,7 +2180,7 @@ input[type="submit"] {
 /* a.team-member__view-bio */
 .team-member__view-bio {
   color: inherit; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .team-member__view-bio {
       display: none; } }
 
@@ -2190,7 +2190,7 @@ input[type="submit"] {
   padding: 0; }
   .team-member__bio.active {
     display: block; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .team-member__bio {
       display: block;
       width: 100%;
@@ -2324,6 +2324,11 @@ input[type="submit"] {
 .stat-module {
   text-align: center;
   margin-bottom: 2em; }
+  @media screen and (min-width: 640px) {
+    .stat-module {
+      margin-bottom: 4em; }
+      .stat-module:last-child {
+        margin-bottom: 0; } }
   @media screen and (min-width: 1024px) {
     .stat-module {
       width: 32.71028%;
@@ -2353,6 +2358,9 @@ input[type="submit"] {
   .stat-module div {
     text-align: left;
     margin: 0 auto; }
+    @media screen and (min-width: 640px) {
+      .stat-module div {
+        width: 50%; } }
     @media screen and (min-width: 1024px) {
       .stat-module div {
         width: 65%; } }
@@ -2514,7 +2522,7 @@ input[type="submit"] {
   border: 1px solid #D5D5D7; }
   .post-object.post-object--archive .post-object__media {
     display: none; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 640px) {
       .post-object.post-object--archive .post-object__media {
         width: 6.85em;
         min-height: 6.85em;
@@ -2604,7 +2612,7 @@ input[type="submit"] {
   .post-object h4 {
     line-height: 1.25;
     margin-bottom: 1em; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .archive-posts .post-object {
       width: 32.71028%;
       float: left;
@@ -2713,14 +2721,14 @@ a.post-object:focus {
 .post-object--featured {
   position: relative;
   border: 1px solid #D5D5D7; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .post-object--featured {
       border: 0; } }
   .post-object--featured .post-object__content {
     bottom: 2.5em;
     left: 1.25em;
     right: 3.25em; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 640px) {
       .post-object--featured .post-object__content {
         position: absolute; } }
     .post-object--featured .post-object__content :last-child {
@@ -2729,7 +2737,7 @@ a.post-object:focus {
     padding: 0.65em;
     float: none;
     margin-bottom: 1em; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 640px) {
       .post-object--featured .post-object__tag {
         float: left; } }
   .post-object--featured h4 {
@@ -2742,7 +2750,7 @@ a.post-object:focus {
       font-style: normal;
       -webkit-font-smoothing: antialiased;
       font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 640px) {
       .post-object--featured h4 {
         font-size: 40px;
         font-size: 2rem;
@@ -2765,7 +2773,7 @@ a.post-object:focus {
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 640px) {
       .post-object--featured .post-object__meta {
         background-color: #323238;
         display: inline-block;
@@ -3126,7 +3134,7 @@ a.post-object--panel {
   padding-bottom: 3em;
   margin-bottom: 3em;
   border-bottom: 1px solid #D5D5D7; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .archive-filtering {
       width: 32.71028%;
       float: right;
@@ -3136,7 +3144,7 @@ a.post-object--panel {
       margin-bottom: 0;
       border-bottom: 0; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 640px) {
   .archive-content {
     width: 57.94393%;
     float: left;
@@ -3160,7 +3168,7 @@ a.post-object--panel {
   font-size: 1.1rem;
   margin-bottom: 1.2em; }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 640px) {
   .archive-content__posts {
     padding-right: 3.73832%;
     border-right: 1px solid #D5D5D7; } }
@@ -3201,7 +3209,7 @@ a.post-object--panel {
 .single-post .blog__title {
   padding-top: 7.5rem;
   position: relative; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .single-post .blog__title {
       width: 66.35514%;
       float: right;
@@ -3240,13 +3248,13 @@ a.post-object--panel {
 .single-post h1 {
   color: #FFF;
   padding-bottom: 1.4em; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .single-post h1 {
       padding-bottom: 0; } }
 
 .single-post article {
   margin-bottom: 6em; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .single-post article > section {
       width: 66.35514%;
       float: right;
@@ -3263,7 +3271,7 @@ a.post-object--panel {
   .single-post article > section > img {
     margin-bottom: 2.2em;
     background-color: #FFF; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .single-post article aside {
       width: 32.71028%;
       float: left;
@@ -3277,7 +3285,7 @@ a.post-object--panel {
 .single-post .related-posts {
   clear: both; }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 640px) {
   .blog__mobile-date {
     display: none; } }
 
@@ -3297,7 +3305,7 @@ a.post-object--panel {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
   margin-bottom: 5.4em; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .yarpp-related .post-object {
       width: 49.53271%;
       float: left;
@@ -3466,7 +3474,7 @@ a.post-object--panel {
           flex-wrap: wrap; }
   .blog__post-items .post-object {
     width: 100%; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 640px) {
       .blog__post-items .post-object {
         width: 49.0566%;
         float: left;
@@ -3531,7 +3539,7 @@ a.post-object--panel {
     bottom: 0;
     background-color: #000;
     opacity: .4; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .homepage-hero {
       padding-top: 5em; } }
   @media screen and (min-width: 1024px) {
@@ -3562,19 +3570,23 @@ a.post-object--panel {
   clear: both; }
 
 .homepage-title {
-  text-align: center; }
+  text-align: center;
+  margin-top: 1.5em; }
+  @media screen and (min-width: 640px) {
+    .homepage-title {
+      margin-top: 0; } }
   .homepage-title h1 {
     font-size: 35px;
     font-size: 1.75rem;
     margin-bottom: 1.85714em; }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 640px) {
   .homepage-blogs {
     width: 32.71028%;
     float: left;
     margin-right: 0.93458%; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 640px) {
   .homepage-spotlight {
     width: 32.71028%;
     float: left;
@@ -3585,7 +3597,7 @@ a.post-object--panel {
 
 .homepage-implement {
   margin-top: 3.45em; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .homepage-implement {
       width: 32.71028%;
       float: right;
@@ -3611,7 +3623,7 @@ a.post-object--panel {
 .homepage-filter__items-pool {
   display: none; }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 640px) {
   .homepage-filter__items {
     display: -webkit-box;
     display: -webkit-flex;
@@ -3623,7 +3635,7 @@ a.post-object--panel {
 
 .homepage-filter__item {
   margin-bottom: 0.93458%; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .homepage-filter__item {
       width: 49.53271%;
       float: left;
@@ -3633,7 +3645,7 @@ a.post-object--panel {
       .homepage-filter__item:nth-child(2n) {
         float: right;
         margin-right: 0; } }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1100px) {
     .homepage-filter__item {
       width: 32.71028%;
       float: left;
@@ -3700,21 +3712,16 @@ a.post-object--panel {
     font-size: 1rem; }
 
 .homepage-map {
-  position: relative;
-  display: none; }
-  @media screen and (min-width: 1024px) {
-    .homepage-map {
-      display: block; } }
+  position: relative; }
 
 .homepage-map__image {
-  width: 83.17757%;
-  float: left;
-  margin-right: 0.93458%;
   position: relative;
+  width: 100%;
   background-image: url("../img/map.png");
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative; }
+  position: relative;
+  margin-bottom: 1.5em; }
   .homepage-map__image:before {
     display: block;
     content: '';
@@ -3726,6 +3733,13 @@ a.post-object--panel {
     left: 0;
     right: 0;
     bottom: 0; }
+  @media screen and (min-width: 800px) {
+    .homepage-map__image {
+      width: 83.17757%;
+      float: left;
+      margin-right: 0.93458%;
+      position: absolute;
+      margin-bottom: 0; } }
   .homepage-map__image .button {
     position: absolute;
     bottom: 100%;
@@ -3748,13 +3762,13 @@ a.post-object--panel {
 
 .homepage-map__content {
   color: #FFF;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 37.38318%;
+  position: relative;
   background-color: rgba(50, 50, 56, 0.5);
   padding: 2rem; }
+  @media screen and (min-width: 800px) {
+    .homepage-map__content {
+      width: 37.38318%;
+      float: right; } }
   .homepage-map__content h3 {
     margin-bottom: 1em; }
     .homepage-map__content h3:before {
@@ -3786,7 +3800,7 @@ a.post-object--panel {
 
 .page-advisory-board__members {
   display: none; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .page-advisory-board__members {
       width: 32.07547%;
       float: left;
@@ -3799,7 +3813,7 @@ a.post-object--panel {
       float: left;
       margin-right: 0.93458%; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 640px) {
   .page-advisory-board__member-bio {
     width: 66.03774%;
     float: right;
@@ -3839,7 +3853,7 @@ a.post-object--panel {
     margin-top: 4.5rem;
     margin-left: 8.41121%; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 640px) {
   .page-title {
     width: 83.17757%;
     float: left;
@@ -3851,13 +3865,13 @@ a.post-object--panel {
 .page-sidebar {
   margin-top: 0;
   margin-bottom: 1rem; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .page-sidebar {
       width: 24.29907%;
       float: left;
       margin-right: 0.93458%; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 640px) {
   .page-sidebar--wide {
     width: 32.71028%;
     float: left;
@@ -3865,14 +3879,14 @@ a.post-object--panel {
 
 .page__section-nav {
   margin-bottom: 1.5em; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .page__section-nav {
       margin-bottom: 3.5em; } }
 
 .page-content {
   clear: both;
   margin-bottom: 1rem; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .page-content {
       width: 83.17757%;
       float: left;
@@ -3887,7 +3901,7 @@ a.post-object--panel {
 
 .page--padding {
   padding-top: 2em; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .page--padding {
       padding-top: 5em; } }
 
@@ -3941,7 +3955,7 @@ a.post-object--panel {
     content: " ";
     display: block;
     clear: both; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640px) {
     .resources-container .post-object {
       width: 47.05882%;
       float: left;
@@ -3998,7 +4012,7 @@ a.post-object--panel {
     background-color: #FFF;
     border-bottom: 3px solid #999;
     margin-bottom: 0.5em; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 640px) {
       .resource__filter label {
         width: 48.57143%;
         float: left;
@@ -4201,7 +4215,7 @@ body.resource-open {
       margin-right: 0.93458%;
       margin-left: 16.82243%; } }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 640px) {
   .search-main {
     width: 74.76636%;
     float: left;
