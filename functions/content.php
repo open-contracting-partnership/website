@@ -441,6 +441,10 @@ add_filter('terms_clauses', function($clauses, $taxonomy, $args) {
 
 class OCP {
 
+
+	 //*****
+	// DATE
+
     static function the_date() {
 		echo self::get_the_date();
     }
