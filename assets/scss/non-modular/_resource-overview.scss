@@ -215,7 +215,7 @@ body.resource-open {
 
 .single-resource,
 .resource {
-	
+
 	.button--icon svg {
 		stroke-width: 1.5px;
 	}
@@ -239,7 +239,7 @@ body.resource-open {
 	top: 0;
 	right: 0;
 	bottom: 0;
-	width: 33%;
+	width: 50%;
 	min-width: em(350, 16);
 	max-width: em(525, 16);
 	padding: em(100, 16) em(44, 16);
@@ -249,6 +249,10 @@ body.resource-open {
 	z-index: 16;
 	transform: translateX(0);
 	transition: transform .3s ease-in-out;
+
+	@include mq(L) {
+	    width: 33%;
+	}
 }
 
 .resource-enter,
