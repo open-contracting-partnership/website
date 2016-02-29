@@ -18,9 +18,15 @@
 	display: inline-block;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	padding: em(9, 16) em(21, 16);
-	background-color: color('dark-background');
-	color: color('white');
+	color: color('dark-background');
+	margin-bottom: 1em;
+
+	@include mq(M) {
+		margin-bottom: 0;
+		padding: em(9, 16) em(21, 16);
+		background-color: color('dark-background');
+		color: color('white');
+	}
 }
 
 .post-object__tag--light {

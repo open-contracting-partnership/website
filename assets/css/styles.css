@@ -3055,9 +3055,14 @@ a.post-object--panel {
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 0.5625em 1.3125em;
-  background-color: #323238;
-  color: #FFF; }
+  color: #323238;
+  margin-bottom: 1em; }
+  @media screen and (min-width: 810px) {
+    .post-object__tag-overlay {
+      margin-bottom: 0;
+      padding: 0.5625em 1.3125em;
+      background-color: #323238;
+      color: #FFF; } }
 
 .post-object__tag--light {
   background-color: #FFF;
@@ -4149,7 +4154,7 @@ body.resource-open {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 33%;
+  width: 50%;
   min-width: 21.875em;
   max-width: 32.8125em;
   padding: 6.25em 2.75em;
@@ -4161,6 +4166,9 @@ body.resource-open {
           transform: translateX(0);
   -webkit-transition: -webkit-transform .3s ease-in-out;
           transition: transform .3s ease-in-out; }
+  @media screen and (min-width: 1024px) {
+    .resource-transition.resource {
+      width: 33%; } }
 
 .resource-enter.resource__overlay,
 .resource-leave.resource__overlay {

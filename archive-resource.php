@@ -330,7 +330,7 @@
 
 						var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 
-						if ( width > 1024 ) {
+						if ( width > 810 ) {
 
 							event.preventDefault();
 
