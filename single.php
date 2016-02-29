@@ -9,7 +9,7 @@
 		<article class="<?php if ( has_post_thumbnail() ) : ?>post--has-thumbnail<?php endif; ?> cf">
 
 			<div class="blog__title">
-				<span class="button button--tag button--small button--white">Blog</span>
+				<span class="post-type"><?php the_post_type_label(); ?></span>
 				<h1><?php the_title(); ?></h1>
 			</div>
 
@@ -28,6 +28,8 @@
 
 				<?php the_content(); ?>
 
+				<?php comment_form(); ?>
+
 			</section>
 
 			<aside class="sidebar">
@@ -35,7 +37,7 @@
 				<section>
 					<h3 class="border-top"><?php pll_e('Written By'); ?></h3>
 					<div class="blog__author-meta">
-						<p><?php the_authors(TRUE); ?> <time datetime="<?php the_time(DATE_W3C); ?>"><br /><?php the_time(get_option('date_format')); ?></time></p>
+						<p><?php the_authors(TRUE); ?> <time datetime="<?php the_time(DATE_W3C); ?>"><br /><?php OCP::the_date(); ?></time></p>
 					</div>
 
 				</section>

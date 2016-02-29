@@ -184,8 +184,12 @@
 
 }
 
-.nav--sub-page,
 .nav--in-page {
+	display: none;
+
+	@include mq(M) {
+		display: block;
+	}
 
 	li,
 	a {

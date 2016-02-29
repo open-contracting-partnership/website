@@ -234,6 +234,10 @@ function get_author_object($author_id = NULL) {
 
 function get_authors($with_links = FALSE) {
 
+	if ( get_post_type() === 'resource' ) {
+		return get_field('organisation');
+	}
+
 	$link_template = '<a href="%s">%s</a>';
 
 	$authors = get_post_authors();
@@ -434,3 +438,27 @@ add_filter('terms_clauses', function($clauses, $taxonomy, $args) {
     return $clauses;
 
 }, 10, 3);
+
+class OCP {
+
+
+	 //*****
+	// DATE
+
+    static function the_date() {
+		echo self::get_the_date();
+    }
+
+	static function get_the_date() {
+
+		$post_type = get_post_type();
+
+		if ( $post_type === 'event' && get_field('event_date') ) {
+			return date(get_option('date_format'), strtotime(get_field('event_date')));
+		}
+
+		return get_the_time(get_option('date_format'));
+
+	}
+
+}
