@@ -92,8 +92,12 @@
 
 }
 
-.nav--sub-page,
 .nav--in-page {
+	display: none;
+
+	@include mq(810) {
+		display: block;
+	}
 
 	li,
 	a {
