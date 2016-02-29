@@ -16,7 +16,8 @@
 
 		</div>
 
-		<span class="post-object__tag-overlay post-object__tag--light"><?php the_post_type_label(); ?></span>
+		<!-- TODO: re-implement after redesign -->
+		<!-- <span class="post-object__tag-overlay post-object__tag--light"><?php the_post_type_label(); ?></span> -->
 
 	</div>
 
