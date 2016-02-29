@@ -35,6 +35,7 @@ body {
 		&.mobile-active {
 			right: auto;
 			overflow: initial;
+			cursor: pointer;
 		}
 	}
 }

@@ -111,7 +111,8 @@ body {
   @media screen and (min-width: 810px) {
     body.mobile-active {
       right: auto;
-      overflow: initial; } }
+      overflow: initial;
+      cursor: pointer; } }
 
 main {
   overflow: hidden; }
