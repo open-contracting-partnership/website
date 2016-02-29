@@ -28,6 +28,7 @@ body {
 	&.mobile-active {
 		right: 85%;
 		overflow: hidden;
+		cursor: pointer;
 	}
 
 	@include mq(M) {
@@ -35,7 +36,6 @@ body {
 		&.mobile-active {
 			right: auto;
 			overflow: initial;
-			cursor: pointer;
 		}
 	}
 }
