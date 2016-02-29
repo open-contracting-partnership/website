@@ -21,7 +21,7 @@ function vue_posts($args) {
 			'custom' => array(),
 			'display' => true
 		);
-		
+
 		if ( ! in_array('id', $args['ignore']) ) {
 			$vue_posts[$vue_post->ID]['id'] = get_the_ID();
 		}
@@ -43,7 +43,7 @@ function vue_posts($args) {
 		}
 
 		if ( ! in_array('date', $args['ignore']) ) {
-			$vue_posts[$vue_post->ID]['date'] = get_the_time(get_option('date_format'));
+			$vue_posts[$vue_post->ID]['date'] = OCP::get_the_date();
 		}
 
 
