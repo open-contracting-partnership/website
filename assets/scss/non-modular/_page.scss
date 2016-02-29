@@ -9,7 +9,7 @@
 		margin-left: 0;
 	}
 
-	@include mq(810) {
+	@include mq(M) {
 
 		.page--template-a & {
 			margin-left: span(4 of 12) + gutter();
@@ -21,7 +21,7 @@
 	margin-top: 0;
 	margin-bottom: 1rem;
 
-	@include mq(810) {
+	@include mq(M) {
 		@include span(3 of 12 first);
 	}
 }
@@ -36,7 +36,7 @@
 .page__section-nav {
 	display: none;
 
-	@include mq(810) {
+	@include mq(M) {
 		display: block;
 		margin-bottom: em(70);
 	}
@@ -46,7 +46,7 @@
 	@include break;
 	margin-bottom: 1rem;
 
-	@include mq(810) {
+	@include mq(M) {
 		@include span(10 of 12);
 		margin-left: span(1 of 12) + gutter();
 

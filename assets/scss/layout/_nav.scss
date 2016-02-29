@@ -187,7 +187,7 @@
 .nav--in-page {
 	display: none;
 
-	@include mq(810) {
+	@include mq(M) {
 		display: block;
 	}
 
