@@ -3917,6 +3917,9 @@ a.post-object--panel {
 
 @media screen and (min-width: 810px) {
   .page--template-a .page-title {
+    width: 49.53271%;
+    float: left;
+    margin-right: 0.93458%;
     margin-left: 33.64486%; } }
 
 .page-sidebar {
