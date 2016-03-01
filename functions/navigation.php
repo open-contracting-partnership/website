@@ -150,7 +150,7 @@ class OCP_Nav {
 				$object_ids[$menu_item->object_id] = $menu_item->ID;
 			}
 
-			$object = (object) array(
+			$menu[$menu_item->ID] = (object) array(
 				'ID' => $menu_item->ID,
 				'title' => $menu_item->title,
 				'url' => $menu_item->url,
@@ -159,8 +159,7 @@ class OCP_Nav {
 				'children' => array()
 			);
 
-			$menu[$menu_item->ID] = clone $object;
-			$flat_menu[$menu_item->ID] = clone $object;
+			$flat_menu[$menu_item->ID] = clone $menu[$menu_item->ID];
 
 		}
 
@@ -180,7 +179,7 @@ class OCP_Nav {
 		}
 
 		global $wp;
-		$current_url = home_url(add_query_arg(array(),$wp->request)) . '/';
+		$current_url = home_url(add_query_arg(array(), $wp->request)) . '/';
 
 		// match the current page to the items within the nav
 		$matched_page = current(array_filter($flat_menu, function($menu_item) use ($current_url) {
@@ -203,7 +202,7 @@ class OCP_Nav {
 				$secondary_nav = $menu[$menu_parent]->children;
 
 			} else {
-				$secondary_nav = $matched_page->children;
+				$secondary_nav = $menu[$matched_page->ID]->children;
 			}
 
 		} else {
