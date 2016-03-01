@@ -99,8 +99,7 @@ em {
  //***********
 // BLOCKQUOTE
 
-blockquote,
-.strapline {
+blockquote {
 	@include font('secondary', 'medium');
     @include font-size(26);
     padding: 0 0 0 em(35, 29);
@@ -134,11 +133,6 @@ blockquote,
     > :last-child {
         margin-bottom: 0;
     }
-}
-
-.strapline {
-	@include font('secondary', 'regular');
-	@include font-size(26);
 }
 
 

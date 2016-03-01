@@ -36,6 +36,7 @@ h5,
 h6,
 p,
 blockquote,
+.strapline,
 form,
 legend,
 label,
@@ -156,8 +157,7 @@ i,
 em {
   font-style: italic; }
 
-blockquote,
-.strapline {
+blockquote, .strapline {
   font-weight: 500;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -167,8 +167,7 @@ blockquote,
   padding: 0 0 0 1.2069em;
   margin: 0 0 1.5em;
   position: relative; }
-  blockquote:before,
-  .strapline:before {
+  blockquote:before, .strapline:before {
     content: '';
     display: block;
     position: absolute;
@@ -177,8 +176,7 @@ blockquote,
     height: 80%;
     width: 10px;
     background-color: #D6E100; }
-  blockquote p,
-  .strapline p {
+  blockquote p, .strapline p {
     font-weight: 400;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
@@ -186,22 +184,12 @@ blockquote,
     font-size: 1em;
     line-height: 1.3;
     margin-bottom: 0.75em; }
-  blockquote footer,
-  .strapline footer {
+  blockquote footer, .strapline footer {
     font-size: 0.48276em;
     text-transform: uppercase;
     display: block; }
-  blockquote > :last-child,
-  .strapline > :last-child {
+  blockquote > :last-child, .strapline > :last-child {
     margin-bottom: 0; }
-
-.strapline {
-  font-weight: 400;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 26px;
-  font-size: 1.3rem; }
 
 hr {
   border: 0 solid #424244;
@@ -1532,7 +1520,7 @@ aside,
 .accent--orange .button:active {
   color: #FB6045; }
 
-.accent--orange blockquote {
+.accent--orange blockquote, .accent--orange .strapline {
   border-left-color: #FB6045; }
 
 /*------------------------------------*    BUTTONS
@@ -2389,6 +2377,17 @@ input[type="submit"] {
     line-height: 1.45;
     padding: 5px 0; }
 
+.strapline {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 26px;
+  font-size: 1.3rem; }
+
+.strapline--blue:before {
+  background-color: #6991F5; }
+
 .subscribe__alert {
   font-size: 14px;
   font-size: 0.7rem;
@@ -2677,32 +2676,44 @@ a.post-object:focus {
   display: -ms-flexbox;
   display: flex;
   border: 1px solid #ECECEC; }
+  .post-object--event .post-object__content,
   .post-object--event .post-object__media,
-  .post-object--event .post-object__content {
-    padding: 1rem; }
+  .post-object--event .post-object__link {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
   .post-object--event .post-object__media {
-    font-weight: 700;
+    font-weight: 500;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 48px;
-    font-size: 2.4rem;
+    font-size: 29px;
+    font-size: 1.45rem;
     background-color: #6991F5;
     color: #FFF;
     text-align: center;
     line-height: .9;
-    width: 2.64583em; }
+    padding: 0.51724em; }
     .post-object--event .post-object__media span {
-      font-size: 20px;
-      font-size: 1rem; }
+      font-size: 18px;
+      font-size: 0.9rem; }
     .post-object--event .post-object__media em {
       font-style: normal;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      display: block; }
   .post-object--event .post-object__content {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1; }
+    -webkit-box-flex: 2;
+    -webkit-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+    padding: 0.9em; }
+    .post-object--event .post-object__content h4 {
+      margin: 0; }
   .post-object--event a {
     color: #4D4D54; }
   .post-object--event h4 {
@@ -2710,10 +2721,9 @@ a.post-object:focus {
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 28px;
-    font-size: 1.4rem;
-    margin-bottom: 0.35714em; }
-  .post-object--event .event__location {
+    font-size: 22px;
+    font-size: 1.1rem; }
+  .post-object--event .post-object__link {
     font-weight: 500;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
@@ -2723,8 +2733,15 @@ a.post-object:focus {
     color: #4D4D54;
     text-transform: uppercase;
     letter-spacing: 1px;
-    display: block;
-    margin-bottom: 1em; }
+    border-left: 1px solid #ECECEC;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
 
 .post-object--featured {
   position: relative;
@@ -3218,21 +3235,25 @@ a.post-object--panel {
     -webkit-transition: fill .2s ease;
             transition: fill .2s ease; }
 
-.single-post .blog__title {
+.single-post .blog__title,
+.single-news .blog__title {
   padding-top: 7.5rem;
   position: relative; }
   @media screen and (min-width: 810px) {
-    .single-post .blog__title {
+    .single-post .blog__title,
+    .single-news .blog__title {
       width: 66.35514%;
       float: right;
       margin-right: 0; } }
   @media screen and (min-width: 1024px) {
-    .single-post .blog__title {
+    .single-post .blog__title,
+    .single-news .blog__title {
       width: 49.53271%;
       float: right;
       margin-right: 0;
       margin-right: 16.82243%; } }
-  .single-post .blog__title:before {
+  .single-post .blog__title:before,
+  .single-news .blog__title:before {
     content: '';
     position: absolute;
     top: 0;
@@ -3242,7 +3263,8 @@ a.post-object--panel {
     z-index: -1;
     background-color: #9BAF00; }
 
-.single-post .post-type {
+.single-post .post-type,
+.single-news .post-type {
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -3257,44 +3279,54 @@ a.post-object--panel {
   padding: .35714em .57143em;
   display: inline-block; }
 
-.single-post h1 {
+.single-post h1,
+.single-news h1 {
   color: #FFF;
   padding-bottom: 1.4em; }
   @media screen and (min-width: 810px) {
-    .single-post h1 {
+    .single-post h1,
+    .single-news h1 {
       padding-bottom: 0; } }
 
-.single-post article {
+.single-post article,
+.single-news article {
   margin-bottom: 6em; }
   @media screen and (min-width: 810px) {
-    .single-post article > section {
+    .single-post article > section,
+    .single-news article > section {
       width: 66.35514%;
       float: right;
       margin-right: 0;
       margin-top: 2em; }
-      article.post--has-thumbnail .single-post article > section {
+      article.post--has-thumbnail .single-post article > section, article.post--has-thumbnail
+      .single-news article > section {
         margin-top: -2rem; } }
   @media screen and (min-width: 1024px) {
-    .single-post article > section {
+    .single-post article > section,
+    .single-news article > section {
       width: 49.53271%;
       float: right;
       margin-right: 0;
       margin-right: 16.82243%; } }
-  .single-post article > section > img {
+  .single-post article > section > img,
+  .single-news article > section > img {
     margin-bottom: 2.2em;
     background-color: #FFF; }
   @media screen and (min-width: 810px) {
-    .single-post article aside {
+    .single-post article aside,
+    .single-news article aside {
       width: 32.71028%;
       float: left;
       margin-right: 0.93458%; } }
   @media screen and (min-width: 1024px) {
-    .single-post article aside {
+    .single-post article aside,
+    .single-news article aside {
       width: 24.29907%;
       float: left;
       margin-right: 0.93458%; } }
 
-.single-post .related-posts {
+.single-post .related-posts,
+.single-news .related-posts {
   clear: both; }
 
 @media screen and (min-width: 810px) {
@@ -4287,7 +4319,8 @@ body.resource-open {
   a[href^="javascript:"]:after {
     content: ''; }
   pre,
-  blockquote {
+  blockquote,
+  .strapline {
     border: 1px solid #999;
     page-break-inside: avoid; }
   thead {
