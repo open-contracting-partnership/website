@@ -1484,12 +1484,14 @@ td {
   .secondary-nav a:hover,
   .secondary-nav a:active,
   .secondary-nav a:focus,
-  .secondary-nav li.current-menu-item a {
+  .secondary-nav li.current-menu-item a,
+  .secondary-nav li.current-menu-parent a {
     text-decoration: none; }
     .secondary-nav a:hover:after,
     .secondary-nav a:active:after,
     .secondary-nav a:focus:after,
-    .secondary-nav li.current-menu-item a:after {
+    .secondary-nav li.current-menu-item a:after,
+    .secondary-nav li.current-menu-parent a:after {
       bottom: 0; }
 
 /*------------------------------------*    SIDEBAR
