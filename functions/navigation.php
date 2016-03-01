@@ -207,26 +207,30 @@ class OCP_Nav {
 
 		} else {
 
-			$ancestor_id = $object_ids[current(array_slice(get_post_ancestors(), -2, 1))];
+			if ( is_page() ) {
 
-			if ( isset($flat_menu[$ancestor_id]) ) {
+				$ancestor_id = $object_ids[current(array_slice(get_post_ancestors(), -2, 1))];
 
-				$menu_parent = $flat_menu[$ancestor_id]->menu_parent;
+				if ( isset($flat_menu[$ancestor_id]) ) {
 
-				if ( $menu_parent > 0 ) {
+					$menu_parent = $flat_menu[$ancestor_id]->menu_parent;
 
-					// set the parent item as the current ancestor
-					// this is likely already applied, but in some instances it isn't
-					$menu[$menu_parent]->classes[] = 'current-menu-ancestor';
-					$menu[$menu_parent]->children[$ancestor_id]->classes[] = 'current-menu-parent';
+					if ( $menu_parent > 0 ) {
 
-					// also, store the parent page ID for use within the standard nav functions
-					$parent_pages[] = $menu_parent;
+						// set the parent item as the current ancestor
+						// this is likely already applied, but in some instances it isn't
+						$menu[$menu_parent]->classes[] = 'current-menu-ancestor';
+						$menu[$menu_parent]->children[$ancestor_id]->classes[] = 'current-menu-parent';
 
-					$secondary_nav = $menu[$menu_parent]->children;
+						// also, store the parent page ID for use within the standard nav functions
+						$parent_pages[] = $menu_parent;
 
-				} else {
-					$secondary_nav = $matched_page->children;
+						$secondary_nav = $menu[$menu_parent]->children;
+
+					} else {
+						$secondary_nav = $matched_page->children;
+					}
+
 				}
 
 			}
