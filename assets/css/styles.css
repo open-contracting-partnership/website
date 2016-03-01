@@ -36,6 +36,7 @@ h5,
 h6,
 p,
 blockquote,
+.strapline,
 form,
 legend,
 label,
@@ -156,8 +157,7 @@ i,
 em {
   font-style: italic; }
 
-blockquote,
-.strapline {
+blockquote, .strapline {
   font-weight: 500;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -167,8 +167,7 @@ blockquote,
   padding: 0 0 0 1.2069em;
   margin: 0 0 1.5em;
   position: relative; }
-  blockquote:before,
-  .strapline:before {
+  blockquote:before, .strapline:before {
     content: '';
     display: block;
     position: absolute;
@@ -177,8 +176,7 @@ blockquote,
     height: 80%;
     width: 10px;
     background-color: #D6E100; }
-  blockquote p,
-  .strapline p {
+  blockquote p, .strapline p {
     font-weight: 400;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
@@ -186,22 +184,12 @@ blockquote,
     font-size: 1em;
     line-height: 1.3;
     margin-bottom: 0.75em; }
-  blockquote footer,
-  .strapline footer {
+  blockquote footer, .strapline footer {
     font-size: 0.48276em;
     text-transform: uppercase;
     display: block; }
-  blockquote > :last-child,
-  .strapline > :last-child {
+  blockquote > :last-child, .strapline > :last-child {
     margin-bottom: 0; }
-
-.strapline {
-  font-weight: 400;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 26px;
-  font-size: 1.3rem; }
 
 hr {
   border: 0 solid #424244;
@@ -1530,7 +1518,7 @@ aside,
 .accent--orange .button:active {
   color: #FB6045; }
 
-.accent--orange blockquote {
+.accent--orange blockquote, .accent--orange .strapline {
   border-left-color: #FB6045; }
 
 /*------------------------------------*    BUTTONS
@@ -2386,6 +2374,17 @@ input[type="submit"] {
             box-decoration-break: clone;
     line-height: 1.45;
     padding: 5px 0; }
+
+.strapline {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 26px;
+  font-size: 1.3rem; }
+
+.strapline--blue:before {
+  background-color: #6991F5; }
 
 .subscribe__alert {
   font-size: 14px;
@@ -4318,7 +4317,8 @@ body.resource-open {
   a[href^="javascript:"]:after {
     content: ''; }
   pre,
-  blockquote {
+  blockquote,
+  .strapline {
     border: 1px solid #999;
     page-break-inside: avoid; }
   thead {
