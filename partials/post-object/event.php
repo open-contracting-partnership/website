@@ -1,4 +1,4 @@
-<div class="post-object post-object--horizontal post-object--event">
+<div class="post-object post-object--event">
 
 	<div class="post-object__media">
 		<time><?php the_time('j'); ?><span><?php the_time('S'); ?></span><em><?php the_time('M'); ?></em></time>
