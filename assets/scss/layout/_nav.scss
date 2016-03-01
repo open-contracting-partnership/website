@@ -393,7 +393,8 @@
 	a:hover,
 	a:active,
 	a:focus,
-	li.current-menu-item a {
+	li.current-menu-item a,
+	li.current-menu-parent a {
 
 		text-decoration: none;
 
