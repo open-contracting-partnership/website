@@ -207,7 +207,7 @@ class OCP_Nav {
 
 		} else {
 
-			if ( is_page() ) {
+			if ( is_page() && ! is_front_page() ) {
 
 				$ancestor_id = $object_ids[current(array_slice(get_post_ancestors(), -2, 1))];
 
