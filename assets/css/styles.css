@@ -3234,21 +3234,25 @@ a.post-object--panel {
     -webkit-transition: fill .2s ease;
             transition: fill .2s ease; }
 
-.single-post .blog__title {
+.single-post .blog__title,
+.single-news .blog__title {
   padding-top: 7.5rem;
   position: relative; }
   @media screen and (min-width: 810px) {
-    .single-post .blog__title {
+    .single-post .blog__title,
+    .single-news .blog__title {
       width: 66.35514%;
       float: right;
       margin-right: 0; } }
   @media screen and (min-width: 1024px) {
-    .single-post .blog__title {
+    .single-post .blog__title,
+    .single-news .blog__title {
       width: 49.53271%;
       float: right;
       margin-right: 0;
       margin-right: 16.82243%; } }
-  .single-post .blog__title:before {
+  .single-post .blog__title:before,
+  .single-news .blog__title:before {
     content: '';
     position: absolute;
     top: 0;
@@ -3258,7 +3262,8 @@ a.post-object--panel {
     z-index: -1;
     background-color: #9BAF00; }
 
-.single-post .post-type {
+.single-post .post-type,
+.single-news .post-type {
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -3273,44 +3278,54 @@ a.post-object--panel {
   padding: .35714em .57143em;
   display: inline-block; }
 
-.single-post h1 {
+.single-post h1,
+.single-news h1 {
   color: #FFF;
   padding-bottom: 1.4em; }
   @media screen and (min-width: 810px) {
-    .single-post h1 {
+    .single-post h1,
+    .single-news h1 {
       padding-bottom: 0; } }
 
-.single-post article {
+.single-post article,
+.single-news article {
   margin-bottom: 6em; }
   @media screen and (min-width: 810px) {
-    .single-post article > section {
+    .single-post article > section,
+    .single-news article > section {
       width: 66.35514%;
       float: right;
       margin-right: 0;
       margin-top: 2em; }
-      article.post--has-thumbnail .single-post article > section {
+      article.post--has-thumbnail .single-post article > section, article.post--has-thumbnail
+      .single-news article > section {
         margin-top: -2rem; } }
   @media screen and (min-width: 1024px) {
-    .single-post article > section {
+    .single-post article > section,
+    .single-news article > section {
       width: 49.53271%;
       float: right;
       margin-right: 0;
       margin-right: 16.82243%; } }
-  .single-post article > section > img {
+  .single-post article > section > img,
+  .single-news article > section > img {
     margin-bottom: 2.2em;
     background-color: #FFF; }
   @media screen and (min-width: 810px) {
-    .single-post article aside {
+    .single-post article aside,
+    .single-news article aside {
       width: 32.71028%;
       float: left;
       margin-right: 0.93458%; } }
   @media screen and (min-width: 1024px) {
-    .single-post article aside {
+    .single-post article aside,
+    .single-news article aside {
       width: 24.29907%;
       float: left;
       margin-right: 0.93458%; } }
 
-.single-post .related-posts {
+.single-post .related-posts,
+.single-news .related-posts {
   clear: both; }
 
 @media screen and (min-width: 810px) {
