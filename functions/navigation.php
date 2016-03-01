@@ -127,3 +127,130 @@ function get_breadcrumbs() {
 	return array_reverse($breadcrumbs);
 
 }
+
+class OCP_Nav {
+
+	static function prepare_primary_nav() {
+
+		$primary_nav = get_menu('header-primary');
+		$secondary_nav = array();
+
+		$menu = array();
+		$flat_menu = array();
+		$parent_pages = array();
+
+		// keep an array of object IDs vs their menu ids
+		$object_ids = array();
+
+		// iterate through the array, re-create a simple structure
+		foreach ( $primary_nav as $key => $menu_item ) {
+
+			// store the object id, but only if it's a real object
+			if ( $menu_item->object_id > 0 ) {
+				$object_ids[$menu_item->object_id] = $menu_item->ID;
+			}
+
+			$menu[$menu_item->ID] = (object) array(
+				'ID' => $menu_item->ID,
+				'title' => $menu_item->title,
+				'url' => $menu_item->url,
+				'classes' => $menu_item->classes,
+				'menu_parent' => $menu_item->menu_item_parent,
+				'children' => array()
+			);
+
+			$flat_menu[$menu_item->ID] = clone $menu[$menu_item->ID];
+
+		}
+
+		// adjust $menu to put children under parents
+		foreach ( $menu as $key => $menu_item ) {
+
+			if ( $menu_item->menu_parent > 0 ) {
+
+				// append the child item to the parent
+				$menu[$menu_item->menu_parent]->children[$menu_item->ID] = $menu_item;
+
+				// unset the original child from the top level
+				unset($menu[$menu_item->ID]);
+
+			}
+
+		}
+
+		global $wp;
+		$current_url = home_url(add_query_arg(array(), $wp->request)) . '/';
+
+		// match the current page to the items within the nav
+		$matched_page = current(array_filter($flat_menu, function($menu_item) use ($current_url) {
+			return $menu_item->url === $current_url;
+		}));
+
+		if ( ! empty($matched_page) ) {
+
+			$menu_parent = $matched_page->menu_parent;
+
+			if ( $menu_parent > 0 ) {
+
+				// set the parent item as the current ancestor
+				// this is likely already applied, but in some instances it isn't
+				$menu[$menu_parent]->classes[] = 'current-menu-ancestor';
+
+				// also, store the parent page ID for use within the standard nav functions
+				$parent_pages[] = $menu_parent;
+
+				$secondary_nav = $menu[$menu_parent]->children;
+
+			} else {
+				$secondary_nav = $menu[$matched_page->ID]->children;
+			}
+
+		} else {
+
+			if ( is_page() && ! is_front_page() ) {
+
+				$ancestor_id = $object_ids[current(array_slice(get_post_ancestors(), -2, 1))];
+
+				if ( isset($flat_menu[$ancestor_id]) ) {
+
+					$menu_parent = $flat_menu[$ancestor_id]->menu_parent;
+
+					if ( $menu_parent > 0 ) {
+
+						// set the parent item as the current ancestor
+						// this is likely already applied, but in some instances it isn't
+						$menu[$menu_parent]->classes[] = 'current-menu-ancestor';
+						$menu[$menu_parent]->children[$ancestor_id]->classes[] = 'current-menu-parent';
+
+						// also, store the parent page ID for use within the standard nav functions
+						$parent_pages[] = $menu_parent;
+
+						$secondary_nav = $menu[$menu_parent]->children;
+
+					} else {
+						$secondary_nav = $matched_page->children;
+					}
+
+				}
+
+			}
+
+		}
+
+		add_filter('nav_menu_css_class', function($classes, $item) use ($parent_pages) {
+
+			// if the current array item is within the parent pages array
+			// it has been marked as a parent, add the class
+
+			if ( in_array($item->ID, $parent_pages) ) {
+				$classes[] = 'current-menu-ancestor';
+			}
+			return $classes;
+
+		}, 10, 2);
+
+		return $secondary_nav;
+
+	}
+
+}

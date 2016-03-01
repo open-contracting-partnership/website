@@ -12,6 +12,7 @@
 	@include mq(M) {
 
 		.page--template-a & {
+			@include span(6 of 12);
 			margin-left: span(4 of 12) + gutter();
 		}
 	}

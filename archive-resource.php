@@ -122,7 +122,9 @@
 
 			<hr />
 
-			{{{ open_resource.content }}}
+			<div class="post-content">
+				{{{ open_resource.content }}}
+			</div>
 
 			<hr />
 

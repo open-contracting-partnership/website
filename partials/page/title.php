@@ -1,13 +1,23 @@
-<?php if ( ! get_field('title_type') || get_field('title_type') === 'default' ) : ?>
+<?php
 
-	<div class="page-title">
-		<h1><?php the_title(); ?></h1>
-	</div>
+	$type = get_field('title_type');
 
-<?php elseif ( get_field('title_type') === 'custom' ) : ?>
+	// don't continue if this page has no title
+	if ( get_field('title_type') === 'none' ) {
+		return;
+	}
 
-	<div class="page-title">
-		<h1 class="<?php the_field('title_level'); ?>"><?php the_field('title'); ?></h1>
-	</div>
+	$title = $type === 'default' ? get_the_title() : get_field('title');
+	$class = $type === 'default' ? '' : get_field('title_level');
 
-<?php endif; ?>
+?>
+
+<div class="page-title">
+
+	<h1 class="<?php echo $class ?>"><?php echo $title; ?></h1>
+
+	<?php if ( $stapline = get_field('strapline') ) : ?>
+		<div class="strapline"><?php echo $stapline; ?></div>
+	<?php endif; ?>
+
+</div>
