@@ -1411,12 +1411,10 @@ td {
         display: none; }
       .primary-nav li {
         margin: 0;
-        padding: 0 1.6em;
-        border-right: 1px solid #69696B; }
+        padding: 0 1.6em; }
       .primary-nav li:first-child {
         padding-left: 0; }
       .primary-nav li:last-child {
-        border-right: 0;
         padding-right: 0; }
       .primary-nav a {
         font-size: 18px;

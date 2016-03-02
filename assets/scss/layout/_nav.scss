@@ -236,7 +236,6 @@
 		li {
 			margin: 0;
 			padding: 0 em(32);
-			border-right: 1px solid color('mid-grey');
 		}
 
 		li:first-child {
@@ -244,9 +243,7 @@
 		}
 
 		li:last-child {
-			border-right: 0;
 			padding-right: 0;
-
 		}
 
 		a {
