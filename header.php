@@ -7,20 +7,12 @@
 
 		<script>var template_url = '<?php bloginfo('template_directory'); ?>';</script>
 
-		<script>
-		  (function(d) {
-		    var config = {
-		      kitId: 'xpw3jps',
-		      scriptTimeout: 3000,
-		      async: true
-		    },
-		    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-		  })(document);
-		</script>
-
 		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/assets/js/libs/modernizr.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/assets/css/styles.min.css">
+
+		<script src="https://use.typekit.net/xpw3jps.js"></script>
+		<script>try{Typekit.load({ async: true });}catch(e){}</script>
 
 		<title><?php wp_title('&raquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
