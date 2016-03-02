@@ -213,7 +213,25 @@
 
 				});
 
-				event_vue.open_event = event_vue.events[0];
+
+				// check for a hash
+				// open appropriate event
+				
+				var event_index = 0;
+
+				if ( location.hash ) {
+
+					event_vue.events.forEach(function(event, index) {
+
+						if ( '#' + event.slug === location.hash ) {
+							event_index = index;
+						}
+
+					});
+
+				}
+
+				event_vue.open_event = event_vue.events[event_index];
 
 			</script>
 
