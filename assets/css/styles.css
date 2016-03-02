@@ -3553,15 +3553,76 @@ a.post-object--panel {
   font-size: 0.9rem;
   color: #4D4D54; }
 
+.post-object--event .post-object__media {
+  background-color: #4D4D54;
+  -webkit-transition: background-color .1s linear;
+          transition: background-color .1s linear; }
+
+.post-object--event {
+  position: relative; }
+  .post-object--event:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -18.2%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    background: #FFF;
+    box-shadow: 0 0 0 3px #FFF, 0 0 0 4px #ECECEC;
+    border: 0 solid #6991F5;
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+    -webkit-transition: border-width .1s linear;
+            transition: border-width .1s linear; }
+  .post-object--event.active:before {
+    border-width: .5em; }
+  .post-object--event.active .post-object__media {
+    background-color: #6991F5; }
+
 .archive-content__posts {
   width: 41.1215%;
   float: left;
-  margin-right: 0.93458%; }
+  margin-right: 0.93458%;
+  padding-left: 4.98442%;
+  border-left: 1px solid #ECECEC; }
 
 .archive-event__view {
   width: 49.53271%;
   float: left;
-  margin-right: 0.93458%; }
+  margin-right: 0.93458%;
+  padding-left: 3.73832%;
+  border-left: 1px solid #ECECEC; }
+
+.open-event h1 {
+  font-size: 32px;
+  font-size: 1.6rem;
+  margin-bottom: 0.625em; }
+
+.open-event .event__meta {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8B8B97; }
+  .open-event .event__meta span {
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #323238; }
+
+.open-event hr {
+  border-color: #ECECEC; }
+
+.open-event p {
+  font-size: 18px;
+  font-size: 0.9rem; }
 
 .event__title {
   font-size: 20px;
@@ -3592,6 +3653,23 @@ a.post-object--panel {
       font-size: 0.8rem;
       text-transform: none;
       letter-spacing: normal; }
+
+.event__terms {
+  margin-bottom: 1em; }
+  .event__terms span {
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8B8B97;
+    float: left;
+    min-width: 110px;
+    margin-right: 1em;
+    margin-bottom: 0.4em; }
 
 .home {
   background-color: #4D4D54;
