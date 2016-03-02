@@ -1,10 +1,11 @@
-.post-object--event .post-object__media {
+.post-object--event-clickable .post-object__media {
 	background-color: color('background');
 	transition: background-color .1s linear;
 }
 
-.post-object--event {
+.post-object--event-clickable {
 	position: relative;
+	cursor: pointer;
 
 	&:before {
 		content: '';
@@ -37,15 +38,23 @@
 }
 
 .archive-content__posts {
-	@include span(5 of 12 first);
-	padding-left: span(1 of 12) / 1.5;
-	border-left: 1px solid color('lightest-grey');
+
+	@include mq(L) {
+		@include span(5 of 12 first);
+		padding-left: span(1 of 12) / 1.5;
+		border-left: 1px solid color('lightest-grey');
+	}
 }
 
 .archive-event__view {
-	@include span(6 of 12 at 5);
-	padding-left: span(1 of 12) / 2;
-	border-left: 1px solid color('lightest-grey');
+	display: none;
+
+	@include mq(L) {
+		@include span(6 of 12 at 5);
+		display: block;
+		padding-left: span(1 of 12) / 2;
+		border-left: 1px solid color('lightest-grey');
+	}
 }
 
 .open-event {
@@ -110,6 +119,15 @@
 
 .event__terms {
 	margin-bottom: 1em;
+
+	p {
+		@include font('secondary', 'medium');
+		@include font-size(16);
+		color: color('background');
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-bottom: 1em;
+	}
 
 	span {
 		@include font('secondary');
