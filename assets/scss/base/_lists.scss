@@ -2,22 +2,6 @@
 	LISTS
 \*------------------------------------*/
 
-
-article {
-
-	ul {
-		padding-left: 0;
-
-		li {
-			list-style-type: square;
-		}
-	}
-
-	li {
-		margin-bottom: $space / 2;
-	}
-}
-
 ul ul,
 ul ul ul,
 ol ol,
@@ -27,8 +11,11 @@ ol ol ol {
 
 ol,
 ul {
+
 	margin-bottom: $space;
+	padding-left: $space * .75;
 	list-style-position: inside;
+	list-style-type: square;
 
 	@include mq(M) {
 	    list-style-position: initial;
@@ -40,12 +27,13 @@ ul {
 
 	li {
 		margin-bottom: $space / 2;
+		padding-left: .25em;
 	}
+
 }
 
 ol {
 	list-style-type: decimal;
-	padding: 0;
 }
 
 ol ol {
@@ -59,7 +47,6 @@ ol ol ol {
 ul ul,
 ol ol {
 	margin-bottom: 0;
-	padding-left: 30px;
 }
 
 .arrow-list {

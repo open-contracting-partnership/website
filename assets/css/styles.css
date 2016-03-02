@@ -501,14 +501,6 @@ h5,
 
 /*------------------------------------*	LISTS
 \*------------------------------------*/
-article ul {
-  padding-left: 0; }
-  article ul li {
-    list-style-type: square; }
-
-article li {
-  margin-bottom: 0.75em; }
-
 ul ul,
 ul ul ul,
 ol ol,
@@ -518,7 +510,9 @@ ol ol ol {
 ol,
 ul {
   margin-bottom: 1.5em;
-  list-style-position: inside; }
+  padding-left: 1.125em;
+  list-style-position: inside;
+  list-style-type: square; }
   @media screen and (min-width: 810px) {
     ol,
     ul {
@@ -528,11 +522,11 @@ ul {
     list-style-type: none; }
   ol li,
   ul li {
-    margin-bottom: 0.75em; }
+    margin-bottom: 0.75em;
+    padding-left: .25em; }
 
 ol {
-  list-style-type: decimal;
-  padding: 0; }
+  list-style-type: decimal; }
 
 ol ol {
   list-style-type: lower-alpha; }
@@ -542,8 +536,7 @@ ol ol ol {
 
 ul ul,
 ol ol {
-  margin-bottom: 0;
-  padding-left: 30px; }
+  margin-bottom: 0; }
 
 .arrow-list {
   margin: 0;
@@ -1037,18 +1030,20 @@ td {
 .site-header__top {
   position: relative; }
 
-.header-nav--top {
+.header-nav__side {
   display: none; }
   @media screen and (min-width: 810px) {
-    .header-nav--top {
+    .header-nav__side {
       display: block;
-      float: right; } }
+      position: absolute;
+      top: 0;
+      right: 0; } }
 
-.header-nav--top__item {
+.header-nav__side-item {
   float: left; }
 
 .header-social {
-  margin-top: 1.3em; }
+  margin-top: 2.3em; }
   .header-social > a {
     font-size: 14px;
     font-size: 0.7rem;
@@ -1060,6 +1055,9 @@ td {
       text-decoration: underline; }
     .header-social > a:active {
       text-decoration: none; }
+  .header-social .button__social li {
+    margin-right: 0;
+    padding-left: 0; }
   .header-social .button__social a {
     fill: #B7B7B7; }
   .header-social .button__list {
@@ -1069,9 +1067,9 @@ td {
   margin: 1.2em 0 0 2em; }
 
 .header-search {
-  margin-left: 2em; }
+  margin-left: .5rem; }
   .header-search a {
-    padding: 1.4rem;
+    padding: 2.5rem .5rem;
     margin: 0;
     border: 0;
     fill: #FFF; }
@@ -1098,12 +1096,21 @@ td {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: -.5rem;
   left: 0;
   background-color: #323238;
   z-index: 99; }
   .search--active .header__search {
     display: block; }
+  html.csspointerevents .header__search {
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: opacity .3s ease;
+            transition: opacity .3s ease; }
+  html.csspointerevents .search--active .header__search {
+    opacity: 1;
+    pointer-events: auto; }
   .header__search .wrapper {
     position: absolute;
     top: 0;
@@ -1128,22 +1135,21 @@ td {
     -webkit-appearance: none; }
 
 .search__close {
+  font-size: 20px;
+  font-size: 1rem;
   position: absolute;
   top: 0;
-  right: 0;
+  right: .5em;
   bottom: 0;
-  padding: 1.8em; }
+  bottom: -6px;
+  width: 1em;
+  height: 1em;
+  margin: auto 0; }
   .search__close svg {
-    width: 25px;
-    height: 25px;
+    width: 1em;
+    height: 1em;
     fill: #FFF;
     vertical-align: initial; }
-
-.header-nav--top__item.header-search {
-  display: block; }
-  @media screen and (min-width: 1550px) {
-    .header-nav--top__item.header-search {
-      display: none; } }
 
 .site-header__top > .header-search {
   display: none;

@@ -58,44 +58,57 @@
 
 				<div class="cta-block cta-block--report cta-block--brand">
 
-					<?php
+					<?php if ( $spotlight_image = get_field('spotlight_image') ) : ?>
+						<img src="<?php echo $spotlight_image['url']; ?>" />
+					<?php endif; ?>
 
-						$temp_post = new query_loop([
-							'post_type' => 'post',
-							'posts_per_page' => 1
-						]);
+					<?php if ( get_field('spotlight_enabled') ) : ?>
 
-						$temp_post = $temp_post->query->posts;
+						<h2><?php the_field('spotlight_title'); ?></h2>
+						<p><?php the_field('spotlight_content'); ?></p>
 
-					?>
+					<?php else : ?>
 
-					<?php if ( load_post($temp_post, 0) ) : ?>
+						<?php
 
-					<img src="<?php bloginfo('template_directory'); ?>/assets/img/rocket-2.jpg" alt="" />
+							$temp_post = new query_loop([
+								'post_type' => 'post',
+								'posts_per_page' => 1
+							]);
 
-						<time><?php OCP::the_date(); ?></time>
+							$temp_post = $temp_post->query->posts;
 
-						<h2><?php the_title(); ?></h2>
+						?>
 
-						<?php the_excerpt(); ?>
+						<?php if ( load_post($temp_post, 0) ) : ?>
 
-						<a href="<?php the_permalink(); ?>" class="button button--padded">View Blog</a>
+							<time><?php OCP::the_date(); ?></time>
 
-					<?php endif; /* AND */ wp_reset_postdata(); ?>
+							<h2><?php the_title(); ?></h2>
+
+							<?php the_excerpt(); ?>
+
+							<a href="<?php the_permalink(); ?>" class="button button--padded">View Blog</a>
+
+						<?php endif; /* AND */ wp_reset_postdata(); ?>
+
+					<?php endif; ?>
 
 				</div>
 
 				<div class="cta-block cta-block--background">
 
-					<img src="<?php bloginfo('template_directory'); ?>/assets/img/street.jpg" alt="" />
+					<?php if ( $implement_image = get_field('implement_image') ) : ?>
+						<img src="<?php echo $implement_image['url']; ?>" />
+					<?php endif; ?>
 
-					<h2>Implement Open Contracting</h2>
+					<h2><?php the_field('implement_title'); ?></h2>
 
-					<p>Learn how to implement open contracting or use contracting data.</p>
+					<p><?php the_field('implement_content'); ?></p>
 
-					<div><a href="#" class="button">Showcases and evidence</a></div>
-					<div><a href="#" class="button">How to get started</a></div>
-					<div><a href="#" class="button">Data standard</a></div>
+					<?php if ( have_rows('implement_links') ) while ( have_rows('implement_links') ) : the_row(); ?>
+						<div><a href="<?php the_sub_field('link_address'); ?>" class="button"><?php the_sub_field('link_title'); ?></a></div>
+					<?php endwhile; ?>
 
 				</div>
 
