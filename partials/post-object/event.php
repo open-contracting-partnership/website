@@ -21,7 +21,7 @@
 	</div>
 
 	<div class="post-object__link">
-		<a href="<?php the_permalink(); ?>">Details</a>
+		<a href="/events/#<?php echo basename(get_the_permalink()); ?>"><?php pll_e('Details'); ?></a>
 	</div>
 
 </div>
