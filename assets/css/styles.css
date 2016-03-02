@@ -501,14 +501,6 @@ h5,
 
 /*------------------------------------*	LISTS
 \*------------------------------------*/
-article ul {
-  padding-left: 0; }
-  article ul li {
-    list-style-type: square; }
-
-article li {
-  margin-bottom: 0.75em; }
-
 ul ul,
 ul ul ul,
 ol ol,
@@ -518,7 +510,9 @@ ol ol ol {
 ol,
 ul {
   margin-bottom: 1.5em;
-  list-style-position: inside; }
+  padding-left: 1.125em;
+  list-style-position: inside;
+  list-style-type: square; }
   @media screen and (min-width: 810px) {
     ol,
     ul {
@@ -528,11 +522,11 @@ ul {
     list-style-type: none; }
   ol li,
   ul li {
-    margin-bottom: 0.75em; }
+    margin-bottom: 0.75em;
+    padding-left: .25em; }
 
 ol {
-  list-style-type: decimal;
-  padding: 0; }
+  list-style-type: decimal; }
 
 ol ol {
   list-style-type: lower-alpha; }
@@ -542,8 +536,7 @@ ol ol ol {
 
 ul ul,
 ol ol {
-  margin-bottom: 0;
-  padding-left: 30px; }
+  margin-bottom: 0; }
 
 /*------------------------------------*    MEDIA ELEMENTS
 \*------------------------------------*/
