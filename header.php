@@ -94,41 +94,6 @@
 						<use class="mobile-menu__close" xlink:href="#icon-close" />
 					</svg>
 
-					<div class="header-nav--top">
-
-						<div class="header-nav--top__item header-social">
-
-							<ul class="button__list button__social">
-								<li><a href="#" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
-								<li><a href="#" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
-								<li><a href="#" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
-							</ul>
-
-						</div>
-
-						<?php if ( function_exists('pll_the_languages') ) : ?>
-
-							<div class="header-nav--top__item header-language">
-
-								<?php
-
-									pll_the_languages([
-										'dropdown' => TRUE,
-										'display_names_as' => 'slug'
-									]);
-
-								?>
-
-							</div>
-
-						<?php endif; ?>
-
-						<div class="header-nav--top__item header-search">
-							<a href="#" class="button"><svg><use xlink:href="#icon-search" /></svg></a>
-						</div>
-
-					</div>
-
 				</div> <!-- / .wrapper -->
 
 				<div class="header__search">
@@ -145,8 +110,39 @@
 
 				</div>
 
-				<div class="header-search">
-					<a href="#" class="button"><svg><use xlink:href="#icon-search" /></svg></a>
+				<div class="header-nav__side">
+
+					<?php if ( function_exists('pll_the_languages') ) : ?>
+
+						<div class="header-nav__side-item / header-language">
+
+							<?php
+
+								pll_the_languages([
+									'dropdown' => TRUE,
+									'display_names_as' => 'slug'
+								]);
+
+							?>
+
+						</div>
+
+					<?php endif; ?>
+
+					<div class="header-nav__side-item / header-social">
+
+						<ul class="button__list button__social">
+							<li><a href="#" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
+							<li><a href="#" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
+							<li><a href="#" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
+						</ul>
+
+					</div>
+
+					<div class="header-nav__side-item / header-search">
+						<a href="#" class="button"><svg><use xlink:href="#icon-search" /></svg></a>
+					</div>
+
 				</div>
 
 			</div>
