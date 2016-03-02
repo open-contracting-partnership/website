@@ -10,7 +10,7 @@
 
 	<div class="post-object__media">
 		<?php if ( $date ) : ?>
-			<time><?php echo date('j', $date); ?><span><?php echo date('S', $date); ?></span><em><?php echo date('M', $date); ?></em></time>
+			<time><?php echo date('j', $date); ?><em><?php echo date('M', $date); ?></em></time>
 		<?php else : ?>
 			<em>TBA</em>
 		<?php endif; ?>
