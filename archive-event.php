@@ -163,10 +163,6 @@
 					<h4>{{{ event.title }}}</h4>
 				</div>
 
-				<div class="post-object__link">
-					<a href="{{ event.link }}"><?php pll_e('Details'); ?></a>
-				</div>
-
 			</template>
 
 			<script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
