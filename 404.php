@@ -2,11 +2,34 @@
 
 <?php get_header(); ?>
 
-	<div class="page__container">
+	<div class="four-oh-four__page">
 
 		<div class="wrapper / page__wrapper / page--padding">
-			<h1><?php pll_e('Page not found'); ?></h1>
-		</div> <!-- / .wrapper -->
+
+			<section class="four-oh-four__container">
+
+				<div class="four-oh-four__section">
+
+					<h1 class="four-oh-four__title / border-top / gamma">Something went wrong.<br>This is probably how too many people feel when trying to access a government contract</h1>
+
+					<p>Were you looking for a blog post, or a specific resource?<br>We suggest you try again checking the address or using the main navigation.</p>
+					<p>And please let us know if the problem persists, so that we can point you in the right direction.</p>
+
+					<a href="/" class="button button--white">Take me Home</a>
+
+				</div>
+
+				<div class="four-oh-four__section four-oh-four__section-img">
+					<img src="<?php bloginfo('template_directory'); ?>/assets/img/404.svg" alt="" />
+				</div>
+
+				<div class="four-oh-four__section four-oh-four__section-logo">
+					<img src="<?php bloginfo('template_directory'); ?>/assets/img/404-box.svg" alt="" />
+				</div>
+
+			</section>
+
+		</div>
 
 	</div> <!-- / .page__container -->
 
