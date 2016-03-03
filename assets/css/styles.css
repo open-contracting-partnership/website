@@ -1796,7 +1796,7 @@ input[type="submit"] {
     left: 0;
     bottom: 0;
     display: block;
-    opacity: .9;
+    opacity: .7;
     z-index: -1; }
   .cta-block img {
     position: absolute;
@@ -1835,8 +1835,7 @@ input[type="submit"] {
   margin-top: 0; }
 
 .cta-block--brand:before {
-  background-color: #B8BD35;
-  opacity: .8; }
+  background-color: #B8BD35; }
 
 .cta-block--background:before {
   background-color: #4D4D54; }
