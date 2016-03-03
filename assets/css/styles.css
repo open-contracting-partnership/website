@@ -3947,12 +3947,11 @@ a.post-object--panel {
     left: 0;
     right: 0;
     bottom: 0; }
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1024px) {
     .homepage-map__image {
       width: 83.17757%;
       float: left;
       margin-right: 0.93458%;
-      position: absolute;
       margin-bottom: 0; } }
   .homepage-map__image .button {
     position: absolute;
@@ -3979,10 +3978,11 @@ a.post-object--panel {
   position: relative;
   background-color: rgba(50, 50, 56, 0.5);
   padding: 2rem; }
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1024px) {
     .homepage-map__content {
-      width: 37.38318%;
-      float: right; } }
+      position: absolute;
+      right: 0;
+      width: 37.38318%; } }
   .homepage-map__content h3 {
     margin-bottom: 1em; }
     .homepage-map__content h3:before {
