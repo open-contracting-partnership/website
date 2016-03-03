@@ -155,7 +155,7 @@
 			<template id="event-template">
 
 				<div class="post-object__media">
-					<time v-if="event.custom.has_date">{{ event.custom.day }}<span>{{ event.custom.suffix }}</span><em>{{ event.custom.month }}</em></time>
+					<time v-if="event.custom.has_date">{{ event.custom.day }}<em>{{ event.custom.month }}</em></time>
 					<em v-else>TBA</em>
 				</div>
 
@@ -212,7 +212,7 @@
 
 				// check for a hash
 				// open appropriate event
-				
+
 				var event_index = 0;
 
 				if ( location.hash ) {
