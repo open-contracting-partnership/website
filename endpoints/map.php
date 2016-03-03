@@ -1,16 +1,6 @@
-<?php
-
-	global $wp_did_header;
-
-	if ( $wp_did_header !== TRUE ) {
-		require_once($_SERVER['DOCUMENT_ROOT'] . '/wp-blog-header.php');
-	}
-
-?>
-
-<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/assets/map/styles/main-1e1ba22238.css">
-<script src="<?php bloginfo('template_directory'); ?>/assets/map/scripts/vendor-f502083317.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/assets/map/scripts/bundle-897e152d51.js"></script>
+<link rel="stylesheet" href="/wp-content/themes/ocp-v1/assets/map/styles/main-1e1ba22238.css">
+<script src="/wp-content/themes/ocp-v1/assets/map/scripts/vendor-f502083317.js"></script>
+<script src="/wp-content/themes/ocp-v1/assets/map/scripts/bundle-897e152d51.js"></script>
 
 <div class="js-worldmap-container">
 
