@@ -582,6 +582,9 @@ img {
   max-width: 100%;
   width: 100%; }
 
+iframe {
+  border: 0; }
+
 img {
   vertical-align: middle;
   height: auto;
@@ -1096,8 +1099,9 @@ td {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: -.5rem;
+  bottom: 0;
   left: 0;
+  padding-top: 2.2em;
   background-color: #323238;
   z-index: 99; }
   .search--active .header__search {
@@ -1111,23 +1115,12 @@ td {
   html.csspointerevents .search--active .header__search {
     opacity: 1;
     pointer-events: auto; }
-  .header__search .wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0; }
   .header__search form {
     position: relative;
     height: 100%; }
   .header__search [type="search"] {
     font-size: 28px;
     font-size: 1.4rem;
-    position: absolute;
-    top: 0;
-    right: 90px;
-    bottom: 0;
-    left: 0;
     border: 0;
     color: #FFF;
     margin: 0;
@@ -1140,8 +1133,7 @@ td {
   position: absolute;
   top: 0;
   right: .5em;
-  bottom: 0;
-  bottom: -6px;
+  bottom: -1.3em;
   width: 1em;
   height: 1em;
   margin: auto 0; }

@@ -75,7 +75,6 @@
 }
 
 .header-nav__side {
-
 	display: none;
 
 	@include mq(M) {
@@ -84,7 +83,6 @@
 		top: 0;
 		right: 0;
 	}
-
 }
 
 .header-nav__side-item {
@@ -130,7 +128,6 @@
 }
 
 .header-search {
-
 	margin-left: .5rem;
 
 	a {
@@ -144,7 +141,6 @@
 		width: .95rem;
 		height: .95rem;
 	}
-
 }
 
 #menu-header-secondary {
@@ -173,13 +169,13 @@
 // HEADER SEARCH
 
 .header__search {
-
 	display: none;
 	position: absolute;
 	top: 0;
 	right: 0;
-	bottom: -.5rem;
+	bottom: 0;
 	left: 0;
+	padding-top: 2.2em;
 	background-color: color('dark-background');
 	z-index: 99;
 
@@ -199,14 +195,6 @@
 		pointer-events: auto;
 	}
 
-	.wrapper {
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-	}
-
 	form {
 		position: relative;
 		height: 100%;
@@ -214,18 +202,12 @@
 
 	[type="search"] {
 		@include font-size(28);
-		position: absolute;
-		top: 0;
-		right: 90px;
-		bottom: 0;
-		left: 0;
 		border: 0;
 		color: color('white');
 		margin: 0;
 		padding: 0;
 		-webkit-appearance: none;
 	}
-
 }
 
 .search__close {
@@ -233,8 +215,7 @@
 	position: absolute;
 	top: 0;
 	right: .5em;
-	bottom: 0;
-	bottom: -6px;
+	bottom: -1.3em;
 	width: 1em;
 	height: 1em;
 	margin: auto 0;
@@ -245,7 +226,6 @@
 		fill: color('white');
 		vertical-align: initial;
 	}
-
 }
 
 .site-header__top > .header-search {

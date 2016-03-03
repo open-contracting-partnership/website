@@ -271,4 +271,25 @@ $(document).ready(function() {
 
 	});
 
+
+	 //*********
+	// WORLDMAP
+
+	window.addEventListener('message', function (e) {
+
+		var $iframe = $('#worldmap'),
+			eventName = e.data[0],
+			data = e.data[1];
+
+		switch (eventName) {
+
+			case 'setHeight':
+				$iframe.height(data);
+				break;
+
+		}
+
+	}, false);
+
+
 });
