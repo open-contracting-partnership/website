@@ -124,9 +124,19 @@
 					<div class="header-nav__side-item / header-social">
 
 						<ul class="button__list button__social">
-							<li><a href="#" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
-							<li><a href="#" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
-							<li><a href="#" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
+							
+							<?php if ( $facebook_url = get_field('facebook_url', 'options') ) : ?>
+								<li><a class="button" href="<?php echo $facebook_url; ?>" target="_blank"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
+							<?php endif; ?>
+
+							<?php if ( $linkedin_url = get_field('linkedin_url', 'options') ) : ?>
+								<li><a class="button" href="<?php echo $linkedin_url; ?>" target="_blank"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
+							<?php endif; ?>
+
+							<?php if ( $twitter_url = get_field('twitter_url', 'options') ) : ?>
+								<li><a class="button" href="<?php echo $twitter_url; ?>" target="_blank"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
+							<?php endif; ?>
+
 						</ul>
 
 					</div>
