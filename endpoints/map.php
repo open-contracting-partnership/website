@@ -4,14 +4,14 @@
 
 <div class="js-worldmap-container">
 
-	<div class="oc-map--map-widget"><!-- Widget renders here --></div>
+	<div class="oc-map--map-widget"></div>
 	<script>
 		OC_MAP.initMapWidget(document.querySelector('.oc-map--map-widget'));
 	</script>
 
-	<div class="oc-map--table-widget"><!-- Widget renders here --></div>
+	<!-- <div class="oc-map--table-widget"></div> -->
 	<script>
-		OC_MAP.initTableWidget(document.querySelector('.oc-map--table-widget'));
+		// OC_MAP.initTableWidget(document.querySelector('.oc-map--table-widget'));
 	</script>
 
 </div>
