@@ -17,9 +17,8 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background-image: url('../img/header-illustration.svg');
-		background-size: cover;
-		background-position: center bottom;
+		background: url(../img/hero.svg) no-repeat top center fixed;
+		background-size: 161%;
 	}
 
 	&:after {
