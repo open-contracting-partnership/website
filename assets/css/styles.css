@@ -1037,7 +1037,7 @@ td {
       display: block;
       position: absolute;
       top: 0;
-      right: 0; } }
+      right: 1em; } }
 
 .header-nav__side-item {
   float: left; }
@@ -1129,7 +1129,7 @@ td {
   font-size: 1rem;
   position: absolute;
   top: 0;
-  right: .5em;
+  right: 1.5em;
   bottom: -1.3em;
   width: 1em;
   height: 1em;
