@@ -17,9 +17,8 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background-image: url('../img/header-illustration.svg');
+	    background: url('../img/hero.svg') no-repeat center center fixed;
 		background-size: cover;
-		background-position: center bottom;
 	}
 
 	&:after {
@@ -267,9 +266,8 @@
 	position: relative;
 	margin-bottom: $space;
 
-	@include mq(800) {
+	@include mq(L) {
 		@include span(10 of 12 first);
-	    position: absolute;
 		margin-bottom: 0;
 	}
 
@@ -305,9 +303,10 @@
 	background-color: rgba(color('dark-background'), .5);
 	padding: 2rem;
 
-	@include mq(800) {
+	@include mq(L) {
+		position: absolute;
+		right: 0;
 		width: span(5 of 12) - (span(1 of 12) / 2);
-		float: right;
 	}
 
 	h3 {

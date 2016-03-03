@@ -717,6 +717,10 @@ input[type="search"]::-webkit-search-results-button {
   display: -ms-flexbox;
   display: flex; }
   .flex-field input {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     margin-right: .5em; }
 
 ::-webkit-input-placeholder {
@@ -1040,7 +1044,7 @@ td {
       display: block;
       position: absolute;
       top: 0;
-      right: 0; } }
+      right: 1em; } }
 
 .header-nav__side-item {
   float: left; }
@@ -1132,7 +1136,7 @@ td {
   font-size: 1rem;
   position: absolute;
   top: 0;
-  right: .5em;
+  right: 1.5em;
   bottom: -1.3em;
   width: 1em;
   height: 1em;
@@ -3182,6 +3186,82 @@ a.post-object--panel {
 
 /*------------------------------------*    $NON-MODULAR
 \*------------------------------------*/
+.four-oh-four__page {
+  background-color: #323238;
+  padding-bottom: 2em; }
+  @media screen and (min-width: 810px) {
+    .four-oh-four__page {
+      padding-bottom: 5em; } }
+
+.four-oh-four__container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: column-reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse; }
+  @media screen and (min-width: 810px) {
+    .four-oh-four__container {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+          -ms-flex-direction: row;
+              flex-direction: row; } }
+
+.four-oh-four__section-img {
+  max-width: 75%;
+  margin: 0 auto 4em; }
+  @media screen and (min-width: 810px) {
+    .four-oh-four__section-img {
+      max-width: 100%;
+      margin: 0; } }
+
+.four-oh-four__section-logo {
+  display: none; }
+  @media screen and (min-width: 810px) {
+    .four-oh-four__section-logo {
+      display: block; } }
+
+.four-oh-four__section {
+  color: #FFF; }
+  @media screen and (min-width: 810px) {
+    .four-oh-four__section {
+      width: 32.71028%;
+      float: left;
+      margin-right: 0.93458%;
+      padding: 0 4.20561%; }
+      .four-oh-four__section:first-child {
+        width: 24.29907%;
+        float: left;
+        margin-right: 0.93458%;
+        margin-left: 8.41121%;
+        padding: 0; }
+      .four-oh-four__section:last-child {
+        width: 24.29907%;
+        float: right;
+        margin-right: 0;
+        margin-right: 8.41121%;
+        padding: 0; } }
+  .four-oh-four__section p {
+    font-size: 14px;
+    font-size: 0.7rem;
+    color: #D5D5D7; }
+
+.four-oh-four__title {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-size: 0.8rem; }
+
 .archive--padding {
   padding-top: 3em;
   padding-bottom: 4em; }
@@ -3731,9 +3811,8 @@ a.post-object--panel {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("../img/header-illustration.svg");
-    background-size: cover;
-    background-position: center bottom; }
+    background: url("../img/hero.svg") no-repeat center center fixed;
+    background-size: cover; }
   .homepage-hero:after {
     content: '';
     display: block;
@@ -3946,12 +4025,11 @@ a.post-object--panel {
     left: 0;
     right: 0;
     bottom: 0; }
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1024px) {
     .homepage-map__image {
       width: 83.17757%;
       float: left;
       margin-right: 0.93458%;
-      position: absolute;
       margin-bottom: 0; } }
   .homepage-map__image .button {
     position: absolute;
@@ -3978,10 +4056,11 @@ a.post-object--panel {
   position: relative;
   background-color: rgba(50, 50, 56, 0.5);
   padding: 2rem; }
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1024px) {
     .homepage-map__content {
-      width: 37.38318%;
-      float: right; } }
+      position: absolute;
+      right: 0;
+      width: 37.38318%; } }
   .homepage-map__content h3 {
     margin-bottom: 1em; }
     .homepage-map__content h3:before {

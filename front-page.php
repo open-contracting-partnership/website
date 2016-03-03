@@ -277,12 +277,16 @@
 
 			<div class="homepage-map__image">
 
-				<div class="homepage-map__image-item">
-					<a href="/why-open-contracting/showcase-projects/mexico-city/" class="button button--white">Mexico&nbsp;City</a>
-				</div>
+				<div class="content">
 
-				<div class="homepage-map__image-item">
-					<a href="/why-open-contracting/showcase-projects/ukraine/" class="button button--white">Ukraine</a>
+					<div class="homepage-map__image-item">
+						<a href="/why-open-contracting/showcase-projects/mexico-city/" class="button button--white">Mexico&nbsp;City</a>
+					</div>
+
+					<div class="homepage-map__image-item">
+						<a href="/why-open-contracting/showcase-projects/ukraine/" class="button button--white">Ukraine</a>
+					</div>
+
 				</div>
 
 			</div>
