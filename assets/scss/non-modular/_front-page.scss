@@ -34,11 +34,7 @@
 	}
 
 	@include mq(M) {
-		padding-top: 5em;
-	}
-
-	@include mq(L) {
-		padding-top: 9.5em;
+		padding-top: 4.5em;
 	}
 
 	.wrapper {
