@@ -582,6 +582,9 @@ img {
   max-width: 100%;
   width: 100%; }
 
+iframe {
+  border: 0; }
+
 img {
   vertical-align: middle;
   height: auto;
@@ -3808,7 +3811,7 @@ a.post-object--panel {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url(../img/hero.svg) no-repeat top center fixed;
+    background: url("../img/hero.svg") no-repeat top center fixed;
     background-size: 161%; }
   .homepage-hero:after {
     content: '';
