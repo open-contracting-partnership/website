@@ -1,10 +1,10 @@
 .post-object--event {
 	display: flex;
 	border: 1px solid color('lightest-grey');
+	color: color('background');
 
 	.post-object__content,
-	.post-object__media,
-	.post-object__link {
+	.post-object__media {
 		display: flex;
 		align-items: center;
 	}
@@ -47,14 +47,4 @@
 		@include font-size(22);
 	}
 
-	.post-object__link {
-		@include font('secondary', 'medium');
-		@include font-size(14);
-		color: color('background');
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		border-left: 1px solid color('lightest-grey');
-		flex: 1;
-		justify-content: center;
-	}
 }
