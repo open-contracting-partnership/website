@@ -4013,7 +4013,7 @@ a.post-object--panel {
 .homepage-map__image {
   position: relative;
   width: 100%;
-  background-image: url("../img/map.png");
+  background-image: url("../img/the-new-map.png");
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -4049,11 +4049,11 @@ a.post-object--panel {
   border: 2px solid #D6E100;
   border-radius: 50%; }
   .homepage-map__image-item:first-child {
-    top: 42.8%;
-    left: 16.5%; }
+    top: 54.8%;
+    left: 19.5%; }
   .homepage-map__image-item:last-child {
-    top: 19.8%;
-    left: 56.5%; }
+    top: 37.6%;
+    left: 58.5%; }
 
 .homepage-map__content {
   color: #FFF;
