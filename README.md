@@ -1,6 +1,8 @@
-# Pattern Library
+# Open Contracting Partnership
 
-Created to be the starting point of our projects, Pattern Library is a simple gulp driven output of web elements.
+The WordPress theme for the Open Contracting Partnership website
+
+Version 1.0.2
 
 ## Setup
 
