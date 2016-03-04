@@ -6,10 +6,6 @@
 	@include font('secondary', 'medium');
 	background-color: color('dark-background');
 
-	.home & {
-		border-bottom: 1px solid color('mid-grey');
-	}
-
 	.logo {
 		display: none;
 		margin: em(40) 0 em(20);
