@@ -104,7 +104,7 @@
 
 				?>
 
-				<p class="blog__subscribe-follow">Alternatively, follow us on <?php echo array_multi_implode(', ', ' &amp; ', $social_media); ?></p>
+				<p class="blog__subscribe-follow">Follow us on <?php echo array_multi_implode(', ', ' &amp; ', $social_media); ?></p>
 
 			</div>
 
