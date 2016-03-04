@@ -24,6 +24,7 @@
 	body, html {
 		margin: 0;
 		padding: 0;
+		font-family: source-sans-pro, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	}
 
 	.js-worldmap-container {
