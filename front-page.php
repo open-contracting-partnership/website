@@ -67,6 +67,16 @@
 						<h2><?php the_field('spotlight_title'); ?></h2>
 						<p><?php the_field('spotlight_content'); ?></p>
 
+						<?php if ( $cta_link = get_field('spotlight_cta_link') ) : ?>
+
+							<?php if ( $cta_link['type'] === 'link' ) : ?>
+								<p><a href="<?php echo $cta_link[0]['link']; ?>" class="button"><?php echo $cta_link[0]['label']; ?></a></p>
+							<?php else : ?>
+								<p><a href="<?php echo $cta_link[0]['file']; ?>" class="button"><?php echo $cta_link[0]['label']; ?></a></p>
+							<?php endif; ?>
+
+						<?php endif; ?>
+
 					<?php else : ?>
 
 						<?php

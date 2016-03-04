@@ -1826,7 +1826,7 @@ input[type="submit"] {
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1.81818em;
     letter-spacing: 2.5px;
-    margin-top: .8em;
+    margin-top: 0;
     margin-bottom: 0.63636em; }
   .cta-block .button {
     color: inherit; }
