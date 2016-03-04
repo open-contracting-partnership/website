@@ -3954,7 +3954,7 @@ a.post-object--panel {
     display: block;
     content: '';
     width: 100%;
-    padding-top: 46.64948%; }
+    padding-top: 56.01375%; }
   .homepage-map__image > .content {
     position: absolute;
     top: 0;
@@ -3986,6 +3986,8 @@ a.post-object--panel {
   .homepage-map__image-item:last-child {
     top: 37.6%;
     left: 58.5%; }
+  .homepage-map__image-item a {
+    background-color: rgba(50, 50, 56, 0.5); }
 
 .homepage-map__content {
   color: #FFF;

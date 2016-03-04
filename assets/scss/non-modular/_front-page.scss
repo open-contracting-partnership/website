@@ -260,7 +260,7 @@
 }
 
 .homepage-map__image {
-	@include aspect-ratio(1164, 543);
+	@include aspect-ratio(1164, 652);
 	width: 100%;
 	background-image: url('../img/the-new-map.png');
 	background-repeat: no-repeat;
@@ -297,6 +297,11 @@
 		top: 37.6%;
 		left: 58.5%;
 	}
+
+	a {
+		background-color: color('dark-background', .5);
+	}
+
 }
 
 .homepage-map__content {
