@@ -234,6 +234,12 @@ function get_author_object($author_id = NULL) {
 
 function get_authors($with_links = FALSE) {
 
+	// we should never display an author for news posts
+	if ( get_post_type() === 'news' ) {
+		return '';
+	}
+
+	// and we should only ever show the organisation for resources
 	if ( get_post_type() === 'resource' ) {
 		return get_field('organisation');
 	}
