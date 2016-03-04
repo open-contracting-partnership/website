@@ -3825,7 +3825,8 @@ a.post-object--panel {
     opacity: .4; }
   @media screen and (min-width: 810px) {
     .homepage-hero {
-      padding-top: 4.5em; } }
+      padding-top: 4.5em;
+      min-height: 601px; } }
   .homepage-hero .wrapper {
     position: relative;
     z-index: 1; }
