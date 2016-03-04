@@ -42,7 +42,7 @@
 
 		<div class="archive-content">
 			<h1><?php pll_e('Events'); ?></h1>
-			<p class="strapline strapline--blue"><?php pll_e('Our multi-stakeholder advisory board is made up of renowned individuals from across government, the private sector, civil society, the technology sector and development organisations. It meets twice a year and on a regular basis in its subcommittees.'); ?></p>
+			<p class="strapline strapline--blue"><?php pll_e('Open contracting events around the world. Are you hosting an event? Let us know and we\'ll be happy to share here.'); ?></p>
 		</div>
 
 		<div class="archive-content__posts">
