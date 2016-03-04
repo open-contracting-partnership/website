@@ -70,6 +70,11 @@
 	    margin-top: 0;
 	}
 
+	@include mq(L) {
+		@include span(8 of 12);
+		margin-left: span(2 of 12) + gutter();
+	}
+
 	h1 {
 		@include font-size(35);
 		margin-bottom: em(65, 35);

@@ -3856,6 +3856,12 @@ a.post-object--panel {
   @media screen and (min-width: 810px) {
     .homepage-title {
       margin-top: 0; } }
+  @media screen and (min-width: 1024px) {
+    .homepage-title {
+      width: 66.35514%;
+      float: left;
+      margin-right: 0.93458%;
+      margin-left: 16.82243%; } }
   .homepage-title h1 {
     font-size: 35px;
     font-size: 1.75rem;
