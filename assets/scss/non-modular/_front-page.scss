@@ -13,10 +13,11 @@
 		content: '';
 		display: block;
 		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
+		// give a negative position to hide any border lines
+		top: -5px;
+		left: -5px;
+		right: -5px;
+		bottom: -5px;
 	    background: url('../img/hero.svg') no-repeat center center;
 		background-size: cover;
 	}
