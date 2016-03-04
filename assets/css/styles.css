@@ -2381,7 +2381,7 @@ input[type="submit"] {
         font-size: 70px;
         font-size: 3.5rem; } }
   .stat-module div {
-    text-align: left;
+    text-align: center;
     margin: 0 auto; }
     @media screen and (min-width: 810px) {
       .stat-module div {
