@@ -2774,67 +2774,22 @@ a.post-object:focus {
             justify-content: center; }
 
 .post-object--featured {
-  position: relative;
-  border: 1px solid #D5D5D7; }
-  @media screen and (min-width: 810px) {
-    .post-object--featured {
-      border: 0; } }
-  .post-object--featured .post-object__content {
-    bottom: 2.5em;
-    left: 1.25em;
-    right: 3.25em; }
-    @media screen and (min-width: 810px) {
-      .post-object--featured .post-object__content {
-        position: absolute; } }
-    .post-object--featured .post-object__content :last-child {
-      margin-bottom: 0; }
+  color: #323238;
+  border: 1px solid #D5D5D7;
+  cursor: pointer; }
   .post-object--featured .post-object__tag {
-    padding: 0.65em;
     float: none;
-    margin-bottom: 1em; }
-    @media screen and (min-width: 810px) {
-      .post-object--featured .post-object__tag {
-        float: left; } }
+    display: inline-block;
+    margin-bottom: 1.5em; }
   .post-object--featured h4 {
     font-size: 20px;
     font-size: 1rem;
-    color: #4D4D54;
-    margin: 0; }
-    .post-object--featured h4 span {
-      font-weight: 700;
-      font-style: normal;
-      -webkit-font-smoothing: antialiased;
-      font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    margin-top: 0;
+    margin-bottom: .25em; }
     @media screen and (min-width: 810px) {
       .post-object--featured h4 {
         font-size: 40px;
-        font-size: 2rem;
-        color: #FFF;
-        margin: 0 0 0 0.275em; }
-        .post-object--featured h4 span {
-          display: inline;
-          background-color: #323238;
-          box-shadow: 0.54rem 0 0 #323238, -0.54rem 0 0 #323238;
-          -webkit-box-decoration-break: clone;
-                  box-decoration-break: clone;
-          line-height: 1.45;
-          padding: 7px 0; } }
-  .post-object--featured .post-object__meta {
-    font-size: 14px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    letter-spacing: 1px;
-    text-transform: uppercase; }
-    @media screen and (min-width: 810px) {
-      .post-object--featured .post-object__meta {
-        background-color: #323238;
-        display: inline-block;
-        color: #FFF;
-        padding: 0.65em;
-        display: inline-block; } }
+        font-size: 2rem; } }
 
 .post-object--horizontal {
   overflow: hidden;
