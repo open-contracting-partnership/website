@@ -73,80 +73,84 @@
 
 		<div class="blog__subscribe">
 
-			<h4 class="border-top border-top--clean">Subscribe to our newsletter</h4>
+			<div class="blog__subscribe-container / band">
 
-			<div class="js-subscribe">
+				<h4 class="border-top border-top--clean">Subscribe to our newsletter</h4>
 
-				<form class="flex-field" action="" method="post">
-					<input type="email" placeholder="Enter your email" name="email" required>
-					<button>Send</button>
-				</form>
+				<div class="js-subscribe">
 
-			</div>
+					<form class="flex-field" action="" method="post">
+						<input type="email" placeholder="Enter your email" name="email" required>
+						<button>Send</button>
+					</form>
 
-			<?php
-
-				$social_media = [];
-
-				if ( $facebook_url = get_field('facebook_url', 'options') ) {
-					$social_media[] = '<a href="' . $facebook_url . '" target="_blank">Facebook</a>';
-				}
-
-				if ( $twitter_url = get_field('twitter_url', 'options') ) {
-					$social_media[] = '<a href="' . $twitter_url . '" target="_blank">Twitter</a>';
-				}
-
-				if ( $linkedin_url = get_field('linkedin_url', 'options') ) {
-					$social_media[] = '<a href="' . $linkedin_url . '" target="_blank">LinkedIn</a>';
-				}
-
-			?>
-
-			<p class="blog__subscribe-follow">Alternatively, follow us on <?php echo array_multi_implode(', ', ' &amp; ', $social_media); ?></p>
-
-		</div>
-
-		<div class="blog__recent-news / band--thick">
-
-			<h4 class="border-top border-top--clean">Recent News</h4>
-
-			<div class="blog__recent-news-items / cf">
+				</div>
 
 				<?php
 
-					$recent_news_items = new query_loop([
-						'post_type' => 'news',
-						'posts_per_page' => 2
+					$social_media = [];
+
+					if ( $facebook_url = get_field('facebook_url', 'options') ) {
+						$social_media[] = '<a href="' . $facebook_url . '" target="_blank">Facebook</a>';
+					}
+
+					if ( $twitter_url = get_field('twitter_url', 'options') ) {
+						$social_media[] = '<a href="' . $twitter_url . '" target="_blank">Twitter</a>';
+					}
+
+					if ( $linkedin_url = get_field('linkedin_url', 'options') ) {
+						$social_media[] = '<a href="' . $linkedin_url . '" target="_blank">LinkedIn</a>';
+					}
+
+				?>
+
+				<p class="blog__subscribe-follow">Alternatively, follow us on <?php echo array_multi_implode(', ', ' &amp; ', $social_media); ?></p>
+
+			</div>
+
+			<div class="blog__recent-news / band">
+
+				<h4 class="border-top border-top--clean">Recent News</h4>
+
+				<div class="blog__recent-news-items / cf">
+
+					<?php
+
+						$recent_news_items = new query_loop([
+							'post_type' => 'news',
+							'posts_per_page' => 1
+						]);
+
+					?>
+
+					<?php foreach ( $recent_news_items as $recent_news ) : ?>
+						<?php get_partial('post-object', 'basic'); ?>
+					<?php endforeach; ?>
+
+				</div>
+
+			</div>
+
+			<div class="blog__event / band">
+
+				<?php
+
+					$upcoming_events = new query_loop([
+						'post_type' => 'event',
+						'posts_per_page' => 1
 					]);
 
 				?>
 
-				<?php foreach ( $recent_news_items as $recent_news ) : ?>
-					<?php get_partial('post-object', 'basic'); ?>
+				<h4 class="border-top border-top--blue border-top--clean"><?php pll_e('Upcoming Events'); ?></h4>
+
+				<?php foreach( $upcoming_events as $event ) : ?>
+					<?php get_partial('post-object', 'event'); ?>
 				<?php endforeach; ?>
 
+				<a class="view-more" href="/events"><?php pll_e('View all events'); ?></a>
+
 			</div>
-
-		</div>
-
-		<div class="blog__event / band--thick">
-
-			<?php
-
-				$upcoming_events = new query_loop([
-					'post_type' => 'event',
-					'posts_per_page' => 1
-				]);
-
-			?>
-
-			<h4 class="border-top border-top--blue border-top--clean">Upcoming Events</h4>
-
-			<?php foreach( $upcoming_events as $event ) : ?>
-				<?php get_partial('post-object', 'event'); ?>
-			<?php endforeach; ?>
-
-			<a class="view-more" href="/events"><?php pll_e('View all events'); ?></a>
 
 		</div>
 
