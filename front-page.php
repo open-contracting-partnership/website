@@ -69,7 +69,7 @@
 
 						<?php if ( $cta_link = get_field('spotlight_cta_link') ) : ?>
 
-							<?php if ( $cta_link['type'] === 'link' ) : ?>
+							<?php if ( $cta_link[0]['type'] === 'link' ) : ?>
 								<p><a href="<?php echo $cta_link[0]['link']; ?>" class="button"><?php echo $cta_link[0]['label']; ?></a></p>
 							<?php else : ?>
 								<p><a href="<?php echo $cta_link[0]['file']; ?>" class="button"><?php echo $cta_link[0]['label']; ?></a></p>
