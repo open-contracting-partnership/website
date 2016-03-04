@@ -2703,7 +2703,8 @@ a.post-object:focus {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  border: 1px solid #ECECEC; }
+  border: 1px solid #ECECEC;
+  color: #4D4D54; }
   .post-object--event .post-object__content,
   .post-object--event .post-object__media,
   .post-object--event .post-object__link {

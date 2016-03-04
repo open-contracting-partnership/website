@@ -6,7 +6,7 @@
 
 ?>
 
-<div class="post-object post-object--event">
+<a href="/events/#<?php echo basename(get_the_permalink()); ?>" class="post-object post-object--event">
 
 	<div class="post-object__media">
 		<?php if ( $date ) : ?>
@@ -20,8 +20,4 @@
 		<h4><?php the_title(); ?></h4>
 	</div>
 
-	<div class="post-object__link">
-		<a href="/events/#<?php echo basename(get_the_permalink()); ?>"><?php pll_e('Details'); ?></a>
-	</div>
-
-</div>
+</a>

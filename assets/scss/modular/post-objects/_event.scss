@@ -1,6 +1,7 @@
 .post-object--event {
 	display: flex;
 	border: 1px solid color('lightest-grey');
+	color: color('background');
 
 	.post-object__content,
 	.post-object__media,
