@@ -26,7 +26,7 @@
 		<div class="wrapper">
 
 			<div class="homepage-title">
-				<h1><?php pll_e('We connect governments, civil society and business to open up and monitor public contracting.'); ?></h1>
+				<h1><?php pll_e('We connect governments, civil society and business to open up and monitor public contracting'); ?></h1>
 			</div>
 
 			<?php if ( have_rows('statistics') ) : ?>
