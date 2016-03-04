@@ -2706,8 +2706,7 @@ a.post-object:focus {
   border: 1px solid #ECECEC;
   color: #4D4D54; }
   .post-object--event .post-object__content,
-  .post-object--event .post-object__media,
-  .post-object--event .post-object__link {
+  .post-object--event .post-object__media {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -2752,25 +2751,6 @@ a.post-object:focus {
     font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 22px;
     font-size: 1.1rem; }
-  .post-object--event .post-object__link {
-    font-weight: 500;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-size: 0.7rem;
-    color: #4D4D54;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-left: 1px solid #ECECEC;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center; }
 
 .post-object--featured {
   color: #323238;
