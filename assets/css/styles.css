@@ -2964,7 +2964,9 @@ a.post-object--panel {
             justify-content: center;
     border-left: 1px solid #D5D5D7;
     text-transform: uppercase;
-    letter-spacing: 1px; }
+    text-align: center;
+    letter-spacing: 1px;
+    padding: 0 .5em; }
   .post-object--resource .post-object__content {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -4249,14 +4251,14 @@ a.post-object--panel {
           margin-right: 0; } }
     @media screen and (min-width: 1024px) {
       .resource__filter label {
-        width: 24.29907%;
+        width: 32.71028%;
         float: left;
         margin-right: 0.93458%; }
         .resource__filter label:nth-of-type(2n) {
-          width: 24.29907%;
+          width: 32.71028%;
           float: left;
           margin-right: 0.93458%; }
-        .resource__filter label:nth-of-type(4n) {
+        .resource__filter label:nth-of-type(3n) {
           float: right;
           margin-right: 0; } }
 

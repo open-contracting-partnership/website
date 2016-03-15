@@ -103,13 +103,13 @@
 
 		@include mq(L) {
 
-			@include span(3 of 12);
+			@include span(4 of 12);
 
 			&:nth-of-type(2n) {
-				@include span(3 of 12);
+				@include span(4 of 12);
 			}
 
-			&:nth-of-type(4n) {
+			&:nth-of-type(3n) {
 				@include last();
 			}
 
