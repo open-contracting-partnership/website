@@ -9,13 +9,8 @@
 		<div class="wrapper">
 
 			<div class="homepage-cta">
-
 				<p><?php the_field('strapline'); ?></p>
-
-				<!-- <a href="/about" class="button button--padded button--white"><?php pll_e('About Our Work'); ?></a>
-				<a href="/data-standard" class="button button--padded button--white"><?php pll_e('Visit the Data Standard'); ?></a> -->
-
-			</div> <!-- homepage-cta -->
+			</div>
 
 		</div>
 
