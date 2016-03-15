@@ -282,22 +282,13 @@
 }
 
 .homepage-map__image-item {
+	
 	position: absolute;
 	display: block;
 	height: .5em;
 	width: .5em;
 	border: 2px solid color('brand');
 	border-radius: 50%;
-
-	&:first-child {
-		top: 54.8%;
-		left: 19.5%;
-	}
-
-	&:last-child {
-		top: 37.6%;
-		left: 58.5%;
-	}
 
 	a {
 		background-color: color('dark-background', .5);

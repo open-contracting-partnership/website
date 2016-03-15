@@ -3959,12 +3959,6 @@ a.post-object--panel {
   width: .5em;
   border: 2px solid #D6E100;
   border-radius: 50%; }
-  .homepage-map__image-item:first-child {
-    top: 54.8%;
-    left: 19.5%; }
-  .homepage-map__image-item:last-child {
-    top: 37.6%;
-    left: 58.5%; }
   .homepage-map__image-item a {
     background-color: rgba(50, 50, 56, 0.5); }
 

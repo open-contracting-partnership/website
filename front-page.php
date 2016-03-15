@@ -284,21 +284,25 @@
 
 		<section class="homepage-map / band">
 
-			<div class="homepage-map__image">
+			<?php if ( have_rows('worldwide_map_markers') ) : ?>
 
-				<div class="content">
+				<div class="homepage-map__image">
 
-					<div class="homepage-map__image-item">
-						<a href="/why-open-contracting/showcase-projects/mexico-city/" class="button button--white">Mexico&nbsp;City</a>
-					</div>
+					<div class="content">
 
-					<div class="homepage-map__image-item">
-						<a href="/why-open-contracting/showcase-projects/ukraine/" class="button button--white">Ukraine</a>
+						<?php while ( have_rows('worldwide_map_markers') ) : the_row(); ?>
+
+							<div class="homepage-map__image-item" style="left: <?php the_sub_field('left'); ?>%; top: <?php the_sub_field('top'); ?>%;">
+								<a href="<?php the_sub_field('link'); ?>" class="button button--white"><?php echo str_replace(' ', '&nbsp;', get_sub_field('title')); ?></a>
+							</div>
+
+						<?php endwhile; ?>
+
 					</div>
 
 				</div>
 
-			</div>
+			<?php endif; ?>
 
 			<?php if ( have_rows('worldwide_links') ) : ?>
 
