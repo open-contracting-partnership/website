@@ -3629,7 +3629,7 @@ a.post-object--panel {
     background-color: #6991F5; }
 
 @media screen and (min-width: 1024px) {
-  .archive-content__posts {
+  .post-type-archive-event .archive-content__posts {
     width: 41.1215%;
     float: left;
     margin-right: 0.93458%;
