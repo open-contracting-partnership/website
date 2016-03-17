@@ -34,6 +34,10 @@ function vue_posts($args) {
 			$vue_posts[$vue_post->ID]['slug'] = basename(get_the_permalink());
 		}
 
+		if ( ! in_array('post_type', $args['ignore']) ) {
+			$vue_posts[$vue_post->ID]['post_type'] = get_post_type();
+		}
+
 		if ( ! in_array('content', $args['ignore']) ) {
 			$vue_posts[$vue_post->ID]['content'] = wpautop(get_the_content());
 		}
