@@ -81,7 +81,13 @@
 						</div>
 
 						<div class="team-member__bio">
+
 							<?php the_sub_field('bio'); ?>
+
+							<?php if ( $disclosure_file = get_sub_field('disclosure_file') ) : ?>
+								<p><a href="<?php echo $disclosure_file; ?>" class="button">Disclosure File</a></p>
+							<?php endif; ?>
+
 						</div>
 
 					</div>
