@@ -108,3 +108,17 @@ add_shortcode('related', function($atts, $content = null) {
 	return $output;
 
 });
+
+
+ //*******
+// BUTTON
+
+add_shortcode('button', function($atts, $content = null) {
+
+	$args = (object) array_merge([
+		'href' => '#'
+	], $atts);
+
+	return '<a href="' . $args->href . '" class="button">' . $content . '</a>';
+
+});
