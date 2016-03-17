@@ -160,6 +160,7 @@
 
 				$popular_tags = get_terms('post_tag', [
 					'orderby' => 'count',
+					'order' => 'DESC',
 					'number' => 40
 				]);
 
