@@ -202,7 +202,17 @@ $(document).ready(function() {
 
 	});
 
-	$('.nav--in-page li:first-child').addClass('active');
+	$('.nav--in-page').each(function() {
+
+		var $self = $(this);
+
+		if ( $self.data('nav-active') === false ) {
+			return;
+		}
+
+		$self.find('li:first-child').addClass('active');
+
+	});
 
 
 	 //*************
