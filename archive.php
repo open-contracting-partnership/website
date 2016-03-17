@@ -2,7 +2,32 @@
 
 <?php get_header(); ?>
 
-	<div class="wrapper archive--padding">
+	<div id="archive-posts" class="wrapper archive--padding">
+
+		<?php
+
+			global $wp_query;
+
+			// get a feed of blog posts, this will include news post types,
+			// as well as invluding taxonomies to filter on, e.g. issue
+
+			$posts = vue_posts([
+				'query' => array_merge($wp_query->query_vars, [
+					'post_type' => ['post', 'news', 'event', 'resource', 'success-story', 'policy', 'newsletter', 'media-clipping']
+				]),
+				'ignore' => ['content', 'excerpt', 'slug'],
+				'taxonomies' => ['issue'],
+				'custom' => array(
+					'authors' => function() {
+						return get_authors(FALSE);
+					},
+					'post_type_label' => function() {
+						return get_post_type_label();
+					}
+				)
+			]);
+
+		?>
 
 		<!-- <div class="archive-filtering">
 
@@ -45,14 +70,153 @@
 
 			<div class="archive-content__posts">
 
-				<?php if ( have_posts() ) while(have_posts()) : the_post(); ?>
-					<?php get_partial('post-object', 'horizontal-archive'); ?>
-				<?php endwhile; ?>
+				<div v-for="post in posts" class="post-object post-object--archive post-object--type-{{ post.post_type }}">
+					<post :post="post"></post>
+				</div>
 
 			</div>
 
 		</div>
 
 	</div>
+
+	<script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
+
+	<template id="post-template">
+
+		<div class="post-object__media">
+			<svg><use xlink:href="#icon-{{post.post_type}}"></use></svg>
+		</div>
+
+		<div class="post-object__content">
+
+			<div>
+				<span class="post-object__tag post-object__tag--{{post.post_type}}">{{post.custom.post_type_label}}</span>
+				<a href="{{post.link}}"><h4>{{{post.title}}}</h4></a>
+			</div>
+
+			<div class="post-object__meta">
+				<span>{{post.custom.authors}}</span>
+				<time>{{post.date}}</time>
+			</div>
+
+		</div>
+
+	</template>
+
+	<script>
+
+		// register the grid component
+		Vue.component('post', {
+			template: '#post-template',
+			props: {
+				post: Object
+			}
+		});
+
+		// bootstrap the demo
+		var posts = new Vue({
+
+			el: '#archive-posts',
+
+			data: {
+				// data
+				posts: <?php echo json_encode($posts); ?>,
+				// filters
+				filter_issue: []
+			},
+
+			watch: {
+
+				filter_issue: function() {
+					this.filter();
+				}
+
+			},
+
+			// computed: {
+			//
+			// 	// visiblePosts: function() {
+			// 	//
+			// 	// 	var posts = [];
+			// 	//
+			// 	// 	this.posts.forEach(function(post) {
+			// 	//
+			// 	// 		if ( post.display === true ) {
+			// 	// 			posts.push(post);
+			// 	// 		}
+			// 	//
+			// 	// 	});
+			// 	//
+			// 	// 	return posts.slice(0, this.limit);
+			// 	// }
+			//
+			// },
+
+			methods: {
+
+				increaseLimit: function() {
+
+					if ( this.limit < this.posts.length ) {
+						this.limit += 12;
+					}
+
+				},
+
+				filter: function() {
+
+					// reset all resources
+
+					this.posts.forEach(function(post, index) {
+						post.display = true;
+					});
+
+					// apply issue filter
+
+					if ( this.filter_issue.length ) {
+
+						this.posts.forEach(function(post, index) {
+
+							if ( intersection(Object.keys(post.taxonomies['issue']), this.filter_issue).length === 0 ) {
+								post.display = false;
+							}
+
+						}.bind(this));
+
+					}
+
+
+				},
+
+				hasTerms: function(taxonomy) {
+					return Object.keys(taxonomy).length > 0;
+				}
+
+			}
+
+		});
+
+		var intersection = function (a, b) {
+
+			var ai=0, bi=0;
+			var result = new Array();
+
+			while( ai < a.length && bi < b.length ) {
+
+				if      (a[ai] < b[bi] ){ ai++; }
+				else if (a[ai] > b[bi] ){ bi++; }
+				else {
+					result.push(a[ai]);
+					ai++;
+					bi++;
+				}
+
+			}
+
+			return result;
+
+		}
+
+	</script>
 
 <?php get_footer(); ?>
