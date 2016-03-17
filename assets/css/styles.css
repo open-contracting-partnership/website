@@ -2224,6 +2224,30 @@ input[type="submit"] {
       margin-left: 0;
       margin-right: 0; } }
 
+.profile__twitter {
+  font-size: 16px;
+  font-size: 0.8rem;
+  color: #69696B;
+  margin-top: .5em; }
+  .profile__twitter svg {
+    height: 1em;
+    width: 1.1em;
+    margin-right: .25em;
+    margin-bottom: .1em;
+    fill: currentColor; }
+  .profile__twitter a {
+    color: currentColor; }
+  .team-member__name .profile__twitter {
+    display: none; }
+    @media screen and (min-width: 810px) {
+      .team-member__name .profile__twitter {
+        display: block; } }
+  .team-member__bio .profile__twitter {
+    display: block; }
+    @media screen and (min-width: 810px) {
+      .team-member__bio .profile__twitter {
+        display: none; } }
+
 .custom-radio input[type="radio"] {
   display: none; }
 

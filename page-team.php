@@ -51,14 +51,46 @@
 						<?php endif; ?>
 
 						<div class="team-member__name">
+
 							<h3><?php the_sub_field('name'); ?></h3>
+
+							<?php if ( $twitter_name = get_sub_field('twitter_name') ) : ?>
+
+								<p class="profile__twitter">
+
+									<svg><use xlink:href="#icon-twitter"></use></svg>
+
+									<a href="https://www.twitter.com/<?php echo $twitter_name; ?>">
+										Follow me on Twitter
+									</a>
+
+								</p>
+
+							<?php endif; ?>
+
 							<a href="#" class="team-member__view-bio">View profile</a>
+
 						</div>
 
 						<div class="team-member__bio">
-							<?php the_sub_field('bio'); ?>
-						</div>
 
+							<?php if ( $twitter_name = get_sub_field('twitter_name') ) : ?>
+
+								<p class="profile__twitter">
+
+									<svg><use xlink:href="#icon-twitter"></use></svg>
+
+									<a href="https://www.twitter.com/<?php echo $twitter_name; ?>">
+										Follow me on Twitter
+									</a>
+
+								</p>
+
+							<?php endif; ?>
+							
+							<?php the_sub_field('bio'); ?>
+
+						</div>
 
 					</div>
 

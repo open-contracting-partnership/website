@@ -143,3 +143,43 @@
 	}
 
 }
+
+.profile__twitter {
+
+	@include font-size(16);
+	color: color('mid-grey');
+	margin-top: .5em;
+
+	svg {
+		height: 1em;
+		width: 1.1em;
+		margin-right: .25em;
+		margin-bottom: .1em;
+		fill: currentColor;
+	}
+
+	a {
+		color: currentColor;
+	}
+
+	.team-member__name & {
+
+		display: none;
+
+		@include mq(M) {
+			display: block;
+		}
+
+	}
+
+	.team-member__bio & {
+
+		display: block;
+
+		@include mq(M) {
+			display: none;
+		}
+
+	}
+
+}
