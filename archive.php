@@ -16,7 +16,6 @@
 					'post_type' => ['post', 'news', 'event', 'resource', 'success-story', 'policy', 'newsletter', 'media-clipping']
 				]),
 				'ignore' => ['content', 'excerpt', 'slug'],
-				'taxonomies' => ['issue'],
 				'custom' => array(
 					'authors' => function() {
 						return get_authors(FALSE);
@@ -27,26 +26,22 @@
 				)
 			]);
 
+			$terms = [];
+
+			if ( is_tag() ) {
+
+				$terms = get_terms('post_tag', [
+					'orderby' => 'count',
+					'order' => 'DESC'
+				]);
+
+				foreach ( $terms as $key => $term ) {
+					$terms[$key]->display = TRUE;
+				}
+
+			}
+
 		?>
-
-		<!-- <div class="archive-filtering">
-
-			<form class="archive-filtering__search" action="index.html" method="post">
-				<input type="search" placeholder="Search tags">
-				<button type="button" name="button"><svg><use xlink:href="#icon-search"></svg></button>
-			</form>
-
-			<div class="archive-filtering__sort">
-
-				<h4><?php pll_e('Sort by category'); ?></h4>
-
-				<ul class="nav nav--vertical nav--in-page">
-					<li><a href="#"><?php pll_e('All'); ?></a></li>
-				</ul>
-
-			</div>
-
-		</div> -->
 
 		<div class="archive-content">
 
@@ -76,6 +71,36 @@
 
 			</div>
 
+			<div class="archive-filtering">
+
+				<?php if ( is_tag() ) : ?>
+
+					<div class="archive__sidebar archive__sidebar-tags / archive-filtering__sort / band band--thick">
+
+						<h4><?php pll_e('Similar tags'); ?></h4>
+
+						<input v-model="term_search" type="search" placeholder="Search tags">
+
+						<ul class="nav nav--vertical / nav--in-page" data-nav-active="false">
+							<li v-for="term in visibleTerms"><a href="/tag/{{term.slug}}/">{{term.name}} ({{term.count}})</a></li>
+						</ul>
+
+					</div>
+
+				<?php endif; ?>
+
+				<!-- <div class="archive__sidebar archive__sidebar-type / archive-filtering__sort / band band--thick">
+
+					<h4><?php pll_e('Sort by category'); ?></h4>
+
+					<ul class="nav nav--vertical / nav--in-page" data-nav-active="false">
+						<li><a href="#"><?php pll_e('All'); ?></a></li>
+					</ul>
+
+				</div> -->
+
+			</div>
+
 		</div>
 
 	</div>
@@ -96,7 +121,7 @@
 			</div>
 
 			<div class="post-object__meta">
-				<span>{{post.custom.authors}}</span>
+				<span>{{{post.custom.authors}}}</span>
 				<time>{{post.date}}</time>
 			</div>
 
@@ -122,36 +147,47 @@
 			data: {
 				// data
 				posts: <?php echo json_encode($posts); ?>,
+				terms: <?php echo json_encode($terms); ?>,
 				// filters
-				filter_issue: []
+				filter_issue: [],
+				term_search: ''
 			},
 
 			watch: {
 
 				filter_issue: function() {
 					this.filter();
+				},
+
+				term_search: function() {
+					this.filterTerms();
 				}
 
 			},
 
-			// computed: {
-			//
-			// 	// visiblePosts: function() {
-			// 	//
-			// 	// 	var posts = [];
-			// 	//
-			// 	// 	this.posts.forEach(function(post) {
-			// 	//
-			// 	// 		if ( post.display === true ) {
-			// 	// 			posts.push(post);
-			// 	// 		}
-			// 	//
-			// 	// 	});
-			// 	//
-			// 	// 	return posts.slice(0, this.limit);
-			// 	// }
-			//
-			// },
+			computed: {
+
+				visibleTerms: function() {
+
+					var terms = [];
+
+					this.terms.forEach(function(term) {
+
+						if ( term.display === true ) {
+							terms.push(term);
+						}
+
+					});
+
+					if ( ! this.term_search ) {
+						terms = terms.slice(0, 10);
+					}
+
+					return terms;
+
+				}
+
+			},
 
 			methods: {
 
@@ -188,34 +224,29 @@
 
 				},
 
-				hasTerms: function(taxonomy) {
-					return Object.keys(taxonomy).length > 0;
+				filterTerms: function() {
+
+					// reset all resources
+
+					this.terms.forEach(function(term, index) {
+						term.display = true;
+					});
+
+					// apply issue filter
+
+					if ( this.term_search.length ) {
+
+						this.terms.forEach(function(term, index) {
+							term.display = !! ~ term.name.toLowerCase().indexOf(this.term_search.toLowerCase());
+						}.bind(this));
+
+					}
+
 				}
 
 			}
 
 		});
-
-		var intersection = function (a, b) {
-
-			var ai=0, bi=0;
-			var result = new Array();
-
-			while( ai < a.length && bi < b.length ) {
-
-				if      (a[ai] < b[bi] ){ ai++; }
-				else if (a[ai] > b[bi] ){ bi++; }
-				else {
-					result.push(a[ai]);
-					ai++;
-					bi++;
-				}
-
-			}
-
-			return result;
-
-		}
 
 	</script>
 

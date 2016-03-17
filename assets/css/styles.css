@@ -3243,12 +3243,6 @@ a.post-object--panel {
       margin-bottom: 0;
       border-bottom: 0; } }
 
-@media screen and (min-width: 1024px) {
-  .archive-content {
-    width: 57.94393%;
-    float: left;
-    margin-right: 0.93458%; } }
-
 .archive-content h1 {
   font-weight: 500;
   font-style: normal;
@@ -3267,9 +3261,11 @@ a.post-object--panel {
   font-size: 1.1rem;
   margin-bottom: 1.2em; }
 
-@media screen and (min-width: 810px) {
+@media screen and (min-width: 1024px) {
   .archive-content__posts {
-    padding-right: 3.73832%; } }
+    width: 57.94393%;
+    float: left;
+    margin-right: 0.93458%; } }
 
 .archive-filtering__search {
   position: relative;
@@ -3303,6 +3299,11 @@ a.post-object--panel {
     fill: #D5D5D7;
     -webkit-transition: fill .2s ease;
             transition: fill .2s ease; }
+
+.archive__sidebar-tags input[type="search"] {
+  color: #69696B;
+  border-color: currentColor;
+  margin-bottom: 1.5em; }
 
 .single-post .blog__title,
 .single-news .blog__title {
