@@ -52,6 +52,7 @@
 						<li><a href="<?php echo share_links()->facebook; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
 						<li><a href="<?php echo share_links()->linkedin; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
 						<li><a href="<?php echo share_links()->twitter; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
+						<li><a href="<?php echo share_links()->email; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-mail" /></svg></a></li>
 					</ul>
 
 				</section>

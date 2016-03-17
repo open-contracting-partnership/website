@@ -35,13 +35,14 @@
 	}
 }
 
-.archive-content__posts {
+.post-type-archive-event .archive-content__posts {
 
 	@include mq(L) {
 		@include span(5 of 12 first);
 		padding-left: span(1 of 12) / 1.5;
 		border-left: 1px solid color('lightest-grey');
 	}
+	
 }
 
 .archive-event__view {

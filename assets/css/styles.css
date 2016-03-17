@@ -300,10 +300,8 @@ tbody tr a {
   tbody tr a:active {
     text-decoration: none; }
 
-.page-content a:not(.post-object),
-.page-content a .post-object:not(a),
-.post-content a:not(.post-object),
-.post-content a .post-object:not(a) {
+.page-content a:not(.button):not(.post-object),
+.post-content a:not(.button):not(.post-object) {
   color: inherit;
   text-decoration: none;
   border-bottom: 2px solid #D6E100;
@@ -313,16 +311,10 @@ tbody tr a {
   margin-right: -2px;
   -webkit-transition: background .3s ease;
           transition: background .3s ease; }
-  .page-content a:not(.post-object):hover, .page-content a:not(.post-object):active, .page-content a:not(.post-object):focus,
-  .page-content a .post-object:not(a):hover,
-  .page-content a .post-object:not(a):active,
-  .page-content a .post-object:not(a):focus,
-  .post-content a:not(.post-object):hover,
-  .post-content a:not(.post-object):active,
-  .post-content a:not(.post-object):focus,
-  .post-content a .post-object:not(a):hover,
-  .post-content a .post-object:not(a):active,
-  .post-content a .post-object:not(a):focus {
+  .page-content a:not(.button):not(.post-object):hover, .page-content a:not(.button):not(.post-object):active, .page-content a:not(.button):not(.post-object):focus,
+  .post-content a:not(.button):not(.post-object):hover,
+  .post-content a:not(.button):not(.post-object):active,
+  .post-content a:not(.button):not(.post-object):focus {
     text-decoration: none;
     background-color: #D6E100; }
 
@@ -1684,7 +1676,7 @@ input[type="submit"] {
 
 .button__social svg {
   height: .8rem;
-  max-width: 1.5rem;
+  max-width: .8rem;
   vertical-align: bottom; }
 
 .button--icon svg {
@@ -2223,6 +2215,30 @@ input[type="submit"] {
       float: left;
       margin-left: 0;
       margin-right: 0; } }
+
+.profile__twitter {
+  font-size: 16px;
+  font-size: 0.8rem;
+  color: #69696B;
+  margin-top: .5em; }
+  .profile__twitter svg {
+    height: 1em;
+    width: 1.1em;
+    margin-right: .25em;
+    margin-bottom: .1em;
+    fill: currentColor; }
+  .profile__twitter a {
+    color: currentColor; }
+  .team-member__name .profile__twitter {
+    display: none; }
+    @media screen and (min-width: 810px) {
+      .team-member__name .profile__twitter {
+        display: block; } }
+  .team-member__bio .profile__twitter {
+    display: block; }
+    @media screen and (min-width: 810px) {
+      .team-member__bio .profile__twitter {
+        display: none; } }
 
 .custom-radio input[type="radio"] {
   display: none; }
@@ -3219,12 +3235,6 @@ a.post-object--panel {
       margin-bottom: 0;
       border-bottom: 0; } }
 
-@media screen and (min-width: 1024px) {
-  .archive-content {
-    width: 57.94393%;
-    float: left;
-    margin-right: 0.93458%; } }
-
 .archive-content h1 {
   font-weight: 500;
   font-style: normal;
@@ -3243,9 +3253,11 @@ a.post-object--panel {
   font-size: 1.1rem;
   margin-bottom: 1.2em; }
 
-@media screen and (min-width: 810px) {
+@media screen and (min-width: 1024px) {
   .archive-content__posts {
-    padding-right: 3.73832%; } }
+    width: 57.94393%;
+    float: left;
+    margin-right: 0.93458%; } }
 
 .archive-filtering__search {
   position: relative;
@@ -3279,6 +3291,11 @@ a.post-object--panel {
     fill: #D5D5D7;
     -webkit-transition: fill .2s ease;
             transition: fill .2s ease; }
+
+.archive__sidebar-tags input[type="search"] {
+  color: #69696B;
+  border-color: currentColor;
+  margin-bottom: 1.5em; }
 
 .single-post .blog__title,
 .single-news .blog__title {
@@ -3605,7 +3622,7 @@ a.post-object--panel {
     background-color: #6991F5; }
 
 @media screen and (min-width: 1024px) {
-  .archive-content__posts {
+  .post-type-archive-event .archive-content__posts {
     width: 41.1215%;
     float: left;
     margin-right: 0.93458%;
