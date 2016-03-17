@@ -45,9 +45,9 @@
 
 			<div class="archive-content__posts">
 
-				<?php if ( have_posts() ) : while(have_posts()) : the_post(); ?>
+				<?php if ( have_posts() ) while(have_posts()) : the_post(); ?>
 					<?php get_partial('post-object', 'horizontal-archive'); ?>
-				<?php endwhile; endif; ?>
+				<?php endwhile; ?>
 
 			</div>
 
