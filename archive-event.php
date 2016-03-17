@@ -41,8 +41,13 @@
 	<div id="events" class="events-overview / wrapper archive--padding">
 
 		<div class="archive-content">
+
 			<h1><?php pll_e('Events'); ?></h1>
-			<p class="strapline strapline--blue"><?php pll_e('Open contracting events around the world. Are you hosting an event? Let us know and we\'ll be happy to share here.'); ?></p>
+
+			<?php if ( $introduction = get_field('event_introduction', 'options') ) : ?>
+				<p class="strapline strapline--blue"><?php echo $introduction; ?></p>
+			<?php endif; ?>
+
 		</div>
 
 		<div class="archive-content__posts">

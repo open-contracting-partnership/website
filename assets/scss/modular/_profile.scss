@@ -89,6 +89,10 @@
 	@include span(1 of 6);
 	margin-bottom: em(38);
 
+	@include mq(L) {
+		width: em(125);
+	}
+
 	img {
 		border-radius: 50%;
 	}

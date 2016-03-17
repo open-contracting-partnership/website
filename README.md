@@ -2,7 +2,7 @@
 
 The WordPress theme for the Open Contracting Partnership website
 
-Version 1.0.7
+Version 1.0.8
 
 ## Setup
 

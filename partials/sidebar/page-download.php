@@ -10,7 +10,11 @@
 
 		<div class="download-cta__content">
 
-			<span><?php pll_e('Download'); ?></span>
+			<?php if ( get_field('page_download') === 'link' ) : ?>
+				<span><?php pll_e('Link'); ?></span>
+			<?php else : ?>
+				<span><?php pll_e('Download'); ?></span>
+			<?php endif; ?>
 
 			<div class="heading-highlight">
 				<h4><?php the_field('page_download_title'); ?></h4>

@@ -9,13 +9,8 @@
 		<div class="wrapper">
 
 			<div class="homepage-cta">
-
 				<p><?php the_field('strapline'); ?></p>
-
-				<!-- <a href="/about" class="button button--padded button--white"><?php pll_e('About Our Work'); ?></a>
-				<a href="/data-standard" class="button button--padded button--white"><?php pll_e('Visit the Data Standard'); ?></a> -->
-
-			</div> <!-- homepage-cta -->
+			</div>
 
 		</div>
 
@@ -25,9 +20,13 @@
 
 		<div class="wrapper">
 
-			<div class="homepage-title">
-				<h1><?php pll_e('We connect governments, civil society and business to open up and monitor public contracting'); ?></h1>
-			</div>
+			<?php if ( $stats_title = get_field('statistics_title') ) : ?>
+
+				<div class="homepage-title">
+					<h1><?php echo $stats_title; ?></h1>
+				</div>
+
+			<?php endif; ?>
 
 			<?php if ( have_rows('statistics') ) : ?>
 
@@ -285,21 +284,25 @@
 
 		<section class="homepage-map / band">
 
-			<div class="homepage-map__image">
+			<?php if ( have_rows('worldwide_map_markers') ) : ?>
 
-				<div class="content">
+				<div class="homepage-map__image">
 
-					<div class="homepage-map__image-item">
-						<a href="/why-open-contracting/showcase-projects/mexico-city/" class="button button--white">Mexico&nbsp;City</a>
-					</div>
+					<div class="content">
 
-					<div class="homepage-map__image-item">
-						<a href="/why-open-contracting/showcase-projects/ukraine/" class="button button--white">Ukraine</a>
+						<?php while ( have_rows('worldwide_map_markers') ) : the_row(); ?>
+
+							<div class="homepage-map__image-item" style="left: <?php the_sub_field('left'); ?>%; top: <?php the_sub_field('top'); ?>%;">
+								<a href="<?php the_sub_field('link'); ?>" class="button button--white"><?php echo str_replace(' ', '&nbsp;', get_sub_field('title')); ?></a>
+							</div>
+
+						<?php endwhile; ?>
+
 					</div>
 
 				</div>
 
-			</div>
+			<?php endif; ?>
 
 			<?php if ( have_rows('worldwide_links') ) : ?>
 
