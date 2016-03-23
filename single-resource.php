@@ -10,6 +10,8 @@
 
 			<section>
 
+				<p><a href="/resources" class="button">View All Resources</a></p>
+
 				<div class="resource__title">
 					<svg><use xlink:href="#icon-resource" /></svg>
 				</div>
