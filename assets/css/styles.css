@@ -2100,6 +2100,7 @@ input[type="submit"] {
   -webkit-transition: -webkit-transform .2s ease, opacity .12s linear;
           transition: transform .2s ease, opacity .12s linear; }
   .posts-filter__form label {
+    position: relative;
     font-weight: 500;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
@@ -2108,13 +2109,15 @@ input[type="submit"] {
     font-size: 0.8rem;
     border-bottom: 1px solid #9BAF00;
     margin: 0;
-    padding: 1em 0; }
+    padding: 1em 0 1em 2em; }
     .posts-filter__form label:hover, .posts-filter__form label:focus {
       color: #000; }
   .posts-filter__form span {
+    position: absolute;
     width: .8rem;
     height: .8rem;
     margin-right: .8em;
+    left: 0;
     background-color: #323238; }
     @media screen and (min-width: 810px) {
       .posts-filter__form span {
