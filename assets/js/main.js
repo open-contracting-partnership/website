@@ -302,4 +302,17 @@ $(document).ready(function() {
 	}, false);
 
 
+
+	 //*******
+	// STRIPS
+
+	var $last_item = $('.page__container > :last-child');
+
+	if ( $last_item.length && $last_item.hasClass('page-strip') ) {
+
+		$('.page__container').css('margin-bottom', '0');
+		$last_item.css('margin-bottom', '0');
+
+	}
+
 });
