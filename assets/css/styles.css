@@ -738,24 +738,39 @@ input[type="search"]::-webkit-search-results-button {
 /*------------------------------------*    TABLES
 \*------------------------------------*/
 table {
-  font-size: 16px;
-  font-size: 0.8rem;
+  font-size: 13px;
+  font-size: 0.65rem;
   width: 100%;
   text-align: left;
   border-collapse: collapse;
   margin-bottom: 1.5em;
   table-layout: fixed; }
-
-tbody {
-  display: block;
-  overflow: scroll; }
+  @media screen and (min-width: 1024px) {
+    table {
+      font-size: 16px;
+      font-size: 0.8rem; } }
 
 th,
 td {
   text-align: left;
   padding: 0.83333em;
-  border: 1px solid #69696B;
   vertical-align: top; }
+
+td {
+  border-bottom: 1px solid #ECECEC;
+  padding: 1.25em 0.83333em; }
+
+th {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #4D4D54;
+  border-color: #4D4D54;
+  color: #FFF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  vertical-align: middle; }
 
 /*------------------------------------*    $LAYOUT
 \*------------------------------------*/

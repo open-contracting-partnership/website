@@ -3,23 +3,38 @@
 \*------------------------------------*/
 
 table {
-	@include font-size(16);
+
+	@include font-size(13);
 	width: 100%;
 	text-align: left;
 	border-collapse: collapse;
 	margin-bottom: $space;
 	table-layout: fixed;
-}
 
-tbody {
-	display: block;
-	overflow: scroll;
+	@include mq(L) {
+		@include font-size(16);
+	}
+
 }
 
 th,
 td {
 	text-align: left;
 	padding: em(10, 12);
-	border: 1px solid color('mid-grey');
 	vertical-align: top;
+}
+
+td {
+	border-bottom: 1px solid color('lightest-grey');
+	padding: em(20, 16) em(10, 12);
+}
+
+th {
+	@include font('secondary', 'bold');
+	background-color: color('background');
+	border-color: color('background');
+	color: color('white');
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	vertical-align: middle;
 }
