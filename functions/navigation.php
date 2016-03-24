@@ -233,6 +233,40 @@ class OCP_Nav {
 
 				}
 
+			} else if ( is_single() ) {
+
+				$archive_url = get_permalink(get_option('page_for_posts'));
+
+				if ( get_post_type() !== 'post' ) {
+					$archive_url = get_post_type_archive_link(get_post_type());
+				}
+
+				// match the current page to the items within the nav
+				$matched_page = current(array_filter($flat_menu, function($menu_item) use ($archive_url) {
+					return $menu_item->url === $archive_url;
+				}));
+
+				if ( ! empty($matched_page) ) {
+
+					$menu_parent = $matched_page->menu_parent;
+
+					if ( $menu_parent > 0 ) {
+
+						// set the parent item as the current ancestor
+						// this is likely already applied, but in some instances it isn't
+						$menu[$menu_parent]->classes[] = 'current-menu-ancestor';
+
+						// also, store the parent page ID for use within the standard nav functions
+						$parent_pages[] = $menu_parent;
+
+						$secondary_nav = $menu[$menu_parent]->children;
+
+					} else {
+						$secondary_nav = $menu[$matched_page->ID]->children;
+					}
+
+				}
+
 			}
 
 		}
