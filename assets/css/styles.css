@@ -4421,11 +4421,17 @@ body.resource-open {
   padding-bottom: 0.75em;
   border-bottom: 10px solid #23B2A7;
   margin-bottom: 1.4em;
-  width: 90%; }
+  width: 90%;
+  position: relative; }
   .resource__title svg {
     width: 2.4em;
     height: 2.4em;
     stroke: #23B2A7; }
+  .resource__title a {
+    color: #23B2A7;
+    position: absolute;
+    bottom: 1em;
+    padding-left: .5em; }
 
 .resource__meta {
   font-weight: 500;
@@ -4483,6 +4489,30 @@ body.resource-open {
       float: left;
       margin-right: 0.93458%;
       margin-left: 16.82243%; } }
+
+.single-resource h1 {
+  margin-top: 0; }
+
+.single-resource .resource__title {
+  margin-bottom: 3em;
+  width: 100%; }
+
+.resource__content-col {
+  width: 47.05882%;
+  float: left;
+  margin-right: 5.88235%; }
+
+.resource__meta-col {
+  width: 47.05882%;
+  float: right;
+  margin-right: 0; }
+  .resource__meta-col h3 {
+    font-size: 16px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin: 0 0 .5em 0; }
+  .resource__meta-col .button__list li {
+    padding-left: 0; }
 
 @media screen and (min-width: 810px) {
   .search-main {

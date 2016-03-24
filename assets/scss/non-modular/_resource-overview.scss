@@ -268,17 +268,27 @@ body.resource-open {
 }
 
 .resource__title {
+
 	@include font-size(20);
 	padding-bottom: em(15);
 	border-bottom: 10px solid color('teal');
 	margin-bottom: em(28);
 	width: 90%;
+	position: relative;
 
 	svg {
 		width: em(48);
 		height: em(48);
 		stroke: color('teal');
 	}
+
+	a {
+		color: color('teal');
+		position: absolute;
+		bottom: 1em;
+		padding-left: .5em;
+	}
+
 }
 
 .resource__meta {
