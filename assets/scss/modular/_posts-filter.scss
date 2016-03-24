@@ -67,11 +67,12 @@
 	transition: transform .2s ease, opacity .12s linear;
 
 	label {
+		position: relative;
 		@include font('secondary', 'medium');
 		@include font-size(16);
 		border-bottom: 1px solid color('brand-dark');
 		margin: 0;
-		padding: 1em 0;
+		padding: 1em 0 1em 2em;
 
 		&:hover,
 		&:focus {
@@ -80,9 +81,11 @@
 	}
 
 	span {
+		position: absolute;
 		width: .8rem;
 		height: .8rem;
 		margin-right: .8em;
+		left: 0;
 		background-color: color('dark-background');
 
 		@include mq(M) {
