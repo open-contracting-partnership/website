@@ -4481,14 +4481,13 @@ body.resource-open {
 .single-resource article,
 .single-event article {
   margin-top: 6em;
-  margin-bottom: 6em; }
-  @media screen and (min-width: 1024px) {
+  margin-bottom: 6em;
+  width: 46em;
+  max-width: 100%; }
+  @media screen and (min-width: 1520px) {
     .single-resource article,
     .single-event article {
-      width: 66.35514%;
-      float: left;
-      margin-right: 0.93458%;
-      margin-left: 16.82243%; } }
+      width: 66.35514%; } }
 
 .single-resource h1 {
   margin-top: 0; }

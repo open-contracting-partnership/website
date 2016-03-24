@@ -5,10 +5,13 @@
 		margin-top: 6em;
 		margin-bottom: 6em;
 
-		@include mq(L) {
-			@include span(8 of 12);
-			@include push(2);
+		width: 46em;
+		max-width: 100%;
+
+		@include mq(1520) {
+			width: span(8 of 12);
 		}
+
 	}
 
 }
