@@ -12,38 +12,56 @@
 
 				<div class="resource__title">
 					<svg><use xlink:href="#icon-resource" /></svg>
+					<a href="/resources">View All Resources</a>
 				</div>
 
-				<h1 class="gamma"><?php the_title(); ?></h1>
+				<div class="resource__content-col">
 
-				<p class="resource__meta">
-					<span class="resource__published-date"><?php the_date('Y'); ?></span>
-					<?php echo sprintf(pll__('By %s'), get_field('organisation')); ?>
-				</p>
+					<h1 class="gamma"><?php the_title(); ?></h1>
 
-				<?php if ( $attachments = get_field('attachments') ) : ?>
-					<p><a onclick="_gaq.push(['_trackEvent', 'Resources', 'Download', '<?php the_title(); ?>']);" href="<?php echo $attachments[0]['file']; ?>" class="button button--block button--large button--icon button--icon--reverse button--icon--stroke">Download<svg><use xlink:href="#icon-download" /></svg></a></p>
-				<?php endif; ?>
+					<p class="resource__meta">
+						<span class="resource__published-date"><?php the_date('Y'); ?></span>
+						<?php echo sprintf(pll__('By %s'), get_field('organisation')); ?>
+					</p>
 
-				<?php if ( $link = get_field('link') ) : ?>
-					<p><a onclick="_gaq.push(['_trackEvent', 'Resources', 'Visit', '<?php the_title(); ?>']);" href="<?php echo $link; ?>" class="button button--block button--large">View</a></p>
-				<?php endif; ?>
+					<div class="post-content">
+						<?php the_content(); ?>
+					</div>
 
-				<hr />
-
-				<div class="post-content">
-					<?php the_content(); ?>
 				</div>
 
-				<hr />
+				<div class="resource__meta-col">
 
-				<div class="band band--extra-thick">
+					<div class="band">
+
+						<?php if ( $attachments = get_field('attachments') ) : ?>
+							<p><a onclick="_gaq.push(['_trackEvent', 'Resources', 'Download', '<?php the_title(); ?>']);" href="<?php echo $attachments[0]['file']; ?>" class="button button--block button--large button--icon button--icon--reverse button--icon--stroke">Download<svg><use xlink:href="#icon-download" /></svg></a></p>
+						<?php endif; ?>
+
+						<?php if ( $link = get_field('link') ) : ?>
+							<p><a onclick="_gaq.push(['_trackEvent', 'Resources', 'Visit', '<?php the_title(); ?>']);" href="<?php echo $link; ?>" class="button button--block button--large">View</a></p>
+						<?php endif; ?>
+
+					</div>
+
+					<div class="band">
+
+						<h3><?php pll_e('Share'); ?></h3>
+
+						<ul class="button__list button__social">
+							<li><a href="<?php echo share_links()->facebook; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
+							<li><a href="<?php echo share_links()->linkedin; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
+							<li><a href="<?php echo share_links()->twitter; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
+							<li><a href="<?php echo share_links()->email; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-mail" /></svg></a></li>
+						</ul>
+
+					</div>
 
 					<?php if ( $terms = get_field('region') ) : ?>
 
-						<div class="resource__terms / band">
+						<div class="band">
 
-							<p><?php pll_e('Region'); ?></p>
+							<h3><?php pll_e('Region'); ?></h3>
 
 							<ul class="button__list">
 
@@ -59,9 +77,9 @@
 
 					<?php if ( $terms = get_field('issue') ) : ?>
 
-						<div class="resource__terms / band">
+						<div class="band">
 
-							<p><?php pll_e('Issue'); ?></p>
+							<h3><?php pll_e('Issue'); ?></h3>
 
 							<ul class="button__list">
 
@@ -77,9 +95,9 @@
 
 					<?php if ( $terms = get_field('open_contracting') ) : ?>
 
-						<div class="resource__terms / band">
+						<div class="band">
 
-							<p><?php pll_e('OC Framework'); ?></p>
+							<h3><?php pll_e('OC Framework'); ?></h3>
 
 							<ul class="button__list">
 
@@ -93,7 +111,7 @@
 
 					<?php endif; ?>
 
-				</div>
+				</div> <!-- / .resource__meta-col -->
 
 			</section>
 
