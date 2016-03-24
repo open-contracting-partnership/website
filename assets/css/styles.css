@@ -4497,22 +4497,26 @@ body.resource-open {
   margin-bottom: 3em;
   width: 100%; }
 
-.resource__content-col {
-  width: 47.05882%;
-  float: left;
-  margin-right: 5.88235%; }
+@media screen and (min-width: 810px) {
+  .resource__content-col {
+    width: 47.05882%;
+    float: left;
+    margin-right: 5.88235%; } }
 
-.resource__meta-col {
-  width: 47.05882%;
-  float: right;
-  margin-right: 0; }
-  .resource__meta-col h3 {
-    font-size: 16px;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    margin: 0 0 .5em 0; }
-  .resource__meta-col .button__list li {
-    padding-left: 0; }
+@media screen and (min-width: 810px) {
+  .resource__meta-col {
+    width: 47.05882%;
+    float: right;
+    margin-right: 0; } }
+
+.resource__meta-col h3 {
+  font-size: 16px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin: 0 0 .5em; }
+
+.resource__meta-col .button__list li {
+  padding-left: 0; }
 
 @media screen and (min-width: 810px) {
   .search-main {

@@ -23,17 +23,23 @@
 }
 
 .resource__content-col {
-	@include span(1 of 2);
+
+	@include mq(M) {
+		@include span(1 of 2);
+	}
+
 }
 
 .resource__meta-col {
 
-	@include span(1 of 2 last);
+	@include mq(M) {
+		@include span(1 of 2 last);
+	}
 
 	h3 {
 		@include font-size(16);
 		text-transform: uppercase;
-		margin: 0 0 .5em 0;
+		margin: 0 0 .5em;
 	}
 
 	.button__list li {
