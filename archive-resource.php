@@ -126,6 +126,17 @@
 				{{{ open_resource.content }}}
 			</div>
 
+			<div class="band">
+
+				<ul class="button__list button__social">
+					<li><a href="https://www.facebook.com/sharer/sharer.php?u={{ open_resource.link | encodeURI }}" target="_blank" class="button"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use></svg></a></li>
+					<li><a href="https://www.linkedin.com/cws/share?url={{ open_resource.link | encodeURI }}" target="_blank" class="button"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-linkedin"></use></svg></a></li>
+					<li><a href="http://twitter.com/home?status={{ open_resource.title | encodeURI }} - {{ open_resource.link | encodeURI }}" target="_blank" class="button"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use></svg></a></li>
+					<li><a href="mailto:?subject={{ open_resource.title | encodeURI }}&amp;body=Hi,%0D%0A%0D%0AI thought you would be interested in this article on Open Contracting: {{ open_resource.title | encodeURI }} – {{ open_resource.link | encodeURI }}" target="_blank" class="button"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-mail"></use></svg></a></li>
+				</ul>
+
+			</div>
+
 			<hr />
 
 			<div class="band band--extra-thick">
@@ -138,7 +149,6 @@
 					</ul>
 
 				</div>
-
 
 				<div v-if="hasTerms(open_resource.taxonomies['issue'])" class="resource__terms / band">
 
@@ -348,6 +358,11 @@
 
 					objectValues: function() {
 						console.log('bop');
+					},
+
+					encodeURI: function(string) {
+						string = string.replace('&nbsp;', ' ');
+						return encodeURIComponent(string);
 					}
 
 				}
