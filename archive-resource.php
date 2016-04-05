@@ -183,7 +183,7 @@
 				</div>
 
 				<div class="post-object--resource__type">
-					<span v-for="type in resource.taxonomies['resource-type']">{{ type }}</span>
+					<span v-for="type in resource.taxonomies['resource-type']">{{{ type }}}</span>
 				</div>
 
 			</div>
