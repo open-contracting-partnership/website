@@ -6,7 +6,7 @@
 
 		<main class="search-main">
 
-			<span class="archive-content__sub-title"><?php pll_e("Search Results /"); ?></span>
+			<span class="archive-content__sub-title"><?php _e("Search Results /", 'ocp'); ?></span>
 
 			<h1><?php echo get_search_query(); ?></h1>
 
@@ -17,7 +17,7 @@
 				<?php endwhile; ?>
 
 			<?php else : ?>
-				<p><?php pll_e('There are no search results'); ?></p>
+				<p><?php _e('There are no search results', 'ocp'); ?></p>
 			<?php endif; ?>
 
 		</main>

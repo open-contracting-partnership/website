@@ -31,7 +31,7 @@
 				<div class="resource__header">
 
 					<div class="resource-search__container active">
-						<input type="search" placeholder="<?php pll_e('Search for resources'); ?>" v-model="search" class="resource-search">
+						<input type="search" placeholder="<?php _e('Search for resources', 'ocp'); ?>" v-model="search" class="resource-search">
 					</div>
 
 					<?php if ( $popular_resources = get_field('popular_resources', 'option') ) : ?>
@@ -45,7 +45,7 @@
 							}
 
 							$popular_reports = sprintf(
-								pll__("This week's popular items are %s and %s"),
+								__("This week's popular items are %s and %s", 'ocp'),
 								implode(', ', array_slice($popular_resources_links, 0, -1)),
 								end($popular_resources_links)
 							);
@@ -69,11 +69,11 @@
 						</div>
 
 						<p class="resource__filter-actions">
-							<a href="#" class="button button--solid-white button--icon" v-on:click.prevent="display_filter = false"><svg><use xlink:href="#icon-stop" /></svg><?php pll_e('Close Filter'); ?></a>
-							<a href="#" class="resource__filter-reset" v-on:click.prevent="reset()"><?php pll_e('Reset'); ?></a>
+							<a href="#" class="button button--solid-white button--icon" v-on:click.prevent="display_filter = false"><svg><use xlink:href="#icon-stop" /></svg><?php _e('Close Filter', 'ocp'); ?></a>
+							<a href="#" class="resource__filter-reset" v-on:click.prevent="reset()"><?php _e('Reset', 'ocp'); ?></a>
 						</p>
 
-						<a href="#" v-on:click.prevent="display_filter = true" class="resource__filter-button / button button--solid-white button--icon"><svg><use xlink:href="#icon-plus" /></svg><?php pll_e('Filter Results'); ?></a>
+						<a href="#" v-on:click.prevent="display_filter = true" class="resource__filter-button / button button--solid-white button--icon"><svg><use xlink:href="#icon-plus" /></svg><?php _e('Filter Results', 'ocp'); ?></a>
 
 					</div> <!-- / .resource__filter-container -->
 
@@ -93,7 +93,7 @@
 
 			</div>
 
-			<p v-else><?php pll_e('No resources available to display'); ?></p>
+			<p v-else><?php _e('No resources available to display', 'ocp'); ?></p>
 
 		</div>
 
@@ -143,7 +143,7 @@
 
 				<div v-if="hasTerms(open_resource.taxonomies['region'])" class="resource__terms / band">
 
-					<p><?php pll_e('Region'); ?>:</p>
+					<p><?php _e('Region', 'ocp'); ?>:</p>
 					<ul class="button__list">
 						<li v-for="region in open_resource.taxonomies['region']"><a href="/region/{{ $key }}" class="button button--small button--tag">{{{ region }}}</a></li>
 					</ul>
@@ -152,7 +152,7 @@
 
 				<div v-if="hasTerms(open_resource.taxonomies['issue'])" class="resource__terms / band">
 
-					<p><?php pll_e('Issue'); ?>:</p>
+					<p><?php _e('Issue', 'ocp'); ?>:</p>
 					<ul class="button__list">
 						<li v-for="issue in open_resource.taxonomies['issue']"><a href="/issue/{{ $key }}" class="button button--small button--tag">{{{ issue }}}</a></li>
 					</ul>
@@ -161,7 +161,7 @@
 
 				<div v-if="hasTerms(open_resource.taxonomies['open-contracting'])" class="resource__terms / band">
 
-					<p><?php pll_e('OC Framework'); ?>:</p>
+					<p><?php _e('OC Framework', 'ocp'); ?>:</p>
 					<ul class="button__list">
 						<li v-for="open_contracting in open_resource.taxonomies['open-contracting']"><a href="/open-contracting/{{ $key }}" class="button button--small button--tag">{{{ open_contracting }}}</a></li>
 					</ul>
@@ -191,7 +191,7 @@
 			<div class="post-object__content / media__body">
 
 				<p class="post-object__meta">
-					<span v-if="resource.fields.organisation !== ''"><?php pll_e('By'); ?> {{ resource.fields.organisation }}</span>
+					<span v-if="resource.fields.organisation !== ''"><?php _e('By', 'ocp'); ?> {{ resource.fields.organisation }}</span>
 					<time>{{ resource.custom.year }}</time>
 				</p>
 

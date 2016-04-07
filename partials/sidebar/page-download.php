@@ -11,9 +11,9 @@
 		<div class="download-cta__content">
 
 			<?php if ( get_field('page_download') === 'link' ) : ?>
-				<span><?php pll_e('Link'); ?></span>
+				<span><?php _e('Link', 'ocp'); ?></span>
 			<?php else : ?>
-				<span><?php pll_e('Download'); ?></span>
+				<span><?php _e('Download', 'ocp'); ?></span>
 			<?php endif; ?>
 
 			<div class="heading-highlight">

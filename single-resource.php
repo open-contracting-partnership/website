@@ -21,7 +21,7 @@
 
 					<p class="resource__meta">
 						<span class="resource__published-date"><?php the_date('Y'); ?></span>
-						<?php echo sprintf(pll__('By %s'), get_field('organisation')); ?>
+						<?php echo sprintf(__('By %s', 'ocp'), get_field('organisation')); ?>
 					</p>
 
 					<div class="post-content">
@@ -46,7 +46,7 @@
 
 					<div class="band">
 
-						<h3><?php pll_e('Share'); ?></h3>
+						<h3><?php _e('Share', 'ocp'); ?></h3>
 
 						<ul class="button__list button__social">
 							<li><a href="<?php echo share_links()->facebook; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
@@ -61,7 +61,7 @@
 
 						<div class="band">
 
-							<h3><?php pll_e('Region'); ?></h3>
+							<h3><?php _e('Region', 'ocp'); ?></h3>
 
 							<ul class="button__list">
 
@@ -79,7 +79,7 @@
 
 						<div class="band">
 
-							<h3><?php pll_e('Issue'); ?></h3>
+							<h3><?php _e('Issue', 'ocp'); ?></h3>
 
 							<ul class="button__list">
 
@@ -97,7 +97,7 @@
 
 						<div class="band">
 
-							<h3><?php pll_e('OC Framework'); ?></h3>
+							<h3><?php _e('OC Framework', 'ocp'); ?></h3>
 
 							<ul class="button__list">
 

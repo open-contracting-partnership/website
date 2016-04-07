@@ -10,7 +10,7 @@
 
 					<nav class="site-footer__organisation">
 
-						<h4><?php pll_e('About Us'); ?></h4>
+						<h4><?php _e('About Us', 'ocp'); ?></h4>
 
 						<?php
 
@@ -27,7 +27,7 @@
 
 					<nav class="site-footer__contracting">
 
-						<h4><?php pll_e('Why Open Contracting'); ?></h4>
+						<h4><?php _e('Why Open Contracting', 'ocp'); ?></h4>
 
 						<?php
 
@@ -44,7 +44,7 @@
 
 					<nav class="site-footer__implement">
 
-						<h4><?php pll_e('Get Started'); ?></h4>
+						<h4><?php _e('Get Started', 'ocp'); ?></h4>
 
 						<?php
 
@@ -63,7 +63,7 @@
 
 						<nav>
 
-							<h4><?php pll_e('Stay Updated'); ?></h4>
+							<h4><?php _e('Stay Updated', 'ocp'); ?></h4>
 
 							<?php
 
@@ -84,13 +84,13 @@
 
 						<div class="site-footer__email">
 
-							<h4><?php pll_e('Subscribe to our newsletter'); ?></h4>
+							<h4><?php _e('Subscribe to our newsletter', 'ocp'); ?></h4>
 
 							<div class="js-subscribe">
 
 								<form class="form--dark flex-field" action="" method="post">
 									<input type="email" placeholder="Enter your email" name="email" required>
-									<button><?php pll_e('Send'); ?></button>
+									<button><?php _e('Send', 'ocp'); ?></button>
 								</form>
 
 							</div>
@@ -99,7 +99,7 @@
 
 						<div class="site-footer__contact">
 
-							<h4><?php pll_e('Contact us'); ?>:</h4>
+							<h4><?php _e('Contact us', 'ocp'); ?>:</h4>
 
 							<address>
 								<a href="mailto:engage@open-contracting.org">engage@open-contracting.org</a>
@@ -135,7 +135,7 @@
 				<div class="sub-footer cf"> <!-- sub footer -->
 
 					<div class="site-colophon">
-						<p class="text--micro"><?php pll_e('This work by the Open Contracting Partnership, unless otherwise noted, is licensed under a Creative Commons Attribution 4.0 International License.'); ?></p>
+						<p class="text--micro"><?php _e('This work by the Open Contracting Partnership, unless otherwise noted, is licensed under a Creative Commons Attribution 4.0 International License.', 'ocp'); ?></p>
 					</div>
 
 					<svg><use xlink:href="#ocp-logo-small" /></svg>
@@ -150,7 +150,7 @@
 
 					<span>Open Contracting Partnership <?php echo date('Y'); ?></span>
 
-					<a href="/terms-of-use/"><?php pll_e('Terms'); ?></a>
+					<a href="/terms-of-use/"><?php _e('Terms', 'ocp'); ?></a>
 
 					<span>Website by <a href="http://theideabureau.co">The Idea Bureau</a></span>
 

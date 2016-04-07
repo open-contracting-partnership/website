@@ -17,7 +17,7 @@
 
 				<div class="blog__author-meta">
 
-					<p class="blog__mobile-date"><?php pll_e('Written By'); ?> <?php the_authors(TRUE); ?>, <datetime><?php the_date(); ?></datetime></p>
+					<p class="blog__mobile-date"><?php _e('Written By', 'ocp'); ?> <?php the_authors(TRUE); ?>, <datetime><?php the_date(); ?></datetime></p>
 
 				</div>
 
@@ -37,7 +37,7 @@
 			<aside class="sidebar">
 
 				<section>
-					<h3 class="border-top"><?php pll_e('Written By'); ?></h3>
+					<h3 class="border-top"><?php _e('Written By', 'ocp'); ?></h3>
 					<div class="blog__author-meta">
 						<p><?php the_authors(TRUE); ?> <time datetime="<?php the_time(DATE_W3C); ?>"><br /><?php OCP::the_date(); ?></time></p>
 					</div>
@@ -46,7 +46,7 @@
 
 				<section>
 
-					<h3 class="border-top"><?php pll_e('Share'); ?></h3>
+					<h3 class="border-top"><?php _e('Share', 'ocp'); ?></h3>
 
 					<ul class="button__list button__social">
 						<li><a href="<?php echo share_links()->facebook; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>

@@ -135,7 +135,7 @@
 
 				<div class="posts-filter__inner">
 
-					<a href="#" class="posts-filter__button"><svg><use xlink:href="#icon-filter" /></svg><?php pll_e('Filter Blogs & Updates'); ?></a>
+					<a href="#" class="posts-filter__button"><svg><use xlink:href="#icon-filter" /></svg><?php _e('Filter Blogs & Updates', 'ocp'); ?></a>
 
 					<form action="#" class="posts-filter__form / custom-radio / js-homepage-filter">
 						<label><input type="radio" name="name" value="all" checked="checked"><span></span>All</label>
@@ -308,7 +308,7 @@
 
 				<div class="homepage-map__content">
 
-					<h3><?php pll_e('Open Contracting Worldwide'); ?></h3>
+					<h3><?php _e('Open Contracting Worldwide', 'ocp'); ?></h3>
 
 					<?php while ( have_rows('worldwide_links') ) : the_row(); ?>
 						<div><a class="button button--white" href="<?php the_sub_field('link_address'); ?>"><?php the_sub_field('link_title'); ?></a></div>

@@ -2,7 +2,7 @@
 
 	<nav class="page__section-nav">
 
-		<h3 class="border-top border-top--clean"><?php pll_e('Jump to section'); ?></h3>
+		<h3 class="border-top border-top--clean"><?php _e('Jump to section', 'ocp'); ?></h3>
 
 		<ul class="nav nav--vertical nav--in-page">
 
