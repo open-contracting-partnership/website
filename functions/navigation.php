@@ -130,16 +130,14 @@ function get_breadcrumbs() {
 
 class OCP_Nav {
 
-	static function format_url($url) {
-
-		$url = trim($url, '/');
+	static function format_url($url, $return_query = TRUE) {
 
 		$url_parts = (object) parse_url($url);
 
-		if ( isset($url_parts->query) ) {
-			$url = $url_parts->scheme . '://' . $url_parts->host . $url_parts->path . '/?' . $url_parts->query;
-		} else {
-			$url .= '/';
+		$url = trim($url_parts->scheme . '://' . $url_parts->host . $url_parts->path, '/') . '/';
+
+		if ( isset($url_parts->query) && $return_query ) {
+			 $url .= '?' . $url_parts->query;
 		}
 
 		return $url;
@@ -170,6 +168,7 @@ class OCP_Nav {
 				'ID' => $menu_item->ID,
 				'title' => $menu_item->title,
 				'url' => self::format_url($menu_item->url),
+				'comparison_url' => self::format_url($menu_item->url, FALSE),
 				'classes' => $menu_item->classes,
 				'menu_parent' => $menu_item->menu_item_parent,
 				'children' => array()
@@ -195,11 +194,11 @@ class OCP_Nav {
 		}
 
 		global $wp, $post;
-		$current_url = self::format_url(home_url(add_query_arg(array(), $wp->request)));
+		$current_url = self::format_url(home_url(add_query_arg(array(), $wp->request)), FALSE);
 
 		// match the current page to the items within the nav
 		$matched_page = current(array_filter($flat_menu, function($menu_item) use ($current_url) {
-			return $menu_item->url === $current_url;
+			return $menu_item->comparison_url === $current_url;
 		}));
 
 		if ( ! empty($matched_page) ) {
