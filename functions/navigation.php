@@ -178,7 +178,7 @@ class OCP_Nav {
 
 		}
 
-		global $wp;
+		global $wp, $post;
 		$current_url = home_url(add_query_arg(array(), $wp->request)) . '/';
 
 		// match the current page to the items within the nav
@@ -209,7 +209,7 @@ class OCP_Nav {
 
 			if ( is_page() && ! is_front_page() ) {
 
-				$ancestor_id = $object_ids[current(array_slice(get_post_ancestors(), -2, 1))];
+				$ancestor_id = $object_ids[current(array_slice(get_post_ancestors($post), -2, 1))];
 
 				if ( isset($flat_menu[$ancestor_id]) ) {
 
