@@ -104,27 +104,14 @@
 
 				<div class="header-nav__side">
 
-					<?php if ( function_exists('pll_the_languages') ) : ?>
-
-						<div class="header-nav__side-item / header-language">
-
-							<?php
-
-								pll_the_languages([
-									'dropdown' => TRUE,
-									'display_names_as' => 'slug'
-								]);
-
-							?>
-
-						</div>
-
-					<?php endif; ?>
+					<div class="header-nav__side-item / header-language">
+						<?php do_action('wpml_add_language_selector'); ?>
+					</div>
 
 					<div class="header-nav__side-item / header-social">
 
 						<ul class="button__list button__social">
-							
+
 							<?php if ( $facebook_url = get_field('facebook_url', 'options') ) : ?>
 								<li><a class="button" href="<?php echo $facebook_url; ?>" target="_blank"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
 							<?php endif; ?>

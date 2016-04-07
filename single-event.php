@@ -31,7 +31,7 @@
 
 				<p class="event__meta">
 
-					<?php echo sprintf(pll__('Organisation: %s'), get_field('organisation')); ?>
+					<?php echo sprintf(__('Organisation: %s', 'ocp'), get_field('organisation')); ?>
 
 					<?php if ( $event_location = get_field('event_location') ) : ?>
 							<span>, <?php echo $event_location; ?></span>
@@ -59,7 +59,7 @@
 
 						<div class="event__terms">
 
-							<span><?php pll_e('Location'); ?></span>
+							<span><?php _e('Location', 'ocp'); ?></span>
 
 							<ul class="button__list">
 
@@ -77,7 +77,7 @@
 
 						<div class="event__terms">
 
-							<span><?php pll_e('Issue'); ?></span>
+							<span><?php _e('Issue', 'ocp'); ?></span>
 
 							<ul class="button__list">
 
@@ -95,7 +95,7 @@
 
 						<div class="event__terms">
 
-							<span><?php pll_e('Audience'); ?></span>
+							<span><?php _e('Audience', 'ocp'); ?></span>
 
 							<ul class="button__list">
 
@@ -113,7 +113,7 @@
 
 						<div class="event__terms">
 
-							<span><?php pll_e('OC Framework'); ?></span>
+							<span><?php _e('OC Framework', 'ocp'); ?></span>
 
 							<ul class="button__list">
 
@@ -133,7 +133,7 @@
 
 						<div class="event__terms">
 
-							<p><?php pll_e('Attachments'); ?></p>
+							<p><?php _e('Attachments', 'ocp'); ?></p>
 
 							<ul class="arrow-list">
 

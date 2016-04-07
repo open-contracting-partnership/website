@@ -42,7 +42,7 @@
 
 		<div class="archive-content">
 
-			<h1><?php pll_e('Events'); ?></h1>
+			<h1><?php _e('Events', 'ocp'); ?></h1>
 
 			<?php if ( $introduction = get_field('event_introduction', 'options') ) : ?>
 				<p class="strapline strapline--blue"><?php echo $introduction; ?></p>
@@ -65,7 +65,7 @@
 
 			</div>
 
-			<p v-else><?php pll_e('No upcoming events'); ?></p>
+			<p v-else><?php _e('No upcoming events', 'ocp'); ?></p>
 
 		</div>
 
@@ -76,13 +76,13 @@
 				<div class="event__title">
 					<svg><use xlink:href="#icon-event" /></svg>
 					<time v-if="open_event.custom.has_date">{{ open_event.custom.day }}<span>{{ open_event.custom.suffix }}</span> {{ open_event.custom.long_month }} {{ open_event.custom.year }}</time>
-					<time v-else><span><?php pll_e('To Be Announced'); ?></span></time>
+					<time v-else><span><?php _e('To Be Announced', 'ocp'); ?></span></time>
 				</div>
 
 				<h1 class="gamma">{{{ open_event.title }}}</h1>
 
 				<p class="event__meta">
-					<?php pll_e('Organisation'); ?>: {{ open_event.fields.organisation }}<span v-if="open_event.fields.event_location">, {{{ open_event.fields.event_location }}}</span>
+					<?php _e('Organisation', 'ocp'); ?>: {{ open_event.fields.organisation }}<span v-if="open_event.fields.event_location">, {{{ open_event.fields.event_location }}}</span>
 				</p>
 
 				<hr>
@@ -92,7 +92,7 @@
 					{{{ open_event.content }}}
 
 					<p v-if="open_event.fields.link">
-						<a href="{{ open_event.fields.link }}"><?php pll_e('View more details'); ?></a>
+						<a href="{{ open_event.fields.link }}"><?php _e('View more details', 'ocp'); ?></a>
 					</p>
 
 				</div>
@@ -103,7 +103,7 @@
 
 					<div v-if="hasTerms(open_event.taxonomies['region'])" class="event__terms">
 
-						<span><?php pll_e('Location'); ?>:</span>
+						<span><?php _e('Location', 'ocp'); ?>:</span>
 
 						<ul class="button__list">
 							<li v-for="region in open_event.taxonomies['region']"><a href="/region/{{ $key }}" class="button button--small button--tag">{{{ region }}}</a></li>
@@ -113,7 +113,7 @@
 
 					<div v-if="hasTerms(open_event.taxonomies['issue'])" class="event__terms">
 
-						<span><?php pll_e('Issue'); ?>:</span>
+						<span><?php _e('Issue', 'ocp'); ?>:</span>
 
 						<ul class="button__list">
 							<li v-for="issue in open_event.taxonomies['issue']"><a href="/issue/{{ $key }}" class="button button--small button--tag">{{{ issue }}}</a></li>
@@ -123,7 +123,7 @@
 
 					<div v-if="hasTerms(open_event.taxonomies['audience'])" class="event__terms">
 
-						<span><?php pll_e('Audience'); ?>:</span>
+						<span><?php _e('Audience', 'ocp'); ?>:</span>
 
 						<ul class="button__list">
 							<li v-for="audience in open_event.taxonomies['audience']"><a href="/audience/{{ $key }}" class="button button--small button--tag">{{{ audience }}}</a></li>
@@ -133,7 +133,7 @@
 
 					<div v-if="hasTerms(open_event.taxonomies['open-contracting'])" class="event__terms">
 
-						<span><?php pll_e('OC Framework'); ?>:</span>
+						<span><?php _e('OC Framework', 'ocp'); ?>:</span>
 
 						<ul class="button__list">
 							<li v-for="open_contracting in open_event.taxonomies['open-contracting']"><a href="/open-contracting/{{ $key }}" class="button button--small button--tag">{{{ open_contracting }}}</a></li>
@@ -145,7 +145,7 @@
 
 					<div v-if="open_event.fields.attachments" class="event__terms">
 
-						<p><?php pll_e('Attachments'); ?></p>
+						<p><?php _e('Attachments', 'ocp'); ?></p>
 
 						<ul class="arrow-list">
 							<li v-for="attachment in open_event.fields.attachments"><a href="{{ attachment.file }}">{{{ attachment.name }}}</a></li>

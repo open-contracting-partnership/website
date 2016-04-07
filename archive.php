@@ -46,20 +46,20 @@
 		<div class="archive-content">
 
 			<?php if ( is_category() ) : ?>
-				<span class="archive-content__sub-title"><?php pll_e('Results for Category /'); ?></span>
+				<span class="archive-content__sub-title"><?php _e('Results for Category /', 'ocp'); ?></span>
 				<h1><?php single_cat_title(); ?></h1>
 			<?php elseif( is_tag() ) : ?>
-				<span class="archive-content__sub-title"><?php pll_e('Results for Tag /'); ?></span>
+				<span class="archive-content__sub-title"><?php _e('Results for Tag /', 'ocp'); ?></span>
 				<h1><?php single_tag_title(); ?></h1>
 			<?php elseif( is_tax() ) : ?>
-				<span class="archive-content__sub-title"><?php pll_e('Results for Taxonomy /'); ?></span>
+				<span class="archive-content__sub-title"><?php _e('Results for Taxonomy /', 'ocp'); ?></span>
 				<h1><?php single_cat_title(); ?></h1>
 			<?php elseif (is_author()) : ?>
 				<?php $author = get_userdata( get_query_var('author') ); ?>
-				<span class="archive-content__sub-title"><?php pll_e('Results for Author /'); ?></span>
+				<span class="archive-content__sub-title"><?php _e('Results for Author /', 'ocp'); ?></span>
 				<h1><?php echo $author->display_name;?></h1>
 			<?php else : ?>
-				<span class="archive-content__sub-title"><?php pll_e('Results for Post /'); ?></span>
+				<span class="archive-content__sub-title"><?php _e('Results for Post /', 'ocp'); ?></span>
 				<h1><?php the_post_type_label(NULL, TRUE); ?></h1>
 			<?php endif;?>
 
@@ -77,7 +77,7 @@
 
 					<div class="archive__sidebar archive__sidebar-tags / archive-filtering__sort / band band--thick">
 
-						<h4><?php pll_e('Similar tags'); ?></h4>
+						<h4><?php _e('Similar tags', 'ocp'); ?></h4>
 
 						<input v-model="term_search" type="search" placeholder="Search tags">
 
@@ -91,10 +91,10 @@
 
 				<!-- <div class="archive__sidebar archive__sidebar-type / archive-filtering__sort / band band--thick">
 
-					<h4><?php pll_e('Sort by category'); ?></h4>
+					<h4><?php _e('Sort by category', 'ocp'); ?></h4>
 
 					<ul class="nav nav--vertical / nav--in-page" data-nav-active="false">
-						<li><a href="#"><?php pll_e('All'); ?></a></li>
+						<li><a href="#"><?php _e('All', 'ocp'); ?></a></li>
 					</ul>
 
 				</div> -->

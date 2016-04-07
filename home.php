@@ -142,13 +142,13 @@
 
 				?>
 
-				<h4 class="border-top border-top--blue border-top--clean"><?php pll_e('Upcoming Events'); ?></h4>
+				<h4 class="border-top border-top--blue border-top--clean"><?php _e('Upcoming Events', 'ocp'); ?></h4>
 
 				<?php foreach( $upcoming_events as $event ) : ?>
 					<?php get_partial('post-object', 'event'); ?>
 				<?php endforeach; ?>
 
-				<a class="view-more" href="/events"><?php pll_e('View all events'); ?></a>
+				<a class="view-more" href="/events"><?php _e('View all events', 'ocp'); ?></a>
 
 			</div>
 
@@ -192,7 +192,7 @@
 
 				<div class="posts-filter__inner">
 
-					<a href="#" class="posts-filter__button"><svg><use xlink:href="#icon-filter" /></svg><?php pll_e('Filter Blogs & Updates'); ?></a>
+					<a href="#" class="posts-filter__button"><svg><use xlink:href="#icon-filter" /></svg><?php _e('Filter Blogs & Updates', 'ocp'); ?></a>
 
 					<form action="#" class="posts-filter__form / custom-checkbox">
 

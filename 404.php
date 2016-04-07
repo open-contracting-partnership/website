@@ -10,10 +10,10 @@
 
 				<div class="four-oh-four__section">
 
-					<h1 class="four-oh-four__title / border-top / gamma"><?php pll_e('Something went wrong.'); ?><br><?php pll_e('This is probably how too many people feel when trying to access a government contract'); ?></h1>
+					<h1 class="four-oh-four__title / border-top / gamma"><?php _e('Something went wrong.', 'ocp'); ?><br><?php _e('This is probably how too many people feel when trying to access a government contract', 'ocp'); ?></h1>
 
-					<p><?php pll_e('Were you looking for a blog post, or a specific resource?'); ?><br><?php pll_e('We suggest you try again checking the address or using the main navigation.'); ?></p>
-					<p><?php pll_e('And please let us know if the problem persists, so that we can point you in the right direction.'); ?></p>
+					<p><?php _e('Were you looking for a blog post, or a specific resource?', 'ocp'); ?><br><?php _e('We suggest you try again checking the address or using the main navigation.', 'ocp'); ?></p>
+					<p><?php _e('And please let us know if the problem persists, so that we can point you in the right direction.', 'ocp'); ?></p>
 
 					<a href="/" class="button button--white">Take me Home</a>
 
