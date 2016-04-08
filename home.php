@@ -75,13 +75,13 @@
 
 			<div class="blog__subscribe-container / band">
 
-				<h4 class="border-top border-top--clean"><?php _e('Subscribe to our newsletter'); ?></h4>
+				<h4 class="border-top border-top--clean"><?php _e('Subscribe to our newsletter', 'ocp'); ?></h4>
 
 				<div class="js-subscribe">
 
 					<form class="flex-field" action="" method="post">
-						<input type="email" placeholder="<?php _e('Enter your email'); ?>" name="email" required>
-						<button><?php _e('Send'); ?></button>
+						<input type="email" placeholder="<?php _e('Enter your email', 'ocp'); ?>" name="email" required>
+						<button><?php _e('Send', 'ocp'); ?></button>
 					</form>
 
 				</div>
@@ -104,13 +104,13 @@
 
 				?>
 
-				<p class="blog__subscribe-follow"><?php _e('Follow us on'); ?> <?php echo array_multi_implode(', ', ' &amp; ', $social_media); ?></p>
+				<p class="blog__subscribe-follow"><?php _e('Follow us on', 'ocp'); ?> <?php echo array_multi_implode(', ', ' &amp; ', $social_media); ?></p>
 
 			</div>
 
 			<div class="blog__recent-news / band">
 
-				<h4 class="border-top border-top--clean"><?php _e('Recent News'); ?></h4>
+				<h4 class="border-top border-top--clean"><?php _e('Recent News', 'ocp'); ?></h4>
 
 				<div class="blog__recent-news-items / cf">
 
@@ -170,7 +170,7 @@
 
 				<section>
 
-					<h4 class="border-top border-top--clean"><?php _e('Popular Tags'); ?></h4>
+					<h4 class="border-top border-top--clean"><?php _e('Popular Tags', 'ocp'); ?></h4>
 
 					<ul class="button__list">
 
