@@ -139,7 +139,7 @@
 						'post_type' => 'event',
 						'posts_per_page' => 1,
 						'orderby'    => 'meta_value_num',
-						'order'      => 'DESC',
+						'order'      => 'ASC',
 						'meta_key' => ' event_date',
 						'meta_query' => array(
 							array(
