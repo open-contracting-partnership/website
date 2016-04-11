@@ -130,6 +130,20 @@ function get_breadcrumbs() {
 
 class OCP_Nav {
 
+	static function format_url($url, $return_query = TRUE) {
+
+		$url_parts = (object) parse_url($url);
+
+		$url = trim($url_parts->scheme . '://' . $url_parts->host . $url_parts->path, '/') . '/';
+
+		if ( isset($url_parts->query) && $return_query ) {
+			 $url .= '?' . $url_parts->query;
+		}
+
+		return $url;
+
+	}
+
 	static function prepare_primary_nav() {
 
 		$primary_nav = get_menu('header-primary');
@@ -153,7 +167,8 @@ class OCP_Nav {
 			$menu[$menu_item->ID] = (object) array(
 				'ID' => $menu_item->ID,
 				'title' => $menu_item->title,
-				'url' => $menu_item->url,
+				'url' => self::format_url($menu_item->url),
+				'comparison_url' => self::format_url($menu_item->url, FALSE),
 				'classes' => $menu_item->classes,
 				'menu_parent' => $menu_item->menu_item_parent,
 				'children' => array()
@@ -178,12 +193,12 @@ class OCP_Nav {
 
 		}
 
-		global $wp;
-		$current_url = home_url(add_query_arg(array(), $wp->request)) . '/';
+		global $wp, $post;
+		$current_url = self::format_url(home_url(add_query_arg(array(), $wp->request)), FALSE);
 
 		// match the current page to the items within the nav
 		$matched_page = current(array_filter($flat_menu, function($menu_item) use ($current_url) {
-			return $menu_item->url === $current_url;
+			return $menu_item->comparison_url === $current_url;
 		}));
 
 		if ( ! empty($matched_page) ) {
@@ -209,7 +224,7 @@ class OCP_Nav {
 
 			if ( is_page() && ! is_front_page() ) {
 
-				$ancestor_id = $object_ids[current(array_slice(get_post_ancestors(), -2, 1))];
+				$ancestor_id = $object_ids[current(array_slice(get_post_ancestors($post), -2, 1))];
 
 				if ( isset($flat_menu[$ancestor_id]) ) {
 

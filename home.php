@@ -75,13 +75,13 @@
 
 			<div class="blog__subscribe-container / band">
 
-				<h4 class="border-top border-top--clean">Subscribe to our newsletter</h4>
+				<h4 class="border-top border-top--clean"><?php _e('Subscribe to our newsletter', 'ocp'); ?></h4>
 
 				<div class="js-subscribe">
 
 					<form class="flex-field" action="" method="post">
-						<input type="email" placeholder="Enter your email" name="email" required>
-						<button>Send</button>
+						<input type="email" placeholder="<?php _e('Enter your email', 'ocp'); ?>" name="email" required>
+						<button><?php _e('Send', 'ocp'); ?></button>
 					</form>
 
 				</div>
@@ -104,13 +104,13 @@
 
 				?>
 
-				<p class="blog__subscribe-follow">Follow us on <?php echo array_multi_implode(', ', ' &amp; ', $social_media); ?></p>
+				<p class="blog__subscribe-follow"><?php _e('Follow us on', 'ocp'); ?> <?php echo array_multi_implode(', ', ' &amp; ', $social_media); ?></p>
 
 			</div>
 
 			<div class="blog__recent-news / band">
 
-				<h4 class="border-top border-top--clean">Recent News</h4>
+				<h4 class="border-top border-top--clean"><?php _e('Recent News', 'ocp'); ?></h4>
 
 				<div class="blog__recent-news-items / cf">
 
@@ -137,7 +137,17 @@
 
 					$upcoming_events = new query_loop([
 						'post_type' => 'event',
-						'posts_per_page' => 1
+						'posts_per_page' => 1,
+						'orderby'    => 'meta_value_num',
+						'order'      => 'ASC',
+						'meta_key' => ' event_date',
+						'meta_query' => array(
+							array(
+								'key' => 'event_date',
+								'value' => date('Ymd'),
+								'compare' => '>='
+							),
+						)
 					]);
 
 				?>
@@ -170,7 +180,7 @@
 
 				<section>
 
-					<h4 class="border-top border-top--clean">Popular Tags</h4>
+					<h4 class="border-top border-top--clean"><?php _e('Popular Tags', 'ocp'); ?></h4>
 
 					<ul class="button__list">
 
