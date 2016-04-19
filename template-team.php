@@ -1,4 +1,8 @@
-<?php // page.php ?>
+<?php
+/**
+ * Template Name: Team
+ */
+?>
 
 <?php get_header(); ?>
 
@@ -87,7 +91,7 @@
 								</p>
 
 							<?php endif; ?>
-							
+
 							<?php the_sub_field('bio'); ?>
 
 						</div>
