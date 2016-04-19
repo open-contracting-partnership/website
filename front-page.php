@@ -200,11 +200,11 @@
 					<?php get_partial('post-object', 'homepage-filter'); ?>
 				<?php endif; ?>
 
-				<?php if ( load_post($latest_news, 1) ) : ?>
+				<?php if ( load_post($latest_news, 0) ) : ?>
 					<?php get_partial('post-object', 'homepage-filter'); ?>
 				<?php endif; ?>
 
-				<?php if ( load_post($latest_posts, 2) ) : ?>
+				<?php if ( load_post($latest_posts, 1) ) : ?>
 					<?php get_partial('post-object', 'homepage-filter'); ?>
 				<?php endif; ?>
 
