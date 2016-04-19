@@ -3622,7 +3622,7 @@ a.post-object--panel {
     content: '';
     display: block;
     position: absolute;
-    left: -18.2%;
+    left: -16.2%;
     top: 50%;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
