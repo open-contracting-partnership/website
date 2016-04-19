@@ -1,4 +1,8 @@
-<?php // page.php ?>
+<?php
+/**
+ * Template Name: Advisory Board
+ */
+?>
 
 <?php get_header(); ?>
 

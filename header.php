@@ -65,7 +65,7 @@
 
 				<div class="wrapper">
 
-					<a href="/" class="logo">
+					<a href="<?php echo get_home_url(); ?>" class="logo">
 
 						<svg>
 							<use xlink:href="#ocp-logo" />
@@ -73,7 +73,7 @@
 
 					</a>
 
-					<a href="/" class="logo--mobile">
+					<a href="<?php echo get_home_url(); ?>" class="logo--mobile">
 
 						<svg>
 							<use xlink:href="#ocp-logo-small" />
