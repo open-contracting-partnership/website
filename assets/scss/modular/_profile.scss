@@ -84,13 +84,30 @@
 
 }
 
+.team-member__meta {
+
+	display: flex;
+	align-items: center;
+	margin-bottom: 1em;
+
+	@include mq(M) {
+		margin-bottom: 2em;
+	}
+
+}
+
 .team-member__avatar {
 
-	@include span(1 of 6);
-	margin-bottom: em(38);
+	width: em(75);
+	margin-right: 1em;
+
+	@include mq(M) {
+		width: em(100)
+	}
 
 	@include mq(L) {
-		width: em(125);
+		width: em(150);
+		margin-right: 2em;
 	}
 
 	img {
@@ -101,17 +118,14 @@
 
 .team-member__name {
 
-	@include span(5 of 6 last);
-	padding: 0 ((span(1) / 2) + gutter());
-	margin-bottom: em(38);
+	@include mq(M) {
+		float: none;
+		width: auto;
+		padding: 0;
+	}
 
 	h3 {
 		margin: 0;
-	}
-
-	@include mq(M) {
-		@include span(6 of 6);
-		padding: 0;
 	}
 
 }
@@ -149,6 +163,10 @@
 	@include font-size(16);
 	color: color('mid-grey');
 	margin-top: .5em;
+
+	@include mq(M) {
+		margin-bottom: 0;
+	}
 
 	svg {
 		height: 1em;

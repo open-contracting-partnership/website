@@ -46,35 +46,39 @@
 
 					<div class="team-member" id="<?php echo sanitize_title(get_sub_field('name')); ?>">
 
-						<?php if ( $avatar = get_sub_field('image') ) : ?>
+						<div class="team-member__meta">
 
-							<div class="team-member__avatar">
-								<img src="<?php echo $avatar['sizes']['thumbnail']; ?>" />
-							</div>
+							<?php if ( $avatar = get_sub_field('image') ) : ?>
 
-						<?php endif; ?>
-
-						<div class="team-member__name">
-
-							<h3><?php the_sub_field('name'); ?></h3>
-
-							<?php if ( $twitter_name = get_sub_field('twitter_name') ) : ?>
-
-								<p class="profile__twitter">
-
-									<svg><use xlink:href="#icon-twitter"></use></svg>
-
-									<a href="https://www.twitter.com/<?php echo $twitter_name; ?>">
-										Follow me on Twitter
-									</a>
-
-								</p>
+								<div class="team-member__avatar">
+									<img src="<?php echo $avatar['sizes']['thumbnail']; ?>" />
+								</div>
 
 							<?php endif; ?>
 
-							<a href="#" class="team-member__view-bio">View profile</a>
+							<div class="team-member__name">
 
-						</div>
+								<h3><?php the_sub_field('name'); ?></h3>
+
+								<?php if ( $twitter_name = get_sub_field('twitter_name') ) : ?>
+
+									<p class="profile__twitter">
+
+										<svg><use xlink:href="#icon-twitter"></use></svg>
+
+										<a href="https://www.twitter.com/<?php echo $twitter_name; ?>">
+											Follow me on Twitter
+										</a>
+
+									</p>
+
+								<?php endif; ?>
+
+								<a href="#" class="team-member__view-bio">View profile</a>
+
+							</div>
+
+						</div> <!--  / .team-member__meta -->
 
 						<div class="team-member__bio">
 
