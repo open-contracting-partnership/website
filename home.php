@@ -104,7 +104,7 @@
 
 				?>
 
-				<p class="blog__subscribe-follow"><?php _e('Follow us on', 'ocp'); ?> <?php echo array_multi_implode(', ', ' &amp; ', $social_media); ?></p>
+				<p class="blog__subscribe-follow"><?php _e('Follow us on', 'ocp'); ?> <?php echo implode(', ', $social_media); ?>, <?php _e('or subscribe to the'); ?> <a href="/feed"><?php _e('feed'); ?></a></p>
 
 			</div>
 
