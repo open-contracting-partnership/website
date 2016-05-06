@@ -95,7 +95,11 @@
 
 							<h2><?php the_title(); ?></h2>
 
-							<?php the_excerpt(); ?>
+							<?php if ( $short_description = get_field('short_description') ) : ?>
+								<p><?php echo $short_description; ?></p>
+							<?php else : ?>
+								<?php the_excerpt(); ?>
+							<?php endif; ?>
 
 							<a href="<?php the_permalink(); ?>" class="button button--padded">View Blog</a>
 
