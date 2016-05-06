@@ -3371,6 +3371,14 @@ a.post-object--panel {
   padding: .35714em .57143em;
   display: inline-block; }
 
+@media screen and (min-width: 1024px) {
+  .single-post .post-content .wp-post-image,
+  .single-news .post-content .wp-post-image {
+    max-width: none;
+    width: 110%;
+    margin-left: -5%;
+    margin-right: -5%; } }
+
 .single-post h1,
 .single-news h1 {
   color: #FFF;

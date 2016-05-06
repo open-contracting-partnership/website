@@ -16,14 +16,11 @@
 			<section class="post-content">
 
 				<div class="blog__author-meta">
-
 					<p class="blog__mobile-date"><?php _e('Written By', 'ocp'); ?> <?php the_authors(TRUE); ?>, <datetime><?php the_date(); ?></datetime></p>
-
 				</div>
 
-
 				<?php if ( has_post_thumbnail() ) : ?>
-					<?php the_post_thumbnail(); ?>
+					<?php the_post_thumbnail('16x9_768'); ?>
 				<?php endif; ?>
 
 				<?php the_content(); ?>
