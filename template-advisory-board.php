@@ -71,18 +71,22 @@
 
 					<div class="team-member" id="<?php echo sanitize_title(get_sub_field('name')); ?>">
 
-						<?php if ( $avatar = get_sub_field('image') ) : ?>
+						<div class="team-member__meta">
 
-							<div class="team-member__avatar">
-								<img src="<?php echo $avatar['sizes']['thumbnail']; ?>" />
+							<?php if ( $avatar = get_sub_field('image') ) : ?>
+
+								<div class="team-member__avatar">
+									<img src="<?php echo $avatar['sizes']['thumbnail']; ?>" />
+								</div>
+
+							<?php endif; ?>
+
+							<div class="team-member__name">
+								<h3><?php the_sub_field('name'); ?></h3>
+								<a href="#" class="team-member__view-bio">View profile</a>
 							</div>
-
-						<?php endif; ?>
-
-						<div class="team-member__name">
-							<h3><?php the_sub_field('name'); ?></h3>
-							<a href="#" class="team-member__view-bio">View profile</a>
-						</div>
+	
+						</div> <!--  / .team-member__meta -->
 
 						<div class="team-member__bio">
 
