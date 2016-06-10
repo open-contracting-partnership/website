@@ -63,7 +63,7 @@
 							<label v-for="resource_type in resource_types">
 								<input type="checkbox" value="{{ resource_type.slug }}" v-model="filter_resource_type" />
 								<span><svg><use xlink:href="#icon-close"></svg></span>
-								{{ resource_type.name }}
+								{{{ resource_type.name }}}
 							</label>
 
 						</div>
