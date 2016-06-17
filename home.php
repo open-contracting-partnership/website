@@ -230,8 +230,6 @@
 
 	</div> <!-- / .wrapper -->
 
-	<script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
-
 	<template id="post-template">
 
 		<div class="post-object__media">
