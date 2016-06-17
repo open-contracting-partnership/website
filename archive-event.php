@@ -170,8 +170,6 @@
 
 			</template>
 
-			<script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
-
 			<script>
 
 				// register the grid component
