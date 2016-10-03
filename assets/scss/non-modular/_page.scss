@@ -108,3 +108,15 @@
 		}
 	}
 }
+
+ //**********
+// WORLDWIDE
+
+.worldwide-intro {
+	clear: both;
+
+	@include mq(M) {
+		margin-left: 8.41121%;
+	    max-width: 60%;
+	}
+}
