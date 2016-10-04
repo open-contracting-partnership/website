@@ -10,9 +10,13 @@
 
 			<?php get_partial('page', 'title'); ?>
 
-			<blockquote class="worldwide-intro">
-				<p>Explore where open contracting is taking hold. Who is publishing open contracting data. Who has committed to implementing data. And how is open data being used.</p>
-			</blockquote>
+			<?php if ( get_field('introduction') ) : ?>
+
+				<blockquote class="worldwide-intro">
+					<?php the_field('introduction'); ?>
+				</blockquote>
+
+			<?php endif; ?>
 
 		</div>
 
