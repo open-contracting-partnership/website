@@ -11,7 +11,7 @@
 			<?php get_partial('page', 'title'); ?>
 
 			<blockquote class="worldwide-intro">
-				<p>We work across sectors and along the whole process of government contracting to use the power of open data to save governments money and time, deliver better goods and services for citizens, prevent corruption, and to create a better business environment for all.</p>
+				<p>Explore where open contracting is taking hold. Who is publishing open contracting data. Who has committed to implementing data. And how is open data being used.</p>
 			</blockquote>
 
 		</div>
