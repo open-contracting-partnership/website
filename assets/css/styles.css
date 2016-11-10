@@ -3802,6 +3802,85 @@ a.post-object--panel {
     position: relative;
     z-index: 1; }
 
+.homepage-stories {
+  font-size: 22px;
+  font-size: 1.1rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .homepage-stories > * {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 50%;
+        -ms-flex: 1 1 50%;
+            flex: 1 1 50%; }
+
+.homepage-story {
+  padding: 2.72727em 1.36364em;
+  background-size: cover;
+  background-position: 50% 50%; }
+  .homepage-story a {
+    color: inherit; }
+
+.homepage-story__right {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  .homepage-story__right > * {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto; }
+  @media screen and (min-width: 1240px) {
+    .homepage-story__right {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+          -ms-flex-direction: row;
+              flex-direction: row; }
+      .homepage-story__right > * {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 0 50%;
+            -ms-flex: 1 0 50%;
+                flex: 1 0 50%; } }
+
+.homepage-story__right-top {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  @media screen and (min-width: 1240px) {
+    .homepage-story__right-top {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column; } }
+  .homepage-story__right-top > * {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 50%;
+        -ms-flex: 1 1 50%;
+            flex: 1 1 50%; }
+
+.homepage-story--1 {
+  padding: 2.72727em;
+  background-color: #B6C505; }
+
+.homepage-story--2 {
+  background-color: #23B2A7; }
+
+.homepage-story--3 {
+  background-color: #6c75e1; }
+
+.homepage-story--4 {
+  background-color: #FB6045; }
+
 .homepage-cta {
   font-size: 25px;
   font-size: 1.25rem;

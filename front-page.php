@@ -4,19 +4,73 @@
 
 	<?php the_post(); ?>
 
-	<div class="homepage-hero">
+	<?php
 
-		<div class="wrapper">
+		function article_image($field) {
+			echo 'http://ocp.imgix.net' . parse_url(get_field($field))['path'];
+		}
 
-			<div class="homepage-cta">
-				<p><?php the_field('strapline'); ?></p>
+	?>
+
+	<section class="homepage-contracting / band band--thick / island island--thick island--dark">
+
+		<div class="wrapper ">
+
+			<div class="homepage-stories / band--thick">
+
+				<div class="homepage-story homepage-story--1" style="background-image: url('<?php echo article_image('first_article_article_0_image'); ?>?blend=B8C600&amp;bm=normal&amp;balph=60')">
+
+					<a href="<?php the_field('first_article_article_0_link'); ?>">
+						<h2><?php the_field('first_article_article_0_title'); ?></h2>
+					</a>
+
+					<?php the_field('first_article_article_0_content'); ?>
+
+					<p><a href="<?php the_field('first_article_article_0_link'); ?>" class="button button--padded">View Post</a></p>
+
+				</div>
+
+				<div class="homepage-story__right">
+
+					<div class="homepage-story__right-top">
+
+						<div class="homepage-story homepage-story--2" style="background-image: url('<?php echo article_image('second_article_article_0_image'); ?>?blend=00BCAD&amp;bm=normal&amp;balph=60')">
+
+							<a href="<?php the_field('second_article_article_0_link'); ?>">
+								<h3><?php the_field('second_article_article_0_title'); ?></h3>
+							</a>
+
+							<?php the_field('second_article_article_0_content'); ?>
+
+						</div>
+
+						<div class="homepage-story homepage-story--3" style="background-image: url('<?php echo article_image('fourth_article_article_0_image'); ?>?blend=6C75E1&amp;bm=normal&amp;balph=60')">
+
+							<a href="<?php the_field('third_article_article_0_link'); ?>">
+								<h3><?php the_field('third_article_article_0_title'); ?></h3>
+							</a>
+
+							<?php the_field('third_article_article_0_content'); ?>
+
+						</div>
+
+					</div>
+
+					<div class="homepage-story homepage-story--4" style="background-image: url('<?php echo article_image('fourth_article_article_0_image'); ?>?blend=FC4E2F&amp;bm=normal&amp;balph=60')">
+
+						<a href="<?php the_field('fourth_article_article_0_link'); ?>">
+							<h3><?php the_field('fourth_article_article_0_title'); ?></h3>
+						</a>
+
+						<?php the_field('fourth_article_article_0_content'); ?>
+
+					</div>
+
+				</div>
+
 			</div>
 
 		</div>
-
-	</div>
-
-	<section class="homepage-contracting / band band--thick / island island--thick island--dark">
 
 		<div class="wrapper">
 
