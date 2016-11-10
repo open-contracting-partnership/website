@@ -4291,6 +4291,13 @@ a.post-object--panel {
       padding: 0 .7% 0 0;
       border: 0; } }
 
+.worldwide-intro {
+  clear: both; }
+  @media screen and (min-width: 810px) {
+    .worldwide-intro {
+      margin-left: 8.41121%;
+      max-width: 60%; } }
+
 .resources-overview header {
   background-color: #23B2A7; }
 
