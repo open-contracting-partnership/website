@@ -3802,25 +3802,54 @@ a.post-object--panel {
     position: relative;
     z-index: 1; }
 
+.homepage-stories__wrapper {
+  background-color: #323238;
+  overflow: hidden; }
+  .homepage-stories__wrapper .wrapper {
+    padding: 0; }
+
 .homepage-stories {
   font-size: 22px;
   font-size: 1.1rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
-  .homepage-stories > * {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 1 50%;
-        -ms-flex: 1 1 50%;
-            flex: 1 1 50%; }
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  @media screen and (min-width: 768px) {
+    .homepage-stories {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+          -ms-flex-direction: row;
+              flex-direction: row; }
+      .homepage-stories > * {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 1 50%;
+            -ms-flex: 1 1 50%;
+                flex: 1 1 50%; } }
 
 .homepage-story {
-  padding: 2.72727em 1.36364em;
+  padding: 0.90909em;
   background-size: cover;
   background-position: 50% 50%; }
+  @media screen and (min-width: 768px) {
+    .homepage-story {
+      padding: 2.72727em 1.36364em; } }
   .homepage-story a {
     color: inherit; }
+  .homepage-story > *:last-child {
+    margin-bottom: 0; }
+
+.homepage-story__content {
+  display: none; }
+  @media screen and (min-width: 768px) {
+    .homepage-story__content {
+      display: block; } }
 
 .homepage-story__right {
   display: -webkit-box;
@@ -3869,8 +3898,11 @@ a.post-object--panel {
             flex: 1 1 50%; }
 
 .homepage-story--1 {
-  padding: 2.72727em;
+  padding: 1.81818em 0.90909em;
   background-color: #B6C505; }
+  @media screen and (min-width: 810px) {
+    .homepage-story--1 {
+      padding: 2.72727em; } }
 
 .homepage-story--2 {
   background-color: #23B2A7; }
@@ -3879,7 +3911,27 @@ a.post-object--panel {
   background-color: #6c75e1; }
 
 .homepage-story--4 {
+  padding: 1.81818em 0.90909em;
   background-color: #FB6045; }
+  @media screen and (min-width: 810px) {
+    .homepage-story--4 {
+      padding: 2.72727em; } }
+
+.homepage-story--2,
+.homepage-story--3,
+.homepage-story--4 {
+  min-height: 200px; }
+  @media screen and (min-width: 768px) {
+    .homepage-story--2,
+    .homepage-story--3,
+    .homepage-story--4 {
+      min-height: none; } }
+  .homepage-story--2 h2, .homepage-story--2 h3,
+  .homepage-story--3 h2,
+  .homepage-story--3 h3,
+  .homepage-story--4 h2,
+  .homepage-story--4 h3 {
+    margin-bottom: 0; }
 
 .homepage-cta {
   font-size: 25px;

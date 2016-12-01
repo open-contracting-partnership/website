@@ -12,11 +12,11 @@
 
 	?>
 
-	<section class="homepage-contracting / band band--thick / island island--thick island--dark">
+	<div class="homepage-stories__wrapper">
 
-		<div class="wrapper ">
+		<div class="wrapper / band--thick">
 
-			<div class="homepage-stories / band--thick">
+			<div class="homepage-stories">
 
 				<div class="homepage-story homepage-story--1" style="background-image: url('<?php echo article_image('first_article_article_0_image'); ?>?blend=B8C600&amp;bm=normal&amp;balph=60')">
 
@@ -24,7 +24,9 @@
 						<h2><?php the_field('first_article_article_0_title'); ?></h2>
 					</a>
 
-					<?php the_field('first_article_article_0_content'); ?>
+					<div class="homepage-story__content">
+						<?php the_field('first_article_article_0_content'); ?>
+					</div>
 
 					<p><a href="<?php the_field('first_article_article_0_link'); ?>" class="button button--padded">View Post</a></p>
 
@@ -59,7 +61,7 @@
 					<div class="homepage-story homepage-story--4" style="background-image: url('<?php echo article_image('fourth_article_article_0_image'); ?>?blend=FC4E2F&amp;bm=normal&amp;balph=60')">
 
 						<a href="<?php the_field('fourth_article_article_0_link'); ?>">
-							<h3><?php the_field('fourth_article_article_0_title'); ?></h3>
+							<h2><?php the_field('fourth_article_article_0_title'); ?></h2>
 						</a>
 
 						<?php the_field('fourth_article_article_0_content'); ?>
@@ -70,7 +72,11 @@
 
 			</div>
 
-		</div>
+		</div> <!-- / .wrapper -->
+
+	</div>
+
+	<section class="homepage-contracting / band band--thick / island island--thick island--dark">
 
 		<div class="wrapper">
 
