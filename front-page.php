@@ -4,15 +4,75 @@
 
 	<?php the_post(); ?>
 
-	<div class="homepage-hero">
+	<?php
 
-		<div class="wrapper">
+		function article_image($field) {
+			echo 'http://ocp.imgix.net' . parse_url(get_field($field))['path'];
+		}
 
-			<div class="homepage-cta">
-				<p><?php the_field('strapline'); ?></p>
+	?>
+
+	<div class="homepage-stories__wrapper">
+
+		<div class="wrapper / band--thick">
+
+			<div class="homepage-stories">
+
+				<div class="homepage-story homepage-story--1" style="background-image: url('<?php echo article_image('first_article_article_0_image'); ?>?blend=B8C600&amp;bm=normal&amp;balph=60')">
+
+					<a href="<?php the_field('first_article_article_0_link'); ?>">
+						<h2><?php the_field('first_article_article_0_title'); ?></h2>
+					</a>
+
+					<div class="homepage-story__content">
+						<?php the_field('first_article_article_0_content'); ?>
+					</div>
+
+					<p><a href="<?php the_field('first_article_article_0_link'); ?>" class="button button--padded">View Post</a></p>
+
+				</div>
+
+				<div class="homepage-story__right">
+
+					<div class="homepage-story__right-top">
+
+						<div class="homepage-story homepage-story--2" style="background-image: url('<?php echo article_image('second_article_article_0_image'); ?>?blend=00BCAD&amp;bm=normal&amp;balph=60')">
+
+							<a href="<?php the_field('second_article_article_0_link'); ?>">
+								<h3><?php the_field('second_article_article_0_title'); ?></h3>
+							</a>
+
+							<?php the_field('second_article_article_0_content'); ?>
+
+						</div>
+
+						<div class="homepage-story homepage-story--3" style="background-image: url('<?php echo article_image('fourth_article_article_0_image'); ?>?blend=6C75E1&amp;bm=normal&amp;balph=60')">
+
+							<a href="<?php the_field('third_article_article_0_link'); ?>">
+								<h3><?php the_field('third_article_article_0_title'); ?></h3>
+							</a>
+
+							<?php the_field('third_article_article_0_content'); ?>
+
+						</div>
+
+					</div>
+
+					<div class="homepage-story homepage-story--4" style="background-image: url('<?php echo article_image('fourth_article_article_0_image'); ?>?blend=FC4E2F&amp;bm=normal&amp;balph=60')">
+
+						<a href="<?php the_field('fourth_article_article_0_link'); ?>">
+							<h2><?php the_field('fourth_article_article_0_title'); ?></h2>
+						</a>
+
+						<?php the_field('fourth_article_article_0_content'); ?>
+
+					</div>
+
+				</div>
+
 			</div>
 
-		</div>
+		</div> <!-- / .wrapper -->
 
 	</div>
 
@@ -48,88 +108,6 @@
 		</div>
 
 	</section> <!-- stat-modules -->
-
-	<section class="band band--thick">
-
-		<div class="wrapper--inner">
-
-			<div class="cta-block__container">
-
-				<div class="cta-block cta-block--report cta-block--brand">
-
-					<?php if ( $spotlight_image = get_field('spotlight_image') ) : ?>
-						<img src="<?php echo $spotlight_image['url']; ?>" />
-					<?php endif; ?>
-
-					<?php if ( get_field('spotlight_enabled') ) : ?>
-
-						<h2><?php the_field('spotlight_title'); ?></h2>
-						<p><?php the_field('spotlight_content'); ?></p>
-
-						<?php if ( $cta_link = get_field('spotlight_cta_link') ) : ?>
-
-							<?php if ( $cta_link[0]['type'] === 'link' ) : ?>
-								<p><a href="<?php echo $cta_link[0]['link']; ?>" class="button"><?php echo $cta_link[0]['label']; ?></a></p>
-							<?php else : ?>
-								<p><a href="<?php echo $cta_link[0]['file']; ?>" class="button"><?php echo $cta_link[0]['label']; ?></a></p>
-							<?php endif; ?>
-
-						<?php endif; ?>
-
-					<?php else : ?>
-
-						<?php
-
-							$temp_post = new query_loop([
-								'post_type' => 'post',
-								'posts_per_page' => 1
-							]);
-
-							$temp_post = $temp_post->query->posts;
-
-						?>
-
-						<?php if ( load_post($temp_post, 0) ) : ?>
-
-							<time><?php OCP::the_date(); ?></time>
-
-							<h2><?php the_title(); ?></h2>
-
-							<?php if ( $short_description = get_field('short_description') ) : ?>
-								<p><?php echo $short_description; ?></p>
-							<?php else : ?>
-								<?php the_excerpt(); ?>
-							<?php endif; ?>
-
-							<a href="<?php the_permalink(); ?>" class="button button--padded">View Blog</a>
-
-						<?php endif; /* AND */ wp_reset_postdata(); ?>
-
-					<?php endif; ?>
-
-				</div>
-
-				<div class="cta-block cta-block--background">
-
-					<?php if ( $implement_image = get_field('implement_image') ) : ?>
-						<img src="<?php echo $implement_image['url']; ?>" />
-					<?php endif; ?>
-
-					<h2><?php the_field('implement_title'); ?></h2>
-
-					<p><?php the_field('implement_content'); ?></p>
-
-					<?php if ( have_rows('implement_links') ) while ( have_rows('implement_links') ) : the_row(); ?>
-						<div><a href="<?php the_sub_field('link_address'); ?>" class="button"><?php the_sub_field('link_title'); ?></a></div>
-					<?php endwhile; ?>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</section>
 
 	<div class="wrapper">
 
