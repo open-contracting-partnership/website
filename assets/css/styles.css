@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 
 Atomic design is philosophically complimentary with these CSS approaches:
@@ -3629,6 +3630,15 @@ a.post-object--panel {
   font-size: 18px;
   font-size: 0.9rem;
   color: #4D4D54; }
+
+.contracts-table th.header {
+  cursor: pointer; }
+
+.contracts-table th.headerSortUp:after {
+  content: ' ▼'; }
+
+.contracts-table th.headerSortDown:after {
+  content: ' ▲'; }
 
 .post-object--event-clickable .post-object__media {
   background-color: #4D4D54;
