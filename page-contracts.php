@@ -10,7 +10,7 @@
 
 			<?php get_partial('page', 'title'); ?>
 
-			<section>
+			<article class="page-content cf">
 
 				<?php the_content(); ?>
 
@@ -21,6 +21,10 @@
 					$contracts = $wpdb->get_results('SELECT * FROM ocp_contracts');
 
 				?>
+
+			</article>
+
+			<section>
 
 				<?php if ( $contracts ) : ?>
 
