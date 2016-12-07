@@ -18,7 +18,7 @@
 
 			<div class="homepage-stories">
 
-				<div class="homepage-story homepage-story--1" style="background-image: url('<?php echo article_image('first_article_article_0_image'); ?>?blend=B8C600&amp;bm=normal&amp;balph=80')">
+				<div class="homepage-story homepage-story--1" style="background-image: url('<?php echo article_image('first_article_article_0_image'); ?>?blend=B8C600&amp;bm=normal&amp;balph=80&amp;fm=pjpg&amp;fit=max&amp;w=768')">
 
 					<a href="<?php the_field('first_article_article_0_link'); ?>">
 						<h2><?php the_field('first_article_article_0_title'); ?></h2>
@@ -36,7 +36,7 @@
 
 					<div class="homepage-story__right-top">
 
-						<div class="homepage-story homepage-story--2" style="background-image: url('<?php echo article_image('second_article_article_0_image'); ?>?blend=00BCAD&amp;bm=normal&amp;balph=80')">
+						<div class="homepage-story homepage-story--2" style="background-image: url('<?php echo article_image('second_article_article_0_image'); ?>?blend=00BCAD&amp;bm=normal&amp;balph=80&amp;fm=pjpg&amp;fit=max&amp;w=385')">
 
 							<a href="<?php the_field('second_article_article_0_link'); ?>">
 								<h3><?php the_field('second_article_article_0_title'); ?></h3>
@@ -46,7 +46,7 @@
 
 						</div>
 
-						<div class="homepage-story homepage-story--3" style="background-image: url('<?php echo article_image('third_article_article_0_image'); ?>?blend=6C75E1&amp;bm=normal&amp;balph=80')">
+						<div class="homepage-story homepage-story--3" style="background-image: url('<?php echo article_image('third_article_article_0_image'); ?>?blend=6C75E1&amp;bm=normal&amp;balph=80&amp;fm=pjpg&amp;fit=max&amp;w=385')">
 
 							<a href="<?php the_field('third_article_article_0_link'); ?>">
 								<h3><?php the_field('third_article_article_0_title'); ?></h3>
@@ -58,7 +58,7 @@
 
 					</div>
 
-					<div class="homepage-story homepage-story--4" style="background-image: url('<?php echo article_image('fourth_article_article_0_image'); ?>?blend=FC4E2F&amp;bm=normal&amp;balph=80')">
+					<div class="homepage-story homepage-story--4" style="background-image: url('<?php echo article_image('fourth_article_article_0_image'); ?>?blend=FC4E2F&amp;bm=normal&amp;balph=80&amp;fm=pjpg&amp;fit=max&amp;w=768')">
 
 						<a href="<?php the_field('fourth_article_article_0_link'); ?>">
 							<h2><?php the_field('fourth_article_article_0_title'); ?></h2>
