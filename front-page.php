@@ -46,7 +46,7 @@
 
 						</div>
 
-						<div class="homepage-story homepage-story--3" style="background-image: url('<?php echo article_image('fourth_article_article_0_image'); ?>?blend=6C75E1&amp;bm=normal&amp;balph=80')">
+						<div class="homepage-story homepage-story--3" style="background-image: url('<?php echo article_image('third_article_article_0_image'); ?>?blend=6C75E1&amp;bm=normal&amp;balph=80')">
 
 							<a href="<?php the_field('third_article_article_0_link'); ?>">
 								<h3><?php the_field('third_article_article_0_title'); ?></h3>
