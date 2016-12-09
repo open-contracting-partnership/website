@@ -45,15 +45,7 @@ function fetch_contracts() {
 	// remove any previous contracts from the table
 	$wpdb->query('TRUNCATE TABLE ocp_contracts');
 
-	// temp, to be replaced by a feed of contracts
-	$contract_ids = array(
-		'ocds-azam7x-4tli5hdc-ocp',
-		'ocds-azam7x-4tli5hdc-ocp',
-		'ocds-azam7x-4tli5hdc-ocp',
-		'ocds-azam7x-4tli5hdc-ocp',
-		'ocds-azam7x-4tli5hdc-ocp'
-	);
-
+	// fetch the primary contracts feed
 	$contracts = @file_get_contents('http://contracts.open-contracting.org/raw/ocp/');
 	$contracts = json_decode($contracts);
 
