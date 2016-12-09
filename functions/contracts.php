@@ -28,7 +28,7 @@ function fetch_contracts() {
 	// just in case the table doesn't exist, re-create it
 	$wpdb->query("CREATE TABLE IF NOT EXISTS `ocp_contracts` (
 	  `ocid` varchar(255) NOT NULL DEFAULT '',
-	  `supplier_name` varchar(255) NOT NULL DEFAULT '',
+	  `supplier_name` varchar(255) DEFAULT NULL,
 	  `contract_title` varchar(255) DEFAULT NULL,
 	  `contract_status` varchar(255) DEFAULT NULL,
 	  `contract_start_date` date DEFAULT NULL,
@@ -54,13 +54,21 @@ function fetch_contracts() {
 		'ocds-azam7x-4tli5hdc-ocp'
 	);
 
+	$contracts = @file_get_contents('http://contracts.open-contracting.org/raw/ocp/');
+	$contracts = json_decode($contracts);
+
+	// ignore falsey responses
+	if ( ! $contracts ) {
+		return;
+	}
+
 	// loop through the contracts
-	foreach ( $contract_ids as $contract_id ) {
+	foreach ( $contracts as $contract_data ) {
 
 		// fetch the contract information
 		// we want to supress any errors too
 
-		$contract = @file_get_contents('http://contracts.open-contracting.org/raw/ocp/' . $contract_id . '/');
+		$contract = @file_get_contents($contract_data->releaseUrl);
 		$contract = json_decode($contract);
 
 		// ignore falsey responses
@@ -70,7 +78,7 @@ function fetch_contracts() {
 
 		// insert the contracts into the table
 		$wpdb->insert('ocp_contracts', [
-			'ocid' => $contract_id . rand(000, 999),
+			'ocid' => $contract->releases[0]->ocid,
 			'supplier_name' => $contract->releases[0]->awards[0]->suppliers[0]->name,
 			'contract_title' => $contract->releases[0]->contracts[0]->title,
 			'contract_status' => $contract->releases[0]->contracts[0]->status,
@@ -86,4 +94,8 @@ function fetch_contracts() {
 
 	}
 
+}
+
+if ( isset($_GET['reset_contracts']) ) {
+	fetch_contracts();
 }
