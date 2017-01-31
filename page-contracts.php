@@ -1,4 +1,10 @@
-<?php // page.php ?>
+<?php // page.php
+
+	if ( isset($_GET['reset_contracts']) ) {
+		header('Location: /contracts/');
+	}
+
+?>
 
 <?php get_header(); ?>
 
@@ -11,6 +17,12 @@
 			<?php get_partial('page', 'title'); ?>
 
 			<article class="page-content cf">
+
+				<?php if ( current_user_can('administrator') ) : ?>
+
+					<p><strong>Admin Only:</strong> <a href="/contracts/?reset_contracts">update contract data</a></p>
+
+				<?php endif; ?>
 
 				<?php the_content(); ?>
 
@@ -49,13 +61,13 @@
 							<?php foreach ( $contracts as $contract ) : ?>
 
 								<tr>
-									<td><?php echo $contract->supplier_name; ?></td>
-									<td><?php echo $contract->contract_title; ?></td>
-									<td><?php echo ucwords($contract->contract_status); ?></td>
-									<td><?php echo $contract->contract_start_date; ?></td>
-									<td><?php echo $contract->contract_end_date; ?></td>
-									<td><?php echo number_format($contract->contract_amount * rand()); ?></td>
-									<td><?php echo $contract->contract_currency; ?></td>
+									<td><?php echo $contract->supplier_name ? $contract->supplier_name : '-'; ?></td>
+									<td><?php echo $contract->contract_title ? $contract->contract_title : '-' ?></td>
+									<td><?php echo $contract->contract_status ? ucwords($contract->contract_status) : '-' ?></td>
+									<td><?php echo $contract->contract_start_date ? $contract->contract_start_date : '-' ?></td>
+									<td><?php echo $contract->contract_end_date ? $contract->contract_end_date : '-' ?></td>
+									<td><?php echo $contract->contract_amount ? number_format($contract->contract_amount) : '-' ?></td>
+									<td><?php echo $contract->contract_currency ? $contract->contract_currency : '-' ?></td>
 								</tr>
 
 							<?php endforeach; ?>
