@@ -1,4 +1,10 @@
-<?php // page.php ?>
+<?php // page.php
+
+	if ( isset($_GET['reset_contracts']) ) {
+		header('Location: /contracts/');
+	}
+
+?>
 
 <?php get_header(); ?>
 
@@ -11,6 +17,12 @@
 			<?php get_partial('page', 'title'); ?>
 
 			<article class="page-content cf">
+
+				<?php if ( current_user_can('administrator') ) : ?>
+
+					<p><strong>Admin Only:</strong> <a href="/contracts/?reset_contracts">update contract data</a></p>
+
+				<?php endif; ?>
 
 				<?php the_content(); ?>
 
