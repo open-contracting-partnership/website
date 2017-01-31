@@ -1,11 +1,5 @@
 <?php
 
-if ( ! wp_next_scheduled('fetch_contracts_hook') ) {
-	wp_schedule_event(time(), 'daily', 'fetch_contracts_hook');
-}
-
-add_action('fetch_contracts_hook', 'fetch_contracts');
-
 function date_filter($date) {
 
 	// format the date given the incoming format
