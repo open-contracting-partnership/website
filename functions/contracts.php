@@ -17,6 +17,15 @@ function date_filter($date) {
 
 function fetch_contracts() {
 
+	// fetch the primary contracts feed
+	$contracts = @file_get_contents('http://contracts.open-contracting.org/raw/ocp/');
+	$contracts = json_decode($contracts);
+
+	// if the contracts response is empty, don't continue
+	if ( ! $contracts ) {
+		return;
+	}
+
 	global $wpdb;
 
 	// just in case the table doesn't exist, re-create it
@@ -39,22 +48,13 @@ function fetch_contracts() {
 	// remove any previous contracts from the table
 	$wpdb->query('TRUNCATE TABLE ocp_contracts');
 
-	// fetch the primary contracts feed
-	$contracts = @file_get_contents('http://contracts.open-contracting.org/raw/ocp/');
-	$contracts = json_decode($contracts);
-
-	// ignore falsey responses
-	if ( ! $contracts ) {
-		return;
-	}
-
 	// loop through the contracts
-	foreach ( $contracts as $contract_data ) {
+	foreach ( $contracts as $contract_meta ) {
 
 		// fetch the contract information
 		// we want to supress any errors too
 
-		$contract = @file_get_contents($contract_data->releaseUrl);
+		$contract = @file_get_contents($contract_meta->releaseUrl);
 		$contract = json_decode($contract);
 
 		// ignore falsey responses
