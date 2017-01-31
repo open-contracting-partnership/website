@@ -64,7 +64,7 @@ function fetch_contracts() {
 
 		// insert the contracts into the table
 		$wpdb->insert('ocp_contracts', [
-			'ocid' => $contract->releases[0]->ocid,
+			'ocid' => $contract_meta->id,
 			'supplier_name' => $contract->releases[0]->awards[0]->suppliers[0]->name,
 			'contract_title' => $contract->releases[0]->contracts[0]->title,
 			'contract_status' => $contract->releases[0]->contracts[0]->status,
