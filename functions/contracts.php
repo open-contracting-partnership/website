@@ -70,7 +70,7 @@ function fetch_contracts() {
 			'contract_status' => $contract->releases[0]->contracts[0]->status,
 			'contract_start_date' => date_filter($contract->releases[0]->contracts[0]->period->startDate),
 			'contract_end_date' => date_filter($contract->releases[0]->contracts[0]->period->endDate),
-			'contract_amount' => $contract->releases[0]->contracts[0]->value->amount,
+			'contract_amount' => str_replace(',', '', $contract->releases[0]->contracts[0]->value->amount),
 			'contract_currency' => $contract->releases[0]->contracts[0]->value->currency,
 			'tender_status' => $contract->releases[0]->tender->status,
 			'tender_title' => $contract->releases[0]->tender->title,
