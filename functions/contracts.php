@@ -62,6 +62,10 @@ function fetch_contracts() {
 			continue;
 		}
 
+		if ( ! isset($contract->releases[0]->contracts) ) {
+			continue;
+		}
+
 		// insert the contracts into the table
 		$wpdb->insert('ocp_contracts', [
 			'ocid' => $contract_meta->id,
