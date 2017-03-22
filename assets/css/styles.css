@@ -1168,7 +1168,7 @@ th {
 .search--active .header-search svg {
   fill: #424244; }
 
-.wpml-ls-legacy-dropdown {
+.site-header .wpml-ls-legacy-dropdown {
   font-size: 12px;
   font-size: 0.6rem;
   max-width: 10em; }
