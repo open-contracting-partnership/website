@@ -243,7 +243,8 @@
 	fill: color('body');
 }
 
-.wpml-ls-legacy-dropdown {
+// extra specificity to overrule pluging styles
+.site-header .wpml-ls-legacy-dropdown {
 	@include font-size(12);
 	max-width: 10em;
 }
