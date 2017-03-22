@@ -242,3 +242,8 @@
 .search--active .header-search svg {
 	fill: color('body');
 }
+
+.wpml-ls-legacy-dropdown {
+	@include font-size(12);
+	max-width: 10em;
+}
