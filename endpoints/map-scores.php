@@ -9,10 +9,11 @@ if ( $wp_did_header !== TRUE ) {
 header('HTTP/1.1 200 OK');
 header('Content-Type: application/json');
 
-if ( get_transient('map-scores') ) {
-	echo get_transient('map-scores');
-} else {
+$data = get_transient('map-scores');
+
+if ( $data === false ) {
 	$data = file_get_contents('https://index.okfn.org/api/entries.json');
-	set_transient( 'map-scores', $data, HOUR_IN_SECONDS );
-	echo $data;
+	set_transient('map-scores', $data, HOUR_IN_SECONDS);
 }
+
+echo $data;
