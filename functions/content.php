@@ -273,7 +273,7 @@ function share_links() {
 	$title = urlencode(trim(wp_title('', FALSE)));
 
 	return (object) array(
-		'twitter' => "http://twitter.com/home?status={$title} - {$url}",
+		'twitter' => "https://twitter.com/home?status={$title} - {$url}",
 		'facebook' => "https://www.facebook.com/sharer/sharer.php?u={$url}",
 		'linkedin' => "https://www.linkedin.com/cws/share?url={$url}",
 		'email' => "mailto:?subject={$title}&amp;body=Hi,%0D%0A%0D%0AI thought you would be interested in this article on Open Contracting: {$title} – {$url}"
