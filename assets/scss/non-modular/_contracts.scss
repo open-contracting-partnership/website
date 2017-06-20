@@ -1,0 +1,16 @@
+.contracts-table {
+
+	// table sorted class
+	th.header {
+		cursor: pointer;
+	}
+
+	th.headerSortUp:after {
+		content: ' ▼';
+	}
+
+	th.headerSortDown:after {
+		content: ' ▲';
+	}
+
+}

@@ -1,0 +1,143 @@
+.post-object--event-clickable .post-object__media {
+	background-color: color('background');
+	transition: background-color .1s linear;
+}
+
+.post-object--event-clickable {
+	position: relative;
+	cursor: pointer;
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		left: -16.2%;
+		top: 50%;
+		transform: translateY(-50%);
+		background: color('white');
+		box-shadow: 0 0 0 3px color('white'), 0 0 0 4px color('lightest-grey');
+		border: 0 solid color('blue');
+		height: 1em;
+		width: 1em;
+		border-radius: 50%;
+		transition: border-width .1s linear;
+	}
+
+	&.active {
+
+		&:before {
+			border-width: .5em;
+		}
+
+		.post-object__media {
+			background-color: color('blue');
+		}
+	}
+}
+
+.post-type-archive-event .archive-content__posts {
+
+	@include mq(L) {
+		@include span(5 of 12 first);
+		padding-left: span(1 of 12) / 1.5;
+		border-left: 1px solid color('lightest-grey');
+	}
+
+}
+
+.archive-event__view {
+	display: none;
+
+	@include mq(L) {
+		@include span(6 of 12 at 5);
+		display: block;
+		padding-left: span(1 of 12) / 2;
+		border-left: 1px solid color('lightest-grey');
+	}
+}
+
+.open-event {
+
+	h1 {
+		@include font-size(32);
+		margin-bottom: em(20, 32);
+	}
+
+	.event__meta {
+		@include font('secondary');
+		@include font-size(14);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: color('off-grey');
+
+		span {
+			@include font('secondary', 'bold');
+			color: color('dark-background');
+		}
+	}
+
+	hr {
+		border-color: color('lightest-grey');
+	}
+
+	p {
+		@include font-size(18);
+	}
+}
+
+.event__title {
+	@include font-size(20);
+	padding-bottom: em(15);
+	border-bottom: 10px solid color('blue');
+	margin-bottom: em(28);
+	width: 90%;
+
+	svg {
+		width: em(48);
+		height: em(48);
+		stroke: color('blue');
+	}
+
+	time {
+		@include font('secondary', 'medium');
+		@include font-size(22);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		display: inline-block;
+		margin-bottom: -7px;
+		margin-left: 1em;
+		vertical-align: bottom;
+
+		span {
+			@include font-size(16);
+			text-transform: none;
+			letter-spacing: normal;
+		}
+	}
+}
+
+.event__terms {
+	margin-bottom: 1em;
+
+	p {
+		@include font('secondary', 'medium');
+		@include font-size(16);
+		color: color('background');
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-bottom: 1em;
+	}
+
+	span {
+		@include font('secondary');
+		@include font-size(14);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: color('off-grey');
+		float: left;
+		min-width: 110px;
+		margin-right: 1em;
+		margin-bottom: em(8);
+	}
+
+}

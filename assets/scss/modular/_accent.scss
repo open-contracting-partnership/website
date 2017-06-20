@@ -1,0 +1,15 @@
+.accent--orange {
+
+	.border-top:before {
+		background-color: color('dark-orange');
+	}
+
+	.button:hover,
+	.button:active {
+		color: color('dark-orange');
+	}
+
+	blockquote {
+		border-left-color: color('dark-orange');
+	}
+}

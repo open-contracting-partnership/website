@@ -1,0 +1,15 @@
+<svg width="20px" height="21px" viewBox="0 0 20 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <g id="-Resources" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Resources-Open-Filter" sketch:type="MSArtboardGroup" transform="translate(-701.000000, -935.000000)" fill="#4D4D53">
+            <g id="Main-Search-Area" sketch:type="MSLayerGroup" transform="translate(0.000000, 259.000000)">
+                <g id="Filter-btn" transform="translate(669.000000, 664.398922)" sketch:type="MSShapeGroup">
+                    <g id="ic-check-circle-24-px" transform="translate(14.000000, 9.946092)">
+                        <g id="Group">
+                            <path d="M28,1.98921833 C22.48,1.98921833 18,6.44506739 18,11.93531 C18,17.4255526 22.48,21.8814016 28,21.8814016 C33.52,21.8814016 38,17.4255526 38,11.93531 C38,6.44506739 33.52,1.98921833 28,1.98921833 L28,1.98921833 Z M26,16.9083558 L21,11.93531 L22.41,10.5329111 L26,14.0936119 L33.59,6.5445283 L35,7.95687332 L26,16.9083558 L26,16.9083558 Z" id="Shape"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

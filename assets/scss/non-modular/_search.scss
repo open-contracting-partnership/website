@@ -1,0 +1,6 @@
+.search-main {
+
+	@include mq(M) {
+	    @include span(9 of 12 first);
+	}
+}

@@ -1,0 +1,47 @@
+.page-advisory-board__intro {
+
+	.strapline {
+		margin-bottom: 0;
+	}
+
+	@include mq(L) {
+		@include span(6 of 12);
+	}
+
+}
+
+.page-advisory-board__minutes {
+
+	@include break;
+
+
+}
+
+.page-advisory-board__members {
+
+	display: none;
+
+	@include mq(M) {
+		@include span(2 of 6);
+		@include break;
+		display: block;
+	}
+
+	@include mq(L) {
+		@include span(4 of 12);
+	}
+
+}
+
+.page-advisory-board__member-bio {
+
+	@include mq(M) {
+		@include span(4 of 6 last);
+	}
+
+	@include mq(L) {
+		@include span(6 of 12);
+		@include push(1);
+	}
+
+}
