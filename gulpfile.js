@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
 
 	// general
+	fs = require('fs'),
 	watch = require('gulp-watch'),
 	livereload = require('gulp-livereload'),
 	rename = require('gulp-rename')
@@ -23,8 +24,12 @@ var gulp = require('gulp'),
 	jshint = require('gulp-jshint'),
 	uglify = require('gulp-uglify'),
 
-	// pattern library
-	patternLibrary = require("gulp-theideabureau-pattern-library");
+	// webpack
+	runSequence = require('run-sequence'),
+	webpack = require('webpack-stream'),
+
+	// styleguide
+	aigis = require('gulp-aigis');
 
 
  //**************
@@ -40,14 +45,47 @@ function onError(err) {
  //******
 // TASKS
 
-gulp.task('templates', function() {
-
-	gulp.src(['patterns/templates/**/*.html', 'patterns/templates/**/*.json'])
-		.pipe(patternLibrary({
-			filename: 'paths.json'
+gulp.task('compile-styleguide', function() {
+	return gulp.src('./styleguide_assets/aigis_assets/scripts/styleguide.js')
+		.pipe(webpack({
+			module: {
+				loaders: [
+					{
+						test: /\.js$/,
+						exclude: /node_modules/,
+						loader: 'babel-loader',
+						query: {
+							plugins: ['transform-runtime'],
+							presets: ['es2015'],
+						}
+					},
+				]
+			},
+			entry: {
+				styleguide: ['babel-polyfill', './styleguide_assets/aigis_assets/scripts/styleguide.js'],
+			},
+			output: {
+				filename: '[name].js',
+			},
 		}))
-		.pipe(gulp.dest('patterns'));
+		.pipe(gulp.dest('./styleguide_assets/aigis_assets/dist/'))
+		.pipe(notify("Styleguide Assets Compiled"));
+});
 
+gulp.task('build-styleguide', function() {
+	return gulp
+		.src('./styleguide_config.yml')
+		.pipe(aigis())
+		.pipe(notify("Styleguide Generated"));
+});
+
+gulp.task('styleguide', function() {
+	if ( fs.existsSync('./assets/css') ) {
+		runSequence('compile-styleguide', 'build-styleguide');
+	} else {
+		console.log('\x1b[31m%s\x1b[0m', '\n ABORTED: directory "/assets/css" does not exist');
+		console.log(' Run `yarn run build` to first compile project assets \n');
+	}
 });
 
 gulp.task('svgstore', function () {
@@ -137,41 +175,6 @@ gulp.task('bs', function () {
 });
 
 
- //*********************
-// PATTERN LIBRARY APP
-
-gulp.task('pattern-styles', function () {
-
-	return gulp.src('patterns/app/scss/**/*.scss')
-		.pipe(plumber({ errorHandler: onError }))
-		.pipe(globbing({ extensions: ['.scss'] }))
-		.pipe(sass())
-		.pipe(autoprefixer('last 2 versions'))
-		.pipe(gulp.dest('patterns/build/css'))
-		.pipe(concat('styles.min.css'))
-		.pipe(minifyCss({compatibility: 'ie8'}))
-		.pipe(livereload())
-		.pipe(notify("Pattern Styles Compiled"));
-
-});
-
-gulp.task('pattern-scripts', function () {
-
-	return gulp.src('patterns/app/js/main.js')
-		.pipe(plumber({ errorHandler: onError }))
-		.pipe(jshint())
-		.pipe(jshint.reporter('jshint-stylish'))
-		.pipe(uglify())
-		.pipe(rename({
-			extname: '.min.js'
-		}))
-		.pipe(gulp.dest('patterns/build/js'))
-		.pipe(livereload())
-		.pipe(notify("Pattern Scripts Compiled"));
-
-});
-
-
  //******
 // WATCH
 
@@ -182,12 +185,7 @@ gulp.task('watch', function () {
 	livereload.listen();
 
 	// boilerplate
-	gulp.watch(['patterns/templates/**/*.html', 'patterns/templates/**/*.json'], ['templates']);
 	gulp.watch('assets/scss/**/*.scss', ['scss', 'scss-lint', 'modernizr']);
 	gulp.watch('assets/js/main.js', ['js', 'modernizr']);
-
-	// pattern library (app only)
-	gulp.watch('patterns/app/scss/**/*.scss', ['pattern-styles']);
-	gulp.watch('patterns/app/js/*.js', ['pattern-scripts']);
 
 });
