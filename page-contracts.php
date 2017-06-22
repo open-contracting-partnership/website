@@ -1,7 +1,4 @@
 <?php
-/**
- * Template Name: Contracts
- */
 
 	if ( isset($_GET['reset_contracts']) ) {
 		header('Location: /contracts/');
