@@ -192,7 +192,7 @@ gulp.task('watch', function () {
 	livereload.listen();
 
 	// boilerplate
-	gulp.watch('assets/scss/**/*.scss', ['scss', 'scss-lint', 'modernizr']);
+	gulp.watch('assets/scss/**/*.scss', ['scss', 'scss-lint', 'styleguide']);
 	gulp.watch('assets/js/main.js', ['js', 'modernizr']);
 
 });
