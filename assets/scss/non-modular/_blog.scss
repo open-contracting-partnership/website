@@ -100,7 +100,7 @@
 	padding: 0;
 
 	h3 {
-		
+
 		@include font-size(22);
 
 		@include mq(1400) {
@@ -225,6 +225,7 @@
 // AUTHOR META
 
 .blog__author-meta {
+
 	p a,
 	p {
 		@include font('secondary', 'medium');

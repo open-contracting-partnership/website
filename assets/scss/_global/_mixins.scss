@@ -80,7 +80,6 @@
 	} @else {
 		@return $color;
 	}
-
 }
 
 @function post-color($type) {
@@ -143,7 +142,7 @@
 @mixin aspect-ratio($width, $height) {
 	position: relative;
 
-	&:before {
+	&::before {
 		display: block;
 		content: '';
 		width: 100%;
@@ -170,7 +169,7 @@
 		$point: map-get($breakpoints, $point);
 	}
 
-    @if $IE9 == true{
+    @if $IE9 == true {
 
         .lt-ie9 {
             @content;

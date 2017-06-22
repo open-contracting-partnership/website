@@ -8,10 +8,10 @@
 $colours: (
     'white': #FFF,
     'black': #000,
-    'twitter': #00aced,
+    'twitter': #00ACED,
     'light-blue': #89D1F9,
     'blue': #6991F5,
-    'lilac': #6c75e1,
+    'lilac': #6C75E1,
     'purple': #9F4EE8,
     'pink': #EC69F9,
     'orange': #FD843D,
@@ -100,11 +100,8 @@ $susy: (
 	container: 70em,
 	columns: 12,
  	// debug: (image: show)
-
  	gutters: 1/8
-
 );
-
 
 
  //******
@@ -131,14 +128,4 @@ $fonts: (
         ),
         typekit: false
     )
-);
-
-
- //********
-// Z-INDEX
-
-// Here we can denote a solid z-index hierarchy through the main elements
-
-$z-index: (
-
 );
