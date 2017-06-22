@@ -47,46 +47,6 @@ main {
 }
 
 
- //***********
-// BLOCKQUOTE
-
-blockquote {
-	@include font('secondary', 'medium');
-    @include font-size(26);
-    padding: 0 0 0 em(35, 29);
-    margin: 0 0 1.5em;
-    position: relative;
-
-    &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: em(8, 29);
-        left: 0;
-        height: 80%;
-        width: 10px;
-        background-color: color('brand');
-    }
-
-    p {
-        @include font('secondary');
-        font-size: 1em;
-        line-height: 1.3;
-        margin-bottom: $space / 2;
-    }
-
-    footer {
-        font-size: em(14, 29);
-        text-transform: uppercase;
-        display: block;
-    }
-
-    > :last-child {
-        margin-bottom: 0;
-    }
-}
-
-
  //****************
 // HORIZONTAL RULE
 

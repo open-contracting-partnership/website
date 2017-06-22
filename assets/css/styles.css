@@ -122,40 +122,6 @@ body {
 main {
   overflow: hidden; }
 
-blockquote, .strapline {
-  font-weight: 500;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 26px;
-  font-size: 1.3rem;
-  padding: 0 0 0 1.2069em;
-  margin: 0 0 1.5em;
-  position: relative; }
-  blockquote:before, .strapline:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0.27586em;
-    left: 0;
-    height: 80%;
-    width: 10px;
-    background-color: #D6E100; }
-  blockquote p, .strapline p {
-    font-weight: 400;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1em;
-    line-height: 1.3;
-    margin-bottom: 0.8em; }
-  blockquote footer, .strapline footer {
-    font-size: 0.48276em;
-    text-transform: uppercase;
-    display: block; }
-  blockquote > :last-child, .strapline > :last-child {
-    margin-bottom: 0; }
-
 hr {
   border: 0 solid #424244;
   border-top-width: 1px;
@@ -245,8 +211,8 @@ of generated lorem-ipsum to get a feel of the line-height and spacing.
 <p class="small">The quick brown fox jumped over the lazy dog</p>
 <p class="smallest">The quick brown fox jumped over the lazy dog</p>
 <p>The quick brown fox jumped <small>over the lazy dog</small></p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis. Quisque malesuada euismod lorem ac luctus. Sed sit amet nunc tellus. Suspendisse maximus nunc sed mi vehicula rutrum. Praesent lobortis euismod turpis sit amet venenatis. Nullam eu enim suscipit, accumsan arcu ut, fringilla odio. Pellentesque ultrices accumsan leo, sit amet vulputate ipsum feugiat id. Pellentesque a pharetra quam. Aliquam rutrum, turpis hendrerit varius pulvinar, libero nisi congue augue, in condimentum diam urna volutpat lectus. Praesent at ipsum a lacus accumsan accumsan. Integer mollis velit ac urna efficitur, eget ultricies nisl posuere. Nullam elementum nunc ac ante fermentum, ac consequat felis scelerisque. Cras dui lacus, posuere semper magna et, ornare porta arcu.
-<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin sit amet erat accumsan, sagittis metus eget, bibendum nisl. Curabitur dolor enim, bibendum id libero non, cursus iaculis libero. Vivamus orci nisl, posuere vel nibh eu, maximus ullamcorper augue. Vivamus scelerisque laoreet tristique. Donec ut urna lacus. Morbi et nisi sit amet leo vehicula pharetra sed ut elit. Pellentesque tincidunt, quam ut viverra tincidunt, lorem risus facilisis sapien, at gravida lorem dui fermentum arcu. Nam varius felis risus. Morbi a ipsum imperdiet, posuere lorem quis, tincidunt augue. Sed sed metus vitae nunc ullamcorper elementum. Vestibulum ornare augue tellus, vel accumsan augue euismod at. Quisque vitae convallis dolor, id tempus ipsum. Phasellus nisl ante, ullamcorper sit amet tortor at, suscipit venenatis sapien. Sed commodo odio in dolor tempus, eget rhoncus mauris bibendum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
 ```
 
 */
@@ -291,6 +257,57 @@ dl {
 .text--nano {
   font-size: 12px;
   font-size: 0.6rem; }
+
+/*
+
+---
+name: Article Spacing
+category:
+ - Base
+ - Base/Type
+---
+
+The spacing rules for article flow are as follows:
+- Heading → Paragraph = 16px
+- Paragraph → Paragraph = 32px
+- Paragraph → Heading = 64px
+
+```html
+<article>
+	<h1>Heading 1</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
+	<h2>Heading 2</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
+	<h3>Heading 3</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
+	<h4>Heading 4</h4>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
+	<h5>Heading 5</h5>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
+	<h6>Heading 6</h6>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
+</article>
+```
+
+*/
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+  margin-bottom: calc(16px - (((1em * 1.3) - 1em) / 2)); }
+
+article p {
+  margin-bottom: calc(32px - (((1em * 1.6) - 1em) / 2)); }
+  article p + h1,
+  article p + h2,
+  article p + h3,
+  article p + h4,
+  article p + h5,
+  article p + h6 {
+    margin-top: calc(64px - (((1em * 1.3) - 1em) / 2)); }
 
 /*
 
@@ -432,20 +449,6 @@ h6,
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-bottom: 1.3em;
   line-height: 1.3; }
-  article h1, article
-  .alpha, article
-  h2, article
-  .beta, article
-  h3, article
-  .gamma, article
-  h4, article
-  .delta, article
-  h5, article
-  .epsilon, article
-  h6, article
-  .zeta {
-    margin-top: calc(1.3em + 1.5rem);
-    margin-bottom: 1.5rem; }
   h1.has-strap,
   .alpha.has-strap,
   h2.has-strap,
@@ -876,6 +879,92 @@ th {
   text-transform: uppercase;
   letter-spacing: 1px;
   vertical-align: middle; }
+
+/*
+
+---
+name: Blockquote
+category:
+ - Base
+ - Base/Quotes
+---
+
+The Block Quotation Element indicates that the enclosed text is an extended quotation.
+
+```html
+<blockquote cite="http://developer.mozilla.org">
+  <p>“We open up public contracting through disclosure, data and engagement so that the huge sums of money involved are spent honestly, fairly, and effectively.”</p>
+</blockquote>
+```
+
+*/
+blockquote, .strapline {
+  padding: 0 0 0 13px;
+  margin: 0 0 1.6em;
+  position: relative; }
+  blockquote::before, .strapline::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0.27586em;
+    left: 0;
+    height: 80%;
+    width: 2px;
+    background-color: #D6E100; }
+  blockquote p, .strapline p {
+    font-weight: 400;
+    font-style: italic;
+    -webkit-font-smoothing: antialiased;
+    font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-size: 0.9rem;
+    margin: 0; }
+    @media screen and (min-width: 810px) {
+      blockquote p, .strapline p {
+        font-size: 20px;
+        font-size: 1rem; } }
+
+/*
+
+---
+name: Large Blockquote
+category:
+ - Base
+ - Base/Quotes
+---
+
+The Block Quotation Element indicates that the enclosed text is an extended quotation.
+
+```html
+<blockquote class="blockquote--large" cite="http://developer.mozilla.org">
+  <p>“We open up public contracting through disclosure, data and engagement so that the huge sums of money involved are spent honestly, fairly, and effectively.”</p>
+  <span class="blockquote__caption">The Caption</span>
+</blockquote>
+```
+
+*/
+blockquote.blockquote--large::before, .blockquote--large.strapline::before {
+  display: none; }
+
+blockquote.blockquote--large p, .blockquote--large.strapline p {
+  font-weight: 300;
+  font-style: italic;
+  -webkit-font-smoothing: antialiased;
+  font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 35px;
+  font-size: 1.75rem;
+  line-height: 1.3;
+  margin-bottom: 16px; }
+  @media screen and (min-width: 810px) {
+    blockquote.blockquote--large p, .blockquote--large.strapline p {
+      font-size: 41px;
+      font-size: 2.05rem; } }
+
+blockquote.blockquote--large .blockquote__caption, .blockquote--large.strapline .blockquote__caption {
+  font-size: 17px;
+  font-size: 0.85rem;
+  display: block;
+  text-transform: uppercase; }
 
 /*------------------------------------*    $LAYOUT
 \*------------------------------------*/
@@ -1815,26 +1904,17 @@ input[type="submit"] {
 .button--white {
   color: #FFF; }
 
-.button--dark {
-  color: #2D2D2D; }
-
 .button--solid-white {
   background-color: #FFF;
-  border-color: #FFF;
-  color: #2D2D2D; }
+  border-color: #FFF; }
   .button--solid-white:hover, .button--solid-white:focus, .button--solid-white:active {
-    background-color: #2D2D2D;
-    border-color: #2D2D2D;
     color: #FFF; }
 
 .button--solid-dark {
-  background-color: #2D2D2D;
-  border-color: #2D2D2D;
   color: #FFF; }
   .button--solid-dark:hover, .button--solid-dark:focus, .button--solid-dark:active {
     background-color: #FFF;
-    border-color: #FFF;
-    color: #2D2D2D; }
+    border-color: #FFF; }
 
 .custom-checkbox input[type="checkbox"],
 .custom-checkbox input[type="radio"] {
@@ -1941,9 +2021,6 @@ input[type="submit"] {
 
 .cta-block--report h2 {
   margin-top: 0; }
-
-.cta-block--brand:before {
-  background-color: #B8BD35; }
 
 .cta-block--background:before {
   background-color: #4D4D54; }
