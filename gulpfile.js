@@ -125,9 +125,16 @@ gulp.task('scss', function () {
 
 });
 
-gulp.task('scss-lint', function() {
-	gulp.src('assets/scss/**/*.scss')
-		.pipe(scsslint({'config': 'lint.yml'}));
+gulp.task('scss-lint', function lintCssTask() {
+	const gulpStylelint = require('gulp-stylelint');
+
+	return gulp
+		.src('assets/scss/**/*.scss')
+		.pipe(gulpStylelint({
+			reporters: [
+				{formatter: 'string', console: true}
+			]
+		}));
 });
 
 gulp.task('js', function () {
