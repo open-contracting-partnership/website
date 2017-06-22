@@ -8,6 +8,7 @@ html {
 
 body {
     @include font(primary);
+	@include font-size(18);
     line-height: strip-unit($space);
 	background-color: color('white');
     padding: 0;
@@ -32,6 +33,7 @@ body {
 	}
 
 	@include mq(M) {
+		font-size: 1rem;
 
 		&.mobile-active {
 			right: auto;
