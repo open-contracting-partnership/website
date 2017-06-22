@@ -7,7 +7,7 @@
 	<?php
 
 		function article_image($field) {
-			echo 'http://ocp.imgix.net' . parse_url(get_field($field))['path'];
+			echo '//ocp.imgix.net' . parse_url(get_field($field))['path'];
 		}
 
 	?>
