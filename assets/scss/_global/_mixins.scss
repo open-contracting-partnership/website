@@ -62,6 +62,11 @@
 	@return $value / $base-font-size + rem;
 }
 
+// calculates a value by adjusting for the line-height
+@function line-height-adjust($distance, $line-height) {
+	@return calc(#{$distance} - (((1em * #{$line-height}) - 1em) / 2));
+}
+
 
  //*******************
 // COLOR BASED FUNCTIONS
