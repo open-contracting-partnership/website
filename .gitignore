@@ -8,3 +8,6 @@ tweets/tweets.json
 composer.phar
 composer.lock
 /vendor/
+
+# Styleguide
+styleguide/

@@ -152,7 +152,7 @@
 
 					<a href="/terms-of-use/"><?php _e('Terms', 'ocp'); ?></a>
 
-					<span>Website by <a href="http://theideabureau.co">The Idea Bureau</a></span>
+					<span>Website by <a href="https://theideabureau.co">The Idea Bureau</a></span>
 
 				</div>
 
