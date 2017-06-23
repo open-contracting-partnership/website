@@ -469,3 +469,27 @@ class OCP {
 	}
 
 }
+
+
+function getTaxonomyCount(array $taxonomies, array $post_types) {
+
+	global $wpdb;
+
+	$taxonomies = implode("', '", $taxonomies);
+	$post_types = implode("', '", $post_types);
+
+	$results = $wpdb->get_results("
+		SELECT t.term_id, t.name, t.slug, tt.term_taxonomy_id, tt.taxonomy, count(p.ID) AS count
+		FROM {$wpdb->terms} t
+		JOIN {$wpdb->term_taxonomy} tt ON t.term_id = tt.term_id
+		JOIN {$wpdb->term_relationships} tr ON tt.term_taxonomy_id = tr.term_taxonomy_id
+		JOIN {$wpdb->posts} p ON tr.object_id = p.ID
+		WHERE tt.taxonomy IN ('{$taxonomies}')
+		AND p.post_type IN ('{$post_types}')
+		AND p.post_status = 'publish'
+		GROUP BY t.term_id
+		ORDER BY count DESC;"
+	);
+
+	return $results;
+}
