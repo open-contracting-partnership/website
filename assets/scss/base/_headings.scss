@@ -55,6 +55,15 @@ h6,
 		@include font(secondary);
 		color: color('grey');
 	}
+
+	article & {
+		margin-bottom: line-height-adjust(16px, 1.3);
+
+		&.subtitle {
+			margin-bottom: line-height-adjust(32px, 1.3);
+		}
+	}
+
 }
 
 h1 {

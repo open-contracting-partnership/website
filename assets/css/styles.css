@@ -291,14 +291,6 @@ The spacing rules for article flow are as follows:
 ```
 
 */
-article h1,
-article h2,
-article h3,
-article h4,
-article h5,
-article h6 {
-  margin-bottom: calc(16px - (((1em * 1.3) - 1em) / 2)); }
-
 article p {
   margin-bottom: calc(32px - (((1em * 1.6) - 1em) / 2)); }
   article p + h1,
@@ -353,7 +345,7 @@ category:
 ```html
 <article>
 	<h1>Heading 1</h1>
-	<h2 class="strapline">Here is an example of a strapline that's been created</h2>
+	<h2 class="delta subtitle">Here is an example of a strapline that's been created</h2>
 	<p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.</p>
 	<h2>Heading 2</h2>
 	<p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.</p>
@@ -598,6 +590,49 @@ h6,
     background-color: #9BAF00;
     color: #FFF;
     padding: .5rem; }
+  h1.subtitle,
+  .alpha.subtitle,
+  h2.subtitle,
+  .beta.subtitle,
+  h3.subtitle,
+  .gamma.subtitle,
+  h4.subtitle,
+  .delta.subtitle,
+  h5.subtitle,
+  .epsilon.subtitle,
+  h6.subtitle,
+  .zeta.subtitle {
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #999; }
+  article h1, article
+  .alpha, article
+  h2, article
+  .beta, article
+  h3, article
+  .gamma, article
+  h4, article
+  .delta, article
+  h5, article
+  .epsilon, article
+  h6, article
+  .zeta {
+    margin-bottom: calc(16px - (((1em * 1.3) - 1em) / 2)); }
+    article h1.subtitle, article
+    .alpha.subtitle, article
+    h2.subtitle, article
+    .beta.subtitle, article
+    h3.subtitle, article
+    .gamma.subtitle, article
+    h4.subtitle, article
+    .delta.subtitle, article
+    h5.subtitle, article
+    .epsilon.subtitle, article
+    h6.subtitle, article
+    .zeta.subtitle {
+      margin-bottom: calc(32px - (((1em * 1.3) - 1em) / 2)); }
 
 h1 {
   margin-top: 0;
