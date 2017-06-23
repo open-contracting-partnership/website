@@ -341,6 +341,121 @@ em,
 .text--style-italic {
   font-style: italic; }
 
+/*
+
+---
+name: Kitchen Sink
+category:
+ - Base
+ - Base/Kitchen Sink
+---
+
+```html
+<article>
+	<h1>Heading 1</h1>
+	<h2 class="strapline">Here is an example of a strapline that's been created</h2>
+	<p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.</p>
+	<h2>Heading 2</h2>
+	<p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.</p>
+	<h3>Heading 3</h3>
+	<p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.</p>
+	<p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.</p>
+	<h4>Heading 4</h4>
+	<p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.</p>
+	<blockquote>
+		<p>We open up public contracting through disclosure, data and engagement so that the huge sums of money involved are spent honestly, fairly, and effectively.</p>
+	</blockquote>
+	<p>So far, we have received funding and support from the following institutions:</p>
+	<table>
+		<thead>
+			<tr>
+				<th>Supplier</th>
+				<th>Title</th>
+				<th>Status</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+				<th>Amount</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Karolis Granickas</td>
+				<td>Scoping methodology for open contracting in 15 countries</td>
+				<td>Terminated</td>
+				<td>2016-02-28</td>
+				<td>2016-12-30</td>
+				<td data-value="29700">29,700 USD</td>
+			</tr>
+			<tr>
+				<td>Young Innovations</td>
+				<td>Scoping Report Nepal</td>
+				<td>Terminated</td>
+				<td>2016-02-26</td>
+				<td>2016-06-30</td>
+				<td data-value="14250">14,250 USD</td>
+			</tr>
+			<tr>
+				<td>Gilbert Sendugwa</td>
+				<td>Open Contracting Training Uganda</td>
+				<td>Terminated</td>
+				<td>-</td>
+				<td>-</td>
+				<td data-value="14000">14,000 USD</td>
+			</tr>
+			<tr>
+				<td>Gabriela Rodriguez</td>
+				<td>OCDS implementation in Mexico</td>
+				<td>Terminated</td>
+				<td>2015-06-06</td>
+				<td>2015-06-18</td>
+				<td data-value="6000">6,000 USD</td>
+			</tr>
+			<tr>
+				<td>Oscar Montiel</td>
+				<td>OCDS Mapping</td>
+				<td>Terminated</td>
+				<td>2016-04-26</td>
+				<td>2016-05-15</td>
+				<td data-value="2625">2,625 USD</td>
+			</tr>
+			<tr>
+				<td>Public and Private Development Centre</td>
+				<td>Scoping studies Ghana, Nigeria</td>
+				<td>Terminated</td>
+				<td>2016-03-25</td>
+				<td>2016-06-20</td>
+				<td data-value="30000">30,000 USD</td>
+			</tr>
+			<tr>
+				<td>John Ernest Kitoka</td>
+				<td>Tanzania Assessment</td>
+				<td>Terminated</td>
+				<td>2016-05-26</td>
+				<td>2016-07-25</td>
+				<td data-value="14757">14,757 USD</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here:</p>
+	<ul>
+		<li>List-item</li>
+		<li>List-item</li>
+		<li>List-item</li>
+	</ul>
+	<p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here:</p>
+	<blockquote class="blockquote--large">
+		<p>“We open up public contracting through disclosure, data and engagement so that the huge sums of money involved are spent honestly, fairly, and effectively.”</p>
+		<span class="blockquote__caption">The Caption</span>
+	</blockquote>
+	<p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.</p>
+	<h5>Heading 5</h5>
+	<p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.</p>
+	<h6>Heading 6</h6>
+	<p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.</p>
+</article>
+```
+
+*/
 /*------------------------------------*    LINKS
 \*------------------------------------*/
 a {
