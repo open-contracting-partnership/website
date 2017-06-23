@@ -8,6 +8,7 @@ html {
 
 body {
     @include font(primary);
+	@include font-size(18);
     line-height: strip-unit($space);
 	background-color: color('white');
     padding: 0;
@@ -32,6 +33,7 @@ body {
 	}
 
 	@include mq(M) {
+		font-size: 1rem;
 
 		&.mobile-active {
 			right: auto;
@@ -42,97 +44,6 @@ body {
 
 main {
     overflow: hidden;
-}
-
-
- //**********************
-// TEXT RELATED ELEMENTS
-
-p,
-ul,
-ol,
-dl {
-	line-height: strip-unit($space);
-    margin-bottom: $space; // Typically the margin-bottom matches the line-height.
-}
-
-.text--bigger {
-	@include font-size(22);
-}
-
-.text--mini {
-	@include font-size(16);
-}
-
-.text--micro {
-	@include font-size(14);
-}
-
-.text--nano {
-	@include font-size(12);
-}
-
-small {
-	@extend .text--mini;
-}
-
-.text--style-italic {
-	font-style: italic;
-}
-
-abbr {
-}
-
-p > strong,
-p > b,
-span > strong,
-span > strong {
-	@include font(primary, bold);
-}
-
-i,
-em {
-	font-style: italic;
-}
-
-
- //***********
-// BLOCKQUOTE
-
-blockquote {
-	@include font('secondary', 'medium');
-    @include font-size(26);
-    padding: 0 0 0 em(35, 29);
-    margin: 0 0 1.5em;
-    position: relative;
-
-    &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: em(8, 29);
-        left: 0;
-        height: 80%;
-        width: 10px;
-        background-color: color('brand');
-    }
-
-    p {
-        @include font('secondary');
-        font-size: 1em;
-        line-height: 1.3;
-        margin-bottom: $space / 2;
-    }
-
-    footer {
-        font-size: em(14, 29);
-        text-transform: uppercase;
-        display: block;
-    }
-
-    > :last-child {
-        margin-bottom: 0;
-    }
 }
 
 

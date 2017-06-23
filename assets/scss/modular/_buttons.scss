@@ -20,9 +20,10 @@ input[type="submit"] {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	cursor: pointer;
-	transition: background-color .2s ease,
-				border-color .2s ease,
-				color .2s ease;
+	transition:
+		background-color .2s ease,
+		border-color .2s ease,
+		color .2s ease;
 
 	&:hover,
 	&:active,

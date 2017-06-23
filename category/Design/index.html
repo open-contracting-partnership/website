@@ -45,7 +45,7 @@
 	</label>
 
     <nav class="aigis-categoryList">
-        <ul data-path-depth="0"><li data-path-depth="0"><a href="../../category/Base/index.html">Base</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Base/Headings/index.html">Headings</a></li></ul></li><li data-path-depth="0"><a href="../../category/Components/index.html">Components</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Components/Heading-Highlight/index.html">Heading Highlight</a></li></ul></li><li data-path-depth="0"><a href="../../category/Design/index.html" data-tree-current>Design</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Design/Colours/index.html">Colours</a></li></ul></li></ul>
+        <ul data-path-depth="0"><li data-path-depth="0"><a href="../../category/Base/index.html">Base</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Base/Headings/index.html">Headings</a></li><li data-path-depth="1"><a href="../../category/Base/Quotes/index.html">Quotes</a></li><li data-path-depth="1"><a href="../../category/Base/Type/index.html">Type</a></li></ul></li><li data-path-depth="0"><a href="../../category/Components/index.html">Components</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Components/Heading-Highlight/index.html">Heading Highlight</a></li></ul></li><li data-path-depth="0"><a href="../../category/Design/index.html" data-tree-current>Design</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Design/Colours/index.html">Colours</a></li></ul></li></ul>
     </nav>
 
 </div>
@@ -76,21 +76,6 @@
         <div>
             <span>White</span>
             <span>#FFF</span>
-        </div>
-    </div>
-</div>
-<div class="aigis-colorpalette">
-    <div class="aigis-colorpalette__swatches" style="background-color: #AAA;">
-        <div class="aigis-colorpalette__swatches--small aigis-colorpalette__swatches--left" style="background-color: #F7F7F7;"></div>
-    </div>
-    <div class="aigis-colorpalette__label">
-        <div>
-            <span>Grey</span>
-            <span>#AAA</span>
-        </div>
-        <div>
-            <span>Light Grey</span>
-            <span>#F7F7F7</span>
         </div>
     </div>
 </div>
@@ -230,16 +215,6 @@
         <div>
             <span>Dark Brand</span>
             <span>#9BAF00</span>
-        </div>
-    </div>
-</div>
-<div class="aigis-colorpalette">
-    <div class="aigis-colorpalette__swatches" style="background-color: #B8BD35;">
-    </div>
-    <div class="aigis-colorpalette__label">
-        <div>
-            <span>Brand Hero</span>
-            <span>#B8BD35</span>
         </div>
     </div>
 </div>
@@ -399,6 +374,125 @@
         <div>
             <span>Super Dark Grey</span>
             <span>#26262B</span>
+        </div>
+    </div>
+</div>
+</div>
+
+<pre><code class="language-ejs"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">for(var</span> <span class="token attr-name">i</span><span class="token attr-value"><span class="token punctuation">=</span>0;</span> <span class="token attr-name">i</span> <span class="token attr-name">&lt;</span> <span class="token attr-name">colours.length;</span> <span class="token attr-name">i++)</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>aigis-colorpalette<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>aigis-colorpalette__swatches<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">background-color</span><span class="token punctuation">:</span> #&lt;<span class="token number">%</span>= colours[i][<span class="token number">1</span>] <span class="token number">%</span>><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">if</span> <span class="token attr-name">(colours[i][2])</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>aigis-colorpalette__swatches--small aigis-colorpalette__swatches--left<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">background-color</span><span class="token punctuation">:</span> #&lt;<span class="token number">%</span>= colours[i][<span class="token number">2</span>] <span class="token number">%</span>><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">if</span> <span class="token attr-name">(colours[i][3])</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>aigis-colorpalette__swatches--small aigis-colorpalette__swatches--right<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">background-color</span><span class="token punctuation">:</span> #&lt;<span class="token number">%</span>= colours[i][<span class="token number">3</span>] <span class="token number">%</span>><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>aigis-colorpalette__label<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>&lt;%= colours[i][0] %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>#&lt;%= colours[i][1] %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">if</span> <span class="token attr-name">(colours[i][2])</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>Mid &lt;%= colours[i][0] %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>#&lt;%= colours[i][2] %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">if</span> <span class="token attr-name">(colours[i][3])</span> <span class="token attr-name">{</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>Dark &lt;%= colours[i][0] %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>#&lt;%= colours[i][3] %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>%</span> <span class="token attr-name">}</span> <span class="token attr-name">%</span><span class="token punctuation">></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Type">
+					Type
+				</h1>
+
+				<div class="aigis-preview">
+
+
+<div class="aigis-colorpalette">
+    <div class="aigis-colorpalette__swatches" style="background-color: #D5D5D7;">
+    </div>
+    <div class="aigis-colorpalette__label">
+        <div>
+            <span>lighter-grey</span>
+            <span>#D5D5D7</span>
+        </div>
+    </div>
+</div>
+<div class="aigis-colorpalette">
+    <div class="aigis-colorpalette__swatches" style="background-color: #B7B7B7;">
+    </div>
+    <div class="aigis-colorpalette__label">
+        <div>
+            <span>light-grey</span>
+            <span>#B7B7B7</span>
+        </div>
+    </div>
+</div>
+<div class="aigis-colorpalette">
+    <div class="aigis-colorpalette__swatches" style="background-color: #999;">
+    </div>
+    <div class="aigis-colorpalette__label">
+        <div>
+            <span>grey</span>
+            <span>#999</span>
+        </div>
+    </div>
+</div>
+<div class="aigis-colorpalette">
+    <div class="aigis-colorpalette__swatches" style="background-color: #8B8B97;">
+    </div>
+    <div class="aigis-colorpalette__label">
+        <div>
+            <span>off-grey</span>
+            <span>#8B8B97</span>
+        </div>
+    </div>
+</div>
+<div class="aigis-colorpalette">
+    <div class="aigis-colorpalette__swatches" style="background-color: #69696B;">
+    </div>
+    <div class="aigis-colorpalette__label">
+        <div>
+            <span>mid-grey</span>
+            <span>#69696B</span>
+        </div>
+    </div>
+</div>
+<div class="aigis-colorpalette">
+    <div class="aigis-colorpalette__swatches" style="background-color: #4D4D54;">
+    </div>
+    <div class="aigis-colorpalette__label">
+        <div>
+            <span>background</span>
+            <span>#4D4D54</span>
+        </div>
+    </div>
+</div>
+<div class="aigis-colorpalette">
+    <div class="aigis-colorpalette__swatches" style="background-color: #424244;">
+    </div>
+    <div class="aigis-colorpalette__label">
+        <div>
+            <span>body</span>
+            <span>#424244</span>
+        </div>
+    </div>
+</div>
+<div class="aigis-colorpalette">
+    <div class="aigis-colorpalette__swatches" style="background-color: #323238;">
+    </div>
+    <div class="aigis-colorpalette__label">
+        <div>
+            <span>dark-background</span>
+            <span>#323238</span>
         </div>
     </div>
 </div>

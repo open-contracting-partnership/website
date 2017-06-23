@@ -3,7 +3,6 @@
 	@include break;
 
 	@include mq(M) {
-
 		display: none;
 
 		&.active {
@@ -16,7 +15,6 @@
 
 /* a.team-member__selector */
 .team-member__selector {
-
 	display: none;
 	margin-bottom: em(40);
 	color: color('light-grey');
@@ -32,7 +30,6 @@
 	}
 
 	h3 {
-
 		position: relative;
 		margin-bottom: em(4, 29);
 		@include font-size(22);
@@ -62,7 +59,6 @@
 	&:focus,
 	&:active,
 	&.active {
-
 		color: color('dark-background');
 		text-decoration: none;
 
@@ -85,7 +81,6 @@
 }
 
 .team-member__meta {
-
 	display: flex;
 	align-items: center;
 	margin-bottom: 1em;
@@ -97,12 +92,11 @@
 }
 
 .team-member__avatar {
-
 	width: em(75);
 	margin-right: 1em;
 
 	@include mq(M) {
-		width: em(100)
+		width: em(100);
 	}
 
 	@include mq(L) {
@@ -132,7 +126,6 @@
 
 /* a.team-member__view-bio */
 .team-member__view-bio {
-
 	color: inherit;
 
 	@include mq(M) {
@@ -142,7 +135,6 @@
 }
 
 .team-member__bio {
-
 	@include break;
 	display: none;
 	padding: 0;
@@ -159,7 +151,6 @@
 }
 
 .profile__twitter {
-
 	@include font-size(16);
 	color: color('mid-grey');
 	margin-top: .5em;
@@ -181,7 +172,6 @@
 	}
 
 	.team-member__name & {
-
 		display: none;
 
 		@include mq(M) {
@@ -191,7 +181,6 @@
 	}
 
 	.team-member__bio & {
-
 		display: block;
 
 		@include mq(M) {

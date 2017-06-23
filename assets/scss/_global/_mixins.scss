@@ -62,6 +62,11 @@
 	@return $value / $base-font-size + rem;
 }
 
+// calculates a value by adjusting for the line-height
+@function line-height-adjust($distance, $line-height) {
+	@return calc(#{$distance} - (((1em * #{$line-height}) - 1em) / 2));
+}
+
 
  //*******************
 // COLOR BASED FUNCTIONS
@@ -80,7 +85,6 @@
 	} @else {
 		@return $color;
 	}
-
 }
 
 @function post-color($type) {
@@ -143,7 +147,7 @@
 @mixin aspect-ratio($width, $height) {
 	position: relative;
 
-	&:before {
+	&::before {
 		display: block;
 		content: '';
 		width: 100%;
@@ -170,7 +174,7 @@
 		$point: map-get($breakpoints, $point);
 	}
 
-    @if $IE9 == true{
+    @if $IE9 == true {
 
         .lt-ie9 {
             @content;

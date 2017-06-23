@@ -1,12 +1,10 @@
 .page-strip {
-
 	@include break;
 	overflow: hidden;
 	display: block;
 	margin-bottom: em(40);
 
 	a {
-
 		color: inherit;
 		text-decoration: underline;
 
@@ -45,6 +43,7 @@
 .page-strip--reverse {
 
 	@include mq(L) {
+
 		.page-strip__content {
 			@include span(6 at 2 of 12 first);
 			margin-left: span(1 of 12) + gutter();

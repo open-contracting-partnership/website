@@ -166,7 +166,6 @@
 }
 
 .homepage-story--4 {
-
 	padding: em(40, 22) em(20, 22);
 	background-color: color('dark-orange');
 
@@ -179,14 +178,14 @@
 .homepage-story--2,
 .homepage-story--3,
 .homepage-story--4 {
-
 	min-height: 200px;
 
 	@include mq(768) {
 		min-height: none;
 	}
 
-	h2, h3 {
+	h2,
+	h3 {
 		margin-bottom: 0;
 	}
 
