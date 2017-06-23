@@ -1,9 +1,3 @@
-<?php
-/**
- * Template Name: Advisory Board
- */
-?>
-
 <?php get_header(); ?>
 
 	<?php the_post(); ?>
@@ -85,7 +79,7 @@
 								<h3><?php the_sub_field('name'); ?></h3>
 								<a href="#" class="team-member__view-bio">View profile</a>
 							</div>
-	
+
 						</div> <!--  / .team-member__meta -->
 
 						<div class="team-member__bio">

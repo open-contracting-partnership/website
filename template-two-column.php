@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Template A
+ * Template Name: Two column
  */
 ?>
 
