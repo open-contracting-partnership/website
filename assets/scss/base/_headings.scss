@@ -51,6 +51,10 @@ h6,
 		padding: .5rem;
 	}
 
+	&.subtitle {
+		@include font(secondary);
+		color: color('grey');
+	}
 }
 
 h1 {
