@@ -166,12 +166,27 @@ h6,
 	}
 }
 
+/*
+
+---
+name: Border Top
+category:
+ - Base
+ - Base/Headings
+---
+
+```html
+<h4 class="border-top">Subscribe to our newsletter</h4>
+<h4 class="border-top border-top--dark">Subscribe to our newsletter</h4>
+<h4 class="border-top border-top--blue">Subscribe to our newsletter</h4>
+```
+
+*/
+
 .border-top {
-	@include font(secondary, bold);
-	@include font-size(16);
-	text-transform: uppercase;
-	letter-spacing: 1px;
 	position: relative;
+	text-transform: uppercase;
+	color: color('black');
 	padding-top: 1rem;
 
 	.home & {
@@ -185,7 +200,7 @@ h6,
 		top: 0;
 		left: 0;
 		width: 6rem;
-		height: .5rem;
+		height: 2px;
 		background-color: color('brand');
 	}
 }
