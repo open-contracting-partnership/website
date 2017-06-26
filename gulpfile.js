@@ -181,6 +181,10 @@ gulp.task('bs', function () {
 
 });
 
+gulp.task('styles', function() {
+	runSequence('scss', 'styleguide');
+});
+
 
  //******
 // WATCH
@@ -192,7 +196,7 @@ gulp.task('watch', function () {
 	livereload.listen();
 
 	// boilerplate
-	gulp.watch('assets/scss/**/*.scss', ['scss', 'scss-lint', 'styleguide']);
+	gulp.watch('assets/scss/**/*.scss', ['styles']);
 	gulp.watch('assets/js/main.js', ['js', 'modernizr']);
 
 });
