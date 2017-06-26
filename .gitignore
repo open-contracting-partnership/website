@@ -9,5 +9,10 @@ composer.phar
 composer.lock
 /vendor/
 
+# Assets
+/assets/css/styles.css
+/assets/css/styles.min.css
+/assets/js/main.min.js
+
 # Styleguide
 styleguide/
