@@ -196,3 +196,5 @@ gulp.task('watch', function () {
 	gulp.watch('assets/js/main.js', ['js', 'modernizr']);
 
 });
+
+gulp.task('post-deploy', ['scss', 'js', 'svgstore', 'modernizr']);
