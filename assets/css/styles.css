@@ -342,7 +342,7 @@ category:
 ---
 
 ```html
-<article>
+<article class="post-content">
 	<h1>Heading 1</h1>
 	<h2 class="delta strapline">Here is an example of a strapline that's been created</h2>
 	<p>We <a href="#">strive</a> to <em>fully</em> <i>disclose</i> the source, <strong>amount</strong> and <b>purpose</b> of <del>our</del> <u>funding</u> and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.</p>
