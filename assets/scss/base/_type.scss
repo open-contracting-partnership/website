@@ -163,8 +163,9 @@ category:
 ```html
 <article>
 	<h1>Heading 1</h1>
-	<h2 class="delta subtitle">Here is an example of a strapline that's been created</h2>
-	<p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.</p>
+	<h2 class="delta strapline">Here is an example of a strapline that's been created</h2>
+	<p>We <a href="#">strive</a> to <em>fully</em> <i>disclose</i> the source, <strong>amount</strong> and <b>purpose</b> of <del>our</del> <u>funding</u> and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.</p>
+	<hr>
 	<h2>Heading 2</h2>
 	<p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.</p>
 	<h3>Heading 3</h3>
@@ -252,6 +253,11 @@ category:
 		<li>List-item</li>
 		<li>List-item</li>
 	</ul>
+	<ol>
+		<li>List-item</li>
+		<li>List-item</li>
+		<li>List-item</li>
+	</ol>
 	<p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here:</p>
 	<blockquote class="blockquote--large">
 		<p>“We open up public contracting through disclosure, data and engagement so that the huge sums of money involved are spent honestly, fairly, and effectively.”</p>
