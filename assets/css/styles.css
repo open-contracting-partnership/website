@@ -234,7 +234,7 @@ dl {
       dl.small {
         font-size: 17px;
         font-size: 0.85rem; } }
-  p.smallest,
+  p.smallest, .card__strap,
   ul.smallest,
   ol.smallest,
   dl.smallest {
@@ -529,6 +529,10 @@ category:
  - Base/Headings
 ---
 
+## Base Headings
+
+The class structure follows the structure discussed by Harry Roberts in his article [practical font sizing in CSS](http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/) on CSS Wizardry.
+
 ```html
 <h1 class="alpha">The fox</h1>
 <h2 class="beta">The fox</h2>
@@ -536,6 +540,13 @@ category:
 <h4 class="delta">The fox</h4>
 <h5 class="epsilon">The fox</h5>
 <h6 class="zeta">The fox</h6>
+```
+
+## Strapline
+
+```html
+<h1 class="alpha">The fox</h1>
+<h4 class="beta strapline">The fox</h4>
 ```
 
 */
@@ -635,21 +646,6 @@ h6,
     .zeta.strapline {
       margin-bottom: calc(32px - (((1em * 1.3) - 1em) / 2)); }
 
-/*
-
----
-name: Strapline
-category:
- - Base
- - Base/Headings
----
-
-```html
-<h1 class="alpha">The fox</h1>
-<h4 class="beta strapline">The fox</h4>
-```
-
-*/
 h1 {
   margin-top: 0;
   margin-bottom: 1.3em; }
@@ -736,26 +732,16 @@ h6,
       font-size: 1rem;
       line-height: 1.3; } }
 
-/*
-
----
-name: Border Top
-category:
- - Base
- - Base/Headings
----
-
-```html
-<h4 class="border-top">Subscribe to our newsletter</h4>
-<h4 class="border-top border-top--dark">Subscribe to our newsletter</h4>
-<h4 class="border-top border-top--blue">Subscribe to our newsletter</h4>
-```
-
-*/
 .border-top {
-  position: relative;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  color: #000;
+  letter-spacing: 1px;
+  position: relative;
   padding-top: 1rem; }
   .home .border-top {
     border-top-color: #4D4D54; }
@@ -766,7 +752,7 @@ category:
     top: 0;
     left: 0;
     width: 6rem;
-    height: 2px;
+    height: .5rem;
     background-color: #D6E100; }
 
 .border-top--clean {
@@ -1589,10 +1575,10 @@ blockquote.blockquote--large {
 /*------------------------------------*    LAYOUT
 \*------------------------------------*/
 .wrapper {
-  max-width: 60em;
+  max-width: 70em;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1200px;
+  max-width: 76rem;
   box-sizing: border-box;
   padding: 0 1em; }
   .wrapper:after {
@@ -1604,10 +1590,10 @@ blockquote.blockquote--large {
       padding: 0 3em; } }
 
 .wrapper--inner {
-  max-width: 60em;
+  max-width: 70em;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1200px;
+  max-width: 76rem;
   box-sizing: border-box;
   padding: 0; }
   .wrapper--inner:after {
@@ -1899,37 +1885,8 @@ blockquote.blockquote--large {
     .secondary-nav li.current-menu-parent a:after {
       bottom: 0; }
 
-/*
-
----
-name: Sidebar
-category:
- - Layout
- - Layout/Sidebar
----
-
-```html
-<aside class="sidebar">
-	<nav class="page__section-nav">
-		<h6 class="border-top border-top--clean">Jump to section</h6>
-		<ul class="nav nav--vertical nav--in-page">
-			<li><a href="#">Section 1</a></li>
-			<li><a href="#">Section 2</a></li>
-			<li><a href="#">Section 3</a></li>
-		</ul>
-	</nav>
-	<div class="blog__subscribe-container / band">
-		<h6 class="border-top border-top--clean">Subscribe to our newsletter</h6>
-		<p>Sign up to our monthly email where you can receive updates on our current work</p>
-		<form class="flex-field" action="" method="post">
-			<input type="email" placeholder="Enter your email" name="email" required="">
-			<button>Send</button>
-		</form>
-	</div>
-</aside>
-```
-
-*/
+/*------------------------------------*    SIDEBAR
+\*------------------------------------*/
 aside,
 .sidebar {
   font-size: 16px;
@@ -1944,13 +1901,6 @@ aside,
   aside p a,
   .sidebar p a {
     color: #9BAF00; }
-  aside .page__section-nav,
-  .sidebar .page__section-nav {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 1.6em;
-    background: rgba(255, 255, 255, 0.9);
-    z-index: 1; }
 
 /*------------------------------------*    $MODULAR
 \*------------------------------------*/
@@ -2127,6 +2077,358 @@ input[type="submit"] {
   .button--solid-dark:hover, .button--solid-dark:focus, .button--solid-dark:active {
     background-color: #FFF;
     border-color: #FFF; }
+
+.card {
+  background-color: #FFF;
+  box-shadow: 0 0 4px 0 rgba(224, 224, 224, 0.5);
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.card__featured-media {
+  width: 100%; }
+
+.card__content {
+  padding: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.card__heading {
+  margin-bottom: 0; }
+  .card__heading a {
+    color: inherit; }
+
+.card__strap {
+  margin-top: 16px;
+  margin-bottom: auto; }
+
+.card__meta {
+  font-size: 12px;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  margin-top: 16px;
+  margin-bottom: 0; }
+  .card__meta time,
+  .card__meta .card__author {
+    display: block; }
+
+/*
+
+---
+name: Primary
+category:
+ - Components/Card
+---
+
+Within the primary card example the image, strap and meta information are all optional. Specify the class `.card__media--right` on the image to align to the right.
+
+```html
+<div class="card card--primary">
+
+	<div class="card__content">
+
+		<div class="card__title">
+
+			<img class="card__media" src="//placehold.it/300" />
+
+			<h6 class="card__heading">
+				<a href="#">How to Open Contracting? A New Guide for Governments</a>
+			</h6>
+
+		</div>
+
+		<p class="card__strap">Here there will be some information about what the link contains&hellip;</p>
+
+		<p class="card__meta">
+			<time datetime="2001-05-15T19:00">8 Jun 2017</time>
+			<span class="card__author">By Georg Nueman</span>
+		</p>
+
+	</div>
+
+</div>
+```
+
+*/
+.card--primary .card__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.card--primary .card__heading {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto; }
+
+.card--primary .card__media {
+  height: 52px;
+  width: 52px;
+  margin-right: 0.8em; }
+  .card--primary .card__media.card__media--right {
+    margin-right: 0;
+    margin-left: 0.8em;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2; }
+
+/*
+
+---
+name: Secondary
+category:
+ - Components/Card
+---
+
+Within the secondary card example the image, strap and meta information are all optional. Specify the class `.card__media--right` on the image to align to the right.
+
+```html
+<div class="card card--secondary">
+
+	<img class="card__media card__media--right" src="//placehold.it/300" />
+
+	<div class="card__content">
+
+		<div class="card__title">
+
+			<img class="card__media card__media--right" src="//placehold.it/300" />
+
+			<h6 class="card__heading">
+				<a href="#">How to Open Contracting? A New Guide for Governments</a>
+			</h6>
+
+		</div>
+
+		<p class="card__strap">Here there will be some information about what the link contains&hellip;</p>
+
+		<p class="card__meta">
+			<time datetime="2001-05-15T19:00">8 Jun 2017</time>
+			<span class="card__author">By Georg Nueman</span>
+		</p>
+
+	</div>
+
+</div>
+```
+
+*/
+.card--secondary {
+  padding: 0; }
+  .card--secondary .card__title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    .card--secondary .card__title .card__media {
+      margin: -8px 8px 0 -8px;
+      width: 52px;
+      height: 52px; }
+      .card--secondary .card__title .card__media.card__media--right {
+        margin: -8px -8px 0 8px;
+        -webkit-box-ordinal-group: 3;
+            -ms-flex-order: 2;
+                order: 2; }
+  .card--secondary .card__heading {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto; }
+  .card--secondary > .card__media {
+    height: 152px;
+    width: 152px;
+    margin-right: 0; }
+    .card--secondary > .card__media.card__media--right {
+      -webkit-box-ordinal-group: 3;
+          -ms-flex-order: 2;
+              order: 2; }
+  .card--secondary .card__content {
+    padding: 8px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto; }
+  .card--secondary[max-width~="500px"] h6 {
+    font-size: 16px;
+    font-size: 0.8rem;
+    line-height: 1.25; }
+  .card--secondary[max-width~="500px"] > .card__media {
+    display: none; }
+  .card--secondary[max-width~="500px"] .card__strap,
+  .card--secondary[max-width~="500px"] .card__meta {
+    margin-top: 8px; }
+  .card--secondary[min-width~="500px"] {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row; }
+    .card--secondary[min-width~="500px"] .card__title .card__media {
+      display: none; }
+    .card--secondary[min-width~="500px"] .card__content {
+      padding: 16px; }
+
+/*
+
+---
+name: Primary with Featured Media
+category:
+ - Components/Card
+---
+
+The primary card can be accompanied with a header, a section that sits outside the inner padding and can be used for featured images, etc.
+
+```html
+<div class="card card--primary">
+
+	<div class="card__header">
+		<img class="card__featured-media" src="//placehold.it/300x200" />
+	</div>
+
+	<div class="card__content">
+
+		<div class="card__title">
+
+			<h6 class="card__heading">
+				<a href="#">How to Open Contracting? A New Guide for Governments</a>
+			</h6>
+
+		</div>
+
+		<p class="card__strap">Here there will be some information about what the link contains&hellip;</p>
+
+		<p class="card__meta">
+			<time datetime="2001-05-15T19:00">8 Jun 2017</time>
+			<span class="card__author">By Georg Nueman</span>
+		</p>
+
+	</div>
+
+</div>
+```
+
+*/
+/*
+
+---
+name: Content Spine
+category:
+ - Components/Card
+---
+
+Based on the primary card, the content spine element sits within the header and allows an icon, title and meta to be displayed.
+
+```html
+<div class="card card--primary">
+
+	<div class="card__header / card--content-spine">
+
+		<div class="content-spine__icon" data-content-type="resource">
+			<svg><use xlink:href="#icon-resource"></svg>
+		</div>
+
+		<span class="content-spine__title">Report</span>
+
+		<span class="content-spine__meta">2016</span>
+
+	</div>
+
+	<div class="card__content">
+
+		<div class="card__title">
+
+			<h6 class="card__heading">
+				<a href="#">Statement on the resignation of the Ukranian Minister of Economic Development and Trade Abromavicius</a>
+			</h6>
+
+		</div>
+
+		<p class="card__meta">
+			<time datetime="2001-05-15T19:00">8 Jun 2017</time>
+			<span class="card__author">By Open Contracting Partnership</span>
+		</p>
+
+	</div>
+
+</div>
+```
+
+*/
+.card--content-spine {
+  border-bottom: 1px solid rgba(224, 224, 224, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.content-spine__icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 35px;
+  height: 35px; }
+  .content-spine__icon[data-content-type="page"] {
+    background-color: #9BAF00; }
+  .content-spine__icon[data-content-type="post"] {
+    background-color: #FB6045; }
+  .content-spine__icon[data-content-type="news"] {
+    background-color: #6C75E1; }
+  .content-spine__icon[data-content-type="event"] {
+    background-color: #6991F5; }
+  .content-spine__icon[data-content-type="resource"] {
+    background-color: #23B2A7; }
+  .content-spine__icon[data-content-type="newsletter"] {
+    background-color: #9F4EE8; }
+  .content-spine__icon[data-content-type="success"] {
+    background-color: #EC69F9; }
+  .content-spine__icon[data-content-type="media-clipping"] {
+    background-color: #89D1F9; }
+  .content-spine__icon svg {
+    fill: #FFF;
+    stroke: #FFF;
+    max-width: 23px;
+    max-height: 23px; }
+
+.content-spine__title,
+.content-spine__meta {
+  font-size: 17px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  margin: 3px 8px 0; }
+
+.content-spine__title {
+  margin-right: auto; }
 
 .custom-checkbox input[type="checkbox"],
 .custom-checkbox input[type="radio"] {
@@ -4596,13 +4898,15 @@ a.post-object--panel {
     margin-right: 0.93458%;
     margin-left: 8.41121%; } }
 
-.page--template-two-column .page-title {
-  clear: both;
-  width: 100%;
-  float: left;
-  margin-left: 0;
-  margin-right: 0;
+.page--template-a .page-title {
   margin-left: 0; }
+
+@media screen and (min-width: 810px) {
+  .page--template-a .page-title {
+    width: 49.53271%;
+    float: left;
+    margin-right: 0.93458%;
+    margin-left: 33.64486%; } }
 
 .page-sidebar {
   margin-top: 0;
@@ -4635,7 +4939,7 @@ a.post-object--panel {
       float: left;
       margin-right: 0.93458%;
       margin-left: 8.41121%; }
-      .page--template-two-column .page-content {
+      .page--template-a .page-content {
         clear: none;
         width: 57.94393%;
         float: left;
@@ -4647,7 +4951,7 @@ a.post-object--panel {
       float: left;
       margin-right: 0.93458%;
       margin-left: 8.41121%; }
-      .page--template-two-column .page-content {
+      .page--template-a .page-content {
         clear: none;
         width: 49.53271%;
         float: left;
@@ -4665,6 +4969,23 @@ a.post-object--panel {
 
 .page__wrapper {
   position: relative; }
+
+.pull {
+  font-size: 16px;
+  font-size: 0.8rem;
+  border-top: 1px solid #B7B7B7;
+  border-bottom: 1px solid #B7B7B7;
+  padding: 2em 0 1em;
+  margin-bottom: 2em; }
+  @media screen and (min-width: 1024px) {
+    .page--template-a .pull {
+      width: 24.29907%;
+      float: left;
+      margin-right: 0.93458%;
+      position: absolute;
+      left: 3rem;
+      padding: 0 .7% 0 0;
+      border: 0; } }
 
 .worldwide-intro {
   clear: both; }
@@ -4685,7 +5006,7 @@ a.post-object--panel {
       padding-left: 9em; } }
 
 .resources-container {
-  max-width: 60em;
+  max-width: 70em;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 12.5em;

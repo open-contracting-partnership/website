@@ -17,8 +17,31 @@
 		<link href="../../../aigis_assets/styles/highlight/prism.css" rel="stylesheet">
 		<link href="../../../aigis_assets/styles/theme.css" rel="stylesheet">
 
+		<script type="text/javascript" src="../../../public/js/libs/css-element-queries/src/ResizeSensor.js"></script>
+		<script type="text/javascript" src="../../../public/js/libs/css-element-queries/src/ElementQueries.js"></script>
+
+		<script>
+
+			//attaches to DOMLoadContent
+			ElementQueries.listen();
+
+		</script>
+
 	</head>
 	<body class="aigis-body">
+
+		<script>
+			var ajax = new XMLHttpRequest();
+			ajax.open('GET', '../../../assets/img/icons.svg', true);
+			ajax.send();
+			ajax.onload = function(e) {
+				var div = document.createElement('div');
+				div.style.display = 'none';
+				div.style.visibility = 'hidden';
+				div.innerHTML = ajax.responseText;
+				document.body.insertBefore(div, document.body.childNodes[0]);
+			}
+		</script>
 
 		<div class="aigis-container">
 
@@ -45,7 +68,7 @@
 	</label>
 
     <nav class="aigis-categoryList">
-        <ul data-path-depth="0"><li data-path-depth="0"><a href="../../../category/Base/index.html">Base</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Base/Headings/index.html" data-tree-current>Headings</a></li><li data-path-depth="1"><a href="../../../category/Base/Kitchen-Sink/index.html">Kitchen Sink</a></li><li data-path-depth="1"><a href="../../../category/Base/Quotes/index.html">Quotes</a></li><li data-path-depth="1"><a href="../../../category/Base/Type/index.html">Type</a></li></ul></li><li data-path-depth="0"><a href="../../../category/Components/index.html">Components</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Components/Heading-Highlight/index.html">Heading Highlight</a></li></ul></li><li data-path-depth="0"><a href="../../../category/Design/index.html">Design</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Design/Colours/index.html">Colours</a></li></ul></li><li data-path-depth="0"><a href="../../../category/Layout/index.html">Layout</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Layout/Sidebar/index.html">Sidebar</a></li></ul></li></ul>
+        <ul data-path-depth="0"><li data-path-depth="0"><a href="../../../category/Base/index.html">Base</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Base/Headings/index.html" data-tree-current>Headings</a></li><li data-path-depth="1"><a href="../../../category/Base/Kitchen-Sink/index.html">Kitchen Sink</a></li><li data-path-depth="1"><a href="../../../category/Base/Quotes/index.html">Quotes</a></li><li data-path-depth="1"><a href="../../../category/Base/Type/index.html">Type</a></li></ul></li><li data-path-depth="0"><a href="../../../category/Components/index.html">Components</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Components/Card/index.html">Card</a></li><li data-path-depth="1"><a href="../../../category/Components/Heading-Highlight/index.html">Heading Highlight</a></li></ul></li><li data-path-depth="0"><a href="../../../category/Design/index.html">Design</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Design/Colours/index.html">Colours</a></li></ul></li></ul>
     </nav>
 
 </div>
@@ -66,7 +89,9 @@
 					Headings
 				</h1>
 
-				<div class="aigis-preview">
+				<h2 id="base-headings">Base Headings</h2>
+<p>The class structure follows the structure discussed by Harry Roberts in his article <a href="http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/" title="null">practical font sizing in CSS</a> on CSS Wizardry.</p>
+<div class="aigis-preview">
   <h1 class="alpha">The fox</h1>
 <h2 class="beta">The fox</h2>
 <h3 class="gamma">The fox</h3>
@@ -81,45 +106,13 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h5</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>epsilon<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The fox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h5</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h6</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zeta<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The fox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h6</span><span class="token punctuation">></span></span>
 </code></pre>
-
-
-			</div>
-
-		
-
-			<div class="aigis-module">
-
-				<h1 class="aigis-module__heading" id="Strapline">
-					Strapline
-				</h1>
-
-				<div class="aigis-preview">
+<h2 id="strapline">Strapline</h2>
+<div class="aigis-preview">
   <h1 class="alpha">The fox</h1>
 <h4 class="beta strapline">The fox</h4></div>
 
 <pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alpha<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The fox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>beta strapline<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The fox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span>
-</code></pre>
-
-
-			</div>
-
-		
-
-			<div class="aigis-module">
-
-				<h1 class="aigis-module__heading" id="Border Top">
-					Border Top
-				</h1>
-
-				<div class="aigis-preview">
-  <h4 class="border-top">Subscribe to our newsletter</h4>
-<h4 class="border-top border-top--dark">Subscribe to our newsletter</h4>
-<h4 class="border-top border-top--blue">Subscribe to our newsletter</h4></div>
-
-<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>border-top<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Subscribe to our newsletter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>border-top border-top--dark<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Subscribe to our newsletter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>border-top border-top--blue<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Subscribe to our newsletter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span>
 </code></pre>
 
 

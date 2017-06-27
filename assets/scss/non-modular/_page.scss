@@ -5,9 +5,16 @@
 		margin-left: span(1 of 12) + gutter();
 	}
 
-	.page--template-two-column & {
-		@include full;
+	.page--template-a & {
 		margin-left: 0;
+	}
+
+	@include mq(M) {
+
+		.page--template-a & {
+			@include span(6 of 12);
+			margin-left: span(4 of 12) + gutter();
+		}
 	}
 }
 
@@ -44,7 +51,7 @@
 		@include span(10 of 12);
 		margin-left: span(1 of 12) + gutter();
 
-		.page--template-two-column & {
+		.page--template-a & {
 			@include nobreak;
 			@include span(7 at 4 of 12);
 			margin-left: span(1 of 12) + gutter();
@@ -55,7 +62,7 @@
 		@include span(10 of 12);
 		margin-left: span(1 of 12) + gutter();
 
-		.page--template-two-column & {
+		.page--template-a & {
 			@include nobreak;
 			@include span(6 at 4 of 12);
 			margin-left: span(1 of 12) + gutter();
@@ -83,24 +90,24 @@
 	position: relative;
 }
 
-// .pull {
-// 	@include font-size(16);
-// 	border-top: 1px solid color('light-grey');
-// 	border-bottom: 1px solid color('light-grey');
-// 	padding: 2em 0 1em;
-// 	margin-bottom: 2em;
-//
-// 	@include mq(L) {
-//
-// 		.page--template-two-column & {
-// 			@include span(3 of 12);
-// 			position: absolute;
-// 			left: 3rem;
-// 			padding: 0 .7% 0 0;
-// 			border: 0;
-// 		}
-// 	}
-// }
+.pull {
+	@include font-size(16);
+	border-top: 1px solid color('light-grey');
+	border-bottom: 1px solid color('light-grey');
+	padding: 2em 0 1em;
+	margin-bottom: 2em;
+
+	@include mq(L) {
+
+		.page--template-a & {
+			@include span(3 of 12);
+			position: absolute;
+			left: 3rem;
+			padding: 0 .7% 0 0;
+			border: 0;
+		}
+	}
+}
 
  //**********
 // WORLDWIDE

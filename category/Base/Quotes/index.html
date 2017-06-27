@@ -17,8 +17,31 @@
 		<link href="../../../aigis_assets/styles/highlight/prism.css" rel="stylesheet">
 		<link href="../../../aigis_assets/styles/theme.css" rel="stylesheet">
 
+		<script type="text/javascript" src="../../../public/js/libs/css-element-queries/src/ResizeSensor.js"></script>
+		<script type="text/javascript" src="../../../public/js/libs/css-element-queries/src/ElementQueries.js"></script>
+
+		<script>
+
+			//attaches to DOMLoadContent
+			ElementQueries.listen();
+
+		</script>
+
 	</head>
 	<body class="aigis-body">
+
+		<script>
+			var ajax = new XMLHttpRequest();
+			ajax.open('GET', '../../../assets/img/icons.svg', true);
+			ajax.send();
+			ajax.onload = function(e) {
+				var div = document.createElement('div');
+				div.style.display = 'none';
+				div.style.visibility = 'hidden';
+				div.innerHTML = ajax.responseText;
+				document.body.insertBefore(div, document.body.childNodes[0]);
+			}
+		</script>
 
 		<div class="aigis-container">
 
@@ -45,7 +68,7 @@
 	</label>
 
     <nav class="aigis-categoryList">
-        <ul data-path-depth="0"><li data-path-depth="0"><a href="../../../category/Base/index.html">Base</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Base/Headings/index.html">Headings</a></li><li data-path-depth="1"><a href="../../../category/Base/Kitchen-Sink/index.html">Kitchen Sink</a></li><li data-path-depth="1"><a href="../../../category/Base/Quotes/index.html" data-tree-current>Quotes</a></li><li data-path-depth="1"><a href="../../../category/Base/Type/index.html">Type</a></li></ul></li><li data-path-depth="0"><a href="../../../category/Components/index.html">Components</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Components/Heading-Highlight/index.html">Heading Highlight</a></li></ul></li><li data-path-depth="0"><a href="../../../category/Design/index.html">Design</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Design/Colours/index.html">Colours</a></li></ul></li><li data-path-depth="0"><a href="../../../category/Layout/index.html">Layout</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Layout/Sidebar/index.html">Sidebar</a></li></ul></li></ul>
+        <ul data-path-depth="0"><li data-path-depth="0"><a href="../../../category/Base/index.html">Base</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Base/Headings/index.html">Headings</a></li><li data-path-depth="1"><a href="../../../category/Base/Kitchen-Sink/index.html">Kitchen Sink</a></li><li data-path-depth="1"><a href="../../../category/Base/Quotes/index.html" data-tree-current>Quotes</a></li><li data-path-depth="1"><a href="../../../category/Base/Type/index.html">Type</a></li></ul></li><li data-path-depth="0"><a href="../../../category/Components/index.html">Components</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Components/Card/index.html">Card</a></li><li data-path-depth="1"><a href="../../../category/Components/Heading-Highlight/index.html">Heading Highlight</a></li></ul></li><li data-path-depth="0"><a href="../../../category/Design/index.html">Design</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Design/Colours/index.html">Colours</a></li></ul></li></ul>
     </nav>
 
 </div>

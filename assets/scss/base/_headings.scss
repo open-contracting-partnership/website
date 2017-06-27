@@ -7,6 +7,10 @@ category:
  - Base/Headings
 ---
 
+## Base Headings
+
+The class structure follows the structure discussed by Harry Roberts in his article [practical font sizing in CSS](http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/) on CSS Wizardry.
+
 ```html
 <h1 class="alpha">The fox</h1>
 <h2 class="beta">The fox</h2>
@@ -14,6 +18,13 @@ category:
 <h4 class="delta">The fox</h4>
 <h5 class="epsilon">The fox</h5>
 <h6 class="zeta">The fox</h6>
+```
+
+## Strapline
+
+```html
+<h1 class="alpha">The fox</h1>
+<h4 class="beta strapline">The fox</h4>
 ```
 
 */
@@ -61,22 +72,6 @@ h6,
 	}
 
 }
-
-/*
-
----
-name: Strapline
-category:
- - Base
- - Base/Headings
----
-
-```html
-<h1 class="alpha">The fox</h1>
-<h4 class="beta strapline">The fox</h4>
-```
-
-*/
 
 h1 {
 	margin-top: 0;
@@ -166,27 +161,12 @@ h6,
 	}
 }
 
-/*
-
----
-name: Border Top
-category:
- - Base
- - Base/Headings
----
-
-```html
-<h4 class="border-top">Subscribe to our newsletter</h4>
-<h4 class="border-top border-top--dark">Subscribe to our newsletter</h4>
-<h4 class="border-top border-top--blue">Subscribe to our newsletter</h4>
-```
-
-*/
-
 .border-top {
-	position: relative;
+	@include font(secondary, bold);
+	@include font-size(16);
 	text-transform: uppercase;
-	color: color('black');
+	letter-spacing: 1px;
+	position: relative;
 	padding-top: 1rem;
 
 	.home & {
@@ -200,7 +180,7 @@ category:
 		top: 0;
 		left: 0;
 		width: 6rem;
-		height: 2px;
+		height: .5rem;
 		background-color: color('brand');
 	}
 }
