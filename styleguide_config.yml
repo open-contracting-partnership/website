@@ -9,6 +9,7 @@ dest: ./styleguide
 dependencies:
   - ./styleguide_assets/aigis_assets
   - ./assets/
+  - ./public/
 
 # The directory containing the template files to generate pages
 # It must contain 'layout.xxx' and 'index.xxx' (.ejs or .jade or .hbs)

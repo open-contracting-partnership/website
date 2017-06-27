@@ -17,6 +17,16 @@
 		<link href="<%- root %>aigis_assets/styles/highlight/prism.css" rel="stylesheet">
 		<link href="<%- root %>aigis_assets/styles/theme.css" rel="stylesheet">
 
+		<script type="text/javascript" src="<%- root %>public/js/libs/css-element-queries/src/ResizeSensor.js"></script>
+		<script type="text/javascript" src="<%- root %>public/js/libs/css-element-queries/src/ElementQueries.js"></script>
+
+		<script>
+
+			//attaches to DOMLoadContent
+			ElementQueries.listen();
+
+		</script>
+
 	</head>
 	<body class="aigis-body">
 

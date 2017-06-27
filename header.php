@@ -14,6 +14,16 @@
 		<script src="https://use.typekit.net/xpw3jps.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
 
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/public/js/libs/css-element-queries/src/ResizeSensor.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/public/js/libs/css-element-queries/src/ElementQueries.js"></script>
+
+		<script>
+
+			//attaches to DOMLoadContent
+			ElementQueries.listen();
+
+		</script>
+
 		<title><?php wp_title('&raquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
 		<meta charset="utf-8">
