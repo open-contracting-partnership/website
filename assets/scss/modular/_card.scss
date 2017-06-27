@@ -114,13 +114,13 @@ Within the secondary card example the image, strap and meta information are all 
 ```html
 <div class="card card--secondary">
 
-	<img class="card__media" src="//placehold.it/300" />
+	<img class="card__media card__media--right" src="//placehold.it/300" />
 
 	<div class="card__content">
 
 		<div class="card__header">
 
-			<img class="card__media" src="//placehold.it/300" />
+			<img class="card__media card__media--right" src="//placehold.it/300" />
 
 			<h6 class="card__heading">
 				<a href="#">How to Open Contracting? A New Guide for Governments</a>
@@ -169,6 +169,10 @@ Within the secondary card example the image, strap and meta information are all 
 			width: 52px;
 			height: 52px;
 
+			&.card__media--right {
+				margin: -8px -8px 0 8px;
+			}
+
 			@include mq(M) {
 				display: none;
 			}
@@ -182,8 +186,12 @@ Within the secondary card example the image, strap and meta information are all 
 	}
 
 	@include mq(M, 'max-width') {
-		@include font-size(16);
-		line-height: 1.25;
+
+		h6 {
+			@include font-size(16);
+			line-height: 1.25;
+		}
+		
 	}
 
 	.card__media {
