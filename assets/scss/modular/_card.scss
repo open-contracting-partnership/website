@@ -2,7 +2,17 @@
 	background-color: color('white');
 	box-shadow: 0 0 4px 0 rgba(224, 224, 224, .5);
 	width: 100%;
-	padding: em(16);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.card__featured-media {
+	width: 100%;
+}
+
+.card__content {
+	padding: spacing(2);
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -20,7 +30,7 @@
 
 .card__strap {
 	@extend p.smallest;
-	margin-top: 16px;
+	margin-top: spacing(2);
 	margin-bottom: auto;
 }
 
@@ -51,22 +61,26 @@ Within the primary card example the image, strap and meta information are all op
 ```html
 <div class="card card--primary">
 
-	<div class="card__header">
+	<div class="card__content">
 
-		<img class="card__media" src="//placehold.it/300" />
+		<div class="card__title">
 
-		<h6 class="card__heading">
-			<a href="#">How to Open Contracting? A New Guide for Governments</a>
-		</h6>
+			<img class="card__media" src="//placehold.it/300" />
+
+			<h6 class="card__heading">
+				<a href="#">How to Open Contracting? A New Guide for Governments</a>
+			</h6>
+
+		</div>
+
+		<p class="card__strap">Here there will be some information about what the link contains&hellip;</p>
+
+		<p class="card__meta">
+			<time datetime="2001-05-15T19:00">8 Jun 2017</time>
+			<span class="card__author">By Georg Nueman</span>
+		</p>
 
 	</div>
-
-	<p class="card__strap">Here there will be some information about what the link contains&hellip;</p>
-
-	<p class="card__meta">
-		<time datetime="2001-05-15T19:00">8 Jun 2017</time>
-		<span class="card__author">By Georg Nueman</span>
-	</p>
 
 </div>
 ```
@@ -75,7 +89,7 @@ Within the primary card example the image, strap and meta information are all op
 
 .card--primary {
 
-	.card__header {
+	.card__title {
 		display: flex;
 		justify-content: space-between;
 	}
@@ -117,7 +131,7 @@ Within the secondary card example the image, strap and meta information are all 
 
 	<div class="card__content">
 
-		<div class="card__header">
+		<div class="card__title">
 
 			<img class="card__media card__media--right" src="//placehold.it/300" />
 
@@ -145,7 +159,7 @@ Within the secondary card example the image, strap and meta information are all 
 
 	padding: 0;
 
-	.card__header {
+	.card__title {
 
 		display: flex;
 		justify-content: space-between;
@@ -182,14 +196,17 @@ Within the secondary card example the image, strap and meta information are all 
 	}
 
 	.card__content {
-		padding: 8px;
+		padding: spacing(1);
 		flex: 1 1 auto;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
 	}
 
 	&[max-width~="500px"] {
+
+		// overwrite this specific heading to fit within the card
+		h6 {
+			@include font-size(16);
+			line-height: 1.25;
+		}
 
 		> .card__media {
 			display: none;
@@ -206,19 +223,147 @@ Within the secondary card example the image, strap and meta information are all 
 
 		flex-direction: row;
 
-		h6 {
-			@include font-size(16);
-			line-height: 1.25;
-		}
-
-		.card__header .card__media {
+		.card__title .card__media {
 			display: none;
 		}
 
 		.card__content {
-			padding: 16px;
+			padding: spacing(2);
 		}
 
 	}
 
+}
+
+
+/*
+
+---
+name: Primary with Featured Media
+category:
+ - Components/Card
+---
+
+The primary card can be accompanied with a header, a section that sits outside the inner padding and can be used for featured images, etc.
+
+```html
+<div class="card card--primary">
+
+	<div class="card__header">
+		<img class="card__featured-media" src="//placehold.it/300x200" />
+	</div>
+
+	<div class="card__content">
+
+		<div class="card__title">
+
+			<h6 class="card__heading">
+				<a href="#">How to Open Contracting? A New Guide for Governments</a>
+			</h6>
+
+		</div>
+
+		<p class="card__strap">Here there will be some information about what the link contains&hellip;</p>
+
+		<p class="card__meta">
+			<time datetime="2001-05-15T19:00">8 Jun 2017</time>
+			<span class="card__author">By Georg Nueman</span>
+		</p>
+
+	</div>
+
+</div>
+```
+
+*/
+
+/*
+
+---
+name: Content Spine
+category:
+ - Components/Card
+---
+
+Based on the primary card, the content spine element sits within the header and allows an icon, title and meta to be displayed.
+
+```html
+<div class="card card--primary">
+
+	<div class="card__header / card--content-spine">
+
+		<div class="content-spine__icon" data-content-type="resource">
+			<svg><use xlink:href="#icon-resource"></svg>
+		</div>
+
+		<span class="content-spine__title">Report</span>
+
+		<span class="content-spine__meta">2016</span>
+
+	</div>
+
+	<div class="card__content">
+
+		<div class="card__title">
+
+			<h6 class="card__heading">
+				<a href="#">Statement on the resignation of the Ukranian Minister of Economic Development and Trade Abromavicius</a>
+			</h6>
+
+		</div>
+
+		<p class="card__meta">
+			<time datetime="2001-05-15T19:00">8 Jun 2017</time>
+			<span class="card__author">By Open Contracting Partnership</span>
+		</p>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.card--content-spine {
+	border-bottom: 1px solid rgba(224, 224, 224, .25); // ATTN: at 1px (design specified .5px) this colour is too dark
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.content-spine__icon {
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 35px;
+	height: 35px;
+
+	@each $post-type, $colour in $post-types {
+
+		&[data-content-type="#{$post-type}"] {
+			background-color: #{$colour};
+		}
+
+	}
+
+	svg {
+		fill: color('white');
+		stroke: color('white');
+		max-width: 23px;
+		max-height: 23px;
+	}
+
+}
+
+.content-spine__title,
+.content-spine__meta {
+	@include font-size(17);
+	@include font('secondary', 'medium');
+	text-transform: uppercase;
+	margin: 3px spacing(1) 0;
+}
+
+.content-spine__title {
+	margin-right: auto; // the space to the right of the title should always be expandable
 }
