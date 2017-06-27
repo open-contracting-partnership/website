@@ -30,6 +30,19 @@
 	</head>
 	<body class="aigis-body">
 
+		<script>
+			var ajax = new XMLHttpRequest();
+			ajax.open('GET', '<%- root %>assets/img/icons.svg', true);
+			ajax.send();
+			ajax.onload = function(e) {
+				var div = document.createElement('div');
+				div.style.display = 'none';
+				div.style.visibility = 'hidden';
+				div.innerHTML = ajax.responseText;
+				document.body.insertBefore(div, document.body.childNodes[0]);
+			}
+		</script>
+
 		<div class="aigis-container">
 
 			<%- include('sidemenu') %>
