@@ -66,6 +66,7 @@ The Block Quotation Element indicates that the enclosed text is an extended quot
 */
 
 blockquote.blockquote--large {
+	padding: 0;
 
 	&::before {
 		display: none;

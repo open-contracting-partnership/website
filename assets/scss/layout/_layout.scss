@@ -4,7 +4,7 @@
 
 .wrapper {
 	@include container();
-	max-width: 76rem;
+	max-width: $max-width + px;
 	box-sizing: border-box;
 	padding: 0 1em;
 
@@ -15,7 +15,7 @@
 
 .wrapper--inner {
 	@include container();
-	max-width: 76rem;
+	max-width: $max-width + px;
 	box-sizing: border-box;
 	padding: 0;
 

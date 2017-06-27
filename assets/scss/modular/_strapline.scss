@@ -1,9 +1,0 @@
-.strapline {
-	@extend blockquote;
-	@include font('secondary', 'regular');
-	@include font-size(26);
-}
-
-.strapline--blue:before {
-	background-color: color('blue');
-}
