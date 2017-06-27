@@ -167,29 +167,20 @@
  //**************
 // MEDIA QUERIES
 
-// Pass in a value or a breakpoint letter
-@mixin mq($point, $IE9: false, $query1: min, $query2: width) {
+// $value: can be a number, 'landscape', or a breakpoint letter
+// $feature: default is min-width, can be overwritten with 'max-width', or 'orientation' etc.
+@mixin mq($value, $feature: 'min-width') {
 
-	@if map-has-key($breakpoints, $point) {
-		$point: map-get($breakpoints, $point);
+	@if map-has-key($breakpoints, $value) {
+		$value: map-get($breakpoints, $value);
 	}
 
-    @if $IE9 == true {
+	@if type-of($value) == 'number' {
+		$value: $value + px;
+	}
 
-        .lt-ie9 {
-            @content;
-        }
-
-        @media screen and (#{$query1}-#{$query2}: $point + px) {
-            @content;
-        }
-
-    } @else {
-
-        @media screen and (#{$query1}-#{$query2}: $point + px) {
-            @content;
-        }
-
+    @media screen and (#{$feature}: $value) {
+        @content;
     }
 
 }

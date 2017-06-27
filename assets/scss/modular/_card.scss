@@ -1,0 +1,224 @@
+.card {
+	display: inline-block; // prevents margin collapsing
+	background-color: color('white');
+	box-shadow: 0 0 4px 0 rgba(224, 224, 224, .5);
+	width: 100%;
+	padding: em(16);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.card__heading {
+
+	margin-bottom: 0;
+
+	a {
+		color: inherit;
+	}
+
+}
+
+.card__strap {
+	@extend p.smallest;
+	margin-top: 16px;
+	margin-bottom: auto;
+}
+
+.card__meta {
+
+	@include font-size(12);
+	text-transform: uppercase;
+	margin-top: 16px;
+	margin-bottom: 0;
+
+	time,
+	.card__author {
+		display: block;
+	}
+
+}
+
+/*
+
+---
+name: Primary
+category:
+ - Components/Card
+---
+
+Within the primary card example the image, strap and meta information are all optional. Specify the class `.card__media--right` on the image to align to the right.
+
+```html
+<div class="card card--primary">
+
+	<div class="card__header">
+
+		<img class="card__media" src="//placehold.it/300" />
+
+		<h6 class="card__heading">
+			<a href="#">How to Open Contracting? A New Guide for Governments</a>
+		</h6>
+
+	</div>
+
+	<p class="card__strap">Here there will be some information about what the link contains&hellip;</p>
+
+	<p class="card__meta">
+		<time datetime="2001-05-15T19:00">8 Jun 2017</time>
+		<span class="card__author">By Georg Nueman</span>
+	</p>
+
+</div>
+```
+
+*/
+
+.card--primary {
+
+	.card__header {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.card__heading {
+		flex: 1 1 auto;
+	}
+
+	.card__media {
+
+		height: 52px;
+		width: 52px;
+		margin-right: em(16);
+
+		&.card__media--right {
+			margin-right: 0;
+			margin-left: em(16);
+			order: 2;
+		}
+
+	}
+
+}
+
+/*
+
+---
+name: Secondary
+category:
+ - Components/Card
+---
+
+Within the secondary card example the image, strap and meta information are all optional. Specify the class `.card__media--right` on the image to align to the right.
+
+```html
+<div class="card card--secondary">
+
+	<img class="card__media" src="//placehold.it/300" />
+
+	<div class="card__content">
+
+		<div class="card__header">
+
+			<img class="card__media" src="//placehold.it/300" />
+
+			<h6 class="card__heading">
+				<a href="#">How to Open Contracting? A New Guide for Governments</a>
+			</h6>
+
+		</div>
+
+		<p class="card__strap">Here there will be some information about what the link contains&hellip;</p>
+
+		<p class="card__meta">
+			<time datetime="2001-05-15T19:00">8 Jun 2017</time>
+			<span class="card__author">By Georg Nueman</span>
+		</p>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.card--secondary {
+
+	padding: 0;
+
+	@include mq(M) {
+		flex-direction: row;
+	}
+
+	> .card__media {
+
+		@include mq(M, 'max-width') {
+			display: none;
+		}
+
+	}
+
+	.card__header {
+
+		display: flex;
+		justify-content: space-between;
+
+		.card__media {
+
+			margin: -8px 8px 0 -8px;
+			width: 52px;
+			height: 52px;
+
+			@include mq(M) {
+				display: none;
+			}
+
+		}
+
+	}
+
+	.card__heading {
+		flex: 1 1 auto;
+	}
+
+	@include mq(M, 'max-width') {
+		@include font-size(16);
+		line-height: 1.25;
+	}
+
+	.card__media {
+
+		height: 152px;
+		width: 152px;
+		margin-right: 0;
+
+		&.card__media--right {
+			order: 2;
+		}
+
+	}
+
+	.card__content {
+
+		padding: 8px;
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		@include mq(M) {
+			padding: 16px;
+		}
+
+	}
+
+	.card__strap,
+	.card__meta {
+
+		@include mq(M, 'max-width') {
+			margin-top: 8px;
+		}
+
+	}
+
+}
