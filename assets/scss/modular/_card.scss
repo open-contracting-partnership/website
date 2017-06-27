@@ -146,18 +146,6 @@ Within the secondary card example the image, strap and meta information are all 
 
 	padding: 0;
 
-	@include mq(M) {
-		flex-direction: row;
-	}
-
-	> .card__media {
-
-		@include mq(M, 'max-width') {
-			display: none;
-		}
-
-	}
-
 	.card__header {
 
 		display: flex;
@@ -171,10 +159,7 @@ Within the secondary card example the image, strap and meta information are all 
 
 			&.card__media--right {
 				margin: -8px -8px 0 8px;
-			}
-
-			@include mq(M) {
-				display: none;
+				order: 2;
 			}
 
 		}
@@ -185,16 +170,7 @@ Within the secondary card example the image, strap and meta information are all 
 		flex: 1 1 auto;
 	}
 
-	@include mq(M, 'max-width') {
-
-		h6 {
-			@include font-size(16);
-			line-height: 1.25;
-		}
-		
-	}
-
-	.card__media {
+	> .card__media {
 
 		height: 152px;
 		width: 152px;
@@ -207,24 +183,41 @@ Within the secondary card example the image, strap and meta information are all 
 	}
 
 	.card__content {
-
 		padding: 8px;
 		flex: 1 1 auto;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+	}
 
-		@include mq(M) {
-			padding: 16px;
+	&[max-width~="500px"] {
+
+		> .card__media {
+			display: none;
+		}
+
+		.card__strap,
+		.card__meta {
+			margin-top: 8px;
 		}
 
 	}
 
-	.card__strap,
-	.card__meta {
+	&[min-width~="500px"] {
 
-		@include mq(M, 'max-width') {
-			margin-top: 8px;
+		flex-direction: row;
+
+		h6 {
+			@include font-size(16);
+			line-height: 1.25;
+		}
+
+		.card__header .card__media {
+			display: none;
+		}
+
+		.card__content {
+			padding: 16px;
 		}
 
 	}
