@@ -85,7 +85,7 @@ $border-radius: 4px;
  //****************
 // LAYOUT SETTINGS
 
-$max-width: 1400;
+$max-width: 1200;
 $space: 1.6em; // NOTE: This is needs to be changed depending on the lineheight of the <p>
 
 $breakpoints: (
@@ -94,7 +94,7 @@ $breakpoints: (
 );
 
 $susy: (
-	container: 70em,
+	container: 60em,
 	columns: 12,
  	// debug: (image: show)
  	gutters: 1/8

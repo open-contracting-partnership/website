@@ -16,12 +16,12 @@ legend {
 	@include font-size(13);
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	color: color('brand');
+	color: color('background');
 	cursor: pointer;
 }
 
 abbr[title="Required"] {
-	color: color('brand');
+	color: color('background');
 	@include font(primary, bold);
 }
 
@@ -41,12 +41,12 @@ input[type="datetime"],
 input[type="datetime-local"],
 textarea {
 	@include font;
-	@include font-size(16);
+	@include font-size(14);
 	padding: em(10);
 	width: 100%;
-	border: 1px solid color('brand');
+	border: 1px solid color('background');
 	margin-bottom: $space / 2;
-	color: color('brand');
+	color: color('background');
 	background-color: transparent;
 	border-radius: 0;
 
@@ -54,6 +54,10 @@ textarea {
 	&:focus {
 		box-shadow: none;
 		outline: none;
+	}
+
+	&.secondary {
+		@include font(secondary);
 	}
 }
 
