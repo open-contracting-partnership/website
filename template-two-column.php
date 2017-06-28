@@ -8,7 +8,7 @@
 
  	<?php the_post(); ?>
 
- 	<div class="page__container page--template-a">
+ 	<div class="page__container page--two-column">
 
  		<div class="wrapper / page__wrapper / page--padding">
 

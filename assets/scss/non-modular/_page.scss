@@ -5,13 +5,13 @@
 		margin-left: span(1 of 12) + gutter();
 	}
 
-	.page--template-a & {
+	.page--two-column & {
 		margin-left: 0;
 	}
 
 	@include mq(M) {
 
-		.page--template-a & {
+		.page--two-column & {
 			@include span(6 of 12);
 			margin-left: span(4 of 12) + gutter();
 		}
@@ -51,7 +51,7 @@
 		@include span(10 of 12);
 		margin-left: span(1 of 12) + gutter();
 
-		.page--template-a & {
+		.page--two-column & {
 			@include nobreak;
 			@include span(7 at 4 of 12);
 			margin-left: span(1 of 12) + gutter();
@@ -62,7 +62,7 @@
 		@include span(10 of 12);
 		margin-left: span(1 of 12) + gutter();
 
-		.page--template-a & {
+		.page--two-column & {
 			@include nobreak;
 			@include span(6 at 4 of 12);
 			margin-left: span(1 of 12) + gutter();
@@ -99,7 +99,7 @@
 
 	@include mq(L) {
 
-		.page--template-a & {
+		.page--two-column & {
 			@include span(3 of 12);
 			position: absolute;
 			left: 3rem;
