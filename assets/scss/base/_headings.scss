@@ -38,6 +38,10 @@ h6,
 		margin-bottom: .625em;
 	}
 
+	&.drop {
+		margin-bottom: line-height-adjust(16px, 1.3);
+	}
+
 	.coloured & {
 		@include font(secondary);
 		line-height: 1;
