@@ -198,6 +198,7 @@ gulp.task('watch', function () {
 	// boilerplate
 	gulp.watch('assets/scss/**/*.scss', ['styles']);
 	gulp.watch('assets/js/main.js', ['js', 'modernizr']);
+	gulp.watch('assets/img/icons/*.svg', ['svgstore']);
 
 });
 
