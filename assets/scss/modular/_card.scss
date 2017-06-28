@@ -367,3 +367,75 @@ Based on the primary card, the content spine element sits within the header and 
 .content-spine__title {
 	margin-right: auto; // the space to the right of the title should always be expandable
 }
+
+/*
+
+---
+name: Content Card
+category:
+ - Components/Card
+---
+
+```html
+<div class="card card--content">
+
+	<div class="card__icon" data-content-type="news">
+		<svg><use xlink:href="#icon-news"></svg>
+	</div>
+
+	<div class="card__content">
+
+		<span class="card-content__type">News</span>
+
+		<p class="card__heading">
+			<a href="#">Statement on the resignation of the Ukranian Minister of Economic Development and Trade Abromavicius</a>
+		</p>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.card--content {
+	flex-direction: row;
+}
+
+.card--content .card__icon {
+
+	padding: spacing(2);
+	padding-right: 0;
+	flex: 0 0 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	svg {
+		max-width: 30px;
+		max-height: 30px;
+	}
+
+	@each $post-type, $colour in $post-types {
+
+		&[data-content-type="#{$post-type}"] svg {
+			stroke: #{$colour};
+		}
+
+	}
+
+}
+
+.card--content .card__content {
+	flex: 1 1 auto;
+}
+
+.card-content__type {
+	@include font-size(12);
+	@include font('primary', 'bold');
+	text-transform: uppercase;
+}
+
+.card--content .card__heading {
+	@include font-size(14);
+}
