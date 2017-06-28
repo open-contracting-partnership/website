@@ -1,3 +1,22 @@
+.page-template-template-two-column {
+
+	main {
+		overflow: visible;
+	}
+
+	.page__wrapper {
+
+		@include mq(M) {
+			display: flex;
+			justify-content: space-between;
+
+			&::after {
+				display: none;
+			}
+		}
+	}
+}
+
 .page-title {
 
 	@include mq(M) {
