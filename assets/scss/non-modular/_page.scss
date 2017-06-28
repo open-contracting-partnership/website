@@ -5,9 +5,11 @@
 	}
 
 	.page__wrapper {
+		display: flex;
+		flex-direction: column-reverse;
 
 		@include mq(M) {
-			display: flex;
+			flex-direction: row;
 			justify-content: space-between;
 
 			&::after {
