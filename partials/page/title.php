@@ -17,7 +17,7 @@
 	<h1 class="<?php echo $class ?>"><?php echo $title; ?></h1>
 
 	<?php if ( $stapline = get_field('strapline') ) : ?>
-		<div class="strapline"><?php echo $stapline; ?></div>
+		<h2 class="delta strapline"><?php echo $stapline; ?></h2>
 	<?php endif; ?>
 
 </div>
