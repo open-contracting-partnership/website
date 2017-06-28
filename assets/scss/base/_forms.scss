@@ -41,7 +41,7 @@ input[type="datetime"],
 input[type="datetime-local"],
 textarea {
 	@include font;
-	@include font-size(16);
+	@include font-size(14);
 	padding: em(10);
 	width: 100%;
 	border: 1px solid color('background');
