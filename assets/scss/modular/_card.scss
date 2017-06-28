@@ -439,3 +439,69 @@ category:
 .card--content .card__heading {
 	@include font-size(14);
 }
+
+/*
+
+---
+name: Event Card
+category:
+ - Components/Card
+---
+
+```html
+<div class="card card--event">
+
+	<div class="card-event__date">
+		<span class="card-event__day">21</span>
+		<span class="card-event__month">Jun</span>
+	</div>
+
+	<div class="card__content">
+
+		<h6 class="card__heading">
+			<a href="#">Statement on the resignation of the Ukranian Minister of Economic Development and Trade Abromavicius</a>
+		</h6>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.card--event {
+	flex-direction: row;
+}
+
+.card-event__date {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-right: 1px solid rgba(224, 224, 224, .25); // ATTN: at 1px (design specified .5px) this colour is too dark
+	padding: spacing(2) spacing(1);
+	flex: 0 0 spacing(7);
+}
+
+.card-event__day,
+.card-event__month {
+	@include font-size(17);
+	@include font('secondary', 'bold');
+	color: color('blue');
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.card-event__month {
+	@include font-size(20);
+}
+
+.card--event .card__content {
+	flex: 1 1 auto;
+	padding: spacing(1);
+}
+
+.card--event .card__heading {
+	@include font-size(16);
+	@include font('secondary', 'medium');
+}
