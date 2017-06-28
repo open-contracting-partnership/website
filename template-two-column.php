@@ -16,7 +16,7 @@
 
 			<?php get_partial('navigation', 'sections'); ?>
 
-			<div class="band--extra-thick">
+			<div class="sidebar__section">
 
 				<h6 class="drop / border-top border-top--clean"><?php _e('Relevant Sources', 'ocp'); ?></h6>
 
@@ -27,7 +27,7 @@
 
 			</div>
 
-			<div class="band--extra-thick">
+			<div class="sidebar__section">
 
 				<h6 class="drop / border-top border-top--clean"><?php _e('Subscribe to our newsletter', 'ocp'); ?></h6>
 				<p class="text--micro / drop"><?php _e('Sign up to our monthly email where you can receive updates on our current work', 'ocp'); ?></p>
@@ -43,7 +43,7 @@
 
 			</div>
 
-			<div class="band--extra-thick">
+			<div class="sidebar__section">
 
 				<h6 class="drop / border-top border-top--blue border-top--clean"><?php _e('Upcoming Events', 'ocp'); ?></h6>
 
