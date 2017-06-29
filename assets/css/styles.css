@@ -240,6 +240,11 @@ dl {
   dl.smallest {
     font-size: 14px;
     font-size: 0.7rem; }
+  p.drop,
+  ul.drop,
+  ol.drop,
+  dl.drop {
+    margin-bottom: calc(8px - (((1em * 1.6) - 1em) / 2)); }
 
 .text--bigger {
   font-size: 22px;
@@ -529,10 +534,6 @@ category:
  - Base/Headings
 ---
 
-## Base Headings
-
-The class structure follows the structure discussed by Harry Roberts in his article [practical font sizing in CSS](http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/) on CSS Wizardry.
-
 ```html
 <h1 class="alpha">The fox</h1>
 <h2 class="beta">The fox</h2>
@@ -540,13 +541,6 @@ The class structure follows the structure discussed by Harry Roberts in his arti
 <h4 class="delta">The fox</h4>
 <h5 class="epsilon">The fox</h5>
 <h6 class="zeta">The fox</h6>
-```
-
-## Strapline
-
-```html
-<h1 class="alpha">The fox</h1>
-<h4 class="beta strapline">The fox</h4>
 ```
 
 */
@@ -581,6 +575,19 @@ h6,
   h6.has-strap,
   .zeta.has-strap {
     margin-bottom: .625em; }
+  h1.drop,
+  .alpha.drop,
+  h2.drop,
+  .beta.drop,
+  h3.drop,
+  .gamma.drop,
+  h4.drop,
+  .delta.drop,
+  h5.drop,
+  .epsilon.drop,
+  h6.drop,
+  .zeta.drop {
+    margin-bottom: calc(16px - (((1em * 1.3) - 1em) / 2)); }
   .coloured h1, .coloured
   .alpha, .coloured
   h2, .coloured
@@ -646,6 +653,21 @@ h6,
     .zeta.strapline {
       margin-bottom: calc(32px - (((1em * 1.3) - 1em) / 2)); }
 
+/*
+
+---
+name: Strapline
+category:
+ - Base
+ - Base/Headings
+---
+
+```html
+<h1 class="alpha">The fox</h1>
+<h4 class="beta strapline">The fox</h4>
+```
+
+*/
 h1 {
   margin-top: 0;
   margin-bottom: 1.3em; }
@@ -732,17 +754,27 @@ h6,
       font-size: 1rem;
       line-height: 1.3; } }
 
+/*
+
+---
+name: Border Top
+category:
+ - Base
+ - Base/Headings
+---
+
+```html
+<h4 class="border-top">Subscribe to our newsletter</h4>
+<h4 class="border-top border-top--dark">Subscribe to our newsletter</h4>
+<h4 class="border-top border-top--blue">Subscribe to our newsletter</h4>
+```
+
+*/
 .border-top {
-  font-weight: 700;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   position: relative;
-  padding-top: 1rem; }
+  text-transform: uppercase;
+  color: #000;
+  padding-top: 8px; }
   .home .border-top {
     border-top-color: #4D4D54; }
   .border-top:before {
@@ -752,7 +784,7 @@ h6,
     top: 0;
     left: 0;
     width: 6rem;
-    height: .5rem;
+    height: 2px;
     background-color: #D6E100; }
 
 .border-top--clean {
@@ -874,11 +906,11 @@ legend {
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #D6E100;
+  color: #4D4D54;
   cursor: pointer; }
 
 abbr[title="Required"] {
-  color: #D6E100;
+  color: #4D4D54;
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -903,13 +935,13 @@ textarea {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-size: 0.8rem;
+  font-size: 14px;
+  font-size: 0.7rem;
   padding: 0.5em;
   width: 100%;
-  border: 1px solid #D6E100;
+  border: 1px solid #4D4D54;
   margin-bottom: 0.8em;
-  color: #D6E100;
+  color: #4D4D54;
   background-color: transparent;
   border-radius: 0; }
   input[type="text"]:hover, input[type="text"]:focus,
@@ -943,6 +975,25 @@ textarea {
   textarea:focus {
     box-shadow: none;
     outline: none; }
+  input[type="text"].secondary,
+  input[type="email"].secondary,
+  input[type="password"].secondary,
+  input[type="search"].secondary,
+  input[type="url"].secondary,
+  input[type="number"].secondary,
+  input[type="color"].secondary,
+  input[type="number"].secondary,
+  input[type="range"].secondary,
+  input[type="date"].secondary,
+  input[type="month"].secondary,
+  input[type="week"].secondary,
+  input[type="datetime"].secondary,
+  input[type="datetime-local"].secondary,
+  textarea.secondary {
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 input[type="color"] {
   width: auto; }
@@ -1575,25 +1626,25 @@ blockquote.blockquote--large {
 /*------------------------------------*    LAYOUT
 \*------------------------------------*/
 .wrapper {
-  max-width: 70em;
+  max-width: 60em;
   margin-left: auto;
   margin-right: auto;
-  max-width: 76rem;
+  max-width: 1200px;
   box-sizing: border-box;
   padding: 0 1em; }
   .wrapper:after {
     content: " ";
     display: block;
     clear: both; }
-  @media screen and (min-width: 810px) {
+  @media screen and (min-width: 1240px) {
     .wrapper {
-      padding: 0 3em; } }
+      padding: 0; } }
 
 .wrapper--inner {
-  max-width: 70em;
+  max-width: 60em;
   margin-left: auto;
   margin-right: auto;
-  max-width: 76rem;
+  max-width: 1200px;
   box-sizing: border-box;
   padding: 0; }
   .wrapper--inner:after {
@@ -1885,22 +1936,58 @@ blockquote.blockquote--large {
     .secondary-nav li.current-menu-parent a:after {
       bottom: 0; }
 
-/*------------------------------------*    SIDEBAR
-\*------------------------------------*/
+/*
+
+---
+name: Sidebar
+category:
+ - Layout
+ - Layout/Sidebar
+---
+
+```html
+<aside class="sidebar">
+	<nav class="page__section-nav">
+		<h6 class="border-top border-top--clean">Jump to section</h6>
+		<ul class="nav nav--vertical nav--in-page">
+			<li><a href="#">Section 1</a></li>
+			<li><a href="#">Section 2</a></li>
+			<li><a href="#">Section 3</a></li>
+		</ul>
+	</nav>
+	<div class="blog__subscribe-container / band">
+		<h6 class="border-top border-top--clean">Subscribe to our newsletter</h6>
+		<p>Sign up to our monthly email where you can receive updates on our current work</p>
+		<form class="flex-field" action="" method="post">
+			<input type="email" placeholder="Enter your email" name="email" required="">
+			<button>Send</button>
+		</form>
+	</div>
+</aside>
+```
+
+*/
 aside,
 .sidebar {
   font-size: 16px;
   font-size: 0.8rem;
   margin-top: 4.5rem; }
-  aside section,
-  .sidebar section {
-    margin-bottom: 2.5rem; }
+  aside .sidebar__section:not(:last-of-type),
+  .sidebar .sidebar__section:not(:last-of-type) {
+    margin-bottom: 64px; }
   aside h3,
   .sidebar h3 {
     margin-bottom: 1em; }
   aside p a,
   .sidebar p a {
     color: #9BAF00; }
+  aside .page__section-nav,
+  .sidebar .page__section-nav {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 1.6em;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 1; }
 
 /*------------------------------------*    $MODULAR
 \*------------------------------------*/
@@ -2131,7 +2218,7 @@ input[type="submit"] {
 /*
 
 ---
-name: Primary
+name: Primary Card
 category:
  - Components/Card
 ---
@@ -2193,7 +2280,7 @@ Within the primary card example the image, strap and meta information are all op
 /*
 
 ---
-name: Secondary
+name: Secondary Card
 category:
  - Components/Card
 ---
@@ -2287,7 +2374,7 @@ Within the secondary card example the image, strap and meta information are all 
 /*
 
 ---
-name: Primary with Featured Media
+name: Primary Card with Featured Media
 category:
  - Components/Card
 ---
@@ -2429,6 +2516,178 @@ Based on the primary card, the content spine element sits within the header and 
 
 .content-spine__title {
   margin-right: auto; }
+
+/*
+
+---
+name: Content Card
+category:
+ - Components/Card
+---
+
+```html
+<div class="card card--content">
+
+	<div class="card__icon" data-content-type="news">
+		<svg><use xlink:href="#icon-news"></svg>
+	</div>
+
+	<div class="card__content">
+
+		<span class="card-content__type">News</span>
+
+		<p class="card__heading">
+			<a href="#">Statement on the resignation of the Ukranian Minister of Economic Development and Trade Abromavicius</a>
+		</p>
+
+	</div>
+
+</div>
+```
+
+*/
+.card--content {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
+
+.card--content .card__icon {
+  padding: 16px;
+  padding-right: 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30px;
+          flex: 0 0 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .card--content .card__icon svg {
+    max-width: 30px;
+    max-height: 30px; }
+  .card--content .card__icon[data-content-type="page"] svg {
+    stroke: #9BAF00; }
+  .card--content .card__icon[data-content-type="post"] svg {
+    stroke: #FB6045; }
+  .card--content .card__icon[data-content-type="news"] svg {
+    stroke: #6C75E1; }
+  .card--content .card__icon[data-content-type="event"] svg {
+    stroke: #6991F5; }
+  .card--content .card__icon[data-content-type="resource"] svg {
+    stroke: #23B2A7; }
+  .card--content .card__icon[data-content-type="newsletter"] svg {
+    stroke: #9F4EE8; }
+  .card--content .card__icon[data-content-type="success"] svg {
+    stroke: #EC69F9; }
+  .card--content .card__icon[data-content-type="media-clipping"] svg {
+    stroke: #89D1F9; }
+
+.card--content .card__content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto; }
+
+.card-content__type {
+  font-size: 12px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "source-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase; }
+
+.card--content .card__heading {
+  font-size: 14px;
+  font-size: 0.7rem; }
+
+/*
+
+---
+name: Event Card
+category:
+ - Components/Card
+---
+
+```html
+<div class="card card--event">
+
+	<div class="card-event__date">
+		<span class="card-event__day">21</span>
+		<span class="card-event__month">Jun</span>
+	</div>
+
+	<div class="card__content">
+
+		<h6 class="card__heading">
+			<a href="#">Statement on the resignation of the Ukranian Minister of Economic Development and Trade Abromavicius</a>
+		</h6>
+
+	</div>
+
+</div>
+```
+
+*/
+.card--event {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
+
+.card-event__date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-right: 1px solid rgba(224, 224, 224, 0.25);
+  padding: 16px 8px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 56px;
+          flex: 0 0 56px; }
+
+.card-event__day,
+.card-event__month {
+  font-size: 17px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #6991F5;
+  line-height: 1.2;
+  text-transform: uppercase; }
+
+.card-event__month {
+  font-size: 20px;
+  font-size: 1rem; }
+
+.card--event .card__content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  padding: 8px; }
+
+.card--event .card__heading {
+  font-size: 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 .custom-checkbox input[type="checkbox"],
 .custom-checkbox input[type="radio"] {
@@ -4891,6 +5150,29 @@ a.post-object--panel {
     margin-top: 4.5rem;
     margin-left: 8.41121%; } }
 
+.page-template-template-two-column main {
+  overflow: visible; }
+
+.page-template-template-two-column .page__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse; }
+  @media screen and (min-width: 810px) {
+    .page-template-template-two-column .page__wrapper {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+      .page-template-template-two-column .page__wrapper::after {
+        display: none; } }
+
 @media screen and (min-width: 810px) {
   .page-title {
     width: 83.17757%;
@@ -4898,15 +5180,13 @@ a.post-object--panel {
     margin-right: 0.93458%;
     margin-left: 8.41121%; } }
 
-.page--template-a .page-title {
+.page--two-column .page-title {
+  clear: both;
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
   margin-left: 0; }
-
-@media screen and (min-width: 810px) {
-  .page--template-a .page-title {
-    width: 49.53271%;
-    float: left;
-    margin-right: 0.93458%;
-    margin-left: 33.64486%; } }
 
 .page-sidebar {
   margin-top: 0;
@@ -4939,19 +5219,19 @@ a.post-object--panel {
       float: left;
       margin-right: 0.93458%;
       margin-left: 8.41121%; }
-      .page--template-a .page-content {
+      .page--two-column .page-content {
         clear: none;
-        width: 57.94393%;
-        float: left;
-        margin-right: 0.93458%;
-        margin-left: 8.41121%; } }
+        width: 66.35514%;
+        float: right;
+        margin-right: 0;
+        margin-left: 0; } }
   @media screen and (min-width: 1024px) {
     .page-content {
       width: 83.17757%;
       float: left;
       margin-right: 0.93458%;
       margin-left: 8.41121%; }
-      .page--template-a .page-content {
+      .page--two-column .page-content {
         clear: none;
         width: 49.53271%;
         float: left;
@@ -4978,7 +5258,7 @@ a.post-object--panel {
   padding: 2em 0 1em;
   margin-bottom: 2em; }
   @media screen and (min-width: 1024px) {
-    .page--template-a .pull {
+    .page--two-column .pull {
       width: 24.29907%;
       float: left;
       margin-right: 0.93458%;
@@ -5006,7 +5286,7 @@ a.post-object--panel {
       padding-left: 9em; } }
 
 .resources-container {
-  max-width: 70em;
+  max-width: 60em;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 12.5em;

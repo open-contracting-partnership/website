@@ -44,6 +44,10 @@ dl {
 	&.smallest {
 		@include font-size(14);
 	}
+
+	&.drop {
+		margin-bottom: line-height-adjust(8px, 1.6);
+	}
 }
 
 .text--bigger {

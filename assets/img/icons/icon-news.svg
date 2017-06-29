@@ -1,15 +1,6 @@
-<svg width="40px" height="50px" viewBox="0 0 40 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <g id="-Blog" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Taxonomy-view" sketch:type="MSArtboardGroup" transform="translate(-100.000000, -464.000000)" stroke="#6C75E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <g id="Group" sketch:type="MSLayerGroup" transform="translate(101.000000, 465.000000)">
-                <path d="M36.4155652,0 C37.287087,0 38,0.720827586 38,1.60055172 L38,46.3994483 C38,47.2791724 37.287087,48 36.4155652,48 L1.58443478,48 C0.716217391,48 0,47.2791724 0,46.3994483 L0,1.60055172 C0,0.720827586 0.716217391,0 1.58443478,0 L36.4155652,0 L36.4155652,0 Z" id="Stroke-8" sketch:type="MSShapeGroup"></path>
-                <path d="M16.5217391,18.2068966 L6.60869565,18.2068966 L6.60869565,8.27586207 L16.5217391,8.27586207 L16.5217391,18.2068966 Z" id="Stroke-9" sketch:type="MSShapeGroup"></path>
-                <path d="M6.60869565,24 L31.3913043,24" id="Stroke-10" sketch:type="MSShapeGroup"></path>
-                <path d="M6.60869565,31 L31.3913043,31" id="Stroke-11" sketch:type="MSShapeGroup"></path>
-                <path d="M6.60869565,37 L21.4782609,37" id="Stroke-12" sketch:type="MSShapeGroup"></path>
-                <path d="M21.4782609,11 L31.3913043,11" id="Stroke-13" sketch:type="MSShapeGroup"></path>
-                <path d="M21.4782609,18 L31.3913043,18" id="Stroke-14" sketch:type="MSShapeGroup"></path>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 50">
+  <g fill="none" fill-rule="evenodd" stroke="#6C75E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M37.42 1C38.3 1 39 1.72 39 2.6v44.8c0 .88-.7 1.6-1.58 1.6H2.58C1.72 49 1 48.28 1 47.4V2.6C1 1.72 1.72 1 2.58 1h34.84z"/>
+    <path d="M17.52 19.2h-9.9V9.3h9.9v9.93zM7.6 25h24.8M7.6 32h24.8M7.6 38H22.5M22.48 12h9.9M22.48 19h9.9"/>
+  </g>
 </svg>

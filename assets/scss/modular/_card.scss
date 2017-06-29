@@ -51,7 +51,7 @@
 /*
 
 ---
-name: Primary
+name: Primary Card
 category:
  - Components/Card
 ---
@@ -117,7 +117,7 @@ Within the primary card example the image, strap and meta information are all op
 /*
 
 ---
-name: Secondary
+name: Secondary Card
 category:
  - Components/Card
 ---
@@ -239,7 +239,7 @@ Within the secondary card example the image, strap and meta information are all 
 /*
 
 ---
-name: Primary with Featured Media
+name: Primary Card with Featured Media
 category:
  - Components/Card
 ---
@@ -366,4 +366,142 @@ Based on the primary card, the content spine element sits within the header and 
 
 .content-spine__title {
 	margin-right: auto; // the space to the right of the title should always be expandable
+}
+
+/*
+
+---
+name: Content Card
+category:
+ - Components/Card
+---
+
+```html
+<div class="card card--content">
+
+	<div class="card__icon" data-content-type="news">
+		<svg><use xlink:href="#icon-news"></svg>
+	</div>
+
+	<div class="card__content">
+
+		<span class="card-content__type">News</span>
+
+		<p class="card__heading">
+			<a href="#">Statement on the resignation of the Ukranian Minister of Economic Development and Trade Abromavicius</a>
+		</p>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.card--content {
+	flex-direction: row;
+}
+
+.card--content .card__icon {
+
+	padding: spacing(2);
+	padding-right: 0;
+	flex: 0 0 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	svg {
+		max-width: 30px;
+		max-height: 30px;
+	}
+
+	@each $post-type, $colour in $post-types {
+
+		&[data-content-type="#{$post-type}"] svg {
+			stroke: #{$colour};
+		}
+
+	}
+
+}
+
+.card--content .card__content {
+	flex: 1 1 auto;
+}
+
+.card-content__type {
+	@include font-size(12);
+	@include font('primary', 'bold');
+	text-transform: uppercase;
+}
+
+.card--content .card__heading {
+	@include font-size(14);
+}
+
+/*
+
+---
+name: Event Card
+category:
+ - Components/Card
+---
+
+```html
+<div class="card card--event">
+
+	<div class="card-event__date">
+		<span class="card-event__day">21</span>
+		<span class="card-event__month">Jun</span>
+	</div>
+
+	<div class="card__content">
+
+		<h6 class="card__heading">
+			<a href="#">Statement on the resignation of the Ukranian Minister of Economic Development and Trade Abromavicius</a>
+		</h6>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.card--event {
+	flex-direction: row;
+}
+
+.card-event__date {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-right: 1px solid rgba(224, 224, 224, .25); // ATTN: at 1px (design specified .5px) this colour is too dark
+	padding: spacing(2) spacing(1);
+	flex: 0 0 spacing(7);
+}
+
+.card-event__day,
+.card-event__month {
+	@include font-size(17);
+	@include font('secondary', 'bold');
+	color: color('blue');
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.card-event__month {
+	@include font-size(20);
+}
+
+.card--event .card__content {
+	flex: 1 1 auto;
+	padding: spacing(1);
+}
+
+.card--event .card__heading {
+	@include font-size(16);
+	@include font('secondary', 'medium');
 }
