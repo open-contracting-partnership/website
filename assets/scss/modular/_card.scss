@@ -167,9 +167,10 @@ Within the secondary card example the image, strap and meta information are all 
 
 		.card__media {
 
-			margin: -8px 8px 0 -8px;
+			flex: 0 0 52px;
 			width: 52px;
 			height: 52px;
+			margin: -8px 8px 0 -8px;
 
 			&.card__media--right {
 				margin: -8px -8px 0 8px;
@@ -186,6 +187,7 @@ Within the secondary card example the image, strap and meta information are all 
 
 	> .card__media {
 
+		flex: 0 0 152px;
 		height: 152px;
 		width: 152px;
 		margin-right: 0;
