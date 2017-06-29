@@ -104,10 +104,10 @@ add_shortcode('related', function($atts, $content = null) {
 
 			<div class="related-posts--inline">
 
-				<h5>Posts by: <a href="<?php echo $term_link; ?>"><?php echo $term->name; ?></a></h5>
+				<h6 class="related-posts__title">Posts by: <a href="<?php echo $term_link; ?>"><?php echo $term->name; ?></a></h6>
 
 				<?php foreach ( $related_posts as $related_post ) : ?>
-					<?php get_partial('post-object', 'horizontal'); ?>
+					<?php get_partial('card', 'secondary'); ?>
 				<?php endforeach; ?>
 
 			</div>
