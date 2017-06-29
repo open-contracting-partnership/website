@@ -1,94 +1,31 @@
-.page-template-template-two-column {
+// .page--two-column {
+//
+// 	main {
+// 		overflow: visible;
+// 	}
+//
+// 	.page__wrapper {
+// 		display: flex;
+// 		flex-direction: column-reverse;
+//
+// 		@include mq(M) {
+// 			flex-direction: row;
+// 			justify-content: space-between;
+//
+// 			&::after {
+// 				display: none;
+// 			}
+// 		}
+// 	}
+// }
 
-	main {
-		overflow: visible;
-	}
-
-	.page__wrapper {
-		display: flex;
-		flex-direction: column-reverse;
-
-		@include mq(M) {
-			flex-direction: row;
-			justify-content: space-between;
-
-			&::after {
-				display: none;
-			}
-		}
-	}
-}
 
 .page-title {
 
-	@include mq(M) {
-		@include span(10 of 12);
-		margin-left: span(1 of 12) + gutter();
+	h1 {
+		margin-bottom: .1em;
 	}
 
-	.page--two-column & {
-		@include full;
-		margin-left: 0;
-	}
-}
-
-.page-sidebar {
-	margin-top: 0;
-	margin-bottom: 1rem;
-
-	@include mq(M) {
-		@include span(3 of 12 first);
-	}
-}
-
-.page-sidebar--wide {
-
-	@include mq(M) {
-		@include span(4 of 12 first);
-	}
-}
-
-.page__section-nav {
-	display: none;
-
-	@include mq(M) {
-		display: block;
-		margin-bottom: em(70);
-	}
-}
-
-.page-content {
-	@include break;
-	margin-bottom: 1rem;
-
-	@include mq(M) {
-		@include span(10 of 12);
-		margin-left: span(1 of 12) + gutter();
-
-		.page--two-column & {
-			@include nobreak;
-			@include span(8 at 4 of 12 last);
-			margin-left: 0;
-		}
-	}
-
-	@include mq(L) {
-		@include span(10 of 12);
-		margin-left: span(1 of 12) + gutter();
-		.page--two-column & {
-			@include nobreak;
-			@include span(6 at 4 of 12);
-			margin-left: span(1 of 12) + gutter();
-		}
-	}
-}
-
-.page--padding {
-	padding-top: 2em;
-
-	@include mq(M) {
-	    padding-top: 5em;
-	}
 }
 
 
@@ -103,6 +40,95 @@
 	position: relative;
 }
 
+
+ //***********
+// ONE COLUMN
+
+.page--one-column {
+
+	.page-title {
+
+		@include mq(L) {
+			@include span(8 of 12);
+			@include push(2 of 12);
+		}
+
+	}
+
+	.page-content {
+
+		@include break;
+		margin-bottom: 1rem;
+
+		@include mq(L) {
+			@include span(8 of 12);
+			@include push(2 of 12);
+		}
+
+	}
+
+	.page-content__wide {
+
+		@include mq(L) {
+			margin: 0 #{0 - span(2 of 8) + gutter()};
+		}
+		
+	}
+
+}
+
+
+ //***********
+// TWO COLUMN
+
+.page--two-column {
+
+	.page-content {
+
+		@include mq(M) {
+			@include nobreak;
+			@include span(8 at 4 of 12 last);
+			margin-left: 0;
+		}
+
+		@include mq(L) {
+			@include nobreak;
+			@include span(6 at 4 of 12);
+			margin-left: span(1 of 12) + gutter();
+		}
+
+	}
+
+}
+
+.page-sidebar {
+	margin-top: 0;
+	margin-bottom: 1rem;
+
+	@include mq(M) {
+		@include span(3 of 12 first);
+	}
+}
+
+.page__section-nav {
+	display: none;
+
+	@include mq(M) {
+		display: block;
+		margin-bottom: em(70);
+	}
+}
+
+.page--padding {
+	padding-top: 2em;
+
+	@include mq(M) {
+	    padding-top: 5em;
+	}
+}
+
+
+// ATTN: is this is being remomoved??
 .pull {
 	@include font-size(16);
 	border-top: 1px solid color('light-grey');
@@ -121,6 +147,7 @@
 		}
 	}
 }
+
 
  //**********
 // WORLDWIDE
