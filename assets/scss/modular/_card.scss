@@ -1,10 +1,18 @@
 .card {
+
+	position: relative;
 	background-color: color('white');
 	box-shadow: 0 0 4px 0 rgba(224, 224, 224, .5);
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	transition: box-shadow .3s ease;
+
+	&:hover {
+		box-shadow: 0 0 4px 0 rgba(224, 224, 224, 1);
+	}
+
 }
 
 .card__featured-media {
@@ -24,6 +32,20 @@
 
 	a {
 		color: inherit;
+		// text-decoration: none;
+
+		&:before {
+			bottom: 0;
+		    content: "";
+		    left: 0;
+		    overflow: hidden;
+		    position: absolute;
+		    right: 0;
+		    top: 0;
+		    white-space: nowrap;
+		    z-index: 1;
+		}
+
 	}
 
 }
@@ -332,6 +354,7 @@ Based on the primary card, the content spine element sits within the header and 
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	z-index: 2;
 }
 
 .content-spine__icon {
@@ -478,6 +501,7 @@ category:
 }
 
 .card-event__date {
+
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -485,15 +509,28 @@ category:
 	border-right: 1px solid rgba(224, 224, 224, .25); // ATTN: at 1px (design specified .5px) this colour is too dark
 	padding: spacing(2) spacing(1);
 	flex: 0 0 spacing(7);
+	transition: background-color .3s ease;
+
+	.card--event:hover & {
+		background-color: color('blue');
+	}
+
 }
 
 .card-event__day,
 .card-event__month {
+
 	@include font-size(17);
 	@include font('secondary', 'bold');
 	color: color('blue');
 	line-height: 1.2;
 	text-transform: uppercase;
+	transition: color .3s ease;
+
+	.card--event:hover & {
+		color: color('white');
+	}
+
 }
 
 .card-event__month {
@@ -506,6 +543,13 @@ category:
 }
 
 .card--event .card__heading {
+
 	@include font-size(16);
 	@include font('secondary', 'medium');
+
+	a:hover,
+	a:active {
+		text-decoration: none;
+	}
+
 }
