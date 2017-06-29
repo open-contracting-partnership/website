@@ -2166,6 +2166,7 @@ input[type="submit"] {
     border-color: #FFF; }
 
 .card {
+  position: relative;
   background-color: #FFF;
   box-shadow: 0 0 4px 0 rgba(224, 224, 224, 0.5);
   width: 100%;
@@ -2178,7 +2179,10 @@ input[type="submit"] {
           flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between; }
+          justify-content: space-between;
+  transition: box-shadow .3s ease; }
+  .card:hover {
+    box-shadow: 0 0 4px 0 #e0e0e0; }
 
 .card__featured-media {
   width: 100%; }
@@ -2200,6 +2204,16 @@ input[type="submit"] {
   margin-bottom: 0; }
   .card__heading a {
     color: inherit; }
+    .card__heading a:before {
+      bottom: 0;
+      content: "";
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      right: 0;
+      top: 0;
+      white-space: nowrap;
+      z-index: 1; }
 
 .card__strap {
   margin-top: 16px;
@@ -2476,7 +2490,8 @@ Based on the primary card, the content spine element sits within the header and 
           justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  z-index: 2; }
 
 .content-spine__icon {
   display: -webkit-box;
@@ -2667,7 +2682,10 @@ category:
   padding: 16px 8px;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 56px;
-          flex: 0 0 56px; }
+          flex: 0 0 56px;
+  transition: background-color .3s ease; }
+  .card--event:hover .card-event__date {
+    background-color: #6991F5; }
 
 .card-event__day,
 .card-event__month {
@@ -2679,7 +2697,11 @@ category:
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #6991F5;
   line-height: 1.2;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  transition: color .3s ease; }
+  .card--event:hover .card-event__day, .card--event:hover
+  .card-event__month {
+    color: #FFF; }
 
 .card-event__month {
   font-size: 20px;
@@ -2698,6 +2720,9 @@ category:
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .card--event .card__heading a:hover,
+  .card--event .card__heading a:active {
+    text-decoration: none; }
 
 .custom-checkbox input[type="checkbox"],
 .custom-checkbox input[type="radio"] {
