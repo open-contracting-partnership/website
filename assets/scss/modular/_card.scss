@@ -94,12 +94,9 @@ Within the primary card example the image, strap and meta information are all op
 		justify-content: space-between;
 	}
 
-	.card__heading {
-		flex: 1 1 auto;
-	}
-
 	.card__media {
 
+		flex: 0 0 52px;
 		height: 52px;
 		width: 52px;
 		margin-right: em(16);
@@ -110,6 +107,10 @@ Within the primary card example the image, strap and meta information are all op
 			order: 2;
 		}
 
+	}
+
+	.card__heading {
+		flex: 1 1 auto;
 	}
 
 }
