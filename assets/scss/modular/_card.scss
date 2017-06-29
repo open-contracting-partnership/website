@@ -63,11 +63,26 @@
 	margin-top: 16px;
 	margin-bottom: 0;
 
-	time,
-	.card__author {
-		display: block;
+	&:not(.card__meta--alt) {
+
+		.card__date,
+		.card__author {
+			display: block;
+		}
+
 	}
 
+}
+
+.card__type {
+	@include font('secondary', 'medium');
+	background-color: color('brand');
+	padding: .125em .42em;
+	margin-right: .5em;
+}
+
+.card__date {
+	margin-right: 1em;
 }
 
 /*
@@ -98,7 +113,7 @@ Within the primary card example the image, strap and meta information are all op
 		<p class="card__strap">Here there will be some information about what the link contains&hellip;</p>
 
 		<p class="card__meta">
-			<time datetime="2001-05-15T19:00">8 Jun 2017</time>
+			<time class="card__date" datetime="2001-05-15T19:00">8 Jun 2017</time>
 			<span class="card__author">By Georg Nueman</span>
 		</p>
 
@@ -167,7 +182,7 @@ Within the secondary card example the image, strap and meta information are all 
 		<p class="card__strap">Here there will be some information about what the link contains&hellip;</p>
 
 		<p class="card__meta">
-			<time datetime="2001-05-15T19:00">8 Jun 2017</time>
+			<time class="card__date" datetime="2001-05-15T19:00">8 Jun 2017</time>
 			<span class="card__author">By Georg Nueman</span>
 		</p>
 
@@ -260,7 +275,6 @@ Within the secondary card example the image, strap and meta information are all 
 
 }
 
-
 /*
 
 ---
@@ -291,7 +305,43 @@ The primary card can be accompanied with a header, a section that sits outside t
 		<p class="card__strap">Here there will be some information about what the link contains&hellip;</p>
 
 		<p class="card__meta">
-			<time datetime="2001-05-15T19:00">8 Jun 2017</time>
+			<time class="card__date" datetime="2001-05-15T19:00">8 Jun 2017</time>
+			<span class="card__author">By Georg Nueman</span>
+		</p>
+
+	</div>
+
+</div>
+```
+
+*/
+
+/*
+
+---
+name: Primary Card with Alternative Meta
+category:
+ - Components/Card
+---
+
+The primary card can be accompanied with a header, a section that sits outside the inner padding and can be used for featured images, etc.
+
+```html
+<div class="card card--primary">
+
+	<div class="card__content">
+
+		<div class="card__title">
+
+			<h6 class="card__heading">
+				<a href="#">How to Open Contracting? A New Guide for Governments</a>
+			</h6>
+
+		</div>
+
+		<p class="card__meta card__meta--alt">
+			<span class="card__type">Blog</span>
+			<time class="card__date" datetime="2001-05-15T19:00">8 Jun 2017</time>
 			<span class="card__author">By Georg Nueman</span>
 		</p>
 
@@ -338,7 +388,7 @@ Based on the primary card, the content spine element sits within the header and 
 		</div>
 
 		<p class="card__meta">
-			<time datetime="2001-05-15T19:00">8 Jun 2017</time>
+			<time class="card__date" datetime="2001-05-15T19:00">8 Jun 2017</time>
 			<span class="card__author">By Open Contracting Partnership</span>
 		</p>
 
