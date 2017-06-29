@@ -113,7 +113,7 @@ article {
 	}
 
 	// we only want to direct children of the article
-	> {
+	> section > {
 
 		h1,
 		h2,
