@@ -47,6 +47,20 @@ add_shortcode('pull', function($atts, $content = null) {
 });
 
 
+ //*****
+// WIDE
+
+add_shortcode('wide', function($atts, $content = null) {
+
+	$find = ['<div class="page-content__wide"></p>', '<p></div>'];
+	$replace = ['<div class="page-content__wide">', '</div>'];
+
+	// var_Dump($content);
+	return str_replace($find, $replace, '<div class="page-content__wide">' . trim(wpautop($content)) . '</div>');
+
+});
+
+
  //********
 // RELATED
 
