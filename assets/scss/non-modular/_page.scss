@@ -22,8 +22,14 @@
 
 .page-title {
 
+	margin-bottom: spacing(3);
+
 	h1 {
 		margin-bottom: .1em;
+	}
+
+	.strapline {
+		margin-bottom: 0;
 	}
 
 }
@@ -72,7 +78,7 @@
 		@include mq(L) {
 			margin: 0 #{0 - span(2 of 8) + gutter()};
 		}
-		
+
 	}
 
 }
