@@ -54,7 +54,7 @@ tbody tr a {
 .page-content a,
 .post-content a {
 
-    &:not(.button):not(.post-object) {
+    &:not(.button):not(.card a) {
 
         color: inherit;
         text-decoration: none;
