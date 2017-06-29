@@ -8,6 +8,11 @@
 	flex-direction: column;
 	justify-content: space-between;
 	transition: box-shadow .3s ease;
+	margin-bottom: spacing(2);
+
+	@include mq(M) {
+		margin-bottom: spacing(4);
+	}
 
 	&:hover {
 		box-shadow: 0 0 4px 0 rgba(224, 224, 224, 1);
