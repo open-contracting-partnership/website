@@ -4,7 +4,7 @@
 
 	<?php the_post(); ?>
 
-	<div class="page__container">
+	<div class="page__container page--one-column">
 
 		<div class="wrapper / page__wrapper / page--padding">
 
