@@ -2330,9 +2330,12 @@ Within the secondary card example the image, strap and meta information are all 
         -ms-flex-pack: justify;
             justify-content: space-between; }
     .card--secondary .card__title .card__media {
-      margin: -8px 8px 0 -8px;
+      -webkit-box-flex: 0;
+          -ms-flex: 0 0 52px;
+              flex: 0 0 52px;
       width: 52px;
-      height: 52px; }
+      height: 52px;
+      margin: -8px 8px 0 -8px; }
       .card--secondary .card__title .card__media.card__media--right {
         margin: -8px -8px 0 8px;
         -webkit-box-ordinal-group: 3;
@@ -2343,6 +2346,9 @@ Within the secondary card example the image, strap and meta information are all 
         -ms-flex: 1 1 auto;
             flex: 1 1 auto; }
   .card--secondary > .card__media {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 152px;
+            flex: 0 0 152px;
     height: 152px;
     width: 152px;
     margin-right: 0; }
