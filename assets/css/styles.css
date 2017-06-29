@@ -2261,12 +2261,10 @@ Within the primary card example the image, strap and meta information are all op
       -ms-flex-pack: justify;
           justify-content: space-between; }
 
-.card--primary .card__heading {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto; }
-
 .card--primary .card__media {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 52px;
+          flex: 0 0 52px;
   height: 52px;
   width: 52px;
   margin-right: 0.8em; }
@@ -2276,6 +2274,11 @@ Within the primary card example the image, strap and meta information are all op
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2; }
+
+.card--primary .card__heading {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto; }
 
 /*
 
