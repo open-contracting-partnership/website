@@ -65,54 +65,6 @@ register_post_type('resource', array(
 	'menu_icon'				=> 'dashicons-book-alt'
 ));
 
-register_post_type('success-story', array(
-	'labels'				=> create_post_type_labels('Success Story', 'Success Stories'),
-	'public'				=> TRUE,
-	'query_var'				=> TRUE,
-	'rewrite'				=> array('slug' => 'success-stories', 'with_front' => FALSE),
-	'capability_type'		=> 'post',
-	'taxonomies'			=> array(),
-	'supports'				=> array('title', 'editor', 'thumbnail'),
-	'has_archive'			=> TRUE,
-	'menu_icon'				=> 'dashicons-format-aside'
-));
-
-register_post_type('policy', array(
-	'labels'				=> create_post_type_labels('Policy', 'Policies'),
-	'public'				=> TRUE,
-	'query_var'				=> TRUE,
-	'rewrite'				=> array('slug' => 'policies', 'with_front' => FALSE),
-	'capability_type'		=> 'post',
-	'taxonomies'			=> array(),
-	'supports'				=> array('title', 'editor'),
-	'has_archive'			=> TRUE,
-	'menu_icon'				=> 'dashicons-list-view'
-));
-
-register_post_type('newsletter', array(
-	'labels'				=> create_post_type_labels('Newsletter'),
-	'public'				=> TRUE,
-	'query_var'				=> TRUE,
-	'rewrite'				=> array('slug' => 'newsletters', 'with_front' => FALSE),
-	'capability_type'		=> 'post',
-	'taxonomies'			=> array(),
-	'supports'				=> array('title', 'thumbnail'),
-	'has_archive'			=> TRUE,
-	'menu_icon'				=> 'dashicons-align-right'
-));
-
-register_post_type('media-clipping', array(
-	'labels'				=> create_post_type_labels('Media Clipping'),
-	'public'				=> TRUE,
-	'query_var'				=> TRUE,
-	'rewrite'				=> array('slug' => 'media-clippings', 'with_front' => FALSE),
-	'capability_type'		=> 'post',
-	'taxonomies'			=> array(),
-	'supports'				=> array('title'),
-	'has_archive'			=> TRUE,
-	'menu_icon'				=> 'dashicons-video-alt2'
-));
-
 
  //***********
 // TAXONOMIES
@@ -124,7 +76,7 @@ $taxonomies = array(
 
 	'issue' => array(
 		'label' => 'Issue',
-		'post_type' => ['post', 'news', 'event', 'resource', 'success-story', 'newsletter', 'media-clipping']
+		'post_type' => ['post', 'news', 'event', 'resource']
 	),
 	'resource-type' => array(
 		'label' => 'Resource Type',
@@ -132,19 +84,19 @@ $taxonomies = array(
 	),
 	'region' => array(
 		'label' => 'Region',
-		'post_type' => ['post', 'news', 'event', 'resource', 'success-story', 'newsletter', 'media-clipping']
+		'post_type' => ['post', 'news', 'event', 'resource']
 	),
 	'country' => array(
 		'label' => 'Country',
-		'post_type' => ['post', 'news', 'event', 'resource', 'success-story', 'newsletter', 'media-clipping']
+		'post_type' => ['post', 'news', 'event', 'resource']
 	),
 	'open-contracting' => array(
 		'label' => 'Open Contracting',
-		'post_type' => ['post', 'news', 'event', 'resource', 'success-story']
+		'post_type' => ['post', 'news', 'event', 'resource']
 	),
 	'audience' => array(
 		'label' => 'Audience',
-		'post_type' => ['post', 'news', 'event', 'resource', 'success-story']
+		'post_type' => ['post', 'news', 'event', 'resource']
 	)
 
 );
