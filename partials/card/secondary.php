@@ -37,7 +37,7 @@
 			<?php endif; ?>
 
 			<h6 class="card__heading">
-				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				<a class="card__link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 			</h6>
 
 		</div>
