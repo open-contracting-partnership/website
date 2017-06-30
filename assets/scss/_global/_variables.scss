@@ -8,40 +8,25 @@
 $colours: (
     'white': #FFF,
     'black': #000,
-    'twitter': #00ACED,
-    'light-blue': #89D1F9,
-    'blue': #6991F5,
-    'lilac': #6C75E1,
-    'purple': #9F4EE8,
-    'pink': #EC69F9,
-    'orange': #FD843D,
-    'dark-orange': #FB6045,
-    'brand': #D6E100,
+    'brand': #D6E100, // <-- STAY
     'brand-mid': #B6C505,
     'brand-dark': #9BAF00,
-    'teal': #23B2A7,
-    'off-white': #F6F6F6,
-    'lightest-grey': #ECECEC,
+    'body': #424242,
+    // GREYS
     'lighter-grey': #D5D5D7,
     'light-grey': #B7B7B7,
     'grey': #999,
-    'off-grey': #8B8B97,
     'mid-grey': #69696B,
-    'background': #4D4D54,
-    'body': #424244,
-    'dark-background': #323238,
-	'super-dark-grey': #26262B,
+    'background': #4D4D54, // colour name???
+    'dark-background': #323232,
 );
 
 $post-types: (
 	'page': map-get($colours, 'brand-dark'),
-	'post': map-get($colours, 'dark-orange'),
-	'news': map-get($colours, 'lilac'),
-	'event': map-get($colours, 'blue'),
-	'resource': map-get($colours, 'teal'),
-	'newsletter': map-get($colours, 'purple'),
-	'success': map-get($colours, 'pink'),
-	'media-clipping': map-get($colours, 'light-blue'),
+	'post': #FB6045,
+	'news': #6C75E1,
+	'event': #6991F5,
+	'resource': #23B2A7
 );
 
 
@@ -67,12 +52,6 @@ $button-colors: (
 	('dark', map-get($colours, 'dark-grey'), map-get($colours, 'white'))
 );
 
-$button-colors-light: (
-	'green': #BCD469,
-	'orange': #FFB17F,
-	'pink': #E87EFE,
-	'blue': #74CAE9,
-);
 
  //**************
 // TYPE SETTINGS

@@ -15,8 +15,8 @@
 		top: 50%;
 		transform: translateY(-50%);
 		background: color('white');
-		box-shadow: 0 0 0 3px color('white'), 0 0 0 4px color('lightest-grey');
-		border: 0 solid color('blue');
+		box-shadow: 0 0 0 3px color('white'), 0 0 0 4px color('lighter-grey');
+		border: 0 solid post-color('event');
 		height: 1em;
 		width: 1em;
 		border-radius: 50%;
@@ -30,7 +30,7 @@
 		}
 
 		.post-object__media {
-			background-color: color('blue');
+			background-color: post-color('event');
 		}
 	}
 }
@@ -40,7 +40,7 @@
 	@include mq(L) {
 		@include span(5 of 12 first);
 		padding-left: span(1 of 12) / 1.5;
-		border-left: 1px solid color('lightest-grey');
+		border-left: 1px solid color('lighter-grey');
 	}
 
 }
@@ -52,7 +52,7 @@
 		@include span(6 of 12 at 5);
 		display: block;
 		padding-left: span(1 of 12) / 2;
-		border-left: 1px solid color('lightest-grey');
+		border-left: 1px solid color('lighter-grey');
 	}
 }
 
@@ -68,7 +68,6 @@
 		@include font-size(14);
 		text-transform: uppercase;
 		letter-spacing: 1px;
-		color: color('off-grey');
 
 		span {
 			@include font('secondary', 'bold');
@@ -77,7 +76,7 @@
 	}
 
 	hr {
-		border-color: color('lightest-grey');
+		border-color: color('lighter-grey');
 	}
 
 	p {
@@ -88,14 +87,14 @@
 .event__title {
 	@include font-size(20);
 	padding-bottom: em(15);
-	border-bottom: 10px solid color('blue');
+	border-bottom: 10px solid post-color('event');
 	margin-bottom: em(28);
 	width: 90%;
 
 	svg {
 		width: em(48);
 		height: em(48);
-		stroke: color('blue');
+		stroke: post-color('event');
 	}
 
 	time {
@@ -133,7 +132,6 @@
 		@include font-size(14);
 		text-transform: uppercase;
 		letter-spacing: 1px;
-		color: color('off-grey');
 		float: left;
 		min-width: 110px;
 		margin-right: 1em;

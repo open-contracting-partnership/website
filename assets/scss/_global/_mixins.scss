@@ -99,6 +99,18 @@
 }
 
 
+@function social-color($type) {
+	$color: map-get($social-colors, $type);
+
+	@if ($color == null) {
+		@error 'Social colour "#{$type}" passed to `social-color` mixin does not exist';
+		@return false;
+	}
+
+	@return $color;
+}
+
+
  //***************
 // STRING REPLACE
 

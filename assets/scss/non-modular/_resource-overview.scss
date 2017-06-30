@@ -1,7 +1,7 @@
 .resources-overview {
 
 	header {
-		background-color: color('teal');
+		background-color: post-color('resource');
 	}
 
 	.resource__header {
@@ -271,7 +271,7 @@ body.resource-open {
 
 	@include font-size(20);
 	padding-bottom: em(15);
-	border-bottom: 10px solid color('teal');
+	border-bottom: 10px solid post-color('resource');
 	margin-bottom: em(28);
 	width: 90%;
 	position: relative;
@@ -279,11 +279,11 @@ body.resource-open {
 	svg {
 		width: em(48);
 		height: em(48);
-		stroke: color('teal');
+		stroke: post-color('resource');
 	}
 
 	a {
-		color: color('teal');
+		color: post-color('resource');
 		position: absolute;
 		bottom: 1em;
 		padding-left: .5em;
@@ -296,7 +296,6 @@ body.resource-open {
 	@include font-size(14);
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	color: color('off-grey');
 	position: relative;
 	padding-right: em(80, 14);
 }
@@ -314,7 +313,6 @@ body.resource-open {
 		@include font-size(14);
 		text-transform: uppercase;
 		letter-spacing: 1px;
-		color: color('off-grey');
 		float: left;
 		min-width: 110px;
 		margin-right: 1em;

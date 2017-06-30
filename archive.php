@@ -13,7 +13,7 @@
 
 			$posts = vue_posts([
 				'query' => array_merge($wp_query->query_vars, [
-					'post_type' => ['post', 'news', 'event', 'resource', 'success-story', 'policy', 'newsletter', 'media-clipping']
+					'post_type' => ['post', 'news', 'event', 'resource']
 				]),
 				'ignore' => ['content', 'excerpt', 'slug'],
 				'custom' => array(

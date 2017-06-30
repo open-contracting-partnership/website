@@ -568,7 +568,7 @@ category:
 	transition: background-color .3s ease;
 
 	.card--event:hover & {
-		background-color: color('blue');
+		background-color: post-color('event');
 	}
 
 }
@@ -578,7 +578,7 @@ category:
 
 	@include font-size(17);
 	@include font('secondary', 'bold');
-	color: color('blue');
+	color: post-color('event');
 	line-height: 1.2;
 	text-transform: uppercase;
 	transition: color .3s ease;
