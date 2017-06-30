@@ -33,6 +33,7 @@
 
 .card__heading {
 
+	@include font('secondary', 'medium');
 	margin-bottom: 0;
 
 	a {
