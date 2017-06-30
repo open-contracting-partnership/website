@@ -126,11 +126,17 @@
 }
 
 .page--padding {
-	padding-top: 2em;
+
+	padding-top: spacing(5);
 
 	@include mq(M) {
-	    padding-top: 5em;
+	    padding-top: spacing(7);
 	}
+
+	@include mq(L) {
+	    padding-top: spacing(9);
+	}
+
 }
 
 
