@@ -107,7 +107,15 @@ add_shortcode('related', function($atts, $content = null) {
 				<h6 class="related-posts__title">Posts by: <a href="<?php echo $term_link; ?>"><?php echo $term->name; ?></a></h6>
 
 				<?php foreach ( $related_posts as $related_post ) : ?>
-					<?php get_partial('card', 'secondary'); ?>
+
+					<?php
+
+						get_partial('card', 'secondary', [
+							'image_align_right' => TRUE
+						]);
+
+					?>
+					
 				<?php endforeach; ?>
 
 			</div>
