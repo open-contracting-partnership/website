@@ -2,7 +2,7 @@
 
 	position: relative;
 	background-color: color('white');
-	box-shadow: 0 0 4px 0 rgba(224, 224, 224, .5);
+	box-shadow: 0 0 4px 0 rgba(179, 179, 179, .5);
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -15,7 +15,7 @@
 	}
 
 	&:hover {
-		box-shadow: 0 0 4px 0 rgba(224, 224, 224, 1);
+		box-shadow: 0 0 4px 0 rgb(179, 179, 179);
 	}
 
 }
