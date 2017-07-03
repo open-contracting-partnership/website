@@ -191,7 +191,7 @@ category:
 	position: relative;
 	text-transform: uppercase;
 	color: color('black');
-	padding-top: 8px;
+	padding-top: 10px;
 
 	.home & {
 		border-top-color: color('background');
@@ -203,7 +203,7 @@ category:
 		display: block;
 		top: 0;
 		left: 0;
-		width: 6rem;
+		width: spacing(13);
 		height: 2px;
 		background-color: color('brand');
 	}
