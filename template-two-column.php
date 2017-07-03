@@ -18,7 +18,7 @@
 
 			<?php if ( have_rows('relevant_sources') ) : ?>
 
-				<div class="sidebar__section">
+				<div class="sidebar__section sidebar__section-relevant-sources">
 
 					<h6 class="drop / border-top border-top--clean"><?php _e('Relevant Sources', 'ocp'); ?></h6>
 
@@ -68,7 +68,7 @@
 
 			<?php endif; ?>
 
-			<div class="sidebar__section">
+			<div class="sidebar__section sidebar__section-subscribe">
 
 				<h6 class="drop / border-top border-top--clean"><?php _e('Subscribe to our newsletter', 'ocp'); ?></h6>
 				<p class="text--micro / drop"><?php _e('Sign up to our monthly email where you can receive updates on our current work', 'ocp'); ?></p>
@@ -105,7 +105,7 @@
 
 			<?php if ( $upcoming_events->have_posts() ) : ?>
 
-				<div class="sidebar__section">
+				<div class="sidebar__section sidebar__section-upcoming-events">
 
 					<h6 class="drop / border-top border-top--blue border-top--clean"><?php _e('Upcoming Events', 'ocp'); ?></h6>
 
@@ -126,14 +126,25 @@
 			<?php get_partial('page', 'title'); ?>
 
 			<section>
+
 				<?php the_content(); ?>
+
+				<?php if ( have_rows('page_strips') ) : ?>
+
+					<?php while ( have_rows('page_strips') ) : the_row(); ?>
+
+						<h3><?php the_sub_field('title'); ?></h3>
+						<?php the_sub_field('content'); ?>
+
+					<?php endwhile; ?>
+
+				<?php endif; ?>
+
 			</section>
 
 		</article>
 
 	</div> <!-- / .wrapper -->
-
-	<?php get_partial('page', 'strips'); ?>
 
 </div> <!-- / .page__container -->
 

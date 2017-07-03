@@ -89,37 +89,89 @@
 
 .page--two-column {
 
-	.page-content {
+	.page__wrapper {
+
+		display: flex;
+		flex-direction: column;
+
+		@include mq(L) {
+			display: block;
+		}
+
+	}
+
+	.page-sidebar {
+
+		margin-top: 0;
+		margin-bottom: 1rem;
+		order: 2;
+
+		@include mq(L) {
+			@include span(3 of 12 first);
+		}
+
+		.card--content {
+			margin-bottom: spacing(1);
+		}
+
+		.card--event {
+			margin-bottom: spacing(2);
+		}
+
+	}
+
+
+
+	.sidebar__section-relevant-sources {
+
+		@include mq(680) {
+			@include span(1 of 2);
+		}
 
 		@include mq(M) {
-			@include nobreak;
-			@include span(8 at 4 of 12 last);
-			margin-left: 0;
+			@include span(5 of 12);
 		}
 
 		@include mq(L) {
+			@include full;
+		}
+
+	}
+
+	.sidebar__section-subscribe,
+	.sidebar__section-upcoming-events {
+
+		@include mq(680) {
+			@include span(1 of 2 last);
+		}
+
+		@include mq(M) {
+			@include span(5 of 12 last);
+		}
+
+		@include mq(L) {
+			@include full;
+		}
+
+	}
+
+	.page-content {
+
+		@include mq(L) {
 			@include nobreak;
-			@include span(6 at 4 of 12);
-			margin-left: span(1 of 12) + gutter();
+			@include span(8 of 12 last);
 		}
 
 	}
 
 }
 
-.page-sidebar {
-	margin-top: 0;
-	margin-bottom: 1rem;
 
-	@include mq(M) {
-		@include span(3 of 12 first);
-	}
-}
 
 .page__section-nav {
 	display: none;
 
-	@include mq(M) {
+	@include mq(L) {
 		display: block;
 		margin-bottom: em(70);
 	}
