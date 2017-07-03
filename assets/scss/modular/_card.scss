@@ -2,6 +2,7 @@
 
 	position: relative;
 	background-color: color('white');
+	color: color('body');
 	box-shadow: 0 0 4px 0 rgba(179, 179, 179, .5);
 	width: 100%;
 	display: flex;
@@ -32,26 +33,24 @@
 }
 
 .card__heading {
-
 	@include font('secondary', 'medium');
 	margin-bottom: 0;
+}
 
-	a {
-		color: inherit;
-		// text-decoration: none;
+.card__link {
 
-		&:before {
-			bottom: 0;
-		    content: "";
-		    left: 0;
-		    overflow: hidden;
-		    position: absolute;
-		    right: 0;
-		    top: 0;
-		    white-space: nowrap;
-		    z-index: 1;
-		}
+	color: currentColor;
 
+	&:before {
+		bottom: 0;
+		content: "";
+		left: 0;
+		overflow: hidden;
+		position: absolute;
+		right: 0;
+		top: 0;
+		white-space: nowrap;
+		z-index: 1;
 	}
 
 }
@@ -461,17 +460,21 @@ category:
 ```html
 <div class="card card--content">
 
-	<div class="card__icon" data-content-type="news">
-		<svg><use xlink:href="#icon-news"></svg>
-	</div>
+	<div class="card--content__inner">
 
-	<div class="card__content">
+		<div class="card__icon" data-content-type="news">
+			<svg><use xlink:href="#icon-news"></svg>
+		</div>
 
-		<span class="card-content__type">News</span>
+		<div class="card__content">
 
-		<p class="card__heading">
-			<a class="card__link" href="#">Statement on the resignation of the Ukranian Minister of Economic Development and Trade Abromavicius</a>
-		</p>
+			<span class="card-content__type">News</span>
+
+			<p class="card__heading">
+				<a class="card__link" href="#">Statement on the resignation of the Ukranian Minister of Economic Development and Trade Abromavicius</a>
+			</p>
+
+		</div>
 
 	</div>
 
@@ -481,7 +484,12 @@ category:
 */
 
 .card--content {
+}
+
+.card--content__inner {
+	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
 }
 
 .card--content .card__icon {
@@ -522,6 +530,45 @@ category:
 .card--content .card__heading {
 	@include font-size(14);
 }
+
+
+/*
+
+---
+name: Content Card with Image
+category:
+ - Components/Card
+---
+
+```html
+<div class="card card--content">
+
+	<div class="card__header">
+		<img class="card__featured-media" src="//placehold.it/300x200">
+	</div>
+
+	<div class="card--content__inner">
+
+		<div class="card__icon" data-content-type="news">
+			<svg><use xlink:href="#icon-news"></svg>
+		</div>
+
+		<div class="card__content">
+
+			<span class="card-content__type">News</span>
+
+			<p class="card__heading">
+				<a class="card__link" href="#">Statement on the resignation of the Ukranian Minister of Economic Development and Trade Abromavicius</a>
+			</p>
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
 
 /*
 

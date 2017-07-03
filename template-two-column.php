@@ -16,16 +16,57 @@
 
 			<?php get_partial('navigation', 'sections'); ?>
 
-			<div class="sidebar__section">
+			<?php if ( have_rows('relevant_sources') ) : ?>
 
-				<h6 class="drop / border-top border-top--clean"><?php _e('Relevant Sources', 'ocp'); ?></h6>
+				<div class="sidebar__section">
 
-				<p>News 1</p>
-				<p>News 2</p>
-				<p>News 3</p>
-				<p>News 4 Featured</p>
+					<h6 class="drop / border-top border-top--clean"><?php _e('Relevant Sources', 'ocp'); ?></h6>
 
-			</div>
+					<?php while ( have_rows('relevant_sources') ) : the_row(); ?>
+
+	   					<?php if ( get_row_layout() == 'internal_link' ) : ?>
+							<?php setup_postdata($post = get_sub_field('post')); ?>
+							<?php get_partial('card', 'content'); ?>
+							<?php wp_reset_postdata(); ?>
+						<?php elseif ( get_row_layout() == 'external_link' ) : ?>
+
+							<div class="card card--content">
+
+								<?php if ( $image = get_sub_field('image') ) : ?>
+
+									<div class="card__header">
+										<img class="card__featured-media" src="<?php echo $image['sizes']['medium']; ?>">
+									</div>
+
+								<?php endif; ?>
+
+								<div class="card--content__inner">
+
+								    <div class="card__icon" data-content-type="link">
+								        <svg><use xlink:href="#icon-link"></svg>
+								    </div>
+
+								    <div class="card__content">
+
+								        <span class="card-content__type">Link</span>
+
+								        <p class="card__heading">
+								            <a class="card__link" href="<?php the_sub_field('link'); ?>"><?php the_sub_field('label'); ?></a>
+								        </p>
+
+								    </div>
+
+								</div>
+
+							</div>
+
+						<?php endif; ?>
+
+					<?php endwhile; ?>
+
+				</div>
+
+			<?php endif; ?>
 
 			<div class="sidebar__section">
 
@@ -59,7 +100,7 @@
 						),
 					)
 				]);
-				
+
 			?>
 
 			<?php if ( $upcoming_events->have_posts() ) : ?>
