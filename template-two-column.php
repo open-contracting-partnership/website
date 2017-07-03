@@ -35,7 +35,7 @@
 								<?php if ( $image = get_sub_field('image') ) : ?>
 
 									<div class="card__header">
-										<img class="card__featured-media" src="<?php echo $image['sizes']['medium']; ?>">
+										<img class="card__featured-media" src="<?php echo $image['sizes']['2x1_460']; ?>">
 									</div>
 
 								<?php endif; ?>
