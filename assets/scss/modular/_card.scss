@@ -486,6 +486,10 @@ category:
 .card--content {
 }
 
+.card__header {
+	flex: 0 0 auto;
+}
+
 .card--content__inner {
 	display: flex;
 	flex-direction: row;
