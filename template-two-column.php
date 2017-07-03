@@ -43,14 +43,40 @@
 
 			</div>
 
-			<div class="sidebar__section">
+			<?php
 
-				<h6 class="drop / border-top border-top--blue border-top--clean"><?php _e('Upcoming Events', 'ocp'); ?></h6>
+				$upcoming_events = new query_loop([
+					'post_type' => 'event',
+					'posts_per_page' => 2,
+					'orderby'    => 'meta_value_num',
+					'order'      => 'ASC',
+					'meta_key' => ' event_date',
+					'meta_query' => array(
+						array(
+							'key' => 'event_date',
+							'value' => date('Ymd'),
+							'compare' => '>='
+						),
+					)
+				]);
+				
+			?>
 
-				<p>Event 1</p>
-				<p>Event 2</p>
+			<?php if ( $upcoming_events->have_posts() ) : ?>
 
-			</div>
+				<div class="sidebar__section">
+
+					<h6 class="drop / border-top border-top--blue border-top--clean"><?php _e('Upcoming Events', 'ocp'); ?></h6>
+
+					<?php foreach ( $upcoming_events as $event ) : ?>
+
+						<?php get_partial('card', 'event'); ?>
+
+					<?php endforeach; ?>
+
+				</div>
+
+			<?php endif; ?>
 
 		</aside>
 
