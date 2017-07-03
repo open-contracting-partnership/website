@@ -92,43 +92,57 @@
 
 }
 
+/*
+
+---
+name: In Page
+category:
+ - Layout/Nav
+---
+
+```html
+<nav class="sidebar__section / page__section-nav">
+
+	<h6 class="drop / border-top border-top--clean">Jump to section</h6>
+
+	<ul class="nav nav--vertical nav--in-page">
+		<li><a href="#what-we-do">What we do</a></li>
+		<li><a href="#strategy">Strategy</a></li>
+		<li><a href="#our-story-and-team">Our story and team</a></li>
+		<li><a href="#our-values">Our values</a></li>
+	</ul>
+
+</nav>
+```
+
+*/
+
 .nav--in-page {
+
+	@include font-size(17);
+	color: color('grey');
 	display: none;
 
 	@include mq(M) {
 		display: block;
 	}
 
-	li,
 	a {
+
 		line-height: 1;
-	}
-
-	li {
-		margin-bottom: 1rem;
-	}
-
-	a {
-		@include font('secondary', 'medium');
-		@include font-size(16);
-		color: color('body');
-	}
-}
-
-.nav--in-page {
-
-	a {
-		color: color('mid-grey');
-		line-height: 1.3;
+		color: currentColor;
 
 		&:hover {
 			text-decoration: none;
 		}
+
 	}
 
 	li {
+
 		position: relative;
-		margin-bottom: em(20);
+		margin-bottom: em(14, 17);
+		padding: 0;
 
 		&:before {
 			@include font-size(10);
@@ -144,6 +158,7 @@
 			transform: translateY(-50%);
 			display: inline-block;
 		}
+		
 	}
 
 	li.active,
