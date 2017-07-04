@@ -92,7 +92,6 @@
 			column-gap: $space;
 
 			> *:not(.page__section-nav) {
-				overflow: hidden; /* Fix for firefox and IE 10-11  */
 				-webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
 				page-break-inside: avoid; /* Firefox */
 				break-inside: avoid; /* IE 10+ */
