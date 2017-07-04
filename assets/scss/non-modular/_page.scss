@@ -92,10 +92,11 @@
 			column-gap: $space;
 
 			> *:not(.page__section-nav) {
-				-webkit-column-break-inside: avoid; /* Chrome, Safari */
-				page-break-inside: avoid;           /* Theoretically FF 20+ */
-				break-inside: avoid-column;         /* IE 11 */
-				display:table;                      /* Actually FF 20+ */
+				overflow: hidden; /* Fix for firefox and IE 10-11  */
+				-webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+				page-break-inside: avoid; /* Firefox */
+				break-inside: avoid; /* IE 10+ */
+				break-inside: avoid-column;
 			}
 
 		}
