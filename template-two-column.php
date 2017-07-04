@@ -25,9 +25,15 @@
 					<?php while ( have_rows('relevant_sources') ) : the_row(); ?>
 
 	   					<?php if ( get_row_layout() == 'internal_link' ) : ?>
+
 							<?php setup_postdata($post = get_sub_field('post')); ?>
-							<?php get_partial('card', 'content'); ?>
+
+							<?php get_partial('card', 'content', [
+								'thumbnail_id' => get_sub_field('image') ? get_sub_field('image')['ID'] : FALSE
+							]); ?>
+
 							<?php wp_reset_postdata(); ?>
+
 						<?php elseif ( get_row_layout() == 'external_link' ) : ?>
 
 							<div class="card card--content">
