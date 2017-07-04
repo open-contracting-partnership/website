@@ -60,10 +60,15 @@
 	.page__wrapper {
 
 		display: flex;
-		flex-direction: column;
+		flex-direction: column-reverse;
 
 		@include mq(L) {
-			display: block;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		&::after {
+			display: none;
 		}
 
 	}
@@ -73,17 +78,16 @@
 		@include mq(L, 'max-width') {
 			margin-bottom: spacing(12);
 		}
-		
+
 	}
 
 	.page-sidebar {
 
 		margin-top: 0;
 		margin-bottom: 1rem;
-		order: 2;
 
 		@include mq(L) {
-			@include span(3 of 12 first);
+			flex: 0 0 span(3 of 12);
 		}
 
 		.card--content {
@@ -132,8 +136,7 @@
 	.page-content {
 
 		@include mq(L) {
-			@include nobreak;
-			@include span(8 of 12 last);
+			flex: 0 0 span(8 of 12);
 		}
 
 	}
