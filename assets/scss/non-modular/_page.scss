@@ -92,10 +92,15 @@
 			column-gap: $space;
 
 			> *:not(.page__section-nav) {
+				overflow: hidden;
 				-webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
 				page-break-inside: avoid; /* Firefox */
 				break-inside: avoid; /* IE 10+ */
 				break-inside: avoid-column;
+				margin-right: spacing(-1);
+				margin-left: spacing(-1);
+				padding-right: spacing(1);
+				padding-left: spacing(1);
 			}
 
 		}
