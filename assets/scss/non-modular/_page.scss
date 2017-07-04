@@ -86,6 +86,20 @@
 		margin-top: 0;
 		margin-bottom: 1rem;
 
+		@include mq(M, L) {
+
+			column-count: 2;
+			column-gap: $space;
+
+			> *:not(.page__section-nav) {
+				-webkit-column-break-inside: avoid; /* Chrome, Safari */
+				page-break-inside: avoid;           /* Theoretically FF 20+ */
+				break-inside: avoid-column;         /* IE 11 */
+				display:table;                      /* Actually FF 20+ */
+			}
+
+		}
+
 		@include mq(L) {
 			flex: 0 0 span(3 of 12);
 		}
@@ -102,16 +116,8 @@
 
 	.sidebar__section-relevant-sources {
 
-		@include mq(680) {
+		@include mq(680, M) {
 			@include span(1 of 2);
-		}
-
-		@include mq(M) {
-			@include span(5 of 12);
-		}
-
-		@include mq(L) {
-			@include full;
 		}
 
 	}
@@ -119,16 +125,8 @@
 	.sidebar__section-subscribe,
 	.sidebar__section-upcoming-events {
 
-		@include mq(680) {
+		@include mq(680, M) {
 			@include span(1 of 2 last);
-		}
-
-		@include mq(M) {
-			@include span(5 of 12 last);
-		}
-
-		@include mq(L) {
-			@include full;
 		}
 
 	}

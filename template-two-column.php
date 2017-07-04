@@ -16,7 +16,7 @@
 
 			<?php get_partial('navigation', 'sections'); ?>
 
-			<?php if ( have_rows('relevant_sources') ) : ?>
+			<?php if ( get_field('display_relevant_sources') && have_rows('relevant_sources') ) : ?>
 
 				<div class="sidebar__section sidebar__section-relevant-sources">
 
@@ -74,54 +74,62 @@
 
 			<?php endif; ?>
 
-			<div class="sidebar__section sidebar__section-subscribe">
+			<?php if ( get_field('display_subscribe_box') ) : ?>
 
-				<h6 class="drop / border-top border-top--clean"><?php _e('Subscribe to our newsletter', 'ocp'); ?></h6>
-				<p class="text--micro / drop"><?php _e('Sign up to our monthly email where you can receive updates on our current work', 'ocp'); ?></p>
+				<div class="sidebar__section sidebar__section-subscribe">
 
-				<div class="js-subscribe">
+					<h6 class="drop / border-top border-top--clean"><?php _e('Subscribe to our newsletter', 'ocp'); ?></h6>
+					<p class="text--micro / drop"><?php _e('Sign up to our monthly email where you can receive updates on our current work', 'ocp'); ?></p>
 
-					<form class="flex-field" action="" method="post">
-						<input class="secondary" type="email" placeholder="<?php _e('Enter your email', 'ocp'); ?>" name="email" required>
-						<button><?php _e('Send', 'ocp'); ?></button>
-					</form>
+					<div class="js-subscribe">
 
-				</div>
+						<form class="flex-field" action="" method="post">
+							<input class="secondary" type="email" placeholder="<?php _e('Enter your email', 'ocp'); ?>" name="email" required>
+							<button><?php _e('Send', 'ocp'); ?></button>
+						</form>
 
-			</div>
-
-			<?php
-
-				$upcoming_events = new query_loop([
-					'post_type' => 'event',
-					'posts_per_page' => 2,
-					'orderby'    => 'meta_value_num',
-					'order'      => 'ASC',
-					'meta_key' => ' event_date',
-					'meta_query' => array(
-						array(
-							'key' => 'event_date',
-							'value' => date('Ymd'),
-							'compare' => '>='
-						),
-					)
-				]);
-
-			?>
-
-			<?php if ( $upcoming_events->have_posts() ) : ?>
-
-				<div class="sidebar__section sidebar__section-upcoming-events">
-
-					<h6 class="drop / border-top border-top--blue border-top--clean"><?php _e('Upcoming Events', 'ocp'); ?></h6>
-
-					<?php foreach ( $upcoming_events as $event ) : ?>
-
-						<?php get_partial('card', 'event'); ?>
-
-					<?php endforeach; ?>
+					</div>
 
 				</div>
+
+			<?php endif; ?>
+
+			<?php if ( get_field('display_upcoming_events') ) : ?>
+
+				<?php
+
+					$upcoming_events = new query_loop([
+						'post_type' => 'event',
+						'posts_per_page' => 2,
+						'orderby'    => 'meta_value_num',
+						'order'      => 'ASC',
+						'meta_key' => ' event_date',
+						'meta_query' => array(
+							array(
+								'key' => 'event_date',
+								'value' => date('Ymd'),
+								'compare' => '>='
+							),
+						)
+					]);
+
+				?>
+
+				<?php if ( $upcoming_events->have_posts() ) : ?>
+
+					<div class="sidebar__section sidebar__section-upcoming-events">
+
+						<h6 class="drop / border-top border-top--blue border-top--clean"><?php _e('Upcoming Events', 'ocp'); ?></h6>
+
+						<?php foreach ( $upcoming_events as $event ) : ?>
+
+							<?php get_partial('card', 'event'); ?>
+
+						<?php endforeach; ?>
+
+					</div>
+
+				<?php endif; ?>
 
 			<?php endif; ?>
 
