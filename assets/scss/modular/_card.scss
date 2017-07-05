@@ -532,6 +532,7 @@ category:
 }
 
 .card--content .card__heading {
+	@include font('primary');
 	@include font-size(14);
 }
 
