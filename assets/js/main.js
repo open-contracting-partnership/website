@@ -215,34 +215,37 @@ $(document).ready(function() {
 	});
 
 
-	 //*************
-	// TEAM MEMBERS
+	 //********
+	// PROFILE
 
-	var $team_members = $('.team-member');
+	// used on team and advisory pages
 
-	$('.team-member__selector').on('click', function(event) {
+	var $profiles = $('.profile'),
+		$profile_selectors = $('.profile-selector');
+
+	$profile_selectors.on('click', function(event) {
 
 		event.preventDefault();
 
-		var $team_member = $(this);
+		var $profile = $(this);
 
-		$team_members
+		$profiles
 			.removeClass('active')
-			.filter($team_member.attr('href'))
+			.filter($profile.attr('href'))
 				.addClass('active');
 
-		$('.team-member__selector').removeClass('active');
-		$team_member.addClass('active');
+		$profile_selectors.removeClass('active');
+		$profile.addClass('active');
 
 	});
 
-	$('.team-member__selector').first().trigger('click');
+	$profile_selectors.first().trigger('click');
 
-	$('.team-member__view-bio').on('click', function(event) {
+	$('.profile__collapse').on('click', function(event) {
 
 		event.preventDefault();
 
-		$(this).closest('.team-member').find('.team-member__bio').toggleClass('active');
+		$(this).closest('.profile').toggleClass('active');
 
 	});
 

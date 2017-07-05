@@ -20,15 +20,14 @@
 
 				<?php while ( have_rows('team_members') ) : the_row(); ?>
 
-					<a class="team-member__selector" href="#<?php echo sanitize_title(get_sub_field('name')); ?>">
-						<h3><?php the_sub_field('name'); ?></h3>
-						<h5><?php the_sub_field('role'); ?></h3>
+					<a class="profile-selector" href="#<?php echo sanitize_title(get_sub_field('name')); ?>">
+						<h3 class="profile-selector__name"><?php the_sub_field('name'); ?></h3>
+						<h5 class="profile-selector__position"><?php the_sub_field('role'); ?></h5>
 					</a>
 
 				<?php endwhile; ?>
 
 			<?php endif; ?>
-
 
 		</aside>
 
@@ -38,19 +37,19 @@
 
 				<?php while ( have_rows('team_members') ) : the_row(); ?>
 
-					<div class="team-member" id="<?php echo sanitize_title(get_sub_field('name')); ?>">
+					<div class="profile" id="<?php echo sanitize_title(get_sub_field('name')); ?>">
 
-						<div class="team-member__meta">
+						<div class="profile__meta">
 
 							<?php if ( $avatar = get_sub_field('image') ) : ?>
 
-								<div class="team-member__avatar">
+								<div class="profile__avatar">
 									<img src="<?php echo $avatar['sizes']['thumbnail']; ?>" />
 								</div>
 
 							<?php endif; ?>
 
-							<div class="team-member__name">
+							<div class="profile__name">
 
 								<h3><?php the_sub_field('name'); ?></h3>
 
@@ -68,13 +67,13 @@
 
 								<?php endif; ?>
 
-								<a href="#" class="team-member__view-bio">View profile</a>
+								<a href="#" class="profile__view-bio">View profile</a>
 
 							</div>
 
-						</div> <!--  / .team-member__meta -->
+						</div> <!--  / .profile__meta -->
 
-						<div class="team-member__bio">
+						<div class="profile__bio">
 
 							<?php if ( $twitter_name = get_sub_field('twitter_name') ) : ?>
 
