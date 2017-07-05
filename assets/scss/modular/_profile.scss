@@ -13,26 +13,55 @@
 
 }
 
-/* a.team-member__selector */
-.team-member__selector {
+
+/*
+
+---
+name: Selector
+category:
+ - Components/Profile
+---
+
+```html
+<a class="profile-selector" href="#gavin-hayman">
+	<h3 class="profile-selector__name">Gavin Hayman</h3>
+	<h5 class="profile-selector__position">Executive Director</h5>
+</a>
+
+<a class="profile-selector" href="#kathrin-frauscher">
+	<h3 class="profile-selector__name">Kathrin Frauscher</h3>
+	<h5 class="profile-selector__position">Program Director</h5>
+</a>
+
+<a class="profile-selector" href="#georg-neumann">
+	<h3 class="profile-selector__name">Georg Neumann</h3>
+	<h5 class="profile-selector__position">Senior Communications Manager</h5>
+</a>
+```
+
+*/
+
+.profile-selector {
+
 	display: none;
-	margin-bottom: em(40);
-	color: color('light-grey');
+	margin-bottom: spacing(3);
+	padding-left: em(13);
+	color: color('grey');
 	transition: color .3s ease;
-	padding-left: em(22);
 
 	@include mq(M) {
 		display: block;
 	}
 
 	html.no-js & {
-		color: color('dark-background');
+		color: color('body');
 	}
 
-	h3 {
+	.profile-selector__name {
+
 		position: relative;
-		margin-bottom: em(4, 29);
-		@include font-size(22);
+		margin-bottom: em(6, 24);
+		@include font-size(24);
 
 		&:before {
 			@include font-size(10);
@@ -74,37 +103,88 @@
 
 }
 
-.team-member__image {
+/*
 
-	@include mq(L) {
-		margin-left: 0 - span(1 of 12) + gutter();
-		margin-right: 0 - span(1 of 12) + gutter();
-	}
+---
+name: Profile
+category:
+ - Components/Profile
+---
+
+```html
+<div class="profile" id="gavin-hayman">
+
+	<div class="profile__header">
+
+		<div class="profile__avatar">
+			<img src="https://www.open-contracting.org/wp-content/uploads/2016/02/Layer-6-150x150.jpeg">
+		</div>
+
+		<div class="profile__meta">
+
+			<h3 class="profile__name">Gavin Hayman</h3>
+
+			<p class="profile__twitter">
+
+				<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use></svg>
+
+				<a href="https://www.twitter.com/GavinHayman_GW">
+					Follow me on Twitter
+				</a>
+
+			</p>
+
+			<p class="profile__position">View profile</p>
+
+		</div>
+
+	</div> <!--  / .profile__meta -->
+
+	<div class="profile__bio">
+
+		<p class="profile__twitter">
+
+			<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use></svg>
+
+			<a href="https://www.twitter.com/GavinHayman_GW">
+				Follow me on Twitter
+			</a>
+
+		</p>
+
+		<p>Before joining the Open Contracting Partnership, Gavin was Director of Campaigns and then Executive Director of Global Witness. He oversaw the organisation’s groundbreaking and award-winning investigative, campaigning and advocacy work uncovering secret deals, corruption and conflict around the world. He helped create the international Publish What You Pay campaign and helped negotiate the intergovernmental Extractive Industries Transparency Initiative that brings together oil and mining companies, home- and host-governments and civil society to improve disclosure and oversight of over $1 trillion dollars of oil and mining money.</p>
+		<p>He is an expert on illicit financial flows, and helped lead global efforts to end the abuse of anonymous shell companies for money laundering and financial crime, including working with the British government’s recent presidency of the G8 and the Open Government Partnership. He has a Doctorate from the University of Reading and has worked with Chatham House in London and the United National Environmental Programme in the past on analysing and investigating global environmental crime.</p>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.profile {
 
 }
 
-.team-member__meta {
+.profile__header {
+
 	display: flex;
 	align-items: center;
-	margin-bottom: 1em;
+	margin-bottom: spacing(3);
 
 	@include mq(M) {
-		margin-bottom: 2em;
+		margin-bottom: spacing(5);
 	}
 
 }
 
-.team-member__avatar {
-	width: em(75);
-	margin-right: 1em;
+.profile__avatar {
 
-	@include mq(M) {
-		width: em(100);
-	}
+	width: spacing(8);
+	margin-right: spacing(2);
 
 	@include mq(L) {
-		width: em(150);
-		margin-right: 2em;
+		width: spacing(11);
 	}
 
 	img {
@@ -113,7 +193,7 @@
 
 }
 
-.team-member__name {
+.profile__meta {
 
 	@include mq(M) {
 		float: none;
@@ -127,8 +207,59 @@
 
 }
 
-/* a.team-member__view-bio */
-.team-member__view-bio {
+.profile__name {
+
+	@include font-size(24);
+	@include font('secondary', 'medium');
+
+	@include mq(M) {
+		@include font-size(30);
+	}
+
+}
+
+.profile__twitter {
+
+	@include font-size(17);
+
+	@include mq(M) {
+		margin-bottom: 0;
+	}
+
+	svg {
+		height: 1em;
+		width: 1.1em;
+		margin-right: .25em;
+		margin-bottom: .1em;
+		fill: currentColor;
+	}
+
+	a {
+		color: currentColor;
+	}
+
+	.profile__header & {
+		display: none;
+
+		@include mq(M) {
+			display: block;
+		}
+
+	}
+
+	.profile__bio & {
+		display: block;
+
+		@include mq(M) {
+			display: none;
+		}
+
+	}
+
+}
+
+.profile__view-bio {
+
 	color: inherit;
 
 	@include mq(M) {
@@ -149,47 +280,6 @@
 	@include mq(M) {
 		display: block;
 		@include span(6 of 6);
-	}
-
-}
-
-.profile__twitter {
-	@include font-size(16);
-	color: color('mid-grey');
-	margin-top: .5em;
-
-	@include mq(M) {
-		margin-bottom: 0;
-	}
-
-	svg {
-		height: 1em;
-		width: 1.1em;
-		margin-right: .25em;
-		margin-bottom: .1em;
-		fill: currentColor;
-	}
-
-	a {
-		color: currentColor;
-	}
-
-	.team-member__name & {
-		display: none;
-
-		@include mq(M) {
-			display: block;
-		}
-
-	}
-
-	.team-member__bio & {
-		display: block;
-
-		@include mq(M) {
-			display: none;
-		}
-
 	}
 
 }
