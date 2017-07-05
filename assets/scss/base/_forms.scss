@@ -119,21 +119,21 @@ input[type="search"]::-webkit-search-results-button {
 // PLACEHOLDER STYLES
 
 ::-webkit-input-placeholder { /* Safari, Chrome and Opera */
-	color: currentColor;
+	color: color('grey');
 }
 
 :-moz-placeholder { /* Firefox 18- */
-	color: currentColor;
+	color: color('grey');
 }
 
 ::-moz-placeholder { /* Firefox 19+ */
-	color: currentColor;
+	color: color('grey');
 }
 
 :-ms-input-placeholder { /* IE 10+ */
-	color: currentColor;
+	color: color('grey');
 }
 
 ::-ms-input-placeholder { /* Edge */
-	color: currentColor;
+	color: color('grey');
 }

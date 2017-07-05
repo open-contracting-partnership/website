@@ -188,9 +188,9 @@ category:
 */
 
 .border-top {
+
 	position: relative;
 	text-transform: uppercase;
-	color: color('black');
 	padding-top: 10px;
 
 	.home & {
@@ -207,6 +207,7 @@ category:
 		height: 2px;
 		background-color: color('brand');
 	}
+	
 }
 
 .border-top--clean {

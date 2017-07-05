@@ -84,7 +84,7 @@
 					<div class="js-subscribe">
 
 						<form class="flex-field" action="" method="post">
-							<input class="secondary" type="email" placeholder="<?php _e('Enter your email', 'ocp'); ?>" name="email" required>
+							<input type="email" placeholder="<?php _e('Enter your email', 'ocp'); ?>" name="email" required>
 							<button><?php _e('Send', 'ocp'); ?></button>
 						</form>
 
