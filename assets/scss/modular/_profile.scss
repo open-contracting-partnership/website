@@ -304,12 +304,14 @@ category:
 	left: 0;
 	z-index: 9;
 	color: currentColor;
+	cursor: pointer;
 
 	@include mq(M) {
 		display: none;
 	}
 
 	svg {
+		
 		position: absolute;
 		right: 0;
 		top: 50%;
