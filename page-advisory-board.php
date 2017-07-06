@@ -5,13 +5,7 @@
 	<div class="wrapper / page__container page--padding">
 
 		<div class="page-advisory-board__intro / band band--extra-thick">
-
-			<h1><?php the_title(); ?></h1>
-
-			<p class="strapline">
-				<?php the_field('advisory_introduction'); ?>
-			</p>
-
+			<?php get_partial('page', 'title'); ?>
 		</div>
 
 		<?php if ( have_rows('advisory_meeting_notes') ) : ?>
@@ -39,18 +33,18 @@
 
 		<?php if ( have_rows('advisory_members') ) : ?>
 
-			<h3>Meet our Advisory Board members</h3>
+			<h4>Meet our Advisory Board members</h4>
 
 			<div class="page-advisory-board__members">
 
 				<?php while ( have_rows('advisory_members') ) : the_row(); ?>
 
-					<a class="team-member__selector" href="#<?php echo sanitize_title(get_sub_field('name')); ?>">
+					<a class="profile-selector" href="#<?php echo sanitize_title(get_sub_field('name')); ?>">
 
-						<h3><?php the_sub_field('name'); ?></h3>
+						<h3 class="profile-selector__name"><?php the_sub_field('name'); ?></h3>
 
 						<?php if ( get_sub_field('role') ) : ?>
-							<h5><?php the_sub_field('role'); ?></h5>
+							<h5 class="profile-selector__position"><?php the_sub_field('role'); ?></h5>
 						<?php endif; ?>
 
 					</a>
@@ -63,26 +57,35 @@
 
 				<?php while ( have_rows('advisory_members') ) : the_row(); ?>
 
-					<div class="team-member" id="<?php echo sanitize_title(get_sub_field('name')); ?>">
+					<div class="profile" id="<?php echo sanitize_title(get_sub_field('name')); ?>">
 
-						<div class="team-member__meta">
+						<div class="profile__header">
 
-							<?php if ( $avatar = get_sub_field('image') ) : ?>
+							<div class="profile__avatar">
 
-								<div class="team-member__avatar">
+								<?php if ( $avatar = get_sub_field('image') ) : ?>
 									<img src="<?php echo $avatar['sizes']['thumbnail']; ?>" />
-								</div>
+								<?php else : ?>
+									<img src="<?php bloginfo('template_directory'); ?>/assets/img/missing-avatar.png" />
+								<?php endif; ?>
 
-							<?php endif; ?>
-
-							<div class="team-member__name">
-								<h3><?php the_sub_field('name'); ?></h3>
-								<a href="#" class="team-member__view-bio">View profile</a>
 							</div>
 
-						</div> <!--  / .team-member__meta -->
+							<div class="profile__meta">
 
-						<div class="team-member__bio">
+								<h3 class="profile__name"><?php the_sub_field('name'); ?></h3>
+
+								<p class="profile__position"><?php the_sub_field('role'); ?></p>
+
+								<a href="#" class="profile__collapse">
+									<svg><use xlink:href="#icon-arrow"></svg>
+								</a>
+
+							</div>
+
+						</div> <!--  / .profile__header -->
+
+						<div class="profile__bio">
 
 							<?php the_sub_field('bio'); ?>
 
