@@ -2,7 +2,7 @@
 
 	margin-bottom: spacing(5);
 
-	@include mq(M) {
+	@include mq(768) {
 		margin-bottom: spacing(8);
 	}
 
@@ -22,7 +22,7 @@
 	@include break;
 	margin-top: 0;
 
-	@include mq(M) {
+	@include mq(768) {
 		@include span(3 of 12);
 	}
 
@@ -30,7 +30,8 @@
 
 .page-team__content {
 
-	@include mq(M) {
+	@include mq(768) {
 		@include span(8 of 12 last);
 	}
+	
 }

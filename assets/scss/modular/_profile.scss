@@ -2,7 +2,7 @@
 
 	@include break;
 
-	@include mq(M) {
+	@include mq(768) {
 		display: none;
 
 		&.active {
@@ -49,7 +49,7 @@ category:
 	color: color('grey');
 	transition: color .3s ease;
 
-	@include mq(M) {
+	@include mq(768) {
 		display: block;
 	}
 
@@ -168,7 +168,7 @@ category:
 
 .profile {
 
-	@include mq(M) {
+	@include mq(768) {
 
 		display: none;
 
@@ -191,7 +191,7 @@ category:
 		cursor: pointer;
 	}
 
-	@include mq(M) {
+	@include mq(768) {
 		margin-bottom: spacing(5);
 	}
 
@@ -217,7 +217,7 @@ category:
 	flex: 0 1 100%;
 	padding-right: spacing(2);
 
-	@include mq(M) {
+	@include mq(768) {
 		float: none;
 		width: auto;
 		padding: 0;
@@ -234,7 +234,7 @@ category:
 	@include font-size(24);
 	@include font('secondary', 'medium');
 
-	@include mq(M) {
+	@include mq(768) {
 		@include font-size(30);
 	}
 
@@ -245,7 +245,7 @@ category:
 	@include font-size(14);
 	margin-bottom: spacing(2);
 
-	@include mq(M) {
+	@include mq(768) {
 		@include font-size(17);
 		margin-bottom: 0;
 	}
@@ -265,7 +265,7 @@ category:
 	.profile__header & {
 		display: none;
 
-		@include mq(M) {
+		@include mq(768) {
 			display: block;
 		}
 
@@ -275,7 +275,7 @@ category:
 
 		display: block;
 
-		@include mq(M) {
+		@include mq(768) {
 			display: none;
 		}
 
@@ -289,7 +289,7 @@ category:
 	color: inherit;
 	margin-bottom: 0;
 
-	@include mq(M) {
+	@include mq(768) {
 		display: none;
 	}
 
@@ -306,12 +306,12 @@ category:
 	color: currentColor;
 	cursor: pointer;
 
-	@include mq(M) {
+	@include mq(768) {
 		display: none;
 	}
 
 	svg {
-		
+
 		position: absolute;
 		right: 0;
 		top: 50%;
