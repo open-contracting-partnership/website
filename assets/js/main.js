@@ -245,11 +245,14 @@ $(document).ready(function() {
 
 		event.preventDefault();
 
+		var $profile = $(this).closest('.profile'),
+			active = $profile.hasClass('active');
+
 		// remove any previous active profiles
 		$('.profile.active').removeClass('active');
 
 		// make this profile active
-		$(this).closest('.profile').toggleClass('active');
+		$profile.toggleClass('active', ! active);
 
 	});
 
