@@ -1,29 +1,36 @@
 .page-team__title {
 
+	margin-bottom: spacing(5);
+
+	@include mq(M) {
+		margin-bottom: spacing(8);
+	}
+
 	@include mq(L) {
-		@include span(5 of 12);
-		margin-top: 100px;
+		@include span(6 of 12);
+		margin-bottom: spacing(12);
 	}
 
 	.strapline {
 		margin-bottom: 0;
 	}
+
 }
 
 .page-team__sidebar {
-	@include break;
 
-	@include mq(L) {
-		@include span(4 of 12);
-		margin-top: 4.5rem;
+	@include break;
+	margin-top: 0;
+
+	@include mq(M) {
+		@include span(3 of 12);
 	}
+
 }
 
 .page-team__content {
 
-	@include mq(L) {
-		@include span(6 at 5 of 12);
-		margin-top: 4.5rem;
-		margin-left: span(1 of 12) + gutter();
+	@include mq(M) {
+		@include span(8 of 12 last);
 	}
 }

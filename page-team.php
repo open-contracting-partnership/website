@@ -2,56 +2,78 @@
 
 	<?php the_post(); ?>
 
-	<div class="wrapper / page__container">
+	<div class="page__container">
 
-		<aside class="page-team__title">
+		<div class="wrapper / page__wrapper / page--padding">
 
-			<h1><?php the_title(); ?></h1>
-
-			<div class="strapline">
-				<?php the_content(); ?>
+			<div class="page-team__title">
+				<?php get_partial('page', 'title'); ?>
 			</div>
 
-		</aside>
+			<aside class="page-team__sidebar">
 
-		<aside class="page-team__sidebar">
+				<?php if ( have_rows('team_members') ) : ?>
 
-			<?php if ( have_rows('team_members') ) : ?>
+					<?php while ( have_rows('team_members') ) : the_row(); ?>
 
-				<?php while ( have_rows('team_members') ) : the_row(); ?>
+						<a class="profile-selector" href="#<?php echo sanitize_title(get_sub_field('name')); ?>">
+							<h3 class="profile-selector__name"><?php the_sub_field('name'); ?></h3>
+							<h5 class="profile-selector__position"><?php the_sub_field('role'); ?></h5>
+						</a>
 
-					<a class="profile-selector" href="#<?php echo sanitize_title(get_sub_field('name')); ?>">
-						<h3 class="profile-selector__name"><?php the_sub_field('name'); ?></h3>
-						<h5 class="profile-selector__position"><?php the_sub_field('role'); ?></h5>
-					</a>
+					<?php endwhile; ?>
 
-				<?php endwhile; ?>
+				<?php endif; ?>
 
-			<?php endif; ?>
+			</aside>
 
-		</aside>
+			<article class="page-team__content">
 
-		<article class="page-team__content">
+				<?php if ( have_rows('team_members') ) : ?>
 
-			<?php if ( have_rows('team_members') ) : ?>
+					<?php while ( have_rows('team_members') ) : the_row(); ?>
 
-				<?php while ( have_rows('team_members') ) : the_row(); ?>
+						<div class="profile" id="<?php echo sanitize_title(get_sub_field('name')); ?>">
 
-					<div class="profile" id="<?php echo sanitize_title(get_sub_field('name')); ?>">
+							<div class="profile__header">
 
-						<div class="profile__meta">
+								<?php if ( $avatar = get_sub_field('image') ) : ?>
 
-							<?php if ( $avatar = get_sub_field('image') ) : ?>
+									<div class="profile__avatar">
+										<img src="<?php echo $avatar['sizes']['thumbnail']; ?>" />
+									</div>
 
-								<div class="profile__avatar">
-									<img src="<?php echo $avatar['sizes']['thumbnail']; ?>" />
+								<?php endif; ?>
+
+								<div class="profile__meta">
+
+									<h3 class="profile__name"><?php the_sub_field('name'); ?></h3>
+
+									<?php if ( $twitter_name = get_sub_field('twitter_name') ) : ?>
+
+										<p class="profile__twitter">
+
+											<svg><use xlink:href="#icon-twitter"></use></svg>
+
+											<a href="https://www.twitter.com/<?php echo $twitter_name; ?>">
+												Follow me on Twitter
+											</a>
+
+										</p>
+
+									<?php endif; ?>
+
+									<p class="profile__position"><?php the_sub_field('role'); ?></p>
+
+									<a href="#" class="profile__collapse">
+										<svg><use xlink:href="#icon-arrow"></svg>
+									</a>
+
 								</div>
 
-							<?php endif; ?>
+							</div> <!--  / .profile__header -->
 
-							<div class="profile__name">
-
-								<h3><?php the_sub_field('name'); ?></h3>
+							<div class="profile__bio">
 
 								<?php if ( $twitter_name = get_sub_field('twitter_name') ) : ?>
 
@@ -67,40 +89,20 @@
 
 								<?php endif; ?>
 
-								<a href="#" class="profile__view-bio">View profile</a>
+								<?php the_sub_field('bio'); ?>
 
 							</div>
 
-						</div> <!--  / .profile__meta -->
-
-						<div class="profile__bio">
-
-							<?php if ( $twitter_name = get_sub_field('twitter_name') ) : ?>
-
-								<p class="profile__twitter">
-
-									<svg><use xlink:href="#icon-twitter"></use></svg>
-
-									<a href="https://www.twitter.com/<?php echo $twitter_name; ?>">
-										Follow me on Twitter
-									</a>
-
-								</p>
-
-							<?php endif; ?>
-
-							<?php the_sub_field('bio'); ?>
-
 						</div>
 
-					</div>
+					<?php endwhile; ?>
 
-				<?php endwhile; ?>
+				<?php endif; ?>
 
-			<?php endif; ?>
+			</article>
 
-		</article>
+		</div> <!-- / .wrapper -->
 
-	</div> <!-- / .wrapper -->
+	</div> <!-- / .page__container -->
 
 <?php get_footer(); ?>

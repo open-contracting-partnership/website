@@ -142,7 +142,7 @@ category:
 
 		</div>
 
-	</div> <!--  / .profile__meta -->
+	</div> <!--  / .profile__header -->
 
 	<div class="profile__bio">
 
@@ -167,6 +167,16 @@ category:
 */
 
 .profile {
+
+	@include mq(M) {
+
+		display: none;
+
+		&.active {
+			display: block;
+		}
+
+	}
 
 }
 
@@ -317,17 +327,11 @@ category:
 }
 
 .profile__bio {
-	@include break;
+
 	display: none;
-	padding: 0;
 
 	.profile.active & {
 		display: block;
-	}
-
-	@include mq(M) {
-		display: block;
-		@include span(6 of 6);
 	}
 
 }
