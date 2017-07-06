@@ -37,13 +37,15 @@
 
 							<div class="profile__header">
 
-								<?php if ( $avatar = get_sub_field('image') ) : ?>
+								<div class="profile__avatar">
 
-									<div class="profile__avatar">
+									<?php if ( $avatar = get_sub_field('image') ) : ?>
 										<img src="<?php echo $avatar['sizes']['thumbnail']; ?>" />
-									</div>
+									<?php else : ?>
+										<img src="<?php bloginfo('template_directory'); ?>/assets/img/missing-avatar.png" />
+									<?php endif; ?>
 
-								<?php endif; ?>
+								</div>
 
 								<div class="profile__meta">
 
