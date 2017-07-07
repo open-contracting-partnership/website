@@ -75,7 +75,7 @@
 
 				<div class="event__title">
 					<svg><use xlink:href="#icon-event" /></svg>
-					<time v-if="open_event.custom.has_date">{{ open_event.custom.day }}<span>{{ open_event.custom.suffix }}</span> {{ open_event.custom.long_month }} {{ open_event.custom.year }}</time>
+					<time v-if="open_event.custom.has_date">{{ open_event.custom.day }} {{ open_event.custom.long_month }} {{ open_event.custom.year }}</time>
 					<time v-else><span><?php _e('To Be Announced', 'ocp'); ?></span></time>
 				</div>
 
@@ -105,9 +105,7 @@
 
 						<span><?php _e('Location', 'ocp'); ?>:</span>
 
-						<ul class="button__list">
-							<li v-for="region in open_event.taxonomies['region']"><a href="/region/{{ $key }}" class="button button--small button--tag">{{{ region }}}</a></li>
-						</ul>
+						<a href="/region/{{ $key }}" v-for="region in open_event.taxonomies['region']">{{{ region }}}</a>
 
 					</div>
 
@@ -115,9 +113,7 @@
 
 						<span><?php _e('Issue', 'ocp'); ?>:</span>
 
-						<ul class="button__list">
-							<li v-for="issue in open_event.taxonomies['issue']"><a href="/issue/{{ $key }}" class="button button--small button--tag">{{{ issue }}}</a></li>
-						</ul>
+						<a href="/issue/{{ $key }}" v-for="issue in open_event.taxonomies['issue']">{{{ issue }}}</a>
 
 					</div>
 
@@ -125,9 +121,7 @@
 
 						<span><?php _e('Audience', 'ocp'); ?>:</span>
 
-						<ul class="button__list">
-							<li v-for="audience in open_event.taxonomies['audience']"><a href="/audience/{{ $key }}" class="button button--small button--tag">{{{ audience }}}</a></li>
-						</ul>
+						<a href="/audience/{{ $key }}" v-for="audience in open_event.taxonomies['audience']">{{{ audience }}}</a>
 
 					</div>
 
@@ -135,13 +129,9 @@
 
 						<span><?php _e('OC Framework', 'ocp'); ?>:</span>
 
-						<ul class="button__list">
-							<li v-for="open_contracting in open_event.taxonomies['open-contracting']"><a href="/open-contracting/{{ $key }}" class="button button--small button--tag">{{{ open_contracting }}}</a></li>
-						</ul>
+						<a href="/open-contracting/{{ $key }}" v-for="open_contracting in open_event.taxonomies['open-contracting']">{{{ open_contracting }}}</a>
 
 					</div>
-
-					<hr>
 
 					<div v-if="open_event.fields.attachments" class="event__terms">
 
