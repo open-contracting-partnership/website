@@ -40,7 +40,6 @@ category:
 */
 
 .timeline {
-
 	@include font-size(17);
 	@include font('secondary', 'medium');
 	display: flex;
@@ -48,21 +47,7 @@ category:
 	overflow: hidden;
 	position: relative;
 	color: color('mid-grey');
-	margin-top: spacing(12);
-
-	&:before {
-		content: '';
-		position: absolute;
-		top: em(59, 17);
-		bottom: auto;
-		right: 0;
-		left: 0;
-		margin: auto 0;
-		height: 1px;
-		width: auto;
-		background-color: color('lighter-grey');
-	}
-
+	padding-top: spacing(7);
 }
 
 .timeline-item {
@@ -78,6 +63,19 @@ category:
 	}
 
 	&:before {
+		content: '';
+		position: absolute;
+		top: em(59, 17);
+		bottom: auto;
+		right: 0;
+		left: 0;
+		margin: auto 0;
+		height: 1px;
+		width: auto;
+		background-color: color('lighter-grey');
+	}
+
+	&:after {
 		content: '';
 		position: absolute;
 		top: em(52, 17);
@@ -133,7 +131,7 @@ category:
 
 	color: color('body');
 
-	&:before {
+	&:after {
 		top: em(47, 17);
 		width: 25px;
 		height: 25px;
@@ -165,31 +163,51 @@ category:
 	position: absolute;
 	z-index: 9;
 	top: 0;
+	color: color('grey');
+
+	&:hover,
+	&:focus {
+		color: color('mid-grey');
+	}
 
 	svg {
 		transform: rotate(90deg);
-		fill: color('grey');
+		fill: currentColor;
 		transition: fill .3s ease;
 		width: 20px;
 		height: 10px;
 	}
 
-	&:hover,
-	&:focus {
+	&.slick-disabled {
+
+		cursor: default;
+		color: color('lighter-grey');
 
 		svg {
-			fill: color('mid-grey');
+			fill: currentColor;
+		}
+
+		&:hover,
+		&:focus {
+
+			text-decoration: none;
+
+			svg {
+				fill: currentColor;
+			}
+
 		}
 
 	}
 
 }
 
-
 .timeline .slick-next {
+
 	right: 0;
 
 	svg {
 		transform: rotate(270deg);
 	}
+
 }
