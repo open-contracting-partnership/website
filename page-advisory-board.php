@@ -12,9 +12,18 @@
 
 			<div class="page-advisory-board__minutes / band band--extra-thick">
 
-				<h3>Download minutes from the Advisory Board meetings:</h3>
+				<h4>Download minutes from the Advisory Board meetings:</h4>
 
 				<div class="timeline">
+
+					<?php while ( have_rows('advisory_meeting_notes') ) : the_row(); ?>
+
+						<div class="timeline-item">
+							<span class="timeline-item__date"><?php the_sub_field('date'); ?></span>
+							<a class="timeline-item__title" href="<?php the_sub_field('file'); ?>" title="Download minutes from <?php echo strip_tags(get_sub_field('title')); ?>"><?php the_sub_field('title'); ?></a>
+						</div>
+
+					<?php endwhile; ?>
 
 					<?php while ( have_rows('advisory_meeting_notes') ) : the_row(); ?>
 

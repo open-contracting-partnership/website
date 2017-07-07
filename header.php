@@ -60,6 +60,9 @@
 		<script src="<?php bloginfo('template_directory'); ?>/assets/js/libs/jquery-2.1.4.min.js"></script>
 		<script src="<?php bloginfo('template_directory'); ?>/assets/js/libs/vue.min.js"></script>
 
+		<script src="<?php bloginfo('template_directory'); ?>/public/js/libs/slick-slider/slick.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/public/js/libs/slick-slider/slick.css">
+
 		<?php wp_head(); ?>
 
 		<script type="text/javascript">
