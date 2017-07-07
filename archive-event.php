@@ -159,13 +159,17 @@
 
 			<template id="event-template">
 
-				<div class="post-object__media">
-					<time v-if="event.custom.has_date">{{ event.custom.day }}<em>{{ event.custom.month }}</em></time>
-					<em v-else>TBA</em>
-				</div>
+				<div class="card card--event">
 
-				<div class="post-object__content">
-					<h4>{{{ event.title }}}</h4>
+				    <div class="card-event__date">
+				        <span class="card-event__day">{{ event.custom.day }}</span>
+				        <span class="card-event__month">{{ event.custom.month }}</span>
+				    </div>
+
+				    <div class="card__content">
+				        <h6 class="card__heading">{{{ event.title }}}</h6>
+				    </div>
+
 				</div>
 
 			</template>

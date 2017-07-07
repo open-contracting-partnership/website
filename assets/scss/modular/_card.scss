@@ -619,6 +619,7 @@ category:
 	flex: 0 0 spacing(7);
 	transition: background-color .3s ease;
 
+	.active .card--event &,
 	.card--event:hover & {
 		background-color: post-color('event');
 	}
@@ -635,6 +636,7 @@ category:
 	text-transform: uppercase;
 	transition: color .3s ease;
 
+	.active .card--event &,
 	.card--event:hover & {
 		color: color('white');
 	}
