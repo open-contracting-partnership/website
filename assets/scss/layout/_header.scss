@@ -10,7 +10,7 @@
 		display: none;
 		margin: em(40) 0 em(20);
 
-		@include mq(M) {
+		@include mq(ML) {
 			display: inline-block;
 		}
 
@@ -24,7 +24,7 @@
 		display: inline-block;
 		margin: 1.1em 0;
 
-		@include mq(M) {
+		@include mq(ML) {
 			display: none;
 		}
 
@@ -42,7 +42,7 @@
 	float: right;
 	margin-top: 1.5em;
 
-	@include mq(M) {
+	@include mq(ML) {
 		display: none;
 	}
 }
@@ -73,7 +73,7 @@
 .header-nav__side {
 	display: none;
 
-	@include mq(M) {
+	@include mq(ML) {
 		display: block;
 		position: absolute;
 		top: 0;
