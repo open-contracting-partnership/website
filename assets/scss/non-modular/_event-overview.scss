@@ -1,3 +1,26 @@
+.events-overview {
+
+	.page-title {
+		@include susy-clearfix;
+		margin-bottom: 40px;
+
+		@include mq(M) {
+			margin-bottom: 56px;
+		}
+
+		@include mq(L) {
+			margin-bottom: 96px;
+		}
+	}
+
+	.strapline {
+
+		@include mq(L) {
+			@include span(6 of 12 first);
+		}
+	}
+}
+
 .post-object--event-clickable .post-object__media {
 	background-color: color('background');
 	transition: background-color .1s linear;

@@ -40,12 +40,12 @@
 
 	<div id="events" class="events-overview / wrapper archive--padding">
 
-		<div class="archive-content">
+		<div class="page-title">
 
 			<h1><?php _e('Events', 'ocp'); ?></h1>
 
 			<?php if ( $introduction = get_field('event_introduction', 'options') ) : ?>
-				<p class="strapline strapline--blue"><?php echo $introduction; ?></p>
+				<h2 class="strapline delta"><?php echo $introduction; ?></h2>
 			<?php endif; ?>
 
 		</div>
