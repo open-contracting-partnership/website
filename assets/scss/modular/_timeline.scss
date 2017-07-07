@@ -164,6 +164,7 @@ category:
 	z-index: 9;
 	top: 0;
 	color: color('grey');
+	transition: opacity .3s ease;
 
 	&:hover,
 	&:focus {
@@ -173,31 +174,13 @@ category:
 	svg {
 		transform: rotate(90deg);
 		fill: currentColor;
-		transition: fill .3s ease;
 		width: 20px;
 		height: 10px;
 	}
 
 	&.slick-disabled {
-
-		cursor: default;
-		color: color('lighter-grey');
-
-		svg {
-			fill: currentColor;
-		}
-
-		&:hover,
-		&:focus {
-
-			text-decoration: none;
-
-			svg {
-				fill: currentColor;
-			}
-
-		}
-
+		opacity: 0;
+		pointer-events: none;
 	}
 
 }
