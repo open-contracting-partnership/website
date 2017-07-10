@@ -195,10 +195,6 @@ $(document).ready(function() {
 		// set the current li to active
 		$link.closest('li').addClass('active');
 
-		// scroll to the target
-		$('html, body').animate({
-			scrollTop: $target.offset().top - parseInt($target.css('margin-top'))
-		}, 1000);
 
 	});
 
@@ -253,6 +249,11 @@ $(document).ready(function() {
 
 		// make this profile active
 		$profile.toggleClass('active', ! active);
+
+		// scroll to the target
+		if ( ! active && ($profile.offset().top - 16 < $(window).scrollTop()) ) {
+			$(window).scrollTop($profile.offset().top - 16)
+		}
 
 	});
 
