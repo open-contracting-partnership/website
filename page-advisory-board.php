@@ -87,7 +87,7 @@
 								<p class="profile__position"><?php the_sub_field('role'); ?></p>
 
 								<a href="#" class="profile__collapse">
-									<svg><use xlink:href="#icon-arrow"></svg>
+									<svg><use xlink:href="#icon-arrow-down"></svg>
 								</a>
 
 							</div>

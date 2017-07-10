@@ -137,7 +137,7 @@ category:
 			<p class="profile__position">Executive Director</p>
 
 			<a href="#" class="profile__collapse">
-				<svg><use xlink:href="#icon-arrow"></svg>
+				<svg><use xlink:href="#icon-arrow-down"></svg>
 			</a>
 
 		</div>
@@ -310,7 +310,7 @@ category:
 		display: none;
 	}
 
-	svg {
+	> svg {
 
 		position: absolute;
 		right: 0;
@@ -321,7 +321,7 @@ category:
 		width: 10px;
 
 		.profile.active & {
-			transform: rotate(180deg);
+			transform: translateY(-50%) rotate(180deg);
 		}
 
 	}
