@@ -38,7 +38,7 @@
 
 	?>
 
-	<div id="events" class="events-overview / wrapper archive--padding">
+	<div id="events" class="events-overview / wrapper page--padding">
 
 		<div class="page-title">
 

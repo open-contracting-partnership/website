@@ -80,10 +80,21 @@
 }
 
 .card__type {
+
 	@include font('secondary', 'medium');
 	background-color: color('brand');
 	padding: .125em .42em;
 	margin-right: .5em;
+
+	@each $post-type, $colour in $post-types {
+
+		&[data-content-type="#{$post-type}"] {
+			background-color: #{$colour};
+			color: color('white');
+		}
+
+	}
+
 }
 
 .card__date {

@@ -121,11 +121,6 @@ category:
 
 	@include font-size(17);
 	color: color('grey');
-	display: none;
-
-	@include mq(ML) {
-		display: block;
-	}
 
 	a {
 
@@ -171,6 +166,60 @@ category:
 		&:before {
 			left: -1.7em;
 			opacity: 1;
+		}
+
+	}
+
+}
+
+/*
+
+---
+name: List
+category:
+ - Layout/Nav
+---
+
+```html
+<ul class="nav nav--vertical nav--list">
+	<li><a href="#what-we-do">What we do</a></li>
+	<li><a href="#strategy">Strategy</a></li>
+	<li><a href="#our-story-and-team">Our story and team</a></li>
+	<li><a href="#our-values">Our values</a></li>
+</ul>
+```
+
+*/
+
+.nav--list {
+
+	@include font-size(17);
+	color: color('grey');
+
+	a {
+
+		line-height: 1;
+		color: currentColor;
+
+		&:hover {
+			text-decoration: none;
+		}
+
+	}
+
+	li {
+
+		position: relative;
+		margin-bottom: em(14, 17);
+		padding: 0;
+
+	}
+
+	li.active,
+	li:hover {
+
+		a {
+			color: color('body');
 		}
 
 	}

@@ -2,7 +2,7 @@
 
 <?php get_header(); ?>
 
-	<div id="archive-posts" class="wrapper archive--padding">
+	<div id="archive-posts" class="wrapper page--padding">
 
 		<?php
 
@@ -46,27 +46,40 @@
 		<div class="archive-content">
 
 			<?php if ( is_category() ) : ?>
-				<span class="archive-content__sub-title"><?php _e('Results for Category /', 'ocp'); ?></span>
 				<h1><?php single_cat_title(); ?></h1>
 			<?php elseif( is_tag() ) : ?>
-				<span class="archive-content__sub-title"><?php _e('Results for Tag /', 'ocp'); ?></span>
 				<h1><?php single_tag_title(); ?></h1>
 			<?php elseif( is_tax() ) : ?>
-				<span class="archive-content__sub-title"><?php _e('Results for Taxonomy /', 'ocp'); ?></span>
 				<h1><?php single_cat_title(); ?></h1>
 			<?php elseif (is_author()) : ?>
 				<?php $author = get_userdata( get_query_var('author') ); ?>
-				<span class="archive-content__sub-title"><?php _e('Results for Author /', 'ocp'); ?></span>
 				<h1><?php echo $author->display_name;?></h1>
 			<?php else : ?>
-				<span class="archive-content__sub-title"><?php _e('Results for Post /', 'ocp'); ?></span>
 				<h1><?php the_post_type_label(NULL, TRUE); ?></h1>
 			<?php endif;?>
 
 			<div class="archive-content__posts">
 
-				<div v-for="post in posts" class="post-object post-object--archive post-object--type-{{ post.post_type }}">
-					<post :post="post"></post>
+				<div v-for="post in posts" class="card card--primary">
+
+				    <div class="card__content">
+
+				        <div class="card__title">
+
+				            <h6 class="card__heading">
+				                <a class="card__link" href="{{ post.link }}">{{{ post.title }}}</a>
+				            </h6>
+
+				        </div>
+
+				        <p class="card__meta card__meta--alt">
+				            <span class="card__type" data-content-type="{{ post.post_type }}">{{ post.custom.post_type_label }}</span>
+				            <time class="card__date">{{ post.date }}</time>
+				            <span class="card__author">By {{{ post.custom.authors }}}</span>
+				        </p>
+
+				    </div>
+
 				</div>
 
 			</div>
@@ -77,11 +90,11 @@
 
 					<div class="archive__sidebar archive__sidebar-tags / archive-filtering__sort / band band--thick">
 
-						<h4><?php _e('Similar tags', 'ocp'); ?></h4>
+						<h6 class="border-top"><?php _e('Similar tags', 'ocp'); ?></h6>
 
 						<input v-model="term_search" type="search" placeholder="Search tags">
 
-						<ul class="nav nav--vertical / nav--in-page" data-nav-active="false">
+						<ul class="nav nav--vertical nav--list" data-nav-active="false">
 							<li v-for="term in visibleTerms"><a href="/tag/{{term.slug}}/">{{term.name}} ({{term.count}})</a></li>
 						</ul>
 
@@ -89,43 +102,11 @@
 
 				<?php endif; ?>
 
-				<!-- <div class="archive__sidebar archive__sidebar-type / archive-filtering__sort / band band--thick">
-
-					<h4><?php _e('Sort by category', 'ocp'); ?></h4>
-
-					<ul class="nav nav--vertical / nav--in-page" data-nav-active="false">
-						<li><a href="#"><?php _e('All', 'ocp'); ?></a></li>
-					</ul>
-
-				</div> -->
-
 			</div>
 
 		</div>
 
 	</div>
-
-	<template id="post-template">
-
-		<div class="post-object__media">
-			<svg><use xlink:href="#icon-{{post.post_type}}"></use></svg>
-		</div>
-
-		<div class="post-object__content">
-
-			<div>
-				<span class="post-object__tag post-object__tag--{{post.post_type}}">{{post.custom.post_type_label}}</span>
-				<a href="{{post.link}}"><h4>{{{post.title}}}</h4></a>
-			</div>
-
-			<div class="post-object__meta">
-				<span>{{{post.custom.authors}}}</span>
-				<time>{{post.date}}</time>
-			</div>
-
-		</div>
-
-	</template>
 
 	<script>
 
