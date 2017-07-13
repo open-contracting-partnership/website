@@ -117,7 +117,7 @@
 							<?php foreach ( $post_tags as $post_tag ) : ?>
 
 								<li>
-									<a href="<?php echo get_term_link($post_tag); ?>" class="button button--tag button--small"><?php echo $post_tag->name; ?></a>
+									<a href="<?php echo get_term_link($post_tag); ?>" class="button button--tag"><?php echo $post_tag->name; ?></a>
 								</li>
 
 							<?php endforeach; ?>

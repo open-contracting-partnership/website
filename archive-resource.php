@@ -145,7 +145,7 @@
 
 					<p><?php _e('Region', 'ocp'); ?>:</p>
 					<ul class="button__list">
-						<li v-for="region in open_resource.taxonomies['region']"><a href="/region/{{ $key }}" class="button button--small button--tag">{{{ region }}}</a></li>
+						<li v-for="region in open_resource.taxonomies['region']"><a href="/region/{{ $key }}" class="button button--tag">{{{ region }}}</a></li>
 					</ul>
 
 				</div>
@@ -154,7 +154,7 @@
 
 					<p><?php _e('Issue', 'ocp'); ?>:</p>
 					<ul class="button__list">
-						<li v-for="issue in open_resource.taxonomies['issue']"><a href="/issue/{{ $key }}" class="button button--small button--tag">{{{ issue }}}</a></li>
+						<li v-for="issue in open_resource.taxonomies['issue']"><a href="/issue/{{ $key }}" class="button button--tag">{{{ issue }}}</a></li>
 					</ul>
 
 				</div>
@@ -163,7 +163,7 @@
 
 					<p><?php _e('OC Framework', 'ocp'); ?>:</p>
 					<ul class="button__list">
-						<li v-for="open_contracting in open_resource.taxonomies['open-contracting']"><a href="/open-contracting/{{ $key }}" class="button button--small button--tag">{{{ open_contracting }}}</a></li>
+						<li v-for="open_contracting in open_resource.taxonomies['open-contracting']"><a href="/open-contracting/{{ $key }}" class="button button--tag">{{{ open_contracting }}}</a></li>
 					</ul>
 
 				</div>
