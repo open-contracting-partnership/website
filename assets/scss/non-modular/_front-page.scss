@@ -158,16 +158,16 @@
 }
 
 .homepage-story--2 {
-	background-color: color('teal');
+	background-color: post-color('resource');
 }
 
 .homepage-story--3 {
-	background-color: color('lilac');
+	background-color: post-color('news');
 }
 
 .homepage-story--4 {
 	padding: em(40, 22) em(20, 22);
-	background-color: color('dark-orange');
+	background-color: post-color('post');
 
 	@include mq(810) {
 		padding: em(60, 22);
@@ -333,7 +333,7 @@
 
 	svg {
 		display: inline;
-		fill: color('twitter');
+		fill: social-color('twitter');
 		width: 2em;
 		height: 2em;
 		vertical-align: bottom;
@@ -351,7 +351,7 @@
 	}
 
 	a {
-		color: color('twitter');
+		color: social-color('twitter');
 		text-decoration: underline;
 
 		&:hover,
@@ -395,7 +395,7 @@
 			text-decoration: none;
 
 			svg {
-				fill: mix(color('black'), color('twitter'), 20%);
+				fill: mix(color('black'), social-color('twitter'), 20%);
 			}
 
 		}

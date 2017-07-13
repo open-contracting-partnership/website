@@ -1,3 +1,19 @@
+/*
+
+---
+name: Buttons
+category:
+ - Components
+ - Components/Buttons
+---
+
+```html
+<a href="#" class="button">Button</a>
+```
+
+*/
+
+
 /*------------------------------------*\
     BUTTONS
 \*------------------------------------*/
@@ -5,7 +21,8 @@
 .button,
 button,
 input[type="submit"] {
-	@include font('secondary', 'bold');
+
+	@include font('primary', 'bold');
 	@include font-size(14);
 	display: inline-block;
 	border: 1px solid;
@@ -17,8 +34,6 @@ input[type="submit"] {
 	background-color: transparent;
 	text-align: center;
 	vertical-align: middle;
-	text-transform: uppercase;
-	letter-spacing: 1px;
 	cursor: pointer;
 	transition:
 		background-color .2s ease,
@@ -33,11 +48,38 @@ input[type="submit"] {
 		text-decoration: none;
 		border-color: color('dark-background');
 	}
+
 }
 
 
- //*************
-// BUTTON SIZES
+/*
+
+---
+name: Button Sizes
+category:
+ - Components
+ - Components/Buttons
+---
+
+```html
+<p>
+	<a href="#" class="button button--small">button--small</a>
+</p>
+
+<p>
+	<a href="#" class="button button--medium">button--medium</a>
+</p>
+
+<p>
+	<a href="#" class="button button--large">button--large</a>
+</p>
+
+<p>
+	<a href="#" class="button button--huge">button--huge</a>
+</p>
+```
+
+*/
 
 .button--small {
 	@include font-size(12);
@@ -61,9 +103,58 @@ input[type="submit"] {
 }
 
 
- //***********
-// VARIATIONS
+/*
 
+---
+name: Variations
+category:
+ - Components
+ - Components/Buttons
+---
+
+```html
+<p>
+	<a href="#" class="button button--block">button--block</a>
+</p>
+
+<p>
+	<a href="#" class="button button--padded">button--padded</a>
+</p>
+
+<p>
+	<a href="#" class="button button--block button--left">button--left</a>
+</p>
+
+<p>
+	<a href="#" class="button button--flatten">button--flatten</a>
+</p>
+
+<p>
+	<a href="#" class="button button--open">button--open</a>
+</p>
+
+<p>
+	<a href="#" class="button button--tag">button--tag</a>
+</p>
+
+<p>
+	<a href="#" class="button button--tag button--small">button--tag button--small</a>
+</p>
+
+<p>
+	<a href="#" class="button button__sub-text">button__sub-text</a>
+</p>
+
+<p>
+	<a href="#" class="button button--disabled">button--disabled</a>
+</p>
+
+<p>
+	<a href="#" class="button button--thick">button--thick</a>
+</p>
+```
+
+*/
 
 // Full bleed
 .button--block {
@@ -91,6 +182,7 @@ input[type="submit"] {
 }
 
 .button--tag {
+
 	@include font('secondary', 'bold');
 	@include font-size(14);
 	padding: em(10, 14) em(15, 14);
@@ -98,6 +190,7 @@ input[type="submit"] {
 	&.button--small {
 		padding: em(5, 14) em(8, 14);
 	}
+
 }
 
 
@@ -113,7 +206,7 @@ input[type="submit"] {
 .button--disabled {
 	cursor: default;
 	pointer-events: none;
-	background: color('grey');
+	background: color('mid-grey');
 	color: color('white');
 }
 
@@ -122,8 +215,34 @@ input[type="submit"] {
 }
 
 
- //************
-// BUTTON LIST
+/*
+
+---
+name: List
+category:
+ - Components
+ - Components/Buttons
+---
+
+```html
+<ul class="button__list">
+
+	<li>
+		<a class="button button--small button--tag" href="#">Button 1</a>
+	</li>
+
+	<li>
+		<a class="button button--small button--tag" href="#">Button 2</a>
+	</li>
+
+	<li>
+		<a class="button button--small button--tag" href="#">Button 3</a>
+	</li>
+
+</ul>
+```
+
+*/
 
 /* ul */ .button__list {
 
@@ -145,8 +264,25 @@ input[type="submit"] {
 }
 
 
- //**************
-// BUTTON SOCIAL
+/*
+
+---
+name: Social
+category:
+ - Components
+ - Components/Buttons
+---
+
+```html
+<ul class="button__list button__social">
+	<li><a target="_blank" class="button" href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use></svg></a></li>
+	<li><a target="_blank" class="button" href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-linkedin"></use></svg></a></li>
+	<li><a target="_blank" class="button" href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use></svg></a></li>
+	<li><a target="_blank" class="button" href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-mail"></use></svg></a></li>
+</ul>
+```
+
+*/
 
 .button__social {
 
@@ -183,11 +319,24 @@ input[type="submit"] {
 		max-width: .8rem;
 		vertical-align: bottom;
 	}
+
 }
 
 
- //*************
-// ICON BUTTONS
+/*
+
+---
+name: Icon
+category:
+ - Components
+ - Components/Buttons
+---
+
+```html
+<a class="button button--block button--large button--icon button--icon--reverse button--icon--stroke" href="#">Download<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-download"></use></svg></a>
+```
+
+*/
 
 .button--icon svg {
 	width: 1em;
@@ -207,16 +356,56 @@ input[type="submit"] {
 }
 
 
- //**************
-// COLOR OPTIONS
+/*
+
+---
+name: Colours
+category:
+ - Components
+ - Components/Buttons
+---
+
+```html
+<p style="background-color: #B6C505; padding: 1em;">
+	<a class="button button--white" href="#">White</a>
+</p>
+
+<p>
+	<a class="button button--dark" href="#">Dark</a>
+</p>
+```
+
+*/
 
 @each $name, $color in $button-colors {
 
 	.button--#{$name} {
 		color: $color;
 	}
+
 }
 
+
+/*
+
+---
+name: Solid Colours
+category:
+ - Components
+ - Components/Buttons
+---
+
+```html
+<p>
+	<a class="button button--solid-white" href="#">White</a>
+</p>
+
+<p style="background-color: #B6C505; padding: 1em;">
+	<a class="button button--solid-dark" href="#">Dark</a>
+</p>
+```
+
+*/
 @each $name, $primary, $contrast in $button-colors {
 
 	.button--solid-#{$name} {

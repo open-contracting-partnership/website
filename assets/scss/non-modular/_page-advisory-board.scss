@@ -1,47 +1,41 @@
 .page-advisory-board__intro {
 
-	.strapline {
-		margin-bottom: 0;
+	margin-bottom: spacing(5);
+
+	@include mq(768) {
+		margin-bottom: spacing(8);
 	}
 
 	@include mq(L) {
 		@include span(6 of 12);
+		margin-bottom: spacing(12);
+	}
+
+	.strapline {
+		margin-bottom: 0;
 	}
 
 }
 
 .page-advisory-board__minutes {
-
 	@include break;
-
-
 }
 
 .page-advisory-board__members {
 
-	display: none;
+	@include break;
+	margin-top: 0;
 
-	@include mq(M) {
-		@include span(2 of 6);
-		@include break;
-		display: block;
-	}
-
-	@include mq(L) {
-		@include span(4 of 12);
+	@include mq(768) {
+		@include span(3 of 12);
 	}
 
 }
 
 .page-advisory-board__member-bio {
 
-	@include mq(M) {
-		@include span(4 of 6 last);
-	}
-
-	@include mq(L) {
-		@include span(6 of 12);
-		@include push(1);
+	@include mq(768) {
+		@include span(8 of 12 last);
 	}
 
 }

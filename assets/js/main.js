@@ -195,10 +195,6 @@ $(document).ready(function() {
 		// set the current li to active
 		$link.closest('li').addClass('active');
 
-		// scroll to the target
-		$('html, body').animate({
-			scrollTop: $target.offset().top - parseInt($target.css('margin-top'))
-		}, 1000);
 
 	});
 
@@ -215,34 +211,49 @@ $(document).ready(function() {
 	});
 
 
-	 //*************
-	// TEAM MEMBERS
+	 //********
+	// PROFILE
 
-	var $team_members = $('.team-member');
+	// used on team and advisory pages
 
-	$('.team-member__selector').on('click', function(event) {
+	var $profiles = $('.profile'),
+		$profile_selectors = $('.profile-selector');
+
+	$profile_selectors.on('click', function(event) {
 
 		event.preventDefault();
 
-		var $team_member = $(this);
+		var $profile = $(this);
 
-		$team_members
+		$profiles
 			.removeClass('active')
-			.filter($team_member.attr('href'))
+			.filter($profile.attr('href'))
 				.addClass('active');
 
-		$('.team-member__selector').removeClass('active');
-		$team_member.addClass('active');
+		$profile_selectors.removeClass('active');
+		$profile.addClass('active');
 
 	});
 
-	$('.team-member__selector').first().trigger('click');
+	$profile_selectors.first().trigger('click');
 
-	$('.team-member__view-bio').on('click', function(event) {
+	$('.profile__collapse').on('click', function(event) {
 
 		event.preventDefault();
 
-		$(this).closest('.team-member').find('.team-member__bio').toggleClass('active');
+		var $profile = $(this).closest('.profile'),
+			active = $profile.hasClass('active');
+
+		// remove any previous active profiles
+		$('.profile.active').removeClass('active');
+
+		// make this profile active
+		$profile.toggleClass('active', ! active);
+
+		// scroll to the target
+		if ( ! active && ($profile.offset().top - 16 < $(window).scrollTop()) ) {
+			$(window).scrollTop($profile.offset().top - 16)
+		}
 
 	});
 
@@ -314,5 +325,39 @@ $(document).ready(function() {
 		$last_item.css('margin-bottom', '0');
 
 	}
+
+
+	 //****************
+	// ADVISORY SLIDER
+
+	$('.timeline').slick({
+		infinite: false,
+		speed: 300,
+		initialSlide: $('.timeline-item').length - 5,
+		slidesToShow: 5,
+		slidesToScroll: 1,
+		prevArrow: '<a href="#" class="slick-prev"><svg><use xlink:href="#icon-arrow-left"></svg>Previous</a>',
+		nextArrow: '<a href="#" class="slick-next">Next<svg><use xlink:href="#icon-arrow-right"></svg></a>',
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					initialSlide: $('.timeline-item').length - 4,
+					slidesToShow: 4,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					initialSlide: $('.timeline-item').length - 2,
+					slidesToShow: 2,
+					slidesToScroll: 1
+				}
+			}
+		]
+	});
+
+
 
 });
