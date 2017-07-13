@@ -43,17 +43,6 @@ $social-colors: (
 );
 
 
- //***************
-// BUTTON COLOURS
-// There are two arrays here. the names need to match up else the
-// styleguide colours output fails
-
-$button-colors: (
-	('white', map-get($colours, 'white'), map-get($colours, 'dark-grey')),
-	('dark', map-get($colours, 'dark-grey'), map-get($colours, 'white'))
-);
-
-
  //**************
 // TYPE SETTINGS
 

@@ -883,8 +883,56 @@ img {
 a img {
   border: 0; }
 
-/*------------------------------------*    FORMS
-\*------------------------------------*/
+/*
+
+---
+name: Forms
+category:
+ - Components
+ - Components/Forms
+---
+
+```html
+<form method="post">
+
+	<label>
+		<input type="checkbox" value="girls-not-brides">
+		Get the latest developments, advocacy opportunities and upcoming events on child marriage
+	</label>
+
+	<input type="text" placeholder="First Name">
+	<input type="email" placeholder="Email">
+	<input type="password" placeholder="Password">
+	<input type="search" placeholder="Search">
+	<input type="url" placeholder="URL">
+	<input type="number" placeholder="42">
+	<input type="tel" placeholder="01823 55555">
+	<input type="range">
+	<input type="color">
+	<input type="date">
+	<input type="month">
+	<input type="week">
+	<input type="time">
+	<input type="date">
+	<input type="datetime">
+	<input type="datetime-local">
+
+	<textarea></textarea>
+
+	<fieldset>
+
+		<select>
+			<option>Option 1</option>
+		</select>
+
+	</fieldset>
+
+	<input type="submit" class="button button--yellow" value="SIGN UP">
+
+</form>
+```
+
+*/
 fieldset,
 form {
   border: 0;
@@ -999,6 +1047,56 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button {
   display: none; }
 
+/*
+
+---
+name: Dark
+category:
+ - Components
+ - Components/Forms
+---
+
+```html
+<form method="post" class="form--dark" style="background-color: #323238; color: #FFF; padding: 1em;">
+
+	<label>
+		<input type="checkbox" value="girls-not-brides">
+		Get the latest developments, advocacy opportunities and upcoming events on child marriage
+	</label>
+
+	<input type="text" placeholder="First Name">
+	<input type="email" placeholder="Email">
+	<input type="password" placeholder="Password">
+	<input type="search" placeholder="Search">
+	<input type="url" placeholder="URL">
+	<input type="number" placeholder="42">
+	<input type="tel" placeholder="01823 55555">
+	<input type="range">
+	<input type="color">
+	<input type="date">
+	<input type="month">
+	<input type="week">
+	<input type="time">
+	<input type="date">
+	<input type="datetime">
+	<input type="datetime-local">
+
+	<textarea></textarea>
+
+	<fieldset>
+
+		<select>
+			<option>Option 1</option>
+		</select>
+
+	</fieldset>
+
+	<input type="submit" class="button button--yellow" value="SIGN UP">
+
+</form>
+```
+
+*/
 .form--dark input,
 .form--dark button {
   font-weight: 400;
@@ -2054,43 +2152,14 @@ category:
 ---
 
 ```html
-<p>
-	<a href="#" class="button button--small">button--small</a>
-</p>
-
-<p>
-	<a href="#" class="button button--medium">button--medium</a>
-</p>
-
-<p>
-	<a href="#" class="button button--large">button--large</a>
-</p>
-
-<p>
-	<a href="#" class="button button--huge">button--huge</a>
-</p>
+<a href="#" class="button button--large">button--large</a>
 ```
 
 */
-.button--small {
-  font-size: 12px;
-  font-size: 0.6rem;
-  padding: 0.41667em 0.66667em; }
-
-.button--medium {
-  font-size: 16px;
-  font-size: 0.8rem;
-  padding: 0.9375em 1.25em; }
-
 .button--large {
   font-size: 18px;
   font-size: 0.9rem;
   padding: 0.83333em 1.38889em; }
-
-.button--huge {
-  font-size: 22px;
-  font-size: 1.1rem;
-  padding: 1.25em 5em; }
 
 /*
 
@@ -2107,57 +2176,17 @@ category:
 </p>
 
 <p>
-	<a href="#" class="button button--padded">button--padded</a>
-</p>
-
-<p>
-	<a href="#" class="button button--block button--left">button--left</a>
-</p>
-
-<p>
-	<a href="#" class="button button--flatten">button--flatten</a>
-</p>
-
-<p>
-	<a href="#" class="button button--open">button--open</a>
-</p>
-
-<p>
 	<a href="#" class="button button--tag">button--tag</a>
 </p>
 
 <p>
-	<a href="#" class="button button--tag button--small">button--tag button--small</a>
-</p>
-
-<p>
-	<a href="#" class="button button__sub-text">button__sub-text</a>
-</p>
-
-<p>
 	<a href="#" class="button button--disabled">button--disabled</a>
-</p>
-
-<p>
-	<a href="#" class="button button--thick">button--thick</a>
 </p>
 ```
 
 */
 .button--block {
   display: block; }
-
-.button--padded {
-  padding: 1.07143em 1.42857em; }
-
-.button--left {
-  text-align: left; }
-
-.button--flatten {
-  margin-bottom: 0; }
-
-.button--open {
-  border: 0; }
 
 .button--tag {
   font-weight: 700;
@@ -2166,23 +2195,13 @@ category:
   font-family: "stratum-1-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-size: 0.7rem;
-  padding: 0.71429em 1.07143em; }
-  .button--tag.button--small {
-    padding: 0.35714em 0.57143em; }
-
-.button__sub-text {
-  display: block;
-  font-size: 75%;
-  font-style: italic; }
+  padding: 0.35714em 0.57143em; }
 
 .button--disabled {
   cursor: default;
   pointer-events: none;
   background: #69696B;
   color: #FFF; }
-
-.button--thick {
-  border-width: 2px; }
 
 /*
 
@@ -2197,15 +2216,15 @@ category:
 <ul class="button__list">
 
 	<li>
-		<a class="button button--small button--tag" href="#">Button 1</a>
+		<a class="button button--tag" href="#">Button 1</a>
 	</li>
 
 	<li>
-		<a class="button button--small button--tag" href="#">Button 2</a>
+		<a class="button button--tag" href="#">Button 2</a>
 	</li>
 
 	<li>
-		<a class="button button--small button--tag" href="#">Button 3</a>
+		<a class="button button--tag" href="#">Button 3</a>
 	</li>
 
 </ul>
@@ -2310,47 +2329,11 @@ category:
 <p style="background-color: #B6C505; padding: 1em;">
 	<a class="button button--white" href="#">White</a>
 </p>
-
-<p>
-	<a class="button button--dark" href="#">Dark</a>
-</p>
 ```
 
 */
 .button--white {
   color: #FFF; }
-
-/*
-
----
-name: Solid Colours
-category:
- - Components
- - Components/Buttons
----
-
-```html
-<p>
-	<a class="button button--solid-white" href="#">White</a>
-</p>
-
-<p style="background-color: #B6C505; padding: 1em;">
-	<a class="button button--solid-dark" href="#">Dark</a>
-</p>
-```
-
-*/
-.button--solid-white {
-  background-color: #FFF;
-  border-color: #FFF; }
-  .button--solid-white:hover, .button--solid-white:focus, .button--solid-white:active {
-    color: #FFF; }
-
-.button--solid-dark {
-  color: #FFF; }
-  .button--solid-dark:hover, .button--solid-dark:focus, .button--solid-dark:active {
-    background-color: #FFF;
-    border-color: #FFF; }
 
 .card {
   position: relative;

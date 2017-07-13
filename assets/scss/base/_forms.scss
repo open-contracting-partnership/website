@@ -1,6 +1,54 @@
-/*------------------------------------*\
-    FORMS
-\*------------------------------------*/
+/*
+
+---
+name: Forms
+category:
+ - Components
+ - Components/Forms
+---
+
+```html
+<form method="post">
+
+	<label>
+		<input type="checkbox" value="girls-not-brides">
+		Get the latest developments, advocacy opportunities and upcoming events on child marriage
+	</label>
+
+	<input type="text" placeholder="First Name">
+	<input type="email" placeholder="Email">
+	<input type="password" placeholder="Password">
+	<input type="search" placeholder="Search">
+	<input type="url" placeholder="URL">
+	<input type="number" placeholder="42">
+	<input type="tel" placeholder="01823 55555">
+	<input type="range">
+	<input type="color">
+	<input type="date">
+	<input type="month">
+	<input type="week">
+	<input type="time">
+	<input type="date">
+	<input type="datetime">
+	<input type="datetime-local">
+
+	<textarea></textarea>
+
+	<fieldset>
+
+		<select>
+			<option>Option 1</option>
+		</select>
+
+	</fieldset>
+
+	<input type="submit" class="button button--yellow" value="SIGN UP">
+
+</form>
+```
+
+*/
+
 
 fieldset,
 form {
@@ -76,8 +124,56 @@ input[type="search"]::-webkit-search-results-button {
 }
 
 
- //*****
-// DARK
+/*
+
+---
+name: Dark
+category:
+ - Components
+ - Components/Forms
+---
+
+```html
+<form method="post" class="form--dark" style="background-color: #323238; color: #FFF; padding: 1em;">
+
+	<label>
+		<input type="checkbox" value="girls-not-brides">
+		Get the latest developments, advocacy opportunities and upcoming events on child marriage
+	</label>
+
+	<input type="text" placeholder="First Name">
+	<input type="email" placeholder="Email">
+	<input type="password" placeholder="Password">
+	<input type="search" placeholder="Search">
+	<input type="url" placeholder="URL">
+	<input type="number" placeholder="42">
+	<input type="tel" placeholder="01823 55555">
+	<input type="range">
+	<input type="color">
+	<input type="date">
+	<input type="month">
+	<input type="week">
+	<input type="time">
+	<input type="date">
+	<input type="datetime">
+	<input type="datetime-local">
+
+	<textarea></textarea>
+
+	<fieldset>
+
+		<select>
+			<option>Option 1</option>
+		</select>
+
+	</fieldset>
+
+	<input type="submit" class="button button--yellow" value="SIGN UP">
+
+</form>
+```
+
+*/
 
 .form--dark {
 

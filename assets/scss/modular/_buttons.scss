@@ -62,44 +62,14 @@ category:
 ---
 
 ```html
-<p>
-	<a href="#" class="button button--small">button--small</a>
-</p>
-
-<p>
-	<a href="#" class="button button--medium">button--medium</a>
-</p>
-
-<p>
-	<a href="#" class="button button--large">button--large</a>
-</p>
-
-<p>
-	<a href="#" class="button button--huge">button--huge</a>
-</p>
+<a href="#" class="button button--large">button--large</a>
 ```
 
 */
 
-.button--small {
-	@include font-size(12);
-	padding: em(5, 12) em(8, 12);
-}
-
-.button--medium {
-	@include font-size(16);
-	padding: em(15, 16) em(20, 16);
-}
-
 .button--large {
 	@include font-size(18);
 	padding: em(15, 18) em(25, 18);
-}
-
-// This is often used inside the hero sections
-.button--huge {
-	@include font-size(22);
-	padding: em(25, 20) em(100, 20);
 }
 
 
@@ -118,39 +88,11 @@ category:
 </p>
 
 <p>
-	<a href="#" class="button button--padded">button--padded</a>
-</p>
-
-<p>
-	<a href="#" class="button button--block button--left">button--left</a>
-</p>
-
-<p>
-	<a href="#" class="button button--flatten">button--flatten</a>
-</p>
-
-<p>
-	<a href="#" class="button button--open">button--open</a>
-</p>
-
-<p>
 	<a href="#" class="button button--tag">button--tag</a>
 </p>
 
 <p>
-	<a href="#" class="button button--tag button--small">button--tag button--small</a>
-</p>
-
-<p>
-	<a href="#" class="button button__sub-text">button__sub-text</a>
-</p>
-
-<p>
 	<a href="#" class="button button--disabled">button--disabled</a>
-</p>
-
-<p>
-	<a href="#" class="button button--thick">button--thick</a>
 </p>
 ```
 
@@ -161,46 +103,10 @@ category:
 	display: block;
 }
 
-// More padding
-.button--padded {
-	padding: em(15, 14) em(20, 14);
-}
-
-// Left Align
-.button--left {
-	text-align: left;
-}
-
-// Remove the Margin
-.button--flatten {
-	margin-bottom: 0;
-}
-
-// Remove the Border
-.button--open {
-	border: 0;
-}
-
 .button--tag {
-
 	@include font('secondary', 'bold');
 	@include font-size(14);
-	padding: em(10, 14) em(15, 14);
-
-	&.button--small {
-		padding: em(5, 14) em(8, 14);
-	}
-
-}
-
-
-// Sub-heading within buttons
-// Must be used with a span element
-
-.button__sub-text {
-	display: block;
-	font-size: 75%;
-	font-style: italic;
+	padding: em(5, 14) em(8, 14);
 }
 
 .button--disabled {
@@ -208,10 +114,6 @@ category:
 	pointer-events: none;
 	background: color('mid-grey');
 	color: color('white');
-}
-
-.button--thick {
-	border-width: 2px;
 }
 
 
@@ -228,15 +130,15 @@ category:
 <ul class="button__list">
 
 	<li>
-		<a class="button button--small button--tag" href="#">Button 1</a>
+		<a class="button button--tag" href="#">Button 1</a>
 	</li>
 
 	<li>
-		<a class="button button--small button--tag" href="#">Button 2</a>
+		<a class="button button--tag" href="#">Button 2</a>
 	</li>
 
 	<li>
-		<a class="button button--small button--tag" href="#">Button 3</a>
+		<a class="button button--tag" href="#">Button 3</a>
 	</li>
 
 </ul>
@@ -369,58 +271,10 @@ category:
 <p style="background-color: #B6C505; padding: 1em;">
 	<a class="button button--white" href="#">White</a>
 </p>
-
-<p>
-	<a class="button button--dark" href="#">Dark</a>
-</p>
 ```
 
 */
 
-@each $name, $color in $button-colors {
-
-	.button--#{$name} {
-		color: $color;
-	}
-
-}
-
-
-/*
-
----
-name: Solid Colours
-category:
- - Components
- - Components/Buttons
----
-
-```html
-<p>
-	<a class="button button--solid-white" href="#">White</a>
-</p>
-
-<p style="background-color: #B6C505; padding: 1em;">
-	<a class="button button--solid-dark" href="#">Dark</a>
-</p>
-```
-
-*/
-@each $name, $primary, $contrast in $button-colors {
-
-	.button--solid-#{$name} {
-		background-color: $primary;
-		border-color: $primary;
-		color: $contrast;
-
-		&:hover,
-		&:focus,
-		&:active {
-			background-color: $contrast;
-			border-color: $contrast;
-			color: $primary;
-		}
-
-	}
-
+.button--white {
+	color: map-get($colours, 'white');
 }
