@@ -44,12 +44,6 @@
 
 .archive-filtering {
 
-	@include mq(M, 'max-width') {
-		padding-bottom: $space * 2;
-		margin-bottom: $space * 2;
-		border-bottom: 1px solid color('lighter-grey');
-	}
-
 	@include mq(M, L) {
 		@include span(1 of 3 last);
 	}
