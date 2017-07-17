@@ -4,40 +4,36 @@
 
 	<?php the_post(); ?>
 
-	<div class="page__container">
+	<div class="page__wrapper">
 
-		<div class="wrapper / page__wrapper / page--padding">
+		<?php get_partial('page', 'title'); ?>
 
-			<?php get_partial('page', 'title'); ?>
+		<?php if ( get_field('introduction') ) : ?>
 
-			<?php if ( get_field('introduction') ) : ?>
+			<blockquote class="worldwide-intro">
+				<?php the_field('introduction'); ?>
+			</blockquote>
 
-				<blockquote class="worldwide-intro">
-					<?php the_field('introduction'); ?>
-				</blockquote>
+		<?php endif; ?>
 
-			<?php endif; ?>
+	</div>
 
-		</div>
+	<iframe id="worldmap" src="<?php bloginfo('template_directory'); ?>/endpoints/map.php" width="300" height="540" style="display: block; max-width: 1600px; margin: 0 auto;"></iframe>
 
-		<iframe id="worldmap" src="<?php bloginfo('template_directory'); ?>/endpoints/map.php" width="300" height="540" style="display: block; max-width: 1600px; margin: 0 auto;"></iframe>
+	<div class="wrapper">
 
-		<div class="wrapper">
+		<article class="page-content cf">
 
-			<article class="page-content cf">
+			<section>
 
-				<section>
+				<?php the_content(); ?>
 
-					<?php the_content(); ?>
+			</section>
 
-				</section>
+		</article>
 
-			</article>
+	</div> <!-- / .page__wrapper -->
 
-		</div> <!-- / .wrapper -->
-
-		<?php get_partial('page', 'strips'); ?>
-
-	</div> <!-- / .page__container -->
+	<?php get_partial('page', 'strips'); ?>
 
 <?php get_footer(); ?>

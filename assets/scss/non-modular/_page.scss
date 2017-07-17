@@ -12,12 +12,23 @@
 
 }
 
-.page__container {
-	margin-bottom: spacing(25);
-}
-
 .page__wrapper {
+
+	@extend .wrapper;
 	position: relative;
+	margin-top: spacing(5);
+	margin-bottom: spacing(8);
+
+	@include mq(M) {
+	    margin-top: spacing(7);
+	    margin-bottom: spacing(12);
+	}
+
+	@include mq(L) {
+	    margin-top: spacing(9);
+	    margin-bottom: spacing(15);
+	}
+
 }
 
 // ONE COLUMN
@@ -155,19 +166,6 @@
 	}
 }
 
-.page--padding {
-
-	padding-top: spacing(5);
-
-	@include mq(M) {
-	    padding-top: spacing(7);
-	}
-
-	@include mq(L) {
-	    padding-top: spacing(9);
-	}
-
-}
 
 /*
 

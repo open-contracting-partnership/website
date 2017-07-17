@@ -8,9 +8,9 @@
 
 <?php the_post(); ?>
 
-<div class="page__container page--two-column">
+<div class="page--two-column">
 
-	<div class="wrapper / page__wrapper / page--padding">
+	<div class="page__wrapper">
 
 		<aside class="sidebar page-sidebar">
 
@@ -158,8 +158,8 @@
 
 		</article>
 
-	</div> <!-- / .wrapper -->
+	</div> <!-- / .page__wrapper -->
 
-</div> <!-- / .page__container -->
+</div> <!-- / .page--two-column -->
 
  <?php get_footer(); ?>

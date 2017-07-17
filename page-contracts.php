@@ -10,79 +10,75 @@
 
 	<?php the_post(); ?>
 
-	<div class="page__container">
+	<div class="page__wrapper">
 
-		<div class="wrapper / page__wrapper / page--padding">
+		<?php get_partial('page', 'title'); ?>
 
-			<?php get_partial('page', 'title'); ?>
+		<article class="page-content cf">
 
-			<article class="page-content cf">
+			<?php if ( current_user_can('administrator') ) : ?>
 
-				<?php if ( current_user_can('administrator') ) : ?>
+				<p><strong>Admin Only:</strong> <a href="/contracts/?reset_contracts">update contract data</a></p>
 
-					<p><strong>Admin Only:</strong> <a href="/contracts/?reset_contracts">update contract data</a></p>
+			<?php endif; ?>
 
-				<?php endif; ?>
+			<?php the_content(); ?>
 
-				<?php the_content(); ?>
+			<?php
 
-				<?php
+				global $wpdb;
 
-					global $wpdb;
+				$contracts = $wpdb->get_results('SELECT * FROM ocp_contracts');
 
-					$contracts = $wpdb->get_results('SELECT * FROM ocp_contracts');
+			?>
 
-				?>
+		</article>
 
-			</article>
+		<section>
 
-			<section>
+			<?php if ( $contracts ) : ?>
 
-				<?php if ( $contracts ) : ?>
+				<table class="contracts-table">
 
-					<table class="contracts-table">
+					<thead>
 
-						<thead>
+						<tr>
+							<th>Supplier</th>
+							<th>Title</th>
+							<th>Status</th>
+							<th>Start Date</th>
+							<th>End Date</th>
+							<th>Amount</th>
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+						<?php foreach ( $contracts as $contract ) : ?>
+
+							<?php $currency = $contract->contract_currency ? ' ' . $contract->contract_currency : '' ?>
 
 							<tr>
-								<th>Supplier</th>
-								<th>Title</th>
-								<th>Status</th>
-								<th>Start Date</th>
-								<th>End Date</th>
-								<th>Amount</th>
+								<td><?php echo $contract->supplier_name ? $contract->supplier_name : '-'; ?></td>
+								<td><?php echo $contract->contract_title ? $contract->contract_title : '-' ?></td>
+								<td><?php echo $contract->contract_status ? ucwords($contract->contract_status) : '-' ?></td>
+								<td><?php echo $contract->contract_start_date ? $contract->contract_start_date : '-' ?></td>
+								<td><?php echo $contract->contract_end_date ? $contract->contract_end_date : '-' ?></td>
+								<td data-value="<?php echo $contract->contract_amount; ?>"><?php echo $contract->contract_amount ? number_format($contract->contract_amount) . $currency : '-' ?></td>
 							</tr>
 
-						</thead>
+						<?php endforeach; ?>
 
-						<tbody>
+					</tbody>
 
-							<?php foreach ( $contracts as $contract ) : ?>
+				</table>
 
-								<?php $currency = $contract->contract_currency ? ' ' . $contract->contract_currency : '' ?>
+			<?php endif; ?>
 
-								<tr>
-									<td><?php echo $contract->supplier_name ? $contract->supplier_name : '-'; ?></td>
-									<td><?php echo $contract->contract_title ? $contract->contract_title : '-' ?></td>
-									<td><?php echo $contract->contract_status ? ucwords($contract->contract_status) : '-' ?></td>
-									<td><?php echo $contract->contract_start_date ? $contract->contract_start_date : '-' ?></td>
-									<td><?php echo $contract->contract_end_date ? $contract->contract_end_date : '-' ?></td>
-									<td data-value="<?php echo $contract->contract_amount; ?>"><?php echo $contract->contract_amount ? number_format($contract->contract_amount) . $currency : '-' ?></td>
-								</tr>
+		</section>
 
-							<?php endforeach; ?>
-
-						</tbody>
-
-					</table>
-
-				<?php endif; ?>
-
-			</section>
-
-		</div> <!-- / .wrapper -->
-
-	</div> <!-- / .page__container -->
+	</div> <!-- / .page__wrapper -->
 
 	<script src="<?php bloginfo('template_directory'); ?>/assets/js/libs/jquery.tablesorter.min.js"></script>
 

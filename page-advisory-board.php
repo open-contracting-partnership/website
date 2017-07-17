@@ -2,7 +2,7 @@
 
 	<?php the_post(); ?>
 
-	<div class="wrapper / page__container page--padding">
+	<div class="page__wrapper">
 
 		<div class="page-advisory-board__intro / band band--extra-thick">
 			<?php get_partial('page', 'title'); ?>

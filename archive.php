@@ -2,7 +2,7 @@
 
 <?php get_header(); ?>
 
-	<div id="archive-posts" class="wrapper page--padding">
+	<div id="archive-posts" class="page__wrapper">
 
 		<?php
 

@@ -4,9 +4,9 @@
 
 	<?php the_post(); ?>
 
-	<div class="page__container page--one-column">
+	<div class="page--one-column">
 
-		<div class="wrapper / page__wrapper / page--padding">
+		<div class="page__wrapper">
 
 			<?php get_partial('page', 'title'); ?>
 
@@ -18,10 +18,10 @@
 
 			</article>
 
-		</div> <!-- / .wrapper -->
+		</div> <!-- / .page__wrapper -->
 
 		<?php get_partial('page', 'strips'); ?>
 
-	</div> <!-- / .page__container -->
+	</div> <!-- / .page--one-column -->>
 
 <?php get_footer(); ?>
