@@ -1,6 +1,56 @@
-/*------------------------------------*\
-    FORMS
-\*------------------------------------*/
+/*
+
+---
+name: Forms
+category:
+ - Components
+ - Components/Forms
+---
+
+```html
+<form method="post">
+
+	<label>
+		<input type="checkbox">
+		Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+	</label>
+
+	<input type="text" placeholder="First Name">
+	<input type="email" placeholder="Email">
+	<input type="password" placeholder="Password">
+	<input type="search" placeholder="Search">
+	<input type="url" placeholder="URL">
+	<input type="number" placeholder="42">
+	<input type="tel" placeholder="01823 55555">
+	<input type="date">
+	<input type="month">
+	<input type="week">
+	<input type="time">
+	<input type="date">
+	<input type="datetime">
+	<input type="datetime-local">
+
+	<textarea></textarea>
+
+	<fieldset>
+
+		<select>
+			<option>Option 1</option>
+			<option>Option 2</option>
+			<option>Option 3</option>
+			<option>Option 4</option>
+			<option>Option 5</option>
+		</select>
+
+	</fieldset>
+
+	<input type="submit" class="button" value="Sign up">
+
+</form>
+```
+
+*/
+
 
 fieldset,
 form {
@@ -31,10 +81,12 @@ input[type="password"],
 input[type="search"],
 input[type="url"],
 input[type="number"],
+input[type="tel"],
 input[type="color"],
 input[type="number"],
 input[type="range"],
 input[type="date"],
+input[type="time"],
 input[type="month"],
 input[type="week"],
 input[type="datetime"],
@@ -67,6 +119,7 @@ input[type="color"] {
 
 textarea {
 	line-height: strip-unit($space);
+	resize: vertical;
 }
 
 input[type="search"]::-webkit-search-decoration,
@@ -76,42 +129,18 @@ input[type="search"]::-webkit-search-results-button {
 }
 
 
- //*****
-// DARK
-
-.form--dark {
-
-	input,
-	button {
-		@include font('secondary');
-		@include font-size(16);
-		border: 0;
-		color: color('body');
-		background: color('white');
-	}
-
-	button {
-		text-transform: uppercase;
-
-		&:hover,
-		&:active,
-		&:focus {
-			background: color('brand');
-			color: color('white');
-			border: 0;
-			transition: none;
-		}
-
-	}
-}
+ //***************
+// FLEXIBLE FIELD
 
 .flex-field {
+
 	display: flex;
 
 	input {
 		flex: 1;
 		margin-right: .5em;
 	}
+
 }
 
 
