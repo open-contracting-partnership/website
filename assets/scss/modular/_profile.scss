@@ -199,11 +199,11 @@ category:
 
 .profile__avatar {
 
-	width: spacing(8);
+	flex: 0 0 spacing(8);
 	margin-right: spacing(2);
 
 	@include mq(L) {
-		width: spacing(11);
+		flex-basis: spacing(11);
 	}
 
 	img {
