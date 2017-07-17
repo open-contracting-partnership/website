@@ -24,72 +24,43 @@
 
 	<div id="resources" class="resources-overview">
 
-		<header>
+		<div class="resource__header">
 
 			<div class="wrapper">
 
-				<div class="resource__header">
+				<div class="resource-search__container">
+					<svg><use xlink:href="#icon-search"></svg>
+					<input type="search" placeholder="<?php _e('Search for resources', 'ocp'); ?>" v-model="search" class="resource-search">
+				</div>
 
-					<div class="resource-search__container active">
-						<input type="search" placeholder="<?php _e('Search for resources', 'ocp'); ?>" v-model="search" class="resource-search">
-					</div>
+				<div class="resource__filter-container" v-bind:class="{ 'active': display_filter }">
 
-					<?php if ( $popular_resources = get_field('popular_resources', 'option') ) : ?>
+					<label class="resource-filter / custom-checkbox" v-for="resource_type in resource_types">
+						<input type="checkbox" value="{{ resource_type.slug }}" v-model="filter_resource_type" />
+						<span><svg><use xlink:href="#icon-close"></svg></span>
+						{{{ resource_type.name }}}
+					</label>
 
-						<?php
+					<!-- <p class="resource__filter-actions">
+						<a href="#" class="button button--solid-white button--icon" v-on:click.prevent="display_filter = false"><svg><use xlink:href="#icon-stop" /></svg><?php _e('Close Filter', 'ocp'); ?></a>
+						<a href="#" class="resource__filter-reset" v-on:click.prevent="reset()"><?php _e('Reset', 'ocp'); ?></a>
+					</p>
 
-							$popular_resources_links = array();
+					<a href="#" v-on:click.prevent="display_filter = true" class="resource__filter-button / button button--solid-white button--icon"><svg><use xlink:href="#icon-plus" /></svg><?php _e('Filter Results', 'ocp'); ?></a> -->
 
-							foreach ( $popular_resources as $popular_resource ) {
-								$popular_resources_links[] = '<a href="' . get_the_permalink($popular_resource) . '">' . get_the_title($popular_resource) . '</a>';
-							}
-
-							$popular_reports = sprintf(
-								__("This week's popular items are %s and %s", 'ocp'),
-								implode(', ', array_slice($popular_resources_links, 0, -1)),
-								end($popular_resources_links)
-							);
-
-						?>
-
-						<p class="resources__popular"><?php echo $popular_reports; ?></p>
-
-					<?php endif; ?>
-
-					<div class="resource__filter-container" v-bind:class="{ 'active': display_filter }">
-
-						<div class="resource__filter / custom-checkbox">
-
-							<label v-for="resource_type in resource_types">
-								<input type="checkbox" value="{{ resource_type.slug }}" v-model="filter_resource_type" />
-								<span><svg><use xlink:href="#icon-close"></svg></span>
-								{{{ resource_type.name }}}
-							</label>
-
-						</div>
-
-						<p class="resource__filter-actions">
-							<a href="#" class="button button--solid-white button--icon" v-on:click.prevent="display_filter = false"><svg><use xlink:href="#icon-stop" /></svg><?php _e('Close Filter', 'ocp'); ?></a>
-							<a href="#" class="resource__filter-reset" v-on:click.prevent="reset()"><?php _e('Reset', 'ocp'); ?></a>
-						</p>
-
-						<a href="#" v-on:click.prevent="display_filter = true" class="resource__filter-button / button button--solid-white button--icon"><svg><use xlink:href="#icon-plus" /></svg><?php _e('Filter Results', 'ocp'); ?></a>
-
-					</div> <!-- / .resource__filter-container -->
-
-				</div> <!-- / .resource__header -->
+				</div> <!-- / .resource__filter-container -->
 
 			</div> <!-- / .wrapper -->
 
-		</header>
+		</div> <!-- / .resource__header -->
 
 		<div class="wrapper">
 
 			<div v-if="visibleResources.length" class="resources-container">
 
-				<a v-for="resource in visibleResources" v-on:click="openResource(resource, $event)" href="{{ resource.link }}" class="post-object post-object--horizontal post-object--resource / media media--reversed">
+				<div v-for="resource in visibleResources" v-on:click="openResource(resource, $event)" href="{{ resource.link }}" class="card card--primary">
 					<resource :resource="resource"></resource>
-				</a>
+				</div>
 
 			</div>
 
@@ -176,26 +147,31 @@
 
 		<template id="resource-template">
 
-			<div class="post-object--resource__media">
+			<div class="card__header / card--content-spine" data-content-type="resource">
 
-				<div class="post-object--resource__icon">
+				<div class="content-spine__icon">
 					<svg><use xlink:href="#icon-resource"></svg>
 				</div>
 
-				<div class="post-object--resource__type">
-					<span v-for="type in resource.taxonomies['resource-type']">{{{ type }}}</span>
-				</div>
+				<span class="content-spine__title">{{ type }}</span>
+
+				<span class="content-spine__meta">{{{ resource.custom.year }}}</span>
 
 			</div>
 
-			<div class="post-object__content / media__body">
+			<div class="card__content">
 
-				<p class="post-object__meta">
-					<span v-if="resource.fields.organisation !== ''"><?php _e('By', 'ocp'); ?> {{ resource.fields.organisation }}</span>
-					<time>{{ resource.custom.year }}</time>
+				<div class="card__title">
+
+					<h6 class="card__heading">
+						<a class="card__link" href="#">{{{ resource.title }}}</a>
+					</h6>
+
+				</div>
+
+				<p class="card__meta" v-if="resource.fields.organisation !== ''">
+					<span class="card__author"><?php _e('By', 'ocp'); ?> {{ resource.fields.organisation }}</span>
 				</p>
-
-				<span><h4>{{{ resource.title }}}</h4></span>
 
 			</div>
 
@@ -205,10 +181,20 @@
 
 			// register the grid component
 			Vue.component('resource', {
+
 				template: '#resource-template',
 				props: {
 					resource: Object
 				},
+
+				computed: {
+
+					type: function() {
+						return Object.values(this.resource.taxonomies['resource-type'])[0];
+					}
+
+				},
+
 				methods: {
 
 					taxonomyLabels: function(taxonomy) {
@@ -216,6 +202,7 @@
 					}
 
 				}
+
 			});
 
 			function objectValues(object) {

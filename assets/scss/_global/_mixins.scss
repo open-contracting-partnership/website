@@ -245,3 +245,13 @@
  @function spacing($number) {
  	@return 8px * $number;
  }
+
+ @mixin col($col, $context) {
+
+	@include span($col of $context);
+
+	&:nth-of-type(#{$context / $col}n) {
+		@include last;
+	}
+
+ }

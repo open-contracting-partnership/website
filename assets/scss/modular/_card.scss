@@ -30,6 +30,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	flex: 1 0 auto;
 }
 
 .card__heading {
@@ -381,9 +382,9 @@ Based on the primary card, the content spine element sits within the header and 
 ```html
 <div class="card card--primary">
 
-	<div class="card__header / card--content-spine">
+	<div class="card__header / card--content-spine" data-content-type="resource">
 
-		<div class="content-spine__icon" data-content-type="resource">
+		<div class="content-spine__icon">
 			<svg><use xlink:href="#icon-resource"></svg>
 		</div>
 
@@ -416,11 +417,22 @@ Based on the primary card, the content spine element sits within the header and 
 */
 
 .card--content-spine {
+
 	border-bottom: 1px solid rgba(224, 224, 224, .25); // ATTN: at 1px (design specified .5px) this colour is too dark
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	z-index: 2;
+	color: color('white');
+
+	@each $post-type, $colour in $post-types {
+
+		&[data-content-type="#{$post-type}"] {
+			background-color: #{$colour};
+		}
+
+	}
+
 }
 
 .content-spine__icon {
@@ -430,14 +442,7 @@ Based on the primary card, the content spine element sits within the header and 
 	align-items: center;
 	width: 35px;
 	height: 35px;
-
-	@each $post-type, $colour in $post-types {
-
-		&[data-content-type="#{$post-type}"] {
-			background-color: #{$colour};
-		}
-
-	}
+	margin-left: 7px;
 
 	svg {
 		fill: color('white');
@@ -453,12 +458,17 @@ Based on the primary card, the content spine element sits within the header and 
 	@include font-size(17);
 	@include font('secondary', 'medium');
 	text-transform: uppercase;
-	margin: 3px spacing(1) 0;
+	margin: 3px 0 0;
 }
 
 .content-spine__title {
 	margin-right: auto; // the space to the right of the title should always be expandable
 }
+
+.content-spine__meta {
+	margin-right: spacing(1);
+}
+
 
 /*
 
