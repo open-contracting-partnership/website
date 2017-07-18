@@ -33,6 +33,7 @@ category:
 	width: 1em;
 	height: 1em;
 	transform: translate(14px, -50%);
+	pointer-events: none;
 }
 
 input[type="search"].resource-search {
