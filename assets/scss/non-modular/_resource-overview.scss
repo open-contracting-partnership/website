@@ -211,6 +211,8 @@
 }
 
 
+ //**********
+// SLIDE OUT
 
 body.resource-open {
 	overflow: hidden;
@@ -222,6 +224,7 @@ body.resource-open {
 	.button--icon svg {
 		stroke-width: 1.5px;
 	}
+
 }
 
 .resource-transition.resource__overlay {
@@ -237,6 +240,7 @@ body.resource-open {
 }
 
 .resource-transition.resource {
+
 	@include font-size(16);
 	position: fixed;
 	top: 0;
@@ -256,6 +260,7 @@ body.resource-open {
 	@include mq(L) {
 	    width: 33%;
 	}
+
 }
 
 .resource-enter,
@@ -268,6 +273,7 @@ body.resource-open {
 	&.resource {
 		transform: translateX(100%);
 	}
+
 }
 
 .resource__title {
@@ -308,19 +314,15 @@ body.resource-open {
 	top: 0;
 }
 
-.resource__terms {
-
-	p {
-		@include font('secondary');
-		@include font-size(14);
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		float: left;
-		min-width: 110px;
-		margin-right: 1em;
-		margin-bottom: em(8);
-	}
-
+.resource__terms p {
+	@include font('secondary');
+	@include font-size(14);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	float: left;
+	min-width: 110px;
+	margin-right: 1em;
+	margin-bottom: em(8);
 }
 
 .resource hr {
