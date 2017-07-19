@@ -163,7 +163,7 @@
 					<svg><use xlink:href="#icon-resource"></svg>
 				</div>
 
-				<span class="content-spine__title">{{ type }}</span>
+				<span class="content-spine__title">{{{ type }}}</span>
 
 				<span class="content-spine__meta">{{{ resource.custom.year }}}</span>
 
