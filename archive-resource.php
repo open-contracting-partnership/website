@@ -78,7 +78,7 @@
 
 		</div>
 
-		<div class="resource__overlay" v-if="open_resource !== null" transition="resource" v-on:click.prevent="open_resource = null"></div>
+		<div class="resource__overlay" v-if="open_resource !== null" transition="resource" v-on:click.prevent="closeResource()"></div>
 
 		<div class="resource" v-if="open_resource !== null" transition="resource">
 
@@ -228,9 +228,11 @@
 			}
 
 			Vue.filter('objectValues', function (object) {
-				console.log(objectValues(object));
-			  return objectValues(object);
+				return objectValues(object);
 			});
+
+			// store the main resource url for use within push state
+			var resource_url = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
 
 			var resource_vue = new Vue({
 
@@ -347,6 +349,20 @@
 
 							this.open_resource = resource;
 
+							history.pushState({resource_id: resource.id}, null, resource.link);
+
+						}
+
+					},
+
+					closeResource: function(update_url) {
+
+						// close the current resource
+						this.open_resource = null;
+
+						// return back to the resources url
+						if ( update_url !== false ) {
+							history.pushState({}, null, resource_url);
 						}
 
 					}
@@ -369,10 +385,35 @@
 			});
 
 			var intersection = function (haystack, arr) {
+
 				return arr.some(function (v) {
 					return haystack.indexOf(v) >= 0;
 				});
+
 			};
+
+			window.addEventListener('popstate', function(event) {
+
+				if ( event.state && typeof event.state.resource_id !== 'undefined' ) {
+
+					// filter the resources to match by id
+					var result = $.grep(resource_vue.resources, function(e){ return e.id == event.state.resource_id; });
+
+					// if a result is returned, set the open resource
+					if ( result.length ) {
+						resource_vue.open_resource = result[0];
+					}
+
+				} else {
+
+					// no resource has been specified, we must want to close
+					// and return to the resources overview
+
+					resource_vue.closeResource(false);
+
+				}
+
+			});
 
 		</script>
 
