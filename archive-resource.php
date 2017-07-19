@@ -200,7 +200,7 @@
 				computed: {
 
 					type: function() {
-						return Object.values(this.resource.taxonomies['resource-type'])[0];
+						return this.resource.taxonomies['resource-type'][Object.keys(this.resource.taxonomies['resource-type'])[0]];
 					}
 
 				},
