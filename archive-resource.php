@@ -33,20 +33,30 @@
 					<input type="search" placeholder="<?php _e('Search for resources', 'ocp'); ?>" v-model="search" class="resource-search">
 				</div>
 
-				<div class="resource__filter-container" v-bind:class="{ 'active': display_filter }">
+				<div class="resource-filter__container" v-bind:class="{ active: display_filter === true }">
 
-					<label class="resource-filter / custom-checkbox" v-for="resource_type in resource_types">
-						<input type="checkbox" value="{{ resource_type.slug }}" v-model="filter_resource_type" />
-						<span><svg><use xlink:href="#icon-close"></svg></span>
-						{{{ resource_type.name }}}
-					</label>
+					<div class="resource-filter__controls">
 
-					<!-- <p class="resource__filter-actions">
-						<a href="#" class="button button--solid-white button--icon" v-on:click.prevent="display_filter = false"><svg><use xlink:href="#icon-stop" /></svg><?php _e('Close Filter', 'ocp'); ?></a>
-						<a href="#" class="resource__filter-reset" v-on:click.prevent="reset()"><?php _e('Reset', 'ocp'); ?></a>
-					</p>
+						<a href="#reset-filter" v-show="isFiltered" v-on:click.prevent="reset()"><?php _e('Reset Filter', 'ocp'); ?></a>
+						<a href="#open-filter" v-show="display_filter === false" v-on:click.prevent="display_filter = true"><?php _e('Filter', 'ocp'); ?></a>
 
-					<a href="#" v-on:click.prevent="display_filter = true" class="resource__filter-button / button button--solid-white button--icon"><svg><use xlink:href="#icon-plus" /></svg><?php _e('Filter Results', 'ocp'); ?></a> -->
+						<a href="#close-filter" v-on:click.prevent="display_filter = false">
+							<svg><use xlink:href="#icon-close"></svg>
+						</a>
+
+					</div>
+
+					<div class="resource-filter__inner">
+
+						<label class="resource-filter / custom-checkbox" v-for="resource_type in resource_types">
+							<input type="checkbox" value="{{ resource_type.slug }}" v-model="filter_resource_type" />
+							<span><svg><use xlink:href="#icon-close"></svg></span>
+							{{{ resource_type.name }}}
+						</label>
+
+					</div>
+
+					<a href="#apply-filter" v-on:click.prevent="display_filter = false"><?php _e('Apply Filter', 'ocp'); ?></a>
 
 				</div> <!-- / .resource__filter-container -->
 
@@ -58,7 +68,7 @@
 
 			<div v-if="visibleResources.length" class="resources-container">
 
-				<div v-for="resource in visibleResources" v-on:click="openResource(resource, $event)" href="{{ resource.link }}" class="card card--primary">
+				<div v-for="resource in visibleResources" v-on:click="openResource(resource, $event)" class="card card--primary">
 					<resource :resource="resource"></resource>
 				</div>
 
@@ -164,7 +174,7 @@
 				<div class="card__title">
 
 					<h6 class="card__heading">
-						<a class="card__link" href="#">{{{ resource.title }}}</a>
+						<a class="card__link" href="{{ resource.link }}">{{{ resource.title }}}</a>
 					</h6>
 
 				</div>
@@ -255,6 +265,10 @@
 
 						return resources;
 
+					},
+
+					isFiltered: function() {
+						return this.filter_resource_type.length;
 					}
 
 				},

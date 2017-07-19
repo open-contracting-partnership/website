@@ -1,13 +1,25 @@
 .resource__header {
+
 	background-color: post-color('resource');
-	padding-top: spacing(12);
-	padding-bottom: spacing(5);
-	margin-bottom: em(57);
+	padding-top: spacing(8);
+	padding-bottom: spacing(1);
+	margin-bottom: spacing(4);
+
+	@include mq(M) {
+		padding-top: spacing(12);
+		padding-bottom: spacing(5);
+		margin-bottom: spacing(7);
+	}
+
 }
 
 .resource-search__container {
 
-	margin-bottom: spacing(12);
+	margin-bottom: spacing(4);
+
+	@include mq(M) {
+		margin-bottom: spacing(12);
+	}
 
 	@include mq(L) {
 		padding: 0 span(3 of 12) + gutter();
@@ -18,13 +30,14 @@
 .resources-container {
 
 	@include container;
-	margin-bottom: em(250);
 	display: flex;
 	flex-wrap: wrap;
+	margin-bottom: spacing(31);
 
 	.card {
 
 		margin-bottom: spacing(2);
+		min-height: spacing(19);
 
 		@include mq(M, L) {
 			@include col(2, 4);
@@ -38,62 +51,164 @@
 
 }
 
-.resource__filter-container {
+
+ //*******
+// FILTER
+
+.resource-filter__container {
+
+	position: relative;
+
+	@include mq(M, 'max-width') {
+
+		&.active {
+
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: color('white');
+			z-index: 19;
+			padding: spacing(2);
+
+			a[href="#apply-filter"],
+			a[href="#close-filter"] {
+				display: block;
+			}
+
+		}
+
+	}
+
+	a[href="#apply-filter"] {
+		@include font-size(14);
+		@include font('secondary', 'medium');
+		display: none;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: post-color('resource');
+		color: color('white');
+		text-align: center;
+		padding: spacing(2);
+	}
+
+}
+
+.resource-filter__controls {
+
+	margin-bottom: 0;
+
+	@include mq(M, 'max-width') {
+
+		.resource-filter__container:not(.active) & {
+			text-align: center;
+		}
+
+		.resource-filter__container.active & {
+			display: flex;
+			align-items: center;
+			min-height: spacing(3);
+			margin-bottom: spacing(4);
+		}
+
+	}
+
+	@include mq(M) {
+		position: absolute;
+		left: 0;
+		top: -2em;
+	}
+
+	a {
+
+		@include font-size(14);
+		@include font('secondary', 'medium');
+		color: color('white');
+
+		.resource-filter__container.active & {
+			color: color('grey');
+		}
+
+		&:first-child {
+			margin-right: 2em;
+		}
+
+	}
+
+	a[href="#open-filter"],
+	a[href="#close-filter"] {
+
+		@include mq(M) {
+			display: none;
+		}
+
+	}
+
+	a[href="#close-filter"] {
+
+		@include font-size(16);
+		display: none;
+		line-height: 1;
+		margin-left: auto;
+		position: relative;
+
+		// provide a larger tapable footprint
+		&::before {
+			content: '';
+			position: absolute;
+			top: spacing(-1);
+			right: spacing(-1);
+			bottom: spacing(-1);
+			left: spacing(-1);
+			z-index: 1;
+		}
+
+		svg {
+			fill: color('body');
+			height: 1em;
+			width: 1em;
+		}
+
+	}
+
+	.resource-filter__container.active & {
+		color: color('body');
+	}
+
+}
+
+.resource-filter__inner {
 
 	display: flex;
 	flex-wrap: wrap;
 
+	@include mq(M, 'max-width') {
+
+		display: none;
+
+		.resource-filter__container.active & {
+			display: block;
+		}
+
+	}
+
 	.resource-filter {
 
 		@include mq(M, 'max-width') {
-
-			@include span(1 of 2);
-
-			&:nth-child(2n) {
-				@include last;
-			}
-
+			@include col(1, 2);
 		}
 
 		@include mq(M, L) {
-
-			@include span(3 of 12);
-
-			&:nth-child(4n) {
-				@include last;
-			}
-
+			@include col(3, 12);
 		}
 
 		@include mq(L) {
-
-			@include span(2 of 12);
-
-			&:nth-child(6n) {
-				@include last;
-			}
-
+			@include col(2, 12);
 		}
 
-	}
-
-
-}
-
-.resource__filter-actions {
-
-	@include break;
-	@include font-size(16);
-	text-align: center;
-	margin-bottom: em(30, 16);
-
-	.button {
-		margin: 0 1em 0 0;
-	}
-
-	.resource__filter-reset {
-		@include font('secondary', 'medium');
-		color: color('white');
 	}
 
 }
