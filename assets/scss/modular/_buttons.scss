@@ -27,7 +27,7 @@ input[type="submit"] {
 	display: inline-block;
 	border: 1px solid;
 	border-radius: 0;
-	padding: em(10, 14) em(15, 14);
+	padding: em(8, 14) em(22, 14);
 	text-decoration: none;
 	margin-bottom: $space / 2;
 	color: color('background');
@@ -44,9 +44,9 @@ input[type="submit"] {
 	&:active,
 	&:focus {
 		color: color('white');
-		background-color: color('dark-background');
+		background-color: color('body');
 		text-decoration: none;
-		border-color: color('dark-background');
+		border-color: color('body');
 	}
 
 }
@@ -62,14 +62,13 @@ category:
 ---
 
 ```html
-<a href="#" class="button button--large">button--large</a>
+<a href="#" class="button button--large">Large</a>
 ```
 
 */
 
 .button--large {
 	@include font-size(18);
-	padding: em(15, 18) em(25, 18);
 }
 
 
@@ -84,15 +83,23 @@ category:
 
 ```html
 <p>
-	<a href="#" class="button button--block">button--block</a>
+	<a href="#" class="button button--block">Block</a>
 </p>
 
 <p>
-	<a href="#" class="button button--tag">button--tag</a>
+	<a href="#" class="button button--tag">Tag</a>
 </p>
 
 <p>
-	<a href="#" class="button button--disabled">button--disabled</a>
+	<a href="#" class="button button--disabled">Disabled (link)</a>
+</p>
+
+<p>
+	<button disabled>Disabled (button)</button>
+</p>
+
+<p>
+	<input type="submit" disabled value="Disabled (submit)" />
 </p>
 ```
 
@@ -104,15 +111,18 @@ category:
 }
 
 .button--tag {
-	@include font('secondary', 'bold');
-	@include font-size(14);
-	padding: em(5, 14) em(8, 14);
+	@include font('secondary', 'medium');
+	@include font-size(12);
+	padding: em(3, 12) em(8, 12);
+	text-transform: uppercase;
 }
 
-.button--disabled {
+.button--disabled,
+button[disabled],
+input[type="submit"][disabled] {
 	cursor: default;
 	pointer-events: none;
-	background: color('mid-grey');
+	background: color('grey');
 	color: color('white');
 }
 
@@ -189,27 +199,26 @@ category:
 .button__social {
 
 	li {
+		float: left;
 		margin-bottom: 0;
+		padding: 0;
+		margin-right: spacing(1);
 	}
 
 	a {
+
 		width: 1.5rem;
 		height: 1.5rem;
 		text-align: center;
 		padding: 0;
-		fill: color('mid-grey');
-		border-color: color('mid-grey');
+		fill: color('body');
 
 		&:hover,
-		&:focus {
-			fill: color('light-grey');
-			border-color: color('light-grey');
+		&:focus,
+		&:active {
+			fill: color('white');
 		}
 
-		&:active {
-			fill: color('mid-grey');
-			border-color: color('mid-grey');
-		}
 	}
 
 	.site-header & a {
@@ -228,21 +237,27 @@ category:
 /*
 
 ---
-name: Icon
+name: Icons
 category:
  - Components
  - Components/Buttons
 ---
 
 ```html
-<a class="button button--block button--large button--icon button--icon--reverse button--icon--stroke" href="#">Download<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-download"></use></svg></a>
+<p>
+	<a class="button button--block button--icon button--icon--reverse button--icon--stroke" href="#">Download<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-download"></use></svg></a>
+</p>
+
+<p>
+	<a class="button button--block button--large button--icon button--icon--reverse button--icon--stroke" href="#">Large Download<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-download"></use></svg></a>
+</p>
 ```
 
 */
 
 .button--icon svg {
-	width: 1em;
-	height: 1em;
+	width: 1.3em;
+	height: 1.3em;
 	margin-right: .5em;
 	margin-top: -3px;
 	fill: currentColor;
