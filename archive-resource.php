@@ -155,7 +155,7 @@
 
 		</div> <!-- / .resource -->
 
-		<template id="resource-template">
+		<script type="x/templates" id="resource-template">
 
 			<div class="card__header / card--content-spine" data-content-type="resource">
 
@@ -185,7 +185,7 @@
 
 			</div>
 
-		</template>
+		</script>
 
 		<script>
 
