@@ -22,7 +22,7 @@ category:
 }
 
 .resource-search__container > svg {
-	font-size: 17px;
+	@include font-size(17);
 	fill: currentColor;
 	position: absolute;
 	top: 50%;
