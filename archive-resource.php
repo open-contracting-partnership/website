@@ -49,9 +49,15 @@
 					<div class="resource-filter__inner">
 
 						<label class="resource-filter / custom-checkbox" v-for="resource_type in resource_types">
+
 							<input type="checkbox" value="{{ resource_type.slug }}" v-model="filter_resource_type" />
-							<span><svg><use xlink:href="#icon-close"></svg></span>
+
+							<span class="custom-checkbox__box">
+								<svg><use xlink:href="#icon-close"></svg>
+							</span>
+
 							{{{ resource_type.name }}}
+
 						</label>
 
 					</div>

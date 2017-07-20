@@ -207,9 +207,15 @@
 					<form action="#" class="posts-filter__form / custom-checkbox">
 
 						<label v-for="issue in issue_terms">
+
 							<input type="checkbox" value="{{ issue.slug }}" v-model="filter_issue" />
-							<span><svg><use xlink:href="#icon-close"></svg></span>
+
+							<span class="custom-checkbox__box">
+								<svg><use xlink:href="#icon-close"></svg>
+							</span>
+
 							{{ issue.name }}
+
 						</label>
 
 					</form>

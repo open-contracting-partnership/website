@@ -9,8 +9,13 @@ category:
 
 ```html
 <label class="resource-filter / custom-checkbox">
+
 	<input type="checkbox" value="annual-report">
-	<span><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg></span>
+
+	<span class="custom-checkbox__box">
+		<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg>
+	</span>
+
 	Annual Report
 </label>
 ```
