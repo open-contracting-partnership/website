@@ -40,8 +40,7 @@ input[type="search"].resource-search {
 	border: 0;
 	border-radius: 0;
 	background-color: color('white');
-	padding: em(11, 17) em(27, 23);
-	padding-left: em(45, 17);
+	padding: em(11, 17) em(27, 23) em(11, 17) em(45, 17);
 	margin-bottom: 0;
 
 	&::-webkit-input-placeholder {
