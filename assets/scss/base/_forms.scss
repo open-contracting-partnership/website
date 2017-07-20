@@ -64,8 +64,6 @@ legend {
 	display: block;
 	margin-bottom: 0;
 	@include font-size(13);
-	text-transform: uppercase;
-	letter-spacing: 1px;
 	color: color('background');
 	cursor: pointer;
 }

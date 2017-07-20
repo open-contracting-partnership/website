@@ -206,6 +206,10 @@
 		$between: true;
 	}
 
+	@if $arg2 == 'max-width' {
+		$arg1: $arg1 - 1px;
+	}
+
 	@if $between == false {
 
 	    @media screen and (#{$arg2}: $arg1) {
@@ -214,7 +218,7 @@
 
 	} @else {
 
-	    @media screen and (min-width: $arg1) and (max-width: $arg2) {
+	    @media screen and (min-width: $arg1) and (max-width: $arg2 - 1px) {
 	        @content;
 	    }
 
@@ -244,4 +248,14 @@
 
  @function spacing($number) {
  	@return 8px * $number;
+ }
+
+ @mixin col($col, $context) {
+
+	@include span($col of $context);
+
+	&:nth-of-type(#{$context / $col}n) {
+		@include last;
+	}
+
  }

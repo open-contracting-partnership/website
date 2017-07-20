@@ -1,0 +1,45 @@
+
+/*
+
+---
+name: Filter
+category:
+ - Components/Resources
+---
+
+```html
+<label class="resource-filter / custom-checkbox">
+
+	<input type="checkbox" value="annual-report">
+
+	<span class="custom-checkbox__box">
+		<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg>
+	</span>
+
+	Annual Report
+
+</label>
+```
+
+*/
+
+.resource-filter {
+
+	@include font('secondary');
+	@include font-size(17);
+	color: color('background');
+	background-color: color('white');
+	margin-bottom: spacing(3);
+	user-select: none;
+
+	@include mq(M) {
+		padding: em(10, 17) em(16, 17);
+		border-bottom: 1px solid color('grey');
+		margin-bottom: spacing(1);
+	}
+
+	span {
+		margin-bottom: 1px;
+	}
+
+}
