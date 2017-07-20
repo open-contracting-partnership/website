@@ -88,7 +88,7 @@
 
 		<div class="resource" v-if="open_resource !== null" transition="resource">
 
-			<div class="resource__title">
+			<div class="resource-title">
 				<svg><use xlink:href="#icon-resource" /></svg>
 			</div>
 
@@ -131,7 +131,7 @@
 				<p class="tag-list" v-if="hasTerms(open_resource.taxonomies['region'])">
 
 					<span class="tag-list__title"><?php _e('Region', 'ocp'); ?>:</span>
-					
+
 					<span class="tag-list__item" v-for="region in open_resource.taxonomies['region']">
 						<a href="/region/{{ $key }}">{{{ region }}}</a>
 					</span>

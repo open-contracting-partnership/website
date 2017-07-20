@@ -276,29 +276,6 @@ body.resource-open {
 
 }
 
-.resource__title {
-
-	@include font-size(20);
-	padding-bottom: em(15);
-	border-bottom: spacing(.5) solid post-color('resource');
-	margin-bottom: em(28);
-	position: relative;
-
-	svg {
-		width: em(40);
-		height: em(40);
-		stroke: post-color('resource');
-	}
-
-	a {
-		color: post-color('resource');
-		position: absolute;
-		bottom: 1em;
-		padding-left: .5em;
-	}
-
-}
-
 .resource__meta {
 	@include font('secondary', 'medium');
 	@include font-size(14);
