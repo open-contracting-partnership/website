@@ -314,17 +314,6 @@ body.resource-open {
 	top: 0;
 }
 
-.resource__terms p {
-	@include font('secondary');
-	@include font-size(14);
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	float: left;
-	min-width: 110px;
-	margin-right: 1em;
-	margin-bottom: em(8);
-}
-
 .resource hr {
 	border-color: color('lighter-grey');
 }

@@ -1,0 +1,56 @@
+/*
+
+---
+name: Tag List
+category:
+ - Components/Tag List
+---
+
+```html
+<p class="tag-list">
+
+	<span class="tag-list__title">Region: </span>
+
+	<span class="tag-list__item">
+		<a href="#">Region 1</a>
+	</span>
+
+	<span class="tag-list__item">
+		<a href="#">Region 2</a>
+	</span>
+
+	<span class="tag-list__item">
+		<a href="#">Region 3</a>
+	</span>
+
+</p>
+```
+
+*/
+
+/* p */ .tag-list {
+	@include font('secondary');
+	@include font-size(17);
+	@extend .cf;
+	text-transform: uppercase;
+}
+
+.tag-list__title {
+	@include font('secondary', 'medium');
+	float: left;
+}
+
+.tag-list a {
+	color: currentColor;
+	margin-left: .25em;
+	float: left;
+}
+
+.tag-list__item {
+	float: left;
+}
+
+.tag-list__item:not(:last-child)::after {
+	content: ', ';
+	float: left;
+}

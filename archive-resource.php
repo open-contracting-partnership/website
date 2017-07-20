@@ -128,32 +128,35 @@
 
 			<div class="band band--extra-thick">
 
-				<div v-if="hasTerms(open_resource.taxonomies['region'])" class="resource__terms / band">
+				<p class="tag-list" v-if="hasTerms(open_resource.taxonomies['region'])">
 
-					<p><?php _e('Region', 'ocp'); ?>:</p>
-					<ul class="button__list">
-						<li v-for="region in open_resource.taxonomies['region']"><a href="/region/{{ $key }}" class="button button--tag">{{{ region }}}</a></li>
-					</ul>
+					<span class="tag-list__title"><?php _e('Region', 'ocp'); ?>:</span>
+					
+					<span class="tag-list__item" v-for="region in open_resource.taxonomies['region']">
+						<a href="/region/{{ $key }}">{{{ region }}}</a>
+					</span>
 
-				</div>
+				</p>
 
-				<div v-if="hasTerms(open_resource.taxonomies['issue'])" class="resource__terms / band">
+				<p class="tag-list" v-if="hasTerms(open_resource.taxonomies['issue'])">
 
-					<p><?php _e('Issue', 'ocp'); ?>:</p>
-					<ul class="button__list">
-						<li v-for="issue in open_resource.taxonomies['issue']"><a href="/issue/{{ $key }}" class="button button--tag">{{{ issue }}}</a></li>
-					</ul>
+					<span class="tag-list__title"><?php _e('Issue', 'ocp'); ?>:</span>
 
-				</div>
+					<span class="tag-list__item" v-for="issue in open_resource.taxonomies['issue']">
+						<a href="/issue/{{ $key }}">{{{ issue }}}</a>
+					</span>
 
-				<div v-if="hasTerms(open_resource.taxonomies['open-contracting'])" class="resource__terms / band">
+				</p>
 
-					<p><?php _e('OC Framework', 'ocp'); ?>:</p>
-					<ul class="button__list">
-						<li v-for="open_contracting in open_resource.taxonomies['open-contracting']"><a href="/open-contracting/{{ $key }}" class="button button--tag">{{{ open_contracting }}}</a></li>
-					</ul>
+				<p class="tag-list" v-if="hasTerms(open_resource.taxonomies['open-contracting'])">
 
-				</div>
+					<span class="tag-list__title"><?php _e('OC Framework', 'ocp'); ?>:</span>
+
+					<span class="tag-list__item" v-for="open_contracting in open_resource.taxonomies['open-contracting']">
+						<a href="/open-contracting/{{ $key }}">{{{ open_contracting }}}</a>
+					</span>
+
+				</p>
 
 			</div>
 
