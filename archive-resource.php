@@ -209,32 +209,8 @@
 						return this.resource.taxonomies['resource-type'][Object.keys(this.resource.taxonomies['resource-type'])[0]];
 					}
 
-				},
-
-				methods: {
-
-					taxonomyLabels: function(taxonomy) {
-						return objectValues(this.resource.taxonomies[taxonomy]);
-					}
-
 				}
 
-			});
-
-			function objectValues(object) {
-
-				var array = [];
-
-				Object.keys(object).forEach(function (key) {
-					array.push(object[key]);
-				});
-
-				return array;
-
-			}
-
-			Vue.filter('objectValues', function (object) {
-				return objectValues(object);
 			});
 
 			// store the main resource url for use within push state
@@ -376,10 +352,6 @@
 				},
 
 				filters: {
-
-					objectValues: function() {
-						console.log('bop');
-					},
 
 					encodeURI: function(string) {
 						string = string.replace('&nbsp;', ' ');
