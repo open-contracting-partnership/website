@@ -1,13 +1,16 @@
 .four-oh-four__page {
+
 	background-color: color('dark-background');
 	padding-bottom: 2em;
 
 	@include mq(M) {
 		padding-bottom: 5em;
 	}
+
 }
 
 .four-oh-four__container {
+
 	display: flex;
 	align-items: center;
 	flex-direction: column-reverse;
@@ -15,9 +18,11 @@
 	@include mq(M) {
 	    flex-direction: row;
 	}
+
 }
 
 .four-oh-four__section-img {
+
 	max-width: 75%;
 	margin: 0 auto 4em;
 
@@ -25,20 +30,25 @@
 	    max-width: 100%;
 		margin: 0;
 	}
+
 }
 
 .four-oh-four__section-logo {
+
 	display: none;
 
 	@include mq(M) {
 		display: block;
 	}
+
 }
 
 .four-oh-four__section {
+
 	color: color('white');
 
 	@include mq(M) {
+
 		@include span(4 of 12);
 		padding: 0 (span(1 of 12) + gutter()) / 2;
 
@@ -60,6 +70,7 @@
 		@include font-size(14);
 		color: color('lighter-grey');
 	}
+	
 }
 
 .four-oh-four__title {
