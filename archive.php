@@ -75,7 +75,7 @@
 				        <p class="card__meta card__meta--alt">
 				            <span class="card__type" data-content-type="{{ post.post_type }}">{{ post.custom.post_type_label }}</span>
 				            <time class="card__date">{{ post.date }}</time>
-				            <span class="card__author">By {{{ post.custom.authors }}}</span>
+				            <span class="card__author" v-if="post.custom.authors !== ''">By {{{ post.custom.authors }}}</span>
 				        </p>
 
 				    </div>
