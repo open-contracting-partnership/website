@@ -4,7 +4,7 @@
 
 	<div class="four-oh-four__page">
 
-		<div class="page__wrapper">
+		<div class="wrapper">
 
 			<section class="four-oh-four__container">
 

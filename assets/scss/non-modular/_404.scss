@@ -1,10 +1,17 @@
 .four-oh-four__page {
 
 	background-color: color('dark-background');
-	padding-bottom: 2em;
+	padding-bottom: spacing(8);
+	padding-top: spacing(5);
 
 	@include mq(M) {
-		padding-bottom: 5em;
+		padding-bottom: spacing(12);
+	    padding-top: spacing(7);
+	}
+
+	@include mq(L) {
+		padding-bottom: spacing(15);
+	    padding-top: spacing(9);
 	}
 
 }
@@ -70,7 +77,7 @@
 		@include font-size(14);
 		color: color('lighter-grey');
 	}
-	
+
 }
 
 .four-oh-four__title {
