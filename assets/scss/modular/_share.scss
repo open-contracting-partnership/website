@@ -1,18 +1,4 @@
-/*------------------------------------*\
-    $SHARE
-\*------------------------------------*/
-
-.share {
-	list-style-type: none;
-	margin: 5px 0 0;
-	padding: 0;
-
-	li {
-		float: left;
-		margin-left: .5em;
-	}
-
-	a {
-		text-decoration: none;
-	}
+.share-title {
+	@include font-size(16);
+	margin-bottom: .5em;
 }
