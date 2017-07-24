@@ -4,118 +4,116 @@
 
 	<?php the_post(); ?>
 
-	<div class="wrapper">
+	<div class="page__wrapper">
 
-		<article class="cf">
+		<div class="resource-single">
 
-			<section>
+			<div class="resource-title resource-title--small">
+				<svg><use xlink:href="#icon-resource" /></svg>
+				<a href="/resources">View All Resources</a>
+			</div>
 
-				<div class="resource-title">
-					<svg><use xlink:href="#icon-resource" /></svg>
-					<a href="/resources">View All Resources</a>
-				</div>
 
-				<div class="resource__content-col">
+			<?php if ( $type = get_field('resource_type') ) : ?>
+				<span class="card__type" data-content-type="resource"><?php echo $type->name; ?></span>
+			<?php endif; ?>
 
-					<h1 class="gamma"><?php the_title(); ?></h1>
+			<h1><?php the_title(); ?></h1>
 
-					<p class="resource__meta">
-						<span class="resource__published-date"><?php the_date('Y'); ?></span>
-						<?php echo sprintf(__('By %s', 'ocp'), get_field('organisation')); ?>
-					</p>
+			<p class="resource__meta">
 
-					<div class="post-content">
-						<?php the_content(); ?>
-					</div>
+				<?php if ( $organisation = get_field('organisation') ) : ?>
+					Published <?php the_date('Y'); ?>, <?php echo sprintf(__('By %s', 'ocp'), $organisation); ?>
+				<?php else : ?>
+					Published <?php the_date('Y'); ?>
+				<?php endif; ?>
 
-				</div>
+			</p>
 
-				<div class="resource__meta-col">
+			<?php if ( $attachments = get_field('attachments') ) : ?>
+				<p><a onclick="_gaq.push(['_trackEvent', 'Resources', 'Download', '<?php the_title(); ?>']);" href="<?php echo $attachments[0]['file']; ?>" class="button button--small button--block button--icon button--icon--reverse button--icon--stroke">Download resource<svg><use xlink:href="#icon-download" /></svg></a></p>
+			<?php endif; ?>
 
-					<div class="band">
+			<?php if ( $link = get_field('link') ) : ?>
+				<p><a onclick="_gaq.push(['_trackEvent', 'Resources', 'Visit', '<?php the_title(); ?>']);" href="<?php echo $link; ?>" class="button button--small button--block">View resource</a></p>
+			<?php endif; ?>
 
-						<?php if ( $attachments = get_field('attachments') ) : ?>
-							<p><a onclick="_gaq.push(['_trackEvent', 'Resources', 'Download', '<?php the_title(); ?>']);" href="<?php echo $attachments[0]['file']; ?>" class="button button--block button--large button--icon button--icon--reverse button--icon--stroke">Download<svg><use xlink:href="#icon-download" /></svg></a></p>
-						<?php endif; ?>
+			<div class="resource__details">
 
-						<?php if ( $link = get_field('link') ) : ?>
-							<p><a onclick="_gaq.push(['_trackEvent', 'Resources', 'Visit', '<?php the_title(); ?>']);" href="<?php echo $link; ?>" class="button button--block button--large">View</a></p>
-						<?php endif; ?>
+				<?php if ( $terms = get_field('region') ) : ?>
 
-					</div>
+					<ul class="tag-list">
 
-					<div class="band">
+						<li class="tag-list__title"><?php _e('Region', 'ocp'); ?>:</li>
 
-						<h3><?php _e('Share', 'ocp'); ?></h3>
+						<?php foreach ( $terms as $term ) : ?>
 
-						<ul class="button__list button__social">
-							<li><a href="<?php echo share_links()->facebook; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
-							<li><a href="<?php echo share_links()->linkedin; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
-							<li><a href="<?php echo share_links()->twitter; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
-							<li><a href="<?php echo share_links()->email; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-mail" /></svg></a></li>
-						</ul>
+							<li>
+								<a href="/region/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
+							</li>
 
-					</div>
+						<?php endforeach; ?>
 
-					<?php if ( $terms = get_field('region') ) : ?>
+					</ul>
 
-						<div class="band">
+				<?php endif; ?>
 
-							<h3><?php _e('Region', 'ocp'); ?></h3>
+				<?php if ( $terms = get_field('issue') ) : ?>
 
-							<ul class="button__list">
+					<ul class="tag-list">
 
-								<?php foreach ( $terms as $term ) : ?>
-									<li><a href="/region/<?php echo $term->slug; ?>" class="button button--tag"><?php echo $term->name; ?></a></li>
-								<?php endforeach; ?>
+						<li class="tag-list__title"><?php _e('Issue', 'ocp'); ?>:</li>
 
-							</ul>
+						<?php foreach ( $terms as $term ) : ?>
 
-						</div>
+							<li>
+								<a href="/issue/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
+							</li>
 
-					<?php endif; ?>
+						<?php endforeach; ?>
 
-					<?php if ( $terms = get_field('issue') ) : ?>
+					</ul>
 
-						<div class="band">
+				<?php endif; ?>
 
-							<h3><?php _e('Issue', 'ocp'); ?></h3>
+				<?php if ( $terms = get_field('open_contracting') ) : ?>
 
-							<ul class="button__list">
+					<ul class="tag-list">
 
-								<?php foreach ( $terms as $term ) : ?>
-									<li><a href="/issue/<?php echo $term->slug; ?>" class="button button--tag"><?php echo $term->name; ?></a></li>
-								<?php endforeach; ?>
+						<li class="tag-list__title"><?php _e('OC Framework', 'ocp'); ?>:</li>
 
-							</ul>
+						<?php foreach ( $terms as $term ) : ?>
 
-						</div>
+							<li>
+								<a href="/open-contracting/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
+							</li>
 
-					<?php endif; ?>
+						<?php endforeach; ?>
 
-					<?php if ( $terms = get_field('open_contracting') ) : ?>
+					</ul>
 
-						<div class="band">
+				<?php endif; ?>
 
-							<h3><?php _e('OC Framework', 'ocp'); ?></h3>
+			</div> <!-- / .resource__details -->
 
-							<ul class="button__list">
+			<article class="post-content / band--thick">
+				<?php the_content(); ?>
+			</article>
 
-								<?php foreach ( $terms as $term ) : ?>
-									<li><a href="/open-contracting/<?php echo $term->slug; ?>" class="button button--tag"><?php echo $term->name; ?></a></li>
-								<?php endforeach; ?>
+			<div class="share">
 
-							</ul>
+				<h3 class="zeta uppercase / share-title"><?php _e('Share', 'ocp'); ?></h3>
 
-						</div>
+				<ul class="button__list button__social">
+					<li><a href="<?php echo share_links()->facebook; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
+					<li><a href="<?php echo share_links()->linkedin; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
+					<li><a href="<?php echo share_links()->twitter; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
+					<li><a href="<?php echo share_links()->email; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-mail" /></svg></a></li>
+				</ul>
 
-					<?php endif; ?>
+			</div>
 
-				</div> <!-- / .resource__meta-col -->
-
-			</section>
-
-		</article>
+		</div> <!-- / .resource-single -->
 
 	</div>
 

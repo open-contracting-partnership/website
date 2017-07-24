@@ -1,52 +1,12 @@
-.single-resource,
-.single-event {
+.resource-single {
 
-	article {
-		margin-top: 6em;
-		margin-bottom: 6em;
-
-		width: 46em;
-		max-width: 100%;
-
-		@include mq(1520) {
-			width: span(8 of 12);
-		}
-
+	@include mq(L) {
+		@include span(8 of 12);
+		@include push(2 of 12);
 	}
 
 }
 
-.single-resource h1 {
-	margin-top: 0;
-}
-
-.single-resource .resource-title {
-	margin-bottom: 3em;
-	width: 100%;
-}
-
-.resource__content-col {
-
-	@include mq(M) {
-		@include span(1 of 2);
-	}
-
-}
-
-.resource__meta-col {
-
-	@include mq(M) {
-		@include span(1 of 2 last);
-	}
-
-	h3 {
-		@include font-size(16);
-		text-transform: uppercase;
-		margin: 0 0 .5em;
-	}
-
-	.button__list li {
-    	padding-left: 0;
-	}
-
+.resource__details {
+	margin-bottom: spacing(4);
 }
