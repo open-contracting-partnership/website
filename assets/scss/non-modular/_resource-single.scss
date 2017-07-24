@@ -10,3 +10,11 @@
 .resource__details {
 	margin-bottom: spacing(4);
 }
+
+.resource-single__button {
+
+	@include mq(400, 'max-width') {
+		display: block;
+	}
+
+}
