@@ -1,0 +1,8 @@
+.vue-load__component {
+	opacity: 1;
+	transition: opacity .75s ease;
+}
+
+.vue-loading .vue-load__component {
+	opacity: 0;
+}

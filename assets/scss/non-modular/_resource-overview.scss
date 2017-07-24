@@ -277,18 +277,23 @@ body.resource-open {
 }
 
 .resource__meta {
-	@include font('secondary', 'medium');
+
 	@include font-size(14);
 	text-transform: uppercase;
-	letter-spacing: 1px;
-	position: relative;
-	padding-right: em(80, 14);
-}
+	margin-bottom: spacing(2);
 
-.resource__published-date {
-	position: absolute;
-	right: 0;
-	top: 0;
+	@include mq(M) {
+		margin-bottom: spacing(8);
+	}
+
+	@include mq(L) {
+		margin-bottom: spacing(5);
+	}
+
+	p {
+		margin-bottom: 0;
+	}
+
 }
 
 .resource hr {

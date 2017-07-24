@@ -33,6 +33,7 @@ category:
 	@include font-size(17);
 	@extend .cf;
 	text-transform: uppercase;
+	margin-bottom: spacing(.5);
 }
 
 .tag-list__title {

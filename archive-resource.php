@@ -22,7 +22,7 @@
 
 	?>
 
-	<div id="resources" class="resources-overview">
+	<div id="resources" class="resources-overview / vue-loading">
 
 		<div class="resource__header">
 
@@ -35,7 +35,7 @@
 
 				<div class="resource-filter__container" v-bind:class="{ active: display_filter === true }">
 
-					<div class="resource-filter__controls">
+					<div class="resource-filter__controls / vue-load__component">
 
 						<a href="#reset-filter" v-show="isFiltered" v-on:click.prevent="reset()"><?php _e('Reset Filter', 'ocp'); ?></a>
 						<a href="#open-filter" v-show="display_filter === false" v-on:click.prevent="display_filter = true"><?php _e('Filter', 'ocp'); ?></a>
@@ -48,7 +48,7 @@
 
 					<div class="resource-filter__inner">
 
-						<label class="resource-filter / custom-checkbox" v-for="resource_type in resource_types">
+						<label class="resource-filter / custom-checkbox / vue-load__component" v-for="resource_type in resource_types">
 
 							<input type="checkbox" value="{{ resource_type.slug }}" v-model="filter_resource_type" />
 
@@ -74,19 +74,19 @@
 
 			<div v-if="visibleResources.length" class="resources-container">
 
-				<div v-for="resource in visibleResources" v-on:click="openResource(resource, $event)" class="card card--primary">
+				<div v-for="resource in visibleResources" v-on:click="openResource(resource, $event)" class="card card--primary / vue-load__component">
 					<resource :resource="resource"></resource>
 				</div>
 
 			</div>
 
-			<p v-else><?php _e('No resources available to display', 'ocp'); ?></p>
+			<p v-else class="vue-load__component"><?php _e('No resources available to display', 'ocp'); ?></p>
 
 		</div>
 
 		<div class="resource__overlay" v-if="open_resource !== null" transition="resource" v-on:click.prevent="closeResource()"></div>
 
-		<div class="resource" v-if="open_resource !== null" transition="resource">
+		<div class="resource / vue-load__component" v-if="open_resource !== null" transition="resource">
 
 			<div class="resource-title">
 				<svg><use xlink:href="#icon-resource" /></svg>
@@ -360,6 +360,17 @@
 						string = string.replace('&nbsp;', ' ');
 						return encodeURIComponent(string);
 					}
+
+				},
+
+				ready: function() {
+
+					setTimeout(function() {
+
+						// remove the vue loading class, blocking access to the output
+						$(this.$el).removeClass('vue-loading');
+
+					}.bind(this), 250);
 
 				}
 

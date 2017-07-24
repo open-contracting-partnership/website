@@ -67,6 +67,10 @@ category:
 
 */
 
+.button--small {
+	padding: em(4, 14) em(15, 14);
+}
+
 .button--large {
 	@include font-size(18);
 	padding: em(15, 18) em(25, 18);
@@ -156,6 +160,7 @@ category:
 	li {
 		float: left;
 		margin: 0 em(10) em(10) 0;
+		padding: 0;
 		list-style-type: none;
 	}
 
