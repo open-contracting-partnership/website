@@ -7,51 +7,58 @@ category:
 ---
 
 ```html
-<p class="tag-list">
+<ul class="tag-list">
 
-	<span class="tag-list__title">Region: </span>
+	<li class="tag-list__title">Region: </li>
 
-	<span class="tag-list__item">
+	<li>
 		<a href="#">Region 1</a>
-	</span>
+	</li>
 
-	<span class="tag-list__item">
+	<li>
 		<a href="#">Region 2</a>
-	</span>
+	</li>
 
-	<span class="tag-list__item">
+	<li>
 		<a href="#">Region 3</a>
-	</span>
+	</li>
 
-</p>
+</ul>
 ```
 
 */
 
-/* p */ .tag-list {
+.tag-list {
 	@include font('secondary');
 	@include font-size(17);
 	@extend .cf;
 	text-transform: uppercase;
-	margin-bottom: spacing(.5);
+	margin: 0 0 spacing(.5) 0;
+	padding: 0;
+	list-style: none;
 }
 
-.tag-list__title {
-	@include font('secondary', 'medium');
+.tag-list li {
+
 	float: left;
+	display: flex;
+	padding: 0;
+	margin: 0;
+
+	&:not(:last-child) {
+		margin-right: .25em;
+	}
+
 }
 
 .tag-list a {
 	color: currentColor;
-	margin-left: .25em;
-	float: left;
 }
 
-.tag-list__item {
-	float: left;
-}
-
-.tag-list__item:not(:last-child)::after {
+.tag-list li:not(:first-child):not(:last-child)::after {
 	content: ', ';
-	float: left;
+}
+
+.tag-list__title {
+	@include font('secondary', 'medium');
 }

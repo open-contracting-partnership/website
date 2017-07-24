@@ -133,35 +133,35 @@
 
 			<div class="band band--extra-thick">
 
-				<p class="tag-list" v-if="hasTerms(open_resource.taxonomies['region'])">
+				<ul class="tag-list" v-if="hasTerms(open_resource.taxonomies['region'])">
 
-					<span class="tag-list__title"><?php _e('Region', 'ocp'); ?>:</span>
+					<li class="tag-list__title"><?php _e('Region', 'ocp'); ?>:</li>
 
-					<span class="tag-list__item" v-for="region in open_resource.taxonomies['region']">
+					<li v-for="region in open_resource.taxonomies['region']">
 						<a href="/region/{{ $key }}">{{{ region }}}</a>
-					</span>
+					</li>
 
-				</p>
+				</ul>
 
-				<p class="tag-list" v-if="hasTerms(open_resource.taxonomies['issue'])">
+				<ul class="tag-list" v-if="hasTerms(open_resource.taxonomies['issue'])">
 
-					<span class="tag-list__title"><?php _e('Issue', 'ocp'); ?>:</span>
+					<li class="tag-list__title"><?php _e('Issue', 'ocp'); ?>:</li>
 
-					<span class="tag-list__item" v-for="issue in open_resource.taxonomies['issue']">
+					<li v-for="issue in open_resource.taxonomies['issue']">
 						<a href="/issue/{{ $key }}">{{{ issue }}}</a>
-					</span>
+					</li>
 
-				</p>
+				</ul>
 
-				<p class="tag-list" v-if="hasTerms(open_resource.taxonomies['open-contracting'])">
+				<ul class="tag-list" v-if="hasTerms(open_resource.taxonomies['open-contracting'])">
 
-					<span class="tag-list__title"><?php _e('OC Framework', 'ocp'); ?>:</span>
+					<li class="tag-list__title"><?php _e('OC Framework', 'ocp'); ?>:</li>
 
-					<span class="tag-list__item" v-for="open_contracting in open_resource.taxonomies['open-contracting']">
+					<li v-for="open_contracting in open_resource.taxonomies['open-contracting']">
 						<a href="/open-contracting/{{ $key }}">{{{ open_contracting }}}</a>
-					</span>
+					</li>
 
-				</p>
+				</ul>
 
 			</div>
 
