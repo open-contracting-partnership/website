@@ -12,23 +12,39 @@
 
 }
 
-.page__wrapper {
+%page--margin-top {
 
-	@extend .wrapper;
-	position: relative;
 	margin-top: spacing(5);
-	margin-bottom: spacing(8);
 
 	@include mq(M) {
 	    margin-top: spacing(7);
-	    margin-bottom: spacing(12);
 	}
 
 	@include mq(L) {
 	    margin-top: spacing(9);
-	    margin-bottom: spacing(15);
 	}
 
+}
+
+%page--margin-bottom {
+
+	margin-bottom: spacing(8);
+
+	@include mq(M) {
+		margin-bottom: spacing(12);
+	}
+
+	@include mq(L) {
+		margin-bottom: spacing(15);
+	}
+
+}
+
+.page__wrapper {
+	@extend .wrapper;
+	position: relative;
+	@extend %page--margin-top;
+	@extend %page--margin-bottom;
 }
 
 // ONE COLUMN
