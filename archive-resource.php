@@ -95,8 +95,13 @@
 			<h1 class="gamma">{{{ open_resource.title }}}</h1>
 
 			<p class="resource__meta">
+
 				<span class="resource__published-date">{{ open_resource.custom.year }}</span>
-				By {{ open_resource.fields.organisation}}
+
+				<span v-if="resource.fields.organisation !== ''">
+					By {{ open_resource.fields.organisation}}
+				</span>
+
 			</p>
 
 			<p v-if="open_resource.fields.attachments">
