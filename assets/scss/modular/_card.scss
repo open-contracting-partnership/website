@@ -86,6 +86,7 @@
 	background-color: color('brand');
 	padding: .125em .42em;
 	margin-right: .5em;
+	text-transform: uppercase;
 
 	@each $post-type, $colour in $post-types {
 
