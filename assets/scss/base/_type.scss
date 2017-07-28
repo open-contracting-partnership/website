@@ -112,6 +112,10 @@ article {
 		margin-bottom: line-height-adjust(32px, 1.6);
 	}
 
+	img {
+		margin-bottom: spacing(4);
+	}
+
 	// we only want to direct children of the article
 	> section > {
 
