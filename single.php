@@ -9,7 +9,23 @@
 		<div class="post-hero">
 
 			<?php if ( $hero = get_field('hero_image') ) : ?>
-				<img src="<?php echo $hero['sizes']['21x9_1440']; ?>" />
+
+				<?php
+
+					$url = imgix::source('url', $hero['url'])
+						->options([
+							'crop' => 'faces',
+							'fit' => 'crop',
+							'w' => 1440,
+							'h' => 1440 / (21 / 9),
+							'fm' => 'pjpg'
+						])
+						->url();
+
+				?>
+
+				<img src="<?php echo $url; ?>" />
+
 			<?php endif; ?>
 
 		</div>

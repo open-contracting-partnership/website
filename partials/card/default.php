@@ -13,7 +13,23 @@
 		<div class="card__header">
 
 			<?php if ( has_post_thumbnail() ) : ?>
-				<img class="card__featured-media" src="<?php echo get_the_post_thumbnail_url(NULL, '21x9_768'); ?>" />
+
+				<?php
+
+					$url = imgix::source('featured')
+						->options([
+							'crop' => 'faces',
+							'fit' => 'crop',
+							'w' => 768,
+							'h' => 768 / (21 / 9),
+							'fm' => 'pjpg'
+						])
+						->url();
+
+				?>
+
+				<img class="card__featured-media" src="<?php echo $url; ?>" />
+
 			<?php else : ?>
 				<img class="card__featured-media" src="<?php bloginfo('template_directory'); ?>/assets/img/fallback.jpg" />
 			<?php endif; ?>
