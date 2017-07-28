@@ -33,3 +33,9 @@ add_aspect_ratio('4x3', 460, 4, 3);
 add_aspect_ratio('16x9', 690, 16, 9);
 add_aspect_ratio('16x9', 768, 16, 9);
 add_aspect_ratio('16x9', 930, 16, 9);
+
+add_aspect_ratio('21x9', 460, 21, 9);
+add_aspect_ratio('21x9', 768, 21, 9);
+add_aspect_ratio('21x9', 970, 21, 9);
+add_aspect_ratio('21x9', 1200, 21, 9);
+add_aspect_ratio('21x9', 1440, 21, 9);

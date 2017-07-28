@@ -47,7 +47,7 @@
 		<?php endif; ?>
 
 		<p class="card__meta">
-			<time class="card__date" datetime="2001-05-15T19:00"><?php OCP::the_date(); ?></time>
+			<time class="card__date"><?php OCP::the_date(); ?></time>
 			<span class="card__author">By <?php the_authors(FALSE); ?></span>
 		</p>
 

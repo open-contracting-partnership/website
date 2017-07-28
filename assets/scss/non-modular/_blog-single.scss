@@ -1,182 +1,62 @@
 .single-post,
 .single-news {
 
-	.blog__title {
-		padding-top: 7.5rem;
-		position: relative;
-
-		@include mq(M) {
-			@include span(8 at 4 of 12 last);
-		}
-
-		@include mq(L) {
-			@include span(6 at 4 of 12 last);
-			margin-right: span(2 of 12) + gutter();
-		}
-
-		&:before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: -100vw;
-			bottom: 0;
-			width: 200vw;
-			z-index: -1;
-			background-color: color('brand-dark');
-		}
+	.post-hero {
+		max-width: 1440px;
+		margin: 0 auto;
 	}
 
-	.post-type {
-		@include font('secondary', 'bold');
-		@include font-size(14);
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		color: color('white');
-		border: 1px solid;
-		margin-bottom: .75em;
-		padding: .35714em .57143em;
-		display: inline-block;
+	.page-content > section {
+		margin-bottom: spacing(8);
 	}
 
-	@include mq(L) {
-
-		.post-content .wp-post-image {
-			max-width: none;
-			width: 110%;
-			margin-left: -5%;
-			margin-right: -5%;
-		}
-
-	}
-
-	h1 {
-
-		color: color('white');
-		padding-bottom: 1.4em;
-
-		@include mq(M) {
-			padding-bottom: 0;
-		}
-
-	}
-
-	article {
-		margin-bottom: 6em;
-
-		> section {
-
-			@include mq(M) {
-
-				@include span(8 of 12 last);
-				margin-top: 2em;
-
-				article.post--has-thumbnail & {
-					margin-top: -2rem;
-				}
-
-			}
-
-			@include mq(L) {
-				@include span(6 at 4 of 12 last);
-				margin-right: span(2 of 12) + gutter();
-			}
-
-			> img {
-				margin-bottom: 2.2em;
-				background-color: color('white');
-			}
-
-		}
-
-		aside {
-
-			@include mq(M) {
-				@include span(4 of 12 first);
-			}
-
-			@include mq(L) {
-				@include span(3 of 12 first);
-			}
-
-		}
-
+	.comment-respond {
+		margin-bottom: spacing(8);
 	}
 
 	.related-posts {
+
 		@include break;
-	}
-
-}
-
-.blog__mobile-date {
-
-	@include mq(M) {
-		display: none;
-	}
-
-}
-
-
- //**************
-// RELATED POSTS
-
-.related-posts {
-
-	border-top: 1px solid color('lighter-grey');
-
-	h2 {
-		text-transform: uppercase;
-		margin: em(55) 0;
-		text-align: center;
-	}
-
-}
-
-.yarpp-related {
-
-	display: flex;
-	flex-wrap: wrap;
-
-	margin-bottom: em(108);
-
-	.post-object {
 
 		@include mq(M) {
 
-			@include span(6 of 12);
-
-			&:nth-of-type(2n) {
-				@include last;
-			}
-
-			&:nth-of-type(2n+1) {
-				@include break;
+			.card {
+				@include col(4, 12);
+				margin-bottom: 0;
 			}
 
 		}
 
-		@include mq(L) {
+	}
 
-			@include span(4 of 12);
+	.post-meta {
 
-			&:nth-of-type(2n) {
-				@include span(4 of 12);
-			}
+		@include mq(M, 'max-width') {
 
-			&:nth-of-type(2n+1) {
-				@include nobreak;
-			}
-
-			&:nth-of-type(3n) {
-				@include last;
-			}
-
-			&:nth-of-type(3n+1) {
-				@include break;
+			.post-meta__tags,
+			.post-meta__share {
+				margin-bottom: spacing(4);
 			}
 
 		}
 
+		@include mq(M) {
+
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: spacing(12);
+
+			.post-meta__tags {
+				flex: 0 0 50%;
+			}
+
+		}
+
+	}
+
+	.yarpp-related {
+		display: flex;
+		flex-wrap: wrap;
 	}
 
 }
