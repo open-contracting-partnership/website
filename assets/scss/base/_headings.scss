@@ -170,6 +170,11 @@ h6,
 	}
 }
 
+.eta {
+	@include font-size(16);
+	text-transform: uppercase;
+}
+
 /*
 
 ---
@@ -207,7 +212,7 @@ category:
 		height: 2px;
 		background-color: color('brand');
 	}
-	
+
 }
 
 .border-top--clean {
