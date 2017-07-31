@@ -627,7 +627,16 @@ category:
 */
 
 .card--event {
+
 	flex-direction: row;
+	text-decoration: none;
+
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none;
+	}
+
 }
 
 .card-event__date {

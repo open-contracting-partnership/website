@@ -149,7 +149,7 @@
 
 			<template id="event-template">
 
-				<div class="card card--event">
+				<a href="{{event.link}}" class="card card--event">
 
 				    <div class="card-event__date">
 				        <span class="card-event__day">{{ event.custom.day }}</span>
@@ -160,7 +160,7 @@
 				        <h6 class="card__heading">{{{ event.title }}}</h6>
 				    </div>
 
-				</div>
+				</a>
 
 			</template>
 
