@@ -69,6 +69,7 @@
 	margin: 2rem 0 4.5rem;
 
 	li {
+
 		margin: 0;
 
 		&:after {
@@ -81,6 +82,11 @@
 		&:last-child:after {
 			display: none;
 		}
+
+		&:last-child a {
+			@include font('secondary', 'bold');
+		}
+
 	}
 
 	a {
