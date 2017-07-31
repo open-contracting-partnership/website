@@ -195,7 +195,7 @@
 
 							var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 
-							if ( width > 1100 ) {
+							if ( width >= 768 ) {
 								event.preventDefault();
 								this.open_event = selected_event;
 							}

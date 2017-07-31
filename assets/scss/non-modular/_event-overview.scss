@@ -40,8 +40,14 @@
 
 .post-type-archive-event .archive-content__posts {
 
+	@include mq(M) {
+		@include span(4 of 12 first);
+		padding-right: $space;
+	}
+
 	@include mq(L) {
 		@include span(3 of 12 first);
+		padding-right: 0;
 	}
 
 }
@@ -49,10 +55,14 @@
 .archive-event__view {
 	display: none;
 
+	@include mq(M) {
+		@include span(8 of 12 last);
+		display: block;
+	}
+
 	@include mq(L) {
 		@include span(7 of 12);
 		@include push(1 of 12);
-		display: block;
 	}
 }
 
