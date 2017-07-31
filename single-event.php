@@ -16,6 +16,8 @@
 
 		<article class="cf">
 
+			<?php get_partial('navigation', 'breadcrumbs'); ?>
+
 			<section class="open-event">
 
 				<div class="event__title">
