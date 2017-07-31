@@ -12,7 +12,7 @@
 
 	?>
 
-	<div class="wrapper">
+	<div class="wrapper page__wrapper">
 
 		<article class="cf">
 
