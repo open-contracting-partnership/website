@@ -69,7 +69,13 @@
 .open-event {
 
 	h1 {
+
 		margin-bottom: 8px;
+
+		.single-event & {
+			margin-top: 0;
+		}
+
 	}
 
 	.event__meta {
