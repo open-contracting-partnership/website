@@ -70,6 +70,7 @@
 
 	h1 {
 
+		@include font('secondary', 'medium');
 		margin-bottom: 8px;
 
 		.single-event & {
