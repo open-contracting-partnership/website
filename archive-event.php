@@ -97,8 +97,6 @@
 
 				</div>
 
-				<hr>
-
 				<div class="band band--extra-thick">
 
 					<div v-if="hasTerms(open_event.taxonomies['region'])" class="event__terms">

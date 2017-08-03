@@ -121,6 +121,11 @@
 	color: color('background');
 	margin-bottom: 16px;
 
+	&:first-of-type {
+		border-top: 1px solid color('lighter-grey');
+		padding-top: 32px;
+	}
+
 	a {
 		color: currentColor;
 	}
