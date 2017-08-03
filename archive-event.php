@@ -196,8 +196,12 @@
 							var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 
 							if ( width >= 768 ) {
+
 								event.preventDefault();
 								this.open_event = selected_event;
+
+								history.pushState({event_id: selected_event.id}, null, selected_event.slug);
+
 							}
 
 						}
@@ -225,6 +229,22 @@
 				}
 
 				event_vue.open_event = event_vue.events[event_index];
+
+				window.addEventListener('popstate', function(event) {
+
+					if ( event.state && typeof event.state.event_id !== 'undefined' ) {
+
+						// filter the events to match by id
+						var result = $.grep(event_vue.events, function(e){ return e.id == event.state.event_id; });
+
+						// if an event is returned, set the open event
+						if ( result.length ) {
+							event_vue.open_event = result[0];
+						}
+
+					}
+
+				});
 
 			</script>
 
