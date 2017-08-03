@@ -16,7 +16,9 @@
 
 		<article class="cf">
 
-			<?php get_partial('navigation', 'breadcrumbs'); ?>
+			<div class="band">
+				<a href="/events" class="text-button button--icon"><svg><use xlink:href="#icon-arrow-left" /></svg>Back to events</a>
+			</div>
 
 			<section class="open-event">
 
