@@ -656,6 +656,11 @@ category:
 		background-color: post-color('event');
 	}
 
+	.post-object--event-past.active .card--event &,
+	.post-object--event-past .card--event:hover & {
+		background-color: color('grey');
+	}
+
 }
 
 .card-event__day,
@@ -671,6 +676,10 @@ category:
 	.active .card--event &,
 	.card--event:hover & {
 		color: color('white');
+	}
+
+	.post-object--event-past & {
+		color: color('grey');
 	}
 
 }
