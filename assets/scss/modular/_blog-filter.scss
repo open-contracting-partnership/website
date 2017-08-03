@@ -1,0 +1,97 @@
+/*
+
+---
+name: Blog Filter
+category:
+ - Components
+ - Components/Blog Filter
+---
+
+```html
+<div class="blog-filter">
+
+	<span>I'd like to see more blogs about <strong>Open Contracting</strong> and </span>
+
+	<span class="blog-filter__options">
+
+		<span class="blog-filter__label">select&nbsp;a&nbsp;filter</span>
+
+		<svg><use xlink:href="#icon-arrow-down"></svg>
+
+		<ul class="blog-filter__list / nav">
+			<li><a href="#">Open Data</a></li>
+			<li><a href="#">Anticorruption</a></li>
+			<li><a href="#">Open Government</a></li>
+		</ul>
+
+	</span>
+
+</div>
+
+<!-- only used to pad out the style guide preview -->
+<div class="band--double-thick">&nbsp;</div>
+```
+
+*/
+
+.blog-filter {
+
+	@include font-size(20);
+	@include font('primary', 'light');
+
+	@include mq(M) {
+		@include font-size(32);
+	}
+
+	strong {
+		@include font('primary');
+	}
+
+}
+
+.blog-filter__options {
+	@include font('primary');
+	border-bottom: 2px solid color('brand');
+	cursor: pointer;
+	position: relative;
+}
+
+.blog-filter__options > svg {
+	position: absolute;
+	width: 10px;
+	height: 5px;
+	top: .7em;
+	right: calc(-10px + #{em(-6, 32)});
+}
+
+.blog-filter__list {
+
+	@include font-size(16);
+	position: absolute;
+	top: 120%;
+	left: 0;
+	background-color: color('brand-mid');
+	color: color('white');
+	z-index: 1;
+
+	li {
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+
+		color: currentColor;
+		display: block;
+		padding: spacing(.5) spacing(2);
+
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration: none;
+			background-color: lighten(color('brand-mid'), 3%);
+		}
+
+	}
+
+}

@@ -40,9 +40,35 @@
 			'fields' => 'all'
 		]));
 
+		$popular_tags = get_terms('post_tag', [
+			'orderby' => 'count',
+			'order' => 'DESC',
+			'number' => 40
+		]);
+
 	?>
 
 	<div id="blog-posts" class="wrapper / blog__container">
+
+		<div class="blog-filter">
+
+			<span>I'd like to see more blogs about <strong>Open Contracting</strong> and </span>
+
+			<span class="blog-filter__options">
+
+				<span class="blog-filter__label" v-on:click.stop="filter.open = ! filter.open">{{{ filterTitle }}}</span>
+
+				<svg><use xlink:href="#icon-arrow-down"></svg>
+
+				<ul class="blog-filter__list / nav" v-show="filter.open === true">
+					<li><a href="#" v-on:click.prevent.stop="resetFilter()">Everything</a></li>
+					<li v-for="tag in filter.options"><a href="#" v-on:click.prevent.stop="setFilter(tag)">{{ tag.name }}</a></li>
+				</ul>
+
+			</span>
+
+		</div>
+
 
 		<?php $exclude_ids = []; ?>
 
@@ -280,6 +306,10 @@
 
 			}));
 
+			$('body').on('click', function() {
+				posts.filter.open = false;
+			});
+
 		});
 
 	</script>
@@ -312,7 +342,11 @@
 				posts: <?php echo json_encode($blog_posts); ?>,
 				issue_terms: <?php echo json_encode($issue_terms); ?>,
 				// filters
-				filter_issue: [],
+				filter: {
+					open: false,
+					selected: '',
+					options: <?php echo json_encode($popular_tags); ?>,
+				},
 				// limits
 				limit: 12
 			},
@@ -340,6 +374,16 @@
 					});
 
 					return posts.slice(0, this.limit);
+				},
+
+				filterTitle: function() {
+
+ 					if ( ! this.filter.selected ) {
+						return 'select&nbsp;a&nbsp;filter';
+					} else {
+						return this.filter.selected.name.replace(new RegExp(' ', 'g'), '&nbsp;');
+					}
+
 				}
 
 			},
@@ -377,6 +421,16 @@
 					}
 
 
+				},
+
+				setFilter: function(filter) {
+					this.filter.selected = filter;
+					this.filter.open = false;
+				},
+
+				resetFilter: function() {
+					this.filter.selected = null;
+					this.filter.open = false;
 				},
 
 				hasTerms: function(taxonomy) {
