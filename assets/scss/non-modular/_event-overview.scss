@@ -128,5 +128,9 @@
 
 	a {
 		color: currentColor;
+
+		&:not(:last-of-type)::after {
+			content: ', ';
+		}
 	}
 }
