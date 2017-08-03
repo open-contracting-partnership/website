@@ -688,6 +688,7 @@ category:
 
 	@include font-size(16);
 	@include font('secondary', 'medium');
+	word-break: break-word;
 
 	a:hover,
 	a:active {
