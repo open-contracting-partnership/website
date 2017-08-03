@@ -10,7 +10,7 @@
 				'posts_per_page' => -1,
 				'meta_key'   => 'event_date',
 				'orderby'    => 'meta_value_num',
-				'order'      => 'DESC'
+				'order'      => 'ASC'
 			),
 			'taxonomies' => ['audience', 'region', 'country', 'issue', 'open-contracting'],
 			'fields' => ['event_date', 'event_location', 'organisation', 'attachments', 'link'],
@@ -32,6 +32,12 @@
 				},
 				'year' => function($vue_post) {
 					return date('Y', strtotime(get_field('event_date', $vue_post)));
+				},
+				'is_future' => function($vue_post) {
+					// checking against d-m-Y for an event starting today
+					$current_date = strtotime(date('d-m-Y'));
+					$event_date = strtotime(get_field('event_date', $vue_post));
+					return $current_date <= $event_date;
 				}
 			)
 		]);
@@ -55,10 +61,26 @@
 			<div v-if="events.length">
 
 				<div
-					v-for="event in events"
+					v-for="event in futureEvents"
 					class="post-object post-object--event post-object--event-clickable"
 					v-bind:class="{ 'active': open_event === event }"
 					v-on:click="openEvent(event, $event)"
+				>
+					<event :event="event"></event>
+				</div>
+
+				<span
+					class="archive-content__more"
+					v-if="!show_archived"
+					v-on:click="show_archived = true"
+				>View archived</span>
+
+				<div
+					v-for="event in pastEvents"
+					class="post-object post-object--event post-object--event-past post-object--event-clickable"
+					v-bind:class="{ 'active': open_event === event }"
+					v-on:click="openEvent(event, $event)"
+					v-show="show_archived"
 				>
 					<event :event="event"></event>
 				</div>
@@ -172,6 +194,12 @@
 					}
 				});
 
+				// allows v-for to pipe reverse
+				Vue.filter('reverse', function(value) {
+					// slice to make a copy of array, then reverse the copy
+					return value.slice().reverse();
+				});
+
 				var event_vue = new Vue({
 
 					el: '#events',
@@ -180,10 +208,41 @@
 						// data
 						events: <?php echo json_encode($events); ?>,
 						// open event
-						open_event: null
+						open_event: null,
+						show_archived: false
+					},
+
+					computed: {
+
+						futureEvents: function() {
+							return this.getEvents();
+						},
+
+						pastEvents: function() {
+							return this.getEvents(false).reverse();
+						}
+
 					},
 
 					methods: {
+
+						getEvents: function(is_future) {
+
+							is_future = typeof is_future === 'undefined' ? true : is_future;
+
+							var events = [];
+
+							this.events.forEach(function(event) {
+
+								if ( event.custom.is_future === is_future ) {
+									events.push(event);
+								}
+
+							});
+
+							return events;
+
+						},
 
 						hasTerms: function(taxonomy) {
 							return Object.keys(taxonomy).length > 0;
@@ -212,6 +271,8 @@
 				// check for a hash
 				// open appropriate event
 
+				var current_event = event_vue.futureEvents[0];
+
 				var event_index = 0;
 
 				if ( location.hash ) {
@@ -226,7 +287,11 @@
 
 				}
 
-				event_vue.open_event = event_vue.events[event_index];
+				if ( event_index !== 0 ) {
+					event_vue.open_event = event_vue.events[event_index];
+				} else {
+					event_vue.open_event = current_event;
+				}
 
 				window.addEventListener('popstate', function(event) {
 
