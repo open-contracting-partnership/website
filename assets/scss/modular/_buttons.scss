@@ -51,6 +51,43 @@ input[type="submit"] {
 
 }
 
+/*
+
+---
+name: Text Button
+category:
+ - Components
+ - Components/Text Button
+---
+
+```html
+<a href="#" class="text-button">Text button!</a>
+```
+
+*/
+
+.text-button {
+
+	@include font('primary', 'bold');
+	@include font-size(14);
+	display: inline-block;
+	text-decoration: none;
+	color: color('background');
+	cursor: pointer;
+	transition:
+		background-color .2s ease,
+		border-color .2s ease,
+		color .2s ease;
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: post-color('event');
+		text-decoration: none;
+	}
+
+}
+
 
 /*
 
