@@ -50,26 +50,6 @@
 
 	<div id="blog-posts" class="wrapper / blog__container">
 
-		<div class="blog-filter">
-
-			<span>I'd like to see more blogs about <strong>Open Contracting</strong> and </span>
-
-			<span class="blog-filter__options">
-
-				<span class="blog-filter__label" v-on:click.stop="filter.open = ! filter.open">{{{ filterTitle }}}</span>
-
-				<svg><use xlink:href="#icon-arrow-down"></svg>
-
-				<ul class="blog-filter__list / nav" v-show="filter.open === true">
-					<li><a href="#" v-on:click.prevent.stop="resetFilter()">Everything</a></li>
-					<li v-for="tag in filter.options"><a href="#" v-on:click.prevent.stop="setFilter(tag)">{{ tag.name }}</a></li>
-				</ul>
-
-			</span>
-
-		</div>
-
-
 		<?php $exclude_ids = []; ?>
 
 		<div class="blog__featured / band">
@@ -151,35 +131,22 @@
 
 		</div>
 
-		<div class="blog__popular-tags / band--extra-thick">
+		<div class="blog-filter">
 
-			<?php
+			<span>I'd like to see more blogs about <strong>Open Contracting</strong> and </span>
 
-				$popular_tags = get_terms('post_tag', [
-					'orderby' => 'count',
-					'order' => 'DESC',
-					'number' => 40
-				]);
+			<span class="blog-filter__options">
 
-			?>
+				<span class="blog-filter__label" v-on:click.stop="filter.open = ! filter.open">{{{ filterTitle }}}</span>
 
-			<?php if ( $popular_tags ) : ?>
+				<svg><use xlink:href="#icon-arrow-down"></svg>
 
-				<section>
+				<ul class="blog-filter__list / nav" v-show="filter.open === true">
+					<li><a href="#" v-on:click.prevent.stop="resetFilter()">Everything</a></li>
+					<li v-for="tag in filter.options"><a href="#" v-on:click.prevent.stop="setFilter(tag)">{{ tag.name }}</a></li>
+				</ul>
 
-					<h4 class="border-top border-top--clean"><?php _e('Popular Tags', 'ocp'); ?></h4>
-
-					<ul class="button__list">
-
-						<?php foreach ( $popular_tags as $popular_tag ) : ?>
-							<li><a href="<?php echo get_term_link($popular_tag); ?>" class="button button--tag"><?php echo $popular_tag->name; ?></a></li>
-						<?php endforeach; ?>
-
-					</ul>
-
-				</section>
-
-			<?php endif; ?>
+			</span>
 
 		</div>
 
