@@ -60,13 +60,15 @@
 
 			<div v-if="events.length">
 
-				<div
-					v-for="event in futureEvents"
-					class="post-object post-object--event post-object--event-clickable"
-					v-bind:class="{ 'active': open_event === event }"
-					v-on:click="openEvent(event, $event)"
-				>
-					<event :event="event"></event>
+				<div class="archive-content__future-events">
+					<div
+						v-for="event in futureEvents"
+						class="post-object post-object--event post-object--event-future post-object--event-clickable"
+						v-bind:class="{ 'active': open_event === event }"
+						v-on:click="openEvent(event, $event)"
+					>
+						<event :event="event"></event>
+					</div>
 				</div>
 
 				<span

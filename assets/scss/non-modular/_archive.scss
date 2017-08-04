@@ -42,6 +42,10 @@
 
 }
 
+.archive-content__future-events .post-object--event-future:last-child .card {
+	margin-bottom: 0;
+}
+
 .archive-content__more {
 	@include font;
 	@include font-size(12);
