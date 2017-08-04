@@ -97,96 +97,57 @@
 
 		</div>
 
-		<div class="blog__subscribe">
+		<div class="blog__recent-news / band">
 
-			<div class="blog__subscribe-container / band">
+			<h4 class="border-top border-top--clean"><?php _e('Recent News', 'ocp'); ?></h4>
 
-				<h4 class="border-top border-top--clean"><?php _e('Subscribe to our newsletter', 'ocp'); ?></h4>
-
-				<div class="js-subscribe">
-
-					<form class="flex-field" action="" method="post">
-						<input type="email" placeholder="<?php _e('Enter your email', 'ocp'); ?>" name="email" required>
-						<button><?php _e('Send', 'ocp'); ?></button>
-					</form>
-
-				</div>
+			<div class="blog__recent-news-items / cf">
 
 				<?php
 
-					$social_media = [];
-
-					if ( $facebook_url = get_field('facebook_url', 'options') ) {
-						$social_media[] = '<a href="' . $facebook_url . '" target="_blank">Facebook</a>';
-					}
-
-					if ( $twitter_url = get_field('twitter_url', 'options') ) {
-						$social_media[] = '<a href="' . $twitter_url . '" target="_blank">Twitter</a>';
-					}
-
-					if ( $linkedin_url = get_field('linkedin_url', 'options') ) {
-						$social_media[] = '<a href="' . $linkedin_url . '" target="_blank">LinkedIn</a>';
-					}
-
-				?>
-
-				<p class="blog__subscribe-follow"><?php _e('Follow us on', 'ocp'); ?> <?php echo implode(', ', $social_media); ?>, <?php _e('or subscribe to the'); ?> <a href="/feed"><?php _e('feed'); ?></a></p>
-
-			</div>
-
-			<div class="blog__recent-news / band">
-
-				<h4 class="border-top border-top--clean"><?php _e('Recent News', 'ocp'); ?></h4>
-
-				<div class="blog__recent-news-items / cf">
-
-					<?php
-
-						$recent_news_items = new query_loop([
-							'post_type' => 'news',
-							'posts_per_page' => 1
-						]);
-
-					?>
-
-					<?php foreach ( $recent_news_items as $recent_news ) : ?>
-						<?php get_partial('post-object', 'basic'); ?>
-					<?php endforeach; ?>
-
-				</div>
-
-			</div>
-
-			<div class="blog__event / band">
-
-				<?php
-
-					$upcoming_events = new query_loop([
-						'post_type' => 'event',
-						'posts_per_page' => 1,
-						'orderby'    => 'meta_value_num',
-						'order'      => 'ASC',
-						'meta_key' => ' event_date',
-						'meta_query' => array(
-							array(
-								'key' => 'event_date',
-								'value' => date('Ymd'),
-								'compare' => '>='
-							),
-						)
+					$recent_news_items = new query_loop([
+						'post_type' => 'news',
+						'posts_per_page' => 1
 					]);
 
 				?>
 
-				<h4 class="border-top border-top--blue border-top--clean"><?php _e('Upcoming Events', 'ocp'); ?></h4>
-
-				<?php foreach( $upcoming_events as $event ) : ?>
-					<?php get_partial('post-object', 'event'); ?>
+				<?php foreach ( $recent_news_items as $recent_news ) : ?>
+					<?php get_partial('post-object', 'basic'); ?>
 				<?php endforeach; ?>
 
-				<a class="view-more" href="/events"><?php _e('View all events', 'ocp'); ?></a>
-
 			</div>
+
+		</div>
+
+		<div class="blog__event / band">
+
+			<?php
+
+				$upcoming_events = new query_loop([
+					'post_type' => 'event',
+					'posts_per_page' => 1,
+					'orderby'    => 'meta_value_num',
+					'order'      => 'ASC',
+					'meta_key' => ' event_date',
+					'meta_query' => array(
+						array(
+							'key' => 'event_date',
+							'value' => date('Ymd'),
+							'compare' => '>='
+						),
+					)
+				]);
+
+			?>
+
+			<h4 class="border-top border-top--blue border-top--clean"><?php _e('Upcoming Events', 'ocp'); ?></h4>
+
+			<?php foreach( $upcoming_events as $event ) : ?>
+				<?php get_partial('post-object', 'event'); ?>
+			<?php endforeach; ?>
+
+			<a class="view-more" href="/events"><?php _e('View all events', 'ocp'); ?></a>
 
 		</div>
 
