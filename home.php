@@ -46,88 +46,77 @@
 			'number' => 40
 		]);
 
+		$exclude_ids = [];
+
+		// feature blog
+		$featured_blog = new query_loop([
+			'post_type' => 'post',
+			'posts_per_page' => 1,
+			'meta_query' => array(
+				array(
+					'key' => 'featured',
+					'value' => TRUE
+				)
+			)
+		]);
+
+		$exclude_ids += $featured_blog->post_ids;
+
+		// recent news
+		$recent_news = new query_loop([
+			'post_type' => 'news',
+			'posts_per_page' => 1
+		]);
+
+		// recent events
+		$upcoming_events = new query_loop([
+			'post_type' => 'event',
+			'posts_per_page' => 1,
+			'orderby'    => 'meta_value_num',
+			'order'      => 'ASC',
+			'meta_key' => ' event_date',
+			'meta_query' => array(
+				array(
+					'key' => 'event_date',
+					'value' => date('Ymd'),
+					'compare' => '>='
+				),
+			)
+		]);
+
 	?>
 
 	<div id="blog-posts" class="wrapper / blog__container">
 
-		<?php $exclude_ids = []; ?>
+		<div class="blog__header">
 
-		<div class="blog__featured / band">
+			<div class="blog__featured">
 
-			<?php
-
-				$featured_blog = new query_loop([
-					'post_type' => 'post',
-					'posts_per_page' => 1,
-					'meta_query' => array(
-						array(
-							'key' => 'featured',
-							'value' => TRUE
-						)
-					)
-				]);
-
-				$exclude_ids += $featured_blog->post_ids;
-
-			?>
-
-			<?php foreach ( $featured_blog as $featured_blog ) : ?>
-				<?php get_partial('post-object', 'featured'); ?>
-			<?php endforeach; ?>
-
-		</div>
-
-		<div class="blog__recent-news / band">
-
-			<h4 class="border-top border-top--clean"><?php _e('Recent News', 'ocp'); ?></h4>
-
-			<div class="blog__recent-news-items / cf">
-
-				<?php
-
-					$recent_news_items = new query_loop([
-						'post_type' => 'news',
-						'posts_per_page' => 1
-					]);
-
-				?>
-
-				<?php foreach ( $recent_news_items as $recent_news ) : ?>
-					<?php get_partial('post-object', 'basic'); ?>
-				<?php endforeach; ?>
+				<?php if ( load_post($featured_blog->query->posts) ) : ?>
+					<?php get_partial('card', 'featured', ['type_label' => 'Featured Blog']); ?>
+				<?php endif; ?>
 
 			</div>
 
-		</div>
+			<div class="blog__news">
 
-		<div class="blog__event / band">
+				<?php if ( load_post($recent_news->query->posts) ) : ?>
+					<?php get_partial('card', 'stripped', ['type_label' => 'Featured News']); ?>
+				<?php endif; ?>
 
-			<?php
+				<a class="view-more" href="/news"><?php _e('View all news', 'ocp'); ?></a>
 
-				$upcoming_events = new query_loop([
-					'post_type' => 'event',
-					'posts_per_page' => 1,
-					'orderby'    => 'meta_value_num',
-					'order'      => 'ASC',
-					'meta_key' => ' event_date',
-					'meta_query' => array(
-						array(
-							'key' => 'event_date',
-							'value' => date('Ymd'),
-							'compare' => '>='
-						),
-					)
-				]);
+			</div>
 
-			?>
+			<div class="blog__event">
 
-			<h4 class="border-top border-top--blue border-top--clean"><?php _e('Upcoming Events', 'ocp'); ?></h4>
+				<?php if ( load_post($upcoming_events->query->posts) ) : ?>
+					<?php get_partial('card', 'stripped', ['type_label' => 'Featured Event']); ?>
+				<?php endif; ?>
 
-			<?php foreach( $upcoming_events as $event ) : ?>
-				<?php get_partial('post-object', 'event'); ?>
-			<?php endforeach; ?>
+				<a class="view-more" href="/events"><?php _e('View all events', 'ocp'); ?></a>
 
-			<a class="view-more" href="/events"><?php _e('View all events', 'ocp'); ?></a>
+			</div>
 
 		</div>
 
