@@ -259,7 +259,7 @@
 								event.preventDefault();
 								this.open_event = selected_event;
 
-								history.pushState({event_id: selected_event.id}, null, selected_event.slug);
+								history.pushState({event_id: selected_event.id}, null, '#' + selected_event.slug);
 
 							}
 
