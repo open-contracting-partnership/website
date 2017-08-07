@@ -42,7 +42,7 @@
 
 	color: currentColor;
 
-	&:before {
+	&::before {
 		bottom: 0;
 		content: "";
 		left: 0;
