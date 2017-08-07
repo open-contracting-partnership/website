@@ -113,16 +113,13 @@
 
 }
 
+.blog__load-more {
 
- //*****
-// AUTHOR META
+	text-align: center;
 
-.blog__author-meta {
-
-	p a,
-	p {
-		@include font('secondary', 'medium');
-		@include font-size(18);
-		color: color('background');
+	.button {
+		width: 250px;
+		max-width: 100%;
 	}
+
 }

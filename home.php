@@ -184,7 +184,9 @@
 
 			</div> <!-- / .blog__post-items -->
 
-			<a href="#" class="button" v-on:click.prevent="increaseLimit()" v-if="hasNextPage">Load more</a>
+			<p class="blog__load-more">
+				<a href="#" class="button" v-on:click.prevent="increaseLimit()" v-if="hasNextPage">Load more</a>
+			</p>
 
 		</section>
 
