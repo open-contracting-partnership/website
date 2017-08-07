@@ -56,6 +56,12 @@
 
 }
 
+// style guide link area disable, uncomment for easier developer console inspection
+
+// .aigis-preview .card__link::before {
+// 	content: normal;
+// }
+
 .card__strap {
 	@extend p.smallest;
 	margin-top: spacing(2);
