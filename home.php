@@ -253,8 +253,6 @@
 				},
 
 				hasNextPage: function() {
-					console.log(this.visiblePosts.length);
-					console.log(this.limit);
 					return this.visiblePosts.length > this.limit;
 				},
 
