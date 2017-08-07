@@ -77,6 +77,12 @@
 					v-on:click="show_archived = true"
 				>View archived</span>
 
+				<span
+					class="archive-content__more"
+					v-if="show_archived"
+					v-on:click="show_archived = false"
+				>Hide archived</span>
+
 				<div
 					v-for="event in pastEvents"
 					class="post-object post-object--event post-object--event-past post-object--event-clickable"
