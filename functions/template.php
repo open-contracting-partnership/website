@@ -183,7 +183,7 @@ function get_posts_template($slug, $name = '', $posts = NULL) {
  * @param  integer $index
  * @return boolean
  */
-function load_post($posts, $index) {
+function load_post($posts, $index = 0) {
 
 	global $post;
 
