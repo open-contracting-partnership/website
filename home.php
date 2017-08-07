@@ -23,13 +23,27 @@
 				},
 				'thumbnail' => function() {
 
-					$image = get_the_post_thumbnail(NULL, '2x1_460');
+					$options = array(
+						'crop' => 'faces',
+						'fit' => 'crop',
+						'w' => 460,
+						'h' => 460 / (21 / 9),
+						'fm' => 'pjpg'
+					);
 
-					if ( trim($image) === '' ) {
-						$image = FALSE;
+					if ( has_post_thumbnail() ) {
+
+						return imgix::source('featured')
+							->options($options)
+							->url();
+
+					} else {
+
+						return imgix::source('url', get_bloginfo('template_directory') . '/assets/img/fallback.jpg')
+							->options($options)
+							->url();
+
 					}
-
-					return $image;
 
 				}
 			)
@@ -141,87 +155,44 @@
 
 		<section class="blog__posts / band band--thick">
 
-			<div class="posts-filter / band">
+			<div class="blog__post-items">
 
-				<div class="posts-filter__inner">
+				<div v-for="post in pagedPosts" class="card card--primary">
 
-					<a href="#" class="posts-filter__button"><svg><use xlink:href="#icon-filter" /></svg><?php _e('Filter Blogs & Updates', 'ocp'); ?></a>
+					<div class="card__header">
+						<img class="card__featured-media" v-bind:src="post.custom.thumbnail" />
+					</div>
 
-					<form action="#" class="posts-filter__form / custom-checkbox">
+					<div class="card__content">
 
-						<label v-for="issue in issue_terms">
+						<div class="card__title">
 
-							<input type="checkbox" value="{{ issue.slug }}" v-model="filter_issue" />
+							<h6 class="card__heading">
+								<a class="card__link" href="{{ post.link }}">{{{ post.title }}}</a>
+							</h6>
 
-							<span class="custom-checkbox__box">
-								<svg><use xlink:href="#icon-close"></svg>
-							</span>
+						</div>
 
-							{{ issue.name }}
+						<p class="card__meta">
+							<time class="card__date">{{ post.date }}</time>
+							<span class="card__author" v-if="post.custom.authors">By {{{ post.custom.authors }}}</span>
+						</p>
 
-						</label>
-
-					</form>
+					</div>
 
 				</div>
 
-			</div>
-
-			<div class="blog__post-items">
-
-				<a v-for="post in visiblePosts" class="post-object post-object--vertical" href="{{ post.link }}">
-					<post :post="post"></post>
-				</a>
-
 			</div> <!-- / .blog__post-items -->
+
+			<a href="#" class="button" v-on:click.prevent="increaseLimit()" v-if="hasNextPage">Load more</a>
 
 		</section>
 
 	</div> <!-- / .wrapper -->
 
-	<template id="post-template">
-
-		<div class="post-object__media">
-
-			<div class="post-object__media-wrapper">
-
-				<div class="content">
-
-					<img v-if="! hasThumbnail()" src="<?php bloginfo('template_directory'); ?>/assets/img/fallback.jpg" alt="">
-					<div v-else>
-						{{{ post.custom.thumbnail }}}
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- TODO: re-implement after redesign -->
-			<!-- <span class="post-object__tag-overlay post-object__tag--light">{{ post.custom.post_type }}</span> -->
-
-		</div>
-
-		<div class="post-object__content">
-			<p class="post-object__meta">{{{ post.custom.authors }}}&nbsp;&nbsp;{{ post.date }}</p>
-			<h4>{{{ post.title }}}</h4>
-		</div>
-
-	</template>
-
 	<script>
 
 		$(document).ready(function() {
-
-			var $window = $(window),
-				$main = $('main');
-
-			$(window).on('scroll', $.throttle(500, function() {
-
-				if ( ($window.scrollTop() + $window.height()) > ($main.position().top + $main.height()) - 500 ) {
-					posts.increaseLimit();
-				}
-
-			}));
 
 			$('body').on('click', function() {
 				posts.filter.open = false;
@@ -232,22 +203,6 @@
 	</script>
 
 	<script>
-
-		// register the grid component
-		Vue.component('post', {
-			template: '#post-template',
-			props: {
-				post: Object
-			},
-			methods: {
-
-				hasThumbnail: function() {
-					return !! this.post.custom.thumbnail;
-				}
-
-			}
-
-		});
 
 		// bootstrap the demo
 		var posts = new Vue({
@@ -290,7 +245,17 @@
 
 					});
 
-					return posts.slice(0, this.limit);
+					return posts;
+				},
+
+				pagedPosts: function() {
+					return this.visiblePosts.slice(0, this.limit);
+				},
+
+				hasNextPage: function() {
+					console.log(this.visiblePosts.length);
+					console.log(this.limit);
+					return this.visiblePosts.length > this.limit;
 				},
 
 				filterTitle: function() {

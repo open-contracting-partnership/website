@@ -81,18 +81,9 @@
 
 }
 
- //*************
-// POPULAR TAGS
-
-.blog__popular-tags {
-	@include break;
-	display: none;
-
-	@include mq(1024) {
-		display: block;
-	}
+.blog-filter {
+	margin-bottom: spacing(6);
 }
-
 
  //******
 // POSTS
@@ -102,40 +93,24 @@
 }
 
 .blog__post-items {
+
     display: flex;
 	flex-wrap: wrap;
 
-	.post-object {
+	.card {
+
 		width: 100%;
 
-		@include mq(M) {
-			@include span(3 of 6);
-
-			&:nth-child(2n) {
-				@include last;
-			}
-
-			&:nth-child(2n+1) {
-				@include break;
-			}
+		@include mq(M, L) {
+			@include col(3, 9);
 		}
 
 		@include mq(L) {
-			@include span(4 of 12);
-
-			&:nth-child(2n) {
-				@include span(4 of 12);
-			}
-
-			&:nth-child(3n) {
-				@include last;
-			}
-
-			&:nth-child(3n+1) {
-				@include break;
-			}
+			@include col(3, 12);
 		}
+
 	}
+
 }
 
 
