@@ -10,6 +10,7 @@
 	justify-content: space-between;
 	transition: box-shadow .3s ease;
 	margin-bottom: spacing(2);
+	z-index: 0;
 
 	@include mq(M) {
 		margin-bottom: spacing(4);
