@@ -184,8 +184,6 @@ $(document).ready(function() {
 
 	$('.nav--in-page a').on('click', function(event) {
 
-		event.preventDefault();
-
 		var $link = $(this),
 			$target = $($link.attr('href'));
 
