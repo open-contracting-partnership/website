@@ -52,6 +52,8 @@
 	color: color('grey');
 	text-transform: uppercase;
 	cursor: pointer;
+	display: block;
+	margin: .5rem 0;
 
 	&:focus {
 		color: post-color('event');
