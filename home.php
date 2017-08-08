@@ -13,7 +13,7 @@
 				'posts_per_page' => -1
 			),
 			'ignore' => ['content', 'excerpt', 'slug'],
-			'taxonomies' => ['issue'],
+			'taxonomies' => ['issue', 'post_tag'],
 			'custom' => array(
 				'authors' => function() {
 					return get_authors();
@@ -218,7 +218,7 @@
 				// filters
 				filter: {
 					open: false,
-					selected: '',
+					selected: null,
 					options: <?php echo json_encode($popular_tags); ?>,
 				},
 				// limits
@@ -227,8 +227,8 @@
 
 			watch: {
 
-				filter_issue: function() {
-					this.filter();
+				filterSlug: function() {
+					this.filterPosts();
 				}
 
 			},
@@ -258,6 +258,10 @@
 					return this.visiblePosts.length > this.limit;
 				},
 
+				filterSlug: function() {
+					return this.filter.selected !== null ? this.filter.selected.slug : null;
+				},
+
 				filterTitle: function() {
 
  					if ( ! this.filter.selected ) {
@@ -280,7 +284,7 @@
 
 				},
 
-				filter: function() {
+				filterPosts: function() {
 
 					// reset all resources
 
@@ -290,11 +294,11 @@
 
 					// apply issue filter
 
-					if ( this.filter_issue.length ) {
+					if ( this.filter.selected !== null ) {
 
 						this.posts.forEach(function(post, index) {
 
-							if ( intersection(Object.keys(post.taxonomies['issue']), this.filter_issue).length === 0 ) {
+							if ( Object.keys(post.taxonomies['post_tag']).indexOf(this.filter.selected.slug) === -1 ) {
 								post.display = false;
 							}
 
@@ -313,38 +317,12 @@
 				resetFilter: function() {
 					this.filter.selected = null;
 					this.filter.open = false;
-				},
-
-				hasTerms: function(taxonomy) {
-					return Object.keys(taxonomy).length > 0;
 				}
 
 			}
 
 		});
 
-		var intersection = function (a, b) {
-
-			var ai=0, bi=0;
-			var result = new Array();
-
-			while( ai < a.length && bi < b.length ) {
-
-				if      (a[ai] < b[bi] ){ ai++; }
-				else if (a[ai] > b[bi] ){ bi++; }
-				else {
-					result.push(a[ai]);
-					ai++;
-					bi++;
-				}
-
-			}
-
-			return result;
-
-		}
-
 	</script>
-
 
 <?php get_footer(); ?>
