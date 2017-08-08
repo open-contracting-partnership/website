@@ -22,6 +22,6 @@
 
 		<?php get_partial('page', 'strips'); ?>
 
-	</div> <!-- / .page--one-column -->>
+	</div> <!-- / .page--one-column -->
 
 <?php get_footer(); ?>
