@@ -104,6 +104,10 @@
 		stroke: post-color('event');
 	}
 
+	&.event__title--past svg {
+		stroke: color('light-grey');
+	}
+
 	time {
 		@include font('secondary');
 		@include font-size(17);

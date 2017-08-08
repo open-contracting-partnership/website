@@ -103,7 +103,7 @@
 
 			<div class="open-event" v-if="open_event !== null">
 
-				<div class="event__title">
+				<div class="event__title {{ ! open_event.custom.is_future ? 'event__title--past' : '' }}">
 					<svg><use xlink:href="#icon-event" /></svg>
 					<time v-if="open_event.custom.has_date">{{ open_event.custom.day }} {{ open_event.custom.long_month }} {{ open_event.custom.year }}</time>
 					<time v-else><span><?php _e('To Be Announced', 'ocp'); ?></span></time>

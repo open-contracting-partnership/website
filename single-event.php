@@ -10,6 +10,8 @@
 			$date = strtotime($date);
 		}
 
+		$current_date = strtotime(date('d-m-Y'));
+
 	?>
 
 	<div class="wrapper page__wrapper">
@@ -22,7 +24,7 @@
 
 			<section class="open-event">
 
-				<div class="event__title">
+				<div class="event__title <?php echo $current_date <= $date ? '' : 'event__title--past'; ?>">
 					<svg><use xlink:href="#icon-event" /></svg>
 					<?php if ( $date ) : ?>
 						<time><?php echo date('j', $date); ?><span><?php echo date('S', $date); ?></span> <?php echo date('F Y', $date); ?></time>
