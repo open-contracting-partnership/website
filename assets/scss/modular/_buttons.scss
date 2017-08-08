@@ -68,7 +68,7 @@ category:
 
 .text-button {
 
-	@include font('primary', 'bold');
+	@include font('primary');
 	@include font-size(14);
 	display: inline-block;
 	text-decoration: none;
@@ -82,8 +82,7 @@ category:
 	&:hover,
 	&:active,
 	&:focus {
-		color: post-color('event');
-		text-decoration: none;
+		text-decoration: underline;
 	}
 
 }
