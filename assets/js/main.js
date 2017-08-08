@@ -320,6 +320,7 @@ $(document).ready(function() {
 		initialSlide: $('.timeline-item').length - 5,
 		slidesToShow: 5,
 		slidesToScroll: 1,
+		swipeToSlide: true,
 		prevArrow: '<a href="#" class="slick-prev"><svg><use xlink:href="#icon-arrow-left"></svg>Previous</a>',
 		nextArrow: '<a href="#" class="slick-next">Next<svg><use xlink:href="#icon-arrow-right"></svg></a>',
 		responsive: [
