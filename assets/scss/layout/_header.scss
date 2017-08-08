@@ -75,9 +75,7 @@
 
 	@include mq(ML) {
 		display: block;
-		position: absolute;
-		top: 0;
-		right: 1em;
+		float: right;
 	}
 }
 
@@ -199,6 +197,10 @@
 		display: block;
 	}
 
+	.wrapper {
+		position: relative;
+	}
+
 	html.csspointerevents & {
 		display: block;
 		opacity: 0;
@@ -229,12 +231,16 @@
 .search__close {
 	@include font-size(20);
 	position: absolute;
-	top: 0;
-	right: 1.5em;
-	bottom: -1.3em;
+	top: 40%;
+	right: 1.7em;
+	transform: translateY(-50%);
 	width: 1em;
 	height: 1em;
 	margin: auto 0;
+
+	@include mq(1240) {
+		right: .5em;
+	}
 
 	svg {
 		width: 1em;

@@ -126,6 +126,38 @@
 						<use class="mobile-menu__close" xlink:href="#icon-close" />
 					</svg>
 
+					<div class="header-nav__side">
+
+						<div class="header-nav__side-item / header-language">
+							<?php do_action('wpml_add_language_selector'); ?>
+						</div>
+
+						<div class="header-nav__side-item / header-social">
+
+							<ul class="button__list button__social">
+
+								<?php if ( $facebook_url = get_field('facebook_url', 'options') ) : ?>
+									<li><a class="button" href="<?php echo $facebook_url; ?>" target="_blank"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
+								<?php endif; ?>
+
+								<?php if ( $linkedin_url = get_field('linkedin_url', 'options') ) : ?>
+									<li><a class="button" href="<?php echo $linkedin_url; ?>" target="_blank"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
+								<?php endif; ?>
+
+								<?php if ( $twitter_url = get_field('twitter_url', 'options') ) : ?>
+									<li><a class="button" href="<?php echo $twitter_url; ?>" target="_blank"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
+								<?php endif; ?>
+
+							</ul>
+
+						</div>
+
+						<div class="header-nav__side-item / header-search">
+							<a href="#" class="button"><svg><use xlink:href="#icon-search" /></svg></a>
+						</div>
+
+					</div>
+
 				</div> <!-- / .wrapper -->
 
 				<div class="header__search">
@@ -136,40 +168,8 @@
 							<input type="search" placeholder="Search" name="s" autocomplete="off">
 						</form>
 
-					</div>
+						<a href="#" class="search__close"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg></a>
 
-					<a href="#" class="search__close"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg></a>
-
-				</div>
-
-				<div class="header-nav__side">
-
-					<div class="header-nav__side-item / header-language">
-						<?php do_action('wpml_add_language_selector'); ?>
-					</div>
-
-					<div class="header-nav__side-item / header-social">
-
-						<ul class="button__list button__social">
-
-							<?php if ( $facebook_url = get_field('facebook_url', 'options') ) : ?>
-								<li><a class="button" href="<?php echo $facebook_url; ?>" target="_blank"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
-							<?php endif; ?>
-
-							<?php if ( $linkedin_url = get_field('linkedin_url', 'options') ) : ?>
-								<li><a class="button" href="<?php echo $linkedin_url; ?>" target="_blank"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
-							<?php endif; ?>
-
-							<?php if ( $twitter_url = get_field('twitter_url', 'options') ) : ?>
-								<li><a class="button" href="<?php echo $twitter_url; ?>" target="_blank"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
-							<?php endif; ?>
-
-						</ul>
-
-					</div>
-
-					<div class="header-nav__side-item / header-search">
-						<a href="#" class="button"><svg><use xlink:href="#icon-search" /></svg></a>
 					</div>
 
 				</div>
