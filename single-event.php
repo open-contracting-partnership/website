@@ -18,7 +18,7 @@
 
 		<article class="cf">
 
-			<div class="band">
+			<div class="band band--thin">
 				<a href="/events" class="text-button button--icon"><svg><use xlink:href="#icon-arrow-left" /></svg>Back to events</a>
 			</div>
 
