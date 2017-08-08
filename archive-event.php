@@ -44,7 +44,7 @@
 
 	?>
 
-	<div id="events" class="events-overview / page__wrapper">
+	<div id="events" v-cloak class="events-overview / page__wrapper">
 
 		<div class="page-title">
 

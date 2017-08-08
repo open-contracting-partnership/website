@@ -6,3 +6,7 @@
 .vue-loading .vue-load__component {
 	opacity: 0;
 }
+
+[v-cloak] {
+	display: none;
+}
