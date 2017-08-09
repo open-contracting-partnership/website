@@ -119,7 +119,7 @@
 
 			</div>
 
-			<div class="blog__news">
+			<div class="blog__featured-news">
 
 				<?php if ( load_post($featured_news->query->posts) ) : ?>
 					<?php get_partial('card', 'stripped', ['type_label' => 'Featured News']); ?>
@@ -129,7 +129,7 @@
 
 			</div>
 
-			<div class="blog__event">
+			<div class="blog__featured-event">
 
 				<?php if ( load_post($featured_events->query->posts) ) : ?>
 					<?php get_partial('card', 'stripped', ['type_label' => 'Featured Event']); ?>
