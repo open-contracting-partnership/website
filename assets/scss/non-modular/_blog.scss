@@ -124,3 +124,41 @@
 	}
 
 }
+
+.blog__container .update-panel {
+	margin-bottom: spacing(8);
+}
+
+.blog__news {
+
+	@include mq(M, 'max-width') {
+		margin-bottom: spacing(5);
+	}
+
+	@include mq(M, L) {
+		@include span(6 of 12);
+	}
+
+	@include mq(L) {
+
+		@include span(4 of 6);
+
+		.card {
+			@include col(4, 8);
+		}
+
+	}
+
+}
+
+.blog__events {
+
+	@include mq(M, L) {
+		@include span(5 of 12 last);
+	}
+
+	@include mq(L) {
+		@include span(2 of 6 last);
+	}
+
+}

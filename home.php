@@ -199,6 +199,40 @@
 
 		<?php get_partial('update', 'panel'); ?>
 
+		<div class="blog__news">
+
+			<div class="content-title">
+			    <span class="card__type" data-content-type="news">News</span>
+			    <a class="content-title__link" href="#">View all news</a>
+			</div>
+
+			<div class="blog__news-inner">
+
+				<?php foreach ( $recent_news as $news ) : ?>
+					<?php get_partial('card', 'stripped', ['type_label' => FALSE]); ?>
+				<?php endforeach; ?>
+
+			</div>
+
+		</div>
+
+		<div class="blog__events">
+
+			<div class="content-title">
+			    <span class="card__type" data-content-type="event">Events</span>
+			    <a class="content-title__link" href="#">View all events</a>
+			</div>
+
+			<div class="blog__events-inner">
+
+				<?php foreach ( $upcoming_events as $event ) : ?>
+					<?php get_partial('card', 'event'); ?>
+				<?php endforeach; ?>
+
+			</div>
+
+		</div>
+
 	</div> <!-- / .wrapper -->
 
 	<script>
