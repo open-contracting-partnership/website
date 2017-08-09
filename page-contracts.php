@@ -43,12 +43,12 @@
 					<thead>
 
 						<tr>
-							<th>Supplier</th>
+							<th>Phase</th>
 							<th>Title</th>
-							<th>Status</th>
-							<th>Start Date</th>
-							<th>End Date</th>
+							<th>Supplier</th>
+							<th>Date</th>
 							<th>Amount</th>
+							<th>Status</th>
 						</tr>
 
 					</thead>
@@ -60,12 +60,20 @@
 							<?php $currency = $contract->contract_currency ? ' ' . $contract->contract_currency : '' ?>
 
 							<tr>
-								<td><?php echo $contract->supplier_name ? $contract->supplier_name : '-'; ?></td>
+								<td><mark>[PHASE]</mark></td>
 								<td><?php echo $contract->contract_title ? $contract->contract_title : '-' ?></td>
-								<td><?php echo $contract->contract_status ? ucwords($contract->contract_status) : '-' ?></td>
-								<td><?php echo $contract->contract_start_date ? $contract->contract_start_date : '-' ?></td>
-								<td><?php echo $contract->contract_end_date ? $contract->contract_end_date : '-' ?></td>
+								<td><?php echo $contract->supplier_name ? $contract->supplier_name : '-'; ?></td>
+								<td>
+									<?php
+
+									echo $contract->contract_start_date ? $contract->contract_start_date : '-';
+									echo $contract->contract_start_date && $contract->contract_end_date ? ' -<br />' : '';
+									echo $contract->contract_end_date ? $contract->contract_end_date : '';
+
+									?>
+								</td>
 								<td data-value="<?php echo $contract->contract_amount; ?>"><?php echo $contract->contract_amount ? number_format($contract->contract_amount) . $currency : '-' ?></td>
+								<td><?php echo $contract->contract_status ? ucwords($contract->contract_status) : '-' ?></td>
 							</tr>
 
 						<?php endforeach; ?>
