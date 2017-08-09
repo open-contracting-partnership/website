@@ -27,6 +27,7 @@
 
 .page-strip__content {
 	@extend .page-content;
+	margin-bottom: 0;
 
 	> :last-child {
 		margin-bottom: 0;
