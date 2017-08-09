@@ -11,6 +11,9 @@
 $(document).ready(function() {
 
 
+	$('.page-content table').wrap('<div class="table-wrap" />');
+
+
 	$('#lang_choice_1').addClass('custom-select');
 
 
