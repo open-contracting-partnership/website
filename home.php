@@ -190,6 +190,8 @@
 
 		</section>
 
+		<?php get_partial('update', 'panel'); ?>
+
 	</div> <!-- / .wrapper -->
 
 	<script>
