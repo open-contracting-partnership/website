@@ -12,7 +12,7 @@
 
 <div class="card card--stripped">
 
-	<?php if ( $options->type !== FALSE ) : ?>
+	<?php if ( $options->type_label !== FALSE ) : ?>
 
 	    <p class="card__meta">
 	        <span class="card__type" data-content-type="<?php echo get_post_type(); ?>"><?php echo $options->type_label; ?></span>
