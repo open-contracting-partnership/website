@@ -5,10 +5,14 @@
 		<h3 class="update-panel__subscribe-title">Subscribe to our newsletter</h3>
 		<p>Sign up to out monthly email where you can recieve updates on our current work</p>
 
-		<form class="form--dark flex-field" action="" method="post">
-			<input type="email" placeholder="Enter your email" name="email" required="">
-			<button>Send</button>
-		</form>
+		<div class="js-subscribe">
+
+			<form class="form--dark flex-field" action="" method="post">
+				<input type="email" placeholder="Enter your email" name="email" required="">
+				<button>Send</button>
+			</form>
+
+		</div>
 
 	</div>
 
