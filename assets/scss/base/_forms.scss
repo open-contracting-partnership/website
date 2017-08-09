@@ -142,6 +142,22 @@ input[type="search"]::-webkit-search-results-button {
 }
 
 
+ //*****
+// DARK
+
+.form--dark {
+
+	input,
+	button,
+	button:hover,
+	button:active,
+	button:focus {
+		color: color('body');
+		background: color('white');
+	}
+
+}
+
  //*******************
 // PLACEHOLDER STYLES
 
