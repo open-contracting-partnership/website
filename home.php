@@ -13,7 +13,7 @@
 				'posts_per_page' => -1
 			),
 			'ignore' => ['content', 'excerpt', 'slug'],
-			'taxonomies' => ['issue', 'post_tag'],
+			'taxonomies' => ['issue'],
 			'custom' => array(
 				'authors' => function() {
 					return get_authors();
@@ -49,19 +49,6 @@
 			)
 		]);
 
-		$issue_terms = array_values(get_terms('issue', [
-			'post_type' => ['post', 'news'],
-			'fields' => 'all'
-		]));
-
-		$popular_tags = get_terms('post_tag', [
-			'orderby' => 'count',
-			'order' => 'DESC',
-			'number' => 40
-		]);
-
-		$exclude_ids = [];
-
 		// feature blog
 		$featured_blog = new query_loop([
 			'post_type' => 'post',
@@ -74,18 +61,38 @@
 			)
 		]);
 
-		$exclude_ids += $featured_blog->post_ids;
-
-		// recent news
-		$recent_news = new query_loop([
+		// featured news
+		$featured_news = new query_loop([
 			'post_type' => 'news',
 			'posts_per_page' => 1
 		]);
 
-		// recent events
-		$upcoming_events = new query_loop([
+		// recent news
+		$recent_news = new query_loop([
+			'post_type' => 'news',
+			'posts_per_page' => 6
+		]);
+
+		// featured events
+		$featured_events = new query_loop([
 			'post_type' => 'event',
 			'posts_per_page' => 1,
+			'orderby'    => 'meta_value_num',
+			'order'      => 'ASC',
+			'meta_key' => ' event_date',
+			'meta_query' => array(
+				array(
+					'key' => 'event_date',
+					'value' => date('Ymd'),
+					'compare' => '>='
+				),
+			)
+		]);
+
+		// upcoming events
+		$upcoming_events = new query_loop([
+			'post_type' => 'event',
+			'posts_per_page' => 4,
 			'orderby'    => 'meta_value_num',
 			'order'      => 'ASC',
 			'meta_key' => ' event_date',
@@ -114,7 +121,7 @@
 
 			<div class="blog__news">
 
-				<?php if ( load_post($recent_news->query->posts) ) : ?>
+				<?php if ( load_post($featured_news->query->posts) ) : ?>
 					<?php get_partial('card', 'stripped', ['type_label' => 'Featured News']); ?>
 				<?php endif; ?>
 
@@ -124,7 +131,7 @@
 
 			<div class="blog__event">
 
-				<?php if ( load_post($upcoming_events->query->posts) ) : ?>
+				<?php if ( load_post($featured_events->query->posts) ) : ?>
 					<?php get_partial('card', 'stripped', ['type_label' => 'Featured Event']); ?>
 				<?php endif; ?>
 
@@ -146,7 +153,7 @@
 
 				<ul class="blog-filter__list / nav" v-show="filter.open === true">
 					<li><a href="#" v-on:click.prevent.stop="resetFilter()">Everything</a></li>
-					<li v-for="tag in filter.options"><a href="#" v-on:click.prevent.stop="setFilter(tag)">{{ tag.name }}</a></li>
+					<li v-for="tag in filter.options"><a href="#" v-on:click.prevent.stop="setFilter(tag)">{{ tag.title }}</a></li>
 				</ul>
 
 			</span>
@@ -216,12 +223,11 @@
 			data: {
 				// data
 				posts: <?php echo json_encode($blog_posts); ?>,
-				issue_terms: <?php echo json_encode($issue_terms); ?>,
 				// filters
 				filter: {
 					open: false,
 					selected: null,
-					options: <?php echo json_encode($popular_tags); ?>,
+					options: {},
 				},
 				// limits
 				limit: 12
@@ -269,7 +275,7 @@
  					if ( ! this.filter.selected ) {
 						return 'select&nbsp;a&nbsp;filter';
 					} else {
-						return this.filter.selected.name.replace(new RegExp(' ', 'g'), '&nbsp;');
+						return this.filter.selected.title.replace(new RegExp(' ', 'g'), '&nbsp;');
 					}
 
 				}
@@ -300,14 +306,13 @@
 
 						this.posts.forEach(function(post, index) {
 
-							if ( Object.keys(post.taxonomies['post_tag']).indexOf(this.filter.selected.slug) === -1 ) {
+							if ( Object.keys(post.taxonomies['issue']).indexOf(this.filter.selected.slug) === -1 ) {
 								post.display = false;
 							}
 
 						}.bind(this));
 
 					}
-
 
 				},
 
@@ -320,6 +325,37 @@
 					this.filter.selected = null;
 					this.filter.open = false;
 				}
+
+			},
+
+			ready: function() {
+
+				this.posts.forEach(function(post, index) {
+
+					if ( Object.keys(post.taxonomies['issue']).length ) {
+
+						for ( var key in post.taxonomies['issue'] ) {
+
+							if ( typeof this.filter.options[key] === 'undefined' ) {
+
+								this.filter.options[key] = {
+									slug: key,
+									title: post.taxonomies['issue'][key],
+									count: 1
+								};
+
+							} else {
+								this.filter.options[key].count++;
+							}
+
+						}
+
+					}
+
+				}.bind(this));
+
+				// triggers two way data binding within vue
+				this.filter.options = Object.assign({}, this.filter.options);
 
 			}
 
