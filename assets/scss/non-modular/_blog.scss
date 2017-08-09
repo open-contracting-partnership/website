@@ -1,5 +1,6 @@
 .blog__container {
 	@extend %page--margin-top;
+	@extend %page--margin-bottom;
 }
 
 .blog__header {
