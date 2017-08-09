@@ -26,10 +26,16 @@
 }
 
 .page-strip__content {
-	@extend .page-content;
-	margin-bottom: 0;
+
+	@include break;
+
+	@include mq(L) {
+		@include span(8 of 12);
+		@include push(2 of 12);
+	}
 
 	> :last-child {
 		margin-bottom: 0;
 	}
+
 }
