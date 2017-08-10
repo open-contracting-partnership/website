@@ -25,13 +25,24 @@
 
 }
 
-.page-strip__content {
+.page-strip__media {
 
 	@include break;
 
 	@include mq(L) {
+		@include span(2 of 12);
+	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+
+}
+
+.page-strip__content {
+
+	@include mq(L) {
 		@include span(8 of 12);
-		@include push(2 of 12);
 	}
 
 	> :last-child {
