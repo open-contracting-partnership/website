@@ -31,19 +31,19 @@
 
 			<?php the_content(); ?>
 
-			<?php
-
-				global $wpdb;
-
-				$contracts = $wpdb->get_results('SELECT * FROM ocp_contracts');
-
-			?>
-
 		</article>
 
-		<section>
+		<?php
 
-			<?php if ( $contracts ) : ?>
+			global $wpdb;
+
+			$contracts = $wpdb->get_results('SELECT * FROM ocp_contracts');
+
+		?>
+
+		<?php if ( $contracts ) : ?>
+
+			<section class="table-wrap">
 
 				<table class="contracts-table">
 
@@ -89,9 +89,9 @@
 
 				</table>
 
-			<?php endif; ?>
+			</section>
 
-		</section>
+		<?php endif; ?>
 
 	</div> <!-- / .page__wrapper -->
 
