@@ -91,9 +91,9 @@
 				<event :event="event"></event>
 			</div>
 
-			<p v-else><?php _e('No upcoming events', 'ocp'); ?></p>
-
 		</div>
+
+		<p v-else><?php _e('No upcoming events', 'ocp'); ?></p>
 
 		<div class="archive-event__view">
 
