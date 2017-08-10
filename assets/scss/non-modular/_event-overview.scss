@@ -48,6 +48,7 @@
 	@include mq(L) {
 		@include span(3 of 12 first);
 		padding-right: 0;
+		flex-direction: column;
 	}
 
 }
