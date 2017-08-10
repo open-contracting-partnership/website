@@ -56,43 +56,39 @@
 
 		</div>
 
-		<div class="archive-content__posts">
+		<div class="archive-content__posts" v-if="events.length">
 
-			<div v-if="events.length">
-
-				<div class="archive-content__future-events">
-					<div
-						v-for="event in futureEvents"
-						class="post-object post-object--event post-object--event-future post-object--event-clickable"
-						v-bind:class="{ 'active': open_event === event }"
-						v-on:click="openEvent(event, $event)"
-					>
-						<event :event="event"></event>
-					</div>
-				</div>
-
-				<span
-					class="archive-content__more"
-					v-if="!show_archived"
-					v-on:click="show_archived = true"
-				>View archived</span>
-
-				<span
-					class="archive-content__more"
-					v-if="show_archived"
-					v-on:click="show_archived = false"
-				>Hide archived</span>
-
+			<div class="archive-content__future-events">
 				<div
-					v-for="event in pastEvents"
-					class="post-object post-object--event post-object--event-past post-object--event-clickable"
+					v-for="event in futureEvents"
+					class="post-object post-object--event post-object--event-future post-object--event-clickable"
 					v-bind:class="{ 'active': open_event === event }"
 					v-on:click="openEvent(event, $event)"
-					v-show="show_archived"
 				>
 					<event :event="event"></event>
 				</div>
+			</div>
 
+			<span
+				class="archive-content__more"
+				v-if="!show_archived"
+				v-on:click="show_archived = true"
+			>View archived</span>
+
+			<span
+				class="archive-content__more"
+				v-if="show_archived"
+				v-on:click="show_archived = false"
+			>Hide archived</span>
+
+			<div
+				v-for="event in pastEvents"
+				class="post-object post-object--event post-object--event-past post-object--event-clickable"
+				v-bind:class="{ 'active': open_event === event }"
+				v-on:click="openEvent(event, $event)"
+				v-show="show_archived"
+			>
+				<event :event="event"></event>
 			</div>
 
 			<p v-else><?php _e('No upcoming events', 'ocp'); ?></p>
