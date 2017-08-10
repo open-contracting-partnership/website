@@ -12,7 +12,9 @@
 
 	<div class="page__wrapper">
 
-		<?php get_partial('page', 'title'); ?>
+		<div class="contracts-title cf">
+			<?php get_partial('page', 'title'); ?>
+		</div>
 
 		<article class="page-content cf">
 
