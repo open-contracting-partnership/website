@@ -16,7 +16,7 @@
 
 		<div class="band band--thin">
 
-			<a href="/latest" class="text-button button--icon">
+			<a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="text-button button--icon">
 				<svg><use xlink:href="#icon-arrow-left"></svg><?php _e('Back to latest', 'ocp'); ?>
 			</a>
 
