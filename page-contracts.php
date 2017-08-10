@@ -24,6 +24,11 @@
 
 			<?php endif; ?>
 
+			<div class="button-group pull-right">
+				<a href="#" class="button button--dark" download>Download CSV</a>
+				<a href="#" class="button button--dark" download>Download JSON</a>
+			</div>
+
 			<?php the_content(); ?>
 
 			<?php

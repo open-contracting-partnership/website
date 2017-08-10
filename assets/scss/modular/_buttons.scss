@@ -170,6 +170,29 @@ input[type="submit"][disabled] {
 	color: color('white');
 }
 
+.button--dark {
+
+	background-color: color('body');
+	color: color('white');
+	border-color: color('body');
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: color('white');
+		color: color('body');
+	}
+
+}
+
+.button-group {
+	margin-bottom: 8px;
+
+	.button:not(:last-child) {
+		margin-right: 16px;
+	}
+
+}
 
 /*
 
