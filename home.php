@@ -149,7 +149,7 @@
 
 				<span class="blog-filter__label" v-on:click.stop="filter.open = ! filter.open">{{{ filterTitle }}}</span>
 
-				<svg><use xlink:href="#icon-arrow-down"></svg>
+				<svg><use xlink:href="#icon-arrow-down" v-bind="{ 'xlink:href': '#icon-arrow-down' }"></svg>
 
 				<ul class="blog-filter__list / nav" v-show="filter.open === true">
 					<li><a href="#" v-on:click.prevent.stop="resetFilter()"><?php _e('Everything', 'ocp'); ?></a></li>
