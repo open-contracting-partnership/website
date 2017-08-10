@@ -175,7 +175,7 @@
 
 			</div> <!-- / .event -->
 
-			<template id="event-template">
+			<script type="x/templates" id="event-template">
 
 				<a href="{{event.link}}" class="card card--event">
 
@@ -190,7 +190,7 @@
 
 				</a>
 
-			</template>
+			</script>
 
 			<script>
 
