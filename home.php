@@ -122,20 +122,20 @@
 			<div class="blog__featured-news">
 
 				<?php if ( load_post($featured_news->query->posts) ) : ?>
-					<?php get_partial('card', 'stripped', ['type_label' => 'Featured News']); ?>
+					<?php get_partial('card', 'stripped', ['type_label' => __('Featured News', 'ocp')]); ?>
 				<?php endif; ?>
 
-				<a class="view-more" href="/news"><?php _e('View all news', 'ocp'); ?></a>
+				<a class="view-more" href="<?php echo get_post_type_archive_link('news'); ?>"><?php _e('View all news', 'ocp'); ?></a>
 
 			</div>
 
 			<div class="blog__featured-event">
 
 				<?php if ( load_post($featured_events->query->posts) ) : ?>
-					<?php get_partial('card', 'stripped', ['type_label' => 'Featured Event']); ?>
+					<?php get_partial('card', 'stripped', ['type_label' => __('Featured Event', 'ocp')]); ?>
 				<?php endif; ?>
 
-				<a class="view-more" href="/events"><?php _e('View all events', 'ocp'); ?></a>
+				<a class="view-more" href="<?php echo get_post_type_archive_link('event'); ?>"><?php _e('View all events', 'ocp'); ?></a>
 
 			</div>
 
@@ -143,7 +143,7 @@
 
 		<div class="blog-filter">
 
-			<span>I'd like to see more blogs about <strong>Open Contracting</strong> and </span>
+			<span><?php _e("I'd like to see more blogs about <strong>Open Contracting</strong> and ", 'ocp'); ?></span>
 
 			<span class="blog-filter__options">
 
@@ -152,7 +152,7 @@
 				<svg><use xlink:href="#icon-arrow-down"></svg>
 
 				<ul class="blog-filter__list / nav" v-show="filter.open === true">
-					<li><a href="#" v-on:click.prevent.stop="resetFilter()">Everything</a></li>
+					<li><a href="#" v-on:click.prevent.stop="resetFilter()"><?php _e('Everything', 'ocp'); ?></a></li>
 					<li v-for="tag in filter.options"><a href="#" v-on:click.prevent.stop="setFilter(tag)">{{ tag.title }}</a></li>
 				</ul>
 
@@ -182,7 +182,7 @@
 
 						<p class="card__meta">
 							<time class="card__date">{{ post.date }}</time>
-							<span class="card__author" v-if="post.custom.authors">By {{{ post.custom.authors }}}</span>
+							<span class="card__author" v-if="post.custom.authors"><?php _e('By', 'ocp'); ?> {{{ post.custom.authors }}}</span>
 						</p>
 
 					</div>
@@ -192,7 +192,7 @@
 			</div> <!-- / .blog__post-items -->
 
 			<p class="blog__load-more">
-				<a href="#" class="button" v-on:click.prevent="increaseLimit()" v-if="hasNextPage">Load more</a>
+				<a href="#" class="button" v-on:click.prevent="increaseLimit()" v-if="hasNextPage"><?php _e('Load more', 'ocp'); ?></a>
 			</p>
 
 		</section>
@@ -202,8 +202,8 @@
 		<div class="blog__news">
 
 			<div class="content-title">
-			    <span class="card__type" data-content-type="news">News</span>
-			    <a class="content-title__link" href="#">View all news</a>
+			    <span class="card__type" data-content-type="news"><?php the_post_type_label('news', TRUE); ?></span>
+			    <a class="content-title__link" href="<?php echo get_post_type_archive_link('news'); ?>"><?php _e('View all news', 'ocp'); ?></a>
 			</div>
 
 			<div class="blog__news-inner">
@@ -219,8 +219,8 @@
 		<div class="blog__events">
 
 			<div class="content-title">
-			    <span class="card__type" data-content-type="event">Events</span>
-			    <a class="content-title__link" href="#">View all events</a>
+			    <span class="card__type" data-content-type="event"><?php the_post_type_label('event', TRUE); ?></span>
+			    <a class="content-title__link" href="<?php echo get_post_type_archive_link('event'); ?>"><?php _e('View all events', 'ocp'); ?></a>
 			</div>
 
 			<div class="blog__events-inner">
@@ -248,6 +248,8 @@
 	</script>
 
 	<script>
+
+		var select_a_filter = '<?php _e('select a filter', 'ocp'); ?>'.split(' ').join('&nbsp;');
 
 		// bootstrap the demo
 		var posts = new Vue({
@@ -307,7 +309,7 @@
 				filterTitle: function() {
 
  					if ( ! this.filter.selected ) {
-						return 'select&nbsp;a&nbsp;filter';
+						return select_a_filter;
 					} else {
 						return this.filter.selected.title.replace(new RegExp(' ', 'g'), '&nbsp;');
 					}
