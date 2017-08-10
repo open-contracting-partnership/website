@@ -1,4 +1,4 @@
-<?php // home.php ?>
+<?php // archive-news.php ?>
 
 <?php get_header(); ?>
 
@@ -17,13 +17,13 @@
 		<div class="band band--thin">
 
 			<a href="/latest" class="text-button button--icon">
-				<svg><use xlink:href="#icon-arrow-left"></svg>Back to latest
+				<svg><use xlink:href="#icon-arrow-left"></svg><?php _e('Back to latest', 'ocp'); ?>
 			</a>
 
 		</div>
 
 		<div class="page-title">
-			<h1><?php the_title(); ?></h1>
+			<h1><?php the_post_type_label('news'); ?></h1>
 		</div>
 
 		<div class="news__post-items">
