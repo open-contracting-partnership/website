@@ -366,22 +366,24 @@
 
 			ready: function() {
 
+				var filter_options = {};
+
 				this.posts.forEach(function(post, index) {
 
 					if ( Object.keys(post.taxonomies['issue']).length ) {
 
 						for ( var key in post.taxonomies['issue'] ) {
 
-							if ( typeof this.filter.options[key] === 'undefined' ) {
+							if ( typeof filter_options[key] === 'undefined' ) {
 
-								this.filter.options[key] = {
+								filter_options[key] = {
 									slug: key,
 									title: post.taxonomies['issue'][key],
 									count: 1
 								};
 
 							} else {
-								this.filter.options[key].count++;
+								filter_options[key].count++;
 							}
 
 						}
@@ -391,7 +393,7 @@
 				}.bind(this));
 
 				// triggers two way data binding within vue
-				this.filter.options = Object.assign({}, this.filter.options);
+				this.filter.options = filter_options;
 
 			}
 
