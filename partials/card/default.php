@@ -1,7 +1,9 @@
 <?php
 
 	$options = get_partial_options($options, array(
-		'display_image' => TRUE
+		'display_image' => TRUE,
+		'display_type' => FALSE,
+		'meta_alt' => FALSE
 	));
 
 ?>
@@ -48,9 +50,18 @@
 
         </div>
 
-        <p class="card__meta">
+        <p class="card__meta <?php if ( $options->meta_alt ) : ?>card__meta--alt<?php endif; ?>">
+
+			<?php if ( $options->display_type ) : ?>
+				<span class="card__type" data-content-type="<?php get_post_type(); ?>"><?php the_post_type_label(); ?></span>
+			<?php endif; ?>
+
 			<time class="card__date"><?php OCP::the_date(); ?></time>
-			<span class="card__author">By <?php the_authors(FALSE); ?></span>
+
+			<?php if ( $author = get_authors(FALSE) ) : ?>
+				<span class="card__author">By <?php echo $author; ?></span>
+			<?php endif; ?>
+
         </p>
 
     </div>

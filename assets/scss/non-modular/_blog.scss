@@ -1,4 +1,5 @@
-.blog__container {
+.blog__container,
+.news__container {
 	@extend %page--margin-top;
 	@extend %page--margin-bottom;
 }
@@ -93,23 +94,36 @@
 	@include break;
 }
 
-.blog__post-items {
-
+.blog__post-items,
+.news__post-items {
     display: flex;
 	flex-wrap: wrap;
+}
 
-	.card {
+.blog__post-items .card {
 
-		width: 100%;
+	width: 100%;
 
-		@include mq(M, L) {
-			@include col(3, 9);
-		}
+	@include mq(M, L) {
+		@include col(3, 9);
+	}
 
-		@include mq(L) {
-			@include col(3, 12);
-		}
+	@include mq(L) {
+		@include col(3, 12);
+	}
 
+}
+
+.news__post-items .card {
+
+	width: 100%;
+
+	@include mq(M, L) {
+		@include col(3, 9);
+	}
+
+	@include mq(L) {
+		@include col(4, 12);
 	}
 
 }
