@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    FOOTER
+	FOOTER
 \*------------------------------------*/
 
 .site-footer {
@@ -93,7 +93,7 @@
 	margin-bottom: 1em;
 
 	@include mq(L) {
-	    margin-bottom: 3em;
+		margin-bottom: 3em;
 	}
 
 	svg {
@@ -120,7 +120,7 @@
 		margin-right: em(10);
 
 		@include mq(L) {
-		    margin-right: em(21);
+			margin-right: em(21);
 		}
 	}
 

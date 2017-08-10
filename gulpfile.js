@@ -89,24 +89,24 @@ gulp.task('styleguide', function() {
 });
 
 gulp.task('svgstore', function () {
-    return gulp
-        .src('assets/img/icons/*.svg')
+	return gulp
+		.src('assets/img/icons/*.svg')
 		.pipe(svgmin())
-        .pipe(svgstore({ inlineSvg: true }))
-        .pipe(gulp.dest('assets/img/'));
+		.pipe(svgstore({ inlineSvg: true }))
+		.pipe(gulp.dest('assets/img/'));
 });
 
 gulp.task('modernizr', function() {
   gulp.src(['assets/js/main.js', 'assets/css/styles.css'])
-    .pipe(modernizr({ options: [
-        "setClasses",
-        "addTest",
-        "html5printshiv",
-        "testProp",
-        "fnBind"
-    ] }))
-    .pipe(uglify())
-    .pipe(gulp.dest("assets/js/libs/"))
+	.pipe(modernizr({ options: [
+		"setClasses",
+		"addTest",
+		"html5printshiv",
+		"testProp",
+		"fnBind"
+	] }))
+	.pipe(uglify())
+	.pipe(gulp.dest("assets/js/libs/"))
 });
 
 gulp.task('scss', function () {

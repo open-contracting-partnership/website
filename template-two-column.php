@@ -48,19 +48,19 @@
 
 								<div class="card--content__inner">
 
-								    <div class="card__icon" data-content-type="link">
-								        <svg><use xlink:href="#icon-link"></svg>
-								    </div>
+									<div class="card__icon" data-content-type="link">
+										<svg><use xlink:href="#icon-link"></svg>
+									</div>
 
-								    <div class="card__content">
+									<div class="card__content">
 
-								        <span class="card-content__type">Link</span>
+										<span class="card-content__type">Link</span>
 
-								        <p class="card__heading">
-								            <a class="card__link" href="<?php the_sub_field('link'); ?>"><?php the_sub_field('label'); ?></a>
-								        </p>
+										<p class="card__heading">
+											<a class="card__link" href="<?php the_sub_field('link'); ?>"><?php the_sub_field('label'); ?></a>
+										</p>
 
-								    </div>
+									</div>
 
 								</div>
 
@@ -101,8 +101,8 @@
 					$upcoming_events = new query_loop([
 						'post_type' => 'event',
 						'posts_per_page' => 2,
-						'orderby'    => 'meta_value_num',
-						'order'      => 'ASC',
+						'orderby'	=> 'meta_value_num',
+						'order'	  => 'ASC',
 						'meta_key' => ' event_date',
 						'meta_query' => array(
 							array(

@@ -433,16 +433,16 @@ add_filter('terms_clauses', function($clauses, $taxonomy, $args) {
 			$post_types[] = "'".$cpt."'";
 		}
 
-	    if(!empty($post_types))	{
+		if(!empty($post_types))	{
 			$clauses['fields'] = 'DISTINCT '.str_replace('tt.*', 'tt.term_taxonomy_id, tt.term_id, tt.taxonomy, tt.description, tt.parent', $clauses['fields']).', COUNT(t.term_id) AS count';
 			$clauses['join'] .= ' INNER JOIN '.$wpdb->term_relationships.' AS r ON r.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN '.$wpdb->posts.' AS p ON p.ID = r.object_id';
 			$clauses['where'] .= ' AND p.post_status = "publish" AND p.post_type IN ('.implode(',', $post_types).')';
 			$clauses['orderby'] = 'GROUP BY t.term_id '.$clauses['orderby'];
 		}
 
-    }
+	}
 
-    return $clauses;
+	return $clauses;
 
 }, 10, 3);
 
@@ -452,9 +452,9 @@ class OCP {
 	 //*****
 	// DATE
 
-    static function the_date() {
+	static function the_date() {
 		echo self::get_the_date();
-    }
+	}
 
 	static function get_the_date() {
 

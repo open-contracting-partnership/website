@@ -1,17 +1,17 @@
 /*------------------------------------*\
-    SOCIAL
+	SOCIAL
 \*------------------------------------*/
 
 @each $service, $color in $social-colors {
 
-    .social--#{$service} {
-        color: $color;
+	.social--#{$service} {
+		color: $color;
 
-        &:hover,
-        &:active,
-        &:focus {
-            color: darken($color, 10%);
-        }
-    }
+		&:hover,
+		&:active,
+		&:focus {
+			color: darken($color, 10%);
+		}
+	}
 
 }

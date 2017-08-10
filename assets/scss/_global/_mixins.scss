@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    GLOBAL MIXINS
+	GLOBAL MIXINS
 \*------------------------------------*/
 
  //*****************
@@ -212,15 +212,15 @@
 
 	@if $between == false {
 
-	    @media screen and (#{$arg2}: $arg1) {
-	        @content;
-	    }
+		@media screen and (#{$arg2}: $arg1) {
+			@content;
+		}
 
 	} @else {
 
-	    @media screen and (min-width: $arg1) and (max-width: $arg2 - 1px) {
-	        @content;
-	    }
+		@media screen and (min-width: $arg1) and (max-width: $arg2 - 1px) {
+			@content;
+		}
 
 	}
 
@@ -231,17 +231,17 @@
  * Example of use
  *
 
-    .example {
-        @include font-size(12);
+	.example {
+		@include font-size(12);
 
-        @include mq(400) {
-            @include font-size(14);
-        }
+		@include mq(400) {
+			@include font-size(14);
+		}
 
-        @include mq(M) {
-            @include font-size(18);
-        }
-    }
+		@include mq(M) {
+			@include font-size(18);
+		}
+	}
 
  *
  */

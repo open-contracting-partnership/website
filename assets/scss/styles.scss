@@ -14,7 +14,7 @@ partial in the specified directory .
 
 
 /*------------------------------------*\
-    $GLOBAL
+	$GLOBAL
 \*------------------------------------*/
 @import '_global/reset';
 @import '_global/mixins';
@@ -23,7 +23,7 @@ partial in the specified directory .
 
 
 /*------------------------------------*\
-    $BASE ELEMENTS
+	$BASE ELEMENTS
 \*------------------------------------*/
 @import 'base/base';
 @import 'base/type';
@@ -37,19 +37,19 @@ partial in the specified directory .
 
 
 /*------------------------------------*\
-    $LAYOUT
+	$LAYOUT
 \*------------------------------------*/
 @import 'layout/*';
 
 
 /*------------------------------------*\
-    $MODULAR
+	$MODULAR
 \*------------------------------------*/
 @import 'modular/**/*';
 
 
 /*------------------------------------*\
-    $NON-MODULAR
+	$NON-MODULAR
 \*------------------------------------*/
 @import 'non-modular/*';
 

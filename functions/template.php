@@ -283,5 +283,5 @@ function the_substr($string, $length) {
  * Change default page template title
  */
 add_filter('default_page_template_title', function() {
-    return 'One column';
+	return 'One column';
 });

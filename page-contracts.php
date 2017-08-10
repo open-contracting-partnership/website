@@ -86,32 +86,32 @@
 
 		$(document).ready(function() {
 
-		    $('.contracts-table').tablesorter({
+			$('.contracts-table').tablesorter({
 
 				// set the initial table
-	            textExtraction: function(node) {
+				textExtraction: function(node) {
 
-	                var $node = $(node);
+					var $node = $(node);
 
-	                if ( $node.filter('[data-value]').length ) {
+					if ( $node.filter('[data-value]').length ) {
 
-	                    var value = $node.attr('data-value');
+						var value = $node.attr('data-value');
 
-	                    if ( ! isNaN(parseFloat(value)) ) {
-	                        value = parseFloat(value);
-	                    }
+						if ( ! isNaN(parseFloat(value)) ) {
+							value = parseFloat(value);
+						}
 
-	                    return value;
+						return value;
 
-	                } else {
+					} else {
 
 						return $node.text().replace(/-/g, '');
 
 					}
 
-	                return $node.innerHTML;
+					return $node.innerHTML;
 
-	            }
+				}
 
 			});
 

@@ -32,9 +32,9 @@
 
 		<?php if ( $options->type !== FALSE ) : ?>
 
-		    <p class="card__meta">
-		        <span class="card__type" data-content-type="<?php echo get_post_type(); ?>"><?php echo $options->type_label; ?></span>
-		    </p>
+			<p class="card__meta">
+				<span class="card__type" data-content-type="<?php echo get_post_type(); ?>"><?php echo $options->type_label; ?></span>
+			</p>
 
 		<?php endif; ?>
 

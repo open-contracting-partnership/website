@@ -77,8 +77,8 @@
 		$featured_events = new query_loop([
 			'post_type' => 'event',
 			'posts_per_page' => 1,
-			'orderby'    => 'meta_value_num',
-			'order'      => 'ASC',
+			'orderby'	=> 'meta_value_num',
+			'order'	  => 'ASC',
 			'meta_key' => ' event_date',
 			'meta_query' => array(
 				array(
@@ -93,8 +93,8 @@
 		$upcoming_events = new query_loop([
 			'post_type' => 'event',
 			'posts_per_page' => 4,
-			'orderby'    => 'meta_value_num',
-			'order'      => 'ASC',
+			'orderby'	=> 'meta_value_num',
+			'order'	  => 'ASC',
 			'meta_key' => ' event_date',
 			'meta_query' => array(
 				array(
@@ -202,8 +202,8 @@
 		<div class="blog__news">
 
 			<div class="content-title">
-			    <span class="card__type" data-content-type="news"><?php the_post_type_label('news', TRUE); ?></span>
-			    <a class="content-title__link" href="<?php echo get_post_type_archive_link('news'); ?>"><?php _e('View all news', 'ocp'); ?></a>
+				<span class="card__type" data-content-type="news"><?php the_post_type_label('news', TRUE); ?></span>
+				<a class="content-title__link" href="<?php echo get_post_type_archive_link('news'); ?>"><?php _e('View all news', 'ocp'); ?></a>
 			</div>
 
 			<div class="blog__news-inner">
@@ -219,8 +219,8 @@
 		<div class="blog__events">
 
 			<div class="content-title">
-			    <span class="card__type" data-content-type="event"><?php the_post_type_label('event', TRUE); ?></span>
-			    <a class="content-title__link" href="<?php echo get_post_type_archive_link('event'); ?>"><?php _e('View all events', 'ocp'); ?></a>
+				<span class="card__type" data-content-type="event"><?php the_post_type_label('event', TRUE); ?></span>
+				<a class="content-title__link" href="<?php echo get_post_type_archive_link('event'); ?>"><?php _e('View all events', 'ocp'); ?></a>
 			</div>
 
 			<div class="blog__events-inner">

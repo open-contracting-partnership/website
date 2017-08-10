@@ -18,24 +18,24 @@ The Block Quotation Element indicates that the enclosed text is an extended quot
 */
 
 blockquote {
-    padding: 0 0 0 13px;
-    margin: 0 0 $space;
-    position: relative;
+	padding: 0 0 0 13px;
+	margin: 0 0 $space;
+	position: relative;
 
-    &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: em(8, 29);
-        left: 0;
-        height: 80%;
-        width: 2px;
-        background-color: color('brand');
-    }
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: em(8, 29);
+		left: 0;
+		height: 80%;
+		width: 2px;
+		background-color: color('brand');
+	}
 
 	p {
 		@include font('primary', 'regular', italic);
-	    @include font-size(18);
+		@include font-size(18);
 		margin: 0;
 
 		@include mq(M) {
