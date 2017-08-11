@@ -253,6 +253,10 @@ category:
 		margin-bottom: 0;
 	}
 
+	p img {
+		margin: 0;
+	}
+
 	@include mq(600) {
 
 		float: left;

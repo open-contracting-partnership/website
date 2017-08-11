@@ -634,7 +634,17 @@ category:
 */
 
 .card--event {
+
 	flex-direction: row;
+	text-decoration: none;
+	margin-bottom: 16px;
+
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none;
+	}
+
 }
 
 .card-event__date {
@@ -651,6 +661,11 @@ category:
 	.active .card--event &,
 	.card--event:hover & {
 		background-color: post-color('event');
+	}
+
+	.post-object--event-past.active .card--event &,
+	.post-object--event-past .card--event:hover & {
+		background-color: color('light-grey');
 	}
 
 }
@@ -670,6 +685,10 @@ category:
 		color: color('white');
 	}
 
+	.post-object--event-past & {
+		color: color('light-grey');
+	}
+
 }
 
 .card-event__month {
@@ -685,6 +704,7 @@ category:
 
 	@include font-size(16);
 	@include font('secondary', 'medium');
+	word-break: break-word;
 
 	a:hover,
 	a:active {

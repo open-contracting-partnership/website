@@ -2,6 +2,12 @@
 	TABLES
 \*------------------------------------*/
 
+.table-wrap {
+	overflow: scroll;
+	width: 100%;
+	table-layout: fixed;
+}
+
 table {
 
 	@include font-size(13);
@@ -19,6 +25,7 @@ table {
 
 th,
 td {
+	width: 100px;
 	text-align: left;
 	padding: em(10, 12);
 	vertical-align: top;

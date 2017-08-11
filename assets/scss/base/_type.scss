@@ -112,7 +112,7 @@ article {
 		margin-bottom: line-height-adjust(32px, 1.6);
 	}
 
-	img {
+	img:not(.card__media) {
 		margin-bottom: spacing(4);
 	}
 

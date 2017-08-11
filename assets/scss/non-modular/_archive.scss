@@ -24,7 +24,7 @@
 		flex-wrap: wrap;
 	}
 
-	.card {
+	.archive-content & .card {
 
 		margin-bottom: spacing(2);
 
@@ -40,6 +40,24 @@
 
 	}
 
+}
+
+.archive-content__future-events .post-object--event-future:last-child .card {
+	margin-bottom: 0;
+}
+
+.archive-content__more {
+	@include font;
+	@include font-size(12);
+	color: color('grey');
+	text-transform: uppercase;
+	cursor: pointer;
+	display: block;
+	margin: .5rem 0;
+
+	&:focus {
+		color: post-color('event');
+	}
 }
 
 .archive-filtering {

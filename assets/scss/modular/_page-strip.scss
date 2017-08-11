@@ -1,9 +1,15 @@
 .page-strip {
+
 	@include break;
 	overflow: hidden;
 	display: block;
-	margin-bottom: em(40);
+	padding: 3em 0;
+	margin-bottom: 3px;
 	background-color: color('brand');
+
+	&:last-child {
+		margin-bottom: 0;
+	}
 
 	a {
 		color: inherit;
@@ -20,59 +26,29 @@
 }
 
 .page-strip__media {
-	margin-bottom: 3em;
 
-	@include mq(L) {
-		@include span(4 of 12 first);
-		padding-right: span(1 of 12) / 2;
-		margin-bottom: 0;
-	}
-}
+	@include break;
+	max-width: 200px;
 
-.page-strip__content {
-
-	@include mq(L) {
-		@include span(6 at 5 of 12 last);
-		margin-right: span(2 of 12) + gutter();
+	@include mq(M) {
+		@include span(2 of 12);
+		max-width: none;
 	}
 
 	> :last-child {
 		margin-bottom: 0;
 	}
+
 }
 
-.page-strip--reverse {
+.page-strip__content {
 
 	@include mq(L) {
-
-		.page-strip__content {
-			@include span(6 at 2 of 12 first);
-			margin-left: span(1 of 12) + gutter();
-		}
-
-		.page-strip__media {
-			@include span(5 at 7 of 12 last);
-			padding-left: span(1 of 12) / 2;
-			padding-right: 0;
-		}
+		@include span(8 of 12);
 	}
-}
 
-.page-strip--dark-background,
-.page-strip--background,
-.page-strip--brand {
-	padding: em(75) 0;
-}
+	> :last-child {
+		margin-bottom: 0;
+	}
 
-.page-strip--dark-background,
-.page-strip--background {
-	color: color('white');
-}
-
-.page-strip--dark-background {
-	background-color: color('dark-background');
-}
-
-.page-strip--background {
-	background-color: color('background');
 }

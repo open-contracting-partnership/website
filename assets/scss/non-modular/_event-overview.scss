@@ -40,8 +40,15 @@
 
 .post-type-archive-event .archive-content__posts {
 
+	@include mq(M) {
+		@include span(4 of 12 first);
+		padding-right: $space;
+	}
+
 	@include mq(L) {
 		@include span(3 of 12 first);
+		padding-right: 0;
+		flex-direction: column;
 	}
 
 }
@@ -49,17 +56,28 @@
 .archive-event__view {
 	display: none;
 
+	@include mq(M) {
+		@include span(8 of 12 last);
+		display: block;
+	}
+
 	@include mq(L) {
 		@include span(7 of 12);
 		@include push(1 of 12);
-		display: block;
 	}
 }
 
 .open-event {
 
 	h1 {
+
+		@include font('secondary', 'medium');
 		margin-bottom: 8px;
+
+		.single-event & {
+			margin-top: 0;
+		}
+
 	}
 
 	.event__meta {
@@ -87,6 +105,10 @@
 		stroke: post-color('event');
 	}
 
+	&.event__title--past svg {
+		stroke: color('light-grey');
+	}
+
 	time {
 		@include font('secondary');
 		@include font-size(17);
@@ -104,7 +126,16 @@
 	color: color('background');
 	margin-bottom: 16px;
 
+	&:first-of-type {
+		border-top: 1px solid color('lighter-grey');
+		padding-top: 32px;
+	}
+
 	a {
 		color: currentColor;
+
+		&:not(:last-of-type)::after {
+			content: ', ';
+		}
 	}
 }

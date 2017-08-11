@@ -11,6 +11,9 @@
 $(document).ready(function() {
 
 
+	$('.page-content table').wrap('<div class="table-wrap" />');
+
+
 	$('#lang_choice_1').addClass('custom-select');
 
 
@@ -184,8 +187,6 @@ $(document).ready(function() {
 
 	$('.nav--in-page a').on('click', function(event) {
 
-		event.preventDefault();
-
 		var $link = $(this),
 			$target = $($link.attr('href'));
 
@@ -322,6 +323,7 @@ $(document).ready(function() {
 		initialSlide: $('.timeline-item').length - 5,
 		slidesToShow: 5,
 		slidesToScroll: 1,
+		swipeToSlide: true,
 		prevArrow: '<a href="#" class="slick-prev"><svg><use xlink:href="#icon-arrow-left"></svg>Previous</a>',
 		nextArrow: '<a href="#" class="slick-next">Next<svg><use xlink:href="#icon-arrow-right"></svg></a>',
 		responsive: [
