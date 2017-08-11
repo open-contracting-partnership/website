@@ -6,19 +6,20 @@
 // COLOURS
 
 $colours: (
-    'white': #FFF,
-    'black': #000,
-    'brand': #D6E100, // <-- STAY
-    'brand-mid': #B6C505,
-    'brand-dark': #9BAF00,
-    'body': #424242,
-    // GREYS
-    'lighter-grey': #D5D5D7,
-    'light-grey': #B7B7B7,
-    'grey': #999,
-    'mid-grey': #69696B,
-    'background': #4D4D54, // colour name???
-    'dark-background': #323232,
+	'white': #FFF,
+	'black': #000,
+	'brand': #D6E100, // <-- STAY
+	'brand-mid': #B6C505,
+	'brand-dark': #9BAF00,
+	'body': #424242,
+	'yellow': #F6F9C7,
+	// GREYS
+	'lighter-grey': #D5D5D7,
+	'light-grey': #B7B7B7,
+	'grey': #999,
+	'mid-grey': #69696B,
+	'background': #4D4D54, // colour name???
+	'dark-background': #323232,
 );
 
 $post-types: (
@@ -35,11 +36,11 @@ $post-types: (
 // SOCIAL COLOURS
 
 $social-colors: (
-    'youtube': #CC181E,
-    'twitter': #00ACEE,
-    'facebook': #3B5998,
-    'google': #DD4B39,
-    'linkedin': #007BB6,
+	'youtube': #CC181E,
+	'twitter': #00ACEE,
+	'facebook': #3B5998,
+	'google': #DD4B39,
+	'linkedin': #007BB6,
 );
 
 
@@ -58,9 +59,9 @@ $max-width: 1200;
 $space: 1.6em; // NOTE: This is needs to be changed depending on the lineheight of the <p>
 
 $breakpoints: (
-    M: 768,
-    ML: 810,
-    L: 1024
+	M: 768,
+	ML: 810,
+	L: 1024
 );
 
 $susy: (
@@ -85,14 +86,14 @@ $fonts: (
 		),
 		typekit: false
 	),
-    secondary: (
-        family: 'stratum-1-web',
-        fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-        weights: (
-            regular: 400,
-            medium: 500,
-            bold: 700
-        ),
-        typekit: false
-    )
+	secondary: (
+		family: 'stratum-1-web',
+		fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+		weights: (
+			regular: 400,
+			medium: 500,
+			bold: 700
+		),
+		typekit: false
+	)
 );

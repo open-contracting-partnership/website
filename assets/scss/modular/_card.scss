@@ -10,6 +10,7 @@
 	justify-content: space-between;
 	transition: box-shadow .3s ease;
 	margin-bottom: spacing(2);
+	z-index: 0;
 
 	@include mq(M) {
 		margin-bottom: spacing(4);
@@ -42,7 +43,7 @@
 
 	color: currentColor;
 
-	&:before {
+	&::before {
 		bottom: 0;
 		content: "";
 		left: 0;
@@ -55,6 +56,12 @@
 	}
 
 }
+
+// style guide link area disable, uncomment for easier developer console inspection
+
+// .aigis-preview .card__link::before {
+// 	content: normal;
+// }
 
 .card__strap {
 	@extend p.smallest;
@@ -704,4 +711,128 @@ category:
 		text-decoration: none;
 	}
 
+}
+
+/*
+
+---
+name: Featured Card
+category:
+ - Components/Card
+---
+
+```html
+<div class="card card--featured">
+
+	<img class="card__featured-media" src="//placehold.it/1600x900" />
+
+	<div class="card__content">
+
+		<p class="card__meta">
+			<span class="card__type">Featured Blog</span>
+		</p>
+
+		<div class="card__title">
+
+			<h2 class="card__heading">
+				<a class="card__link" href="#">How to Open Contracting? A New Guide for Governments</a>
+			</h2>
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.card--featured {
+	position: relative;
+	display: block;
+}
+
+.card--featured .card__content {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	color: color('white');
+	background: linear-gradient(0deg, #272727 0%, rgba(15,15,15,0.46) 53.7%, rgba(74,74,74,0) 100%);
+	padding-top: 7.5%;
+}
+
+.card--featured .card__meta {
+	margin: 0 0 spacing(2);
+}
+
+.card--featured .card__heading {
+
+	@include font-size(20);
+
+	@include mq(M) {
+		@include font-size(35);
+	}
+
+}
+
+/*
+
+---
+name: Stripped
+category:
+ - Components/Card
+---
+
+```html
+<div class="card card--stripped">
+
+    <p class="card__meta">
+        <span class="card__type">Blog</span>
+    </p>
+
+	<div class="card__title">
+
+		<h2 class="card__heading">
+			<a class="card__link" href="#">How to Open Contracting? A New Guide for Governments</a>
+		</h2>
+
+	</div>
+
+    <p class="card__meta">
+		<time class="card__date" datetime="2001-05-15T19:00">8 Jun 2017</time>
+    </p>
+
+</div>
+
+```
+
+*/
+
+.card--stripped {
+
+	&,
+	&:hover {
+		box-shadow: none;
+	}
+
+}
+
+.card--stripped .card__meta {
+	margin: 0 0 spacing(1);
+}
+
+.card--stripped .card__heading {
+
+	@include font-size(16);
+	margin-bottom: spacing(1);
+
+	@include mq(M) {
+		@include font-size(20);
+	}
+
+}
+
+.card--stripped > *:last-child {
+	margin-bottom: 0;
 }

@@ -1,19 +1,19 @@
 /*------------------------------------*\
-    BASE
+	BASE
 \*------------------------------------*/
 
 html {
-    font-size: $base-font-size + px;
+	font-size: $base-font-size + px;
 }
 
 body {
-    @include font(primary);
+	@include font(primary);
 	@include font-size(18);
-    line-height: strip-unit($space);
+	line-height: strip-unit($space);
 	background-color: color('white');
-    padding: 0;
-    margin: 0;
-    color: color('body');
+	padding: 0;
+	margin: 0;
+	color: color('body');
 
 	text-rendering: optimizeLegibility;
 	-moz-osx-font-smoothing: grayscale;
@@ -58,15 +58,15 @@ hr {
 // MISC STYLES
 
 ::-moz-selection {
-    background: color('brand');
-    color: color('white');
-    text-shadow: none;
+	background: color('brand');
+	color: color('white');
+	text-shadow: none;
 }
 
 ::selection {
-    background: color('brand');
-    color: color('white');
-    text-shadow: none;
+	background: color('brand');
+	color: color('white');
+	text-shadow: none;
 }
 
 
@@ -74,28 +74,28 @@ hr {
 // CLEARFIX
 
 .cf:after {
-    content: '';
-    display: block;
-    clear: both;
+	content: '';
+	display: block;
+	clear: both;
 }
 
 // Completely remove from the flow and screen readers.
 
 .is-hidden {
-    display: none !important;
-    visibility: hidden !important;
+	display: none !important;
+	visibility: hidden !important;
 }
 
 // Completely remove from the flow but leave available to screen readers.
 
 .is-visually-hidden {
-    position: absolute !important;
-    overflow: hidden;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
 }
 
 
@@ -149,14 +149,14 @@ hr {
 // WORDPRESS
 
 .alignleft {
-    float: left;
+	float: left;
 }
 
 .aligncenter {
-    display: block;
-    margin: 0 auto;
+	display: block;
+	margin: 0 auto;
 }
 
 .alignright {
-    float: right;
+	float: right;
 }

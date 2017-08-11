@@ -87,8 +87,8 @@ add_shortcode('related', function($atts, $content = null) {
 		'tax_query' => array(
 			array(
 				'taxonomy' => $args->taxonomy,
-				'field'    => 'slug',
-				'terms'    => $args->term,
+				'field' => 'slug',
+				'terms' => $args->term,
 			)
 		)
 
@@ -115,7 +115,7 @@ add_shortcode('related', function($atts, $content = null) {
 						]);
 
 					?>
-					
+
 				<?php endforeach; ?>
 
 			</div>

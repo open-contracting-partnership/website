@@ -62,23 +62,23 @@
 
 				<div v-for="post in posts" class="card card--primary">
 
-				    <div class="card__content">
+					<div class="card__content">
 
-				        <div class="card__title">
+						<div class="card__title">
 
-				            <h6 class="card__heading">
-				                <a class="card__link" href="{{ post.link }}">{{{ post.title }}}</a>
-				            </h6>
+							<h6 class="card__heading">
+								<a class="card__link" href="{{ post.link }}">{{{ post.title }}}</a>
+							</h6>
 
-				        </div>
+						</div>
 
-				        <p class="card__meta card__meta--alt">
-				            <span class="card__type" data-content-type="{{ post.post_type }}">{{ post.custom.post_type_label }}</span>
-				            <time class="card__date">{{ post.date }}</time>
-				            <span class="card__author" v-if="post.custom.authors !== ''">By {{{ post.custom.authors }}}</span>
-				        </p>
+						<p class="card__meta card__meta--alt">
+							<span class="card__type" data-content-type="{{ post.post_type }}">{{ post.custom.post_type_label }}</span>
+							<time class="card__date">{{ post.date }}</time>
+							<span class="card__author" v-if="post.custom.authors !== ''">By {{{ post.custom.authors }}}</span>
+						</p>
 
-				    </div>
+					</div>
 
 				</div>
 

@@ -23,262 +23,225 @@
 				},
 				'thumbnail' => function() {
 
-					$image = get_the_post_thumbnail(NULL, '2x1_460');
+					$options = array(
+						'crop' => 'faces',
+						'fit' => 'crop',
+						'w' => 460,
+						'h' => 460 / (21 / 9),
+						'fm' => 'pjpg'
+					);
 
-					if ( trim($image) === '' ) {
-						$image = FALSE;
+					if ( has_post_thumbnail() ) {
+
+						return imgix::source('featured')
+							->options($options)
+							->url();
+
+					} else {
+
+						return imgix::source('url', get_bloginfo('template_directory') . '/assets/img/fallback.jpg')
+							->options($options)
+							->url();
+
 					}
-
-					return $image;
 
 				}
 			)
 		]);
 
-		$issue_terms = array_values(get_terms('issue', [
-			'post_type' => ['post', 'news'],
-			'fields' => 'all'
-		]));
+		// feature blog
+		$featured_blog = new query_loop([
+			'post_type' => 'post',
+			'posts_per_page' => 1,
+			'meta_query' => array(
+				array(
+					'key' => 'featured',
+					'value' => TRUE
+				)
+			)
+		]);
+
+		// featured news
+		$featured_news = new query_loop([
+			'post_type' => 'news',
+			'posts_per_page' => 1
+		]);
+
+		// recent news
+		$recent_news = new query_loop([
+			'post_type' => 'news',
+			'posts_per_page' => 6
+		]);
+
+		// featured events
+		$featured_events = new query_loop([
+			'post_type' => 'event',
+			'posts_per_page' => 1,
+			'orderby'	=> 'meta_value_num',
+			'order'	  => 'ASC',
+			'meta_key' => ' event_date',
+			'meta_query' => array(
+				array(
+					'key' => 'event_date',
+					'value' => date('Ymd'),
+					'compare' => '>='
+				),
+			)
+		]);
+
+		// upcoming events
+		$upcoming_events = new query_loop([
+			'post_type' => 'event',
+			'posts_per_page' => 4,
+			'orderby'	=> 'meta_value_num',
+			'order'	  => 'ASC',
+			'meta_key' => ' event_date',
+			'meta_query' => array(
+				array(
+					'key' => 'event_date',
+					'value' => date('Ymd'),
+					'compare' => '>='
+				),
+			)
+		]);
 
 	?>
 
 	<div id="blog-posts" class="wrapper / blog__container">
 
-		<?php $exclude_ids = []; ?>
+		<div class="blog__header">
 
-		<div class="blog__featured / band">
+			<div class="blog__featured">
 
-			<?php
-
-				$featured_blog = new query_loop([
-					'post_type' => 'post',
-					'posts_per_page' => 1,
-					'meta_query' => array(
-						array(
-							'key' => 'featured',
-							'value' => TRUE
-						)
-					)
-				]);
-
-				$exclude_ids += $featured_blog->post_ids;
-
-			?>
-
-			<?php foreach ( $featured_blog as $featured_blog ) : ?>
-				<?php get_partial('post-object', 'featured'); ?>
-			<?php endforeach; ?>
-
-		</div>
-
-		<div class="blog__subscribe">
-
-			<div class="blog__subscribe-container / band">
-
-				<h4 class="border-top border-top--clean"><?php _e('Subscribe to our newsletter', 'ocp'); ?></h4>
-
-				<div class="js-subscribe">
-
-					<form class="flex-field" action="" method="post">
-						<input type="email" placeholder="<?php _e('Enter your email', 'ocp'); ?>" name="email" required>
-						<button><?php _e('Send', 'ocp'); ?></button>
-					</form>
-
-				</div>
-
-				<?php
-
-					$social_media = [];
-
-					if ( $facebook_url = get_field('facebook_url', 'options') ) {
-						$social_media[] = '<a href="' . $facebook_url . '" target="_blank">Facebook</a>';
-					}
-
-					if ( $twitter_url = get_field('twitter_url', 'options') ) {
-						$social_media[] = '<a href="' . $twitter_url . '" target="_blank">Twitter</a>';
-					}
-
-					if ( $linkedin_url = get_field('linkedin_url', 'options') ) {
-						$social_media[] = '<a href="' . $linkedin_url . '" target="_blank">LinkedIn</a>';
-					}
-
-				?>
-
-				<p class="blog__subscribe-follow"><?php _e('Follow us on', 'ocp'); ?> <?php echo implode(', ', $social_media); ?>, <?php _e('or subscribe to the'); ?> <a href="/feed"><?php _e('feed'); ?></a></p>
+				<?php if ( load_post($featured_blog->query->posts) ) : ?>
+					<?php get_partial('card', 'featured', ['type_label' => 'Featured Blog']); ?>
+				<?php endif; ?>
 
 			</div>
 
-			<div class="blog__recent-news / band">
+			<div class="blog__featured-news">
 
-				<h4 class="border-top border-top--clean"><?php _e('Recent News', 'ocp'); ?></h4>
+				<?php if ( load_post($featured_news->query->posts) ) : ?>
+					<?php get_partial('card', 'stripped', ['type_label' => __('Featured News', 'ocp')]); ?>
+				<?php endif; ?>
 
-				<div class="blog__recent-news-items / cf">
-
-					<?php
-
-						$recent_news_items = new query_loop([
-							'post_type' => 'news',
-							'posts_per_page' => 1
-						]);
-
-					?>
-
-					<?php foreach ( $recent_news_items as $recent_news ) : ?>
-						<?php get_partial('post-object', 'basic'); ?>
-					<?php endforeach; ?>
-
-				</div>
+				<a class="view-more" href="<?php echo get_post_type_archive_link('news'); ?>"><?php _e('View all news', 'ocp'); ?></a>
 
 			</div>
 
-			<div class="blog__event / band">
+			<div class="blog__featured-event">
 
-				<?php
+				<?php if ( load_post($featured_events->query->posts) ) : ?>
+					<?php get_partial('card', 'stripped', ['type_label' => __('Featured Event', 'ocp')]); ?>
+				<?php endif; ?>
 
-					$upcoming_events = new query_loop([
-						'post_type' => 'event',
-						'posts_per_page' => 1,
-						'orderby'    => 'meta_value_num',
-						'order'      => 'ASC',
-						'meta_key' => ' event_date',
-						'meta_query' => array(
-							array(
-								'key' => 'event_date',
-								'value' => date('Ymd'),
-								'compare' => '>='
-							),
-						)
-					]);
-
-				?>
-
-				<h4 class="border-top border-top--blue border-top--clean"><?php _e('Upcoming Events', 'ocp'); ?></h4>
-
-				<?php foreach( $upcoming_events as $event ) : ?>
-					<?php get_partial('post-object', 'event'); ?>
-				<?php endforeach; ?>
-
-				<a class="view-more" href="/events"><?php _e('View all events', 'ocp'); ?></a>
+				<a class="view-more" href="<?php echo get_post_type_archive_link('event'); ?>"><?php _e('View all events', 'ocp'); ?></a>
 
 			</div>
 
 		</div>
 
-		<div class="blog__popular-tags / band--extra-thick">
+		<div class="blog-filter">
 
-			<?php
+			<span><?php _e("I'd like to see more blogs about <strong>Open Contracting</strong> and ", 'ocp'); ?></span>
 
-				$popular_tags = get_terms('post_tag', [
-					'orderby' => 'count',
-					'order' => 'DESC',
-					'number' => 40
-				]);
+			<span class="blog-filter__options">
 
-			?>
+				<span class="blog-filter__label" v-on:click.stop="filter.open = ! filter.open">{{{ filterTitle }}}</span>
 
-			<?php if ( $popular_tags ) : ?>
+				<svg><use xlink:href="#icon-arrow-down" v-bind="{ 'xlink:href': '#icon-arrow-down' }"></svg>
 
-				<section>
+				<ul class="blog-filter__list / nav" v-show="filter.open === true">
+					<li><a href="#" v-on:click.prevent.stop="resetFilter()"><?php _e('Everything', 'ocp'); ?></a></li>
+					<li v-for="tag in filter.options"><a href="#" v-on:click.prevent.stop="setFilter(tag)">{{ tag.title }}</a></li>
+				</ul>
 
-					<h4 class="border-top border-top--clean"><?php _e('Popular Tags', 'ocp'); ?></h4>
-
-					<ul class="button__list">
-
-						<?php foreach ( $popular_tags as $popular_tag ) : ?>
-							<li><a href="<?php echo get_term_link($popular_tag); ?>" class="button button--tag"><?php echo $popular_tag->name; ?></a></li>
-						<?php endforeach; ?>
-
-					</ul>
-
-				</section>
-
-			<?php endif; ?>
+			</span>
 
 		</div>
 
 		<section class="blog__posts / band band--thick">
 
-			<div class="posts-filter / band">
-
-				<div class="posts-filter__inner">
-
-					<a href="#" class="posts-filter__button"><svg><use xlink:href="#icon-filter" /></svg><?php _e('Filter Blogs & Updates', 'ocp'); ?></a>
-
-					<form action="#" class="posts-filter__form / custom-checkbox">
-
-						<label v-for="issue in issue_terms">
-
-							<input type="checkbox" value="{{ issue.slug }}" v-model="filter_issue" />
-
-							<span class="custom-checkbox__box">
-								<svg><use xlink:href="#icon-close"></svg>
-							</span>
-
-							{{ issue.name }}
-
-						</label>
-
-					</form>
-
-				</div>
-
-			</div>
-
 			<div class="blog__post-items">
 
-				<a v-for="post in visiblePosts" class="post-object post-object--vertical" href="{{ post.link }}">
-					<post :post="post"></post>
-				</a>
+				<div v-for="post in pagedPosts" class="card card--primary">
 
-			</div> <!-- / .blog__post-items -->
+					<div class="card__header">
+						<img class="card__featured-media" v-bind:src="post.custom.thumbnail" />
+					</div>
 
-		</section>
+					<div class="card__content">
 
-	</div> <!-- / .wrapper -->
+						<div class="card__title">
 
-	<template id="post-template">
+							<h6 class="card__heading">
+								<a class="card__link" href="{{ post.link }}">{{{ post.title }}}</a>
+							</h6>
 
-		<div class="post-object__media">
+						</div>
 
-			<div class="post-object__media-wrapper">
+						<p class="card__meta">
+							<time class="card__date">{{ post.date }}</time>
+							<span class="card__author" v-if="post.custom.authors"><?php _e('By', 'ocp'); ?> {{{ post.custom.authors }}}</span>
+						</p>
 
-				<div class="content">
-
-					<img v-if="! hasThumbnail()" src="<?php bloginfo('template_directory'); ?>/assets/img/fallback.jpg" alt="">
-					<div v-else>
-						{{{ post.custom.thumbnail }}}
 					</div>
 
 				</div>
 
+			</div> <!-- / .blog__post-items -->
+
+			<p class="blog__load-more">
+				<a href="#" class="button" v-on:click.prevent="increaseLimit()" v-if="hasNextPage"><?php _e('Load more', 'ocp'); ?></a>
+			</p>
+
+		</section>
+
+		<?php get_partial('update', 'panel'); ?>
+
+		<div class="blog__news">
+
+			<div class="content-title">
+				<span class="card__type" data-content-type="news"><?php the_post_type_label('news', TRUE); ?></span>
+				<a class="content-title__link" href="<?php echo get_post_type_archive_link('news'); ?>"><?php _e('View all news', 'ocp'); ?></a>
 			</div>
 
-			<!-- TODO: re-implement after redesign -->
-			<!-- <span class="post-object__tag-overlay post-object__tag--light">{{ post.custom.post_type }}</span> -->
+			<div class="blog__news-inner">
+
+				<?php foreach ( $recent_news as $news ) : ?>
+					<?php get_partial('card', 'stripped', ['type_label' => FALSE]); ?>
+				<?php endforeach; ?>
+
+			</div>
 
 		</div>
 
-		<div class="post-object__content">
-			<p class="post-object__meta">{{{ post.custom.authors }}}&nbsp;&nbsp;{{ post.date }}</p>
-			<h4>{{{ post.title }}}</h4>
+		<div class="blog__events">
+
+			<div class="content-title">
+				<span class="card__type" data-content-type="event"><?php the_post_type_label('event', TRUE); ?></span>
+				<a class="content-title__link" href="<?php echo get_post_type_archive_link('event'); ?>"><?php _e('View all events', 'ocp'); ?></a>
+			</div>
+
+			<div class="blog__events-inner">
+
+				<?php foreach ( $upcoming_events as $event ) : ?>
+					<?php get_partial('card', 'event'); ?>
+				<?php endforeach; ?>
+
+			</div>
+
 		</div>
 
-	</template>
+	</div> <!-- / .wrapper -->
 
 	<script>
 
 		$(document).ready(function() {
 
-			var $window = $(window),
-				$main = $('main');
-
-			$(window).on('scroll', $.throttle(500, function() {
-
-				if ( ($window.scrollTop() + $window.height()) > ($main.position().top + $main.height()) - 500 ) {
-					posts.increaseLimit();
-				}
-
-			}));
+			$('body').on('click', function() {
+				posts.filter.open = false;
+			});
 
 		});
 
@@ -286,21 +249,7 @@
 
 	<script>
 
-		// register the grid component
-		Vue.component('post', {
-			template: '#post-template',
-			props: {
-				post: Object
-			},
-			methods: {
-
-				hasThumbnail: function() {
-					return !! this.post.custom.thumbnail;
-				}
-
-			}
-
-		});
+		var select_a_filter = '<?php _e('select a filter', 'ocp'); ?>'.split(' ').join('&nbsp;');
 
 		// bootstrap the demo
 		var posts = new Vue({
@@ -310,17 +259,20 @@
 			data: {
 				// data
 				posts: <?php echo json_encode($blog_posts); ?>,
-				issue_terms: <?php echo json_encode($issue_terms); ?>,
 				// filters
-				filter_issue: [],
+				filter: {
+					open: false,
+					selected: null,
+					options: {},
+				},
 				// limits
 				limit: 12
 			},
 
 			watch: {
 
-				filter_issue: function() {
-					this.filter();
+				filterSlug: function() {
+					this.filterPosts();
 				}
 
 			},
@@ -339,7 +291,29 @@
 
 					});
 
-					return posts.slice(0, this.limit);
+					return posts;
+				},
+
+				pagedPosts: function() {
+					return this.visiblePosts.slice(0, this.limit);
+				},
+
+				hasNextPage: function() {
+					return this.visiblePosts.length > this.limit;
+				},
+
+				filterSlug: function() {
+					return this.filter.selected !== null ? this.filter.selected.slug : null;
+				},
+
+				filterTitle: function() {
+
+ 					if ( ! this.filter.selected ) {
+						return select_a_filter;
+					} else {
+						return this.filter.selected.title.replace(new RegExp(' ', 'g'), '&nbsp;');
+					}
+
 				}
 
 			},
@@ -354,7 +328,7 @@
 
 				},
 
-				filter: function() {
+				filterPosts: function() {
 
 					// reset all resources
 
@@ -364,11 +338,11 @@
 
 					// apply issue filter
 
-					if ( this.filter_issue.length ) {
+					if ( this.filter.selected !== null ) {
 
 						this.posts.forEach(function(post, index) {
 
-							if ( intersection(Object.keys(post.taxonomies['issue']), this.filter_issue).length === 0 ) {
+							if ( Object.keys(post.taxonomies['issue']).indexOf(this.filter.selected.slug) === -1 ) {
 								post.display = false;
 							}
 
@@ -376,39 +350,55 @@
 
 					}
 
-
 				},
 
-				hasTerms: function(taxonomy) {
-					return Object.keys(taxonomy).length > 0;
+				setFilter: function(filter) {
+					this.filter.selected = filter;
+					this.filter.open = false;
+				},
+
+				resetFilter: function() {
+					this.filter.selected = null;
+					this.filter.open = false;
 				}
+
+			},
+
+			ready: function() {
+
+				var filter_options = {};
+
+				this.posts.forEach(function(post, index) {
+
+					if ( Object.keys(post.taxonomies['issue']).length ) {
+
+						for ( var key in post.taxonomies['issue'] ) {
+
+							if ( typeof filter_options[key] === 'undefined' ) {
+
+								filter_options[key] = {
+									slug: key,
+									title: post.taxonomies['issue'][key],
+									count: 1
+								};
+
+							} else {
+								filter_options[key].count++;
+							}
+
+						}
+
+					}
+
+				}.bind(this));
+
+				// triggers two way data binding within vue
+				this.filter.options = filter_options;
 
 			}
 
 		});
 
-		var intersection = function (a, b) {
-
-			var ai=0, bi=0;
-			var result = new Array();
-
-			while( ai < a.length && bi < b.length ) {
-
-				if      (a[ai] < b[bi] ){ ai++; }
-				else if (a[ai] > b[bi] ){ bi++; }
-				else {
-					result.push(a[ai]);
-					ai++;
-					bi++;
-				}
-
-			}
-
-			return result;
-
-		}
-
 	</script>
-
 
 <?php get_footer(); ?>

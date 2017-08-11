@@ -183,7 +183,7 @@ function get_posts_template($slug, $name = '', $posts = NULL) {
  * @param  integer $index
  * @return boolean
  */
-function load_post($posts, $index) {
+function load_post($posts, $index = 0) {
 
 	global $post;
 
@@ -283,5 +283,5 @@ function the_substr($string, $length) {
  * Change default page template title
  */
 add_filter('default_page_template_title', function() {
-    return 'One column';
+	return 'One column';
 });

@@ -31,7 +31,7 @@ ul,
 ol,
 dl {
 	line-height: strip-unit($space);
-    margin-bottom: $space; // Typically the margin-bottom matches the line-height.
+	margin-bottom: $space; // Typically the margin-bottom matches the line-height.
 
 	&.small {
 		@include font-size(16);

@@ -6,12 +6,12 @@
 
 	@include mq(M) {
 		padding-bottom: spacing(12);
-	    padding-top: spacing(7);
+		padding-top: spacing(7);
 	}
 
 	@include mq(L) {
 		padding-bottom: spacing(15);
-	    padding-top: spacing(9);
+		padding-top: spacing(9);
 	}
 
 }
@@ -23,7 +23,7 @@
 	flex-direction: column-reverse;
 
 	@include mq(M) {
-	    flex-direction: row;
+		flex-direction: row;
 	}
 
 }
@@ -34,7 +34,7 @@
 	margin: 0 auto 4em;
 
 	@include mq(M) {
-	    max-width: 100%;
+		max-width: 100%;
 		margin: 0;
 	}
 
