@@ -2,14 +2,14 @@
 
 	<div class="update-panel__subscribe">
 
-		<h3 class="update-panel__subscribe-title">Subscribe to our newsletter</h3>
-		<p>Sign up to out monthly email where you can recieve updates on our current work</p>
+		<h3 class="update-panel__subscribe-title"><?php _e('Subscribe to our newsletter', 'ocp'); ?></h3>
+		<p><?php _e('Sign up to out monthly email where you can recieve updates on our current work', 'ocp'); ?></p>
 
 		<div class="js-subscribe">
 
 			<form class="form--dark flex-field" action="" method="post">
-				<input type="email" placeholder="Enter your email" name="email" required="">
-				<button>Send</button>
+				<input type="email" placeholder="<?php _e('Enter your email', 'ocp'); ?>" name="email" required="">
+				<button><?php _e('Send', 'ocp'); ?></button>
 			</form>
 
 		</div>
@@ -18,7 +18,7 @@
 
 	<div class="update-panel__follow">
 
-		<p>Follow up and keep up to date</p>
+		<p><?php _e('Follow up and keep up to date', 'ocp'); ?></p>
 
 		<ul class="nav nav--horizontal">
 
