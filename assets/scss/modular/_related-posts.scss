@@ -116,11 +116,12 @@ The related posts component can be inserted into a page or article using a WordP
 		margin-top: 0;
 	}
 
+	.card {
+		margin-bottom: spacing(2);
+	}
+
 	.card:last-child {
 		margin-bottom: 0;
 	}
 
 }
-
-
-//height: 26px;	width: 178px;	color: #000000;	font-family: StratumNo1;	font-size: 20px;	font-weight: 500;	line-height: 26px;

@@ -8,18 +8,34 @@
 
 	$img_class = $options->image_align_right ? 'card__media--right' : '';
 
+	$imgix_options = array(
+		'crop' => 'faces',
+		'fit' => 'crop',
+		'w' => 152,
+		'h' => 152,
+		'fm' => 'pjpg'
+	);
+
+	if ( post_type_supports(get_post_type(), 'thumbnail') && has_post_thumbnail() ) {
+
+		$image_url = imgix::source('featured')
+			->options($imgix_options)
+			->url();
+
+	} else {
+
+		$image_url = imgix::source('url', get_bloginfo('template_directory') . '/assets/img/fallback.jpg')
+			->options($imgix_options)
+			->url();
+
+	}
+
 ?>
 
 <div class="card card--secondary">
 
 	<?php if ( $options->display_image === TRUE ) : ?>
-
-		<?php if ( has_post_thumbnail() ) : ?>
-			<img class="card__media <?php echo $img_class; ?>" src="<?php echo get_the_post_thumbnail_url(NULL, '4x3_230'); ?>" />
-		<?php else : ?>
-			<img class="card__media <?php echo $img_class; ?>" src="<?php bloginfo('template_directory'); ?>/assets/img/fallback.jpg" />
-		<?php endif; ?>
-
+		<img class="card__media <?php echo $img_class; ?>" src="<?php echo $image_url; ?>" />
 	<?php endif; ?>
 
 	<div class="card__content">
@@ -27,13 +43,7 @@
 		<div class="card__title">
 
 			<?php if ( $options->display_image === TRUE ) : ?>
-
-				<?php if ( has_post_thumbnail() ) : ?>
-					<img class="card__media <?php echo $img_class; ?>" src="<?php echo get_the_post_thumbnail_url(NULL, '4x3_230'); ?>" />
-				<?php else : ?>
-					<img class="card__media <?php echo $img_class; ?>" src="<?php bloginfo('template_directory'); ?>/assets/img/fallback.jpg" />
-				<?php endif; ?>
-
+				<img class="card__media <?php echo $img_class; ?>" src="<?php echo $image_url; ?>" />
 			<?php endif; ?>
 
 			<h6 class="card__heading">

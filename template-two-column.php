@@ -140,25 +140,14 @@
 			<?php get_partial('page', 'title'); ?>
 
 			<section>
-
 				<?php the_content(); ?>
-
-				<?php if ( have_rows('page_strips') ) : ?>
-
-					<?php while ( have_rows('page_strips') ) : the_row(); ?>
-
-						<h3><?php the_sub_field('title'); ?></h3>
-						<?php the_sub_field('content'); ?>
-
-					<?php endwhile; ?>
-
-				<?php endif; ?>
-
 			</section>
 
 		</article>
 
 	</div> <!-- / .page__wrapper -->
+	
+	<?php get_partial('page', 'strips'); ?>
 
 </div> <!-- / .page--two-column -->
 
