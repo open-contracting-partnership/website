@@ -66,6 +66,11 @@ category:
 
 }
 
+.update-panel__subscribe input,
+.update-panel__subscribe button {
+	background-color: transparent;
+}
+
 .update-panel__subscribe input[type="email"] {
 	max-width: 280px;
 }
