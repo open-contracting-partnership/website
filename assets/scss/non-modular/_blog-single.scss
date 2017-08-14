@@ -60,3 +60,15 @@
 	}
 
 }
+
+[id="disqus_thread"] {
+
+	@include mq(M, 'max-width') {
+		margin-bottom: spacing(4);
+	}
+
+	@include mq(M) {
+		margin-bottom: spacing(12);
+	}
+
+}
