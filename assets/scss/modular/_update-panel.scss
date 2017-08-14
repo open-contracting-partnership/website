@@ -48,7 +48,7 @@ category:
 	}
 
 	@include mq(L) {
-		padding: spacing(8);
+		padding: spacing(7) spacing(8);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
