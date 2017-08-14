@@ -9,7 +9,7 @@
 
 		$blog_posts = vue_posts([
 			'query' => array(
-				'post_type' => ['post', 'news'],
+				'post_type' => ['post'],
 				'posts_per_page' => -1
 			),
 			'ignore' => ['content', 'excerpt', 'slug'],
