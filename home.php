@@ -160,7 +160,7 @@
 
 		</div>
 
-		<section class="blog__posts / band band--thick">
+		<section class="blog__posts">
 
 			<div class="blog__post-items">
 
