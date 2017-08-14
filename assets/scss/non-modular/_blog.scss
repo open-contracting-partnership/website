@@ -74,7 +74,7 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		@include font('secondary', 'bold');
+		@include font('primary', 'semibold');
 		@include font-size(14);
 		color: color('mid-grey');
 		display: inline-block;
