@@ -10,9 +10,14 @@
 
 		<?php endif; ?>
 
-		<div class="page-strip__content">
-			<h3><?php the_sub_field('title'); ?></h3>
-			<?php the_sub_field('content'); ?>
+		<div class="page-strip__wrapper">
+
+			<h2 class="page-strip__title"><?php the_sub_field('title'); ?></h2>
+
+			<div class="page-strip__content">
+				<?php the_sub_field('content'); ?>
+			</div>
+
 		</div>
 
 	</div>

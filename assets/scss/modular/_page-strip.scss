@@ -49,7 +49,7 @@
 
 }
 
-.page-strip__content {
+.page-strip__wrapper {
 
 	@include mq(L) {
 
@@ -73,4 +73,8 @@
 		margin-bottom: 0;
 	}
 
+}
+
+.page-strip__title {
+	margin-bottom: spacing(3);
 }

@@ -30,6 +30,7 @@ h5,
 .epsilon,
 h6,
 .zeta {
+
 	@include font(secondary, bold);
 	margin-bottom: 1.3em;
 	line-height: 1.3;
@@ -38,7 +39,8 @@ h6,
 		margin-bottom: .625em;
 	}
 
-	&.drop {
+	&.drop,
+	.page-strip__content & {
 		margin-bottom: line-height-adjust(16px, 1.3);
 	}
 
@@ -48,11 +50,13 @@ h6,
 	}
 
 	article & {
+
 		margin-bottom: line-height-adjust(16px, 1.3);
 
 		&.strapline {
 			margin-bottom: line-height-adjust(32px, 1.3);
 		}
+
 	}
 
 }
