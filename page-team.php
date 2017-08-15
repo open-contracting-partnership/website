@@ -25,7 +25,7 @@
 
 		</aside>
 
-		<article class="page-team__content">
+		<section class="page-team__content">
 
 			<?php if ( have_rows('team_members') ) : ?>
 
@@ -73,7 +73,7 @@
 
 						</div> <!--  / .profile__header -->
 
-						<div class="profile__bio">
+						<article class="profile__bio">
 
 							<?php if ( $twitter_name = get_sub_field('twitter_name') ) : ?>
 
@@ -91,7 +91,7 @@
 
 							<?php the_sub_field('bio'); ?>
 
-						</div>
+						</article>
 
 					</div>
 
@@ -99,7 +99,7 @@
 
 			<?php endif; ?>
 
-		</article>
+		</section>
 
 	</div> <!-- / .page__wrapper -->
 
