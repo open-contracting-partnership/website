@@ -62,7 +62,6 @@
 	.page-content {
 
 		@include break;
-		margin-bottom: 1rem;
 
 		@include mq(L) {
 			@include span(8 of 12);
