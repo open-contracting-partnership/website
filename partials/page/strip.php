@@ -1,24 +1,4 @@
-<?php
-
-	$options = get_partial_options($options, array(
-		'reverse' => FALSE,
-		'colour' => NULL
-	));
-
-	$classes = ['page-strip'];
-
-	if ( get_sub_field('float') === 'left' ) {
-		$classes[] = 'page-strip--reverse';
-	}
-
-	if ( $colour = get_sub_field('colour') ) {
-		$classes[] = 'page-strip--' . $colour;
-	}
-
-?>
-
-
-<section class="<?php echo implode(' ', $classes); ?>">
+<section class="page-strip">
 
 	<div class="wrapper">
 

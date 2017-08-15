@@ -31,8 +31,16 @@
 	max-width: 200px;
 
 	@include mq(M) {
+
+		// default, one column
 		@include span(2 of 12);
 		max-width: none;
+
+		// two column
+		.page--two-column & {
+			@include push(2 of 12);
+		}
+
 	}
 
 	> :last-child {
@@ -44,8 +52,22 @@
 .page-strip__content {
 
 	@include mq(L) {
+
+		// default, one column
 		@include span(8 of 12);
+
+		&:first-child {
+			@include push(2 of 12);
+		}
+
+		// two column
+		.page--two-column & {
+			@include span(8 of 12 last);
+		}
+
 	}
+
+
 
 	> :last-child {
 		margin-bottom: 0;
