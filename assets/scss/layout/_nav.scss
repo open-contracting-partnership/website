@@ -42,16 +42,20 @@
 .nav--vertical {
 
 	li {
+
 		margin-bottom: 1em;
+		padding-left: 0;
 
 		&:last-child {
 			margin-bottom: 0;
 		}
+
 	}
 
 	a {
 		display: inline-block;
 	}
+
 }
 
 .nav--thick {
