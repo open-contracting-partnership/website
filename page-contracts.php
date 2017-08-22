@@ -33,13 +33,7 @@
 
 		</article>
 
-		<?php
-
-			global $wpdb;
-
-			$contracts = $wpdb->get_results('SELECT * FROM ocp_contracts');
-
-		?>
+		<?php $contracts = Contracts::get_contracts(); ?>
 
 		<?php if ( $contracts ) : ?>
 
