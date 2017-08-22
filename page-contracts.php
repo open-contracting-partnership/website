@@ -67,7 +67,7 @@
 							<?php $currency = $contract->contract_currency ? ' ' . $contract->contract_currency : '' ?>
 
 							<tr>
-								<td><mark>[PHASE]</mark></td>
+								<td><?php echo $contract->contract_phase ? $contract->contract_phase : '-' ?></td>
 								<td><?php echo $contract->contract_title ? $contract->contract_title : '-' ?></td>
 								<td><?php echo $contract->supplier_name ? $contract->supplier_name : '-'; ?></td>
 								<td>

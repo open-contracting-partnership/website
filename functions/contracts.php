@@ -38,6 +38,7 @@ function fetch_contracts() {
 	  `contract_end_date` date DEFAULT NULL,
 	  `contract_amount` float DEFAULT NULL,
 	  `contract_currency` varchar(255) DEFAULT NULL,
+	  `contract_phase` varchar(255) DEFAULT NULL,
 	  `tender_status` varchar(255) DEFAULT NULL,
 	  `tender_title` varchar(255) DEFAULT NULL,
 	  `tender_start_date` date DEFAULT NULL,
@@ -47,6 +48,14 @@ function fetch_contracts() {
 
 	// remove any previous contracts from the table
 	$wpdb->query('TRUNCATE TABLE ocp_contracts');
+
+	$phases = array(
+		'planning',
+		'tender',
+		'award',
+		'contract',
+		'implementation'
+	);
 
 	// loop through the contracts
 	foreach ( $contracts as $contract_meta ) {
@@ -60,6 +69,18 @@ function fetch_contracts() {
 		// ignore falsey responses
 		if ( ! $contract ) {
 			continue;
+		}
+
+		$contract_phase = '';
+
+		if ( $contract->releases[0]->tag ) {
+
+			$tags = $contract->releases[0]->tag;
+
+			foreach ( $phases as $phase ) {
+				$contract_phase = in_array($phase, $tags) ? $phase : $contract_phase;
+			}
+
 		}
 
 		if ( ! isset($contract->releases[0]->contracts) ) {
@@ -76,6 +97,7 @@ function fetch_contracts() {
 			'contract_end_date' => date_filter($contract->releases[0]->contracts[0]->period->endDate),
 			'contract_amount' => str_replace(',', '', $contract->releases[0]->contracts[0]->value->amount),
 			'contract_currency' => $contract->releases[0]->contracts[0]->value->currency,
+			'contract_phase' => $contract_phase,
 			'tender_status' => $contract->releases[0]->tender->status,
 			'tender_title' => $contract->releases[0]->tender->title,
 			'tender_start_date' => date_filter($contract->releases[0]->tender->tenderPeriod->startDate),
