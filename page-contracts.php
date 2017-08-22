@@ -25,8 +25,8 @@
 			<?php endif; ?>
 
 			<div class="button-group pull-right">
-				<a href="#" class="button button--dark" download>Download CSV</a>
-				<a href="#" class="button button--dark" download>Download JSON</a>
+				<a href="<?php bloginfo('template_directory'); ?>/public/contracts/contracts.csv" class="button button--dark" download>Download CSV</a>
+				<a href="<?php bloginfo('template_directory'); ?>/public/contracts/contracts.json" class="button button--dark" download>Download JSON</a>
 			</div>
 
 			<?php the_content(); ?>

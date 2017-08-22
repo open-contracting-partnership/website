@@ -106,6 +106,63 @@ function fetch_contracts() {
 
 	}
 
+	// save updated contract files
+	save_contracts();
+
+}
+
+function save_contracts() {
+
+	global $wpdb;
+
+	$contracts = $wpdb->get_results('SELECT * FROM ocp_contracts');
+
+	save_to_json($contracts, './wp-content/themes/ocp-v1/public/contracts/contracts');
+	save_to_csv($contracts, './wp-content/themes/ocp-v1/public/contracts/contracts');
+
+}
+
+function save_to_json($data, $file) {
+	$content = json_encode($data);
+	$file .= '.json';
+	file_put_contents($file, $content);
+}
+
+// Code from http://imtheirwebguy.com/exporting-the-results-of-a-custom-wpdb-query-to-a-downloaded-csv/
+function save_to_csv($data, $file) {
+
+	$file .= '.csv';
+
+	$fp = fopen($file, 'w');
+
+	$first = true;
+
+	// Parse results to csv format
+	foreach ( $data as $row ) {
+
+		// Add table headers
+		if ( $first ) {
+
+			$titles = array();
+
+			foreach ( $row as $key => $val ) {
+				$titles[] = $key;
+			}
+
+			fputcsv( $fp, $titles );
+
+			$first = false;
+
+		}
+
+		$leadArray = (array) $row; // Cast the Object to an array
+		// Add row to file
+		fputcsv( $fp, $leadArray );
+
+	}
+
+	fclose($fp);
+
 }
 
 if ( isset($_GET['reset_contracts']) ) {
