@@ -1,5 +1,22 @@
 <?php
 
+// URL rewriting for contracts single
+add_action('init', function() {
+
+	add_rewrite_rule(
+		'contracts/([^/]+)?$',
+		'index.php?page_id=2568&contract_id=$matches[1]',
+		'top'
+	);
+
+	add_rewrite_tag('%contract_id%','([^/]*)');
+
+});
+add_filter('query_vars', function($query_vars) {
+	$query_vars[] = 'contract_id';
+	return $query_vars;
+});
+
 class Contracts {
 
 	static function get_contracts() {
@@ -7,6 +24,28 @@ class Contracts {
 		global $wpdb;
 
 		return $wpdb->get_results('SELECT * FROM ocp_contracts');
+
+	}
+
+	static function get_contract($contract_id) {
+
+		if ( $contract_id === NULL ) {
+			return false;
+		}
+
+		global $wpdb;
+
+		$contract_id = htmlspecialchars($contract_id);
+
+		$contract = $wpdb->get_row(
+			$wpdb->prepare(
+				"SELECT * FROM ocp_contracts WHERE ocid = '%s'",
+				$contract_id
+			)
+		);
+
+		// return if there is a contract result
+		return sizeof($contract) === 0 ? false : $contract;
 
 	}
 
@@ -142,9 +181,7 @@ class Contracts {
 	private function save_to_csv($data, $file) {
 
 		$file .= '.csv';
-
 		$fp = fopen($file, 'w');
-
 		$first = true;
 
 		// Parse results to csv format
@@ -166,6 +203,7 @@ class Contracts {
 			}
 
 			$leadArray = (array) $row; // Cast the Object to an array
+
 			// Add row to file
 			fputcsv( $fp, $leadArray );
 
