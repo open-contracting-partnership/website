@@ -16,3 +16,5 @@ composer.lock
 
 # Styleguide
 styleguide/
+/public/contracts/contracts.json
+/public/contracts/contracts.csv
