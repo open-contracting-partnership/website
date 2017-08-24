@@ -79,20 +79,41 @@ class Contracts {
 
 		// just in case the table doesn't exist, re-create it
 		$wpdb->query("CREATE TABLE IF NOT EXISTS `ocp_contracts` (
-		  `ocid` varchar(255) NOT NULL DEFAULT '',
-		  `supplier_name` varchar(255) DEFAULT NULL,
-		  `contract_title` varchar(255) DEFAULT NULL,
-		  `contract_status` varchar(255) DEFAULT NULL,
-		  `contract_start_date` date DEFAULT NULL,
-		  `contract_end_date` date DEFAULT NULL,
-		  `contract_amount` float DEFAULT NULL,
-		  `contract_currency` varchar(255) DEFAULT NULL,
-		  `contract_phase` varchar(255) DEFAULT NULL,
-		  `tender_status` varchar(255) DEFAULT NULL,
-		  `tender_title` varchar(255) DEFAULT NULL,
-		  `tender_start_date` date DEFAULT NULL,
-		  `tender_end_date` date DEFAULT NULL,
-		  PRIMARY KEY (`ocid`)
+
+			`ocid` varchar(255) NOT NULL DEFAULT '',
+			`supplier_name` varchar(255) DEFAULT NULL,
+
+			`contract_title` varchar(255) DEFAULT NULL,
+			`contract_status` varchar(255) DEFAULT NULL,
+			`contract_start_date` date DEFAULT NULL,
+			`contract_end_date` date DEFAULT NULL,
+			`contract_amount` float DEFAULT NULL,
+			`contract_currency` varchar(255) DEFAULT NULL,
+			`contract_rationale` varchar(255) DEFAULT NULL,
+			`contract_phase` varchar(255) DEFAULT NULL,
+
+			`tender_status` varchar(255) DEFAULT NULL,
+			`tender_title` varchar(255) DEFAULT NULL,
+			`tender_procurement` varchar(255) DEFAULT NULL,
+			`tender_rationale` text DEFAULT NULL,
+			`tender_description` text DEFAULT NULL,
+			`tender_criteria` varchar(255) DEFAULT NULL,
+			`tender_start_date` date DEFAULT NULL,
+			`tender_end_date` date DEFAULT NULL,
+			`tender_enquiries` varchar(255) DEFAULT NULL,
+			`tender_tor` varchar(255) DEFAULT NULL,
+
+			`award_start` date DEFAULT NULL,
+			`award_end` date DEFAULT NULL,
+			`award_value` float DEFAULT NULL,
+			`award_currency` varchar(255) DEFAULT NULL,
+			`award_supplier` varchar(255) DEFAULT NULL,
+
+			`implementation_title` varchar(255) DEFAULT NULL,
+			`implementation_status` varchar(255) DEFAULT NULL,
+
+			PRIMARY KEY (`ocid`)
+
 		) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
 
 		// remove any previous contracts from the table
@@ -138,19 +159,39 @@ class Contracts {
 
 			// insert the contracts into the table
 			$wpdb->insert('ocp_contracts', [
+
 				'ocid' => $contract_meta->id,
 				'supplier_name' => $contract->releases[0]->awards[0]->suppliers[0]->name,
+
 				'contract_title' => $contract->releases[0]->contracts[0]->title,
 				'contract_status' => $contract->releases[0]->contracts[0]->status,
 				'contract_start_date' => $this->date_filter($contract->releases[0]->contracts[0]->period->startDate),
 				'contract_end_date' => $this->date_filter($contract->releases[0]->contracts[0]->period->endDate),
 				'contract_amount' => str_replace(',', '', $contract->releases[0]->contracts[0]->value->amount),
 				'contract_currency' => $contract->releases[0]->contracts[0]->value->currency,
+				'contract_rationale' => $contract->releases[0]->contracts[0]->rationale,
 				'contract_phase' => $contract_phase,
+
 				'tender_status' => $contract->releases[0]->tender->status,
 				'tender_title' => $contract->releases[0]->tender->title,
+				'tender_procurement' => $contract->releases[0]->tender->procurementMethod,
+				'tender_rationale' => $contract->releases[0]->tender->procurementMethodRationale,
+				'tender_description' => $contract->releases[0]->tender->description,
+				'tender_criteria' => $contract->releases[0]->tender->eligibilityCriteria,
 				'tender_start_date' => $this->date_filter($contract->releases[0]->tender->tenderPeriod->startDate),
-				'tender_end_date' => $this->date_filter($contract->releases[0]->tender->tenderPeriod->endDate)
+				'tender_end_date' => $this->date_filter($contract->releases[0]->tender->tenderPeriod->endDate),
+				'tender_enquiries' => $contract->releases[0]->tender->hasEnquiries,
+				//'tender_tor' => $contract->releases[0]->tender->title,
+
+				'award_start' => $contract->releases[0]->tender->awardPeriod->startDate,
+				'award_end' => $contract->releases[0]->tender->awardPeriod->endDate,
+				'award_value' => $contract->releases[0]->awards->value->amount,
+				'award_currency' => $contract->releases[0]->awards->value->currency,
+				'award_supplier' => $contract->releases[0]->awards->suppliers->name,
+
+				//'implementation_title' => $contract->releases[0]->tender->title,
+				//'implementation_status' => $contract->releases[0]->tender->title,
+
 			]);
 
 		}
