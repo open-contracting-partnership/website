@@ -10,7 +10,10 @@
 
 		<?php if ( current_user_can('administrator') ) : ?>
 
-			<p><strong>Admin Only:</strong> <a href="/contracts/?reset_contracts">update contract data</a></p>
+			<form action="/contracts/" method="POST">
+				<input type="hidden" name="reset_contracts" value="true">
+				<p><strong>Admin Only:</strong> <button>Update Contract Data</button></p>
+			</form>
 
 		<?php endif; ?>
 

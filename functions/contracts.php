@@ -215,6 +215,6 @@ class Contracts {
 
 }
 
-if ( isset($_GET['reset_contracts']) ) {
+if ( $_POST['reset_contracts'] === "true" ) {
 	(new Contracts)->fetch_contracts();
 }
