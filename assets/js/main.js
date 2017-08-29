@@ -13,8 +13,135 @@ $(document).ready(function() {
 
 	$('.page-content table').wrap('<div class="table-wrap" />');
 
-
 	$('#lang_choice_1').addClass('custom-select');
+
+	var $contract_sidebar = $('.contract-single .page-sidebar');
+	var sidebar_waypoint;
+
+	if ( $contract_sidebar.length ) {
+
+		sidebar_waypoint = new Waypoint({
+			element: $contract_sidebar[0],
+			handler: function(direction) {
+
+				if ( direction == 'down' ) {
+					$contract_sidebar.addClass('fixed');
+				}
+
+				if ( direction == 'up' ) {
+					$contract_sidebar.removeClass('fixed');
+				}
+
+			}
+		});
+
+	}
+
+	var $contract_sections = $('.contract-single-section'),
+		$contracts_nav = $('.contract-sidebar-nav'),
+		$contracts_paginate = $('.contract-paginate'),
+		waypoint;
+
+	if ( $contract_sections.length ) {
+
+		$contract_sections.each(function($index, $section) {
+
+			waypoint = new Waypoint({
+				element: document.getElementById($section.id),
+				handler: function(direction) {
+
+					if ( direction == 'down' ) {
+
+						$contracts_nav.find('.number-heading--active').removeClass('number-heading--active');
+						$contracts_nav.find('.mobile-active').removeClass('mobile-active');
+						$contracts_nav.find('li:nth-child(' + ($index + 1) + ') a').addClass('number-heading--active');
+						$contracts_nav.find('li:nth-child(' + ($index + 1) + ')').addClass('mobile-active');
+
+					}
+
+				},
+				offset: '50%'
+			});
+
+			waypoint = new Waypoint({
+				element: document.getElementById($section.id),
+				handler: function(direction) {
+
+					if ( direction == 'up' ) {
+
+						$contracts_nav.find('.number-heading--active').removeClass('number-heading--active');
+						$contracts_nav.find('.mobile-active').removeClass('mobile-active');
+						$contracts_nav.find('li:nth-child(' + ($index + 1) + ') a').addClass('number-heading--active');
+						$contracts_nav.find('li:nth-child(' + ($index + 1) + ')').addClass('mobile-active');
+
+					}
+
+				},
+				offset: '112'
+			});
+
+		});
+
+	}
+
+	if ( $contracts_nav.length ) {
+
+		$contracts_nav.find('a').on('click', function(e) {
+
+			e.preventDefault();
+
+			var section = this.dataset.section;
+
+			history.pushState(null,null,'#' + section);
+
+			$('html, body').animate({
+				scrollTop: $('#' + section).offset().top - 112
+			}, 500);
+
+		});
+
+	}
+
+	if ( $contracts_paginate.length ) {
+
+		$contracts_paginate.each(function($index, $button) {
+
+			$($button).on('click', function(e) {
+
+				e.preventDefault();
+
+				var direction = this.dataset.direction;
+				var $link;
+				var $section;
+
+				if ( direction === 'prev' ) {
+					$link = $('li.mobile-active').prev();
+				} else if ( direction === 'next' ) {
+					$link = $('li.mobile-active').next();
+				}
+
+				if ( $link.length ) {
+
+					$section = $link.find('a').data('section');
+
+					history.pushState(null,null,'#' + $section);
+
+					$('html, body').animate({
+						scrollTop: $('#' + $section).offset().top - 112
+					}, 500);
+
+					setTimeout(function() {
+						$('li.mobile-active').removeClass('mobile-active');
+						$link.addClass('mobile-active');
+					}, 500);
+
+				}
+
+			})
+
+		});
+
+	}
 
 
 	 //********************
