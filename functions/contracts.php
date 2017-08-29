@@ -64,6 +64,18 @@ class Contracts {
 
 	}
 
+	public static function get_phases() {
+
+		return array(
+			'planning' => true,
+			'tender' => true,
+			'awards' => true,
+			'contracts' => true,
+			'implementation' => true
+		);
+
+	}
+
 	public function fetch_contracts() {
 
 		// fetch the primary contracts feed
@@ -119,13 +131,7 @@ class Contracts {
 		// remove any previous contracts from the table
 		$wpdb->query('TRUNCATE TABLE ocp_contracts');
 
-		$phases = array(
-			'planning',
-			'tender',
-			'award',
-			'contract',
-			'implementation'
-		);
+		$phases = $this->get_phases();
 
 		// loop through the contracts
 		foreach ( $contracts as $contract_meta ) {
@@ -143,12 +149,12 @@ class Contracts {
 
 			$contract_phase = '';
 
-			if ( $contract->releases[0]->tag ) {
+			if ( $contract->releases ) {
 
-				$tags = $contract->releases[0]->tag;
+				$releases = $contract->releases;
 
-				foreach ( $phases as $phase ) {
-					$contract_phase = in_array($phase, $tags) ? $phase : $contract_phase;
+				foreach ( $phases as $phase => $data ) {
+					$contract_phase = property_exists($releases[0], $phase) ? $phase : $contract_phase;
 				}
 
 			}
@@ -187,7 +193,7 @@ class Contracts {
 				'award_end' => $contract->releases[0]->tender->awardPeriod->endDate,
 				'award_value' => $contract->releases[0]->awards->value->amount,
 				'award_currency' => $contract->releases[0]->awards->value->currency,
-				'award_supplier' => $contract->releases[0]->awards->suppliers->name,
+				'award_supplier' => $contract->releases[0]->awards[0]->suppliers[0]->name,
 
 				//'implementation_title' => $contract->releases[0]->tender->title,
 				//'implementation_status' => $contract->releases[0]->tender->title,
