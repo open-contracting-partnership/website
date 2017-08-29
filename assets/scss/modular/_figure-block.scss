@@ -27,7 +27,13 @@ category:
 	}
 
 	.figure-block {
-		flex: 0 1 span(2 of 4);
+
+		flex: 1;
+
+		@include mq(M) {
+			flex: 0 1 span(2 of 4);
+		}
+
 	}
 
 }
