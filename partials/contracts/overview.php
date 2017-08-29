@@ -55,7 +55,11 @@
 
 						<tr>
 							<td><?php echo $contract->contract_phase ? $contract->contract_phase : '-' ?></td>
-							<td><?php echo $contract->contract_title ? $contract->contract_title : '-' ?></td>
+							<td>
+								<a href="/contracts/<?php echo $contract->ocid; ?>">
+									<?php echo $contract->contract_title ? $contract->contract_title : '-' ?>
+								</a>
+							</td>
 							<td><?php echo $contract->supplier_name ? $contract->supplier_name : '-'; ?></td>
 							<td>
 								<?php
