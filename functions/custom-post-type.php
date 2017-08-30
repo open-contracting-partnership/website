@@ -145,6 +145,14 @@ $taxonomies = array(
 	'audience' => array(
 		'label' => 'Audience',
 		'post_type' => ['post', 'news', 'event', 'resource', 'success-story']
+	),
+	'story-type' => array(
+		'label' => 'Story Type',
+		'post_type' => ['page']
+	),
+	'story-content-type' => array(
+		'label' => 'Story Content Type',
+		'post_type' => ['page']
 	)
 
 );
