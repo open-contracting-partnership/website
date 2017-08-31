@@ -127,7 +127,7 @@
 				<a
 					href="#"
 					data-direction="next"
-					class="contract-paginate / text-button button--icon"
+					class="contract-paginate / text-button button--icon button--icon--reverse"
 					>Next<svg><use xlink:href="#icon-arrow-right" /></svg></a>
 
 			</aside>
