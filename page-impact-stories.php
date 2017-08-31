@@ -2,68 +2,78 @@
 
 	<?php the_post(); ?>
 
-	<div class="page__wrapper" id="impact-stories">
+	<div id="impact-stories">
 
-		<?php get_partial('page', 'title'); ?>
+		<div class="wrapper">
+			<?php get_partial('page', 'title'); ?>
+		</div>
 
-		<div class="card card--featured">
+		<div class="impact-stories__featured">
 
-			<img class="card__featured-media" v-bind:src="stories[0].image.url">
+			<div class="card card--featured">
 
-			<div class="card__content">
+				<img class="card__featured-media" v-bind:src="stories[0].image.url">
 
-				<div class="card__title">
-					<h6 class="card__heading">{{ stories[0].title }}</h6>
+				<div class="card__content">
+
+					<div class="card__title">
+						<h6 class="card__heading">{{ stories[0].title }}</h6>
+					</div>
+
+					<p class="card__meta">{{ stories[0].introduction }}</p>
+					<a class="button button--white" href="{{ stories[0].link }}">{{ stories[0].link_text }}</a>
+
 				</div>
-
-				<p class="card__meta">{{ stories[0].introduction }}</p>
-				<a class="button button--white" href="{{ stories[0].link }}">{{ stories[0].link_text }}</a>
 
 			</div>
 
 		</div>
 
-		<article class="page-content cf">
+		<div class="wrapper">
 
-			<aside class="impact-stores__sidebar">
+			<article class="page-content cf">
 
-				<h3>Filter Search</h3>
+				<aside class="impact-stores__sidebar">
 
-				<div>
+					<h3>Filter Search</h3>
 
-					<h2>Story Type</h2>
+					<div>
 
-					<label v-for="type in types[0]">
-						<input type="checkbox" value="{{ type.slug }}" v-model="filters">
-						{{ type.name }}
-					</label>
+						<h2>Story Type</h2>
 
-				</div>
+						<label v-for="type in types[0]">
+							<input type="checkbox" value="{{ type.slug }}" v-model="filters">
+							{{ type.name }}
+						</label>
 
-				<div>
+					</div>
 
-					<h2>Country</h2>
+					<div>
 
-					<label v-for="country in countries[0]">
-						<input type="checkbox" value="{{ country.slug }}" v-model="filters">
-						{{ country.name }}
-					</label>
+						<h2>Country</h2>
 
-				</div>
+						<label v-for="country in countries[0]">
+							<input type="checkbox" value="{{ country.slug }}" v-model="filters">
+							{{ country.name }}
+						</label>
 
-			</aside>
+					</div>
 
-			<section class="impact-stories__main">
+				</aside>
 
-				<div v-for="story in getStories">
-					<story :story="story"></story>
-				</div>
+				<section class="impact-stories__main">
 
-			</section>
+					<div v-for="story in getStories">
+						<story :story="story"></story>
+					</div>
 
-		</article>
+				</section>
 
-	</div> <!-- / .page__wrapper -->
+			</article>
+
+		</div> <!-- / .page__wrapper -->
+
+	</div>
 
 	<script type="x/templates" id="story-template">
 
