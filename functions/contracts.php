@@ -12,12 +12,15 @@ add_action('init', function() {
 	add_rewrite_tag('%contract_id%','([^/]*)');
 
 });
+
 add_filter('query_vars', function($query_vars) {
 	$query_vars[] = 'contract_id';
 	return $query_vars;
 });
 
 class Contracts {
+
+	public static $phases = ['planning', 'tender', 'award', 'contract', 'implementation'];
 
 	static function get_contracts() {
 
@@ -64,18 +67,6 @@ class Contracts {
 
 	}
 
-	public static function get_phases() {
-
-		return array(
-			'planning' => true,
-			'tender' => true,
-			'awards' => true,
-			'contracts' => true,
-			'implementation' => true
-		);
-
-	}
-
 	public function fetch_contracts() {
 
 		// fetch the primary contracts feed
@@ -90,7 +81,8 @@ class Contracts {
 		global $wpdb;
 
 		// just in case the table doesn't exist, re-create it
-		$wpdb->query("CREATE TABLE IF NOT EXISTS `ocp_contracts` (
+		$wpdb->query("DROP TABLE `{$wpdb->prefix}_contracts`;");
+		$wpdb->query("CREATE TABLE `{$wpdb->prefix}_contracts` (
 
 			`ocid` varchar(255) NOT NULL DEFAULT '',
 			`supplier_name` varchar(255) DEFAULT NULL,
@@ -131,8 +123,6 @@ class Contracts {
 		// remove any previous contracts from the table
 		$wpdb->query('TRUNCATE TABLE ocp_contracts');
 
-		$phases = $this->get_phases();
-
 		// loop through the contracts
 		foreach ( $contracts as $contract_meta ) {
 
@@ -149,18 +139,13 @@ class Contracts {
 
 			$contract_phase = '';
 
+			// attempt to determine the contract phase
 			if ( $contract->releases ) {
-
-				$releases = $contract->releases;
-
-				foreach ( $phases as $phase => $data ) {
-					$contract_phase = property_exists($releases[0], $phase) ? $phase : $contract_phase;
-				}
-
-			}
-
-			if ( ! isset($contract->releases[0]->contracts) ) {
-				continue;
+				$contract_phase = property_exists($contract->releases[0], 'planning') ? 'planning' : $contract_phase;
+				$contract_phase = property_exists($contract->releases[0], 'tender') ? 'tender' : $contract_phase;
+				$contract_phase = property_exists($contract->releases[0], 'awards') ? 'award' : $contract_phase;
+				$contract_phase = property_exists($contract->releases[0], 'contracts') ? 'contract' : $contract_phase;
+				$contract_phase = property_exists($contract->releases[0], 'implementation') ? 'implementation' : $contract_phase;
 			}
 
 			// insert the contracts into the table

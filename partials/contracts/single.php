@@ -2,18 +2,8 @@
 
 	$data = get_partial_options($options)->contract;
 
-	$phases = Contracts::get_phases();
-	$phase_state = true;
-
-	foreach ( $phases as $phase => $phase_data ) {
-
-		$phases[$phase] = $phase_state;
-
-		if ( $data->contract_phase == $phase ) {
-			$phase_state = false;
-		}
-
-	}
+	// fetch the phase index, based on the phases array
+	$phase_index = array_search($data->contract_phase, Contracts::$phases);
 
 	$planning = array(
 		'title' => 'Rationale',
@@ -87,41 +77,57 @@
 					><svg><use xlink:href="#icon-arrow-left" /></svg>Prev</a>
 
 				<ol class="plain contract-sidebar-nav">
-					<li class="mobile-active <?php if ( ! $phases['planning'] ) : ?>in-active<?php endif; ?>">
+
+					<li class="mobile-active <?php if ( $phase_index < 0 ) : ?>in-active<?php endif; ?>">
+
 						<a
 							href="#planning"
 							data-section="planning"
 							class="number-heading number-heading--small number-heading--active"
 							><span>1</span> Planning</a>
+
 					</li>
-					<li <?php if ( ! $phases['tender'] ) : ?>class="in-active"<?php endif; ?>>
+
+					<li <?php if ( $phase_index < 1 ) : ?>class="in-active"<?php endif; ?>>
+
 						<a
 							href="#tender"
 							data-section="tender"
 							class="number-heading number-heading--small"
 							><span>2</span> Tender</a>
+
 					</li>
-					<li <?php if ( ! $phases['awards'] ) : ?>class="in-active"<?php endif; ?>>
+
+					<li <?php if ( $phase_index < 2 ) : ?>class="in-active"<?php endif; ?>>
+
 						<a
 							href="#award"
 							data-section="award"
 							class="number-heading number-heading--small"
 							><span>3</span> Award</a>
+
 					</li>
-					<li <?php if ( ! $phases['contracts'] ) : ?>class="in-active"<?php endif; ?>>
+
+					<li <?php if ( $phase_index < 3 ) : ?>class="in-active"<?php endif; ?>>
+
 						<a
 							href="#contract"
 							data-section="contract"
 							class="number-heading number-heading--small"
 							><span>4</span> Contract</a>
+
 					</li>
-					<li <?php if ( ! $phases['implementation'] ) : ?>class="in-active"<?php endif; ?>>
+
+					<li <?php if ( $phase_index < 4 ) : ?>class="in-active"<?php endif; ?>>
+
 						<a
 							href="#implementation"
 							data-section="implementation"
 							class="number-heading number-heading--small"
 							><span>5</span> Implementation</a>
+
 					</li>
+
 				</ol>
 
 				<a
@@ -134,7 +140,7 @@
 
 			<article class="page-content cf">
 
-				<section id="planning" class="contract-single-section <?php if ( ! $phases['planning'] ) : ?>in-active<?php endif; ?>">
+				<section id="planning" class="contract-single-section <?php if ( $phase_index < 0 ) : ?>in-active<?php endif; ?>">
 
 					<h2 class="number-heading"><span>1</span> Planning</h2>
 
@@ -158,7 +164,7 @@
 
 				</section>
 
-				<section id="tender" class="contract-single-section <?php if ( ! $phases['tender'] ) : ?>in-active<?php endif; ?>">
+				<section id="tender" class="contract-single-section <?php if ( $phase_index < 1 ) : ?>in-active<?php endif; ?>">
 
 					<h2 class="number-heading"><span>2</span> Tender</h2>
 
@@ -179,7 +185,7 @@
 
 				</section>
 
-				<section id="award" class="contract-single-section <?php if ( ! $phases['awards'] ) : ?>in-active<?php endif; ?>">
+				<section id="award" class="contract-single-section <?php if ( $phase_index < 2 ) : ?>in-active<?php endif; ?>">
 
 					<h2 class="number-heading"><span>3</span> Award</h2>
 
@@ -204,7 +210,7 @@
 
 				</section>
 
-				<section id="contract" class="contract-single-section <?php if ( ! $phases['contracts'] ) : ?>in-active<?php endif; ?>">
+				<section id="contract" class="contract-single-section <?php if ( $phase_index < 3 ) : ?>in-active<?php endif; ?>">
 
 					<h2 class="number-heading"><span>4</span> Contract</h2>
 
@@ -234,7 +240,7 @@
 
 				</section>
 
-				<section id="implementation" class="contract-single-section <?php if ( ! $phases['implementation'] ) : ?>in-active<?php endif; ?>">
+				<section id="implementation" class="contract-single-section <?php if ( $phase_index < 4 ) : ?>in-active<?php endif; ?>">
 
 					<h2 class="number-heading"><span>5</span> Implementation</h2>
 
