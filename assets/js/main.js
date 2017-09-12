@@ -86,9 +86,9 @@ $(document).ready(function() {
 
 	if ( $contracts_nav.length ) {
 
-		$contracts_nav.find('a').on('click', function(e) {
+		$contracts_nav.find('a').on('click', function(event) {
 
-			e.preventDefault();
+			event.preventDefault();
 
 			var section = this.dataset.section;
 
@@ -104,11 +104,11 @@ $(document).ready(function() {
 
 	if ( $contracts_paginate.length ) {
 
-		$contracts_paginate.each(function($index, $button) {
+		$contracts_paginate.each(function() {
 
-			$($button).on('click', function(e) {
+			$(this).on('click', function(event) {
 
-				e.preventDefault();
+				event.preventDefault();
 
 				var direction = this.dataset.direction;
 				var $link;
