@@ -21,7 +21,7 @@
 
 			<a href="/wp-content/uploads/contracts/contracts.csv" class="button button--dark / pull-left" download>Download CSV</a>
 			<a href="/wp-content/uploads/contracts/contracts.json" class="button button--dark / pull-left" download>Download JSON</a>
-			
+
 		</div>
 
 		<?php the_content(); ?>
@@ -56,7 +56,7 @@
 						<?php $currency = $contract->contract_currency ? ' ' . $contract->contract_currency : '' ?>
 
 						<tr>
-							<td><?php echo $contract->contract_phase ? $contract->contract_phase : '-' ?></td>
+							<td><?php echo $contract->phase ? $contract->phase : '-' ?></td>
 							<td>
 								<a href="/contracts/<?php echo $contract->ocid; ?>">
 									<?php echo $contract->contract_title ? $contract->contract_title : '-' ?>

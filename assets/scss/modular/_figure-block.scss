@@ -21,6 +21,7 @@ category:
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
+	margin-bottom: 1em;
 
 	@include mq(M) {
 		flex-direction: row;

@@ -3,13 +3,13 @@
 	$data = get_partial_options($options)->contract;
 
 	// fetch the phase index, based on the phases array
-	$phase_index = array_search($data->contract_phase, Contracts::$phases);
+	$phase_index = array_search($data->phase, Contracts::$phases);
 
 	$planning = array(
 		'title' => 'Rationale',
-		'description' => $data->contract_rationale,
-		'amount' => $data->contract_amount,
-		'currency' => $data->contract_currency
+		'description' => $data->planning_rationale,
+		'amount' => $data->planning_amount,
+		'currency' => $data->planning_currency
 	);
 
 	$tender = array(
@@ -21,13 +21,12 @@
 		'award_criteria' => $data->tender_criteria,
 		'period_start' => $data->tender_start_date,
 		'period_end' => $data->tender_end_date,
-		'enquiries' => $data->tender_enquiries
-		// 'document_tor' => $data->
+		'enquiries' => $data->tender_enquiries,
+		'tor' => $data->tender_tor
 	);
 
 	$award = array(
-		'date_start' => $data->award_start,
-		'date_end' => $data->award_end,
+		'date' => $data->award_date,
 		'supplier_name' => $data->award_supplier,
 		'amount' => $data->award_value,
 		'currency' => $data->award_currency
@@ -35,17 +34,45 @@
 
 	$contract = array(
 		'title' => $data->contract_title,
+		'status' => $data->contract_status,
 		'period_start' => $data->contract_start_date,
 		'period_end' => $data->contract_end_date,
-		'contract_title' => $data->contract_title,
-		'status' => $data->contract_status,
-		'signed' => $data->contract_phase,
+		'signed' => $data->contract_signed,
 		'amount' => $data->contract_amount,
-		'currency' => $data->contract_currency
-		// 'document_tor' => $data->contract_
+		'currency' => $data->contract_currency,
+		'document' => $data->contract_document,
+		'document_title' => $data->contract_document_title
 	);
 
-	$implementation = array();
+	$implementation = array(
+		'milestones' => unserialize($data->implementation_milestones)
+	);
+
+	function amount_format($amount) {
+
+		if ( ! $amount ) {
+			return;
+		}
+
+		return number_format($amount);
+
+	}
+
+	function date_period($start, $end) {
+
+		$date_period = array();
+
+		if ( $start ) {
+			$date_period[] = $start;
+		}
+
+		if ( $end ) {
+			$date_period[] = $end;
+		}
+
+		return implode(' - ', $date_period);
+
+	}
 
 ?>
 
@@ -152,7 +179,7 @@
 
 						<div class="figure-block">
 							<span>Amount</span>
-							<span class="figure-block__figure"><?php echo $planning['amount']; ?></span>
+							<span class="figure-block__figure"><?php echo amount_format($planning['amount']); ?></span>
 						</div>
 
 						<div class="figure-block">
@@ -177,11 +204,13 @@
 						<li><b>Procurement Method:</b> <?php echo $tender['procurement_method']; ?></li>
 						<li><b>Method Rationale:</b> <?php echo $tender['method_rationale']; ?></li>
 						<li><b>Award Criteria:</b> <?php echo $tender['award_criteria']; ?></li>
-						<li><b>Tender Period:</b> <?php echo $tender['period_start'] . ' - ' . $tender['period_end']; ?></li>
+						<li><b>Tender Period:</b> <?php echo date_period($tender['period_start'], $tender['period_end']); ?></li>
 						<li><b>Enquiries:</b> <?php echo $tender['enquiries']; ?></li>
 					</ul>
 
-					<a href="#">document tor download</a>
+					<?php if ( $tender['tor'] ) : ?>
+						<a href="<?php echo $tender['tor']; ?>">Terms of reference</a>
+					<?php endif; ?>
 
 				</section>
 
@@ -190,7 +219,7 @@
 					<h2 class="number-heading"><span>3</span> Award</h2>
 
 					<ul class="contract-single-details">
-						<li><b>Date:</b> <?php echo $award['date_start'] . ' - ' . $award['date_end']; ?></li>
+						<li><b>Date:</b> <?php echo $award['date']; ?></li>
 						<li><b>Supplier Name:</b> <?php echo $award['supplier_name']; ?></li>
 					</ul>
 
@@ -198,7 +227,7 @@
 
 						<div class="figure-block">
 							<span>Amount</span>
-							<span class="figure-block__figure"><?php echo $award['amount']; ?></span>
+							<span class="figure-block__figure"><?php echo amount_format($award['amount']); ?></span>
 						</div>
 
 						<div class="figure-block">
@@ -216,9 +245,8 @@
 
 					<ul class="contract-single-details">
 						<li><b>Title:</b> <?php echo $contract['title']; ?></li>
-						<li><b>Period (Start / End):</b> <?php echo $contract['period_start'] . ' - ' . $contract['period_end']; ?></li>
-						<li><b>Contract Title:</b> <?php echo $contract['contract_title']; ?></li>
 						<li><b>Status:</b> <?php echo $contract['status']; ?></li>
+						<li><b>Period:</b> <?php echo date_period($contract['period_start'], $contract['period_end']); ?></li>
 						<li><b>Signed:</b> <?php echo $contract['signed']; ?></li>
 					</ul>
 
@@ -226,7 +254,7 @@
 
 						<div class="figure-block">
 							<span>Amount</span>
-							<span class="figure-block__figure"><?php echo $contract['amount']; ?></span>
+							<span class="figure-block__figure"><?php echo amount_format($contract['amount']); ?></span>
 						</div>
 
 						<div class="figure-block">
@@ -236,13 +264,24 @@
 
 					</div>
 
-					<a href="#">document tor download</a>
+					<?php if ( $contract['document'] ) : ?>
+						<a href="<?php echo $contract['document']; ?>"><?php echo $contract['document_title']; ?></a>
+					<?php endif; ?>
 
 				</section>
 
 				<section id="implementation" class="contract-single-section <?php if ( $phase_index < 4 ) : ?>in-active<?php endif; ?>">
 
 					<h2 class="number-heading"><span>5</span> Implementation</h2>
+
+					<?php foreach ( $implementation['milestones'] as $milestone ) : ?>
+
+						<ul class="contract-single-details">
+							<li><b>Title:</b> <?php echo $milestone['title']; ?></li>
+							<li><b>Status:</b> <?php echo $milestone['status']; ?></li>
+						</ul>
+
+					<?php endforeach; ?>
 
 				</section>
 
