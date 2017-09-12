@@ -20,7 +20,13 @@ add_filter('query_vars', function($query_vars) {
 
 class Contracts {
 
-	public static $phases = ['planning', 'tender', 'award', 'contract', 'implementation'];
+	public static $phases = [
+		'planning' => 'Planning',
+		'tender' => 'Tender',
+		'award' => 'Award',
+		'contract' => 'Contract',
+		'implementation' => 'Implementation' 
+	];
 
 	static function get_contracts() {
 
