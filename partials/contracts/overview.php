@@ -8,18 +8,20 @@
 
 	<article class="page-content cf">
 
-		<?php if ( current_user_can('administrator') ) : ?>
-
-			<form action="/contracts/" method="POST">
-				<input type="hidden" name="reset_contracts" value="true">
-				<p><strong>Admin Only:</strong> <button>Update Contract Data</button></p>
-			</form>
-
-		<?php endif; ?>
-
 		<div class="button-group pull-right">
-			<a href="<?php bloginfo('template_directory'); ?>/public/contracts/contracts.csv" class="button button--dark" download>Download CSV</a>
-			<a href="<?php bloginfo('template_directory'); ?>/public/contracts/contracts.json" class="button button--dark" download>Download JSON</a>
+
+			<?php if ( current_user_can('administrator') ) : ?>
+
+				<form action="/contracts/" method="POST" class="pull-left">
+					<input type="hidden" name="reset_contracts" value="true">
+					<button class="button button--dark" style="margin-right: 1em">Admin: Update Contract Data</button>
+				</form>
+
+			<?php endif; ?>
+
+			<a href="/wp-content/uploads/contracts/contracts.csv" class="button button--dark / pull-left" download>Download CSV</a>
+			<a href="/wp-content/uploads/contracts/contracts.json" class="button button--dark / pull-left" download>Download JSON</a>
+			
 		</div>
 
 		<?php the_content(); ?>
