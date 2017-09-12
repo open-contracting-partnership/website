@@ -41,6 +41,8 @@ category:
 
 .figure-block {
 
+	@include font-size(16);
+	@include font('secondary');
 	background: color('light-background');
 	padding: 32px 27px;
 	color: color('mid-grey');
@@ -60,15 +62,9 @@ category:
 
 	}
 
-	span {
-		@include font('secondary');
-		@include font-size(16);
-		display: block;
-	}
-
 }
 
-span.figure-block__figure {
+.figure-block__figure {
 
 	@include font('primary', 'bold');
 	@include font-size(48);
@@ -81,6 +77,11 @@ span.figure-block__figure {
 
 	.in-active & {
 		color: color('mid-grey');
+	}
+
+	span.subtle {
+		color: color('grey');
+		text-transform: lowercase;
 	}
 
 }

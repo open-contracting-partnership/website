@@ -1,5 +1,9 @@
 .contract-single {
 
+	.subtle {
+		color: color('mid-grey');
+	}
+
 	.page__wrapper {
 
 		@include mq(L, 'max-width') {
