@@ -198,22 +198,20 @@ class Contracts {
 
 		$contracts = $this->get_contracts();
 
-		$this->save_to_json($contracts, './wp-content/themes/ocp-v1/public/contracts/contracts');
-		$this->save_to_csv($contracts, './wp-content/themes/ocp-v1/public/contracts/contracts');
+		$this->save_to_json($contracts, './wp-content/uploads/contracts/');
+		$this->save_to_csv($contracts, './wp-content/uploads/contracts/');
 
 	}
 
 	private function save_to_json($data, $file) {
 		$content = json_encode($data);
-		$file .= '.json';
-		file_put_contents($file, $content);
+		file_put_contents('./wp-content/uploads/contracts/contracts.json', $content);
 	}
 
 	// Code from http://imtheirwebguy.com/exporting-the-results-of-a-custom-wpdb-query-to-a-downloaded-csv/
 	private function save_to_csv($data, $file) {
 
-		$file .= '.csv';
-		$fp = fopen($file, 'w');
+		$fp = fopen('./wp-content/uploads/contracts/contracts.csv', 'w');
 		$first = true;
 
 		// Parse results to csv format
