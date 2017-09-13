@@ -21,7 +21,6 @@ var gulp = require('gulp'),
 	globbing = require('gulp-css-globbing'),
 
 	// scripts
-	jshint = require('gulp-jshint'),
 	uglify = require('gulp-uglify'),
 
 	// webpack
@@ -137,20 +136,17 @@ gulp.task('scss-lint', function lintCssTask() {
 		}));
 });
 
-gulp.task('js', function () {
+gulp.task('js', function(done) {
 
-	return gulp.src('assets/js/main.js')
+	// lint, webpack and uglify the main scripts file
+	return gulp.src('./assets/js/script.js')
 		.pipe(plumber({ errorHandler: onError }))
-		.pipe(jshint())
-		.pipe(jshint.reporter('jshint-stylish'))
-		.pipe(uglify())
-		.pipe(rename({
-			extname: '.min.js'
-		}))
-		.pipe(gulp.dest('assets/js/'))
-		.pipe(livereload());
+		.pipe(webpack(require('./webpack.config.js')))
+		.pipe(gulp.dest('./dist/js/'))
+		.pipe(notify('JS Compiled'));
 
 });
+
 
 gulp.task('scss:bs', function () {
 
@@ -196,9 +192,12 @@ gulp.task('watch', function () {
 	livereload.listen();
 
 	// boilerplate
-	gulp.watch('assets/scss/**/*.scss', ['styles']);
-	gulp.watch('assets/js/main.js', ['js', 'modernizr']);
 	gulp.watch('assets/img/icons/*.svg', ['svgstore']);
+	gulp.watch('assets/scss/**/*.scss', ['styles']);
+
+	gulp.watch('assets/js/**/*.js', ['js']);
+	gulp.watch('assets/js/**/*.vue', ['js']);
+
 
 });
 
