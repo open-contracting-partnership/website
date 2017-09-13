@@ -16,3 +16,4 @@ composer.lock
 
 # Styleguide
 styleguide/
+/dist
