@@ -1,0 +1,64 @@
+/*
+
+---
+name: Number Heading
+category:
+ - Components
+ - Components/Number Heading
+---
+
+```html
+<h2 class="number-heading"><span>1</span> Planning</h2>
+```
+
+*/
+
+.number-heading {
+
+	@include font('primary', 'semibold');
+	@include font-size(20);
+	color: color('body');
+	margin-top: 0;
+	margin-bottom: .8em;
+	line-height: 1.3;
+	display: flex;
+	align-items: center;
+
+	@include mq(L) {
+		@include font-size(24);
+		margin-bottom: 1.3em;
+	}
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+
+	span {
+		@include font-size(17);
+		height: 32px;
+		width: 32px;
+		border-radius: 16px;
+		line-height: 1;
+		background-color: color('brand');
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-right: .7em;
+		z-index: 1;
+		transition: transform .1s ease;
+	}
+
+}
+
+.number-heading--small {
+	@include font-size(17);
+}
+
+.number-heading--active span {
+	transform: scale(1.2);
+}
+
+.in-active .number-heading span {
+	background-color: color('lighter-grey');
+}

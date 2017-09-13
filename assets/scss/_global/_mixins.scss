@@ -190,10 +190,6 @@
 		$arg1: map-get($breakpoints, $arg1);
 	}
 
-	@if type-of($arg1) == 'number' {
-		$arg1: $arg1 + px;
-	}
-
 	// maybe arg2 references a breakpoint
 	@if map-has-key($breakpoints, $arg2) {
 		$arg2: map-get($breakpoints, $arg2);
@@ -207,7 +203,11 @@
 	}
 
 	@if $arg2 == 'max-width' {
-		$arg1: $arg1 - 1px;
+		$arg1: $arg1 - 1;
+	}
+
+	@if type-of($arg1) == 'number' {
+		$arg1: $arg1 + px;
 	}
 
 	@if $between == false {
