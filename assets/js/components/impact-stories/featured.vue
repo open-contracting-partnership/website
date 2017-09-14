@@ -4,7 +4,7 @@
 
 	    <div class="impact-card__content">
 
-	        <span class="impact-icon" data-type="medium"></span>
+	        <span class="impact-icon" :data-type="story.content_type.slug"></span>
 
 	        <h6 class="impact-card__heading">
 	            <a :href="story.link" class="impact-card__link">{{ story.title }}</a>

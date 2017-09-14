@@ -14,39 +14,39 @@
 
 			<div class="cf">
 
-				<aside class="impact-stores__sidebar">
+				<div class="impact-stories__sidebar	">
 
-					<h3>Filter Search</h3>
-
-					<div>
+					<div class="impact-stories__filter">
 
 						<h2>Story Type</h2>
 
-						<label v-for="type in types[0]">
-							<input type="checkbox" :value="type.slug" v-model="filters">
+						<label v-for="type in types">
+							<input type="checkbox" :value="type.slug" v-model="filters.types">
 							{{ type.name }}
 						</label>
 
 					</div>
 
-					<div>
+					<div class="impact-stories__filter">
 
 						<h2>Country</h2>
 
-						<label v-for="country in countries[0]">
-							<input type="checkbox" :value="country.slug" v-model="filters">
+						<label v-for="country in countries">
+							<input type="checkbox" :value="country.slug" v-model="filters.countries">
 							{{ country.name }}
 						</label>
 
 					</div>
 
-				</aside>
+				</div>
 
 				<section class="impact-stories__main">
 
-					<div v-for="story in getStories">
-						<story-card :story="story"></story-card>
+					<div v-if="hasVisibleStories">
+						<story-card v-for="story in visibleStories" :story="story"></story-card>
 					</div>
+
+					<p v-else>No stories match your filter, <a href="#" @click.prevent="resetFilter()">reset filter?</a></p>
 
 				</section>
 

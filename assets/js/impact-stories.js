@@ -1,3 +1,4 @@
+import _ from 'underscore'
 import Vue from 'vue'
 import StoryFeatured from './components/impact-stories/featured.vue'
 import StoryCard from './components/impact-stories/normal.vue'
@@ -13,79 +14,120 @@ const reports = new Vue({
 
 	data: {
 		stories: [],
-		filters: [],
-		types: [],
-		countries: []
+		filters: {
+			types: [],
+			countries: []
+		},
+		filter_defaults: null,
+		types: {},
+		countries: {}
 	},
 	computed: {
 
-		getStories: function() {
-			return this.stories.slice(1);
-		}
+		visibleStories: function() {
+
+			var stories = [];
+
+			this.stories.forEach(function(story) {
+
+				if ( story.display === true ) {
+					stories.push(story);
+				}
+
+			});
+
+			return stories;
+
+		},
+
+		hasVisibleStories: function() {
+			return !! this.visibleStories.length;
+		},
 
 	},
 	watch: {
 
-		filters:  function () {
-			this.filter();
+		filters: {
+			handler: function (val, oldVal) {
+				this.filter();
+			},
+			deep: true
 		}
 
 	},
 	methods: {
 
-		setData: function() {
+		setFilters: function() {
 
-			this.types = [];
-			this.countries = [];
+			// empty the current filter options
+			this.types = {};
+			this.countries = {};
 
-			this.stories.forEach(function(event) {
+			// find the types and countries from the stories
+			this.stories.slice(1).forEach(function(story) {
 
-				this.types.push({
-					"name": event.story_type[0].name,
-					"slug": event.story_type[0].slug
-				});
+				story.story_type.forEach(function(story_type) {
 
-				this.countries.push({
-					"name": event.country[0].name,
-					"slug": event.country[0].slug
-				});
+					this.types[story_type.slug] = {
+						"name": story_type.name,
+						"slug": story_type.slug
+					};
 
-			});
+				}.bind(this));
+
+				story.country.forEach(function(story_country) {
+
+					this.countries[story_country.slug] = {
+						"name": story_country.name,
+						"slug": story_country.slug
+					};
+
+				}.bind(this));
+
+			}.bind(this));
+
+			// make sure the filter options are orderes correctly
+			_.sortBy(this.types, 'name');
+			_.sortBy(this.countries, 'name');
 
 		},
 
 		filter: function() {
 
-			// console.log(item);
-
-			// this.filters.push(item);
-
 			// reset all resources
-
-			// this.stories.forEach(function(story, index) {
-			// 	story.display = true;
-			// });
+			this.stories.forEach(function(story, index) {
+				story.display = true;
+			});
 
 			// apply filters
+			if ( ! _.isEmpty(this.filters.types) ) {
 
-			// if ( this.filters.length ) {
-			//
-			// 	this.stories.forEach(function(story, index) {
-			//
-			// 		// if ( ! intersection(Object.keys(story.taxonomies['story-type']), this.filter_story_type) ) {
-			// 		// 	story.display = false;
-			// 		// }
-			//
-			// 	}.bind(this));
-			//
-			// }
+				this.stories.forEach(function(story, index) {
 
+					if ( _.intersection(_.pluck(story.story_type, 'slug'), this.filters.types).length === 0 ) {
+						story.display = false;
+					}
+
+				}.bind(this));
+
+			}
+
+			// before we go, ensure the first story is always false
+			// this is the featured item, so shouldn't be displayed
+
+			this.stories[0].display = false;
 
 		},
+
+		resetFilter: function() {
+			this.filters = $.extend(true, {}, this.filter_defaults);
+		}
 
 	},
 
 	mounted: function() {
+
+		this.filter_defaults = $.extend(true, {}, this.filters);
 
 		$.ajax({
 			url: '/wp-json/ocp/v1/impact-stories',
@@ -93,11 +135,19 @@ const reports = new Vue({
 		})
 		.done(function(data) {
 
+			// preset the display value so vue can watch it
+			data.forEach(function(story) {
+				story.display = true;
+			});
+
 			// set the reports data
 			this.stories = data;
 
-			// refresh the filter incase filters have already been applied
-			// this.refreshFilter();
+			// after the data has been applied, re-generate the filters
+			this.setFilters();
+
+			// and refresh the filter for the initial view
+			this.filter();
 
 		}.bind(this));
 

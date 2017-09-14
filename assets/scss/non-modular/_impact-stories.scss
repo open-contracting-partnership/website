@@ -22,25 +22,34 @@
 
 }
 
-.impact-stories__main {
+.impact-card--featured {
+	margin-bottom: spacing(10);
+}
 
-	display: flex;
-	flex-direction: column;
+.impact-stories__sidebar {
 
-	@include mq(M) {
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-between;
+	@include span(3 of 12);
+	margin-bottom: spacing(12);
+
+	h2 {
+		@extend .zeta;
+		text-transform: uppercase;
+		margin-bottom: 0;
 	}
 
-	> div {
+}
 
-		margin-bottom: $space;
+.impact-stories__filter {
+	margin-bottom: spacing(6);
+}
 
-		@include mq(M) {
-			flex: 0 1 calc(33% - #{$space / 2});
-		}
+.impact-stories__main {
 
+	@include span(9 of 12 last);
+	margin-bottom: spacing(12);
+
+	.impact-card {
+		@include col(3, 9);
 	}
 
 }
