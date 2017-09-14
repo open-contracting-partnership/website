@@ -1,3 +1,27 @@
+[id="impact-stories"] {
+
+	padding-top: spacing(7);
+
+	.page-title {
+
+		margin-bottom: spacing(7);
+
+		h1 {
+			@extend .beta;
+			text-align: center;
+			margin-bottom: spacing(2);
+		}
+
+		.strapline {
+			@include font-size(18);
+			color: color('body');
+			text-align: center;
+		}
+
+	}
+
+}
+
 .impact-stories__main {
 
 	display: flex;

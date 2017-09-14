@@ -8,30 +8,11 @@
 			<?php get_partial('page', 'title'); ?>
 		</div>
 
-		<div class="impact-stories__featured">
-
-			<div class="card card--featured">
-
-				<img class="card__featured-media" v-bind:src="stories[0].image.url">
-
-				<div class="card__content">
-
-					<div class="card__title">
-						<h6 class="card__heading">{{ stories[0].title }}</h6>
-					</div>
-
-					<p class="card__meta">{{ stories[0].introduction }}</p>
-					<a class="button button--white" href="{{ stories[0].link }}">{{ stories[0].link_text }}</a>
-
-				</div>
-
-			</div>
-
-		</div>
+		<story-featured :story="stories[0]"></story-featured>
 
 		<div class="wrapper">
 
-			<article class="page-content cf">
+			<div class="cf">
 
 				<aside class="impact-stores__sidebar">
 
@@ -42,7 +23,7 @@
 						<h2>Story Type</h2>
 
 						<label v-for="type in types[0]">
-							<input type="checkbox" value="{{ type.slug }}" v-model="filters">
+							<input type="checkbox" :value="type.slug" v-model="filters">
 							{{ type.name }}
 						</label>
 
@@ -53,7 +34,7 @@
 						<h2>Country</h2>
 
 						<label v-for="country in countries[0]">
-							<input type="checkbox" value="{{ country.slug }}" v-model="filters">
+							<input type="checkbox" :value="country.slug" v-model="filters">
 							{{ country.name }}
 						</label>
 
@@ -64,12 +45,12 @@
 				<section class="impact-stories__main">
 
 					<div v-for="story in getStories">
-						<story :story="story"></story>
+						<story-card :story="story"></story-card>
 					</div>
 
 				</section>
 
-			</article>
+			</div>
 
 		</div> <!-- / .page__wrapper -->
 

@@ -154,7 +154,6 @@ h5,
 h6,
 .zeta {
 	@include font-size(18);
-	line-height: 1.6;
 
 	@include mq(M) {
 		@include font-size(20);

@@ -1,11 +1,15 @@
-var filter_defaults = null;
-
 import Vue from 'vue'
-// import FilterSelect from './components/report/filter.vue'
+import StoryFeatured from './components/impact-stories/featured.vue'
+import StoryCard from './components/impact-stories/normal.vue'
 
 const reports = new Vue({
 
 	el: '#impact-stories',
+
+	components: {
+		StoryFeatured,
+		StoryCard
+	},
 
 	data: {
 		stories: [],
@@ -93,7 +97,7 @@ const reports = new Vue({
 			this.stories = data;
 
 			// refresh the filter incase filters have already been applied
-			this.refreshFilter();
+			// this.refreshFilter();
 
 		}.bind(this));
 
