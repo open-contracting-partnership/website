@@ -14,33 +14,21 @@
 
 			<div class="cf">
 
-				<div class="impact-stories__sidebar	">
+				<div class="impact-stories__sidebar / cf">
 
-					<div class="impact-stories__filter">
-
+					<div class="impact-stories__filter / cf">
 						<h2>Story Type</h2>
-
-						<label v-for="type in types">
-							<input type="checkbox" :value="type.slug" v-model="filters.types">
-							{{ type.name }}
-						</label>
-
+						<button v-for="type in types" @click.prevent="toggleFilter('type', type.slug)" class="button button--tag" v-bind:class="{'active': filters.type == type.slug}">{{ type.name }}</button>
 					</div>
 
-					<div class="impact-stories__filter">
-
+					<div class="impact-stories__filter / cf">
 						<h2>Country</h2>
-
-						<label v-for="country in countries">
-							<input type="checkbox" :value="country.slug" v-model="filters.countries">
-							{{ country.name }}
-						</label>
-
+						<button v-for="country in countries" @click.prevent="toggleFilter('country', country.slug)" class="button button--tag" v-bind:class="{'active': filters.country == country.slug}">{{ country.name }}</button>
 					</div>
 
 				</div>
 
-				<section class="impact-stories__main">
+				<section class="impact-stories__main / cf">
 
 					<div v-if="hasVisibleStories">
 						<story-card v-for="story in visibleStories" :story="story"></story-card>

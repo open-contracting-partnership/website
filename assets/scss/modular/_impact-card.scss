@@ -48,9 +48,15 @@ category:
 	color: color('white');
 	background-position: 50% 50%;
 	background-size: cover;
-	padding: spacing(16) 0;
 	z-index: 1;
-	min-height: 400px;
+	padding: spacing(7) 0;
+	max-width: 1400px;
+	margin: 0 auto;
+
+	@include mq(M) {
+		padding: spacing(16) 0;
+		min-height: 400px;
+	}
 
 	&::before {
 		content: '';
@@ -85,14 +91,26 @@ category:
 	}
 
 	.impact-card__strap {
-		@include font-size(24);
+
+		@include font-size(18);
+
+		@include mq(M) {
+			@include font-size(24);
+		}
 
 	}
 
 	.button {
+
+		@include mq(M, 'max-width') {
+			@include font-size(14);
+			@include font('primary', 'semibold');
+		}
+
 		background-color: color('white');
 		color: color('black');
 		border: none;
+
 	}
 
 }

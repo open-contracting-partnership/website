@@ -42,11 +42,16 @@ input[type="submit"] {
 
 	&:hover,
 	&:active,
-	&:focus {
+	&.active {
 		color: color('white');
 		background-color: color('body');
 		text-decoration: none;
 		border-color: color('body');
+	}
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 3px 2px #71baff;
 	}
 
 }
@@ -81,6 +86,7 @@ category:
 
 	&:hover,
 	&:active,
+	&.active,
 	&:focus {
 		text-decoration: underline;
 	}
@@ -260,7 +266,8 @@ category:
 
 		&:hover,
 		&:focus,
-		&:active {
+		&:active,
+		&.active {
 			fill: color('white');
 		}
 

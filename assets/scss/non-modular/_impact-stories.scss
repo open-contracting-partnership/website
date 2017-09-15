@@ -1,10 +1,20 @@
 [id="impact-stories"] {
 
-	padding-top: spacing(7);
+	padding-top: spacing(6);
+
+	@include mq(M) {
+		padding-top: spacing(7);
+	}
 
 	.page-title {
 
-		margin-bottom: spacing(7);
+		width: spacing(75);
+		max-width: 100%;
+		margin: 0 auto spacing(5);
+
+		@include mq(M) {
+			margin-bottom: spacing(7);
+		}
 
 		h1 {
 			@extend .beta;
@@ -23,13 +33,23 @@
 }
 
 .impact-card--featured {
-	margin-bottom: spacing(10);
+
+	margin-bottom: spacing(6);
+
+	@include mq(M) {
+		margin-bottom: spacing(10);
+	}
+
 }
 
 .impact-stories__sidebar {
 
-	@include span(3 of 12);
-	margin-bottom: spacing(12);
+	margin-bottom: spacing(6);
+
+	@include mq(M) {
+		@include span(3 of 12);
+		margin-bottom: spacing(12);
+	}
 
 	h2 {
 		@extend .zeta;
@@ -40,16 +60,44 @@
 }
 
 .impact-stories__filter {
-	margin-bottom: spacing(6);
+
+	@include mq(M, 'max-width') {
+		@include col(2, 4);
+	}
+
+	@include mq(M) {
+		margin-bottom: spacing(6);
+	}
+
+	h2 {
+		margin-bottom: spacing(2);
+	}
+
+	button {
+		float: left;
+		clear: both;
+	}
+
 }
 
 .impact-stories__main {
 
-	@include span(9 of 12 last);
 	margin-bottom: spacing(12);
 
+	@include mq(M) {
+		@include span(9 of 12 last);
+	}
+
 	.impact-card {
-		@include col(3, 9);
+
+		@include mq(500, L) {
+			@include col(2, 4);
+		}
+
+		@include mq(L) {
+			@include col(2, 6);
+		}
+
 	}
 
 }

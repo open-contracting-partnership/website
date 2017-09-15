@@ -15,10 +15,9 @@ const reports = new Vue({
 	data: {
 		stories: [],
 		filters: {
-			types: [],
-			countries: []
+			type: null,
+			country: null
 		},
-		filter_defaults: null,
 		types: {},
 		countries: {}
 	},
@@ -100,11 +99,23 @@ const reports = new Vue({
 			});
 
 			// apply filters
-			if ( ! _.isEmpty(this.filters.types) ) {
+			if ( ! _.isEmpty(this.filters.type) ) {
 
 				this.stories.forEach(function(story, index) {
 
-					if ( _.intersection(_.pluck(story.story_type, 'slug'), this.filters.types).length === 0 ) {
+					if ( _.intersection(_.pluck(story.story_type, 'slug'), [this.filters.type]).length === 0 ) {
+						story.display = false;
+					}
+
+				}.bind(this));
+
+			}
+
+			if ( ! _.isEmpty(this.filters.country) ) {
+
+				this.stories.forEach(function(story, index) {
+
+					if ( _.intersection(_.pluck(story.country, 'slug'), [this.filters.country]).length === 0 ) {
 						story.display = false;
 					}
 
@@ -120,14 +131,23 @@ const reports = new Vue({
 		},
 
 		resetFilter: function() {
-			this.filters = $.extend(true, {}, this.filter_defaults);
+			this.filters.type = null;
+			this.filters.country = null;
+		},
+
+		toggleFilter: function(field, value) {
+
+			if ( this.filters[field] === value ) {
+				value = null;
+			}
+
+			this.filters[field] = value;
+
 		}
 
 	},
 
 	mounted: function() {
-
-		this.filter_defaults = $.extend(true, {}, this.filters);
 
 		$.ajax({
 			url: '/wp-json/ocp/v1/impact-stories',
