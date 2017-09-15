@@ -1,0 +1,103 @@
+[id="impact-stories"] {
+
+	padding-top: spacing(6);
+
+	@include mq(M) {
+		padding-top: spacing(7);
+	}
+
+	.page-title {
+
+		width: spacing(75);
+		max-width: 100%;
+		margin: 0 auto spacing(5);
+
+		@include mq(M) {
+			margin-bottom: spacing(7);
+		}
+
+		h1 {
+			@extend .beta;
+			text-align: center;
+			margin-bottom: spacing(2);
+		}
+
+		.strapline {
+			@include font-size(18);
+			color: color('body');
+			text-align: center;
+		}
+
+	}
+
+}
+
+.impact-card--featured {
+
+	margin-bottom: spacing(6);
+
+	@include mq(M) {
+		margin-bottom: spacing(10);
+	}
+
+}
+
+.impact-stories__sidebar {
+
+	margin-bottom: spacing(6);
+
+	@include mq(M) {
+		@include span(3 of 12);
+		margin-bottom: spacing(12);
+	}
+
+	h2 {
+		@extend .zeta;
+		text-transform: uppercase;
+		margin-bottom: 0;
+	}
+
+}
+
+.impact-stories__filter {
+
+	@include mq(M, 'max-width') {
+		@include col(2, 4);
+	}
+
+	@include mq(M) {
+		margin-bottom: spacing(6);
+	}
+
+	h2 {
+		margin-bottom: spacing(2);
+	}
+
+	button {
+		float: left;
+		clear: both;
+	}
+
+}
+
+.impact-stories__main {
+
+	margin-bottom: spacing(12);
+
+	@include mq(M) {
+		@include span(9 of 12 last);
+	}
+
+	.impact-card {
+
+		@include mq(500, L) {
+			@include col(2, 4);
+		}
+
+		@include mq(L) {
+			@include col(2, 6);
+		}
+
+	}
+
+}

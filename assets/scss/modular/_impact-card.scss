@@ -1,0 +1,185 @@
+
+.impact-icon {
+	@include font-size(16);
+	display: block;
+	height: 1em;
+	width: 1em;
+
+	&[data-type="medium"] {
+		background: url('../../public/images/impact-stories/icon-medium.svg') no-repeat 50% 50%;
+		background-size: 1em 1em;
+	}
+
+}
+
+/*
+
+---
+name: Impact Card, Featured
+category:
+ - Components/Impact Card
+---
+
+```html
+<div class="impact-card impact-card--featured" style="background-image: url(http://ocp.imgix.net/wp-content/uploads/2016/01/OpenitFixit.jpeg)">
+
+	<div class="impact-card__content">
+
+		<span class="impact-icon" data-type="medium"></span>
+
+		<h6 class="impact-card__heading">
+			<a class="impact-card__link" href="#">How to Open Contracting? A New Guide for Governments</a>
+		</h6>
+
+		<p class="impact-card__strap">Here there will be some information about what the link contains&hellip;</p>
+
+		<a href="#" class="button button--large">Read more</a>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.impact-card--featured {
+
+	position: relative;
+	color: color('white');
+	background-position: 50% 50%;
+	background-size: cover;
+	z-index: 1;
+	padding: spacing(7) 0;
+	max-width: 1400px;
+	margin: 0 auto;
+
+	@include mq(M) {
+		padding: spacing(16) 0;
+		min-height: 400px;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: linear-gradient(90deg, rgba(0,0,0,0.54) 0%, rgba(164,164,164,0.31) 100%);
+		z-index: 1;
+	}
+
+	.impact-card__content {
+		position: relative;
+		z-index: 2;
+		@extend .wrapper;
+	}
+
+	.impact-icon {
+		@include font-size(32);
+	}
+
+	.impact-card__heading {
+
+		@extend .alpha;
+		margin-bottom: 0;
+
+		a {
+			color: inherit;
+		}
+
+	}
+
+	.impact-card__strap {
+
+		@include font-size(18);
+
+		@include mq(M) {
+			@include font-size(24);
+		}
+
+	}
+
+	.button {
+
+		@include mq(M, 'max-width') {
+			@include font-size(14);
+			@include font('primary', 'semibold');
+		}
+
+		background-color: color('white');
+		color: color('black');
+		border: none;
+
+	}
+
+}
+
+/*
+
+---
+name: Impact Card, Normal
+category:
+ - Components/Impact Card
+---
+
+```html
+<div class="impact-card impact-card--normal">
+
+	<a href="#" class="impact-card__media">
+		<img src="http://ocp.imgix.net/wp-content/uploads/2016/01/OpenitFixit.jpeg?crop=faces&fit=crop&w=460&h=258&fm=pjpg" />
+		<span class="impact-icon" data-type="medium"></span>
+	</a>
+
+	<h6 class="impact-card__heading">
+		<a class="impact-card__link" href="#">How to Open Contracting? A New Guide for Governments</a>
+	</h6>
+
+	<p class="impact-card__strap">Here there will be some information about what the link contains&hellip;</p>
+
+	<a href="#" class="impact-card__read-more">Read on Medium &raquo;</a>
+
+</div>
+```
+
+*/
+
+.impact-card--normal {
+
+	.impact-card__media {
+		display: block;
+		position: relative;
+		margin-bottom: spacing(2);
+	}
+
+	.impact-icon {
+		position: absolute;
+		top: 0;
+		right: .5em;
+		padding: 1em;
+		background-color: color('white');
+	}
+
+	.impact-card__heading {
+
+		@include font('secondary', 'medium');
+		margin-bottom: spacing(1);
+
+		a {
+			color: inherit;
+		}
+
+	}
+
+	.impact-card__strap {
+		@include font-size(14);
+		margin-bottom: spacing(1);
+	}
+
+	.impact-card__read-more {
+		@include font('primary', 'semibold');
+		@include font-size(14);
+		text-transform: uppercase;
+	}
+
+}

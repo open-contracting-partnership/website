@@ -13,8 +13,7 @@ composer.lock
 /assets/css/styles.css
 /assets/css/styles.min.css
 /assets/js/main.min.js
+/dist
 
 # Styleguide
 styleguide/
-/public/contracts/contracts.json
-/public/contracts/contracts.csv
