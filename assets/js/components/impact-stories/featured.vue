@@ -1,6 +1,6 @@
 <template>
 
-	<div v-if="story" class="impact-card impact-card--featured" style="background-image: url(http://ocp.imgix.net/wp-content/uploads/2016/01/OpenitFixit.jpeg)">
+	<div v-if="story" class="impact-card impact-card--featured" :style="'background-image: url(' + story.featured_url + ')'">
 
 	    <div class="impact-card__content">
 

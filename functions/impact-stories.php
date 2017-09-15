@@ -5,7 +5,38 @@
  * @return array of impact stories
  */
 function get_impact_stories() {
-	return get_field('add_stories', 3032);
+
+	$impact_stories = get_field('add_stories', 3032);
+
+	foreach ( $impact_stories as &$story ) {
+
+		$story['thumb_url'] = imgix::source('url', $story['image']['url'])
+			->options([
+				'crop' => 'faces',
+				'fit' => 'crop',
+				'w' => 460,
+				'h' => 460 / (16 / 9),
+				'fm' => 'pjpg'
+			])
+			->url();
+
+		$story['featured_url'] = imgix::source('url', $story['image']['url'])
+			->options([
+				'crop' => 'faces',
+				'fit' => 'crop',
+				'w' => 1400,
+				'h' => 500,
+				'fm' => 'pjpg'
+			])
+			->url();
+
+		// remove the large array of images
+		unset($story['image']);
+
+	}
+
+	return $impact_stories;
+	
 }
 
 /**

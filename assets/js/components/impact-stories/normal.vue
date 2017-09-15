@@ -3,7 +3,7 @@
 	<div v-if="story" class="impact-card impact-card--normal">
 
 	    <a :href="story.link" class="impact-card__media">
-	        <img src="http://ocp.imgix.net/wp-content/uploads/2016/01/OpenitFixit.jpeg?crop=faces&fit=crop&w=460&h=258&fm=pjpg" />
+	        <img :src="story.thumb_url" />
 	        <span class="impact-icon" :data-type="story.content_type.slug"></span>
 	    </a>
 
