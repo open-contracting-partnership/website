@@ -15,8 +15,8 @@ const reports = new Vue({
 	data: {
 		stories: [],
 		filters: {
-			type: null,
-			country: null
+			type: [],
+			country: []
 		},
 		types: {},
 		countries: {}
@@ -103,7 +103,7 @@ const reports = new Vue({
 
 				this.stories.forEach(function(story, index) {
 
-					if ( _.intersection(_.pluck(story.story_type, 'slug'), [this.filters.type]).length === 0 ) {
+					if ( _.intersection(_.pluck(story.story_type, 'slug'), this.filters.type).length === 0 ) {
 						story.display = false;
 					}
 
@@ -115,7 +115,7 @@ const reports = new Vue({
 
 				this.stories.forEach(function(story, index) {
 
-					if ( _.intersection(_.pluck(story.country, 'slug'), [this.filters.country]).length === 0 ) {
+					if ( _.intersection(_.pluck(story.country, 'slug'), this.filters.country).length === 0 ) {
 						story.display = false;
 					}
 
@@ -131,18 +131,24 @@ const reports = new Vue({
 		},
 
 		resetFilter: function() {
-			this.filters.type = null;
-			this.filters.country = null;
+			this.filters.type = [];
+			this.filters.country = [];
 		},
 
 		toggleFilter: function(field, value) {
 
-			if ( this.filters[field] === value ) {
-				value = null;
+			var index = this.filters[field].indexOf(value);
+
+			if ( index === -1 ) {
+				this.filters[field].push(value);
+			} else {
+				this.filters[field].splice(index, 1);
 			}
 
-			this.filters[field] = value;
+		},
 
+		isFiltered: function(field, value) {
+			return this.filters[field].indexOf(value) !== -1;
 		}
 
 	},

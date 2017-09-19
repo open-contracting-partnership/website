@@ -18,12 +18,12 @@
 
 					<div class="impact-stories__filter / cf">
 						<h2>Story Type</h2>
-						<button v-for="type in types" @click.prevent="toggleFilter('type', type.slug)" class="button button--tag" v-bind:class="{'active': filters.type == type.slug}">{{ type.name }}</button>
+						<button v-for="type in types" @click.prevent="toggleFilter('type', type.slug)" class="button button--tag" v-bind:class="{'active': isFiltered('type', type.slug)}">{{ type.name }}</button>
 					</div>
 
 					<div class="impact-stories__filter / cf">
 						<h2>Country</h2>
-						<button v-for="country in countries" @click.prevent="toggleFilter('country', country.slug)" class="button button--tag" v-bind:class="{'active': filters.country == country.slug}">{{ country.name }}</button>
+						<button v-for="country in countries" @click.prevent="toggleFilter('country', country.slug)" class="button button--tag" v-bind:class="{'active': isFiltered('country', country.slug)}">{{ country.name }}</button>
 					</div>
 
 				</div>
