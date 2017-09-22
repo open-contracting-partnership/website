@@ -25,7 +25,7 @@ class Contracts {
 		'tender' => 'Tender',
 		'award' => 'Award',
 		'contract' => 'Contract',
-		'implementation' => 'Implementation' 
+		'implementation' => 'Implementation'
 	];
 
 	static function get_contracts() {
@@ -74,6 +74,10 @@ class Contracts {
 	}
 
 	public function fetch_contracts() {
+
+		// ATTN: temp disable the fetching of contracts while
+		// ocp are creating their new contracts back end
+		return;
 
 		// fetch the primary contracts feed
 		$contracts = @file_get_contents('http://contracts.open-contracting.org/raw/ocp/');
