@@ -17,6 +17,10 @@ function date_filter($date) {
 
 function fetch_contracts() {
 
+	// ATTN: temp disable the fetching of contracts while
+	// ocp are creating their new contracts back end
+	return;
+
 	// fetch the primary contracts feed
 	$contracts = @file_get_contents('http://contracts.open-contracting.org/raw/ocp/');
 	$contracts = json_decode($contracts);
