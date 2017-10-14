@@ -5,6 +5,9 @@
 		'value' => ''
 	));
 
+	// ensure the value is trimmed for upcoming conditions
+	$options->value = trim($options->value);
+
 ?>
 
 <div class="figure-block">

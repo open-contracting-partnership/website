@@ -12,8 +12,7 @@
 </ul>
 
 <div class="figure-block-container">
-	<?php contract_highlight('Amount', amount_format($content->amount)); ?>
-	<?php contract_highlight('Currency', $content->currency); ?>
+	<?php contract_highlight('Amount', implode(' ', [amount_format($content->amount), $content->currency])); ?>
 </div>
 
 <?php if ( $content->document ) : ?>
