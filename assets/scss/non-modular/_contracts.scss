@@ -24,4 +24,8 @@
 		content: ' ▲';
 	}
 
+	a {
+		@extend %link-underline;
+	}
+
 }

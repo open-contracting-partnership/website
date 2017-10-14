@@ -51,27 +51,44 @@ tbody tr a {
 	}
 }
 
+%link-underline {
+
+	text-decoration: none;
+	border-bottom: 2px solid color('brand');
+	transition: border .3s ease;
+
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none;
+		border-bottom-color: color('body');
+	}
+
+}
+
+%link-block {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 2px solid color('brand');
+	padding-left: 2px;
+	margin-left: -2px;
+	padding-right: 2px;
+	margin-right: -2px;
+	transition: background .3s ease;
+
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none;
+		background-color: color('brand');
+	}
+}
+
 .page-content a,
 .post-content a {
 
 	&:not(.button):not(.card__link) {
-
-		color: inherit;
-		text-decoration: none;
-		border-bottom: 2px solid color('brand');
-		padding-left: 2px;
-		margin-left: -2px;
-		padding-right: 2px;
-		margin-right: -2px;
-		transition: background .3s ease;
-
-		&:hover,
-		&:active,
-		&:focus {
-			text-decoration: none;
-			background-color: color('brand');
-		}
-
+		@extend %link-block;
 	}
 
 }
