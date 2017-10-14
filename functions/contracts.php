@@ -73,6 +73,10 @@ class Contracts {
 
 	}
 
+	public static function phase_number($phase) {
+		return array_search($phase, array_keys(self::$phases)) + 1;
+	}
+
 	public function fetch_contracts() {
 
 		// ATTN: temp disable the fetching of contracts while

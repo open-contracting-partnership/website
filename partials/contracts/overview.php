@@ -56,7 +56,14 @@
 						<?php $currency = $contract->contract_currency ? ' ' . $contract->contract_currency : '' ?>
 
 						<tr>
-							<td><?php echo $contract->phase ? Contracts::$phases[$contract->phase] : '-' ?></td>
+							<td>
+						
+								<div class="contracts-table__phase">
+									<span class="number-heading__number"><?php echo Contracts::phase_number($contract->phase); ?></span> 
+									<span><?php echo $contract->phase ? Contracts::$phases[$contract->phase] : '-' ?></span>
+								</div>
+
+							</td>
 							<td>
 								<a href="/contracts/<?php echo $contract->ocid; ?>">
 									<?php echo $contract->contract_title ? $contract->contract_title : '-' ?>

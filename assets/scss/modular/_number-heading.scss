@@ -34,31 +34,32 @@ category:
 		text-decoration: none;
 	}
 
-	span {
-		@include font-size(17);
-		height: 32px;
-		width: 32px;
-		border-radius: 16px;
-		line-height: 1;
-		background-color: color('brand');
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin-right: .7em;
-		z-index: 1;
-		transition: transform .1s ease;
-	}
-
 }
 
 .number-heading--small {
 	@include font-size(17);
 }
 
-.number-heading--active span {
+.number-heading--active .number-heading__number  {
 	transform: scale(1.2);
 }
 
-.in-active .number-heading span {
+.in-active .number-heading .number-heading__number  {
 	background-color: color('lighter-grey');
+}
+
+.number-heading__number {
+	@include font-size(17);
+	height: 2em;
+	width: 2em;
+	border-radius: 50%;
+	line-height: 1;
+	background-color: color('brand');
+	flex: left;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: .7em;
+	z-index: 1;
+	transition: transform .1s ease;
 }

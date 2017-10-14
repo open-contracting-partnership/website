@@ -29,3 +29,14 @@
 	}
 
 }
+
+.contracts-table__phase {
+
+	display: flex;
+	align-items: center;
+
+	.number-heading__number {
+		@include font-size(14);
+	}
+
+}

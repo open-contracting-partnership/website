@@ -128,7 +128,7 @@
 								href="#<?php echo $key; ?>"
 								data-section="<?php echo $key; ?>"
 								class="number-heading number-heading--small number-heading--active"
-								><span><?php echo $index + 1; ?></span> <?php echo $label; ?></a>
+								><span class="number-heading__number"><?php echo $index + 1; ?></span> <?php echo $label; ?></a>
 
 						</li>
 
@@ -154,7 +154,7 @@
 
 					<section id="<?php echo $key; ?>" class="contract-single-section <?php if ( $phase_index < $index ) : ?>in-active<?php endif; ?>">
 
-						<h2 class="number-heading"><span><?php echo $index +1; ?></span> <?php echo $label; ?></h2>
+						<h2 class="number-heading"><span class="number-heading__number"><?php echo $index +1; ?></span> <?php echo $label; ?></h2>
 
 						<?php get_partial('contracts', 'panel-' . $key, $content[$key]); ?>
 
