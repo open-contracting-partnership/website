@@ -12,7 +12,7 @@
 
 	        <p class="impact-card__strap">{{ story.introduction }}</p>
 
-	        <a :href="story.link" class="button button--large">Read more</a>
+	        <a :href="story.link" class="button button--large">{{ story.link_text }}</a>
 
 	    </div>
 

@@ -13,7 +13,7 @@
 
 	    <p class="impact-card__strap">{{ story.introduction }}</p>
 
-	    <a :href="story.link" class="impact-card__read-more">Read on {{ story.content_type.name }} &raquo;</a>
+	    <a :href="story.link" class="impact-card__read-more">{{ story.link_text }} &raquo;</a>
 
 	</div>
 
