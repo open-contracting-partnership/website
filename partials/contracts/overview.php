@@ -8,6 +8,22 @@
 
 	<article class="page-content cf">
 
+		<div class="select-menu">
+
+			<label class="visuallyhidden"></label>
+
+			<select name="phase" class="">
+
+				<option value="" selected="selected">Phase&hellip;</option>
+
+				<?php foreach ( Contracts::$phases as $phase => $label ) : ?>
+					<option value="<?php echo $phase; ?>"><?php echo $label; ?></option>
+				<?php endforeach; ?>
+
+			</select>
+
+		</div>
+
 		<div class="button-group pull-right">
 
 			<?php if ( current_user_can('administrator') ) : ?>
@@ -55,21 +71,25 @@
 
 						<?php $currency = $contract->contract_currency ? ' ' . $contract->contract_currency : '' ?>
 
-						<tr>
+						<tr data-phase="<?php echo $contract->phase; ?>">
+
 							<td>
-						
+
 								<div class="contracts-table__phase">
-									<span class="number-heading__number"><?php echo Contracts::phase_number($contract->phase); ?></span> 
+									<span class="number-heading__number"><?php echo Contracts::phase_number($contract->phase); ?></span>
 									<span><?php echo $contract->phase ? Contracts::$phases[$contract->phase] : '-' ?></span>
 								</div>
 
 							</td>
+
 							<td>
 								<a href="/contracts/<?php echo $contract->ocid; ?>">
 									<?php echo $contract->contract_title ? $contract->contract_title : '-' ?>
 								</a>
 							</td>
+
 							<td><?php echo $contract->supplier_name ? $contract->supplier_name : '-'; ?></td>
+
 							<td>
 								<?php
 
@@ -79,8 +99,11 @@
 
 								?>
 							</td>
+
 							<td data-value="<?php echo $contract->contract_amount; ?>"><?php echo $contract->contract_amount ? number_format($contract->contract_amount) . $currency : '-' ?></td>
+
 							<td><?php echo $contract->contract_status ? ucwords($contract->contract_status) : '-' ?></td>
+
 						</tr>
 
 					<?php endforeach; ?>
@@ -125,6 +148,21 @@
 				}
 
 				return $node.innerHTML;
+
+			}
+
+		});
+
+		$('[name="phase"]').on('change', function() {
+
+			var $this = $(this),
+				$rows = $('.contracts-table tbody tr');
+
+			$rows.show();
+
+			if ( $this.val() !== '' ) {
+
+				$rows.filter('[data-phase!="' + $this.val() + '"]').hide();
 
 			}
 

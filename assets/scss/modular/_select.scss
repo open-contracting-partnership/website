@@ -14,3 +14,77 @@
 	position: relative;
 	z-index: 10;
 }
+
+
+/* ==========================================
+	Select Menu
+============================================*/
+
+/*
+ * Styling a select menu with only CSS
+ * Author: Dean Simcox
+ * Website: //simcox.me/
+ */
+
+ .select-menu {
+
+	@include font('primary', 'bold');
+	@include font-size(14);
+	position: relative;
+	display: inline-block;
+	padding: 0;
+	text-align: left;
+	color: color('white');
+	background-color: color('body');
+	margin-bottom: $space;
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTAuMyA2LjYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEwLjMgNi42IiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWxpbmUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgcG9pbnRzPSI5LjYsMC43IDUuMiw1LjIgMC43LDAuNyAiLz48L3N2Zz4=) no-repeat 50% 50%;
+		background-size: 12px;
+		width: em(48, 14);
+	}
+
+	select {
+		@include font('primary', 'bold');
+		@include font-size(14);
+		position: relative;
+		padding: em(8, 14) em(22, 14);
+		padding-right: em(48 + 12);
+		color: color('white');
+		width: 100%;
+		cursor: pointer;
+		background: transparent;
+		border: 1px solid transparent;
+		border-radius: 5px;
+	  	appearance: none;
+		transition: border-color 400ms, box-shadow 400ms;
+		z-index: 1;
+
+	  	&:focus {
+	    	outline: 0;
+		}
+
+	}
+
+	option {
+		// @include body-font;
+		background: color('white');
+		color: color('black');
+	}
+
+}
+
+/*
+ * Select Menu Options
+ */
+
+// Full bleed version
+.select-menu--block {
+	display: block;
+}
