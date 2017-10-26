@@ -277,10 +277,18 @@ category:
 // WORLDWIDE
 
 .worldwide-intro {
-	clear: both;
 
 	@include mq(M) {
-		margin-left: 8.41121%;
-	    max-width: 60%;
+	    max-width: 80%;
+		margin-bottom: 0;
 	}
+
+}
+
+.worldmap-header {
+
+	@include mq(L) {
+		margin-bottom: spacing(8);
+	}
+	
 }

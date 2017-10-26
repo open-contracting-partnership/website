@@ -15,4 +15,12 @@
 
 	<?php endif; ?>
 
+	<?php if ( get_field('introduction') ) : ?>
+
+		<blockquote class="worldwide-intro">
+			<?php the_field('introduction'); ?>
+		</blockquote>
+
+	<?php endif; ?>
+
 </div>
