@@ -1,12 +1,12 @@
 <?php the_post(); ?>
 
-<div class="page__wrapper">
+<div class="page__wrapper / contracts-overview">
 
 	<div class="contracts-title cf">
 		<?php get_partial('page', 'title'); ?>
 	</div>
 
-	<article class="page-content cf">
+	<article class="page-content">
 
 		<div class="select-menu">
 
@@ -24,23 +24,19 @@
 
 		</div>
 
-		<div class="button-group pull-right">
+		<?php if ( FALSE && current_user_can('administrator') ) : ?>
 
-			<?php if ( FALSE && current_user_can('administrator') ) : ?>
+			<form action="/contracts/" method="POST" class="pull-left">
+				<input type="hidden" name="reset_contracts" value="true">
+				<button class="button button--dark" style="margin-right: 1em">Admin: Update Contract Data</button>
+			</form>
 
-				<form action="/contracts/" method="POST" class="pull-left">
-					<input type="hidden" name="reset_contracts" value="true">
-					<button class="button button--dark" style="margin-right: 1em">Admin: Update Contract Data</button>
-				</form>
+		<?php endif; ?>
 
-			<?php endif; ?>
+		<a href="/wp-content/uploads/contracts/contracts.csv" class="button button--dark" download>Download CSV</a>
+		<a href="/wp-content/uploads/contracts/contracts.json" class="button button--dark" download>Download JSON</a>
 
-			<a href="/wp-content/uploads/contracts/contracts.csv" class="button button--dark / pull-left" download>Download CSV</a>
-			<a href="/wp-content/uploads/contracts/contracts.json" class="button button--dark / pull-left" download>Download JSON</a>
-
-		</div>
-
-		<?php the_content(); ?>
+		<?php // the_content(); ?>
 
 	</article>
 

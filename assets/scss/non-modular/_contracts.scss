@@ -37,6 +37,45 @@
 
 	.number-heading__number {
 		@include font-size(14);
+		flex: 0 0 auto;
+	}
+
+}
+
+.contracts-overview .page-content {
+
+	margin-bottom: spacing(3);
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	.select-menu {
+
+		margin-bottom: 0;
+		
+		@include mq(600, 'max-width') {
+			flex-basis: 100%;
+			margin-bottom: spacing(1);
+		}
+
+		@include mq(600) {
+			margin-right: auto;
+		}
+
+	}
+
+	.button {
+
+		margin-bottom: 0;
+		
+		@include mq(600, 'max-width') {
+			flex-basis: calc(50% - 4px);
+		}
+
+		@include mq(600) {
+			margin-left: spacing(1);
+		}
+
 	}
 
 }
