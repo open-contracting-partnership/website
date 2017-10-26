@@ -475,9 +475,10 @@
 			transform: translateX(-50%);
 			text-transform: uppercase;
 			color: color('white');
-			padding: em(1, 14) em(2, 14) 0;
+			padding: em(2, 14) em(4, 14) em(1, 14);
 			line-height: 1;
 			z-index: 3;
+			border-radius: 2px;
 
 			&.bottom {
 				bottom: auto;
