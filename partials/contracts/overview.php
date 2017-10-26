@@ -26,7 +26,7 @@
 
 		<div class="button-group pull-right">
 
-			<?php if ( current_user_can('administrator') ) : ?>
+			<?php if ( FALSE && current_user_can('administrator') ) : ?>
 
 				<form action="/contracts/" method="POST" class="pull-left">
 					<input type="hidden" name="reset_contracts" value="true">
