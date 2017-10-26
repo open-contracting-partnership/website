@@ -294,6 +294,7 @@
 
 .homepage-filter__item {
 	margin-bottom: gutter();
+	display: block;
 
 	@include mq(M) {
 		@include span(6 of 12);
