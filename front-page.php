@@ -275,7 +275,7 @@
 						<?php while ( have_rows('worldwide_map_markers') ) : the_row(); ?>
 
 							<div class="homepage-map__image-item" style="left: <?php the_sub_field('left'); ?>%; top: <?php the_sub_field('top'); ?>%;">
-								<a href="<?php the_sub_field('link'); ?>" class="button button--white"><?php echo str_replace(' ', '&nbsp;', get_sub_field('title')); ?></a>
+								<a href="<?php the_sub_field('link'); ?>"><?php echo str_replace(' ', '&nbsp;', get_sub_field('title')); ?></a>
 							</div>
 
 						<?php endwhile; ?>
@@ -292,9 +292,17 @@
 
 					<h3><?php _e('Open Contracting Worldwide', 'ocp'); ?></h3>
 
-					<?php while ( have_rows('worldwide_links') ) : the_row(); ?>
-						<div><a class="button button--white" href="<?php the_sub_field('link_address'); ?>"><?php the_sub_field('link_title'); ?></a></div>
-					<?php endwhile; ?>
+					<div class="homepage-map__links">
+
+						<?php while ( have_rows('worldwide_links') ) : the_row(); ?>
+
+							<a class="homepage-map__link" href="<?php the_sub_field('link_address'); ?>">
+								<span><?php the_sub_field('link_title'); ?></span>
+							</a>
+
+						<?php endwhile; ?>
+
+					</div>
 
 				</div>
 
