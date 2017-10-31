@@ -1,16 +1,126 @@
+
+/*
+
+---
+name: Related Posts
+category:
+ - Components/Related Posts
+---
+
+The related posts component can be inserted into a page or article using a WordPress shortcode.
+
+```html
+
+<article class="page-content">
+
+	<div class="related-posts--inline">
+
+		<h6 class="related-posts__title">Posts by: <a href="http://ocp.bureauprojects.co/tag/showcase/">Showcase</a></h6>
+
+		<div class="card card--secondary">
+
+			<img class="card__media card__media--right" src="//placehold.it/300" />
+
+			<div class="card__content">
+
+				<div class="card__title">
+
+					<img class="card__media card__media--right" src="//placehold.it/300" />
+
+					<h6 class="card__heading">
+						<a href="#">How to Open Contracting? A New Guide for Governments</a>
+					</h6>
+
+				</div>
+
+				<p class="card__strap">Here there will be some information about what the link contains&hellip;</p>
+
+				<p class="card__meta">
+					<time class="card__date" datetime="2001-05-15T19:00">8 Jun 2017</time>
+					<span class="card__author">By Georg Nueman</span>
+				</p>
+
+			</div>
+
+		</div>
+
+		<div class="card card--secondary">
+
+			<img class="card__media card__media--right" src="//placehold.it/300" />
+
+			<div class="card__content">
+
+				<div class="card__title">
+
+					<img class="card__media card__media--right" src="//placehold.it/300" />
+
+					<h6 class="card__heading">
+						<a href="#">How to Open Contracting? A New Guide for Governments</a>
+					</h6>
+
+				</div>
+
+				<p class="card__strap">Here there will be some information about what the link contains&hellip;</p>
+
+				<p class="card__meta">
+					<time class="card__date" datetime="2001-05-15T19:00">8 Jun 2017</time>
+					<span class="card__author">By Georg Nueman</span>
+				</p>
+
+			</div>
+
+		</div>
+
+		<div class="card card--secondary">
+
+			<img class="card__media card__media--right" src="//placehold.it/300" />
+
+			<div class="card__content">
+
+				<div class="card__title">
+
+					<img class="card__media card__media--right" src="//placehold.it/300" />
+
+					<h6 class="card__heading">
+						<a href="#">How to Open Contracting? A New Guide for Governments</a>
+					</h6>
+
+				</div>
+
+				<p class="card__strap">Here there will be some information about what the link contains&hellip;</p>
+
+				<p class="card__meta">
+					<time class="card__date" datetime="2001-05-15T19:00">8 Jun 2017</time>
+					<span class="card__author">By Georg Nueman</span>
+				</p>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</article>
+```
+
+*/
+
+
 .related-posts--inline {
 
-	background-color: color('off-white');
-	padding: 1.5em;
-	margin: 0 -1.5em 1.5rem;
+	margin: 3em 0;
 
-	h5 {
+	.related-posts__title {
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		margin-top: 0;
 	}
 
-	.post-object:last-child {
+	.card {
+		margin-bottom: spacing(2);
+	}
+
+	.card:last-child {
 		margin-bottom: 0;
 	}
 

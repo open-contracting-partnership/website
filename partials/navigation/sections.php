@@ -1,8 +1,8 @@
 <?php if ( $sections = get_sections() ) : ?>
 
-	<nav class="page__section-nav">
+	<nav class="sidebar__section / page__section-nav">
 
-		<h3 class="border-top border-top--clean"><?php _e('Jump to section', 'ocp'); ?></h3>
+		<h6 class="drop / border-top border-top--clean"><?php _e('Jump to section', 'ocp'); ?></h6>
 
 		<ul class="nav nav--vertical nav--in-page">
 

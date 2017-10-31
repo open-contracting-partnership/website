@@ -10,7 +10,7 @@
 		display: none;
 		margin: em(40) 0 em(20);
 
-		@include mq(M) {
+		@include mq(ML) {
 			display: inline-block;
 		}
 
@@ -24,7 +24,7 @@
 		display: inline-block;
 		margin: 1.1em 0;
 
-		@include mq(M) {
+		@include mq(ML) {
 			display: none;
 		}
 
@@ -42,7 +42,7 @@
 	float: right;
 	margin-top: 1.5em;
 
-	@include mq(M) {
+	@include mq(ML) {
 		display: none;
 	}
 }
@@ -73,11 +73,9 @@
 .header-nav__side {
 	display: none;
 
-	@include mq(M) {
+	@include mq(ML) {
 		display: block;
-		position: absolute;
-		top: 0;
-		right: 1em;
+		float: right;
 	}
 }
 
@@ -111,7 +109,15 @@
 	}
 
 	.button__social a {
+
 		fill: color('light-grey');
+		transition: fill .3s ease;
+
+		&:hover,
+		&:active {
+			fill: color('white');
+		}
+
 	}
 
 	.button__list {
@@ -120,23 +126,35 @@
 }
 
 .header-language {
-	margin: 2.3em .5em 0 2em;
+	margin: 2.3em .5em 0 0;
 }
 
 .header-search {
+
 	margin-left: .5rem;
 
 	a {
 		padding: 2.5rem .5rem;
 		margin: 0;
 		border: 0;
-		fill: color('white');
 	}
 
 	svg {
 		width: .95rem;
 		height: .95rem;
+		fill: color('light-grey');
+		transition: fill .3s ease;
 	}
+
+	a:hover,
+	a:active {
+
+		svg {
+			fill: color('white');
+		}
+
+	}
+
 }
 
 #menu-header-secondary {
@@ -179,6 +197,10 @@
 		display: block;
 	}
 
+	.wrapper {
+		position: relative;
+	}
+
 	html.csspointerevents & {
 		display: block;
 		opacity: 0;
@@ -209,12 +231,16 @@
 .search__close {
 	@include font-size(20);
 	position: absolute;
-	top: 0;
-	right: 1.5em;
-	bottom: -1.3em;
+	top: 40%;
+	right: 1.7em;
+	transform: translateY(-50%);
 	width: 1em;
 	height: 1em;
 	margin: auto 0;
+
+	@include mq(1240) {
+		right: .5em;
+	}
 
 	svg {
 		width: 1em;

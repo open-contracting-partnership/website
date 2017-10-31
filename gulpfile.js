@@ -21,7 +21,6 @@ var gulp = require('gulp'),
 	globbing = require('gulp-css-globbing'),
 
 	// scripts
-	jshint = require('gulp-jshint'),
 	uglify = require('gulp-uglify'),
 
 	// webpack
@@ -89,24 +88,24 @@ gulp.task('styleguide', function() {
 });
 
 gulp.task('svgstore', function () {
-    return gulp
-        .src('assets/img/icons/*.svg')
+	return gulp
+		.src('assets/img/icons/*.svg')
 		.pipe(svgmin())
-        .pipe(svgstore({ inlineSvg: true }))
-        .pipe(gulp.dest('assets/img/'));
+		.pipe(svgstore({ inlineSvg: true }))
+		.pipe(gulp.dest('assets/img/'));
 });
 
 gulp.task('modernizr', function() {
   gulp.src(['assets/js/main.js', 'assets/css/styles.css'])
-    .pipe(modernizr({ options: [
-        "setClasses",
-        "addTest",
-        "html5printshiv",
-        "testProp",
-        "fnBind"
-    ] }))
-    .pipe(uglify())
-    .pipe(gulp.dest("assets/js/libs/"))
+	.pipe(modernizr({ options: [
+		"setClasses",
+		"addTest",
+		"html5printshiv",
+		"testProp",
+		"fnBind"
+	] }))
+	.pipe(uglify())
+	.pipe(gulp.dest("assets/js/libs/"))
 });
 
 gulp.task('scss', function () {
@@ -125,25 +124,29 @@ gulp.task('scss', function () {
 
 });
 
-gulp.task('scss-lint', function() {
-	gulp.src('assets/scss/**/*.scss')
-		.pipe(scsslint({'config': 'lint.yml'}));
+gulp.task('scss-lint', function lintCssTask() {
+	const gulpStylelint = require('gulp-stylelint');
+
+	return gulp
+		.src('assets/scss/**/*.scss')
+		.pipe(gulpStylelint({
+			reporters: [
+				{formatter: 'string', console: true}
+			]
+		}));
 });
 
-gulp.task('js', function () {
+gulp.task('js', function(done) {
 
-	return gulp.src('assets/js/main.js')
+	// lint, webpack and uglify the main scripts file
+	return gulp.src('./assets/js/script.js')
 		.pipe(plumber({ errorHandler: onError }))
-		.pipe(jshint())
-		.pipe(jshint.reporter('jshint-stylish'))
-		.pipe(uglify())
-		.pipe(rename({
-			extname: '.min.js'
-		}))
-		.pipe(gulp.dest('assets/js/'))
-		.pipe(livereload());
+		.pipe(webpack(require('./webpack.config.js')))
+		.pipe(gulp.dest('./dist/js/'))
+		.pipe(notify('JS Compiled'));
 
 });
+
 
 gulp.task('scss:bs', function () {
 
@@ -174,6 +177,10 @@ gulp.task('bs', function () {
 
 });
 
+gulp.task('styles', function() {
+	runSequence('scss', 'styleguide');
+});
+
 
  //******
 // WATCH
@@ -185,7 +192,13 @@ gulp.task('watch', function () {
 	livereload.listen();
 
 	// boilerplate
-	gulp.watch('assets/scss/**/*.scss', ['scss', 'scss-lint', 'modernizr']);
-	gulp.watch('assets/js/main.js', ['js', 'modernizr']);
+	gulp.watch('assets/img/icons/*.svg', ['svgstore']);
+	gulp.watch('assets/scss/**/*.scss', ['styles']);
+
+	gulp.watch('assets/js/**/*.js', ['js']);
+	gulp.watch('assets/js/**/*.vue', ['js']);
+
 
 });
+
+gulp.task('post-deploy', ['scss', 'js', 'svgstore', 'modernizr']);

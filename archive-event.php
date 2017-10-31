@@ -10,7 +10,7 @@
 				'posts_per_page' => -1,
 				'meta_key'   => 'event_date',
 				'orderby'    => 'meta_value_num',
-				'order'      => 'DESC'
+				'order'      => 'ASC'
 			),
 			'taxonomies' => ['audience', 'region', 'country', 'issue', 'open-contracting'],
 			'fields' => ['event_date', 'event_location', 'organisation', 'attachments', 'link'],
@@ -32,50 +32,76 @@
 				},
 				'year' => function($vue_post) {
 					return date('Y', strtotime(get_field('event_date', $vue_post)));
+				},
+				'is_future' => function($vue_post) {
+					// checking against d-m-Y for an event starting today
+					$current_date = strtotime(date('d-m-Y'));
+					$event_date = strtotime(get_field('event_date', $vue_post));
+					return $current_date <= $event_date;
 				}
 			)
 		]);
 
 	?>
 
-	<div id="events" class="events-overview / wrapper archive--padding">
+	<div id="events" v-cloak class="events-overview / page__wrapper">
 
-		<div class="archive-content">
+		<div class="page-title">
 
 			<h1><?php _e('Events', 'ocp'); ?></h1>
 
 			<?php if ( $introduction = get_field('event_introduction', 'options') ) : ?>
-				<p class="strapline strapline--blue"><?php echo $introduction; ?></p>
+				<h2 class="strapline delta"><?php echo $introduction; ?></h2>
 			<?php endif; ?>
 
 		</div>
 
-		<div class="archive-content__posts">
+		<div class="archive-content__posts" v-if="events.length">
 
-			<div v-if="events.length">
-
+			<div class="archive-content__future-events">
 				<div
-					v-for="event in events"
-					class="post-object post-object--event post-object--event-clickable"
+					v-for="event in futureEvents"
+					class="post-object post-object--event post-object--event-future post-object--event-clickable"
 					v-bind:class="{ 'active': open_event === event }"
 					v-on:click="openEvent(event, $event)"
 				>
 					<event :event="event"></event>
 				</div>
-
 			</div>
 
-			<p v-else><?php _e('No upcoming events', 'ocp'); ?></p>
+			<span
+				class="archive-content__more"
+				v-if="!show_archived"
+				v-on:click="show_archived = true"
+			>View archived</span>
+
+			<span
+				class="archive-content__more"
+				v-if="show_archived"
+				v-on:click="show_archived = false"
+			>Hide archived</span>
+
+			<div
+				v-for="event in pastEvents"
+				class="post-object post-object--event post-object--event-past post-object--event-clickable"
+				v-bind:class="{ 'active': open_event === event }"
+				v-on:click="openEvent(event, $event)"
+				v-show="show_archived"
+			>
+				<event :event="event"></event>
+			</div>
 
 		</div>
+
+		<p v-else><?php _e('No upcoming events', 'ocp'); ?></p>
 
 		<div class="archive-event__view">
 
 			<div class="open-event" v-if="open_event !== null">
 
-				<div class="event__title">
+				<div class="event__title {{ ! open_event.custom.is_future ? 'event__title--past' : '' }}">
 					<svg><use xlink:href="#icon-event" /></svg>
-					<time v-if="open_event.custom.has_date">{{ open_event.custom.day }}<span>{{ open_event.custom.suffix }}</span> {{ open_event.custom.long_month }} {{ open_event.custom.year }}</time>
+					<time v-if="open_event.custom.has_date">{{ open_event.custom.day }} {{ open_event.custom.long_month }} {{ open_event.custom.year }}</time>
 					<time v-else><span><?php _e('To Be Announced', 'ocp'); ?></span></time>
 				</div>
 
@@ -97,17 +123,13 @@
 
 				</div>
 
-				<hr>
-
 				<div class="band band--extra-thick">
 
 					<div v-if="hasTerms(open_event.taxonomies['region'])" class="event__terms">
 
 						<span><?php _e('Location', 'ocp'); ?>:</span>
 
-						<ul class="button__list">
-							<li v-for="region in open_event.taxonomies['region']"><a href="/region/{{ $key }}" class="button button--small button--tag">{{{ region }}}</a></li>
-						</ul>
+						<a href="/region/{{ $key }}" v-for="region in open_event.taxonomies['region']">{{{ region }}}</a>
 
 					</div>
 
@@ -115,9 +137,7 @@
 
 						<span><?php _e('Issue', 'ocp'); ?>:</span>
 
-						<ul class="button__list">
-							<li v-for="issue in open_event.taxonomies['issue']"><a href="/issue/{{ $key }}" class="button button--small button--tag">{{{ issue }}}</a></li>
-						</ul>
+						<a href="/issue/{{ $key }}" v-for="issue in open_event.taxonomies['issue']">{{{ issue }}}</a>
 
 					</div>
 
@@ -125,9 +145,7 @@
 
 						<span><?php _e('Audience', 'ocp'); ?>:</span>
 
-						<ul class="button__list">
-							<li v-for="audience in open_event.taxonomies['audience']"><a href="/audience/{{ $key }}" class="button button--small button--tag">{{{ audience }}}</a></li>
-						</ul>
+						<a href="/audience/{{ $key }}" v-for="audience in open_event.taxonomies['audience']">{{{ audience }}}</a>
 
 					</div>
 
@@ -135,13 +153,9 @@
 
 						<span><?php _e('OC Framework', 'ocp'); ?>:</span>
 
-						<ul class="button__list">
-							<li v-for="open_contracting in open_event.taxonomies['open-contracting']"><a href="/open-contracting/{{ $key }}" class="button button--small button--tag">{{{ open_contracting }}}</a></li>
-						</ul>
+						<a href="/open-contracting/{{ $key }}" v-for="open_contracting in open_event.taxonomies['open-contracting']">{{{ open_contracting }}}</a>
 
 					</div>
-
-					<hr>
 
 					<div v-if="open_event.fields.attachments" class="event__terms">
 
@@ -157,18 +171,22 @@
 
 			</div> <!-- / .event -->
 
-			<template id="event-template">
+			<script type="x/templates" id="event-template">
 
-				<div class="post-object__media">
-					<time v-if="event.custom.has_date">{{ event.custom.day }}<em>{{ event.custom.month }}</em></time>
-					<em v-else>TBA</em>
-				</div>
+				<a href="{{event.link}}" class="card card--event">
 
-				<div class="post-object__content">
-					<h4>{{{ event.title }}}</h4>
-				</div>
+					<div class="card-event__date">
+						<span class="card-event__day">{{ event.custom.day }}</span>
+						<span class="card-event__month">{{ event.custom.month }}</span>
+					</div>
 
-			</template>
+					<div class="card__content">
+						<h6 class="card__heading">{{{ event.title }}}</h6>
+					</div>
+
+				</a>
+
+			</script>
 
 			<script>
 
@@ -180,6 +198,12 @@
 					}
 				});
 
+				// allows v-for to pipe reverse
+				Vue.filter('reverse', function(value) {
+					// slice to make a copy of array, then reverse the copy
+					return value.slice().reverse();
+				});
+
 				var event_vue = new Vue({
 
 					el: '#events',
@@ -188,10 +212,41 @@
 						// data
 						events: <?php echo json_encode($events); ?>,
 						// open event
-						open_event: null
+						open_event: null,
+						show_archived: false
+					},
+
+					computed: {
+
+						futureEvents: function() {
+							return this.getEvents();
+						},
+
+						pastEvents: function() {
+							return this.getEvents(false).reverse();
+						}
+
 					},
 
 					methods: {
+
+						getEvents: function(is_future) {
+
+							is_future = typeof is_future === 'undefined' ? true : is_future;
+
+							var events = [];
+
+							this.events.forEach(function(event) {
+
+								if ( event.custom.is_future === is_future ) {
+									events.push(event);
+								}
+
+							});
+
+							return events;
+
+						},
 
 						hasTerms: function(taxonomy) {
 							return Object.keys(taxonomy).length > 0;
@@ -201,9 +256,13 @@
 
 							var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 
-							if ( width > 1100 ) {
+							if ( width >= 768 ) {
+
 								event.preventDefault();
 								this.open_event = selected_event;
+
+								history.pushState({event_id: selected_event.id}, null, '#' + selected_event.slug);
+
 							}
 
 						}
@@ -215,6 +274,8 @@
 
 				// check for a hash
 				// open appropriate event
+
+				var current_event = event_vue.futureEvents[0];
 
 				var event_index = 0;
 
@@ -230,7 +291,27 @@
 
 				}
 
-				event_vue.open_event = event_vue.events[event_index];
+				if ( event_index !== 0 ) {
+					event_vue.open_event = event_vue.events[event_index];
+				} else {
+					event_vue.open_event = current_event;
+				}
+
+				window.addEventListener('popstate', function(event) {
+
+					if ( event.state && typeof event.state.event_id !== 'undefined' ) {
+
+						// filter the events to match by id
+						var result = $.grep(event_vue.events, function(e){ return e.id == event.state.event_id; });
+
+						// if an event is returned, set the open event
+						if ( result.length ) {
+							event_vue.open_event = result[0];
+						}
+
+					}
+
+				});
 
 			</script>
 

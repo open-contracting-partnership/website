@@ -8,7 +8,7 @@
 	display: block;
 
 	@include mq(L) {
-	    display: inline-block;
+		display: inline-block;
 	}
 
 	&.active .posts-filter__form {
@@ -37,7 +37,7 @@
 	transition: background-color .4s ease;
 
 	@include mq(L) {
-	    display: inline-block;
+		display: inline-block;
 	}
 
 	&:hover,
@@ -89,12 +89,12 @@
 		background-color: color('dark-background');
 
 		@include mq(M) {
-		    margin-right: 1.8em;
+			margin-right: 1.8em;
 		}
 	}
 
-	label:first-child {
-	}
+	// label:first-child {
+	// }
 
 	label:last-child {
 		border-bottom: 0;

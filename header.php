@@ -14,6 +14,16 @@
 		<script src="https://use.typekit.net/xpw3jps.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
 
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/public/js/libs/css-element-queries/src/ResizeSensor.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/public/js/libs/css-element-queries/src/ElementQueries.js"></script>
+
+		<script>
+
+			//attaches to DOMLoadContent
+			ElementQueries.listen();
+
+		</script>
+
 		<title><?php wp_title('&raquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
 		<meta charset="utf-8">
@@ -50,6 +60,9 @@
 		<script src="<?php bloginfo('template_directory'); ?>/assets/js/libs/jquery-2.1.4.min.js"></script>
 		<script src="<?php bloginfo('template_directory'); ?>/assets/js/libs/vue.min.js"></script>
 
+		<script src="<?php bloginfo('template_directory'); ?>/public/js/libs/slick-slider/slick.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/public/js/libs/slick-slider/slick.css">
+
 		<?php wp_head(); ?>
 
 		<script type="text/javascript">
@@ -68,14 +81,14 @@
 
 		<!-- Hotjar Tracking Code for Open Contracting Partnership -->
 		<script>
-		    (function(h,o,t,j,a,r){
-		        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-		        h._hjSettings={hjid:510028,hjsv:5};
-		        a=o.getElementsByTagName('head')[0];
-		        r=o.createElement('script');r.async=1;
-		        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-		        a.appendChild(r);
-		    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+			(function(h,o,t,j,a,r){
+				h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+				h._hjSettings={hjid:510028,hjsv:5};
+				a=o.getElementsByTagName('head')[0];
+				r=o.createElement('script');r.async=1;
+				r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+				a.appendChild(r);
+			})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
 		</script>
 
 	</head>
@@ -113,6 +126,38 @@
 						<use class="mobile-menu__close" xlink:href="#icon-close" />
 					</svg>
 
+					<div class="header-nav__side">
+
+						<div class="header-nav__side-item / header-language">
+							<?php do_action('wpml_add_language_selector'); ?>
+						</div>
+
+						<div class="header-nav__side-item / header-social">
+
+							<ul class="button__list button__social">
+
+								<?php if ( $facebook_url = get_field('facebook_url', 'options') ) : ?>
+									<li><a class="button" href="<?php echo $facebook_url; ?>" target="_blank"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
+								<?php endif; ?>
+
+								<?php if ( $linkedin_url = get_field('linkedin_url', 'options') ) : ?>
+									<li><a class="button" href="<?php echo $linkedin_url; ?>" target="_blank"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
+								<?php endif; ?>
+
+								<?php if ( $twitter_url = get_field('twitter_url', 'options') ) : ?>
+									<li><a class="button" href="<?php echo $twitter_url; ?>" target="_blank"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
+								<?php endif; ?>
+
+							</ul>
+
+						</div>
+
+						<div class="header-nav__side-item / header-search">
+							<a href="#" class="button"><svg><use xlink:href="#icon-search" /></svg></a>
+						</div>
+
+					</div>
+
 				</div> <!-- / .wrapper -->
 
 				<div class="header__search">
@@ -123,40 +168,8 @@
 							<input type="search" placeholder="Search" name="s" autocomplete="off">
 						</form>
 
-					</div>
+						<a href="#" class="search__close"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg></a>
 
-					<a href="#" class="search__close"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg></a>
-
-				</div>
-
-				<div class="header-nav__side">
-
-					<div class="header-nav__side-item / header-language">
-						<?php do_action('wpml_add_language_selector'); ?>
-					</div>
-
-					<div class="header-nav__side-item / header-social">
-
-						<ul class="button__list button__social">
-
-							<?php if ( $facebook_url = get_field('facebook_url', 'options') ) : ?>
-								<li><a class="button" href="<?php echo $facebook_url; ?>" target="_blank"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
-							<?php endif; ?>
-
-							<?php if ( $linkedin_url = get_field('linkedin_url', 'options') ) : ?>
-								<li><a class="button" href="<?php echo $linkedin_url; ?>" target="_blank"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
-							<?php endif; ?>
-
-							<?php if ( $twitter_url = get_field('twitter_url', 'options') ) : ?>
-								<li><a class="button" href="<?php echo $twitter_url; ?>" target="_blank"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
-							<?php endif; ?>
-
-						</ul>
-
-					</div>
-
-					<div class="header-nav__side-item / header-search">
-						<a href="#" class="button"><svg><use xlink:href="#icon-search" /></svg></a>
 					</div>
 
 				</div>

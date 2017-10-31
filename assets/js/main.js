@@ -11,7 +11,137 @@
 $(document).ready(function() {
 
 
+	$('.page-content table').wrap('<div class="table-wrap" />');
+
 	$('#lang_choice_1').addClass('custom-select');
+
+	var $contract_sidebar = $('.contract-single .page-sidebar');
+	var sidebar_waypoint;
+
+	if ( $contract_sidebar.length ) {
+
+		sidebar_waypoint = new Waypoint({
+			element: $contract_sidebar[0],
+			handler: function(direction) {
+
+				if ( direction == 'down' ) {
+					$contract_sidebar.addClass('fixed');
+				}
+
+				if ( direction == 'up' ) {
+					$contract_sidebar.removeClass('fixed');
+				}
+
+			}
+		});
+
+	}
+
+	var $contract_sections = $('.contract-single-section'),
+		$contracts_nav = $('.contract-sidebar-nav'),
+		$contracts_paginate = $('.contract-paginate'),
+		waypoint;
+
+	if ( $contract_sections.length ) {
+
+		$contract_sections.each(function($index, $section) {
+
+			waypoint = new Waypoint({
+				element: document.getElementById($section.id),
+				handler: function(direction) {
+
+					if ( direction == 'down' ) {
+
+						$contracts_nav.find('.number-heading--active').removeClass('number-heading--active');
+						$contracts_nav.find('.mobile-active').removeClass('mobile-active');
+						$contracts_nav.find('li:nth-child(' + ($index + 1) + ') a').addClass('number-heading--active');
+						$contracts_nav.find('li:nth-child(' + ($index + 1) + ')').addClass('mobile-active');
+
+					}
+
+				},
+				offset: '50%'
+			});
+
+			waypoint = new Waypoint({
+				element: document.getElementById($section.id),
+				handler: function(direction) {
+
+					if ( direction == 'up' ) {
+
+						$contracts_nav.find('.number-heading--active').removeClass('number-heading--active');
+						$contracts_nav.find('.mobile-active').removeClass('mobile-active');
+						$contracts_nav.find('li:nth-child(' + ($index + 1) + ') a').addClass('number-heading--active');
+						$contracts_nav.find('li:nth-child(' + ($index + 1) + ')').addClass('mobile-active');
+
+					}
+
+				},
+				offset: '112'
+			});
+
+		});
+
+	}
+
+	if ( $contracts_nav.length ) {
+
+		$contracts_nav.find('a').on('click', function(event) {
+
+			event.preventDefault();
+
+			var section = this.dataset.section;
+
+			history.pushState(null,null,'#' + section);
+
+			$('html, body').animate({
+				scrollTop: $('#' + section).offset().top - 112
+			}, 500);
+
+		});
+
+	}
+
+	if ( $contracts_paginate.length ) {
+
+		$contracts_paginate.each(function() {
+
+			$(this).on('click', function(event) {
+
+				event.preventDefault();
+
+				var direction = this.dataset.direction;
+				var $link;
+				var $section;
+
+				if ( direction === 'prev' ) {
+					$link = $('li.mobile-active').prev();
+				} else if ( direction === 'next' ) {
+					$link = $('li.mobile-active').next();
+				}
+
+				if ( $link.length ) {
+
+					$section = $link.find('a').data('section');
+
+					history.pushState(null,null,'#' + $section);
+
+					$('html, body').animate({
+						scrollTop: $('#' + $section).offset().top - 112
+					}, 500);
+
+					setTimeout(function() {
+						$('li.mobile-active').removeClass('mobile-active');
+						$link.addClass('mobile-active');
+					}, 500);
+
+				}
+
+			})
+
+		});
+
+	}
 
 
 	 //********************
@@ -184,8 +314,6 @@ $(document).ready(function() {
 
 	$('.nav--in-page a').on('click', function(event) {
 
-		event.preventDefault();
-
 		var $link = $(this),
 			$target = $($link.attr('href'));
 
@@ -195,10 +323,6 @@ $(document).ready(function() {
 		// set the current li to active
 		$link.closest('li').addClass('active');
 
-		// scroll to the target
-		$('html, body').animate({
-			scrollTop: $target.offset().top - parseInt($target.css('margin-top'))
-		}, 1000);
 
 	});
 
@@ -215,34 +339,49 @@ $(document).ready(function() {
 	});
 
 
-	 //*************
-	// TEAM MEMBERS
+	 //********
+	// PROFILE
 
-	var $team_members = $('.team-member');
+	// used on team and advisory pages
 
-	$('.team-member__selector').on('click', function(event) {
+	var $profiles = $('.profile'),
+		$profile_selectors = $('.profile-selector');
+
+	$profile_selectors.on('click', function(event) {
 
 		event.preventDefault();
 
-		var $team_member = $(this);
+		var $profile = $(this);
 
-		$team_members
+		$profiles
 			.removeClass('active')
-			.filter($team_member.attr('href'))
+			.filter($profile.attr('href'))
 				.addClass('active');
 
-		$('.team-member__selector').removeClass('active');
-		$team_member.addClass('active');
+		$profile_selectors.removeClass('active');
+		$profile.addClass('active');
 
 	});
 
-	$('.team-member__selector').first().trigger('click');
+	$profile_selectors.first().trigger('click');
 
-	$('.team-member__view-bio').on('click', function(event) {
+	$('.profile__collapse').on('click', function(event) {
 
 		event.preventDefault();
 
-		$(this).closest('.team-member').find('.team-member__bio').toggleClass('active');
+		var $profile = $(this).closest('.profile'),
+			active = $profile.hasClass('active');
+
+		// remove any previous active profiles
+		$('.profile.active').removeClass('active');
+
+		// make this profile active
+		$profile.toggleClass('active', ! active);
+
+		// scroll to the target
+		if ( ! active && ($profile.offset().top - 16 < $(window).scrollTop()) ) {
+			$(window).scrollTop($profile.offset().top - 16)
+		}
 
 	});
 
@@ -302,17 +441,38 @@ $(document).ready(function() {
 	}, false);
 
 
+	 //****************
+	// ADVISORY SLIDER
 
-	 //*******
-	// STRIPS
+	$('.timeline').slick({
+		infinite: false,
+		speed: 300,
+		initialSlide: $('.timeline-item').length - 5,
+		slidesToShow: 5,
+		slidesToScroll: 1,
+		swipeToSlide: true,
+		prevArrow: '<a href="#" class="slick-prev"><svg><use xlink:href="#icon-arrow-left"></svg>Previous</a>',
+		nextArrow: '<a href="#" class="slick-next">Next<svg><use xlink:href="#icon-arrow-right"></svg></a>',
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					initialSlide: $('.timeline-item').length - 4,
+					slidesToShow: 4,
+					slidesToScroll: 1
+				}
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					initialSlide: $('.timeline-item').length - 2,
+					slidesToShow: 2,
+					slidesToScroll: 1
+				}
+			}
+		]
+	});
 
-	var $last_item = $('.page__container > :last-child');
 
-	if ( $last_item.length && $last_item.hasClass('page-strip') ) {
-
-		$('.page__container').css('margin-bottom', '0');
-		$last_item.css('margin-bottom', '0');
-
-	}
 
 });

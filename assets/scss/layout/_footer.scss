@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    FOOTER
+	FOOTER
 \*------------------------------------*/
 
 .site-footer {
@@ -7,7 +7,7 @@
 	background-color: color('dark-background');
 
 	a {
-		color: color('white');
+		color: inherit;
 		text-decoration: none;
 
 		&:hover,
@@ -42,7 +42,6 @@
 
 	.nav a {
 		@include font-size(16);
-		color: color('lighter-grey');
 		@include font('secondary');
 	}
 }
@@ -90,25 +89,28 @@
 }
 
 .site-footer__follow {
+
 	margin-bottom: 1em;
 
 	@include mq(L) {
-	    margin-bottom: 3em;
+		margin-bottom: 3em;
 	}
 
 	svg {
 		width: 1em;
 		height: 1em;
-		fill: color('lighter-grey');
+		fill: color('light-grey');
+		transition: fill .3s ease;
 	}
 
 	a:hover,
 	a:active {
 
 		svg {
-			fill: color('brand');
+			fill: color('white');
 		}
 	}
+
 }
 
 .main-footer .site-footer__follow {
@@ -118,7 +120,7 @@
 		margin-right: em(10);
 
 		@include mq(L) {
-		    margin-right: em(21);
+			margin-right: em(21);
 		}
 	}
 
@@ -137,6 +139,7 @@
 }
 
 .site-footer__contact {
+
 	margin-bottom: em(25);
 
 	address {
@@ -144,14 +147,10 @@
 		@include font-size(14);
 	}
 
-	span,
-	a {
-		color: color('lighter-grey');
-	}
-
 	a {
 		display: block;
 	}
+
 }
 
 .sub-footer {
@@ -192,7 +191,7 @@
 
 .site-copyright {
 	padding: .9em 0;
-	background-color: color('super-dark-grey');
+	background-color: darken(color('background'), 20%);
 
 	span a,
 	span:last-child {

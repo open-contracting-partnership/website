@@ -4,7 +4,7 @@
 
 	<div class="four-oh-four__page">
 
-		<div class="wrapper / page__wrapper / page--padding">
+		<div class="wrapper">
 
 			<section class="four-oh-four__container">
 
@@ -31,6 +31,6 @@
 
 		</div>
 
-	</div> <!-- / .page__container -->
+	</div>
 
 <?php get_footer(); ?>

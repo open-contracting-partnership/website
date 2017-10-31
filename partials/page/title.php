@@ -1,23 +1,26 @@
-<?php
-
-	$type = get_field('title_type');
-
-	// don't continue if this page has no title
-	if ( get_field('title_type') === 'none' ) {
-		return;
-	}
-
-	$title = $type === 'default' ? get_the_title() : get_field('title');
-	$class = $type === 'default' ? '' : get_field('title_level');
-
-?>
-
 <div class="page-title">
 
-	<h1 class="<?php echo $class ?>"><?php echo $title; ?></h1>
+	<h1><?php the_title(); ?></h1>
 
 	<?php if ( $stapline = get_field('strapline') ) : ?>
-		<div class="strapline"><?php echo $stapline; ?></div>
+		<h2 class="delta strapline"><?php echo $stapline; ?></h2>
+	<?php endif; ?>
+
+	<?php if ( get_post_type() === 'post' ) : ?>
+
+		<div class="page-meta">
+	 		<p><datetime><?php the_date(); ?></datetime></p>
+			<p><?php _e('By', 'ocp'); ?> <?php the_authors(TRUE); ?></p>
+		</div>
+
+	<?php endif; ?>
+
+	<?php if ( get_field('introduction') ) : ?>
+
+		<blockquote class="worldwide-intro">
+			<?php the_field('introduction'); ?>
+		</blockquote>
+
 	<?php endif; ?>
 
 </div>

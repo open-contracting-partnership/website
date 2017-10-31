@@ -1,5 +1,5 @@
 /*------------------------------------*\
-    GLOBAL MIXINS
+	GLOBAL MIXINS
 \*------------------------------------*/
 
  //*****************
@@ -62,6 +62,11 @@
 	@return $value / $base-font-size + rem;
 }
 
+// calculates a value by adjusting for the line-height
+@function line-height-adjust($distance, $line-height) {
+	@return calc(#{$distance} - (((1em * #{$line-height}) - 1em) / 2));
+}
+
 
  //*******************
 // COLOR BASED FUNCTIONS
@@ -80,7 +85,6 @@
 	} @else {
 		@return $color;
 	}
-
 }
 
 @function post-color($type) {
@@ -88,6 +92,18 @@
 
 	@if ($color == null) {
 		@error 'Post type "#{$type}" passed to `post-color` mixin does not exist';
+		@return false;
+	}
+
+	@return $color;
+}
+
+
+@function social-color($type) {
+	$color: map-get($social-colors, $type);
+
+	@if ($color == null) {
+		@error 'Social colour "#{$type}" passed to `social-color` mixin does not exist';
 		@return false;
 	}
 
@@ -143,7 +159,7 @@
 @mixin aspect-ratio($width, $height) {
 	position: relative;
 
-	&:before {
+	&::before {
 		display: block;
 		content: '';
 		width: 100%;
@@ -163,30 +179,50 @@
  //**************
 // MEDIA QUERIES
 
-// Pass in a value or a breakpoint letter
-@mixin mq($point, $IE9: false, $query1: min, $query2: width) {
+// $value: can be a number, 'landscape', or a breakpoint letter
+// $arg2: default is min-width, can be overwritten with 'max-width', or 'orientation' etc.
+@mixin mq($arg1, $arg2: 'min-width') {
 
-	@if map-has-key($breakpoints, $point) {
-		$point: map-get($breakpoints, $point);
+	$between: false;
+
+	// convert the value if it's within breakpoints
+	@if map-has-key($breakpoints, $arg1) {
+		$arg1: map-get($breakpoints, $arg1);
 	}
 
-    @if $IE9 == true{
+	// maybe arg2 references a breakpoint
+	@if map-has-key($breakpoints, $arg2) {
+		$arg2: map-get($breakpoints, $arg2);
+		$between: true;
+	}
 
-        .lt-ie9 {
-            @content;
-        }
+	// maybe arg2 is a number
+	@if type-of($arg2) == 'number' {
+		$arg2: $arg2 + px;
+		$between: true;
+	}
 
-        @media screen and (#{$query1}-#{$query2}: $point + px) {
-            @content;
-        }
+	@if $arg2 == 'max-width' {
+		$arg1: $arg1 - 1;
+	}
 
-    } @else {
+	@if type-of($arg1) == 'number' {
+		$arg1: $arg1 + px;
+	}
 
-        @media screen and (#{$query1}-#{$query2}: $point + px) {
-            @content;
-        }
+	@if $between == false {
 
-    }
+		@media screen and (#{$arg2}: $arg1) {
+			@content;
+		}
+
+	} @else {
+
+		@media screen and (min-width: $arg1) and (max-width: $arg2 - 1px) {
+			@content;
+		}
+
+	}
 
 }
 
@@ -195,17 +231,31 @@
  * Example of use
  *
 
-    .example {
-        @include font-size(12);
+	.example {
+		@include font-size(12);
 
-        @include mq(400) {
-            @include font-size(14);
-        }
+		@include mq(400) {
+			@include font-size(14);
+		}
 
-        @include mq(M) {
-            @include font-size(18);
-        }
-    }
+		@include mq(M) {
+			@include font-size(18);
+		}
+	}
 
  *
  */
+
+ @function spacing($number) {
+ 	@return 8px * $number;
+ }
+
+ @mixin col($col, $context) {
+
+	@include span($col of $context);
+
+	&:nth-of-type(#{$context / $col}n) {
+		@include last;
+	}
+
+ }

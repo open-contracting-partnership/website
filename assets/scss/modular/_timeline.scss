@@ -1,49 +1,68 @@
+/*
+
+---
+name: Timeline
+category:
+ - Components/Timeline
+---
+
+```html
+<div class="timeline">
+
+	<div class="timeline-item">
+		<span class="timeline-item__date">Nov 14</span>
+		<a class="timeline-item__title" href="#" title="Download minutes from 1st Advisory Board Meeting [PDF]">1st Advisory <br>Board Meeting <span class="text--nano">[PDF]</span></a>
+	</div>
+
+	<div class="timeline-item">
+		<span class="timeline-item__date">Apr 15</span>
+		<a class="timeline-item__title" href="#" title="Download minutes from 2nd Advisory Board Meeting [PDF]">2nd Advisory <br>Board Meeting <span class="text--nano">[PDF]</span></a>
+	</div>
+
+	<div class="timeline-item">
+		<span class="timeline-item__date">Nov 15</span>
+		<a class="timeline-item__title" href="#" title="Download minutes from 3rd Advisory Board Meeting [PDF]">3rd Advisory <br>Board Meeting <span class="text--nano">[PDF]</span></a>
+	</div>
+
+	<div class="timeline-item">
+		<span class="timeline-item__date">Apr 16</span>
+		<a class="timeline-item__title" href="#" title="Download minutes from 4th Advisory Board Meeting [PDF]">4th Advisory <br>Board Meeting <span class="text--nano">[PDF]</span></a>
+	</div>
+
+	<div class="timeline-item timeline-item--large">
+		<span class="timeline-item__date">Nov 16</span>
+		<a class="timeline-item__title" href="#" title="Download minutes from 5th Advisory Board Meeting [PDF]">5th Advisory <br>Board Meeting <span class="text--nano">[PDF]</span></a>
+	</div>
+
+</div>
+```
+
+*/
+
 .timeline {
 
+	@include font-size(17);
+	@include font('secondary', 'medium');
+	display: flex;
+	justify-content: space-around;
 	overflow: hidden;
 	position: relative;
+	color: color('mid-grey');
+	padding-top: spacing(7);
 
-	&:before {
-		content: '';
-		position: absolute;
-		top: 0;
-		right: auto;
-		bottom: 0;
-		left: 1em;
-		margin: 0 auto;
-		width: 2px;
-		background-color: color('lightest-grey');
-	}
-
-	@include mq(L) {
-
-		@include span(10 at 1 of 12);
-		@include push(1);
-		display: flex;
-		justify-content: space-around;
-
-		&:before {
-			top: em(65);
-			bottom: auto;
-			right: 0;
-			left: 0;
-			margin: auto 0;
-			height: 2px;
-			width: auto;
-		}
-
+	&:not(.slick-initialized) {
+		display: none;
 	}
 
 }
 
 .timeline-item {
 
-	@include font-size(18);
-	padding-left: em(60, 18);
-	margin: 1em 0 2em;
 	display: block;
 	overflow: hidden;
 	position: relative;
+	display: inline-block;
+	text-align: center;
 
 	&:last-child {
 		margin-bottom: 1em;
@@ -52,8 +71,22 @@
 	&:before {
 		content: '';
 		position: absolute;
-		top: em(10, 18);
-		left: em(14, 18);
+		top: em(59, 17);
+		bottom: auto;
+		right: 0;
+		left: 0;
+		margin: auto 0;
+		height: 1px;
+		width: auto;
+		background-color: color('lighter-grey');
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: em(52, 17);
+		right: 0;
+		left: 0;
 		margin: auto;
 		width: 15px;
 		height: 15px;
@@ -62,62 +95,25 @@
 		box-shadow: 0 0 6px 7px color('brand', .25);
 	}
 
-	@include mq(L) {
-
-		display: inline-block;
-		text-align: center;
-		margin: 0;
-		padding: 0;
-
-		&:before {
-			content: '';
-			position: absolute;
-			top: em(59, 18);
-			right: 0;
-			left: 0;
-			margin: auto;
-			width: 15px;
-			height: 15px;
-			background-color: color('brand');
-			border-radius: 50%;
-			box-shadow: 0 0 6px 7px color('brand', .25);
-		}
-
-	}
-
 }
 
 .timeline-item__date {
-	@include font('secondary', 'medium');
-	float: left;
-	clear: both;
-	letter-spacing: 1px;
-	background-color: color('dark-background');
-	color: color('white');
-	padding: em(5, 18) 1em;
-	margin-bottom: 1em;
-
-	@include mq(L) {
-		margin-bottom: em(30, 18);
-		float: none;
-		display: inline-block;
-	}
+	@include font-size(14);
+	display: block;
+	margin-top: em(22, 14);
+	text-align: center;
+	text-transform: uppercase;
 
 }
 
 .timeline-item__title {
-	@include font('secondary', 'medium');
-	float: left;
-	clear: both;
-	text-align: left;
-	padding-right: em(37, 18);
-	margin-bottom: 0;
-	line-height: 1.3;
-	color: color('dark-background');
 
-	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMjFweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjEgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICA8ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4gICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00MDguMDAwMDAwLCAtOTYzLjAwMDAwMCkiIHN0cm9rZT0iIzMyMzIzOCIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+ICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDA5LjAwMDAwMCwgOTY0LjAwMDAwMCkiPiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTQuNTUzNTM5LDEzLjg5MjAxNDUgQzE3LjA3NjI2MjcsMTMuNTc5NDQ0MiAxOS4xODQyMTA1LDExLjQxNTI2NjggMTkuMTg0MjEwNSw4Ljg0MDI4MjY3IEMxOS4xODQyMTA1LDYuMDQ5MzEwOCAxNi44OTQ2NzQyLDMuNzg4MjIwMDUgMTQuMDY4MzEwOCwzLjc4ODIyMDA1IEMxMy45NTk4MjA4LDMuNzg4MjIwMDUgMTMuODUwNjY5MiwzLjc5NDgzNTMgMTMuNzQyODQwNywzLjgwNjQxMTk4IEMxMi45NTU5NTc0LDEuNTkwNjM1NjYgMTAuODI1ODQ4NSwwIDguMzEzMDQ3NjQsMCBDNS4xMzU3NDU0NiwwIDIuNTU4MTE1MjUsMi41NDM4OTI0NyAyLjU1ODExNTI1LDUuNjgyNDk1NDYgQzIuNTU4MTE1MjUsNS45NjY2MjAyNCAyLjU4MzkxNDcsNi4yMzc4NDUyOCAyLjYyODU2NzYsNi41MTAwNjI2MSBDMS4xMDAxMTUyNSw3LjAwODE5MDU2IDAsOC40MjkxNDUxOSAwLDEwLjEwMjQ3MTQgQzAsMTIuMTkyMjI3MyAxLjcyMDk1NTk5LDEzLjg5MjAxNDUgMy44MzY4NDIxMSwxMy44OTIwMTQ1IEw0LjYzMDY3MTUxLDEzLjg5MjAxNDUiIGlkPSJTdHJva2UtMSIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNOS40NzM2ODQyMSw5LjI2MTM0MzAxIEw5LjQ3MzY4NDIxLDE2LjUzODExMjUiPjwvcGF0aD4gICAgICAgICAgICAgICAgPHBhdGggZD0iTTEyLjIzODIwMzMsMTQuODM5MzgyOSBMOS41OTIxMDUyNiwxNy40ODU0ODA5IEw2Ljk0NjAwNzI2LDE0LjgzOTM4MjkiPjwvcGF0aD4gICAgICAgICAgICA8L2c+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=);
-	background-repeat: no-repeat;
-	background-position: right 50%;
+	display: block;
+	text-align: center;
+	margin-bottom: 0;
+	margin-top: em(45, 17);
+	line-height: 1.3;
+	color: currentColor;
 
 	&:hover,
 	&:focus,
@@ -125,10 +121,92 @@
 		text-decoration: underline;
 	}
 
-	@include mq(L) {
-		margin-top: em(30, 18);
-		float: none;
+	span.text--nano {
+		@include font-size(14);
+		@include font('secondary');
 		display: block;
+		text-align: center;
+		margin-top: em(5, 14);
+	}
+
+}
+
+// LARGE
+.timeline-item:last-child,
+.timeline-item--large {
+
+	color: color('body');
+
+	&:after {
+		top: em(47, 17);
+		width: 25px;
+		height: 25px;
+		box-shadow: 0 0 10px 12px color('brand', .25);
+	}
+
+	.timeline-item__date {
+		@include font-size(17);
+		margin-top: 0;
+	}
+
+	.timeline-item__title {
+
+		@include font-size(24);
+		@include font('secondary', 'bold');
+		margin-top: em(50, 17);
+
+		span.text--nano {
+			@include font-size(17);
+		}
+
+	}
+
+}
+
+.timeline .slick-prev,
+.timeline .slick-next {
+
+	position: absolute;
+	z-index: 9;
+	top: 0;
+	color: color('grey');
+	transition: opacity .3s ease;
+
+	&:hover,
+	&:focus {
+		color: color('mid-grey');
+	}
+
+	svg {
+		fill: currentColor;
+		width: 10px;
+		height: 20px;
+		margin-right: spacing(1);
+	}
+
+	&.slick-disabled {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+}
+
+.timeline .slick-prev {
+
+	left: 0;
+
+	svg {
+		margin-right: spacing(.5);
+	}
+
+}
+
+.timeline .slick-next {
+
+	right: 0;
+
+	svg {
+		margin-left: spacing(.5);
 	}
 
 }

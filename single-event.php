@@ -10,15 +10,21 @@
 			$date = strtotime($date);
 		}
 
+		$current_date = strtotime(date('d-m-Y'));
+
 	?>
 
-	<div class="wrapper">
+	<div class="wrapper page__wrapper">
 
 		<article class="cf">
 
+			<div class="band band--thin">
+				<a href="/events" class="text-button button--icon"><svg><use xlink:href="#icon-arrow-left" /></svg>Back to events</a>
+			</div>
+
 			<section class="open-event">
 
-				<div class="event__title">
+				<div class="event__title <?php echo $current_date <= $date ? '' : 'event__title--past'; ?>">
 					<svg><use xlink:href="#icon-event" /></svg>
 					<?php if ( $date ) : ?>
 						<time><?php echo date('j', $date); ?><span><?php echo date('S', $date); ?></span> <?php echo date('F Y', $date); ?></time>
@@ -51,21 +57,17 @@
 
 				</div>
 
-				<hr />
-
 				<div class="band band--extra-thick">
 
 					<?php if ( $terms = get_field('region') ) : ?>
 
 						<div class="event__terms">
 
-							<span><?php _e('Location', 'ocp'); ?></span>
+							<span><?php _e('Location', 'ocp'); ?>:</span>
 
-							<ul class="button__list">
-
-								<?php foreach ( $terms as $term ) : ?>
-									<li><a href="/region/<?php echo $term->slug; ?>" class="button button--small button--tag"><?php echo $term->name; ?></a></li>
-								<?php endforeach; ?>
+							<?php foreach ( $terms as $term ) : ?>
+								<a href="/region/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
+							<?php endforeach; ?>
 
 							</ul>
 
@@ -77,13 +79,11 @@
 
 						<div class="event__terms">
 
-							<span><?php _e('Issue', 'ocp'); ?></span>
+							<span><?php _e('Issue', 'ocp'); ?>:</span>
 
-							<ul class="button__list">
-
-								<?php foreach ( $terms as $term ) : ?>
-									<li><a href="/issue/<?php echo $term->slug; ?>" class="button button--small button--tag"><?php echo $term->name; ?></a></li>
-								<?php endforeach; ?>
+							<?php foreach ( $terms as $term ) : ?>
+								<a href="/issue/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
+							<?php endforeach; ?>
 
 							</ul>
 
@@ -95,13 +95,11 @@
 
 						<div class="event__terms">
 
-							<span><?php _e('Audience', 'ocp'); ?></span>
+							<span><?php _e('Audience', 'ocp'); ?>:</span>
 
-							<ul class="button__list">
-
-								<?php foreach ( $terms as $term ) : ?>
-									<li><a href="/audience/<?php echo $term->slug; ?>" class="button button--small button--tag"><?php echo $term->name; ?></a></li>
-								<?php endforeach; ?>
+							<?php foreach ( $terms as $term ) : ?>
+								<a href="/audience/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
+							<?php endforeach; ?>
 
 							</ul>
 
@@ -113,13 +111,11 @@
 
 						<div class="event__terms">
 
-							<span><?php _e('OC Framework', 'ocp'); ?></span>
+							<span><?php _e('OC Framework', 'ocp'); ?>:</span>
 
-							<ul class="button__list">
-
-								<?php foreach ( $terms as $term ) : ?>
-									<li><a href="/open-contracting/<?php echo $term->slug; ?>" class="button button--small button--tag"><?php echo $term->name; ?></a></li>
-								<?php endforeach; ?>
+							<?php foreach ( $terms as $term ) : ?>
+								<a href="/open-contracting/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
+							<?php endforeach; ?>
 
 							</ul>
 
@@ -133,15 +129,11 @@
 
 						<div class="event__terms">
 
-							<p><?php _e('Attachments', 'ocp'); ?></p>
+							<p><?php _e('Attachments', 'ocp'); ?>:</p>
 
-							<ul class="arrow-list">
-
-								<?php foreach ( $attachments as $attachment ) : ?>
-									<li><a href="<?php echo $attachment['file']; ?>"><?php echo $attachment['name']; ?></a></li>
-								<?php endforeach; ?>
-
-							</ul>
+							<?php foreach ( $attachments as $attachment ) : ?>
+								<a href="<?php echo $attachment['file']; ?>"><?php echo $attachment['name']; ?></a>
+							<?php endforeach; ?>
 
 						</div>
 

@@ -7,7 +7,6 @@ category:
  - Design/Colours
 colours: [
   ['White', 'FFF'],
-  ['Grey', 'AAA', 'F7F7F7'],
   ['Black', '000'],
   ['Orange', 'FD843D', '', 'FB6045'],
   ['Lilac', '6c75e1'],
@@ -53,8 +52,7 @@ category:
  - Design
  - Design/Colours
 colours: [
-  ['Brand', 'D6E100', 'B6C505', '9BAF00'],
-  ['Brand Hero', 'B8BD35'],
+  ['Brand', 'D6E100', 'B6C505', '9BAF00']
  ]
 compile: true
 ---
@@ -98,13 +96,58 @@ colours: [
   ['Lighter Grey', 'D5D5D7'],
   ['Light Grey', 'B7B7B7'],
   ['Grey', '999'],
-  ['Off Grey', '8B8B97'],
   ['Mid Grey', '69696B'],
   ['Background', '4D4D54'],
   ['Body', '424244'],
   ['Dark Background', '323238'],
   ['Dark Grey', '2D2D2D'],
   ['Super Dark Grey', '26262B']
+ ]
+compile: true
+---
+
+```ejs
+<% for(var i=0; i < colours.length; i++) { %>
+<div class="aigis-colorpalette">
+	<div class="aigis-colorpalette__swatches" style="background-color: #<%= colours[i][1] %>;"><% if (colours[i][2]) { %>
+		<div class="aigis-colorpalette__swatches--small aigis-colorpalette__swatches--left" style="background-color: #<%= colours[i][2] %>;"></div><% } %><% if (colours[i][3]) { %>
+		<div class="aigis-colorpalette__swatches--small aigis-colorpalette__swatches--right" style="background-color: #<%= colours[i][3] %>;"></div><% } %>
+	</div>
+	<div class="aigis-colorpalette__label">
+		<div>
+			<span><%= colours[i][0] %></span>
+			<span>#<%= colours[i][1] %></span>
+		</div><% if (colours[i][2]) { %>
+		<div>
+			<span>Mid <%= colours[i][0] %></span>
+			<span>#<%= colours[i][2] %></span>
+		</div><% } %><% if (colours[i][3]) { %>
+		<div>
+			<span>Dark <%= colours[i][0] %></span>
+			<span>#<%= colours[i][3] %></span>
+		</div><% } %>
+	</div>
+</div><% } %>
+```
+
+*/
+
+/*
+
+---
+name: Type
+category:
+ - Design
+ - Design/Colours
+colours: [
+	['lighter-grey', 'D5D5D7'],
+	['light-grey', 'B7B7B7'],
+	['grey', '999'],
+	['off-grey', '8B8B97'],
+	['mid-grey', '69696B'],
+	['background', '4D4D54'],
+	['body', '424244'],
+	['dark-background', '323238']
  ]
 compile: true
 ---

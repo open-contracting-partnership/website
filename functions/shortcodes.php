@@ -47,6 +47,20 @@ add_shortcode('pull', function($atts, $content = null) {
 });
 
 
+ //*****
+// WIDE
+
+add_shortcode('wide', function($atts, $content = null) {
+
+	$find = ['<div class="page-content__wide"></p>', '<p></div>'];
+	$replace = ['<div class="page-content__wide">', '</div>'];
+
+	// var_Dump($content);
+	return str_replace($find, $replace, '<div class="page-content__wide">' . trim(wpautop($content)) . '</div>');
+
+});
+
+
  //********
 // RELATED
 
@@ -73,8 +87,8 @@ add_shortcode('related', function($atts, $content = null) {
 		'tax_query' => array(
 			array(
 				'taxonomy' => $args->taxonomy,
-				'field'    => 'slug',
-				'terms'    => $args->term,
+				'field' => 'slug',
+				'terms' => $args->term,
 			)
 		)
 
@@ -90,10 +104,18 @@ add_shortcode('related', function($atts, $content = null) {
 
 			<div class="related-posts--inline">
 
-				<h5>Posts by: <a href="<?php echo $term_link; ?>"><?php echo $term->name; ?></a></h5>
+				<h6 class="related-posts__title">Posts by: <a href="<?php echo $term_link; ?>"><?php echo $term->name; ?></a></h6>
 
 				<?php foreach ( $related_posts as $related_post ) : ?>
-					<?php get_partial('post-object', 'horizontal'); ?>
+
+					<?php
+
+						get_partial('card', 'secondary', [
+							'image_align_right' => TRUE
+						]);
+
+					?>
+
 				<?php endforeach; ?>
 
 			</div>

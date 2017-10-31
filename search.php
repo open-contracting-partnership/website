@@ -2,7 +2,7 @@
 
 <?php get_header(); ?>
 
-	<div class="wrapper archive--padding">
+	<div class="wrapper / page__wrapper">
 
 		<main class="search-main">
 

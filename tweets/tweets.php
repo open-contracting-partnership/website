@@ -91,7 +91,7 @@
 		$cache_file_created  = ((file_exists($settings->cache_file))) ? filemtime($settings->cache_file) : 0;
 
 		// A flag so we know if the feed was successfully parsed.
-		$tweet_found         = false;
+		$tweet_found = false;
 
 		// Show cached version of tweets, if it's less than $settings->cache_time.
 		if ( time() - $settings->cache_time < $cache_file_created AND FALSE ) {

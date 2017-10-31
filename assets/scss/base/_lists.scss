@@ -14,15 +14,23 @@ ul {
 
 	margin-bottom: $space;
 	padding-left: $space * .75;
-	list-style-position: inside;
+	list-style-position: initial;
 	list-style-type: square;
-
-	@include mq(M) {
-	    list-style-position: initial;
-	}
 
 	&.no-bullet {
 		list-style-type: none;
+	}
+
+	&.plain {
+
+		margin: 0;
+		padding: 0;
+
+		li {
+			list-style-type: none;
+			padding: 0;
+		}
+
 	}
 
 	li {
@@ -84,11 +92,11 @@ ol ol {
  //*****************
 // DEFINITION LISTS
 
-dl {
-}
-
-dt {
-}
-
-dd {
-}
+// dl {
+// }
+//
+// dt {
+// }
+//
+// dd {
+// }

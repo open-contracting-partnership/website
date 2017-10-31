@@ -1,6 +1,24 @@
 <?php
 
 
+/**
+ * returns the current language code
+ * @return string the language code
+ */
+function get_language_code() {
+
+	// the default will always be english
+	$language = 'en';
+
+	// if another has been set, use that instead
+	if ( defined('ICL_LANGUAGE_CODE') && ! empty(ICL_LANGUAGE_CODE) ) {
+		$language = ICL_LANGUAGE_CODE;
+	}
+
+	return $language;
+
+}
+
  //**************************
 // WPML TRANSLATION HANDLING
 
@@ -68,5 +86,56 @@ add_filter('query_loop_post_query', function($posts) {
 	}
 
 	return $posts;
+
+});
+
+/**
+ * for non-english pages, attempt to load the original specific page template
+ */
+add_filter('page_template', function($template) {
+
+	// if the language is english, don't attempt to modify the template
+	if ( get_language_code() === 'en' ) {
+		return $template;
+	}
+
+	$filename = basename($template);
+
+	// if the filename has not defaulted back to page.php, don't proceed further
+	if ( $filename !== 'page.php' ) {
+		return $template;
+	}
+
+	global $post;
+
+	// fetch the english version of this post
+	$original_id = icl_object_id($post->ID, $post->post_type, FALSE, 'en');
+
+	// if nothing is returned exit out
+	if ( ! $original_id ) {
+		return $template;
+	}
+
+	// fetch the original post based on the id
+	$original_post = get_post($original_id);
+
+	// if nothing is returned exit out
+	if ( ! $original_post ) {
+		return $template;
+	}
+
+	// attempt to locate the originally translated template
+	$new_template = locate_template([
+		'page-' . $original_post->post_name . '.php',
+		'page.php'
+	]);
+
+	// if the new template is not falsey, we can finally use this as the alternative
+	if ( $new_template ) {
+		return $new_template;
+	}
+
+	// … otherwise return the original
+	return $template;
 
 });

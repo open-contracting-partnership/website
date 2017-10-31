@@ -183,7 +183,7 @@ function get_posts_template($slug, $name = '', $posts = NULL) {
  * @param  integer $index
  * @return boolean
  */
-function load_post($posts, $index) {
+function load_post($posts, $index = 0) {
 
 	global $post;
 
@@ -223,7 +223,7 @@ function array_columns($array, $columns = 2) {
 }
 
 /**
- * Includes partial templates, similar to get_template_part() * 
+ * Includes partial templates, similar to get_template_part() *
  * @param  string $collection
  * @param  string $object
  * @param  array  $options
@@ -246,7 +246,7 @@ function get_partial($collection, $object = NULL, $options = array()) {
 
 /**
  * Returns an array of merge partial options
- * @param  array $options 
+ * @param  array $options
  * @param  array $defaults
  * @return array
  */
@@ -278,3 +278,10 @@ function get_substr($string, $length) {
 function the_substr($string, $length) {
 	echo get_substr($string, $length);
 }
+
+/**
+ * Change default page template title
+ */
+add_filter('default_page_template_title', function() {
+	return 'One column';
+});
