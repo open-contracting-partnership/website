@@ -8,6 +8,7 @@
 
 	<article class="page-content">
 
+		<?php /*
 		<div class="select-menu">
 
 			<label class="visuallyhidden"></label>
@@ -36,6 +37,8 @@
 		<a href="/wp-content/uploads/contracts/contracts.csv" class="button button--dark" download>Download CSV</a>
 		<a href="/wp-content/uploads/contracts/contracts.json" class="button button--dark" download>Download JSON</a>
 
+		*/ ?>
+
 		<?php // the_content(); ?>
 
 	</article>
@@ -51,7 +54,7 @@
 				<thead>
 
 					<tr>
-						<th>Phase</th>
+						<?php /* <th>Phase</th> */ ?>
 						<th>Title</th>
 						<th>Supplier</th>
 						<th>Date</th>
@@ -69,19 +72,25 @@
 
 						<tr data-phase="<?php echo $contract->phase; ?>">
 
+							<?php /*
+
+								<td>
+
+									<div class="contracts-table__phase">
+										<span class="number-heading__number"><?php echo Contracts::phase_number($contract->phase); ?></span>
+										<span><?php echo $contract->phase ? Contracts::$phases[$contract->phase] : '-' ?></span>
+									</div>
+
+								</td>
+
+							*/ ?>
+
 							<td>
 
-								<div class="contracts-table__phase">
-									<span class="number-heading__number"><?php echo Contracts::phase_number($contract->phase); ?></span>
-									<span><?php echo $contract->phase ? Contracts::$phases[$contract->phase] : '-' ?></span>
-								</div>
-
-							</td>
-
-							<td>
-								<a href="/contracts/<?php echo $contract->ocid; ?>">
+								<?php /* <a href="/contracts/<?php echo $contract->ocid; ?>"> */ ?>
 									<?php echo $contract->contract_title ? $contract->contract_title : '-' ?>
-								</a>
+								<?php /* </a> */ ?>
+
 							</td>
 
 							<td><?php echo $contract->supplier_name ? $contract->supplier_name : '-'; ?></td>
