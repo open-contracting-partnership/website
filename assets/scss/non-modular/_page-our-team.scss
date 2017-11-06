@@ -33,5 +33,12 @@
 	@include mq(768) {
 		@include span(8 of 12 last);
 	}
-	
+
+	@include mq(L, 1281) {
+
+		// this value represents half of one column
+		margin-right: 4%;
+
+	}
+
 }
