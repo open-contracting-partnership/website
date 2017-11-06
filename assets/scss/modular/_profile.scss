@@ -206,6 +206,14 @@ category:
 		flex-basis: spacing(14);
 	}
 
+	@include mq(L) {
+		flex-basis: spacing(14);
+	}
+
+	@include mq(XL) {
+		flex-basis: spacing(18);
+	}
+
 	img {
 		border-radius: 50%;
 	}
