@@ -105,6 +105,17 @@
 			margin-bottom: spacing(12);
 		}
 
+		@include mq(L) {
+			flex: 0 0 span(8 of 12);
+		}
+
+		@include mq(L, 1280) {
+
+			// this value represents half of one column
+			margin-right: 4%;
+
+		}
+
 	}
 
 	.page-sidebar {
@@ -158,14 +169,6 @@
 
 		@include mq(680, M) {
 			@include span(1 of 2 last);
-		}
-
-	}
-
-	.page-content {
-
-		@include mq(L) {
-			flex: 0 0 span(8 of 12);
 		}
 
 	}
@@ -290,5 +293,5 @@ category:
 	@include mq(L) {
 		margin-bottom: spacing(8);
 	}
-	
+
 }
