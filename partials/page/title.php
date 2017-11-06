@@ -1,5 +1,18 @@
 <div class="page-title">
 
+	<?php if ( in_array(get_post_type(), ['post', 'news']) ) : ?>
+
+		<div class="band band--thin">
+
+			<a href="/events" class="text-button button--icon">
+				<svg><use xlink:href="#icon-arrow-left" /></svg>
+				<?php _e('Back to latest', 'ocp'); ?>
+			</a>
+
+		</div>
+
+	<?php endif; ?>
+
 	<h1><?php the_title(); ?></h1>
 
 	<?php if ( $stapline = get_field('strapline') ) : ?>
