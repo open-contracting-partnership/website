@@ -6,11 +6,16 @@
 		<h2 class="delta strapline"><?php echo $stapline; ?></h2>
 	<?php endif; ?>
 
-	<?php if ( get_post_type() === 'post' ) : ?>
+	<?php if ( in_array(get_post_type(), ['post', 'news']) ) : ?>
 
 		<div class="page-meta">
+
 	 		<p><datetime><?php the_date(); ?></datetime></p>
-			<p><?php _e('By', 'ocp'); ?> <?php the_authors(TRUE); ?></p>
+
+			<?php if ( get_authors() ) : ?>
+				<p><?php _e('By', 'ocp'); ?> <?php the_authors(TRUE); ?></p>
+			<?php endif; ?>
+
 		</div>
 
 	<?php endif; ?>
