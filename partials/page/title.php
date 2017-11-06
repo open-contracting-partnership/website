@@ -4,7 +4,7 @@
 
 		<div class="band band--thin">
 
-			<a href="/events" class="text-button button--icon">
+			<a href="<?php echo get_post_type_archive_link('post'); ?>" class="text-button button--icon">
 				<svg><use xlink:href="#icon-arrow-left" /></svg>
 				<?php _e('Back to latest', 'ocp'); ?>
 			</a>
