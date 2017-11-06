@@ -11,6 +11,10 @@
 
 		</div>
 
+		<div>
+			<span class="card__type" data-content-type="<?php echo get_post_type(); ?>"><?php the_post_type_label(); ?></span>
+		</div>
+
 	<?php endif; ?>
 
 	<h1><?php the_title(); ?></h1>
