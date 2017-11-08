@@ -202,16 +202,17 @@ category:
 	flex: 0 0 spacing(8);
 	margin-right: spacing(2);
 
-	@include mq(L) {
+	@include mq(M) {
 		flex-basis: spacing(14);
 	}
 
 	@include mq(L) {
-		flex-basis: spacing(14);
+		flex-basis: spacing(16);
 	}
 
 	@include mq(XL) {
-		flex-basis: spacing(18);
+		flex-basis: spacing(23);
+		margin-right: spacing(4);
 	}
 
 	img {
