@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 32" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect width="25" height="25" y="5" fill="#ECECEC" rx="1"/>
+    <rect width="23" fill="#FFF" height="23" x="4" y="3" stroke="#424244" stroke-width="2" rx="1"/>
+    <path fill="#6991F5" d="M29.55 1.46c.8-1.02 2.3-1.26 3.4-.56 1.2.76 1.5 2.34.63 3.47L17.7 24.54c-.48.6-1.24.96-2.02.96-.63 0-1.25-.23-1.72-.65L7.3 18.9c-1.07-.96-1.07-2.58 0-3.54.97-.87 2.48-.87 3.45 0l4.6 4.12 14.2-18.02zM15.97 22.62zM9.3 16.65z"/>
+</svg>
