@@ -87,7 +87,7 @@ tbody tr a {
 .page-content a,
 .post-content a {
 
-	&:not(.button):not(.card__link) {
+	&:not(.button):not(.card__link):not(.get-started__resource) {
 		@extend %link-block;
 	}
 
