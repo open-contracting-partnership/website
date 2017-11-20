@@ -192,6 +192,21 @@ input[type="submit"][disabled] {
 
 }
 
+.button--brand {
+
+	background-color: color('brand');
+	color: color('body');
+	border-color: color('brand');
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: color('white');
+		color: color('body');
+	}
+
+}
+
 .button-group {
 	margin-bottom: 8px;
 

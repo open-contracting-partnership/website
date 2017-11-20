@@ -8,6 +8,7 @@ Vue.use(VueRouter)
 // router components
 const Landing = Vue.component('landing', require('./components/get-started/landing.vue').default);
 const Detail = Vue.component('detail', require('./components/get-started/detail.vue').default);
+const Diamonds = Vue.component('diamonds', require('./components/get-started/diamonds.vue').default);
 
 // router
 const router = new VueRouter({

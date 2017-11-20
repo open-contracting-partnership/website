@@ -1,6 +1,6 @@
 <template>
 
-	<div class="get-started">
+	<div class="gs-detail">
 
 		<div class="nav-bar">
 
@@ -20,128 +20,54 @@
 
 		<div class="page__wrapper">
 
-			<aside class="get-started__sidebar page-sidebar">
+			<aside class="gs-detail__sidebar page-sidebar">
 
-				<h1 class="get-started__sidebar-title">{{ step }}. {{ detail.title }}</h1>
-				<p class="get-started__sidebar-strap">{{ detail.strapline }}</p>
+				<h1 class="gs-detail__sidebar-title">{{ step }}. {{ detail.title }}</h1>
+				<p class="gs-detail__sidebar-strap">{{ detail.strapline }}</p>
 
-				<svg class="get-started__diamonds" viewBox="0 0 430 279">
+				<div class="gs-detail__side-top">
 
-					<defs>
-						<filter x="-4.5%" y="-4.5%" width="108.9%" height="108.9%" filterUnits="objectBoundingBox" id="filter-1">
-							<feGaussianBlur stdDeviation="1.75502232" in="SourceGraphic"></feGaussianBlur>
-						</filter>
-					</defs>
+					<diamonds></diamonds>
 
-					<g transform="translate(0, 75)">
-						<polygon fill="#535E00" points="62 121 3 62 62 3 121 62"></polygon>
-						<text class="number" x="62" y="84" text-anchor="middle" font-family="StratumNo1-Bold, StratumNo1" font-size="65" font-weight="bold" fill="#FFFFFF">
-							1
-						</text>
-						<text transform="translate(30, 30) rotate(-45)" text-anchor="middle" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="14" font-weight="500" fill="#333333">
-							MAP
-						</text>
-					</g>
+					<div class="gs-detail__toc">
+						<a href="#" class="active">What happens at this step?</a>
+						<a href="#">What are the key outputs</a>
+						<a href="#">What resources can I use?</a>
+						<a href="#">What have other publishers done?</a>
+					</div>
 
-					<g transform="translate(75, 0)">
-						<polygon fill="#535E00" points="62 121 3 62 62 3 121 62"></polygon>
-						<text class="number" x="62" y="84" text-anchor="middle" font-family="StratumNo1-Bold, StratumNo1" font-size="65" font-weight="bold" fill="#FFFFFF">
-							2
-						</text>
-						<text transform="translate(30, 30) rotate(-45)" text-anchor="middle" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="14" font-weight="500" fill="#333333">
-							DESIGN
-						</text>
-					</g>
-
-					<g transform="translate(150, 75)">
-						<polygon fill="#535E00" points="62 121 3 62 62 3 121 62"></polygon>
-						<text class="number" x="62" y="84" text-anchor="middle" font-family="StratumNo1-Bold, StratumNo1" font-size="65" font-weight="bold" fill="#FFFFFF">
-							3
-						</text>
-						<text transform="translate(30, 30) rotate(-45)" text-anchor="middle" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="14" font-weight="500" fill="#333333">
-							PUBLISH
-						</text>
-					</g>
-
-					<g transform="translate(75, 150)">
-						<polygon fill="#535E00" points="62 121 3 62 62 3 121 62"></polygon>
-						<text class="number" x="62" y="84" text-anchor="middle" font-family="StratumNo1-Bold, StratumNo1" font-size="65" font-weight="bold" fill="#FFFFFF">
-							4
-						</text>
-						<text transform="translate(30, 30) rotate(-45)" text-anchor="middle" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="14" font-weight="500" fill="#333333">
-							BUILD
-						</text>
-					</g>
-
-					<g transform="translate(225, 0)">
-						<polygon fill="#D6E100" points="62 121 3 62 62 3 121 62"></polygon>
-						<text class="number" x="62" y="84" text-anchor="middle" font-family="StratumNo1-Bold, StratumNo1" font-size="65" font-weight="bold" fill="#FFFFFF">
-							5
-						</text>
-						<text transform="translate(30, 30) rotate(-45)" text-anchor="middle" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="14" font-weight="500" fill="#333333">
-							USE
-						</text>
-					</g>
-
-					<g transform="translate(300, 75)">
-						<polygon fill="#D6E100" points="62 121 3 62 62 3 121 62"></polygon>
-						<text class="number" x="62" y="84" text-anchor="middle" font-family="StratumNo1-Bold, StratumNo1" font-size="65" font-weight="bold" fill="#FFFFFF">
-							6
-						</text>
-						<text transform="translate(30, 30) rotate(-45)" text-anchor="middle" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="14" font-weight="500" fill="#333333">
-							EVALUATE
-						</text>
-					</g>
-
-					<g transform="translate(225, 150)">
-						<polygon fill="#D6E100" points="62 121 3 62 62 3 121 62"></polygon>
-						<text class="number" x="62" y="84" text-anchor="middle" font-family="StratumNo1-Bold, StratumNo1" font-size="65" font-weight="bold" fill="#FFFFFF">
-							7
-						</text>
-						<text transform="translate(30, 30) rotate(-45)" text-anchor="middle" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="14" font-weight="500" fill="#333333">
-							LEARN / SHARE
-						</text>
-					</g>
-
-				</svg>
-
-				<div class="get-started__toc">
-					<a href="#" class="active">What happens at this step?</a>
-					<a href="#">What are the key outputs</a>
-					<a href="#">What resources can I use?</a>
-					<a href="#">What have other publishers done?</a>
 				</div>
 
-				<div class="get-started__side_footer">
+				<div class="gs-detail__side-footer">
 
-					<div class="get-started__key">
+					<div class="gs-detail__key">
 
-						<span class="get-started__key-title">Key</span>
+						<span class="gs-detail__key-title">Key</span>
 
-						<div class="get-started__key-inner">
+						<div class="gs-detail__key-inner">
 
-							<div class="get-started__key-col">
+							<div class="gs-detail__key-col">
 
-								<div class="get-started__key-item">
+								<div class="gs-detail__key-item">
 									<svg data-type="connect"><use xlink:href="#icon-7-connect" /></svg>
 									<span>Connect</span>
 								</div>
 
-								<div class="get-started__key-item">
+								<div class="gs-detail__key-item">
 									<svg data-type="read"><use xlink:href="#icon-7-read" /></svg>
 									<span>Read</span>
 								</div>
 
 							</div>
 
-							<div class="get-started__key-col">
+							<div class="gs-detail__key-col">
 
-								<div class="get-started__key-item">
+								<div class="gs-detail__key-item">
 									<svg data-type="complete"><use xlink:href="#icon-7-complete" /></svg>
 									<span>Complete</span>
 								</div>
 
-								<div class="get-started__key-item">
+								<div class="gs-detail__key-item">
 									<svg data-type="get_inspired"><use xlink:href="#icon-7-get_inspired" /></svg>
 									<span>Get inspired</span>
 								</div>
@@ -152,13 +78,13 @@
 
 					</div>
 
-					<div class="get-started__nav">
+					<div class="gs-detail__nav">
 
 						<router-link :to="{ name: 'detail', params: { step: step == 1 ? 1 : (parseInt(step) - 1) } }">
 							<svg><use xlink:href="#icon-arrow-left" /></svg>
 						</router-link>
 
-						<router-link v-for="n in 7" :to="{ name: 'detail', params: { step: n } }" v-bind:class="{ active: n == step }">
+						<router-link v-for="n in 7" :key="n" :to="{ name: 'detail', params: { step: n } }" v-bind:class="{ active: n == step }">
 							{{ n }}
 						</router-link>
 
@@ -172,15 +98,15 @@
 
 			</aside>
 
-			<div class="page-content / get-started__content">
+			<div class="page-content / gs-detail__content">
 
 				<div v-if="detail.what_happens">
 
 					<h2 class="delta">What happens at this step?</h2>
 
-					<div v-for="section in detail.what_happens" class="get-started__section">
+					<div v-for="section in detail.what_happens" class="gs-detail__section">
 
-						<h3 class="get-started__tick-heading">
+						<h3 class="gs-detail__tick-heading">
 							<svg><use xlink:href="#icon-7-tick" /></svg>
 							<span>{{ section.title }}</span>
 						</h3>
@@ -189,7 +115,7 @@
 
 						<div v-for="resource in section.resource">
 
-							<a class="get-started__resource" :href="resource.url" :data-type="resource.acf_fc_layout">
+							<a class="gs-detail__resource" :href="resource.url" :data-type="resource.acf_fc_layout">
 								<svg><use :xlink:href="'#icon-7-' + resource.acf_fc_layout" /></svg>
 								<span>{{ resource.label }}</span>
 							</a>
