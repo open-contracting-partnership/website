@@ -39,8 +39,8 @@
 				</div>
 
 				<div class="gs-landing__secondary-nav">
-					<a class="button button--dark button--large" href="http://open-contracting-partnership.test/get-started/global-principles/">Global Principles</a>
-					<a class="button button--dark button--large" href="http://open-contracting-partnership.test/resources/">Resources and tools</a>
+					<a class="button button--dark button--large" href="/get-started/global-principles/">Global Principles</a>
+					<a class="button button--dark button--large" href="/resources/">Resources and tools</a>
 				</div>
 
 			</div>
