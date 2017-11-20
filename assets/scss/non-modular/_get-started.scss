@@ -1,0 +1,444 @@
+.gs-diamonds {
+
+	g {
+		cursor: pointer;
+	}
+
+}
+
+
+ //********
+// LANDING
+
+.gs-landing {
+	@include font-size(18);
+}
+
+	.gs-landing__title {
+
+		@include font-size(30);
+
+		@include mq(M) {
+			margin-bottom: spacing(8);
+		}
+
+	}
+
+	.gs-landing__main {
+
+		margin-bottom: spacing(6);
+
+		@include mq(M) {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: spacing(10);
+		}
+
+	}
+
+		.gs-landing__intro {
+			flex: 0 0 calc(#{span(5 of 12)} - #{gutter()});
+			margin-bottom: spacing(6);
+		}
+
+		.gs-landing__diagram {
+			flex: 0 0 span(7 of 12);
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+		}
+
+			.gs-landing__diagram .gs-diamonds {
+
+				margin-bottom: spacing(6);
+
+				@include mq(M, 'max-width') {
+					max-width: 500px;
+				}
+
+				@include mq(M) {
+					margin-bottom: spacing(10);
+				}
+
+			}
+
+	.gs-landing__secondary {
+
+		@include font-size(16);
+		border-top: 2px solid color('lighter-grey');
+		padding-top: spacing(6);
+
+		@include mq(M) {
+
+			display: flex;
+			justify-content: space-between;
+
+			> * {
+				flex: 0 0 30%;
+			}
+
+		}
+
+	}
+
+		.gs-landing__secondary-nav {
+
+			@include mq(M, 'max-width') {
+				padding-top: spacing(5);
+			}
+
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+		}
+
+
+ //*******
+// DETAIL
+
+.gs-detail {
+
+	.page__wrapper {
+
+		@include mq(L) {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		&::after {
+			display: none;
+		}
+
+	}
+
+	.page-content {
+
+		@include mq(L, 'max-width') {
+			margin-bottom: spacing(12);
+		}
+
+		flex-basis: span(7 of 12);
+
+	}
+
+	.page-sidebar {
+
+		margin-top: 0;
+
+		// @include mq(L, 'max-width') {
+        //
+		// 	display: flex;
+		// 	justify-content: space-between;
+		// 	position: absolute;
+		// 	top: -68px;
+		// 	left: 0;
+		// 	right: 0;
+		// 	margin-top: 0;
+		// 	padding: 12px 16px;
+		// 	z-index: 2;
+        //
+		// 	&.fixed {
+		// 		position: fixed;
+		// 		top: 0;
+		// 	}
+        //
+		// }
+
+		@include mq(L) {
+			position: static;
+			flex: 0 0 span(4 of 12);
+		}
+
+	}
+
+	.nav-bar {
+
+		@include mq(ML) {
+			display: none;
+		}
+
+	}
+
+	aside {
+		margin-top: spacing(3);
+	}
+
+}
+
+	.gs-detail__sidebar-title {
+
+		@include font-size(35);
+		margin-bottom: spacing(2);
+
+		@include mq(ML) {
+			@include font-size(50);
+		}
+
+	}
+
+	.gs-detail__sidebar-strap {
+		@include font-size(20);
+	}
+
+	.gs-detail__side-top {
+
+		@include mq(M, L) {
+			display: flex;
+		}
+
+	}
+
+		.gs-detail .gs-diamonds {
+
+			@include mq(M, 'max-width') {
+				display: none;
+			}
+
+			@include mq(ML) {
+				margin-bottom: spacing(9);
+			}
+
+			@include mq(1300) {
+				margin-left: spacing(-4);
+				margin-right: spacing(-4);
+			}
+
+		}
+
+		.gs-detail__toc {
+
+			@include font-size(16);
+			@include font('primary', 'semibold');
+			color: color('dark-background');
+			margin-bottom: spacing(6);
+
+			@include mq(ML) {
+				@include font-size(20);
+			}
+
+			a {
+
+				line-height: 1;
+				color: currentColor;
+				display: flex;
+				align-items: center;
+				margin-bottom: spacing(3);
+
+				&::before {
+
+					content: '';
+					display: block;
+					height: .8em;
+					width: .8em;
+					border-radius: 50%;
+					background-color: color('lighter-grey');
+					flex: 0 0 .8em;
+					margin-right: spacing(1);
+
+					@include mq(ML) {
+						margin-right: spacing(2);
+					}
+
+				}
+
+				&:hover,
+				&:focus,
+				&.active {
+
+					&::before {
+						background-color: color('brand');
+					}
+
+				}
+
+			}
+
+		}
+
+	.gs-detail__side-footer {
+		position: sticky;
+		top: calc(100% - 204px);
+	}
+
+		.gs-detail__key {
+
+			@include mq(L, 'max-width') {
+				display: none;
+			}
+
+			@include font-size(18);
+			margin-bottom: spacing(4)
+
+		}
+
+			.gs-detail__key-title {
+				display: block;
+				margin-bottom: spacing(1);
+			}
+
+			.gs-detail__key-inner {
+				display: flex;
+				flex-direction: row;
+			}
+
+				.gs-detail__key-col {
+					display: flex;
+					flex-direction: column;
+					margin-right: spacing(4);
+				}
+
+					.gs-detail__key-item {
+
+						display: flex;
+						align-items: center;
+						margin-bottom: spacing(1);
+
+						> svg {
+
+							height: 1em;
+							width: 1em;
+							flex: 0 0 1em;
+							margin-right: spacing(1);
+
+							&[data-type="read"] {
+								fill: #6C75E1;
+								color: color('white');
+							}
+
+							&[data-type="complete"] {
+								fill: #6991F5;
+								color: color('white');
+							}
+
+							&[data-type="connect"] {
+								fill: #23B2A7;
+								color: color('white');
+							}
+
+							&[data-type="get_inspired"] {
+								fill: #FB6045;
+								color: color('white');
+							}
+
+						}
+
+					}
+
+		.gs-detail__nav {
+
+			@include mq(L, 'max-width') {
+				display: none;
+			}
+
+			display: flex;
+			justify-content: space-around;
+			background-color: color('yellow');
+			padding: spacing(2);
+
+			a {
+
+				@include font-size(24);
+				@include font('secondary', 'bold');
+				color: currentColor;
+				height: 1.333em;
+				width: 1.333em;
+				border-radius: 50%;
+				// line-height: 1.333;
+				// text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				&:hover,
+				&:focus,
+				&.active {
+					text-decoration: none;
+					background-color: rgba(0, 0, 0, .05);
+				}
+
+			}
+
+			a > svg {
+				font-size: 18px;
+				height: 1em;
+				width: 0.54em;
+				fill: currentColor;
+			}
+
+		}
+
+
+.gs-detail__content {
+
+	@include font-size(16);
+
+	@include mq(ML) {
+		@include font-size(18);
+	}
+
+}
+
+.gs-detail__tick-heading {
+
+	@include font-size(22);
+	display: flex;
+	align-items: center;
+
+	> svg {
+		font-size: 30px;
+		height: 1em;
+		width: 1.1em;
+		margin-right: spacing(2);
+		flex: 0 0 1.1em;
+	}
+
+	@include mq(L) {
+		margin-left: calc(0px - (30px * 1.1) - #{spacing(2)});
+	}
+
+}
+
+.gs-detail__section {
+	margin-bottom: spacing(6);
+}
+
+/* a */ .gs-detail__resource {
+
+	background-color: #F9F9F9;
+	color: color('body');
+	display: flex;
+	align-items: center;
+	padding: spacing(2);
+	margin-bottom: spacing(1);
+
+	> svg {
+		font-size: 24;
+		height: 1em;
+		width: 1em;
+		flex: 0 0 1em;
+		margin-right: spacing(1);
+	}
+
+	&[data-type="read"] > svg {
+		fill: #6C75E1;
+		color: color('white');
+	}
+
+	&[data-type="complete"] > svg {
+		fill: #6991F5;
+		color: color('white');
+	}
+
+	&[data-type="connect"] > svg {
+		fill: #23B2A7;
+		color: color('white');
+	}
+
+	&[data-type="get_inspired"] > svg {
+		fill: #FB6045;
+		color: color('white');
+	}
+
+}
