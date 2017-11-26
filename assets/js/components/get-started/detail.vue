@@ -115,10 +115,15 @@
 
 						<div v-for="resource in section.resource">
 
-							<a class="gs-detail__resource" :href="resource.url" :data-type="resource.acf_fc_layout">
+							<a v-if="resource.url" class="gs-detail__resource" :href="resource.url" :data-type="resource.acf_fc_layout">
 								<svg><use :xlink:href="'#icon-7-' + resource.acf_fc_layout" /></svg>
 								<span>{{ resource.label }}</span>
 							</a>
+
+							<span v-else class="gs-detail__resource" :data-type="resource.acf_fc_layout">
+								<svg><use :xlink:href="'#icon-7-' + resource.acf_fc_layout" /></svg>
+								<span>{{ resource.label }}</span>
+							</span>
 
 						</div>
 
