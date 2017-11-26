@@ -31,7 +31,7 @@
 
 					<div class="gs-detail__toc">
 						<a href="#" class="active">What happens at this step?</a>
-						<a href="#">What are the key outputs</a>
+						<a href="#">What are the key outputs?</a>
 						<a href="#">What resources can I use?</a>
 						<a href="#">What have other publishers done?</a>
 					</div>
