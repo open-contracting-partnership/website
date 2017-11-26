@@ -47,7 +47,7 @@
 					</g>
 
 					<!-- 1, design -->
-					<g class="gs-diamonds__step" @click="navigate(1)">
+					<g class="gs-diamonds__step" @click="navigate(1)" v-bind:class="{ active: 1 == step }">
 
 						<path fill="#899A03" d="M171.98 163.63l-55.63-55.48c-3.13-3.12-3.13-8.2 0-11.32l55.63-55.5c3.13-3.1 8.18-3.1 11.3 0l55.64 55.5c3.13 3.1 3.13 8.17 0 11.3v.02l-55.64 55.48c-3.12 3.1-8.17 3.1-11.3 0z"/>
 
@@ -137,7 +137,7 @@
 					</g>
 
 					<!-- 2, map -->
-					<g class="gs-diamonds__step" @click="navigate(2)">
+					<g class="gs-diamonds__step" @click="navigate(2)" v-bind:class="{ active: 2 == step }">
 
 						<path fill="#A6BB05" d="M89.77 246.5L34.34 191.1c-3.12-3.12-3.12-8.2 0-11.3l55.43-55.44c3.12-3.12 8.2-3.12 11.3 0l55.44 55.43c3.14 3.12 3.14 8.2 0 11.3l-55.42 55.44c-3.12 3.14-8.2 3.14-11.3 0z"/>
 
@@ -197,7 +197,7 @@
 					</g>
 
 					<!-- 3, build -->
-					<g class="gs-diamonds__step" @click="navigate(3)">
+					<g class="gs-diamonds__step" @click="navigate(3)" v-bind:class="{ active: 3 == step }">
 
 						<path fill="#A6BB05" d="M179.77 333.5l-55.43-55.42c-3.12-3.12-3.12-8.2 0-11.3l55.43-55.44c3.12-3.12 8.2-3.12 11.3 0l55.44 55.43c3.14 3.12 3.14 8.2 0 11.3l-55.42 55.44c-3.12 3.14-8.2 3.14-11.3 0z"/>
 
@@ -257,7 +257,7 @@
 					</g>
 
 					<!-- 4, publish -->
-					<g class="gs-diamonds__step" @click="navigate(4)">
+					<g class="gs-diamonds__step" @click="navigate(4)" v-bind:class="{ active: 4 == step }">
 
 						<path fill="#A6BB05" d="M265.77 248.5l-55.43-55.42c-3.12-3.12-3.12-8.2 0-11.3l55.43-55.44c3.12-3.12 8.2-3.12 11.3 0l55.44 55.43c3.14 3.12 3.14 8.2 0 11.3l-55.42 55.44c-3.12 3.14-8.2 3.14-11.3 0z"/>
 
@@ -320,7 +320,7 @@
 					</g>
 
 					<!-- 5, use -->
-					<g class="gs-diamonds__step" @click="navigate(5)">
+					<g class="gs-diamonds__step" @click="navigate(5)" v-bind:class="{ active: 5 == step }">
 
 						<path fill="url(#red-gradient)" transform="translate(303 44)" d="M53.16 114.42L2.36 64.05c-3.13-3.1-3.15-8.18-.04-11.3l.05-.06L53.17 2.3c3.1-3.1 8.13-3.1 11.25 0l50.8 50.37c3.13 3.1 3.15 8.17.04 11.3l-.05.05-50.78 50.37c-3.12 3.1-8.15 3.1-11.26 0z"/>
 
@@ -396,7 +396,7 @@
 					</g>
 
 					<!-- 6, evaluate -->
-					<g class="gs-diamonds__step" @click="navigate(6)">
+					<g class="gs-diamonds__step" @click="navigate(6)" v-bind:class="{ active: 6 == step }">
 
 						<path fill="url(#purple-gradient)" transform="translate(388 133)" d="M56.95 123.1L2.35 68.36c-3.13-3.12-3.13-8.18 0-11.3l54.6-54.72c3.12-3.13 8.18-3.13 11.3 0h.02l54.6 54.72c3.13 3.12 3.13 8.18 0 11.3l-54.6 54.72c-3.12 3.1-8.18 3.12-11.3 0h-.02z"/>
 
@@ -452,7 +452,7 @@
 					</g>
 
 					<!-- 7, learn & share -->
-					<g class="gs-diamonds__step" @click="navigate(7)">
+					<g class="gs-diamonds__step" @click="navigate(7)" v-bind:class="{ active: 7 == step }">
 
 						<path fill="url(#green-gradient)" transform="translate(299 217)" d="M57.84 124.38L2.62 69.16c-3.13-3.13-3.13-8.2 0-11.32L57.84 2.62c3.13-3.13 8.2-3.13 11.32 0l55.22 55.22c3.13 3.13 3.13 8.2 0 11.32l-55.22 55.22c-3.13 3.13-8.2 3.13-11.32 0z"/>
 
@@ -543,92 +543,19 @@
 
 	</svg>
 
-	<!--
-	<svg class="gs-diamonds" viewBox="0 0 430 279">
-
-		<defs>
-			<filter x="-4.5%" y="-4.5%" width="108.9%" height="108.9%" filterUnits="objectBoundingBox" id="filter-1">
-				<feGaussianBlur stdDeviation="1.75502232" in="SourceGraphic"></feGaussianBlur>
-			</filter>
-		</defs>
-
-		<g transform="translate(0, 75)" @click="navigate(1)">
-			<polygon fill="#535E00" points="62 121 3 62 62 3 121 62"></polygon>
-			<text class="number" x="62" y="84" text-anchor="middle" font-family="StratumNo1-Bold, StratumNo1" font-size="65" font-weight="bold" fill="#FFFFFF">
-				1
-			</text>
-			<text transform="translate(30, 30) rotate(-45)" text-anchor="middle" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="14" font-weight="500" fill="#333333">
-				MAP
-			</text>
-		</g>
-
-		<g transform="translate(75, 0)" @click="navigate(2)">
-			<polygon fill="#535E00" points="62 121 3 62 62 3 121 62"></polygon>
-			<text class="number" x="62" y="84" text-anchor="middle" font-family="StratumNo1-Bold, StratumNo1" font-size="65" font-weight="bold" fill="#FFFFFF">
-				2
-			</text>
-			<text transform="translate(30, 30) rotate(-45)" text-anchor="middle" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="14" font-weight="500" fill="#333333">
-				DESIGN
-			</text>
-		</g>
-
-		<g transform="translate(150, 75)" @click="navigate(3)">
-			<polygon fill="#535E00" points="62 121 3 62 62 3 121 62"></polygon>
-			<text class="number" x="62" y="84" text-anchor="middle" font-family="StratumNo1-Bold, StratumNo1" font-size="65" font-weight="bold" fill="#FFFFFF">
-				3
-			</text>
-			<text transform="translate(30, 30) rotate(-45)" text-anchor="middle" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="14" font-weight="500" fill="#333333">
-				PUBLISH
-			</text>
-		</g>
-
-		<g transform="translate(75, 150)" @click="navigate(4)">
-			<polygon fill="#535E00" points="62 121 3 62 62 3 121 62"></polygon>
-			<text class="number" x="62" y="84" text-anchor="middle" font-family="StratumNo1-Bold, StratumNo1" font-size="65" font-weight="bold" fill="#FFFFFF">
-				4
-			</text>
-			<text transform="translate(30, 30) rotate(-45)" text-anchor="middle" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="14" font-weight="500" fill="#333333">
-				BUILD
-			</text>
-		</g>
-
-		<g transform="translate(225, 0)" @click="navigate(5)">
-			<polygon fill="#D6E100" points="62 121 3 62 62 3 121 62"></polygon>
-			<text class="number" x="62" y="84" text-anchor="middle" font-family="StratumNo1-Bold, StratumNo1" font-size="65" font-weight="bold" fill="#FFFFFF">
-				5
-			</text>
-			<text transform="translate(30, 30) rotate(-45)" text-anchor="middle" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="14" font-weight="500" fill="#333333">
-				USE
-			</text>
-		</g>
-
-		<g transform="translate(300, 75)" @click="navigate(6)">
-			<polygon fill="#D6E100" points="62 121 3 62 62 3 121 62"></polygon>
-			<text class="number" x="62" y="84" text-anchor="middle" font-family="StratumNo1-Bold, StratumNo1" font-size="65" font-weight="bold" fill="#FFFFFF">
-				6
-			</text>
-			<text transform="translate(30, 30) rotate(-45)" text-anchor="middle" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="14" font-weight="500" fill="#333333">
-				EVALUATE
-			</text>
-		</g>
-
-		<g transform="translate(225, 150)" @click="navigate(7)">
-			<polygon fill="#D6E100" points="62 121 3 62 62 3 121 62"></polygon>
-			<text class="number" x="62" y="84" text-anchor="middle" font-family="StratumNo1-Bold, StratumNo1" font-size="65" font-weight="bold" fill="#FFFFFF">
-				7
-			</text>
-			<text transform="translate(30, 30) rotate(-45)" text-anchor="middle" font-family="SourceSansPro-Semibold, Source Sans Pro" font-size="14" font-weight="500" fill="#333333">
-				LEARN / SHARE
-			</text>
-		</g>
-
-	</svg> -->
-
 </template>
 
 <script>
 
 		export default {
+
+		computed: {
+
+			step() {
+				return this.$parent.step;
+			}
+
+		},
 
 		methods: {
 

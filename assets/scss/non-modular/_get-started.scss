@@ -11,7 +11,8 @@
 	transition: opacity .5s ease;
 }
 
-.gs-diamonds__step:hover .gs-diamonds__step-icon{
+.gs-diamonds__step:hover .gs-diamonds__step-icon,
+.gs-diamonds__step.active .gs-diamonds__step-icon {
 	opacity: 1;
 }
 
@@ -200,7 +201,33 @@
 	}
 
 	.gs-detail__sidebar-strap {
+
 		@include font-size(20);
+		@include font('primary', 'bold');
+
+		&[data-step="1"] {
+			color: #899A03;
+		}
+
+		&[data-step="2"],
+		&[data-step="3"],
+		&[data-step="4"] {
+			color: #A6BB05;
+		}
+
+		&[data-step="5"] {
+			color: #FB6045;
+		}
+
+		&[data-step="6"] {
+			color: #6C75E1;
+		}
+
+
+		&[data-step="7"] {
+			color: #23B2A7;
+		}
+
 	}
 
 	.gs-detail__side-top {

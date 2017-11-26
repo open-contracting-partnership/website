@@ -23,7 +23,7 @@
 			<aside class="gs-detail__sidebar page-sidebar">
 
 				<h1 class="gs-detail__sidebar-title">{{ step }}. {{ detail.title }}</h1>
-				<p class="gs-detail__sidebar-strap">{{ detail.strapline }}</p>
+				<p class="gs-detail__sidebar-strap" :data-step="step">{{ detail.strapline }}</p>
 
 				<div class="gs-detail__side-top">
 
