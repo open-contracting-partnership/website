@@ -1,0 +1,59 @@
+.nav-bar {
+
+	position: relative;
+	background-color: color('brand');
+	color: color('background');
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	a {
+
+		@include font-size(12);
+		color: currentColor;
+		text-transform: uppercase;
+		display: flex;
+		align-items: center;
+		padding: spacing(2);
+
+		> svg {
+			font-size: 10px;
+			height: 1em;
+			width: .5em;
+			fill: currentColor;
+		}
+
+		&.next {
+
+			margin-left: auto;
+
+			> svg {
+				margin-left: spacing(1);
+			}
+
+		}
+
+		&.prev {
+
+			margin-right: auto;
+
+			> svg {
+				margin-right: spacing(1);
+			}
+
+		}
+
+	}
+
+	h2 {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		@include font-size(16);
+		margin: 0 auto;
+		text-transform: uppercase;
+		line-height: 1;
+	}
+
+}

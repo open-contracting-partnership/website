@@ -5,7 +5,12 @@
 	<div id="impact-stories">
 
 		<div class="wrapper">
-			<?php get_partial('page', 'title'); ?>
+
+			<div class="page-title">
+				<h1><?php the_title(); ?></h1>
+				<?php the_content(); ?>
+			</div>
+
 		</div>
 
 		<story-featured :story="stories[0]"></story-featured>

@@ -63,7 +63,7 @@ const reports = new Vue({
 			this.countries = {};
 
 			// find the types and countries from the stories
-			this.stories.slice(1).forEach(function(story) {
+			this.stories.forEach(function(story) {
 
 				story.story_type.forEach(function(story_type) {
 
@@ -122,11 +122,6 @@ const reports = new Vue({
 				}.bind(this));
 
 			}
-
-			// before we go, ensure the first story is always false
-			// this is the featured item, so shouldn't be displayed
-
-			this.stories[0].display = false;
 
 		},
 
