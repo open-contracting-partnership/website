@@ -32,6 +32,7 @@ new Vue({
 	router,
 
 	data: {
+		landing_content: landing_page,
 		steps: steps
 	}
 
