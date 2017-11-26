@@ -232,20 +232,14 @@
 
 	.gs-detail__side-top {
 
-		@include mq(M, L) {
-			display: flex;
-		}
-
 	}
 
 		.gs-detail .page-sidebar .gs-diamonds {
 
-			@include mq(M, 'max-width') {
-				display: none;
-			}
+			margin-bottom: spacing(9);
 
-			@include mq(ML) {
-				margin-bottom: spacing(9);
+			@include mq(L, 'max-width') {
+				display: none;
 			}
 
 			@include mq(1300) {
@@ -260,7 +254,7 @@
 			margin-top: spacing(5);
 			max-width: spacing(62);
 
-			@include mq(M) {
+			@include mq(L) {
 				display: none;
 			}
 
