@@ -170,6 +170,14 @@
 
 		},
 
+		watch: {
+
+			step() {
+				window.scrollTo(0, 0);
+			}
+
+		},
+
 		methods: {
 
 			jumpTo(section) {
