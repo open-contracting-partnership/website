@@ -30,10 +30,10 @@
 					<diamonds></diamonds>
 
 					<div class="gs-detail__toc">
-						<a href="#" class="active">What happens at this step?</a>
-						<a href="#">What are the key outputs?</a>
-						<a href="#">What resources can I use?</a>
-						<a href="#">What have other publishers done?</a>
+						<a href="#" v-if="detail.what_happens">What happens at this step?</a>
+						<a href="#" v-if="detail.outputs">What are the key outputs?</a>
+						<a href="#" v-if="detail.resources">What resources can I use?</a>
+						<a href="#" v-if="detail.publishers">What have other publishers done?</a>
 					</div>
 
 				</div>
