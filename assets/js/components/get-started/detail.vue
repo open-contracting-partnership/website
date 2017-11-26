@@ -30,10 +30,10 @@
 					<diamonds></diamonds>
 
 					<div class="gs-detail__toc">
-						<a href="#" v-if="detail.what_happens">What happens at this step?</a>
-						<a href="#" v-if="detail.outputs">What are the key outputs?</a>
-						<a href="#" v-if="detail.resources">What resources can I use?</a>
-						<a href="#" v-if="detail.publishers">What have other publishers done?</a>
+						<a href="#" v-if="detail.what_happens" @click.prevent="jumpTo('what_happens')" >What happens at this step?</a>
+						<a href="#" v-if="detail.outputs" @click.prevent="jumpTo('outputs')" >What are the key outputs?</a>
+						<a href="#" v-if="detail.resources" @click.prevent="jumpTo('resources')" >What resources can I use?</a>
+						<a href="#" v-if="detail.publishers" @click.prevent="jumpTo('publishers')" >What have other publishers done?</a>
 					</div>
 
 				</div>
@@ -100,7 +100,7 @@
 
 			<div class="page-content / gs-detail__content">
 
-				<div v-if="detail.what_happens">
+				<div v-if="detail.what_happens" id="what_happens">
 
 					<h2 class="delta">What happens at this step?</h2>
 
@@ -131,17 +131,17 @@
 
 				</div>
 
-				<div v-if="detail.outputs" class="get-started__section">
+				<div v-if="detail.outputs" id="outputs" class="get-started__section">
 					<h2 class="delta">What are the key outputs?</h2>
 					<div v-html="detail.outputs"></div>
 				</div>
 
-				<div v-if="detail.resources" class="get-started__section">
+				<div v-if="detail.resources" id="resources" class="get-started__section">
 					<h2 class="delta">What resources can I use?</h2>
 					<div v-html="detail.resources"></div>
 				</div>
 
-				<div v-if="detail.publishers" class="get-started__section">
+				<div v-if="detail.publishers" id="publishers" class="get-started__section">
 					<h2 class="delta">What have other publishers done?</h2>
 					<div v-html="detail.publishers"></div>
 				</div>
@@ -166,6 +166,14 @@
 
 			step() {
 				return this.$route.params.step;
+			}
+
+		},
+
+		methods: {
+
+			jumpTo(section) {
+				document.querySelector('#' + section).scrollIntoView();
 			}
 
 		}
