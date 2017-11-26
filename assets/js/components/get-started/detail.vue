@@ -27,7 +27,7 @@
 
 				<div class="gs-detail__side-top">
 
-					<diamonds></diamonds>
+					<diamonds prefix="sidebar"></diamonds>
 
 					<div class="gs-detail__toc">
 						<a href="#" v-if="detail.what_happens" @click.prevent="jumpTo('what_happens')" >What happens at this step?</a>
@@ -145,6 +145,8 @@
 					<h2 class="delta">What have other publishers done?</h2>
 					<div v-html="detail.publishers"></div>
 				</div>
+
+				<diamonds prefix="content"></diamonds>
 
 			</div>
 

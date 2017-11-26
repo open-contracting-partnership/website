@@ -4,29 +4,29 @@
 
 		<defs>
 
-			<circle id="circle-1" cx="396" cy="187" r="187"/>
+			<circle :id="prefix + '--circle-1'" cx="396" cy="187" r="187"/>
 
-			<mask id="mask-1" width="374" height="374" x="0" y="0" fill="#fff">
-				<use xlink:href="#circle-1"/>
+			<mask :id="prefix + '--mask-1'" width="374" height="374" x="0" y="0" fill="#fff">
+				<use :xlink:href="'#' + prefix + '--circle-1'"/>
 			</mask>
 
-			<circle id="circle-2" cx="187" cy="187" r="187"/>
+			<circle :id="prefix + '--circle-2'" cx="187" cy="187" r="187"/>
 
-			<mask id="mask-2" width="374" height="374" x="0" y="0" fill="#fff">
-				<use xlink:href="#circle-2"/>
+			<mask :id="prefix + '--mask-2'" width="374" height="374" x="0" y="0" fill="#fff">
+				<use :xlink:href="'#' + prefix + '--circle-2'"/>
 			</mask>
 
-			<linearGradient id="red-gradient" x1="75.32%" x2="23.93%" y1="25.85%" y2="74.31%">
+			<linearGradient :id="prefix + '--red-gradient'" x1="75.32%" x2="23.93%" y1="25.85%" y2="74.31%">
 				<stop stop-color="#F68774" offset="0%"/>
 				<stop stop-color="#FB6045" offset="100%"/>
 			</linearGradient>
 
-			<linearGradient id="green-gradient" x1="75.32%" x2="23.93%" y1="25.85%" y2="74.31%">
+			<linearGradient :id="prefix + '--green-gradient'" x1="75.32%" x2="23.93%" y1="25.85%" y2="74.31%">
 				<stop stop-color="#2CDED0" offset="0%"/>
 				<stop stop-color="#23B2A7" offset="100%"/>
 			</linearGradient>
 
-			<linearGradient id="purple-gradient" x1="75.32%" x2="23.93%" y1="25.85%" y2="74.31%">
+			<linearGradient :id="prefix + '--purple-gradient'" x1="75.32%" x2="23.93%" y1="25.85%" y2="74.31%">
 				<stop stop-color="#949BF0" offset="0%"/>
 				<stop stop-color="#6C75E1" offset="100%"/>
 			</linearGradient>
@@ -39,10 +39,10 @@
 
 				<g>
 
-					<use fill="#FFF" stroke="#B7B7B7" stroke-width="2" mask="url(#mask-1)" stroke-dasharray="11" xlink:href="#circle-1"/>
+					<use fill="#FFF" stroke="#B7B7B7" stroke-width="2" :mask="'url(#' + prefix + '--mask-1)'" stroke-dasharray="11" :xlink:href="'#' + prefix + '--circle-1'"/>
 
 					<g stroke="#B7B7B7">
-						<use fill="#FFF" stroke-width="2" mask="url(#mask-2)" stroke-dasharray="11" xlink:href="#circle-2"/>
+						<use fill="#FFF" stroke-width="2" :mask="'url(#' + prefix + '--mask-2)'" stroke-dasharray="11" :xlink:href="'#' + prefix + '--circle-2'"/>
 						<circle cx="186.6" cy="186.6" r="121.27"/>
 					</g>
 
@@ -322,7 +322,7 @@
 					<!-- 5, use -->
 					<g class="gs-diamonds__step" @click="navigate(5)" v-bind:class="{ active: 5 == step }">
 
-						<path fill="url(#red-gradient)" transform="translate(303 44)" d="M53.16 114.42L2.36 64.05c-3.13-3.1-3.15-8.18-.04-11.3l.05-.06L53.17 2.3c3.1-3.1 8.13-3.1 11.25 0l50.8 50.37c3.13 3.1 3.15 8.17.04 11.3l-.05.05-50.78 50.37c-3.12 3.1-8.15 3.1-11.26 0z"/>
+						<path :fill="'url(#' + prefix + '--red-gradient)'" transform="translate(303 44)" d="M53.16 114.42L2.36 64.05c-3.13-3.1-3.15-8.18-.04-11.3l.05-.06L53.17 2.3c3.1-3.1 8.13-3.1 11.25 0l50.8 50.37c3.13 3.1 3.15 8.17.04 11.3l-.05.05-50.78 50.37c-3.12 3.1-8.15 3.1-11.26 0z"/>
 
 						<g transform="translate(344 91)">
 
@@ -398,7 +398,7 @@
 					<!-- 6, evaluate -->
 					<g class="gs-diamonds__step" @click="navigate(6)" v-bind:class="{ active: 6 == step }">
 
-						<path fill="url(#purple-gradient)" transform="translate(388 133)" d="M56.95 123.1L2.35 68.36c-3.13-3.12-3.13-8.18 0-11.3l54.6-54.72c3.12-3.13 8.18-3.13 11.3 0h.02l54.6 54.72c3.13 3.12 3.13 8.18 0 11.3l-54.6 54.72c-3.12 3.1-8.18 3.12-11.3 0h-.02z"/>
+						<path :fill="'url(#' + prefix + '--purple-gradient)'" transform="translate(388 133)" d="M56.95 123.1L2.35 68.36c-3.13-3.12-3.13-8.18 0-11.3l54.6-54.72c3.12-3.13 8.18-3.13 11.3 0h.02l54.6 54.72c3.13 3.12 3.13 8.18 0 11.3l-54.6 54.72c-3.12 3.1-8.18 3.12-11.3 0h-.02z"/>
 
 						<g transform="translate(421 176)">
 
@@ -454,7 +454,7 @@
 					<!-- 7, learn & share -->
 					<g class="gs-diamonds__step" @click="navigate(7)" v-bind:class="{ active: 7 == step }">
 
-						<path fill="url(#green-gradient)" transform="translate(299 217)" d="M57.84 124.38L2.62 69.16c-3.13-3.13-3.13-8.2 0-11.32L57.84 2.62c3.13-3.13 8.2-3.13 11.32 0l55.22 55.22c3.13 3.13 3.13 8.2 0 11.32l-55.22 55.22c-3.13 3.13-8.2 3.13-11.32 0z"/>
+						<path :fill="'url(#' + prefix + '--green-gradient)'" transform="translate(299 217)" d="M57.84 124.38L2.62 69.16c-3.13-3.13-3.13-8.2 0-11.32L57.84 2.62c3.13-3.13 8.2-3.13 11.32 0l55.22 55.22c3.13 3.13 3.13 8.2 0 11.32l-55.22 55.22c-3.13 3.13-8.2 3.13-11.32 0z"/>
 
 						<g transform="translate(325 259)">
 
@@ -547,7 +547,9 @@
 
 <script>
 
-		export default {
+	export default {
+
+		props: ['prefix'],
 
 		computed: {
 

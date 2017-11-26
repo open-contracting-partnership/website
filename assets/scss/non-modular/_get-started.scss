@@ -238,7 +238,7 @@
 
 	}
 
-		.gs-detail .gs-diamonds {
+		.gs-detail .page-sidebar .gs-diamonds {
 
 			@include mq(M, 'max-width') {
 				display: none;
@@ -251,6 +251,17 @@
 			@include mq(1300) {
 				margin-left: spacing(-4);
 				margin-right: spacing(-4);
+			}
+
+		}
+
+		.gs-detail .page-content .gs-diamonds {
+
+			margin-top: spacing(5);
+			max-width: spacing(62);
+
+			@include mq(M) {
+				display: none;
 			}
 
 		}

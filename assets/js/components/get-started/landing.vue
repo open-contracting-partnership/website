@@ -12,7 +12,7 @@
 
 				<div class="gs-landing__diagram">
 
-					<diamonds></diamonds>
+					<diamonds prefix="landing"></diamonds>
 
 					<router-link :to="{ name: 'detail', params: { step: 1 } }" class="button button--brand button--large">
 						Explore the 7 Steps
