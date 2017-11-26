@@ -1,11 +1,32 @@
 .gs-diamonds {
 
-	g {
-		cursor: pointer;
-	}
-
 }
 
+.gs-diamonds__step {
+	cursor: pointer;
+}
+
+.gs-diamonds__step-icon {
+	opacity: 0;
+	transition: opacity .5s ease;
+}
+
+.gs-diamonds__step:hover .gs-diamonds__step-icon{
+	opacity: 1;
+}
+
+.gs-diamonds__step-number {
+	@include font-size(23);
+	@include font('primary', 'bold');
+	fill: #FFF;
+	opacity: .5;
+}
+
+.gs-diamonds__step-title {
+	@include font-size(16);
+	@include font('primary', 'bold');
+	fill: #FFF;
+}
 
  //********
 // LANDING
