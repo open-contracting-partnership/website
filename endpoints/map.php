@@ -2,8 +2,8 @@
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
 <link rel="stylesheet" href="/wp-content/themes/ocp-v1/assets/map/styles/main-f1a59d7477.css?v=1">
-<script src="/wp-content/themes/ocp-v1/assets/map/scripts/vendor-83d90a7f46.js?v=1"></script>
-<script src="/wp-content/themes/ocp-v1/assets/map/scripts/bundle-f2c36c9f19.js?v=1"></script>
+<script src="/wp-content/themes/ocp-v1/assets/map/scripts/vendor-7d6c26ba1f.js?v=1"></script>
+<script src="/wp-content/themes/ocp-v1/assets/map/scripts/bundle-36d7e346de.js?v=1"></script>
 
 <div class="js-worldmap-container">
 
