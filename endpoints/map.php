@@ -1,9 +1,9 @@
 <script src="https://use.typekit.net/xpw3jps.js"></script>
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
-<link rel="stylesheet" href="/wp-content/themes/ocp-v1/assets/map/styles/main-f1a59d7477.css?v=1">
-<script src="/wp-content/themes/ocp-v1/assets/map/scripts/vendor-83d90a7f46.js?v=1"></script>
-<script src="/wp-content/themes/ocp-v1/assets/map/scripts/bundle-f2c36c9f19.js?v=1"></script>
+<link rel="stylesheet" href="/wp-content/themes/ocp-v1/assets/map/styles/main-22dac1ed28.css?v=2">
+<script src="/wp-content/themes/ocp-v1/assets/map/scripts/vendor-83d90a7f46.js?v=2"></script>
+<script src="/wp-content/themes/ocp-v1/assets/map/scripts/bundle-89335dc838.js?v=2"></script>
 
 <div class="js-worldmap-container">
 
