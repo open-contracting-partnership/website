@@ -148,35 +148,6 @@ gulp.task('js', function(done) {
 });
 
 
-gulp.task('scss:bs', function () {
-
-	return gulp.src('./assets/scss/*.scss')
-		.pipe(plumber({ errorHandler: onError }))
-		.pipe(globbing({ extensions: ['.scss'] }))
-		.pipe(sass())
-		.pipe(autoprefixer('last 2 versions'))
-		.pipe(gulp.dest('assets/css'))
-		.pipe(browserSync.reload({stream: true}))
-		.pipe(concat('styles.min.css'))
-		.pipe(minifyCss({compatibility: 'ie8'}))
-		.pipe(gulp.dest('assets/css'))
-		.pipe(livereload())
-		.pipe(notify("Sass Compiled"));
-
-});
-
-gulp.task('bs', function () {
-
-	browserSync.init({
-		proxy: "dev.frontendboilerplate.com",
-		host: "localhost"
-	});
-
-	gulp.watch('assets/scss/**/*.scss', ['scss:bs', 'scss-lint', 'modernizr']);
-	gulp.watch("./*.html").on('change', browserSync.reload);
-
-});
-
 gulp.task('styles', function() {
 	runSequence('scss', 'styleguide');
 });
@@ -201,4 +172,4 @@ gulp.task('watch', function () {
 
 });
 
-gulp.task('post-deploy', ['scss', 'js', 'svgstore', 'modernizr']);
+gulp.task('post-deploy', ['scss', 'js', 'svgstore']);

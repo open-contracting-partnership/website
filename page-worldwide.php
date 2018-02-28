@@ -10,7 +10,9 @@
 			<?php get_partial('page', 'title'); ?>
 		</div>
 
-		<iframe id="worldmap" src="<?php bloginfo('template_directory'); ?>/endpoints/map.php" width="300" height="540" style="display: block; max-width: 1600px; margin: 0 auto;"></iframe>
+		<div id="worldwide">
+			<router-view></router-view>
+		</div>
 
 		<div class="page__wrapper">
 
@@ -27,5 +29,7 @@
 		<?php get_partial('page', 'strips'); ?>
 
 	</div> <!-- / .page--one-column -->
+
+	<script src="<?php bloginfo('template_directory'); ?>/dist/js/worldwide.min.js"></script>
 
 <?php get_footer(); ?>

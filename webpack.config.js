@@ -5,7 +5,8 @@ const config = {
 	entry: {
 		'main': './assets/js/main.js',
 		'impact-stories': './assets/js/impact-stories.js',
-		'get-started': './assets/js/get-started.js'
+		'get-started': './assets/js/get-started.js',
+		'worldwide': './assets/js/worldwide.js'
 	},
 	output: {
 		filename: '[name].min.js'

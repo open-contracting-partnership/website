@@ -37,6 +37,7 @@
       "gulp-theideabureau-pattern-library": "^0.1.7",
       "gulp-uglify": "^1.2.0",
       "gulp-watch": "^4.2.4",
+      "mapbox-gl": "^0.44.1",
       "node-aigis": "1.1.3",
       "node-libs-browser": "1.0.0",
       "run-sequence": "^1.2.2",
@@ -48,11 +49,12 @@
       "babel-polyfill": "^6.23.0",
       "babel-runtime": "^6.22.0",
       "jquery": "^3.1.1",
-      "vue": "^2.5.3",
+      "raven-js": "^3.22.4",
+      "vue": "^2.5.13",
       "vue-loader": "^13.5.0",
-      "vue-resource": "^1.3.4",
+      "vue-resource": "^1.3.5",
       "vue-router": "^3.0.1",
-      "vue-template-compiler": "^2.5.3"
+      "vue-template-compiler": "^2.5.13"
    },
    "repository": "https://github.com/open-contracting-partnership/website",
    "license": "MIT"
