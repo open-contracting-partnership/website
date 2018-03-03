@@ -160,7 +160,24 @@
 
 		</div> <!-- / .site-footer -->
 
-		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/dist/js/main.min.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/dist/js/main.js"></script>
+
+		<script>
+
+			var ajax = new XMLHttpRequest();
+			ajax.open('GET', '<?php echo get_bloginfo('template_directory'); ?>/dist/img/icons.svg?v=<?php echo wp_get_theme()->Version; ?>', true);
+			ajax.send();
+			ajax.onload = function(e) {
+
+				var div = document.createElement('div');
+				div.style.display = 'none';
+				div.style.visibility = 'hidden';
+				div.innerHTML = ajax.responseText;
+				document.body.insertBefore(div, document.body.childNodes[0]);
+
+			}
+
+		</script>
 
 		<?php wp_footer(); ?>
 

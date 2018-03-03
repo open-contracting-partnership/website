@@ -20,11 +20,11 @@
 				</div>
 
 				<div class="four-oh-four__section four-oh-four__section-img">
-					<img src="<?php bloginfo('template_directory'); ?>/assets/img/404.svg" alt="" />
+					<img src="<?php bloginfo('template_directory'); ?>/resources/img/404.svg" alt="" />
 				</div>
 
 				<div class="four-oh-four__section four-oh-four__section-logo">
-					<img src="<?php bloginfo('template_directory'); ?>/assets/img/404-box.svg" alt="" />
+					<img src="<?php bloginfo('template_directory'); ?>/resources/img/404-box.svg" alt="" />
 				</div>
 
 			</section>
