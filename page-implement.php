@@ -21,6 +21,6 @@
 
 	</script>
 
-	<script src="<?php bloginfo('template_directory'); ?>/dist/js/get-started.min.js"></script>
+	<script src="<?php bloginfo('template_directory'); ?>/dist/js/get-started.js"></script>
 
 <?php get_footer(); ?>
