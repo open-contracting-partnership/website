@@ -5,10 +5,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueResource)
 Vue.use(VueRouter)
 
-// router components
-const Landing = Vue.component('landing', require('./components/get-started/landing.vue').default);
-const Detail = Vue.component('detail', require('./components/get-started/detail.vue').default);
-const Diamonds = Vue.component('diamonds', require('./components/get-started/diamonds.vue').default);
+Vue.component('diamonds', require('./components/get-started/diamonds.vue'));
 
 // router
 const router = new VueRouter({
@@ -16,12 +13,12 @@ const router = new VueRouter({
 		{
 			name: 'landing',
 			path: '/',
-			component: Landing
+			component: require('./components/get-started/landing.vue')
 		},
 		{
 			name: 'detail',
 			path: '/:step',
-			component: Detail
+			component: require('./components/get-started/detail.vue')
 		}
 	]
 })
