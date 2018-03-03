@@ -157,27 +157,6 @@
 
 }
 
-#menu-header-secondary {
-
-	> li:before {
-		display: inline-block;
-		margin-right: .5em;
-		vertical-align: sub;
-	}
-
-	> li:first-child:before {
-		content: url('../img/icons/icon-world.svg');
-	}
-
-	> li:last-child:before {
-		content: url('../img/icons/icon-data.svg');
-	}
-
-	> li a {
-		display: inline-block;
-	}
-}
-
 
  //**************
 // HEADER SEARCH

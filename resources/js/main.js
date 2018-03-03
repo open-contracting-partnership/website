@@ -385,7 +385,7 @@ $(document).ready(function() {
 		var $form = $(this);
 
 		$.ajax({
-			url: template_url + '/endpoints/subscribe.php',
+			url: '/wp-json/ocp/v1/add-subscriber',
 			dataType: 'json',
 			method: 'POST',
 			data: {
@@ -397,13 +397,15 @@ $(document).ready(function() {
 			// remove any existing alerts
 			$('.subscribe__alert').remove();
 
-			var $alert = $('<p class="subscribe__alert"></p>').insertAfter($form);
+			$('<p class="subscribe__alert">Subscribed successful</p>').insertAfter($form);
 
-			if ( response.success === true ) {
-				$alert.html('Subscribed successful!');
-			} else {
-				$alert.html('<svg><use xlink:href="#icon-close"></use></svg> Subscribe unsuccessful');
-			}
+		})
+		.fail(function(response, textStatus) {
+
+			// remove any existing alerts
+			$('.subscribe__alert').remove();
+
+			$('<p class="subscribe__alert"><svg><use xlink:href="#icon-close"></use></svg> ' + response.responseJSON.message + '</p>').insertAfter($form);
 
 		});
 

@@ -18,7 +18,7 @@
 		left: -5px;
 		right: -5px;
 		bottom: -5px;
-		background: url('../img/hero.svg') no-repeat center center;
+		background: url('../../resources/img/hero.svg') no-repeat center center;
 		background-size: cover;
 	}
 
@@ -420,7 +420,7 @@
 
 	@include aspect-ratio(1164, 652);
 	width: 100%;
-	background-image: url('../img/the-new-map.png');
+	background-image: url('../../resources/img/the-new-map.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
@@ -532,7 +532,7 @@
 			left: 0;
 			height: 21px;
 			width: 21px;
-			content: url('../img/icons/icon-world.svg');
+			content: url('../../resources/img/icons/icon-world.svg');
 		}
 
 		@include mq(700) {
