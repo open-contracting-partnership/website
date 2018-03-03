@@ -31,10 +31,12 @@ mix.sass('resources/scss/styles.scss', 'dist/css')
 		},
 		module: {
 			noParse: /(mapbox-gl)\.js$/,
-			rules: [{
-				test: /\.scss/,
-				enforce: 'pre',
-				loader: 'import-glob-loader'
-			}]
+			rules: [
+				{
+					test: /\.scss/,
+					enforce: 'pre',
+					loader: 'import-glob-loader'
+				}
+			]
 		}
 	});
