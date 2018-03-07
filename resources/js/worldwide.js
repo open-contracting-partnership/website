@@ -1,17 +1,23 @@
+import { sync } from 'vuex-router-sync'
 import Vue from 'vue'
-import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 import Raven from 'raven-js';
 import RavenVue from 'raven-js/plugins/vue';
 import _ from 'underscore';
 
-Raven
-	.config('https://0bd6363074584cbcaeab1e66d004ed5a@sentry.io/296260')
-	.addPlugin(RavenVue, Vue)
-	.install();
+// Raven
+// 	.config('https://0bd6363074584cbcaeab1e66d004ed5a@sentry.io/296260')
+// 	.addPlugin(RavenVue, Vue)
+// 	.install();
 
-Vue.use(VueResource)
 Vue.use(VueRouter)
+
+import store from './components/worldwide/store'
+
+Vue.component('flag', require('./components/flag.vue'));
+Vue.component('country', require('./components/worldwide/country.vue'));
+Vue.component('country-search', require('./components/worldwide/search.vue'));
+Vue.component('country-filter', require('./components/worldwide/filter.vue'));
 
 // router
 const router = new VueRouter({
@@ -19,12 +25,32 @@ const router = new VueRouter({
 		{
 			name: 'map',
 			path: '/',
-			component: require('./components/worldwide/map.vue').default
+			component: require('./components/worldwide/map.vue'),
+			children: [
+				{
+					name: 'country',
+					path: ':code',
+					component: require('./components/worldwide/country.vue')
+				}
+			]
 		}
 	]
 })
 
+const unsync = sync(store, router) // done. Returns an unsync callback fn
+
 // vue
 new Vue({
-	router
+
+	router,
+	store,
+
+	mounted() {
+
+		// initialise the data set
+		store.dispatch('fetchCountries');
+		store.dispatch('addContent', content);
+
+	}
+
 }).$mount('#worldwide')

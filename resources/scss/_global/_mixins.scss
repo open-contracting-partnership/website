@@ -180,7 +180,7 @@
 // MEDIA QUERIES
 
 // $value: can be a number, 'landscape', or a breakpoint letter
-// $arg2: default is min-width, can be overwritten with 'max-width', or 'orientation' etc.
+// $feature: default is min-width, can be overwritten with 'max-width', or 'orientation' etc.
 @mixin mq($arg1, $arg2: 'min-width') {
 
 	$between: false;
@@ -188,6 +188,10 @@
 	// convert the value if it's within breakpoints
 	@if map-has-key($breakpoints, $arg1) {
 		$arg1: map-get($breakpoints, $arg1);
+	}
+
+	@if type-of($arg1) == 'number' {
+		$arg1: $arg1 + px;
 	}
 
 	// maybe arg2 references a breakpoint
@@ -203,11 +207,7 @@
 	}
 
 	@if $arg2 == 'max-width' {
-		$arg1: $arg1 - 1;
-	}
-
-	@if type-of($arg1) == 'number' {
-		$arg1: $arg1 + px;
+		$arg1: $arg1 - 1px;
 	}
 
 	@if $between == false {
@@ -222,6 +222,30 @@
 			@content;
 		}
 
+	}
+
+}
+
+@mixin upto($upto) {
+
+	@include mq($upto, 'max-width') {
+		@content;
+	}
+
+}
+
+@mixin from($from) {
+
+	@include mq($from) {
+		@content;
+	}
+
+}
+
+@mixin between($from, $to) {
+
+	@include mq($from, $to) {
+		@content;
 	}
 
 }

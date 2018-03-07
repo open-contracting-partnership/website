@@ -285,3 +285,8 @@ function the_substr($string, $length) {
 add_filter('default_page_template_title', function() {
 	return 'One column';
 });
+
+
+function display_footer() {
+	return basename(get_page_template()) !== 'page-worldwide.php';
+}

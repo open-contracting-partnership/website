@@ -1,3 +1,27 @@
-#worldmap {
-	margin-top: spacing(4) !important;
+body.worldwide {
+
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+
+	.site-header {
+		flex: 0 0 auto;
+	}
+
+	main {
+		flex: 1 1 100%;
+	}
+
+}
+
+body.worldwide main {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+[id="worldwide"] {
+	flex: 1 1 100%;
+	display: flex;
+	flex-direction: column;
 }
