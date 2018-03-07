@@ -9,7 +9,7 @@
 			</button>
 
 			<h1 class="map-filter__title" v-html="content.title" />
-			<div v-html="content.content" />
+			<div class="map-filter__strap" v-html="content.content" />
 
 			<div class="map-filter__controls">
 
@@ -25,17 +25,17 @@
 
 					<label class="filter-control__child">
 						<input type="checkbox" :checked="filters.ocds_ongoing" @change="toggleFilter('ocds_ongoing')" />
-						<strong v-html="content.filter.ocds_status" /> <span v-html="content.filter.ocds_ongoing" />
+						<strong v-html="content.filter.ocds_status" /> <ocds-status status="ongoing" />
 					</label>
 
 					<label class="filter-control__child">
 						<input type="checkbox" :checked="filters.ocds_implementation" @change="toggleFilter('ocds_implementation')" />
-						<strong v-html="content.filter.ocds_status" /> <span v-html="content.filter.ocds_implementation" />
+						<strong v-html="content.filter.ocds_status" /> <ocds-status status="implementation" />
 					</label>
 
 					<label class="filter-control__child">
 						<input type="checkbox" :checked="filters.ocds_historic" @change="toggleFilter('ocds_historic')" />
-						<strong v-html="content.filter.ocds_status" /> <span v-html="content.filter.ocds_historic" />
+						<strong v-html="content.filter.ocds_status" /> <ocds-status status="historic" />
 					</label>
 
 				<label>
@@ -94,22 +94,23 @@
 	@import "../../../scss/_bootstrap.scss";
 
 	.map-filter {
-
 		z-index: 10;
 		background-color: color('white');
 		height: 100%;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
-
-		@include upto(M) {
-			@include font-size(16);
-		}
-
+		min-width: 384px;
 	}
 
 	.map-filter__inner {
+
 		padding: spacing(2);
 		position: relative;
+
+		@include from(L) {
+			padding: spacing(3);
+		}
+
 	}
 
 		.map-filter__close {
@@ -152,12 +153,29 @@
 
 		}
 
+		.map-filter__strap {
+
+			@include font-size(16);
+
+			@include from(ML) {
+				@include font-size(18);
+			}
+
+		}
+
 		.map-filter__controls label {
+
 			@include font-size(14);
+			margin-bottom: spacing(1);
+
+			@include from(L) {
+				@include font-size(16);
+			}
+
 		}
 
 
-		.filter-control__all {
+		label.filter-control__all {
 
 			position: relative;
 			margin-bottom: spacing(6);
@@ -176,7 +194,13 @@
 		}
 
 		.filter-control__child {
+
 			margin-left: spacing(3);
+
+			strong {
+				margin-right: spacing(1);
+			}
+
 		}
 
 </style>

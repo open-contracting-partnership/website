@@ -11,12 +11,13 @@
 
 			<ul class="country-search__list" v-if="is_open === true && filtered_countries.length > 0" @mouseover="mouseOver" @mouseout="mouseOut">
 
-				<li v-for="(country, index) in filtered_countries" v-bind:class="{ focus: index === focus}" @click="change" @mouseover="hover(index)">
+				<li v-for="(country, index) in filtered_countries" v-bind:class="{ disabled: country.available === false, focus: index === focus}" @click="change" @mouseover="hover(index)">
 
 					<flag :code="country.code" />
 
 					<div>
 						{{ country.name }}
+						<span v-if="country.available === false" class="country-search__no-data">(No data yet)</span>
 					</div>
 
 				</li>
@@ -85,7 +86,7 @@
 						countries.push({
 							code: country.iso_a2.toLowerCase(),
 							name: country.name,
-							available: true
+							available: typeof country.has_data !== 'undefined' && country.has_data === true
 						})
 
 					});

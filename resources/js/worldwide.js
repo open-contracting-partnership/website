@@ -16,6 +16,7 @@ import store from './components/worldwide/store'
 
 Vue.component('flag', require('./components/flag.vue'));
 Vue.component('country', require('./components/worldwide/country.vue'));
+Vue.component('ocds-status', require('./components/worldwide/ocds-status.vue'));
 Vue.component('country-search', require('./components/worldwide/search.vue'));
 Vue.component('country-filter', require('./components/worldwide/filter.vue'));
 

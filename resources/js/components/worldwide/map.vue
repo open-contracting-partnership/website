@@ -6,17 +6,25 @@
 
 			<div class="map-controls">
 
-				<div class="map-controls__filter" v-if="display_filter">
-					<country-filter @closeFilter="show_filter = false" />
-				</div>
+				<transition name="map-filter">
+
+					<div class="map-controls__filter" v-if="display_filter">
+						<country-filter @closeFilter="show_filter = false" />
+					</div>
+
+				</transition>
 
 				<div class="map-controls__middle">
 					<country-search @change="setCountry" />
 				</div>
 
-				<div class="map-controls__country" v-if="selected_country">
-					<country />
-				</div>
+				<transition name="map-country">
+
+					<div class="map-controls__country" v-if="selected_country">
+						<country />
+					</div>
+
+				</transition>
 
 			</div>
 
@@ -263,7 +271,7 @@
 					'source': 'countries',
 					'layout': {},
 					'paint': {
-						'fill-color': '#FD843D',
+						'fill-color': '#23B2A7',
 						'fill-opacity': .35
 					},
 					'filter': ['==', 'name', '']
@@ -275,7 +283,7 @@
 					'source': 'countries',
 					'layout': {},
 					'paint': {
-						'fill-color': '#23B2A7',
+						'fill-color': '#FD843D',
 						'fill-opacity': .35
 					},
 					'filter': ['==', 'name', '']
@@ -287,7 +295,7 @@
 					'source': 'countries',
 					'layout': {},
 					'paint': {
-						'fill-color': '#6C75E1',
+						'fill-color': '#497AF3',
 						'fill-opacity': .35
 					},
 					'filter': ['==', 'name', '']
@@ -452,7 +460,6 @@
 
 	}
 
-
 	.map-controls {
 		position: absolute;
 		top: 0;
@@ -475,10 +482,26 @@
 				left: 0;
 			}
 
-			flex: 0 0 300px;
+			flex: 0 0 385px;
 			pointer-events: all;
+			overflow: hidden;
+			display: flex;
+			justify-content: flex-end;
+			border-right: 1px solid color('lighter-grey');
 
 		}
+
+			.map-filter-enter-active,
+			.map-filter-leave-active {
+				transition: flex-basis 1s ease;
+			}
+
+			.map-filter-enter,
+			.map-filter-leave-to {
+				flex-basis: 0;
+			}
+
+
 
 		.map-controls__middle {
 
@@ -507,8 +530,22 @@
 
 			flex: 0 0 600px;
 			pointer-events: all;
+			overflow: hidden;
+			display: flex;
+			justify-content: start;
+			border-left: 1px solid color('lighter-grey');
 
 		}
+
+			.map-country-enter-active,
+			.map-country-leave-active {
+				transition: flex-basis 1s ease;
+			}
+
+			.map-country-enter,
+			.map-country-leave-to {
+				flex-basis: 0;
+			}
 
 
 

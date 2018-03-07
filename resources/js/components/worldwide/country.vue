@@ -4,7 +4,6 @@
 
 		<div class="map-country__inner">
 
-
 			<div class="country__header">
 
 				<flag :code="selected_country.iso_a2.toLowerCase()" />
@@ -16,65 +15,81 @@
 
 			</div>
 
-			<div class="country-content" v-if="typeof selected_country.publishers !== 'undefined' && selected_country.publishers.length">
+			<div class="country-content">
 
 				<h3 class="country-content__title">Who are using the Open Contracting Data Standard</h3>
 
 				<div class="country-content__items">
 
-					<div class="country-content__item" v-for="publisher in selected_country.publishers">
+					<template v-if="typeof selected_country.publishers !== 'undefined' && selected_country.publishers.length">
 
-						<a :href="publisher.publisher_link">{{ publisher.publisher }}</a>
+						<div class="country-content__item" v-for="publisher in selected_country.publishers">
+							<a :href="publisher.publisher_link">{{ publisher.publisher }}</a>
+						</div>
 
-					</div>
+					</template>
+
+					<p v-else class="country-content__no-data">No data available</p>
 
 				</div>
 
 			</div>
 
-			<div class="country-content" v-if="typeof selected_country.ogp_commitments !== 'undefined' && selected_country.ogp_commitments.length">
+			<div class="country-content">
 
 				<h3 class="country-content__title">Documented commitments</h3>
 
 				<div class="country-content__items">
 
-					<div class="country-content__item" v-for="commitment in selected_country.ogp_commitments">
+					<template v-if="typeof selected_country.ogp_commitments !== 'undefined' && selected_country.ogp_commitments.length">
 
-						<a :href="commitment.ogp_commitment_link">{{ commitment.ogp_commitment }}</a>
+						<div class="country-content__item" v-for="commitment in selected_country.ogp_commitments">
+							<a :href="commitment.ogp_commitment_link">{{ commitment.ogp_commitment }}</a>
+						</div>
 
-					</div>
+					</template>
+
+					<p v-else class="country-content__no-data">No data available</p>
 
 				</div>
 
 			</div>
 
-			<div class="country-content" v-if="typeof selected_country.innovations !== 'undefined' && selected_country.innovations.length">
+			<div class="country-content">
 
 				<h3 class="country-content__title">Innovation in contract monitoring &amp; data use</h3>
 
 				<div class="country-content__items">
 
-					<div class="country-content__item" v-for="innovation in selected_country.innovations">
+					<template v-if="typeof selected_country.innovations !== 'undefined' && selected_country.innovations.length">
 
-						<a :href="innovation.innovation_link">{{ innovation.innovation_description }}</a>
+						<div class="country-content__item" v-for="innovation in selected_country.innovations">
+							<a :href="innovation.innovation_link">{{ innovation.innovation_description }}</a>
+						</div>
 
-					</div>
+					</template>
+
+					<p v-else class="country-content__no-data">No data available</p>
 
 				</div>
 
 			</div>
 
-			<div class="country-content" v-if="typeof selected_country.impacts_stories !== 'undefined' && selected_country.impacts_stories.length">
+			<div class="country-content">
 
 				<h3 class="country-content__title">Impact Stories</h3>
 
 				<div class="country-content__items">
 
-					<div class="country-content__item" v-for="impacts_story in selected_country.impacts_stories">
+					<template v-if="typeof selected_country.impacts_stories !== 'undefined' && selected_country.impacts_stories.length">
 
-						<a :href="impacts_story.story_url">{{ impacts_story.story_title }}</a>
+						<div class="country-content__item" v-for="impacts_story in selected_country.impacts_stories">
+							<a :href="impacts_story.story_url">{{ impacts_story.story_title }}</a>
+						</div>
 
-					</div>
+					</template>
+
+					<p v-else class="country-content__no-data">No data available</p>
 
 				</div>
 
@@ -132,6 +147,7 @@
 		height: 100%;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
+		min-width: 599px;
 	}
 
 		.map-country__inner {
@@ -262,10 +278,11 @@
 	}
 
 		.country-content__item {
-
 			margin-bottom: spacing(1);
+		}
 
-
+		.country-content__no-data {
+			margin-bottom: 0;
 		}
 
 	.country-improve {
