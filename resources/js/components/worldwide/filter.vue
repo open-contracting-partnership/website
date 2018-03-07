@@ -13,38 +13,47 @@
 
 			<div class="map-filter__controls">
 
-				<label class="filter-control__all">
-					<input type="checkbox" :checked="filters.all" @change="toggleFilter('all')" />
+				<label class="filter-control__all" @click="toggleFilter('all')">
+					<tick :checked="filters.all" />
 					<span v-html="content.filter.all" />
 				</label>
 
-				<label>
-					<input type="checkbox" :checked="filters.ocds" @change="toggleFilter('ocds')" />
+				<label @click="toggleFilter('ocds')">
+					<tick :checked="filters.ocds" />
 					<span v-html="content.filter.ocds" />
 				</label>
 
-					<label class="filter-control__child">
-						<input type="checkbox" :checked="filters.ocds_ongoing" @change="toggleFilter('ocds_ongoing')" />
-						<strong v-html="content.filter.ocds_status" /> <ocds-status status="ongoing" />
+					<label class="filter-control__child" @click="toggleFilter('ocds_ongoing')">
+						<tick :checked="filters.ocds_ongoing" size="small" />
+						<span>
+							<strong v-html="content.filter.ocds_status" />
+							<ocds-status status="ongoing" />
+						</span>
 					</label>
 
-					<label class="filter-control__child">
-						<input type="checkbox" :checked="filters.ocds_implementation" @change="toggleFilter('ocds_implementation')" />
-						<strong v-html="content.filter.ocds_status" /> <ocds-status status="implementation" />
+					<label class="filter-control__child" @click="toggleFilter('ocds_implementation')">
+						<tick :checked="filters.ocds_implementation" size="small" />
+						<span>
+							<strong v-html="content.filter.ocds_status" />
+							<ocds-status status="implementation" />
+						</span>
 					</label>
 
-					<label class="filter-control__child">
-						<input type="checkbox" :checked="filters.ocds_historic" @change="toggleFilter('ocds_historic')" />
-						<strong v-html="content.filter.ocds_status" /> <ocds-status status="historic" />
+					<label class="filter-control__child" @click="toggleFilter('ocds_historic')">
+						<tick :checked="filters.ocds_historic" size="small" />
+						<span>
+							<strong v-html="content.filter.ocds_status" />
+							<ocds-status status="historic" />
+						</span>
 					</label>
 
-				<label>
-					<input type="checkbox" :checked="filters.commitments" @change="toggleFilter('commitments')" />
+				<label @click="toggleFilter('commitments')">
+					<tick :checked="filters.commitments" />
 					<span v-html="content.filter.commitments" />
 				</label>
 
-				<label>
-					<input type="checkbox" :checked="filters.innovations" @change="toggleFilter('innovations')" />
+				<label @click="toggleFilter('innovations')">
+					<tick :checked="filters.innovations" />
 					<span v-html="content.filter.contract" />
 				</label>
 
@@ -167,6 +176,18 @@
 
 			@include font-size(14);
 			margin-bottom: spacing(1);
+			display: flex;
+			user-select: none;
+
+			.tick {
+				flex: 0 0 1em;
+				margin-top: em(4, 18);
+				margin-right: spacing(1);
+			}
+
+			.tick--small {
+				margin-top: em(5, 14);
+			}
 
 			@include from(L) {
 				@include font-size(16);

@@ -350,6 +350,7 @@
 			filters: {
 
 				handler() {
+				console.log(this.map.getBounds());
 					this.setMapStyles();
 				},
 
@@ -374,6 +375,50 @@
 
 					// mark the map as being loaded
 					this.map_loaded = true;
+
+
+
+console.log(this.map.getBounds());
+
+//
+//
+//
+// lat
+// :
+// 71.13098770917262
+// lng
+// :
+// 225.00000000001478
+// __proto__
+// :
+// Object
+// _sw
+// :
+// LngLat
+// lat
+// :
+// -71.13098770916976
+// lng
+// :
+// -225.00000000000603
+//
+
+					const padding = 0
+					let left_padding = padding;
+
+					if ( window.innerWidth >= 1024 ) {
+						left_padding += 385;
+					}
+
+					// fit the map to the bounds of the available countries
+					this.map.fitBounds([
+						[-180, 85],
+						[180, -85]
+					]);
+
+
+
+
 
 				}.bind(this));
 

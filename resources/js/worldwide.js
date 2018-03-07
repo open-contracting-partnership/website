@@ -15,6 +15,7 @@ Vue.use(VueRouter)
 import store from './components/worldwide/store'
 
 Vue.component('flag', require('./components/flag.vue'));
+Vue.component('tick', require('./components/worldwide/tick.vue'));
 Vue.component('country', require('./components/worldwide/country.vue'));
 Vue.component('ocds-status', require('./components/worldwide/ocds-status.vue'));
 Vue.component('country-search', require('./components/worldwide/search.vue'));
