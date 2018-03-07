@@ -40,7 +40,7 @@
 								<?php if ( $avatar = get_sub_field('image') ) : ?>
 									<img src="<?php echo $avatar['sizes']['1x1_368']; ?>" />
 								<?php else : ?>
-									<img src="<?php bloginfo('template_directory'); ?>/assets/img/missing-avatar.png" />
+									<img src="<?php bloginfo('template_directory'); ?>/resources/img/missing-avatar.png" />
 								<?php endif; ?>
 
 							</div>

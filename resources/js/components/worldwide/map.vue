@@ -1,0 +1,600 @@
+<template>
+
+	<div class="map__container">
+
+		<div class="map">
+
+			<div class="map-controls">
+
+				<transition name="map-filter">
+
+					<div class="map-controls__filter" v-if="display_filter">
+						<country-filter @closeFilter="show_filter = false" />
+					</div>
+
+				</transition>
+
+				<div class="map-controls__middle">
+					<country-search @change="setCountry" />
+				</div>
+
+				<transition name="map-country">
+
+					<div class="map-controls__country" v-if="selected_country">
+						<country />
+					</div>
+
+				</transition>
+
+			</div>
+
+			<link href='/wp-content/themes/ocp-v1/node_modules/mapbox-gl/dist/mapbox-gl.css' rel='stylesheet' />
+			<div id='map'></div>
+
+		</div>
+
+		<button class="button button--dark / map__filter-cta" v-if="! show_filter" @click.prevent="show_filter = ! show_filter">Filter Options</button>
+		<button class="button button--brand / map__filter-cta" v-if="show_filter" @click.prevent="show_filter = ! show_filter">Close</button>
+
+	</div>
+
+</template>
+
+<script>
+
+	import mapboxgl from 'mapbox-gl'
+	import _ from 'underscore'
+	import { mapGetters, mapActions } from 'vuex'
+
+	export default {
+
+		data: () => {
+
+			return {
+				content: content,
+				map_loaded: false,
+				show_filter: false,
+				is_mobile: false,
+			}
+
+		},
+
+		computed: {
+
+			...mapGetters([
+				'countries',
+				'geo_countries',
+				'filters',
+				'selected_country'
+			]),
+
+			ocds_all() {
+				return this.ocds.ongoing && this.ocds.implemented && this.ocds.historic;
+			},
+
+			ocds_any() {
+				return this.ocds.ongoing || this.ocds.implemented || this.ocds.historic;
+			},
+
+			display_filter() {
+
+				if ( this.$route.name !== 'map' ) {
+					return false;
+				}
+
+				if ( ! this.is_mobile ) {
+					return true;
+				}
+
+				return this.show_filter;
+
+			},
+
+			can_load_map() {
+				return this.map_loaded && this.countries !== null && this.geo_countries !== null;
+			},
+
+			mapbox_filters() {
+
+				let filters = {
+					active: [],
+					inactive: [],
+					ocds_historic: [],
+					ocds_implementation: [],
+					ocds_ongoing: []
+				}
+
+				// get initial pool with a deep copy
+				let base_countries = _.map(this.countries, _.clone);
+
+				base_countries = _.filter(base_countries, (country) => {
+					return country.has_data;
+				});
+
+
+				 //*******
+				// ACTIVE
+
+				filters.active = _.filter(base_countries, (country) => {
+
+					let keep = true;
+
+					if ( this.filters.ocds && ! country.filter_ocds ) {
+						keep = false;
+					}
+
+					if ( this.filters.commitments && ! country.filter_commitments ) {
+						keep = false;
+					}
+
+					if ( this.filters.innovations && ! country.filter_innovations ) {
+						keep = false;
+					}
+
+					return keep;
+
+				});
+
+
+				 //*********
+				// INACTIVE
+
+				filters.active.forEach((country) => {
+
+					const index = _.findIndex(base_countries, (base_country) => {
+						return base_country.iso_a2 === country.iso_a2;
+					});
+
+					if ( index !== -1 ) {
+						base_countries.splice(index, 1);
+					}
+
+				});
+
+				filters.inactive = base_countries;
+
+
+				 //*****
+				// OCDS
+
+				if ( this.filters.ocds_ongoing ) {
+
+					filters.active.forEach((country, index) => {
+
+						if ( country.filter_ocds_ongoing ) {
+							filters.ocds_ongoing.push(country);
+							filters.active.splice(index, 1);
+						}
+
+					});
+
+				}
+
+				if ( this.filters.ocds_implementation ) {
+
+					filters.active.forEach((country, index) => {
+
+						if ( country.filter_ocds_implementation ) {
+							filters.ocds_implementation.push(country);
+							filters.active.splice(index, 1);
+						}
+
+					});
+
+				}
+
+				if ( this.filters.ocds_historic ) {
+
+					filters.active.forEach((country, index) => {
+
+						if ( country.filter_ocds_historic ) {
+							filters.ocds_historic.push(country);
+							filters.active.splice(index, 1);
+						}
+
+					});
+
+				}
+
+
+
+				_.each(filters, (filter, index) => {
+
+					let mb_filters = [];
+
+					filter.forEach((item) => {
+						mb_filters.push(['==', 'iso_a2', item.iso_a2]);
+					});
+
+					filters[index] = mb_filters;
+
+				});
+
+				return filters;
+
+			}
+
+		},
+
+		watch: {
+
+			filter(new_value, old_value) {
+
+				if ( this.filter === 'ocds' && ! this.ocds_any ) {
+					this.ocds.ongoing = true;
+					this.ocds.implemented = true;
+					this.ocds.historic = true;
+				}
+
+				if ( this.filter !== 'ocds' ) {
+					this.ocds.ongoing = false;
+					this.ocds.implemented = false;
+					this.ocds.historic = false;
+				}
+
+			},
+
+			can_load_map() {
+
+				this.map.addSource('countries', {
+					type: 'geojson',
+					data: this.geo_countries
+				});
+
+				this.map.addLayer({
+					'id': 'ocp-country-inactive-fill',
+					'type': 'fill',
+					'source': 'countries',
+					'layout': {},
+					'paint': {
+						'fill-color': '#D5D5D7',
+						'fill-opacity': .35
+					},
+					'filter': ['==', 'name', '']
+				});
+
+				this.map.addLayer({
+					'id': 'ocp-country-active-fill',
+					'type': 'fill',
+					'source': 'countries',
+					'layout': {},
+					'paint': {
+						'fill-color': '#D6E100',
+						'fill-opacity': .35
+					},
+					'filter': ['==', 'name', '']
+				});
+
+				this.map.addLayer({
+					'id': 'ocp-country-ocds-historic-fill',
+					'type': 'fill',
+					'source': 'countries',
+					'layout': {},
+					'paint': {
+						'fill-color': '#23B2A7',
+						'fill-opacity': .35
+					},
+					'filter': ['==', 'name', '']
+				});
+
+				this.map.addLayer({
+					'id': 'ocp-country-ocds-implementation-fill',
+					'type': 'fill',
+					'source': 'countries',
+					'layout': {},
+					'paint': {
+						'fill-color': '#FD843D',
+						'fill-opacity': .35
+					},
+					'filter': ['==', 'name', '']
+				});
+
+				this.map.addLayer({
+					'id': 'ocp-country-ocds-ongoing-fill',
+					'type': 'fill',
+					'source': 'countries',
+					'layout': {},
+					'paint': {
+						'fill-color': '#497AF3',
+						'fill-opacity': .35
+					},
+					'filter': ['==', 'name', '']
+				});
+
+				this.map.addLayer({
+					'id': 'ocp-country-borders',
+					'type': 'line',
+					'source': 'countries',
+					'layout': {},
+					'paint': {
+						'line-color': '#979797',
+						'line-width': 1,
+						'line-opacity': .1
+					},
+					'filter': ['==', 'has_data', true]
+				});
+
+				// initiate the map colouring
+				this.setMapStyles();
+
+				const mousemove = (e) => {
+					this.map.getCanvas().style.cursor = 'pointer';
+				};
+
+				const mouseleave = (e) => {
+					this.map.getCanvas().style.cursor = '';
+				};
+
+				const click = (e) => {
+
+					const code = e.features[0].properties.iso_a2.toLowerCase();
+
+					this.setCountry(code);
+
+				};
+
+				const re = /ocp-country-(.*?)-fill/;
+
+				_.each(this.map.getStyle().layers, (layer) => {
+
+					if ( layer.id.match(re) !== null ) {
+						this.map.on('mousemove', layer.id, mousemove.bind(this));
+						this.map.on('mouseleave', layer.id, mouseleave.bind(this));
+						this.map.on('click', layer.id, click.bind(this));
+					}
+
+				});
+
+			},
+
+			filters: {
+
+				handler() {
+				console.log(this.map.getBounds());
+					this.setMapStyles();
+				},
+
+				deep: true
+
+			}
+
+		},
+
+		methods: {
+
+			setMap() {
+
+				mapboxgl.accessToken = 'pk.eyJ1IjoidGhlaWRlYWJ1cmVhdSIsImEiOiJVaU9wVmlVIn0.OCGZoNkQ1GU3vOMwspFvBw';
+				this.map = new mapboxgl.Map({
+					container: 'map',
+					style: 'mapbox://styles/theideabureau/cj98q867x2m1x2slgf3d860hl',
+					zoom: 1
+				});
+
+				this.map.once('load', function() {
+
+					// mark the map as being loaded
+					this.map_loaded = true;
+
+
+
+console.log(this.map.getBounds());
+
+//
+//
+//
+// lat
+// :
+// 71.13098770917262
+// lng
+// :
+// 225.00000000001478
+// __proto__
+// :
+// Object
+// _sw
+// :
+// LngLat
+// lat
+// :
+// -71.13098770916976
+// lng
+// :
+// -225.00000000000603
+//
+
+					const padding = 0
+					let left_padding = padding;
+
+					if ( window.innerWidth >= 1024 ) {
+						left_padding += 385;
+					}
+
+					// fit the map to the bounds of the available countries
+					this.map.fitBounds([
+						[-180, 85],
+						[180, -85]
+					]);
+
+
+
+
+
+				}.bind(this));
+
+			},
+
+			setMapStyles() {
+
+				// loop through the available filters and apply either the filter or a bank
+				_.each(this.mapbox_filters, (filter, key) => {
+
+					// always unset filter to enforce the correct layer order
+					this.map.setFilter('ocp-country-' + key.replace('_', '-') + '-fill', ['==', 'name', '']);
+
+					if ( filter.length ) {
+						this.map.setFilter('ocp-country-' + key.replace('_', '-') + '-fill', ['any'].concat(filter));
+					}
+
+				});
+
+			},
+
+			setCountry(code) {
+
+				this.$router.push({
+					name: 'country',
+					params: {
+						code: code
+					}
+				})
+
+			}
+
+		},
+
+		mounted() {
+
+			var resizeThrottled = _.throttle(function() {
+				this.is_mobile = window.innerWidth <= 800;
+			}.bind(this), 500);
+
+			window.addEventListener('resize', resizeThrottled);
+
+			resizeThrottled();
+
+			this.setMap();
+
+		}
+
+	}
+
+</script>
+
+<style lang="scss">
+
+	// ATTN: this is not ideal, but webpack aliases aren't working
+	@import "../../../scss/_bootstrap.scss";
+
+	.map__container {
+		flex: 1 1 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.map {
+		position: relative;
+		flex: 1 1 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	[id="map"] {
+		flex: 1 1 100%;
+	}
+
+
+	.map__filter-cta {
+
+		flex: 0 0 auto;
+		margin-bottom: 0;
+
+		@include from(M) {
+			display: none;
+		}
+
+	}
+
+	.map-controls {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 9;
+		display: flex;
+		justify-content: space-between;
+		pointer-events: none;
+	}
+
+		.map-controls__filter {
+
+			@include upto(M) {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			}
+
+			flex: 0 0 385px;
+			pointer-events: all;
+			overflow: hidden;
+			display: flex;
+			justify-content: flex-end;
+			border-right: 1px solid color('lighter-grey');
+
+		}
+
+			.map-filter-enter-active,
+			.map-filter-leave-active {
+				transition: flex-basis 1s ease;
+			}
+
+			.map-filter-enter,
+			.map-filter-leave-to {
+				flex-basis: 0;
+			}
+
+
+
+		.map-controls__middle {
+
+			flex: 1 1 100%;
+			padding: spacing(5);
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			pointer-events: none;
+
+			> * {
+				pointer-events: all;
+			}
+
+		}
+
+		.map-controls__country {
+
+			@include upto(M) {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			}
+
+			flex: 0 0 600px;
+			pointer-events: all;
+			overflow: hidden;
+			display: flex;
+			justify-content: start;
+			border-left: 1px solid color('lighter-grey');
+
+		}
+
+			.map-country-enter-active,
+			.map-country-leave-active {
+				transition: flex-basis 1s ease;
+			}
+
+			.map-country-enter,
+			.map-country-leave-to {
+				flex-basis: 0;
+			}
+
+
+
+
+
+
+</style>

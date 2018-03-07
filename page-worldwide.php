@@ -4,28 +4,30 @@
 
 	<?php the_post(); ?>
 
-	<div class="page--one-column">
+	<script>
 
-		<div class="page__wrapper / worldmap-header">
-			<?php get_partial('page', 'title'); ?>
-		</div>
+		// ATTN: using `` ES6 template literals, this is not supported in IE11
+		const content = {
+			title: '<?php the_title(); ?>',
+			content: `<?php the_content(); ?>`,
+			filter: {
+				all: '<?php _e('Active countries…', 'ocp'); ?>',
+				ocds: '<?php _e('Who are using the Open Contracting Data Standard', 'ocp'); ?>',
+				ocds_status: '<?php _e('Status:', 'ocp'); ?>',
+				ocds_ongoing: '<?php _e('Ongoing', 'ocp'); ?>',
+				ocds_implementation: '<?php _e('Implementation', 'ocp'); ?>',
+				ocds_historic: '<?php _e('Historic', 'ocp'); ?>',
+				commitments: '<?php _e('With documented commitments', 'ocp'); ?>',
+				contract: '<?php _e('Who demonistrate innovation in contract monitoring & use', 'ocp'); ?>',
+			}
+		}
 
-		<iframe id="worldmap" src="<?php bloginfo('template_directory'); ?>/endpoints/map.php" width="300" height="540" style="display: block; max-width: 1600px; margin: 0 auto;"></iframe>
+	</script>
 
-		<div class="page__wrapper">
+	<div id="worldwide">
+		<router-view></router-view>
+	</div>
 
-			<article class="page-content cf">
-
-				<section>
-					<?php the_content(); ?>
-				</section>
-
-			</article>
-
-		</div> <!-- / .page__wrapper -->
-
-		<?php get_partial('page', 'strips'); ?>
-
-	</div> <!-- / .page--one-column -->
+	<script src="<?php bloginfo('template_directory'); ?>/dist/js/worldwide.js"></script>
 
 <?php get_footer(); ?>

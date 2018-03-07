@@ -36,7 +36,7 @@
 				<section class="impact-stories__main / cf">
 
 					<div v-if="hasVisibleStories">
-						<story-card v-for="story in visibleStories" :story="story"></story-card>
+						<story-card v-for="(story, index) in visibleStories" :story="story" :key="index"></story-card>
 					</div>
 
 					<p v-else>No stories match your filter, <a href="#" @click.prevent="resetFilter()">reset filter?</a></p>
@@ -49,6 +49,6 @@
 
 	</div>
 
-	<script src="<?php bloginfo('template_directory'); ?>/dist/js/impact-stories.min.js"></script>
+	<script src="<?php bloginfo('template_directory'); ?>/dist/js/impact-stories.js"></script>
 
 <?php get_footer(); ?>

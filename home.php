@@ -39,7 +39,7 @@
 
 					} else {
 
-						return imgix::source('url', get_bloginfo('template_directory') . '/assets/img/fallback.jpg')
+						return imgix::source('url', get_bloginfo('template_directory') . '/resources/img/fallback.jpg')
 							->options($options)
 							->url();
 

@@ -8,7 +8,7 @@ dest: ./styleguide
 # You may put doc related assets here too: images, css, etc.
 dependencies:
   - ./styleguide_assets/aigis_assets
-  - ./assets/
+  - ./resources/
   - ./public/
 
 # The directory containing the template files to generate pages

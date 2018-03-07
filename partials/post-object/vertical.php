@@ -9,7 +9,7 @@
 				<?php if ( has_post_thumbnail() ) : ?>
 					<?php the_post_thumbnail('2x1_460'); ?>
 				<?php else : ?>
-					<img src="<?php bloginfo('template_directory'); ?>/assets/img/fallback.jpg">
+					<img src="<?php bloginfo('template_directory'); ?>/resources/img/fallback.jpg">
 				<?php endif; ?>
 
 			</div>
