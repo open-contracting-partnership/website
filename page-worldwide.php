@@ -18,7 +18,7 @@
 				ocds_implementation: '<?php _e('Implementation', 'ocp'); ?>',
 				ocds_historic: '<?php _e('Historic', 'ocp'); ?>',
 				commitments: '<?php _e('With documented commitments', 'ocp'); ?>',
-				contract: '<?php _e('Who demonistrate innovation in contract monitoring & use', 'ocp'); ?>',
+				contract: '<?php _e('Who demonstrate innovation in contract monitoring & use', 'ocp'); ?>',
 			}
 		}
 
