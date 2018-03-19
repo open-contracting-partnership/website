@@ -119,6 +119,10 @@
 
 					let keep = true;
 
+					if ( this.filters.all === false ) {
+						keep = false;
+					}
+
 					if ( this.filters.ocds && ! country.filter_ocds ) {
 						keep = false;
 					}
