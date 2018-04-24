@@ -45,6 +45,7 @@
 
 			&[data-icon="plus"] {
 				font-size: em(8, 18);
+				transform: rotate(45deg);
 			}
 
 			&[data-icon="tick"] {
