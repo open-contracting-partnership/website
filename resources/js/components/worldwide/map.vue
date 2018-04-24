@@ -15,7 +15,13 @@
 				</transition>
 
 				<div class="map-controls__middle">
+
 					<country-search @change="setCountry" />
+
+					<div class="map-table" v-if="display_table">
+						<data-table />
+					</div>
+
 				</div>
 
 				<transition name="map-country">
@@ -78,7 +84,7 @@
 
 			display_filter() {
 
-				if ( this.$route.name !== 'map' ) {
+				if ( ['map', 'table'].indexOf(this.$route.name) === -1 ) {
 					return false;
 				}
 
@@ -88,6 +94,10 @@
 
 				return this.show_filter;
 
+			},
+
+			display_table() {
+				return this.$route.name === 'table';
 			},
 
 			can_load_map() {
@@ -368,11 +378,15 @@
 			setMap() {
 
 				mapboxgl.accessToken = 'pk.eyJ1IjoidGhlaWRlYWJ1cmVhdSIsImEiOiJVaU9wVmlVIn0.OCGZoNkQ1GU3vOMwspFvBw';
+
 				this.map = new mapboxgl.Map({
 					container: 'map',
 					style: 'mapbox://styles/theideabureau/cj98q867x2m1x2slgf3d860hl',
 					zoom: 1.3
 				});
+
+				// disable mouse wheel scrolling
+				this.map.scrollZoom.disable();
 
 				this.map.once('load', function() {
 
@@ -508,7 +522,6 @@
 			overflow: hidden;
 			display: flex;
 			justify-content: flex-end;
-			border-right: 1px solid color('lighter-grey');
 
 		}
 
@@ -523,10 +536,10 @@
 			}
 
 
-
 		.map-controls__middle {
 
 			flex: 1 1 100%;
+			position: relative;
 			padding: spacing(5);
 			display: flex;
 			justify-content: center;
@@ -554,7 +567,6 @@
 			overflow: hidden;
 			display: flex;
 			justify-content: start;
-			border-left: 1px solid color('lighter-grey');
 
 		}
 
@@ -569,8 +581,22 @@
 			}
 
 
+	.map-table {
 
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: color('white');
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		padding: spacing(2) spacing(1);
 
+		@include from(ML) {
+			padding: spacing(3) spacing(2) spacing(2) 0;
+		}
 
+	}
 
 </style>

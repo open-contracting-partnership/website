@@ -25,14 +25,16 @@ table {
 
 th,
 td {
+
 	width: 100px;
 	text-align: left;
-	padding: 20px 24px;
+	padding: spacing(2);
 	vertical-align: top;
-}
 
-tbody td {
-	padding: 24px;
+	@include from(ML) {
+		padding: spacing(2) spacing(3);
+	}
+
 }
 
 td {

@@ -49,6 +49,61 @@ const getters = {
 
 	},
 
+	agencies(state, getters) {
+
+		let agencies = [];
+
+		_.each(getters.countries, function(country) {
+
+			_.each(country.publishers, function(publisher) {
+
+				let agency = {
+					country: country,
+					name: publisher.publisher,
+					url: publisher.publisher_link
+				};
+
+				let status = null;
+
+				if ( typeof publisher.ocds_historic_data && publisher.ocds_historic_data === true ) {
+
+					status = {
+						slug: 'historic',
+						name: 'Historic'
+					}
+
+				}
+
+				if ( typeof publisher.ocds_implementation && publisher.ocds_implementation === true ) {
+
+					status = {
+						slug: 'implementation',
+						name: 'Implementation'
+					}
+
+				}
+
+				if ( typeof publisher.ocds_ongoing_data && publisher.ocds_ongoing_data === true ) {
+
+					status = {
+						slug: 'ongoing',
+						name: 'Ongoing'
+					}
+
+				}
+
+				agency.status = status;
+
+				agencies.push(agency);
+
+			});
+
+		});
+
+		return agencies;
+
+	},
+
 	geo_countries(state, getters) {
 		return state.countries;
 	},

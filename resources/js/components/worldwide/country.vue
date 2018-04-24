@@ -143,11 +143,16 @@
 	@import "../../../scss/_bootstrap.scss";
 
 	.map-country {
+
 		background-color: color('white');
 		height: 100%;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
-		min-width: 599px;
+
+		@include from(L) {
+			min-width: 599px;
+		}
+
 	}
 
 		.map-country__inner {

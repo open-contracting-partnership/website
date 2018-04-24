@@ -17,6 +17,7 @@ import store from './components/worldwide/store'
 Vue.component('flag', require('./components/flag.vue'));
 Vue.component('tick', require('./components/worldwide/tick.vue'));
 Vue.component('country', require('./components/worldwide/country.vue'));
+Vue.component('data-table', require('./components/worldwide/table.vue'));
 Vue.component('ocds-status', require('./components/worldwide/ocds-status.vue'));
 Vue.component('country-search', require('./components/worldwide/search.vue'));
 Vue.component('country-filter', require('./components/worldwide/filter.vue'));
@@ -30,9 +31,12 @@ const router = new VueRouter({
 			component: require('./components/worldwide/map.vue'),
 			children: [
 				{
+					name: 'table',
+					path: 'table'
+				},
+				{
 					name: 'country',
-					path: ':code',
-					component: require('./components/worldwide/country.vue')
+					path: ':code'
 				}
 			]
 		}

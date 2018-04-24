@@ -4,6 +4,20 @@
 
 		<div class="map-filter__inner" v-if="content">
 
+			<div class="map-view-toggle">
+
+				<span class="map-view-toggle__item" @click="showTable()">
+					<span v-html="content.table_view" />
+					<svg><use xlink:href="#icon-table" /></svg>
+				</span>
+
+				<span class="map-view-toggle__item" @click="showMap()">
+					<span v-html="content.map_view" />
+					<svg><use xlink:href="#icon-target" /></svg>
+				</span>
+
+			</div>
+
 			<button class="map-filter__close" @click="closeFilter()">
 				<svg><use xlink:href="#icon-close" /></svg>
 			</button>
@@ -75,11 +89,27 @@
 		methods: {
 
 			...mapActions([
-				'toggleFilter',
+				'toggleFilter'
 			]),
 
 			closeFilter() {
 				this.$emit('closeFilter');
+			},
+
+			showTable() {
+
+				this.$router.push({
+					name: 'table'
+				})
+
+			},
+
+			showMap() {
+
+				this.$router.push({
+					name: 'map'
+				})
+
 			}
 
 		},
@@ -223,5 +253,37 @@
 			}
 
 		}
+
+
+	.map-view-toggle {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		margin-bottom: spacing(2);
+	}
+
+		.map-view-toggle__item {
+
+			@include font-size(14);
+			@include font('primary', 'semibold');
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+
+			&:not(:last-child) {
+				margin-right: spacing(2);
+			}
+
+			> svg {
+				font-size: 16px;
+				width: 1em;
+				height: 1em;
+				fill: currentColor;
+				margin-left: spacing(.5);
+			}
+
+		}
+
+	// map-view-toggle__item
 
 </style>

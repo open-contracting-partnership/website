@@ -1,28 +1,36 @@
 <template>
 
-	<div class="country-search" v-bind:class="{ 'country-search--is-open': is_open }" @click.prevent>
+	<div class="country-search__container">
 
-		<div class="country-search__input">
-			<input type="text" :placeholder="placeholder" v-model="filter" ref="input" @focus="open" @blur="blur" @keydown.up.prevent="moveUp" @keydown.down.prevent="moveDown" @keyup.enter="change" @keyup.esc="close" />
-			<svg><use xlink:href="#icon-search" /></svg>
-		</div>
+		<div class="country-search" v-bind:class="{ 'country-search--is-open': is_open }" @click.prevent>
 
-		<div class="country-search__results">
+			<div class="country-search__input">
+				<input type="text" :placeholder="placeholder" v-model="filter" ref="input" @focus="open" @blur="blur" @keydown.up.prevent="moveUp" @keydown.down.prevent="moveDown" @keyup.enter="change" @keyup.esc="close" />
+				<svg><use xlink:href="#icon-search" /></svg>
+			</div>
 
-			<ul class="country-search__list" v-if="is_open === true && filtered_countries.length > 0" @mouseover="mouseOver" @mouseout="mouseOut">
+			<router-link class="country-search__table" :to="{ name: 'table' }">
+				<svg><use xlink:href="#icon-table" /></svg>
+			</router-link>
 
-				<li v-for="(country, index) in filtered_countries" v-bind:class="{ disabled: country.available === false, focus: index === focus}" @click="change" @mouseover="hover(index)">
+			<div class="country-search__results" v-if="is_open === true && filtered_countries.length > 0">
 
-					<flag :code="country.code" />
+				<ul class="country-search__list" @mouseover="mouseOver" @mouseout="mouseOut">
 
-					<div>
-						{{ country.name }}
-						<span v-if="country.available === false" class="country-search__no-data">(No data yet)</span>
-					</div>
+					<li v-for="(country, index) in filtered_countries" v-bind:class="{ disabled: country.available === false, focus: index === focus}" @click="change" @mouseover="hover(index)">
 
-				</li>
+						<flag :code="country.code" />
 
-			</ul>
+						<div>
+							{{ country.name }}
+							<span v-if="country.available === false" class="country-search__no-data">(No data yet)</span>
+						</div>
+
+					</li>
+
+				</ul>
+
+			</div>
 
 		</div>
 
@@ -166,17 +174,32 @@
 	// ATTN: this is not ideal, but webpack aliases aren't working
 	@import "../../../scss/_bootstrap.scss";
 
+	.country-search__container {
+		width: 100%;
+		max-width: spacing(42);
+	}
+
 	.country-search {
 		background-color: color('white');
 		border: 1px solid color('body');
-		padding: spacing(.5) spacing(1);
-		width: spacing(42);
-		max-width: 100%;
+		max-width: spacing(42);
+		display: flex;
+		flex-wrap: wrap;
 	}
 
 		.country-search__input {
+
 			display: flex;
 			align-items: center;
+			flex-grow: 0;
+			flex-shrink: 0;
+			flex-basis: calc(100% - 33px);
+			padding: spacing(.5) spacing(1);
+
+			@include from(ML) {
+				flex-basis: 100%;
+			}
+
 		}
 
 			.country-search__input input {
@@ -209,7 +232,6 @@
 
 			}
 
-
 			.country-search__input > svg {
 				font-size: 16px;
 				width: 1em;
@@ -218,10 +240,34 @@
 				flex: 0 0 1em;
 			}
 
+		.country-search__table {
+
+			display: flex;
+			flex: 0 0 33px;
+			justify-content: center;
+			align-items: center;
+			border-left: 1px solid color('body');
+			cursor: pointer;
+
+			@include from(ML) {
+				display: none;
+			}
+
+		}
+
+			.country-search__table > svg {
+				font-size: 16px;
+				width: 1em;
+				height: 1em;
+				fill: color('body');
+			}
+
 		.country-search__results {
 			max-height: spacing(25);
 			overflow-y: auto;
 			-webkit-overflow-scrolling: touch;
+			border-top: 1px solid color('body');
+			flex: 0 0 100%;
 		}
 
 		.country-search__list {

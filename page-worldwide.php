@@ -10,6 +10,8 @@
 		const content = {
 			title: '<?php the_title(); ?>',
 			content: `<?php the_content(); ?>`,
+			table_view: '<?php _e('Table view', 'ocp'); ?>',
+			map_view: '<?php _e('Map view', 'ocp'); ?>',
 			filter: {
 				all: '<?php _e('Active countries…', 'ocp'); ?>',
 				ocds: '<?php _e('Who are using the Open Contracting Data Standard', 'ocp'); ?>',
