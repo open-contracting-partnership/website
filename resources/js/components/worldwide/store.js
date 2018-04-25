@@ -51,14 +51,13 @@ const getters = {
 
 	agencies(state, getters) {
 
-		let agencies = [];
+		let countries = {};
 
 		_.each(getters.countries, function(country) {
 
 			_.each(country.publishers, function(publisher) {
 
 				let agency = {
-					country: country,
 					name: publisher.publisher,
 					url: publisher.publisher_link
 				};
@@ -94,13 +93,22 @@ const getters = {
 
 				agency.status = status;
 
-				agencies.push(agency);
+				if ( typeof countries[country.iso_a2.toLowerCase()] === 'undefined' ) {
+
+					countries[country.iso_a2.toLowerCase()] = {
+						country: country,
+						agencies: []
+					};
+
+				}
+
+				countries[country.iso_a2.toLowerCase()].agencies.push(agency);
 
 			});
 
 		});
 
-		return agencies;
+		return countries;
 
 	},
 
