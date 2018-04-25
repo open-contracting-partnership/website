@@ -18,9 +18,19 @@
 
 					<country-search @change="setCountry" />
 
-					<div class="map-table" v-if="display_table">
-						<data-table />
+					<div class="map-zoom">
+
+						<span @click="zoomIn">
+							<svg><use xlink:href="#icon-plus" /></svg>
+						</span>
+
+						<span @click="zoomOut">
+							<svg><use xlink:href="#icon-minus" /></svg>
+						</span>
+
 					</div>
+
+					<data-table v-if="display_table" />
 
 				</div>
 
@@ -439,6 +449,14 @@
 					}
 				})
 
+			},
+
+			zoomIn() {
+				this.map.zoomIn();
+			},
+
+			zoomOut() {
+				this.map.zoomOut();
 			}
 
 		},
@@ -552,6 +570,38 @@
 
 		}
 
+		.map-zoom {
+
+			position: absolute;
+
+			@include upto(910) {
+				bottom: spacing(5);
+				right: spacing(2);
+			}
+
+			@include from(910) {
+				top: spacing(5);
+				right: spacing(5);
+			}
+
+			span {
+				border: 1px solid color('body');
+				background-color: color('white');
+				display: block;
+				padding: 4px;
+				margin-bottom: 4px;
+				cursor: pointer;
+			}
+
+			span > svg {
+				font-size: 8px;
+				width: 1em;
+				height: 1em;
+				display: block;
+			}
+
+		}
+
 		.map-controls__country {
 
 			@include upto(M) {
@@ -579,24 +629,5 @@
 			.map-country-leave-to {
 				flex-basis: 0;
 			}
-
-
-	.map-table {
-
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background-color: color('white');
-		overflow-y: auto;
-		-webkit-overflow-scrolling: touch;
-		padding: spacing(2) spacing(1);
-
-		@include from(ML) {
-			padding: spacing(3) spacing(2) spacing(2) 0;
-		}
-
-	}
 
 </style>
