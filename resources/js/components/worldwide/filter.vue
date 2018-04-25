@@ -147,7 +147,7 @@
 		position: relative;
 
 		@include from(L) {
-			padding: spacing(3);
+			padding: spacing(5) spacing(3);
 		}
 
 	}
@@ -188,6 +188,7 @@
 
 			@include from(ML) {
 				@include font-size(42);
+				margin-bottom: spacing(3);
 			}
 
 		}
@@ -195,9 +196,10 @@
 		.map-filter__strap {
 
 			@include font-size(16);
+			margin-bottom: spacing(8);
 
-			@include from(ML) {
-				@include font-size(18);
+			> :last-child {
+				margin-bottom: 0;
 			}
 
 		}
@@ -259,7 +261,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		margin-bottom: spacing(2);
+		margin-bottom: spacing(4);
 	}
 
 		.map-view-toggle__item {
