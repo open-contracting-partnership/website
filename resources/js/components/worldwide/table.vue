@@ -197,10 +197,10 @@
 				border-right-width: 1px;
 			}
 
-			tr:last-child & {
-   				border-bottom-width: 1px;
-			}
+		}
 
+		tr:last-child td {
+			border-bottom-width: 1px;
 		}
 
 		th, td {
