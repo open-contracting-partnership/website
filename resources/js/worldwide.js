@@ -26,14 +26,15 @@ Vue.component('country-filter', require('./components/worldwide/filter.vue'));
 const router = new VueRouter({
 	routes: [
 		{
+			name: 'table',
+			path: '/table',
+			component: require('./components/worldwide/table.vue'),
+		},
+		{
 			name: 'map',
 			path: '/',
 			component: require('./components/worldwide/map.vue'),
 			children: [
-				{
-					name: 'table',
-					path: 'table'
-				},
 				{
 					name: 'country',
 					path: ':code'

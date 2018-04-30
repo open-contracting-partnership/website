@@ -96,18 +96,13 @@
 
 	.map-table {
 
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
 		background-color: color('white');
 		display: flex;
 		flex-direction: column;
 		padding: spacing(2) spacing(1);
 
 		@include from(ML) {
-			padding: spacing(3) spacing(2) spacing(2) 0;
+			padding: spacing(3) spacing(2);
 		}
 
 	}
