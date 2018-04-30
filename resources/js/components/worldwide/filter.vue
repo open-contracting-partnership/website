@@ -1,79 +1,75 @@
 <template>
 
-	<div class="map-filter">
+	<div class="map-filter" v-if="content">
 
-		<div class="map-filter__inner" v-if="content">
+		<div class="map-view-toggle">
 
-			<div class="map-view-toggle">
+			<span class="map-view-toggle__item" @click="showTable()">
+				<span v-html="content.table_view" />
+				<svg><use xlink:href="#icon-table" /></svg>
+			</span>
 
-				<span class="map-view-toggle__item" @click="showTable()">
-					<span v-html="content.table_view" />
-					<svg><use xlink:href="#icon-table" /></svg>
-				</span>
+			<span class="map-view-toggle__item" @click="showMap()">
+				<span v-html="content.map_view" />
+				<svg><use xlink:href="#icon-target" /></svg>
+			</span>
 
-				<span class="map-view-toggle__item" @click="showMap()">
-					<span v-html="content.map_view" />
-					<svg><use xlink:href="#icon-target" /></svg>
-				</span>
+		</div>
 
-			</div>
+		<button class="map-filter__close" @click="closeFilter()">
+			<svg><use xlink:href="#icon-close" /></svg>
+		</button>
 
-			<button class="map-filter__close" @click="closeFilter()">
-				<svg><use xlink:href="#icon-close" /></svg>
-			</button>
+		<h1 class="map-filter__title" v-html="content.title" />
+		<div class="map-filter__strap" v-html="content.content" />
 
-			<h1 class="map-filter__title" v-html="content.title" />
-			<div class="map-filter__strap" v-html="content.content" />
+		<div class="map-filter__controls">
 
-			<div class="map-filter__controls">
+			<label class="filter-control__all" @click="toggleFilter('all')">
+				<tick :checked="filters.all" />
+				<span v-html="content.filter.all" />
+			</label>
 
-				<label class="filter-control__all" @click="toggleFilter('all')">
-					<tick :checked="filters.all" />
-					<span v-html="content.filter.all" />
+			<label @click="toggleFilter('ocds')">
+				<tick :checked="filters.ocds" />
+				<span v-html="content.filter.ocds" />
+			</label>
+
+				<label class="filter-control__child" @click="toggleFilter('ocds_ongoing')">
+					<tick :checked="filters.ocds_ongoing" size="small" />
+					<span>
+						<strong v-html="content.filter.ocds_status" />
+						<ocds-status status="ongoing" />
+					</span>
 				</label>
 
-				<label @click="toggleFilter('ocds')">
-					<tick :checked="filters.ocds" />
-					<span v-html="content.filter.ocds" />
+				<label class="filter-control__child" @click="toggleFilter('ocds_implementation')">
+					<tick :checked="filters.ocds_implementation" size="small" />
+					<span>
+						<strong v-html="content.filter.ocds_status" />
+						<ocds-status status="implementation" />
+					</span>
 				</label>
 
-					<label class="filter-control__child" @click="toggleFilter('ocds_ongoing')">
-						<tick :checked="filters.ocds_ongoing" size="small" />
-						<span>
-							<strong v-html="content.filter.ocds_status" />
-							<ocds-status status="ongoing" />
-						</span>
-					</label>
-
-					<label class="filter-control__child" @click="toggleFilter('ocds_implementation')">
-						<tick :checked="filters.ocds_implementation" size="small" />
-						<span>
-							<strong v-html="content.filter.ocds_status" />
-							<ocds-status status="implementation" />
-						</span>
-					</label>
-
-					<label class="filter-control__child" @click="toggleFilter('ocds_historic')">
-						<tick :checked="filters.ocds_historic" size="small" />
-						<span>
-							<strong v-html="content.filter.ocds_status" />
-							<ocds-status status="historic" />
-						</span>
-					</label>
-
-				<label @click="toggleFilter('commitments')">
-					<tick :checked="filters.commitments" />
-					<span v-html="content.filter.commitments" />
+				<label class="filter-control__child" @click="toggleFilter('ocds_historic')">
+					<tick :checked="filters.ocds_historic" size="small" />
+					<span>
+						<strong v-html="content.filter.ocds_status" />
+						<ocds-status status="historic" />
+					</span>
 				</label>
 
-				<label @click="toggleFilter('innovations')">
-					<tick :checked="filters.innovations" />
-					<span v-html="content.filter.contract" />
-				</label>
+			<label @click="toggleFilter('commitments')">
+				<tick :checked="filters.commitments" />
+				<span v-html="content.filter.commitments" />
+			</label>
 
-			</div>
+			<label @click="toggleFilter('innovations')">
+				<tick :checked="filters.innovations" />
+				<span v-html="content.filter.contract" />
+			</label>
 
-		</div> <!-- / .map-filter__inner -->
+		</div>
 
 	</div> <!-- / .map-filter -->
 
@@ -133,24 +129,22 @@
 	@import "../../../scss/_bootstrap.scss";
 
 	.map-filter {
+
+		position: relative;
 		z-index: 10;
 		background-color: color('white');
-		height: 100%;
-		overflow-y: auto;
-		-webkit-overflow-scrolling: touch;
-		min-width: 384px;
-	}
-
-	.map-filter__inner {
-
 		padding: spacing(2);
-		position: relative;
+
+		@include from(ML) {
+			min-width: 384px;
+		}
 
 		@include from(L) {
 			padding: spacing(5) spacing(3);
 		}
 
 	}
+
 
 		.map-filter__close {
 
@@ -161,7 +155,7 @@
 			border: none;
 			background: none;
 
-			@include from(M) {
+			@include from(ML) {
 				display: none;
 			}
 
@@ -196,7 +190,11 @@
 		.map-filter__strap {
 
 			@include font-size(16);
-			margin-bottom: spacing(8);
+			margin-bottom: spacing(6);
+
+			@include from(ML) {
+				margin-bottom: spacing(8);
+			}
 
 			> :last-child {
 				margin-bottom: 0;
@@ -258,10 +256,16 @@
 
 
 	.map-view-toggle {
+
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
 		margin-bottom: spacing(4);
+
+		@include upto(ML) {
+			display: none;
+		}
+
 	}
 
 		.map-view-toggle__item {

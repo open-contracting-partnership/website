@@ -6,13 +6,9 @@
 
 			<div class="map-controls">
 
-				<transition name="map-filter">
-
-					<div class="map-controls__filter" v-if="display_filter">
-						<country-filter @closeFilter="show_filter = false" />
-					</div>
-
-				</transition>
+				<div ref="filter" class="map-controls__filter" v-bind:class="{ 'open': display_filter }">
+					<country-filter @closeFilter="show_filter = false" />
+				</div>
 
 				<div class="map-controls__middle">
 
@@ -30,22 +26,18 @@
 
 					</div>
 
-					<data-table v-if="display_table" />
-
 				</div>
 
-				<transition name="map-country">
+				<div ref="country" class="map-controls__country" v-bind:class="{ 'open': selected_country }">
+					<country v-if="selected_country" />
+				</div>
 
-					<div class="map-controls__country" v-if="selected_country">
-						<country />
-					</div>
+			</div> <!-- / .map-controls -->
 
-				</transition>
-
+			<div class="mapbox-container">
+				<link href='/wp-content/themes/ocp-v1/node_modules/mapbox-gl/dist/mapbox-gl.css' rel='stylesheet' />
+				<div id='map'></div>
 			</div>
-
-			<link href='/wp-content/themes/ocp-v1/node_modules/mapbox-gl/dist/mapbox-gl.css' rel='stylesheet' />
-			<div id='map'></div>
 
 		</div>
 
@@ -71,6 +63,7 @@
 				map_loaded: false,
 				show_filter: false,
 				is_mobile: false,
+				screen_width: 0
 			}
 
 		},
@@ -379,6 +372,18 @@
 
 				deep: true
 
+			},
+
+			screen_width() {
+
+				let height = this.$refs.filter.offsetHeight + 'px';
+
+				if ( this.is_mobile ) {
+					height = 'auto';
+				}
+
+				this.$refs.country.style.height = height;
+
 			}
 
 		},
@@ -464,14 +469,25 @@
 		mounted() {
 
 			var resizeThrottled = _.throttle(function() {
-				this.is_mobile = window.innerWidth <= 800;
+				this.is_mobile = window.innerWidth <= 810;
+				this.screen_width = window.innerWidth;
 			}.bind(this), 500);
 
 			window.addEventListener('resize', resizeThrottled);
 
-			resizeThrottled();
+			this.$nextTick(function () {
 
-			this.setMap();
+				// delay the map just so, primarily to make
+				// sure the correct sizes are used
+				setTimeout(() => {
+
+					resizeThrottled();
+
+					this.setMap();
+
+				}, 50);
+
+			});
 
 		}
 
@@ -485,9 +501,18 @@
 	@import "../../../scss/_bootstrap.scss";
 
 	.map__container {
-		flex: 1 1 100%;
+
 		display: flex;
 		flex-direction: column;
+
+		@include upto(M) {
+			min-height: calc(100vh - 74px);
+		}
+
+		@include between(M, ML) {
+			min-height: calc(100vh - 82px);
+		}
+
 	}
 
 	.map {
@@ -497,62 +522,75 @@
 		flex-direction: column;
 	}
 
-	[id="map"] {
-		flex: 1 1 100%;
+	.mapbox-container {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
 	}
 
+	[id="map"] {
+		height: 100%;
+	}
 
 	.map__filter-cta {
 
 		flex: 0 0 auto;
 		margin-bottom: 0;
 
-		@include from(M) {
+		@include from(ML) {
 			display: none;
 		}
 
 	}
 
 	.map-controls {
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
+
 		z-index: 9;
 		display: flex;
 		justify-content: space-between;
 		pointer-events: none;
+
+		@include from(ML) {
+			min-height: 50vw;
+		}
+
 	}
 
 		.map-controls__filter {
-
-			@include upto(M) {
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-			}
 
 			flex: 0 0 385px;
 			pointer-events: all;
 			overflow: hidden;
 			display: flex;
 			justify-content: flex-end;
+			transition: flex-basis 1s ease;
+			background-color: color('white');
+
+			@include upto(ML) {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				overflow-y: auto;
+				-webkit-overflow-scrolling: touch;
+			}
+
+			&:not(.open) {
+
+				@include upto(ML) {
+					display: none;
+				}
+
+				@include from(ML) {
+					flex-basis: 0;
+				}
+
+			}
 
 		}
-
-			.map-filter-enter-active,
-			.map-filter-leave-active {
-				transition: flex-basis 1s ease;
-			}
-
-			.map-filter-enter,
-			.map-filter-leave-to {
-				flex-basis: 0;
-			}
-
 
 		.map-controls__middle {
 
@@ -563,6 +601,14 @@
 			justify-content: center;
 			align-items: flex-start;
 			pointer-events: none;
+
+			@include upto(ML) {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			}
 
 			> * {
 				pointer-events: all;
@@ -604,7 +650,7 @@
 
 		.map-controls__country {
 
-			@include upto(M) {
+			@include upto(ML) {
 				position: absolute;
 				top: 0;
 				right: 0;
@@ -617,17 +663,20 @@
 			overflow: hidden;
 			display: flex;
 			justify-content: start;
+			transition: flex-basis 1s ease;
+
+			&:not(.open) {
+
+				@include upto(ML) {
+					display: none;
+				}
+
+				@include from(ML) {
+					flex-basis: 0;
+				}
+
+			}
 
 		}
-
-			.map-country-enter-active,
-			.map-country-leave-active {
-				transition: flex-basis 1s ease;
-			}
-
-			.map-country-enter,
-			.map-country-leave-to {
-				flex-basis: 0;
-			}
 
 </style>

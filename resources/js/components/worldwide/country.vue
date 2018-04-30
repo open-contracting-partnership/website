@@ -148,6 +148,7 @@
 		height: 100%;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
+		width: 100%;
 
 		@include from(L) {
 			min-width: 599px;
