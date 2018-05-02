@@ -145,7 +145,28 @@ const mutations = {
 	},
 
 	toggleFilter(state, filter) {
+
 		state.filters[filter] = ! state.filters[filter];
+
+		// ocds parent trigger
+		if ( filter === 'ocds' ) {
+			state.filters['ocds_ongoing'] = state.filters['ocds'];
+			state.filters['ocds_implementation'] = state.filters['ocds'];
+			state.filters['ocds_historic'] = state.filters['ocds'];
+		}
+
+		// ocds child trigger
+		if ( ['ocds_ongoing', 'ocds_implementation', 'ocds_historic'].indexOf(filter) !== -1 ) {
+
+			const enabled = state.filters['ocds_ongoing']
+				|| state.filters['ocds_implementation']
+				|| state.filters['ocds_historic'];
+
+			state.filters['ocds'] = enabled;
+
+		}
+
+
 	}
 
 }
