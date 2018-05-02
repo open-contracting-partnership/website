@@ -235,22 +235,6 @@
 
 		watch: {
 
-			filter(new_value, old_value) {
-
-				if ( this.filter === 'ocds' && ! this.ocds_any ) {
-					this.ocds.ongoing = true;
-					this.ocds.implemented = true;
-					this.ocds.historic = true;
-				}
-
-				if ( this.filter !== 'ocds' ) {
-					this.ocds.ongoing = false;
-					this.ocds.implemented = false;
-					this.ocds.historic = false;
-				}
-
-			},
-
 			can_load_map() {
 
 				this.map.addSource('countries', {
