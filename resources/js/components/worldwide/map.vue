@@ -109,6 +109,8 @@
 
 			mapbox_filters() {
 
+				let anything = _.contains(this.filters, true);
+
 				let filters = {
 					active: [],
 					inactive: [],
@@ -117,110 +119,62 @@
 					ocds_ongoing: []
 				}
 
-				// get initial pool with a deep copy
-				let base_countries = _.map(this.countries, _.clone);
+				_.each(this.countries, (country) => {
 
-				base_countries = _.filter(base_countries, (country) => {
-					return country.has_data;
+					const code = country.iso_a2;
+
+					// OCDS ongoing
+					if ( this.filters.ocds_ongoing && country.filter_ocds_ongoing ) {
+						filters.ocds_ongoing.push(code);
+						return;
+					}
+
+					// OCDS implementation
+					if ( this.filters.ocds_implementation && country.filter_ocds_implementation ) {
+						filters.ocds_implementation.push(code);
+						return;
+					}
+
+					// OCDS historic
+					if ( this.filters.ocds_historic && country.filter_ocds_historic ) {
+						filters.ocds_historic.push(code);
+						return;
+					}
+
+					// OCDS catch-all
+					if ( this.filters.ocds && country.filter_ocds ) {
+						filters.active.push(code);
+						return;
+					}
+
+					// commitments
+					if ( this.filters.commitments && country.filter_commitments ) {
+						filters.active.push(code);
+						return;
+					}
+
+					// innovations
+					if ( this.filters.innovations && country.filter_innovations ) {
+						filters.active.push(code);
+						return;
+					}
+
+					if ( this.filters.all && country.has_data ) {
+						filters.active.push(code);
+						return;
+					}
+
+					// if we've sailed through to here, the country is inactive
+					filters.inactive.push(code);
+
 				});
-
-
-				 //*******
-				// ACTIVE
-
-				filters.active = _.filter(base_countries, (country) => {
-
-					let keep = true;
-
-					if ( this.filters.all === false ) {
-						keep = false;
-					}
-
-					if ( this.filters.ocds && ! country.filter_ocds ) {
-						keep = false;
-					}
-
-					if ( this.filters.commitments && ! country.filter_commitments ) {
-						keep = false;
-					}
-
-					if ( this.filters.innovations && ! country.filter_innovations ) {
-						keep = false;
-					}
-
-					return keep;
-
-				});
-
-
-				 //*********
-				// INACTIVE
-
-				filters.active.forEach((country) => {
-
-					const index = _.findIndex(base_countries, (base_country) => {
-						return base_country.iso_a2 === country.iso_a2;
-					});
-
-					if ( index !== -1 ) {
-						base_countries.splice(index, 1);
-					}
-
-				});
-
-				filters.inactive = base_countries;
-
-
-				 //*****
-				// OCDS
-
-				if ( this.filters.ocds_ongoing ) {
-
-					filters.active.forEach((country, index) => {
-
-						if ( country.filter_ocds_ongoing ) {
-							filters.ocds_ongoing.push(country);
-							filters.active.splice(index, 1);
-						}
-
-					});
-
-				}
-
-				if ( this.filters.ocds_implementation ) {
-
-					filters.active.forEach((country, index) => {
-
-						if ( country.filter_ocds_implementation ) {
-							filters.ocds_implementation.push(country);
-							filters.active.splice(index, 1);
-						}
-
-					});
-
-				}
-
-				if ( this.filters.ocds_historic ) {
-
-					filters.active.forEach((country, index) => {
-
-						if ( country.filter_ocds_historic ) {
-							filters.ocds_historic.push(country);
-							filters.active.splice(index, 1);
-						}
-
-					});
-
-				}
-
-
 
 				_.each(filters, (filter, index) => {
 
 					let mb_filters = [];
 
-					filter.forEach((item) => {
-						mb_filters.push(['==', 'iso_a2', item.iso_a2]);
+					filter.forEach((code) => {
+						mb_filters.push(['==', 'iso_a2', code]);
 					});
 
 					filters[index] = mb_filters;
@@ -450,7 +404,13 @@
 
 			zoomOut() {
 				this.map.zoomOut();
+			},
+
+
+			toggleOcdsParent() {
+
 			}
+
 
 		},
 
