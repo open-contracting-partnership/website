@@ -415,17 +415,21 @@
 
 			setMapStyles() {
 
-				// loop through the available filters and apply either the filter or a bank
-				_.each(this.mapbox_filters, (filter, key) => {
+				if ( this.map_loaded ) {
 
-					// always unset filter to enforce the correct layer order
-					this.map.setFilter('ocp-country-' + key.replace('_', '-') + '-fill', ['==', 'name', '']);
+					// loop through the available filters and apply either the filter or a bank
+					_.each(this.mapbox_filters, (filter, key) => {
 
-					if ( filter.length ) {
-						this.map.setFilter('ocp-country-' + key.replace('_', '-') + '-fill', ['any'].concat(filter));
-					}
+						// always unset filter to enforce the correct layer order
+						this.map.setFilter('ocp-country-' + key.replace('_', '-') + '-fill', ['==', 'name', '']);
 
-				});
+						if ( filter.length ) {
+							this.map.setFilter('ocp-country-' + key.replace('_', '-') + '-fill', ['any'].concat(filter));
+						}
+
+					});
+
+				}
 
 			},
 
