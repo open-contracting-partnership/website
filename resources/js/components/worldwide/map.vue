@@ -109,7 +109,12 @@
 
 			mapbox_filters() {
 
-				let anything = _.contains(this.filters, true);
+				const others = this.filters.ocds
+					|| this.filters.ocds_ongoing
+					|| this.filters.ocds_implementation
+					|| this.filters.ocds_historic
+					|| this.filters.commitments
+					|| this.filters.innovations;
 
 				let filters = {
 					active: [],
@@ -159,7 +164,12 @@
 						return;
 					}
 
-					if ( this.filters.all && country.has_data ) {
+					// if only "all" has been selected, but nothing else, but
+					// the country has data, show this as active. this prevents
+					// situations where ocds is enabled but so are all active
+					// countries
+
+					if ( this.filters.all && ! others && country.has_data ) {
 						filters.active.push(code);
 						return;
 					}
@@ -404,13 +414,7 @@
 
 			zoomOut() {
 				this.map.zoomOut();
-			},
-
-
-			toggleOcdsParent() {
-
 			}
-
 
 		},
 
