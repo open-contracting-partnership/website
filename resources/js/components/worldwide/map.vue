@@ -454,11 +454,10 @@
 
 	.map__container {
 
-		display: flex;
-		flex-direction: column;
-
 		@include upto(M) {
 			min-height: calc(100vh - 74px);
+			display: flex;
+			flex-direction: column;
 		}
 
 		@include between(M, ML) {
