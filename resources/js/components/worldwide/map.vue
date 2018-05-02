@@ -78,11 +78,11 @@
 			]),
 
 			ocds_all() {
-				return this.ocds.ongoing && this.ocds.implemented && this.ocds.historic;
+				return this.filters.ocds_ongoing && this.filters.ocds_implementation && this.filters.ocds_historic;
 			},
 
 			ocds_any() {
-				return this.ocds.ongoing || this.ocds.implemented || this.ocds.historic;
+				return this.filters.ocds_ongoing || this.filters.ocds_implementation || this.filters.ocds_historic;
 			},
 
 			display_filter() {
