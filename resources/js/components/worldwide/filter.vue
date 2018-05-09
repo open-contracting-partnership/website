@@ -39,7 +39,7 @@
 					<tick :checked="filters.ocds_ongoing" size="small" />
 					<span>
 						<strong v-html="content.filter.ocds_status" />
-						<ocds-status status="ongoing" />
+						<ocds-status status="ongoing" :label="content.filter.ocds_ongoing" />
 					</span>
 				</label>
 
@@ -47,7 +47,7 @@
 					<tick :checked="filters.ocds_implementation" size="small" />
 					<span>
 						<strong v-html="content.filter.ocds_status" />
-						<ocds-status status="implementation" />
+						<ocds-status status="implementation" :label="content.filter.ocds_implementation" />
 					</span>
 				</label>
 
@@ -55,7 +55,7 @@
 					<tick :checked="filters.ocds_historic" size="small" />
 					<span>
 						<strong v-html="content.filter.ocds_status" />
-						<ocds-status status="historic" />
+						<ocds-status status="historic" :label="content.filter.ocds_historic" />
 					</span>
 				</label>
 

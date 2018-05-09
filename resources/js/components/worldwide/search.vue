@@ -23,7 +23,7 @@
 
 						<div>
 							{{ country.name }}
-							<span v-if="country.available === false" class="country-search__no-data">(No data yet)</span>
+							<span v-if="country.available === false" class="country-search__no-data" v-html="content.search.no_data"></span>
 						</div>
 
 					</li>
@@ -47,7 +47,7 @@
 
 		props: {
 			placeholder: {
-				default: 'Find Country',
+				default: 'Search',
 				type: String
 			}
 		},
@@ -74,6 +74,7 @@
 		computed: {
 
 			...mapGetters([
+				'content',
 				'countries'
 			]),
 

@@ -12,7 +12,7 @@
 
 				<div class="map-controls__middle">
 
-					<country-search @change="setCountry" />
+					<country-search @change="setCountry" :placeholder="content.search.placeholder" />
 
 					<div class="map-zoom">
 
@@ -41,8 +41,8 @@
 
 		</div>
 
-		<button class="button button--dark / map__filter-cta" v-if="! show_filter" @click.prevent="show_filter = ! show_filter">Filter Options</button>
-		<button class="button button--brand / map__filter-cta" v-if="show_filter" @click.prevent="show_filter = ! show_filter">Close</button>
+		<button class="button button--dark / map__filter-cta" v-if="! show_filter" @click.prevent="show_filter = ! show_filter" v-html="content.map.filter"></button>
+		<button class="button button--brand / map__filter-cta" v-if="show_filter" @click.prevent="show_filter = ! show_filter" v-html="content.map.close"></button>
 
 	</div>
 

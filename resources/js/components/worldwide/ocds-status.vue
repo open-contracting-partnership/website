@@ -7,25 +7,7 @@
 	import { mapGetters, mapActions } from 'vuex'
 
 	export default {
-
-		props: ['status'],
-
-		computed: {
-
-			label() {
-
-				const labels = {
-					ongoing: 'Ongoing',
-					implementation: 'Implementation',
-					historic: 'Historic'
-				}
-
-				return labels[this.status];
-
-			}
-
-		}
-
+		props: ['status', 'label']
 	}
 
 </script>

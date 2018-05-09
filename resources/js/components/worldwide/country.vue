@@ -17,7 +17,7 @@
 
 			<div class="country-content">
 
-				<h3 class="country-content__title">Who are using the Open Contracting Data Standard</h3>
+				<h3 class="country-content__title" v-html="content.country.ocds"></h3>
 
 				<div class="country-content__items">
 
@@ -29,7 +29,7 @@
 
 					</template>
 
-					<p v-else class="country-content__no-data">No data available</p>
+					<p v-else class="country-content__no-data" v-html="content.country.no_data"></p>
 
 				</div>
 
@@ -37,7 +37,7 @@
 
 			<div class="country-content">
 
-				<h3 class="country-content__title">Documented commitments</h3>
+				<h3 class="country-content__title" v-html="content.country.commitments"></h3>
 
 				<div class="country-content__items">
 
@@ -49,7 +49,7 @@
 
 					</template>
 
-					<p v-else class="country-content__no-data">No data available</p>
+					<p v-else class="country-content__no-data" v-html="content.country.no_data"></p>
 
 				</div>
 
@@ -57,7 +57,7 @@
 
 			<div class="country-content">
 
-				<h3 class="country-content__title">Innovation in contract monitoring &amp; data use</h3>
+				<h3 class="country-content__title" v-html="content.country.contract"></h3>
 
 				<div class="country-content__items">
 
@@ -69,7 +69,7 @@
 
 					</template>
 
-					<p v-else class="country-content__no-data">No data available</p>
+					<p v-else class="country-content__no-data" v-html="content.country.no_data"></p>
 
 				</div>
 
@@ -77,7 +77,7 @@
 
 			<div class="country-content">
 
-				<h3 class="country-content__title">Impact Stories</h3>
+				<h3 class="country-content__title" v-html="content.country.impact_stories"></h3>
 
 				<div class="country-content__items">
 
@@ -89,14 +89,14 @@
 
 					</template>
 
-					<p v-else class="country-content__no-data">No data available</p>
+					<p v-else class="country-content__no-data" v-html="content.country.no_data"></p>
 
 				</div>
 
 			</div>
 
 			<div class="country-improve">
-				<a class="button button--icon button--icon--reverse button--icon--stroke" :href="'http://survey.open-contracting.org/#/forms/oc-status/' + selected_country.iso_a2.toLowerCase()">Improve this data<svg><use xlink:href="#icon-download"></use></svg></a>
+				<a class="button" :href="'http://survey.open-contracting.org/#/forms/oc-status/' + selected_country.iso_a2.toLowerCase()" v-html="content.country.improve_data"></a>
 			</div>
 
 		</div>
@@ -114,6 +114,7 @@
 		computed: {
 
 			...mapGetters([
+				'content',
 				'selected_country'
 			])
 
