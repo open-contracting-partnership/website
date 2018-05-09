@@ -17,17 +17,17 @@
 				close: '<?php _e('Close', 'ocp'); ?>'
 			},
 			filter: {
-				all: '<?php _e('Active countries…', 'ocp'); ?>',
-				ocds: '<?php _e('Who is using the Open Contracting Data Standard', 'ocp'); ?>',
+				all: '<?php _e('Active countries', 'ocp'); ?>',
+				ocds: '<?php _e('Using the Open Contracting Data Standard', 'ocp'); ?>',
 				ocds_status: '<?php _e('Status:', 'ocp'); ?>',
 				ocds_ongoing: '<?php _e('Ongoing', 'ocp'); ?>',
 				ocds_implementation: '<?php _e('Implementation', 'ocp'); ?>',
 				ocds_historic: '<?php _e('Historic', 'ocp'); ?>',
 				commitments: '<?php _e('With documented commitments', 'ocp'); ?>',
-				contract: '<?php _e('Who demonstrate innovation in contract monitoring & use', 'ocp'); ?>',
+				contract: '<?php _e('With innovation in contracting monitoring & data use', 'ocp'); ?>',
 			},
 			country: {
-				ocds: '<?php _e('Who is using the Open Contracting Data Standard', 'ocp'); ?>',
+				ocds: '<?php _e('Using the Open Contracting Data Standard', 'ocp'); ?>',
 				commitments: '<?php _e('Documented commitments', 'ocp'); ?>',
 				contract: '<?php _e('Innovation in contract monitoring & data use', 'ocp'); ?>',
 				impact_stories: '<?php _e('Impact Stories', 'ocp'); ?>',
