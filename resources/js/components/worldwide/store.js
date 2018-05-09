@@ -16,7 +16,6 @@ const state = {
 		all: true,
 		ocds: false,
 		ocds_ongoing: false,
-		ocds_implementation: false,
 		ocds_historic: false,
 		commitments: false,
 		innovations: false
@@ -69,15 +68,6 @@ const getters = {
 					status = {
 						slug: 'historic',
 						name: 'Historic'
-					}
-
-				}
-
-				if ( typeof publisher.ocds_implementation && publisher.ocds_implementation === true ) {
-
-					status = {
-						slug: 'implementation',
-						name: 'Implementation'
 					}
 
 				}
@@ -151,15 +141,13 @@ const mutations = {
 		// ocds parent trigger
 		if ( filter === 'ocds' ) {
 			state.filters['ocds_ongoing'] = state.filters['ocds'];
-			state.filters['ocds_implementation'] = state.filters['ocds'];
 			state.filters['ocds_historic'] = state.filters['ocds'];
 		}
 
 		// ocds child trigger
-		if ( ['ocds_ongoing', 'ocds_implementation', 'ocds_historic'].indexOf(filter) !== -1 ) {
+		if ( ['ocds_ongoing', 'ocds_historic'].indexOf(filter) !== -1 ) {
 
 			const enabled = state.filters['ocds_ongoing']
-				|| state.filters['ocds_implementation']
 				|| state.filters['ocds_historic'];
 
 			state.filters['ocds'] = enabled;
@@ -185,12 +173,10 @@ const actions = {
 			geojson.features.forEach((country) => {
 
 				country.properties.filter_ocds_ongoing = typeof _.find(country.properties.publishers, {ocds_ongoing_data: true}) !== 'undefined';
-				country.properties.filter_ocds_implementation = typeof _.find(country.properties.publishers, {ocds_implementation: true}) !== 'undefined';
 				country.properties.filter_ocds_historic = typeof _.find(country.properties.publishers, {ocds_historic_data: true}) !== 'undefined';
 
 				country.properties.filter_ocds =
 					country.properties.filter_ocds_ongoing ||
-					country.properties.filter_ocds_implementation ||
 					country.properties.filter_ocds_historic;
 
 				country.properties.filter_commitments = ( typeof country.properties.ogp_commitments !== 'undefined' && country.properties.ogp_commitments.length > 0 );

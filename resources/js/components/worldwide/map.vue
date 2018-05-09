@@ -78,11 +78,11 @@
 			]),
 
 			ocds_all() {
-				return this.filters.ocds_ongoing && this.filters.ocds_implementation && this.filters.ocds_historic;
+				return this.filters.ocds_ongoing && this.filters.ocds_historic;
 			},
 
 			ocds_any() {
-				return this.filters.ocds_ongoing || this.filters.ocds_implementation || this.filters.ocds_historic;
+				return this.filters.ocds_ongoing || this.filters.ocds_historic;
 			},
 
 			display_filter() {
@@ -111,7 +111,6 @@
 
 				const others = this.filters.ocds
 					|| this.filters.ocds_ongoing
-					|| this.filters.ocds_implementation
 					|| this.filters.ocds_historic
 					|| this.filters.commitments
 					|| this.filters.innovations;
@@ -120,7 +119,6 @@
 					active: [],
 					inactive: [],
 					ocds_historic: [],
-					ocds_implementation: [],
 					ocds_ongoing: []
 				}
 
@@ -131,12 +129,6 @@
 					// OCDS ongoing
 					if ( this.filters.ocds_ongoing && country.filter_ocds_ongoing ) {
 						filters.ocds_ongoing.push(code);
-						return;
-					}
-
-					// OCDS implementation
-					if ( this.filters.ocds_implementation && country.filter_ocds_implementation ) {
-						filters.ocds_implementation.push(code);
 						return;
 					}
 
@@ -237,18 +229,6 @@
 					'layout': {},
 					'paint': {
 						'fill-color': '#23B2A7',
-						'fill-opacity': .35
-					},
-					'filter': ['==', 'name', '']
-				});
-
-				this.map.addLayer({
-					'id': 'ocp-country-ocds-implementation-fill',
-					'type': 'fill',
-					'source': 'countries',
-					'layout': {},
-					'paint': {
-						'fill-color': '#FD843D',
 						'fill-opacity': .35
 					},
 					'filter': ['==', 'name', '']

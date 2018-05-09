@@ -43,14 +43,6 @@
 					</span>
 				</label>
 
-				<label class="filter-control__child" @click="toggleFilter('ocds_implementation')">
-					<tick :checked="filters.ocds_implementation" size="small" />
-					<span>
-						<strong v-html="content.filter.ocds_status" />
-						<ocds-status status="implementation" :label="content.filter.ocds_implementation" />
-					</span>
-				</label>
-
 				<label class="filter-control__child" @click="toggleFilter('ocds_historic')">
 					<tick :checked="filters.ocds_historic" size="small" />
 					<span>
