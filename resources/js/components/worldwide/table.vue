@@ -12,51 +12,47 @@
 
 				<thead>
 
-					<tr>
-						<th>Country</th>
-						<th>Who are using Open Contracting Standards</th>
-						<th>Year first implemented</th>
+					<tr @click="sortColumn">
+						<th data-field="country" v-bind:class="{ 'sortAsc': order_by === 'country' && order_asc === true, 'sortDesc': order_by === 'country' && order_asc === false }">Country</th>
+						<th data-field="publisher" v-bind:class="{ 'sortAsc': order_by === 'publisher' && order_asc === true, 'sortDesc': order_by === 'publisher' && order_asc === false }">Who are using Open Contracting Standards</th>
+						<th data-field="year" v-bind:class="{ 'sortAsc': order_by === 'year' && order_asc === true, 'sortDesc': order_by === 'year' && order_asc === false }">Year first implemented</th>
 					</tr>
 
 				</thead>
 
 				<tbody>
 
-					<template v-for="country in countries">
+					<tr v-for="publisher in publishers">
 
-						<tr v-for="publisher in country.publishers">
+						<td>
 
-							<td>
+							<div class="country-table__country">
+								<flag :code="publisher.country.code" />
+								<router-link :to="{ name: 'country', params: { code: publisher.country.code } }" v-html="publisher.country.name" />
+							</div>
 
-								<div class="country-table__country">
-									<flag :code="country.iso_a2.toLowerCase()" />
-									<router-link :to="{ name: 'country', params: { code: country.iso_a2.toLowerCase() } }" v-html="country.name" />
-								</div>
+						</td>
 
-							</td>
+						<td>
 
-							<td>
+							<div class="country-table__agency">
 
-								<div class="country-table__agency">
+								<ocds-status v-if="publisher.status" :status="publisher.status.slug" v-html="publisher.status.name" />
 
-									<ocds-status v-if="publisher.status" :status="publisher.status.slug" v-html="publisher.status.name" />
+								<p v-if="publisher.name">
+									<a :href="publisher.url" v-html="publisher.name" />
+									<svg><use xlink:href="#icon-external-link" /></svg>
+								</p>
 
-									<p v-if="publisher.publisher">
-										<a :href="publisher.publisher_link" v-html="publisher.publisher" />
-										<svg><use xlink:href="#icon-external-link" /></svg>
-									</p>
+							</div>
 
-								</div>
+						</td>
 
-							</td>
+						<td>
+							<span class="country-table__year" v-html="publisher.year_first_implemented"></span>
+						</td>
 
-							<td>
-								<span class="country-table__year" v-html="publisher.year_first_implemented"></span>
-							</td>
-
-						</tr>
-
-					</template>
+					</tr>
 
 				</tbody>
 
@@ -70,26 +66,137 @@
 
 <script>
 
+	import _ from 'underscore'
 	import { mapGetters, mapActions } from 'vuex'
 
 	export default {
+
+		data() {
+
+			return {
+				order_by: null,
+				order_asc: true
+			}
+
+		},
 
 		computed: {
 
 			...mapGetters([
 				'countries'
-			])
+			]),
 
-		},
+			publishers() {
 
-		watch: {
+				let publishers = [];
+
+				_.each(this.countries, (country) => {
+
+					_.each(country.publishers, function(publisher) {
+
+						let agency = {
+							country: {
+								name: country.name,
+								code: country.iso_a2.toLowerCase()
+							},
+							name: publisher.publisher,
+							url: publisher.publisher_link,
+							year: publisher.year_first_implemented,
+							status: null
+						};
+
+						let status = null;
+
+						if ( typeof publisher.ocds_historic_data && publisher.ocds_historic_data === true ) {
+
+							agency.status = {
+								slug: 'historic',
+								name: 'Historic'
+							}
+
+						}
+
+						if ( typeof publisher.ocds_ongoing_data && publisher.ocds_ongoing_data === true ) {
+
+							agency.status = {
+								slug: 'ongoing',
+								name: 'Ongoing'
+							}
+
+						}
+
+						publishers.push(agency);
+
+					});
+
+				});
+
+
+				 //*****
+				// SORT
+
+				let order_by = this.order_by !== null ? this.order_by : 'country';
+
+				// sort the publishers by the given field
+				publishers = _.sortBy(publishers, (publisher) => {
+
+					let value = null;
+
+					if ( order_by === 'country' ) {
+						value = publisher.country.name;
+					} else if ( order_by === 'publisher' ) {
+						value = publisher.name;
+					} else if ( order_by === 'year' ) {
+						value = publisher.year;
+					}
+
+					if ( typeof value === 'undefined' ) {
+						return false;
+					}
+
+					return value.trim();
+
+				});
+
+				// if reverse the order if we're not ascending
+				if ( ! this.order_asc ) {
+					publishers = publishers.reverse();
+				}
+
+				return publishers;
+
+			}
 
 		},
 
 		methods: {
 
-			closeCountry() {
-				this.$router.push({ name: 'map' });
+			sortColumn(event) {
+
+				const field = event.target.dataset.field;
+
+				// we only care about fields that exist
+				if ( typeof field === 'undefined' ) {
+					return;
+				}
+
+				// new
+				if ( this.order_by !== field ) {
+					this.order_by = field;
+					this.order_asc = true;
+					return;
+				}
+
+				// existing + sort
+				if ( this.order_by === field && this.order_asc ) {
+					this.order_asc = false;
+					return;
+				}
+
+				// reset
+				this.order_by = null;
+				this.order_asc = true;
+
 			}
 
 		}
@@ -171,6 +278,21 @@
 				top: 0;
 				z-index: 10;
 				text-align: center;
+			}
+
+			th {
+
+				cursor: pointer;
+				user-select: none;
+
+				&.sortAsc::after {
+					content: ' ▲';
+				}
+
+				&.sortDesc::after {
+					content: ' ▼';
+				}
+
 			}
 
 		}
