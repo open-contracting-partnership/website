@@ -39,64 +39,43 @@ const getters = {
 		if ( state.countries ) {
 
 			_.each(state.countries.features, function(country) {
-				countries[country.properties.iso_a2.toLowerCase()] = country.properties;
+
+				// set the initial country object
+				let country_object = country.properties;
+
+				// attempt to supliment additional publisher data
+				_.each(country_object.publishers, function(publisher) {
+
+					let status = null;
+
+					if ( typeof publisher.ocds_historic_data && publisher.ocds_historic_data === true ) {
+
+						status = {
+							slug: 'historic',
+							name: 'Historic'
+						}
+
+					}
+
+					if ( typeof publisher.ocds_ongoing_data && publisher.ocds_ongoing_data === true ) {
+
+						status = {
+							slug: 'ongoing',
+							name: 'Ongoing'
+						}
+
+					}
+
+					publisher.status = status;
+
+				});
+
+				// save all of the data to the countries object
+				countries[country.properties.iso_a2.toLowerCase()] = country_object;
+
 			});
 
 		}
-
-		return countries;
-
-	},
-
-	agencies(state, getters) {
-
-		let countries = {};
-
-		_.each(getters.countries, function(country) {
-
-			_.each(country.publishers, function(publisher) {
-
-				let agency = {
-					name: publisher.publisher,
-					url: publisher.publisher_link
-				};
-
-				let status = null;
-
-				if ( typeof publisher.ocds_historic_data && publisher.ocds_historic_data === true ) {
-
-					status = {
-						slug: 'historic',
-						name: 'Historic'
-					}
-
-				}
-
-				if ( typeof publisher.ocds_ongoing_data && publisher.ocds_ongoing_data === true ) {
-
-					status = {
-						slug: 'ongoing',
-						name: 'Ongoing'
-					}
-
-				}
-
-				agency.status = status;
-
-				if ( typeof countries[country.iso_a2.toLowerCase()] === 'undefined' ) {
-
-					countries[country.iso_a2.toLowerCase()] = {
-						country: country,
-						agencies: []
-					};
-
-				}
-
-				countries[country.iso_a2.toLowerCase()].agencies.push(agency);
-
-			});
-
-		});
 
 		return countries;
 

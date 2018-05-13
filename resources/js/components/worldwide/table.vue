@@ -15,39 +15,48 @@
 					<tr>
 						<th>Country</th>
 						<th>Who are using Open Contracting Standards</th>
+						<th>Year first implemented</th>
 					</tr>
 
 				</thead>
 
 				<tbody>
 
-					<tr v-for="country in agencies">
+					<template v-for="country in countries">
 
-						<td>
+						<tr v-for="publisher in country.publishers">
 
-							<div class="country-table__country">
-								<flag :code="country.country.iso_a2.toLowerCase()" />
-								<router-link :to="{ name: 'country', params: { code: country.country.iso_a2.toLowerCase() } }" v-html="country.country.name" />
-							</div>
+							<td>
 
-						</td>
+								<div class="country-table__country">
+									<flag :code="country.iso_a2.toLowerCase()" />
+									<router-link :to="{ name: 'country', params: { code: country.iso_a2.toLowerCase() } }" v-html="country.name" />
+								</div>
 
-						<td>
+							</td>
 
-							<div class="country-table__agency" v-for="agency in country.agencies">
+							<td>
 
-								<ocds-status :status="agency.status.slug" />
+								<div class="country-table__agency">
 
-								<p v-if="agency.name">
-									<a :href="agency.url" v-html="agency.name" />
-									<svg><use xlink:href="#icon-external-link" /></svg>
-								</p>
+									<ocds-status v-if="publisher.status" :status="publisher.status.slug" v-html="publisher.status.name" />
 
-							</div>
+									<p v-if="publisher.publisher">
+										<a :href="publisher.publisher_link" v-html="publisher.publisher" />
+										<svg><use xlink:href="#icon-external-link" /></svg>
+									</p>
 
-						</td>
+								</div>
 
-					</tr>
+							</td>
+
+							<td>
+								<span class="country-table__year" v-html="publisher.year_first_implemented"></span>
+							</td>
+
+						</tr>
+
+					</template>
 
 				</tbody>
 
@@ -68,7 +77,7 @@
 		computed: {
 
 			...mapGetters([
-				'agencies'
+				'countries'
 			])
 
 		},
@@ -207,8 +216,6 @@
 
 	.country-table__agency {
 
-		margin-bottom: spacing(2);
-
 		.ocds-status {
 			margin-bottom: spacing(.5);
 		}
@@ -225,6 +232,10 @@
 			margin-left: spacing(.5);
 		}
 
+	}
+
+	.country-table__year {
+		@include font-size(18);
 	}
 
 </style>

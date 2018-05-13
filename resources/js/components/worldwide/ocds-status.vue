@@ -1,5 +1,9 @@
 <template>
-	<span class="ocds-status" :data-status="status" v-html="label" />
+
+	<span class="ocds-status" :data-status="status">
+		<slot></slot>
+	</span>
+
 </template>
 
 <script>
@@ -7,7 +11,7 @@
 	import { mapGetters, mapActions } from 'vuex'
 
 	export default {
-		props: ['status', 'label']
+		props: ['status']
 	}
 
 </script>
