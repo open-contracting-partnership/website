@@ -43,6 +43,15 @@ const getters = {
 				// set the initial country object
 				let country_object = country.properties;
 
+				// we want to overwrite the given has_data property to only
+				// report true if one of the following arrays is being used
+
+				country_object.has_data =
+					_.size(country_object.innovations) ||
+					_.size(country_object.publishers) ||
+					_.size(country_object.ogp_commitments) ||
+					_.size(country_object.impacts_stories);
+
 				// attempt to supliment additional publisher data
 				_.each(country_object.publishers, function(publisher) {
 
