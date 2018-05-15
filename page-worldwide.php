@@ -46,6 +46,6 @@
 		<router-view></router-view>
 	</div>
 
-	<script src="<?php bloginfo('template_directory'); ?>/dist/js/worldwide.js"></script>
+	<script src="<?php bloginfo('template_directory'); ?>/dist/js/worldwide.js?v=<?php echo wp_get_theme()->Version; ?>"></script>
 
 <?php get_footer(); ?>
