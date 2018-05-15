@@ -49,7 +49,7 @@
 						</td>
 
 						<td>
-							<span class="country-table__year" v-html="publisher.year_first_implemented"></span>
+							<span class="country-table__year" v-html="publisher.year"></span>
 						</td>
 
 					</tr>
