@@ -1,0 +1,581 @@
+.home {
+	background-color: color('background');
+	color: color('white');
+}
+
+.homepage-hero {
+	padding-top: 3em;
+	padding-bottom: 8rem;
+	position: relative;
+	background-color: color('white');
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		// give a negative position to hide any border lines
+		top: -5px;
+		left: -5px;
+		right: -5px;
+		bottom: -5px;
+		background: url('../../resources/img/hero.svg') no-repeat center center;
+		background-size: cover;
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: color('black');
+		opacity: .4;
+	}
+
+	@include mq(M) {
+		padding-top: 4.5em;
+		min-height: 601px; // Height of the image
+	}
+
+	.wrapper {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+
+ //********
+// STORIES
+
+.homepage-stories__wrapper {
+
+	background-color: color('dark-background');
+	overflow: hidden;
+
+	.wrapper {
+		padding: 0;
+		max-width: 76rem;
+	}
+
+}
+
+.homepage-stories {
+
+	@include font-size(22);
+	display: flex;
+	flex-direction: column;
+
+	@include mq(768) {
+
+		flex-direction: row;
+
+		> * {
+			flex: 1 1 50%;
+		}
+
+	}
+
+}
+
+.homepage-story {
+
+	padding: em(20, 22);
+	background-size: cover;
+	background-position: 50% 50%;
+
+	@include mq(768) {
+		padding: em(60, 22) em(30, 22);
+	}
+
+	a {
+		color: inherit;
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+
+}
+
+.homepage-story__content {
+
+	display: none;
+
+	@include mq(768) {
+		display: block;
+	}
+
+}
+
+.homepage-story__right {
+
+	display: flex;
+	flex-direction: column;
+	// flex-flow: row wrap;
+	//
+
+	> * {
+		flex: 1 0 auto;
+	}
+
+	@include mq(1240) {
+
+		flex-direction: row;
+
+		> * {
+			flex: 1 0 50%;
+		}
+
+	}
+
+
+}
+
+.homepage-story__right-top {
+
+	display: flex;
+
+	@include mq(1240) {
+		flex-direction: column;
+	}
+
+	> * {
+		flex: 1 1 50%;
+	}
+
+}
+
+.homepage-story--1 {
+
+	padding: em(40, 22) em(20, 22);
+	background-color: color('brand-mid');
+
+	@include mq(810) {
+		padding: em(60, 22);
+	}
+
+}
+
+.homepage-story--2 {
+	background-color: post-color('resource');
+}
+
+.homepage-story--3 {
+	background-color: post-color('news');
+}
+
+.homepage-story--4 {
+	padding: em(40, 22) em(20, 22);
+	background-color: post-color('post');
+
+	@include mq(810) {
+		padding: em(60, 22);
+	}
+
+}
+
+.homepage-story--2,
+.homepage-story--3,
+.homepage-story--4 {
+	min-height: 200px;
+
+	@include mq(768) {
+		min-height: none;
+	}
+
+	h2,
+	h3 {
+		margin-bottom: 0;
+	}
+
+}
+
+// END
+
+.homepage-cta {
+	@include font-size(25);
+	line-height: 1.3;
+
+	@include mq(L) {
+		@include span(5 of 12 first);
+	}
+
+	p {
+		@include font('secondary', 'medium');
+		color: color('white');
+		text-shadow: 0 0 2px rgba(0, 0, 0, .5);
+	}
+}
+
+.homepage-contracting {
+	@include break();
+}
+
+.homepage-title {
+	text-align: center;
+	margin-top: $space;
+
+	@include mq(M) {
+		margin-top: 0;
+	}
+
+	@include mq(L) {
+		@include span(8 of 12);
+		margin-left: span(2 of 12) + gutter();
+	}
+
+	h1 {
+		@include font-size(35);
+		margin-bottom: em(65, 35);
+	}
+}
+
+.homepage-blogs {
+
+	@include mq(M) {
+		@include span(4 of 12 first);
+	}
+}
+
+.homepage-spotlight {
+
+	@include mq(M) {
+		@include span(4 of 12);
+	}
+
+	.post-object {
+		min-height: em(482);
+	}
+}
+
+.homepage-implement {
+	margin-top: em(69);
+
+	@include mq(M) {
+		@include span(4 of 12 last);
+	}
+
+	@include mq(L) {
+		@include span(3 of 12);
+	}
+
+	.heading-highlight {
+		margin-left: 12px;
+		margin-bottom: 1.4em;
+	}
+
+	h3 {
+		@include font-size(35);
+		line-height: 1.7;
+	}
+
+	.cta-list {
+		margin-top: em(35);
+	}
+}
+
+.homepage-filter {
+	@include break();
+}
+
+.homepage-filter__items-pool {
+	display: none;
+}
+
+.homepage-filter__items {
+
+	@include mq(M) {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+.homepage-filter__item {
+	margin-bottom: gutter();
+	display: block;
+
+	@include mq(M) {
+		@include span(6 of 12);
+
+		&:nth-child(2n+1) {
+			@include first;
+		}
+
+		&:nth-child(2n) {
+			@include last;
+		}
+	}
+
+	@include mq(1100) {
+		@include span(4 of 12);
+
+		&:nth-child(2n+1),
+		&:nth-child(2n) {
+			@include span(4 of 12);
+		}
+
+		&:nth-child(3n+1) {
+			@include first;
+			clear: both;
+		}
+
+		&:nth-child(3n) {
+			@include last;
+		}
+	}
+}
+
+.homepage-filter__twitter {
+	@include font('secondary', 'regular');
+	@include font-size(25);
+	background-color: color('dark-background');
+	padding: 3rem 1.5rem;
+
+	svg {
+		display: inline;
+		fill: social-color('twitter');
+		width: 2em;
+		height: 2em;
+		vertical-align: bottom;
+		margin-right: .5em;
+		transition: fill .3s ease;
+	}
+
+	p {
+		margin-bottom: 0;
+		line-height: 1.3;
+	}
+
+	b {
+		@include font('secondary', 'bold');
+	}
+
+	a {
+		color: social-color('twitter');
+		text-decoration: underline;
+
+		&:hover,
+		&:active {
+			text-decoration: none;
+		}
+
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+
+	.tweet__mention,
+	.tweet__hashtag {
+		@include font('secondary', 'bold');
+		color: color('white');
+		text-decoration: none;
+
+		&:hover,
+		&:active {
+			text-decoration: underline;
+		}
+
+		&:focus {
+			text-decoration: none;
+		}
+	}
+
+	.tweet__link {
+		@include font-size(20);
+	}
+
+	.tweet__status-link {
+
+		text-decoration: none;
+
+		&:hover,
+		&:focus,
+		&:active {
+
+			text-decoration: none;
+
+			svg {
+				fill: mix(color('black'), social-color('twitter'), 20%);
+			}
+
+		}
+
+	}
+
+}
+
+.homepage-map {
+
+	@include mq(L) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+}
+
+.homepage-map__image {
+
+	@include aspect-ratio(1164, 652);
+	width: 100%;
+	background-image: url('../../resources/img/the-new-map.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	margin-bottom: $space;
+
+	@include mq(L) {
+		width: span(8 of 12);
+		margin-bottom: 0;
+	}
+
+}
+
+	.homepage-map__image-item {
+
+		position: absolute;
+		display: block;
+		height: 0;
+		width: 0;
+
+		&::before {
+			content: '';
+			position: absolute;
+			height: 1em;
+			width: 1em;
+			top: 50%;
+			left: 50%;
+			border-radius: 50%;
+			transform: translate(-50%, -50%);
+			background-color: rgba(214, 225, 0, .5);
+			z-index: 1;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			height: .5em;
+			width: .5em;
+			top: 50%;
+			left: 50%;
+			border-radius: 50%;
+			transform: translate(-50%, -50%);
+			background-color: color('brand');
+			z-index: 2;
+		}
+
+		a {
+
+			@include font-size(14);
+			@include font('secondary', 'medium');
+			background-color: color('body');
+			position: absolute;
+			bottom: .8em;
+			transform: translateX(-50%);
+			text-transform: uppercase;
+			color: color('white');
+			padding: em(2, 14) em(4, 14) em(1, 14);
+			line-height: 1;
+			z-index: 3;
+			border-radius: 2px;
+
+			&.bottom {
+				bottom: auto;
+				top: .8em;
+			}
+
+		}
+
+	}
+
+.homepage-map__content {
+
+	color: color('white');
+	position: relative;
+	background-color: color('dark-background');
+	padding: spacing(4) spacing(2);
+
+	@include mq(700) {
+		padding: spacing(4);
+	}
+
+	@include mq(700, L) {
+
+		.homepage-map__links {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		.homepage-map__link {
+			width: calc(50% - 12px);
+		}
+
+	}
+
+	@include mq(L) {
+		width: span(4 of 12);
+	}
+
+	h3 {
+
+		@include font-size(18);
+		margin-bottom: 1.5em;
+		position: relative;
+		padding-left: 1.75em;
+
+		&:before {
+			position: absolute;
+			top: 3px;
+			left: 0;
+			height: 21px;
+			width: 21px;
+			content: url('../../resources/img/icons/icon-world.svg');
+		}
+
+		@include mq(700) {
+			@include font-size(24);
+		}
+
+	}
+
+}
+
+	.homepage-map__link {
+
+		@include font-size(17);
+		position: relative;
+		color: color('white');
+		display: block;
+		margin-bottom: 1em;
+		padding-left: 1em;
+		text-decoration: none;
+
+		@include mq(700) {
+			@include font-size(20);
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: .65em;
+			height: 5px;
+			width: 5px;
+			background-color: color('white');
+		}
+
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration: none;
+			color: color('brand');
+		}
+
+		span {
+			border-bottom: 2px solid color('brand');
+		}
+
+	}

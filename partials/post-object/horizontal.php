@@ -13,7 +13,7 @@
 					<?php if ( has_post_thumbnail() ) : ?>
 						<?php the_post_thumbnail('4x3_230'); ?>
 					<?php else : ?>
-						<img src="<?php bloginfo('template_directory'); ?>/assets/img/fallback.jpg" alt="">
+						<img src="<?php bloginfo('template_directory'); ?>/resources/img/fallback.jpg" alt="">
 					<?php endif; ?>
 
 				<?php else : ?>

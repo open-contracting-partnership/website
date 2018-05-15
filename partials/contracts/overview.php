@@ -123,7 +123,7 @@
 
 </div> <!-- / .page__wrapper -->
 
-<script src="<?php bloginfo('template_directory'); ?>/assets/js/libs/jquery.tablesorter.min.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/resources/js/libs/jquery.tablesorter.min.js"></script>
 
 <script>
 

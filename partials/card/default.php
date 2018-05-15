@@ -33,7 +33,7 @@
 				<img class="card__featured-media" src="<?php echo $url; ?>" />
 
 			<?php else : ?>
-				<img class="card__featured-media" src="<?php bloginfo('template_directory'); ?>/assets/img/fallback.jpg" />
+				<img class="card__featured-media" src="<?php bloginfo('template_directory'); ?>/resources/img/fallback.jpg" />
 			<?php endif; ?>
 
 		</div>

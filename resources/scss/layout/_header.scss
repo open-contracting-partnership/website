@@ -1,0 +1,255 @@
+/*------------------------------------*\
+	HEADER
+\*------------------------------------*/
+
+.site-header {
+	@include font('secondary', 'medium');
+	background-color: color('dark-background');
+
+	.logo {
+		display: none;
+		margin: em(40) 0 em(20);
+
+		@include mq(ML) {
+			display: inline-block;
+		}
+
+		svg {
+			width: em(482);
+			height: em(38);
+		}
+	}
+
+	.logo--mobile {
+		display: inline-block;
+		margin: 1.1em 0;
+
+		@include mq(ML) {
+			display: none;
+		}
+
+		svg {
+			width: 7em;
+			height: em(38);
+		}
+	}
+}
+
+.mobile-menu {
+	width: 1em;
+	height: 1em;
+	fill: color('white');
+	float: right;
+	margin-top: 1.5em;
+
+	@include mq(ML) {
+		display: none;
+	}
+}
+
+.mobile-menu__open {
+	opacity: 1;
+}
+
+.mobile-menu__close {
+	opacity: 0;
+}
+
+.mobile-active {
+
+	.mobile-menu__open {
+		opacity: 0;
+	}
+
+	.mobile-menu__close {
+		opacity: 1;
+	}
+}
+
+.site-header__top {
+	position: relative;
+}
+
+.header-nav__side {
+	display: none;
+
+	@include mq(ML) {
+		display: block;
+		float: right;
+	}
+}
+
+.header-nav__side-item {
+	float: left;
+}
+
+.header-social {
+	margin-top: 2.3em;
+
+	> a {
+		@include font-size(14);
+		color: color('white');
+		text-decoration: none;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+
+		&:active {
+			text-decoration: none;
+		}
+	}
+
+	.button__social li {
+		margin-right: 0;
+		padding-left: 0;
+	}
+
+	.button__social a {
+
+		fill: color('light-grey');
+		transition: fill .3s ease;
+
+		&:hover,
+		&:active {
+			fill: color('white');
+		}
+
+	}
+
+	.button__list {
+		margin-left: .3em;
+	}
+}
+
+.header-language {
+	margin: 2.3em .5em 0 0;
+}
+
+.header-search {
+
+	margin-left: .5rem;
+
+	a {
+		padding: 2.5rem .5rem;
+		margin: 0;
+		border: 0;
+	}
+
+	svg {
+		width: .95rem;
+		height: .95rem;
+		fill: color('light-grey');
+		transition: fill .3s ease;
+	}
+
+	a:hover,
+	a:active {
+
+		svg {
+			fill: color('white');
+		}
+
+	}
+
+}
+
+
+ //**************
+// HEADER SEARCH
+
+.header__search {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding-top: 2.2em;
+	background-color: color('dark-background');
+	z-index: 99;
+
+	.search--active & {
+		display: block;
+	}
+
+	.wrapper {
+		position: relative;
+	}
+
+	html.csspointerevents & {
+		display: block;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity .3s ease;
+	}
+
+	html.csspointerevents .search--active & {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	form {
+		position: relative;
+		height: 100%;
+	}
+
+	[type="search"] {
+		@include font-size(28);
+		border: 0;
+		color: color('white');
+		margin: 0;
+		padding: 0;
+		-webkit-appearance: none;
+	}
+}
+
+.search__close {
+	@include font-size(20);
+	position: absolute;
+	top: 40%;
+	right: 1.7em;
+	transform: translateY(-50%);
+	width: 1em;
+	height: 1em;
+	margin: auto 0;
+
+	@include mq(1240) {
+		right: .5em;
+	}
+
+	svg {
+		width: 1em;
+		height: 1em;
+		fill: color('white');
+		vertical-align: initial;
+	}
+}
+
+.site-header__top > .header-search {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	@include mq(1550) {
+		display: block;
+	}
+}
+
+.site-header__top.search--active > .header-search {
+	display: block;
+}
+
+.search--active .header-search svg {
+	fill: color('body');
+}
+
+// extra specificity to overrule pluging styles
+.site-header .wpml-ls-legacy-dropdown {
+	@include font-size(12);
+	max-width: 10em;
+}

@@ -7,9 +7,9 @@
 
 		<script>var template_url = '<?php bloginfo('template_directory'); ?>';</script>
 
-		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/assets/js/libs/modernizr.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/resources/js/libs/modernizr.js"></script>
 
-		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/assets/css/styles.min.css">
+		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/dist/css/styles.css">
 
 		<script src="https://use.typekit.net/xpw3jps.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -35,30 +35,30 @@
 		<meta name="MobileOptimized" content="320">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="apple-touch-icon" sizes="57x57" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/apple-touch-icon-57x57.png">
-		<link rel="apple-touch-icon" sizes="60x60" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/apple-touch-icon-60x60.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/apple-touch-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="76x76" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/apple-touch-icon-76x76.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/apple-touch-icon-114x114.png">
-		<link rel="apple-touch-icon" sizes="120x120" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/apple-touch-icon-120x120.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/apple-touch-icon-144x144.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/apple-touch-icon-152x152.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/apple-touch-icon-180x180.png">
-		<link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/favicon-32x32.png" sizes="32x32">
-		<link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/favicon-194x194.png" sizes="194x194">
-		<link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/favicon-96x96.png" sizes="96x96">
-		<link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/android-chrome-192x192.png" sizes="192x192">
-		<link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/favicon-16x16.png" sizes="16x16">
-		<link rel="manifest" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/manifest.json">
-		<link rel="mask-icon" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/safari-pinned-tab.svg" color="#323238">
-		<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/assets/img/favicons/favicon.ico">
+		<link rel="apple-touch-icon" sizes="57x57" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/apple-touch-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/apple-touch-icon-180x180.png">
+		<link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/favicon-194x194.png" sizes="194x194">
+		<link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/android-chrome-192x192.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/manifest.json">
+		<link rel="mask-icon" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/safari-pinned-tab.svg" color="#323238">
+		<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/resources/img/favicons/favicon.ico">
 		<meta name="msapplication-TileColor" content="#323238">
-		<meta name="msapplication-TileImage" content="<?php bloginfo('template_directory'); ?>/assets/img/favicons/mstile-144x144.png">
-		<meta name="msapplication-config" content="<?php bloginfo('template_directory'); ?>/assets/img/favicons/browserconfig.xml">
+		<meta name="msapplication-TileImage" content="<?php bloginfo('template_directory'); ?>/resources/img/favicons/mstile-144x144.png">
+		<meta name="msapplication-config" content="<?php bloginfo('template_directory'); ?>/resources/img/favicons/browserconfig.xml">
 		<meta name="theme-color" content="#323238">
 
-		<script src="<?php bloginfo('template_directory'); ?>/assets/js/libs/jquery-2.1.4.min.js"></script>
-		<script src="<?php bloginfo('template_directory'); ?>/assets/js/libs/vue.min.js"></script>
+		<script src="<?php bloginfo('template_directory'); ?>/resources/js/libs/jquery-2.1.4.min.js"></script>
+		<script src="<?php bloginfo('template_directory'); ?>/resources/js/libs/vue.min.js"></script>
 
 		<script src="<?php bloginfo('template_directory'); ?>/public/js/libs/slick-slider/slick.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/public/js/libs/slick-slider/slick.css">
@@ -94,10 +94,6 @@
 	</head>
 
 	<body <?php body_class(basename(get_permalink())); ?>>
-
-		<div style="display: none; visibility: hidden;">
-			<?php require(get_template_directory() . '/assets/img/icons.svg'); ?>
-		</div>
 
 		<header class="site-header">
 
