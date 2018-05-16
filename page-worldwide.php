@@ -6,10 +6,9 @@
 
 	<script>
 
-		// ATTN: using `` ES6 template literals, this is not supported in IE11
 		const content = {
 			title: '<?php the_title(); ?>',
-			content: `<?php the_content(); ?>`,
+			content: '<?php echo str_replace(["\n", "\r"], '', apply_filters('the_content', get_the_content())); ?>',
 			table_view: '<?php _e('Table view', 'ocp'); ?>',
 			map_view: '<?php _e('Map view', 'ocp'); ?>',
 			map: {
