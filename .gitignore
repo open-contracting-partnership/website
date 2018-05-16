@@ -14,3 +14,4 @@ composer.lock
 
 # Styleguide
 styleguide/
+/yarn-error.log
