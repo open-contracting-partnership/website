@@ -215,6 +215,7 @@
 		background-color: color('white');
 		display: flex;
 		flex-direction: column;
+		align-items: flex-end;
 		padding: spacing(2) spacing(1);
 
 		@include from(ML) {
@@ -227,9 +228,7 @@
 
 		font-size: 16px;
 		display: block;
-		float: right;
 		margin-bottom: spacing(2);
-		margin-left: auto;
 		flex: 0 0 1em;
 
 		> svg {
@@ -241,9 +240,7 @@
 	}
 
 	.country-table__container {
-		flex: 1 1 100%;
-		overflow-y: auto;
-		-webkit-overflow-scrolling: touch;
+		width: 100%;
 		position: relative;
 	}
 
