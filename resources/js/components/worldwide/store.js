@@ -47,10 +47,10 @@ const getters = {
 				// report true if one of the following arrays is being used
 
 				country_object.has_data =
-					_.size(country_object.innovations) ||
-					_.size(country_object.publishers) ||
-					_.size(country_object.ogp_commitments) ||
-					_.size(country_object.impacts_stories);
+					_.size(country_object.innovations) > 0 ||
+					_.size(country_object.publishers) > 0 ||
+					_.size(country_object.ogp_commitments) > 0 ||
+					_.size(country_object.impacts_stories) > 0;
 
 				// attempt to supliment additional publisher data
 				_.each(country_object.publishers, function(publisher) {
