@@ -275,7 +275,7 @@
 						<?php while ( have_rows('worldwide_map_markers') ) : the_row(); ?>
 
 							<div class="homepage-map__image-item" style="left: <?php the_sub_field('left'); ?>%; top: <?php the_sub_field('top'); ?>%;">
-								<a href="<?php the_sub_field('link'); ?>"><?php echo str_replace(' ', '&nbsp;', get_sub_field('title')); ?></a>
+								<a href="<?php echo get_sub_field('link_new')['url']; ?>"><?php echo str_replace(' ', '&nbsp;', get_sub_field('title')); ?></a>
 							</div>
 
 						<?php endwhile; ?>
