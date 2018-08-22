@@ -296,8 +296,8 @@
 
 						<?php while ( have_rows('worldwide_links') ) : the_row(); ?>
 
-							<a class="homepage-map__link" href="<?php the_sub_field('link_address'); ?>">
-								<span><?php the_sub_field('link_title'); ?></span>
+							<a class="homepage-map__link" href="<?php echo get_sub_field('link')['url']; ?>">
+								<span><?php echo get_sub_field('link')['title']; ?></span>
 							</a>
 
 						<?php endwhile; ?>
