@@ -24,7 +24,7 @@
 
 	} else {
 
-		$image_url = imgix::source('url', get_bloginfo('template_directory') . '/assets/img/fallback.jpg')
+		$image_url = imgix::source('url', get_bloginfo('template_directory') . '/resources/img/fallback.jpg')
 			->options($imgix_options)
 			->url();
 
