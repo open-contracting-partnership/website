@@ -152,7 +152,7 @@
 
 		</div> <!-- / .site-footer -->
 
-		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/dist/js/main.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/dist/js/main.js?v=<?php echo wp_get_theme()->Version; ?>"></script>
 
 		<script>
 
