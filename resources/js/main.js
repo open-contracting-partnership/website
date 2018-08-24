@@ -378,36 +378,12 @@ $(document).ready(function() {
 	 //**********
 	// SUBSCRIBE
 
-	$('.js-subscribe form').on('submit', function(event) {
+	$('.js-subscribe-footer').on('click', function(event) {
 
 		event.preventDefault();
 
-		var $form = $(this);
+		showMailingPopUp();
 
-		$.ajax({
-			url: '/wp-json/ocp/v1/add-subscriber',
-			dataType: 'json',
-			method: 'POST',
-			data: {
-				email: $form.find('[name="email"]').val()
-			}
-		})
-		.done(function(response) {
-
-			// remove any existing alerts
-			$('.subscribe__alert').remove();
-
-			$('<p class="subscribe__alert">Subscribed successful</p>').insertAfter($form);
-
-		})
-		.fail(function(response, textStatus) {
-
-			// remove any existing alerts
-			$('.subscribe__alert').remove();
-
-			$('<p class="subscribe__alert"><svg><use xlink:href="#icon-close"></use></svg> ' + response.responseJSON.message + '</p>').insertAfter($form);
-
-		});
 
 	});
 
