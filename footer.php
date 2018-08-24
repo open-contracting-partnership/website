@@ -85,15 +85,7 @@
 						<div class="site-footer__email">
 
 							<h4><?php _e('Subscribe to our newsletter', 'ocp'); ?></h4>
-
-							<div class="js-subscribe">
-
-								<form class="form--dark flex-field" action="" method="post">
-									<input type="email" placeholder="Enter your email" name="email" required>
-									<button><?php _e('Send', 'ocp'); ?></button>
-								</form>
-
-							</div>
+							<p><a href="#" class="js-subscribe-footer / button button--white"><?php _e('Get our newsletter', 'ocp'); ?></a></p>
 
 						</div>
 
@@ -191,6 +183,17 @@
 				r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
 				a.appendChild(r);
 			})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+		</script>
+
+		<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+
+		<script>
+
+			function showMailingPopUp() {
+			    require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us12.list-manage.com","uuid":"4257477995e0a1fa5cb6587b2","lid":"fc9ec0e34b"}) })
+			    document.cookie = "MCPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			};
+
 		</script>
 
 	</body>
