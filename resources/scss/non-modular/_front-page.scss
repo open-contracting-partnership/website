@@ -579,3 +579,50 @@
 		}
 
 	}
+
+
+
+.homepage-7-steps {
+
+	.homepage-7-steps__introduction {
+
+		h3 {
+			color: color('brand');
+		}
+
+		@include upto(M) {
+			margin-bottom: spacing(5);
+		}
+
+		@include from(M) {
+			@include span(6 of 12);
+		}
+
+		@include from(L) {
+			@include span(5 of 12);
+		}
+
+	}
+
+	.homepage-7-steps__diagram {
+
+		@include upto(M) {
+			max-width: 500px;
+		}
+
+		@include from(M) {
+			@include span(6 of 12);
+			@include last();
+		}
+
+		> svg {
+
+			.gs-diamonds__circle {
+				fill: color('background');
+			}
+
+		}
+
+	}
+
+}

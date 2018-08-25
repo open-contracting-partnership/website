@@ -264,6 +264,29 @@
 
 		</section>
 
+		<section class="homepage-7-steps / band band--extra-thick">
+
+			<div class="homepage-7-steps__introduction">
+
+				<h3><?php the_field('7_steps_title'); ?></h3>
+				<?php the_field('7_steps_introduction'); ?>
+
+				<?php if ( have_rows('7_steps_links') ) : ?>
+
+					<?php while ( have_rows('7_steps_links') ) : the_row(); ?>
+						<a href="<?php echo get_sub_field('link')['url']; ?>" class="button button--white"><?php echo get_sub_field('link')['title']; ?></a>
+					<?php endwhile; ?>
+
+				<?php endif; ?>
+
+			</div>
+
+			<div class="homepage-7-steps__diagram">
+				<?php get_partial('front-page', 'diamonds'); ?>
+			</div>
+
+		</section>
+
 		<section class="homepage-map / band">
 
 			<?php if ( have_rows('worldwide_map_markers') ) : ?>

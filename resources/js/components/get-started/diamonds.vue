@@ -1,6 +1,6 @@
 <template>
 
-	<svg class="gs-diamonds" viewBox="0 0 583 374">
+	<svg class="gs-diamonds gs-diamonds--clickable" viewBox="0 0 583 374">
 
 		<defs>
 
@@ -39,10 +39,10 @@
 
 				<g>
 
-					<use fill="#FFF" stroke="#B7B7B7" stroke-width="2" :mask="'url(#' + prefix + '--mask-1)'" stroke-dasharray="11" :xlink:href="'#' + prefix + '--circle-1'"/>
+					<use class="gs-diamonds__circle" fill="#FFF" stroke="#B7B7B7" stroke-width="2" :mask="'url(#' + prefix + '--mask-1)'" stroke-dasharray="11" :xlink:href="'#' + prefix + '--circle-1'"/>
 
 					<g stroke="#B7B7B7">
-						<use fill="#FFF" stroke-width="2" :mask="'url(#' + prefix + '--mask-2)'" stroke-dasharray="11" :xlink:href="'#' + prefix + '--circle-2'"/>
+						<use class="gs-diamonds__circle" fill="#FFF" stroke-width="2" :mask="'url(#' + prefix + '--mask-2)'" stroke-dasharray="11" :xlink:href="'#' + prefix + '--circle-2'"/>
 						<circle cx="186.6" cy="186.6" r="121.27"/>
 					</g>
 
