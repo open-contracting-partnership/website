@@ -18,7 +18,15 @@
 .gs-diamonds--clickable {
 
 	.gs-diamonds__step {
+
 		cursor: pointer;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}
+
 	}
 
 	.gs-diamonds__step-icon {
@@ -27,6 +35,7 @@
 	}
 
 	.gs-diamonds__step:hover .gs-diamonds__step-icon,
+	.gs-diamonds__step:focus .gs-diamonds__step-icon,
 	.gs-diamonds__step.active .gs-diamonds__step-icon {
 		opacity: 1;
 	}
