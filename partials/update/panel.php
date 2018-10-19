@@ -3,7 +3,7 @@
 	<div class="update-panel__subscribe">
 
 		<h3 class="update-panel__subscribe-title"><?php _e('Subscribe to our newsletter', 'ocp'); ?></h3>
-		<p><?php _e('Sign up to out monthly email where you can recieve updates on our current work', 'ocp'); ?></p>
+		<p><?php _e('Sign up to our monthly email where you can recieve updates on our current work', 'ocp'); ?></p>
 
 		<div class="js-subscribe">
 
@@ -18,7 +18,7 @@
 
 	<div class="update-panel__follow">
 
-		<p><?php _e('Follow up and keep up to date', 'ocp'); ?></p>
+		<p><?php _e('Follow us and keep up to date', 'ocp'); ?></p>
 
 		<ul class="nav nav--horizontal">
 
