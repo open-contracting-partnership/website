@@ -45,10 +45,22 @@
 }
 
 .page__wrapper {
+
 	@extend .wrapper;
 	position: relative;
 	@extend %page--margin-top;
 	@extend %page--margin-bottom;
+
+	@media print {
+
+		& {
+			padding: unset;
+			margin: unset;
+			max-width: unset;
+		}
+
+	}
+
 }
 
 // ONE COLUMN

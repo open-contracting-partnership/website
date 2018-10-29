@@ -55,7 +55,7 @@
 
 				</section>
 
-				<div class="post-meta">
+				<div class="post-meta / print-hidden">
 
 					<?php if ( $post_tags ) : ?>
 
@@ -94,16 +94,20 @@
 
 				</div>
 
-				<?php if ( comments_open() || '0' != get_comments_number() ) : ?>
-					<?php comments_template(); ?>
-				<?php endif; ?>
+				<div class="print-hidden">
+
+					<?php if ( comments_open() || '0' != get_comments_number() ) : ?>
+						<?php comments_template(); ?>
+					<?php endif; ?>
+
+				</div>
 
 			</article>
 
 			<!-- yarpp posts -->
 			<?php if ( function_exists('related_posts') ) : ?>
 
-				<section class="related-posts">
+				<section class="related-posts / print-hidden">
 
 					<?php
 

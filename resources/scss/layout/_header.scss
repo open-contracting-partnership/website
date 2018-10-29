@@ -3,8 +3,17 @@
 \*------------------------------------*/
 
 .site-header {
+
 	@include font('secondary', 'medium');
 	background-color: color('dark-background');
+
+	@media print {
+
+		& {
+			display: none;
+		}
+
+	}
 
 	.logo {
 		display: none;

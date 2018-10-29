@@ -2,7 +2,7 @@
 
 	<?php if ( in_array(get_post_type(), ['post', 'news']) ) : ?>
 
-		<div class="band band--thin">
+		<div class="band band--thin / print-hidden">
 
 			<a href="<?php echo get_post_type_archive_link('post'); ?>" class="text-button button--icon">
 				<svg><use xlink:href="#icon-arrow-left" /></svg>

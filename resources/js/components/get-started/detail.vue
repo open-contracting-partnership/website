@@ -2,7 +2,7 @@
 
 	<div class="gs-detail">
 
-		<div class="nav-bar">
+		<div class="nav-bar / print-hidden">
 
 			<router-link v-if="step > 1" :to="{ name: 'detail', params: { step: parseInt(step) - 1 } }" class="prev">
 				<svg><use xlink:href="#icon-arrow-left" /></svg>
@@ -20,7 +20,7 @@
 
 		<div class="page__wrapper">
 
-			<aside class="gs-detail__sidebar page-sidebar">
+			<aside class="gs-detail__sidebar page-sidebar / print-hidden">
 
 				<h1 class="gs-detail__sidebar-title">{{ step }}. {{ detail.title }}</h1>
 				<p class="gs-detail__sidebar-strap" :data-step="step">{{ detail.strapline }}</p>
@@ -78,7 +78,7 @@
 
 					</div>
 
-					<div class="gs-detail__nav">
+					<div class="gs-detail__nav / print-hidden">
 
 						<router-link :to="{ name: 'detail', params: { step: step == 1 ? 1 : (parseInt(step) - 1) } }">
 							<svg><use xlink:href="#icon-arrow-left" /></svg>
@@ -146,7 +146,9 @@
 					<div v-html="detail.publishers"></div>
 				</div>
 
-				<diamonds prefix="content"></diamonds>
+				<div class="print-hidden">
+					<diamonds prefix="content"></diamonds>
+				</div>
 
 			</div>
 
@@ -189,7 +191,7 @@
 		},
 
 		mounted() {
-			window.scrollTo(0, 0);		
+			window.scrollTo(0, 0);
 		}
 
 	}
