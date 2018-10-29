@@ -1,6 +1,6 @@
 <template>
 
-	<span class="flag-icon" :style="'background-image: url(/wp-content/themes/ocp-v1/node_modules/flag-icon-css/flags/4x3/' + code  + '.svg)'"></span>
+	<span class="flag-icon" :style="'background-image: url(/wp-content/themes/ocp-v1/dist/img/flags/4x3/' + code  + '.svg)'"></span>
 
 </template>
 
