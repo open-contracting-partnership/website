@@ -17,6 +17,8 @@ mix.sass('resources/scss/styles.scss', 'dist/css')
 	.js('resources/js/impact-stories.js', 'dist/js')
 	.js('resources/js/get-started.js', 'dist/js')
 	.js('resources/js/worldwide.js', 'dist/js')
+	.copy('node_modules/mapbox-gl/dist/mapbox-gl.css', 'dist/css/mapbox-gl.css')
+	.copy('node_modules/flag-icon-css/flags', 'dist/img/flags')
 	.options({
 		processCssUrls: false
 	})
