@@ -157,7 +157,7 @@
 		<script>
 
 			var ajax = new XMLHttpRequest();
-			ajax.open('GET', '<?php echo get_bloginfo('template_directory'); ?>/dist/img/icons.svg?v=<?php echo wp_get_theme()->Version; ?>', true);
+			ajax.open('GET', '<?php echo get_bloginfo('template_directory'); ?>/dist/svg/icons.svg?v=<?php echo wp_get_theme()->Version; ?>', true);
 			ajax.send();
 			ajax.onload = function(e) {
 

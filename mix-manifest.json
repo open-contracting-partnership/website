@@ -3,5 +3,6 @@
     "/dist/js/get-started.js": "/dist/js/get-started.js",
     "/dist/js/impact-stories.js": "/dist/js/impact-stories.js",
     "/dist/js/main.js": "/dist/js/main.js",
-    "/dist/css/styles.css": "/dist/css/styles.css"
+    "/dist/css/styles.css": "/dist/css/styles.css",
+    "/dist/js/svg.js": "/dist/js/svg.js"
 }
