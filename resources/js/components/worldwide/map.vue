@@ -35,7 +35,7 @@
 			</div> <!-- / .map-controls -->
 
 			<div class="mapbox-container">
-				<link href='/wp-content/themes/ocp-v1/node_modules/mapbox-gl/dist/mapbox-gl.css' rel='stylesheet' />
+				<link href='/wp-content/themes/ocp-v1/dist/css/mapbox-gl.css' rel='stylesheet' />
 				<div id='map'></div>
 			</div>
 
