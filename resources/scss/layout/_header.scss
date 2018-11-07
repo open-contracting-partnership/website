@@ -42,6 +42,15 @@
 			height: em(38);
 		}
 	}
+
+	@include from(ML) {
+
+		&[data-nav-active="true"] {
+			margin-bottom: 67px;
+		}
+
+	}
+
 }
 
 .mobile-menu {

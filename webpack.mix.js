@@ -1,6 +1,7 @@
 let mix = require('laravel-mix');
 var path = require('path');
 const SvgStore = require('webpack-svgstore-plugin');
+var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -44,6 +45,7 @@ mix.sass('resources/scss/styles.scss', 'dist/css')
 		plugins: [
 			new SvgStore({
 				prefix: ''
-			})
+			}),
+			new LiveReloadPlugin()
 		]
 	});

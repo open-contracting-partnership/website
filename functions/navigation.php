@@ -193,112 +193,26 @@ class OCP_Nav {
 
 		}
 
-		global $wp, $post;
-		$current_url = self::format_url(home_url(add_query_arg(array(), $wp->request)), FALSE);
+		return $menu;
 
-		// match the current page to the items within the nav
-		$matched_page = current(array_filter($flat_menu, function($menu_item) use ($current_url) {
-			return $menu_item->comparison_url === $current_url;
-		}));
+	}
 
-		if ( ! empty($matched_page) ) {
+	static function nav_is_active() {
 
-			$menu_parent = $matched_page->menu_parent;
+		$navigation = OCP_Nav::prepare_primary_nav();
 
-			if ( $menu_parent > 0 ) {
+		$add_padding = false;
 
-				// set the parent item as the current ancestor
-				// this is likely already applied, but in some instances it isn't
-				$menu[$menu_parent]->classes[] = 'current-menu-ancestor';
+		foreach ( $navigation as $nav_item ) {
 
-				// also, store the parent page ID for use within the standard nav functions
-				$parent_pages[] = $menu_parent;
-
-				$secondary_nav = $menu[$menu_parent]->children;
-
-			} else {
-				$secondary_nav = $menu[$matched_page->ID]->children;
-			}
-
-		} else {
-
-			if ( is_page() && ! is_front_page() ) {
-
-				$ancestor_id = $object_ids[current(array_slice(get_post_ancestors($post), -2, 1))];
-
-				if ( isset($flat_menu[$ancestor_id]) ) {
-
-					$menu_parent = $flat_menu[$ancestor_id]->menu_parent;
-
-					if ( $menu_parent > 0 ) {
-
-						// set the parent item as the current ancestor
-						// this is likely already applied, but in some instances it isn't
-						$menu[$menu_parent]->classes[] = 'current-menu-ancestor';
-						$menu[$menu_parent]->children[$ancestor_id]->classes[] = 'current-menu-parent';
-
-						// also, store the parent page ID for use within the standard nav functions
-						$parent_pages[] = $menu_parent;
-
-						$secondary_nav = $menu[$menu_parent]->children;
-
-					} else {
-						$secondary_nav = $matched_page->children;
-					}
-
-				}
-
-			} else if ( is_single() ) {
-
-				$archive_url = get_permalink(get_option('page_for_posts'));
-
-				if ( get_post_type() !== 'post' ) {
-					$archive_url = get_post_type_archive_link(get_post_type());
-				}
-
-				// match the current page to the items within the nav
-				$matched_page = current(array_filter($flat_menu, function($menu_item) use ($archive_url) {
-					return $menu_item->url === $archive_url;
-				}));
-
-				if ( ! empty($matched_page) ) {
-
-					$menu_parent = $matched_page->menu_parent;
-
-					if ( $menu_parent > 0 ) {
-
-						// set the parent item as the current ancestor
-						// this is likely already applied, but in some instances it isn't
-						$menu[$menu_parent]->classes[] = 'current-menu-ancestor';
-
-						// also, store the parent page ID for use within the standard nav functions
-						$parent_pages[] = $menu_parent;
-
-						$secondary_nav = $menu[$menu_parent]->children;
-
-					} else {
-						$secondary_nav = $menu[$matched_page->ID]->children;
-					}
-
-				}
-
+			if ( ! empty(array_intersect(['current-menu-item', 'current-menu-ancestor'], $nav_item->classes)) && ! empty($nav_item->children) ) {
+				$add_padding = true;
+				break;
 			}
 
 		}
 
-		add_filter('nav_menu_css_class', function($classes, $item) use ($parent_pages) {
-
-			// if the current array item is within the parent pages array
-			// it has been marked as a parent, add the class
-
-			if ( in_array($item->ID, $parent_pages) ) {
-				$classes[] = 'current-menu-ancestor';
-			}
-			return $classes;
-
-		}, 10, 2);
-
-		return $secondary_nav;
+		return $add_padding;
 
 	}
 

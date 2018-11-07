@@ -27,6 +27,7 @@
       "vue-template-compiler": "^2.5.13",
       "vuex": "^3.0.0",
       "vuex-router-sync": "^5.0.0",
+      "webpack-livereload-plugin": "1",
       "webpack-svgstore-plugin": "^4.1.0"
    },
    "dependencies": {
