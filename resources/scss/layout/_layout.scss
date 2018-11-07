@@ -16,3 +16,20 @@
 		padding: 0;
 	}
 }
+
+@mixin wrapper {
+
+	@include container();
+	max-width: $max-width + px;
+	box-sizing: border-box;
+	padding: 0 16px;
+
+	@include mq(M) {
+		padding: 0 24px;
+	}
+
+	@include mq($max-width + 40) {
+		padding: 0;
+	}
+
+}
