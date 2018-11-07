@@ -19,12 +19,10 @@
 
 	@if ($weight == null) {
 		@error 'Font weight "#{$weight}" passed to `font` mixin does not exist';
-		@return false;
 	}
 
 	@if ($style != 'normal' and $style != 'italic') {
 		@error 'Font style "#{$style}" passed to `font` mixin is invalid';
-		@return false;
 	}
 
 	$typekit: map-get($font-choice, typekit);

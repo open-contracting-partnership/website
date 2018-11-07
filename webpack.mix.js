@@ -1,5 +1,7 @@
 let mix = require('laravel-mix');
 var path = require('path');
+const SvgStore = require('webpack-svgstore-plugin');
+var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -17,6 +19,7 @@ mix.sass('resources/scss/styles.scss', 'dist/css')
 	.js('resources/js/impact-stories.js', 'dist/js')
 	.js('resources/js/get-started.js', 'dist/js')
 	.js('resources/js/worldwide.js', 'dist/js')
+	.js('resources/js/svg.js', 'dist/js')
 	.copy('node_modules/mapbox-gl/dist/mapbox-gl.css', 'dist/css/mapbox-gl.css')
 	.copy('node_modules/flag-icon-css/flags', 'dist/img/flags')
 	.options({
@@ -40,5 +43,11 @@ mix.sass('resources/scss/styles.scss', 'dist/css')
 					loader: 'import-glob-loader'
 				}
 			]
-		}
+		},
+		plugins: [
+			new SvgStore({
+				prefix: ''
+			}),
+			new LiveReloadPlugin()
+		]
 	});

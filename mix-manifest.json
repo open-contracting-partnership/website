@@ -3,6 +3,7 @@
     "/dist/js/get-started.js": "/dist/js/get-started.js",
     "/dist/js/impact-stories.js": "/dist/js/impact-stories.js",
     "/dist/js/main.js": "/dist/js/main.js",
-    "/dist/css/styles.css": "/dist/css/styles.css",
-    "/dist/css/mapbox-gl.css": "/dist/css/mapbox-gl.css"
+    "/dist/js/svg.js": "/dist/js/svg.js",
+    "/dist/css/mapbox-gl.css": "/dist/css/mapbox-gl.css",
+    "/dist/css/styles.css": "/dist/css/styles.css"
 }

@@ -95,7 +95,7 @@
 
 	<body <?php body_class(basename(get_permalink())); ?>>
 
-		<header class="site-header">
+		<header class="site-header" data-nav-active="<?php echo OCP_Nav::nav_is_active() ? 'true' : 'false'; ?>">
 
 			<div class="site-header__top">
 
@@ -172,53 +172,22 @@
 
 			</div>
 
-			<nav class="primary-nav">
+			<nav class="nav nav--header nav--mobile">
 
-				<div class="wrapper">
+				<?php
 
-					<?php
+					// output the entire multi-level navigation for mobile
+					wp_nav_menu([
+						'theme_location' => 'header-primary',
+						'sort_column' => 'menu_order',
+						'container' => 'ul',
+						'menu_class' => '',
+						'depth' => 2
+					]);
 
-						// before outputting the standard menu, consider the secondary navigation
-						$secondary_nav = OCP_Nav::prepare_primary_nav();
+				?>
 
-						// output the entire multi-level navigation
-						// we won't show it all, but on mobile it's used for the slide out
-
-						wp_nav_menu([
-							'theme_location' => 'header-primary',
-							'sort_column' => 'menu_order',
-							'container' => 'ul',
-							'menu_class' => 'nav nav--horizontal',
-							'depth' => 2
-						]);
-
-					?>
-
-				</div>
-
-			</nav> <!-- / .primary-nav -->
-
-			<?php if ( ! empty($secondary_nav) ) : ?>
-
-				<nav class="secondary-nav">
-
-					<div class="wrapper">
-
-						<ul class="nav nav--horizontal">
-
-							<li class="nav__home"><a href="/">&nbsp;</a></li>
-
-							<?php foreach ( $secondary_nav as $menu_item ) : ?>
-								<li class="<?php echo implode(' ', $menu_item->classes); ?>"><a href="<?php echo $menu_item->url; ?>"><?php echo $menu_item->title; ?></a></li>
-							<?php endforeach; ?>
-
-						</ul>
-
-					</div> <!-- / .wrapper -->
-
-				</nav> <!-- / .secondary-nav -->
-
-			<?php endif; ?>
+			</nav> <!-- / .nav--header -->
 
 		</header>
 
