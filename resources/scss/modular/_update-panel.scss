@@ -14,10 +14,7 @@ category:
 		<h3 class="update-panel__subscribe-title">Subscribe to our newsletter</h3>
 		<p>Sign up to our monthly email where you can recieve updates on our current work</p>
 
-		<form class="form--dark flex-field" action="" method="post">
-			<input type="email" placeholder="Enter your email" name="email" required="">
-			<button>Send</button>
-		</form>
+		<p><button class="js-subscribe-footer / button"><?php _e('Get our newsletter', 'ocp'); ?></button></p>
 
 	</div>
 
@@ -60,19 +57,10 @@ category:
 
 	@include font-size(16);
 
-	@include mq(M, 'max-width') {
-		margin-bottom: spacing(4);
+	@include upto(M) {
+		margin-bottom: spacing(3);
 	}
 
-}
-
-.update-panel__subscribe input,
-.update-panel__subscribe button {
-	background-color: transparent;
-}
-
-.update-panel__subscribe input[type="email"] {
-	max-width: 280px;
 }
 
 .update-panel__subscribe-title {

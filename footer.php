@@ -85,7 +85,7 @@
 						<div class="site-footer__email">
 
 							<h4><?php _e('Subscribe to our newsletter', 'ocp'); ?></h4>
-							<p><a href="#" class="js-subscribe-footer / button button--white"><?php _e('Get our newsletter', 'ocp'); ?></a></p>
+							<p><button class="js-subscribe-footer / button button--white"><?php _e('Get our newsletter', 'ocp'); ?></button></p>
 
 						</div>
 

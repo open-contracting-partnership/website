@@ -188,6 +188,10 @@
 		$arg1: map-get($breakpoints, $arg1);
 	}
 
+	@if $arg2 == 'max-width' {
+		$arg1: $arg1 - 1;
+	}
+
 	@if type-of($arg1) == 'number' {
 		$arg1: $arg1 + px;
 	}
@@ -200,12 +204,8 @@
 
 	// maybe arg2 is a number
 	@if type-of($arg2) == 'number' {
-		$arg2: $arg2 + px;
+		$arg2: ($arg2 - 1) * 1px;
 		$between: true;
-	}
-
-	@if $arg2 == 'max-width' {
-		$arg1: $arg1 - 1px;
 	}
 
 	@if $between == false {
@@ -216,7 +216,7 @@
 
 	} @else {
 
-		@media screen and (min-width: $arg1) and (max-width: $arg2 - 1px) {
+		@media screen and (min-width: $arg1) and (max-width: $arg2) {
 			@content;
 		}
 
