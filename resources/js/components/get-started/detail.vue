@@ -6,13 +6,13 @@
 
 			<router-link v-if="step > 1" :to="{ name: 'detail', params: { step: parseInt(step) - 1 } }" class="prev">
 				<svg><use xlink:href="#icon-arrow-left" /></svg>
-				<span>Prev</span>
+				<span v-html="nav_labels.prev"></span>
 			</router-link>
 
 			<h2>{{ step }}. {{ detail.title }}</h2>
 
 			<router-link v-if="step < 7" :to="{ name: 'detail', params: { step: parseInt(step) + 1 } }" class="next">
-				<span>Next</span>
+				<span v-html="nav_labels.next"></span>
 				<svg><use xlink:href="#icon-arrow-right" /></svg>
 			</router-link>
 
@@ -166,6 +166,22 @@
 
 			detail() {
 				return this.$root.steps[this.step - 1];
+			},
+
+			nav_labels() {
+
+				let labels = {};
+
+				if ( this.$root.steps[this.step - 2] ) {
+					labels.prev = this.$root.steps[this.step - 2].title;
+				}
+
+				if ( this.$root.steps[this.step] ) {
+					labels.next = this.$root.steps[this.step].title;
+				}
+
+				return labels;
+
 			},
 
 			step() {
