@@ -58,6 +58,8 @@
 
 		<div class="archive-content__posts" v-if="events.length">
 
+			<h5 class="future-events">Upcoming events</h5>
+
 			<div class="archive-content__future-events">
 				<div
 					v-for="event in futureEvents"
