@@ -61,7 +61,7 @@ class Contracts {
 	private function date_filter($date) {
 
 		// format the date given the incoming format
-		$date = DateTime::createFromFormat('d/m/Y', $date);
+		$date = strtotime($date);
 
 		// weed out invalid times
 		if ( ! $date ) {
@@ -69,7 +69,7 @@ class Contracts {
 		}
 
 		// return the mysql date format
-		return $date->format('Y-m-d');
+		return date('Y-m-d', $date);
 
 	}
 
@@ -79,12 +79,8 @@ class Contracts {
 
 	public function fetch_contracts() {
 
-		// ATTN: temp disable the fetching of contracts while
-		// ocp are creating their new contracts back end
-		return;
-
 		// fetch the primary contracts feed
-		$contracts = @file_get_contents('http://contracts.open-contracting.org/raw/ocp/');
+		$contracts = @file_get_contents('http://contracts.open-contracting.org/contract/?action=downloadall&type=json&display=raw');
 		$contracts = json_decode($contracts);
 
 		// if the contracts response is empty, don't continue
@@ -142,33 +138,20 @@ class Contracts {
 		$wpdb->query("TRUNCATE TABLE {$wpdb->prefix}contracts");
 
 		// loop through the contracts
-		foreach ( $contracts as $contract_meta ) {
-
-			// fetch the contract information
-			// we want to supress any errors too
-
-			$contract = @file_get_contents($contract_meta->releaseUrl);
-			$contract = json_decode($contract);
-
-			// ignore falsey responses
-			if ( ! $contract ) {
-				continue;
-			}
+		foreach ( $contracts->releases as $contract ) {
 
 			$phase = '';
 
 			// attempt to determine the contract phase
-			if ( $contract->releases ) {
-				$phase = property_exists($contract->releases[0], 'planning') ? 'planning' : $phase;
-				$phase = property_exists($contract->releases[0], 'tender') ? 'tender' : $phase;
-				$phase = property_exists($contract->releases[0], 'awards') ? 'award' : $phase;
-				$phase = property_exists($contract->releases[0], 'contracts') ? 'contract' : $phase;
-				$phase = property_exists($contract->releases[0], 'implementation') ? 'implementation' : $phase;
-			}
+			$phase = property_exists($contract, 'planning') ? 'planning' : $phase;
+			$phase = property_exists($contract, 'tender') ? 'tender' : $phase;
+			$phase = property_exists($contract, 'awards') ? 'award' : $phase;
+			$phase = property_exists($contract, 'contracts') ? 'contract' : $phase;
+			$phase = property_exists($contract, 'implementation') ? 'implementation' : $phase;
 
 			$implementation_milestones = array();
 
-			foreach ( $contract->releases[0]->contracts[0]->implementation->milestones as $milestones ) {
+			foreach ( $contract->contracts[0]->implementation->milestones as $milestones ) {
 
 				if ( $milestone->title && $milestone->status ) {
 
@@ -184,39 +167,39 @@ class Contracts {
 			// insert the contracts into the table
 			$wpdb->insert("{$wpdb->prefix}contracts", [
 
-				'ocid' => $contract_meta->id,
-				'supplier_name' => $contract->releases[0]->awards[0]->suppliers[0]->name,
+				'ocid' => $contract->ocid,
+				'supplier_name' => $contract->awards[0]->suppliers[0]->name,
 				'phase' => $phase,
 
-				'planning_amount' => str_replace(',', '', $contract->releases[0]->planning->budget->amount->amount),
-				'planning_currency' => $contract->releases[0]->planning->budget->amount->currency,
-				'planning_rationale' => $contract->releases[0]->planning->rationale,
+				'planning_amount' => str_replace(',', '', $contract->planning->budget->amount->amount),
+				'planning_currency' => $contract->planning->budget->amount->currency,
+				'planning_rationale' => $contract->planning->rationale,
 
-				'tender_status' => $contract->releases[0]->tender->status,
-				'tender_title' => $contract->releases[0]->tender->title,
-				'tender_procurement' => $contract->releases[0]->tender->procurementMethod,
-				'tender_rationale' => $contract->releases[0]->tender->procurementMethodRationale,
-				'tender_description' => $contract->releases[0]->tender->description,
-				'tender_criteria' => $contract->releases[0]->tender->eligibilityCriteria,
-				'tender_start_date' => $this->date_filter($contract->releases[0]->tender->tenderPeriod->startDate),
-				'tender_end_date' => $this->date_filter($contract->releases[0]->tender->tenderPeriod->endDate),
-				'tender_enquiries' => $contract->releases[0]->tender->hasEnquiries,
-				'tender_tor' => $contract->releases[0]->tender->documents[0]->url,
+				'tender_status' => $contract->tender->status,
+				'tender_title' => $contract->tender->title,
+				'tender_procurement' => $contract->tender->procurementMethod,
+				'tender_rationale' => $contract->tender->procurementMethodRationale,
+				'tender_description' => $contract->tender->description,
+				'tender_criteria' => $contract->tender->eligibilityCriteria,
+				'tender_start_date' => $this->date_filter($contract->tender->tenderPeriod->startDate),
+				'tender_end_date' => $this->date_filter($contract->tender->tenderPeriod->endDate),
+				'tender_enquiries' => $contract->tender->hasEnquiries,
+				'tender_tor' => $contract->tender->documents[0]->url,
 
-				'award_date' => $this->date_filter($contract->releases[0]->awards->date),
-				'award_value' => str_replace(',', '', $contract->releases[0]->awards->value->amount),
-				'award_currency' => $contract->releases[0]->awards->value->currency,
-				'award_supplier' => $contract->releases[0]->awards[0]->suppliers[0]->name,
+				'award_date' => $this->date_filter($contract->awards[0]->date),
+				'award_value' => str_replace(',', '', $contract->awards[0]->value->amount),
+				'award_currency' => $contract->awards[0]->value->currency,
+				'award_supplier' => $contract->awards[0]->suppliers[0]->name,
 
-				'contract_title' => $contract->releases[0]->contracts[0]->title,
-				'contract_status' => $contract->releases[0]->contracts[0]->status,
-				'contract_start_date' => $this->date_filter($contract->releases[0]->contracts[0]->period->startDate),
-				'contract_end_date' => $this->date_filter($contract->releases[0]->contracts[0]->period->endDate),
-				'contract_amount' => str_replace(',', '', $contract->releases[0]->contracts[0]->value->amount),
-				'contract_currency' => $contract->releases[0]->contracts[0]->value->currency,
-				'contract_signed' => $this->date_filter($contract->releases[0]->contracts[0]->dateSigned),
-				'contract_document' => $contract->releases[0]->contracts[0]->documents[0]->url,
-				'contract_document_title' => $contract->releases[0]->contracts[0]->documents[0]->title,
+				'contract_title' => $contract->contracts[0]->title,
+				'contract_status' => $contract->contracts[0]->status,
+				'contract_start_date' => $this->date_filter($contract->contracts[0]->period->startDate),
+				'contract_end_date' => $this->date_filter($contract->contracts[0]->period->endDate),
+				'contract_amount' => str_replace(',', '', $contract->contracts[0]->value->amount),
+				'contract_currency' => $contract->contracts[0]->value->currency,
+				'contract_signed' => $this->date_filter($contract->contracts[0]->dateSigned),
+				'contract_document' => $contract->contracts[0]->documents[0]->url,
+				'contract_document_title' => $contract->contracts[0]->documents[0]->title,
 
 				'implementation_milestones' => serialize($implementation_milestones),
 
@@ -282,6 +265,6 @@ class Contracts {
 
 }
 
-	// if ( $_POST['reset_contracts'] === "true" ) {
-	// 	(new Contracts)->fetch_contracts();
-	// }
+if ( $_POST['reset_contracts'] === "true" ) {
+	(new Contracts)->fetch_contracts();
+}
