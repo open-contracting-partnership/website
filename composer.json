@@ -1,6 +1,5 @@
 {
     "require": {
-        "drewm/mailchimp-api": "dev-master",
         "sentry/sentry": "^1.10"
     }
 }
