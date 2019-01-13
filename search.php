@@ -2,13 +2,39 @@
 
 <?php get_header(); ?>
 
+	<?php
+
+		$search_query = get_search_query();
+
+		global $wp_query;
+
+		// fetch original ids
+		$original_post_ids = array_map(function($post) {
+			return $post->ID;
+		}, $wp_query->posts);
+
+		// fetch the author post ids
+		$author_post_ids = get_search_author_post_ids();
+
+		// build a new, unique post ids array
+		$search_post_ids = array_unique(array_merge($original_post_ids, $author_post_ids));
+
+		// finally re-run the query
+		query_posts([
+			'post_type' => ['post', 'news'],
+			'post__in' => $search_post_ids,
+			'orderby' => 'post__in'
+		]);
+
+	?>
+
 	<div class="wrapper / page__wrapper">
 
 		<main class="search-main">
 
 			<span class="archive-content__sub-title"><?php _e("Search Results /", 'ocp'); ?></span>
 
-			<h1><?php echo get_search_query(); ?></h1>
+			<h1><?php echo $search_query; ?></h1>
 
 			<?php if ( have_posts() ) : ?>
 
