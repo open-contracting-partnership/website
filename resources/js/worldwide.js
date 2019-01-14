@@ -4,23 +4,36 @@ import VueRouter from 'vue-router'
 import Raven from 'raven-js';
 import RavenVue from 'raven-js/plugins/vue';
 import _ from 'underscore';
+import store from './components/worldwide/store'
+
+Vue.use(VueRouter)
 
 // Raven
 // 	.config('https://0bd6363074584cbcaeab1e66d004ed5a@sentry.io/296260')
 // 	.addPlugin(RavenVue, Vue)
 // 	.install();
 
-Vue.use(VueRouter)
+// route components
+import Table from './components/worldwide/table.vue';
+import Map from './components/worldwide/map.vue';
 
-import store from './components/worldwide/store'
+// element components
+import Flag from './components/flag.vue';
+import Tick from './components/worldwide/tick.vue';
+import Country from './components/worldwide/country.vue';
+import DataTable from './components/worldwide/table.vue';
+import OCDSStatus from './components/worldwide/ocds-status.vue';
+import CountrySearch from './components/worldwide/search.vue';
+import CountryFilter from './components/worldwide/filter.vue';
 
-Vue.component('flag', require('./components/flag.vue'));
-Vue.component('tick', require('./components/worldwide/tick.vue'));
-Vue.component('country', require('./components/worldwide/country.vue'));
-Vue.component('data-table', require('./components/worldwide/table.vue'));
-Vue.component('ocds-status', require('./components/worldwide/ocds-status.vue'));
-Vue.component('country-search', require('./components/worldwide/search.vue'));
-Vue.component('country-filter', require('./components/worldwide/filter.vue'));
+// register components
+Vue.component('flag', Flag);
+Vue.component('tick', Tick);
+Vue.component('country', Country);
+Vue.component('data-table', DataTable);
+Vue.component('ocds-status', OCDSStatus);
+Vue.component('country-search', CountrySearch);
+Vue.component('country-filter', CountryFilter);
 
 // router
 const router = new VueRouter({
@@ -28,12 +41,12 @@ const router = new VueRouter({
 		{
 			name: 'table',
 			path: '/table',
-			component: require('./components/worldwide/table.vue'),
+			component: Table
 		},
 		{
 			name: 'map',
 			path: '/',
-			component: require('./components/worldwide/map.vue'),
+			component: Map,
 			children: [
 				{
 					name: 'country',
