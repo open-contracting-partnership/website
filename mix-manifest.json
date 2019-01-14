@@ -1,9 +1,15 @@
 {
-    "/dist/js/get-started.js": "/dist/js/get-started.js",
-    "/dist/js/impact-stories.js": "/dist/js/impact-stories.js",
-    "/dist/js/main.js": "/dist/js/main.js",
-    "/dist/css/styles.css": "/dist/css/styles.css",
-    "/dist/js/svg.js": "/dist/js/svg.js",
-    "/dist/js/worldwide.js": "/dist/js/worldwide.js",
-    "/dist/css/mapbox-gl.css": "/dist/css/mapbox-gl.css"
+    "/dist/js/element-queries.js": "/dist/js/element-queries.js?id=33606eff660de3f03722",
+    "/dist/js/events.js": "/dist/js/events.js?id=a2773e9af7ea1f73a8a5",
+    "/dist/js/get-started.js": "/dist/js/get-started.js?id=984e676517ee3ad222f5",
+    "/dist/js/impact-stories.js": "/dist/js/impact-stories.js?id=afc3e6ab5e4cd81a0b92",
+    "/dist/js/latest-news.js": "/dist/js/latest-news.js?id=9447cf1bf14cd60660e3",
+    "/dist/js/main.js": "/dist/js/main.js?id=8bcc89b84a9079843cc2",
+    "/dist/css/styles.css": "/dist/css/styles.css?id=3841dc83bf2c107b42a4",
+    "/dist/js/manifest.js": "/dist/js/manifest.js?id=48cb3c941d23ffb5f94f",
+    "/dist/js/resources.js": "/dist/js/resources.js?id=9e72de2c71bb2ecf65c1",
+    "/dist/js/svg.js": "/dist/js/svg.js?id=a7e05390c23381c9e68e",
+    "/dist/js/vendor.js": "/dist/js/vendor.js?id=ff15b6539190676559fd",
+    "/dist/js/worldwide.js": "/dist/js/worldwide.js?id=40bf9991890af8046ca4",
+    "/resources/node_modules/mapbox-gl/mapbox-gl.css": "/resources/node_modules/mapbox-gl/mapbox-gl.css?id=5805495ed9ceac85c259"
 }

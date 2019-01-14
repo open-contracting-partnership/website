@@ -1,7 +1,10 @@
 import _ from 'underscore'
 import Vue from 'vue'
+import VueResource from 'vue-resource'
 import StoryFeatured from './components/impact-stories/featured.vue'
 import StoryCard from './components/impact-stories/normal.vue'
+
+Vue.use(VueResource);
 
 const reports = new Vue({
 
@@ -65,23 +68,31 @@ const reports = new Vue({
 			// find the types and countries from the stories
 			this.stories.forEach(function(story) {
 
-				story.story_type.forEach(function(story_type) {
+				if ( story.story_type ) {
 
-					this.types[story_type.slug] = {
-						"name": story_type.name,
-						"slug": story_type.slug
-					};
+					story.story_type.forEach(function(story_type) {
 
-				}.bind(this));
+						this.types[story_type.slug] = {
+							"name": story_type.name,
+							"slug": story_type.slug
+						};
 
-				story.country.forEach(function(story_country) {
+					}.bind(this));
 
-					this.countries[story_country.slug] = {
-						"name": story_country.name,
-						"slug": story_country.slug
-					};
+				}
 
-				}.bind(this));
+				if ( story.country ) {
+
+					story.country.forEach(function(story_country) {
+
+						this.countries[story_country.slug] = {
+							"name": story_country.name,
+							"slug": story_country.slug
+						};
+
+					}.bind(this));
+
+				}
 
 			}.bind(this));
 
@@ -150,19 +161,15 @@ const reports = new Vue({
 
 	mounted: function() {
 
-		$.ajax({
-			url: '/wp-json/ocp/v1/impact-stories',
-			cache: false
-		})
-		.done(function(data) {
+		this.$http.get('/wp-json/ocp/v1/impact-stories').then(response => {
 
 			// preset the display value so vue can watch it
-			data.forEach(function(story) {
+			response.body.forEach(function(story) {
 				story.display = true;
 			});
 
 			// set the reports data
-			this.stories = data;
+			this.stories = response.body;
 
 			// after the data has been applied, re-generate the filters
 			this.setFilters();
@@ -170,7 +177,7 @@ const reports = new Vue({
 			// and refresh the filter for the initial view
 			this.filter();
 
-		}.bind(this));
+		});
 
 	}
 

@@ -7,23 +7,6 @@
 
 		<script>var template_url = '<?php bloginfo('template_directory'); ?>';</script>
 
-		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/resources/js/libs/modernizr.js"></script>
-
-		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/dist/css/styles.css">
-
-		<script src="https://use.typekit.net/xpw3jps.js"></script>
-		<script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/public/js/libs/css-element-queries/src/ResizeSensor.js"></script>
-		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/public/js/libs/css-element-queries/src/ElementQueries.js"></script>
-
-		<script>
-
-			//attaches to DOMLoadContent
-			ElementQueries.listen();
-
-		</script>
-
 		<title><?php wp_title('&raquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
 		<meta charset="utf-8">
@@ -57,11 +40,9 @@
 		<meta name="msapplication-config" content="<?php bloginfo('template_directory'); ?>/resources/img/favicons/browserconfig.xml">
 		<meta name="theme-color" content="#323238">
 
-		<script src="<?php bloginfo('template_directory'); ?>/resources/js/libs/jquery-2.1.4.min.js"></script>
-		<script src="<?php bloginfo('template_directory'); ?>/resources/js/libs/vue.min.js"></script>
 
-		<script src="<?php bloginfo('template_directory'); ?>/public/js/libs/slick-slider/slick.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/public/js/libs/slick-slider/slick.css">
+
+
 
 		<?php wp_head(); ?>
 

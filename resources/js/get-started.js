@@ -34,8 +34,8 @@ new Vue({
 	router,
 
 	data: {
-		landing_content: landing_page,
-		steps: steps
+		landing_content: content.landing_page,
+		steps: content.steps
 	}
 
 }).$mount('#get-started')

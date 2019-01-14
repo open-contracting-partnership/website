@@ -7,7 +7,16 @@
 
 }
 
+.resource-single .card__type {
+	@include font-size(14);
+}
+
+.resource-heading {
+	margin-bottom: spacing(2);
+}
+
 .resource__details {
+	// @include font-size(14);
 	margin-bottom: spacing(4);
 }
 
@@ -17,4 +26,9 @@
 		display: block;
 	}
 
+}
+
+.resource-line {
+	width: 100%;
+	max-width: spacing(31);
 }

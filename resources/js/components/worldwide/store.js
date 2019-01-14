@@ -1,6 +1,5 @@
 // store.js
 
-import axios from 'axios';
 import * as topojson from "topojson-client";
 import _ from 'underscore'
 import Vue from 'vue'
@@ -8,7 +7,7 @@ import Vuex from 'vuex'
 import VueResource from 'vue-resource'
 
 Vue.use(Vuex)
-Vue.prototype.$http = axios
+Vue.use(VueResource)
 
 const state = {
 
@@ -151,9 +150,9 @@ const actions = {
 
 	fetchCountries ({ commit, getters }) {
 
-		const url = 'https://raw.githubusercontent.com/open-contracting-partnership/ocp-data/publish/oc-status/_map.json';
+		const url = 'https://raw.githubusercontent.com/open-contracting-partnership/ocp-data/publish/oc-status/_map.json?test=okay';
 
-		Vue.prototype.$http.get(url).then(response => {
+		this._vm.$http.get(url).then(response => {
 
 			// the _map.json file is in topojson format, lets convert the feature back to geojson
 			const geojson = topojson.feature(response.data, response.data.objects.ne_50m_admin_0_countries)

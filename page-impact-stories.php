@@ -49,6 +49,4 @@
 
 	</div>
 
-	<script src="<?php bloginfo('template_directory'); ?>/dist/js/impact-stories.js"></script>
-
 <?php get_footer(); ?>

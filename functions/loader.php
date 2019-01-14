@@ -18,12 +18,10 @@ $error_handler->registerErrorHandler();
 $error_handler->registerShutdownFunction();
 
 
- //************************
-// THEME PLUGINS DIRECTORY
+ //****************
+// THEME AUTLOADER
 
-if ( ! defined('THEME_PLUGINS_DIRECTORY') ) {
-	define('THEME_PLUGINS_DIRECTORY', get_theme_root() . '/' . get_template() . '/plugins');
-}
+require(get_theme_root() . '/' . get_template() . '/classes/autoload.php');
 
 
  //*******************

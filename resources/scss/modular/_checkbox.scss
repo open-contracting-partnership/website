@@ -12,7 +12,7 @@
 		margin-bottom: 1.4em;
 	}
 
-	span {
+	.custom-checkbox__box {
 		display: inline-block;
 		width: em(14, 17);
 		height: em(14, 17);
@@ -23,7 +23,7 @@
 		position: relative;
 	}
 
-	span > svg {
+	.custom-checkbox__box > svg {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -34,8 +34,8 @@
 		transition: transform cubic-bezier(.82, -.62, .74, .05) .2s;
 	}
 
-	input[type="radio"]:checked + span > svg,
-	input[type="checkbox"]:checked + span > svg {
+	input[type="radio"]:checked + .custom-checkbox__box > svg,
+	input[type="checkbox"]:checked + .custom-checkbox__box > svg {
 		transform: translateX(-50%) translateY(-50%) scale(1);
 		transition: transform cubic-bezier(.46, -.53, .03, 1.71) .2s;
 	}

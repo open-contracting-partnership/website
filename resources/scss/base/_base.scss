@@ -47,10 +47,16 @@ body {
 // HORIZONTAL RULE
 
 hr {
+
 	border: 0 solid color('body');
 	border-top-width: 1px;
 	height: 1px;
 	margin: 0 0 1em;
+
+	&[data-colour="grey"] {
+		border-color: color('grey');
+	}
+
 }
 
 
