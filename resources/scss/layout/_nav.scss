@@ -438,3 +438,14 @@ category:
 	}
 
 }
+
+// desktop, home variation
+body.home .nav--header ul ul {
+
+	@include from(ML) {
+		background-color: rgba(color('dark-background'), .5);
+		border-bottom: none;
+		color: color('white');
+	}
+
+}
