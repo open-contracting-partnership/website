@@ -5,30 +5,29 @@
 		@include push(2 of 12);
 	}
 
-}
-
-.resource-single .card__type {
-	@include font-size(14);
-}
-
-.resource-heading {
-	margin-bottom: spacing(2);
-}
-
-.resource__details {
-	// @include font-size(14);
-	margin-bottom: spacing(4);
-}
-
-.resource-single__button {
-
-	@include mq(400, 'max-width') {
-		display: block;
+	.card__type {
+		@include font-size(14);
 	}
 
-}
+	.resource-heading {
+		margin-bottom: spacing(2);
+	}
 
-.resource-line {
-	width: 100%;
-	max-width: spacing(31);
+	.resource__details {
+		margin-bottom: spacing(4);
+	}
+
+	.resource-single__button {
+
+		@include mq(400, 'max-width') {
+			display: block;
+		}
+
+	}
+
+	.resource-line {
+		width: 100%;
+		max-width: spacing(31);
+	}
+
 }

@@ -101,7 +101,7 @@
 					<span class="card__type" data-content-type="resource"><?php echo $type->name; ?></span>
 				<?php endif; ?> -->
 
-				<h1 class="gamma" v-html="open_resource.title"></h1>
+				<h1 class="gamma / resource-heading" v-html="open_resource.title"></h1>
 
 				<p class="resource__meta">
 
@@ -114,11 +114,27 @@
 				</p>
 
 				<p v-if="open_resource.fields.attachments">
-					<a @click="trackClick('Download', open_resource.title)" :href="open_resource.fields.attachments[0].file" class="button button--block button--large button--icon button--icon--reverse button--icon--stroke">Download<svg><use xlink:href="#icon-download" /></svg></a>
+
+					<a
+						@click="trackClick('Download', open_resource.title)"
+						:href="open_resource.fields.attachments[0].file"
+						class="button button--block button--large button--solid-green button--icon button--icon--reverse button--icon--stroke"
+					>
+						Download<svg><use xlink:href="#icon-download" /></svg>
+					</a>
+
 				</p>
 
 				<p v-if="open_resource.fields.link">
-					<a @click="trackClick('Download', open_resource.title)" :href="open_resource.fields.link" class="button button--block button--large">View</a>
+
+					<a
+						@click="trackClick('Download', open_resource.title)"
+						:href="open_resource.fields.link"
+						class="button button--block button--solid-green button--large"
+					>
+						View
+					</a>
+
 				</p>
 
 				<hr data-colour="grey">

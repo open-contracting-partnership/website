@@ -266,6 +266,29 @@ body.resource-open {
 	    width: 33%;
 	}
 
+	hr {
+		border-color: color('lighter-grey');
+	}
+
+	.resource__close {
+
+		position: absolute;
+		top: em(26);
+		right: em(26);
+
+		svg {
+			width: em(18);
+			height: em(18);
+			fill: color('background');
+		}
+
+	}
+
+	.resource-heading {
+		margin-bottom: spacing(2);
+	}
+
+
 }
 
 .resource-enter,
@@ -277,22 +300,4 @@ body.resource-open {
 	@include font-size(14);
 	text-transform: uppercase;
 	margin-bottom: spacing(2);
-}
-
-.resource hr {
-	border-color: color('lighter-grey');
-}
-
-.resource__close {
-
-	position: absolute;
-	top: em(26);
-	right: em(26);
-
-	svg {
-		width: em(18);
-		height: em(18);
-		fill: color('background');
-	}
-
 }
