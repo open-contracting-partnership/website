@@ -37,6 +37,7 @@ add_action('wp_enqueue_scripts', function() {
 		Assets::registerScript('resources', '/dist/js/resources.js', ['manifest', 'vendor'], TRUE);
 		Assets::registerScript('latest-news', '/dist/js/latest-news.js', ['manifest', 'vendor'], TRUE);
 		Assets::registerScript('events', '/dist/js/events.js', ['manifest', 'vendor'], TRUE);
+		Assets::registerScript('archive', '/dist/js/archive.js', ['manifest', 'vendor'], TRUE);
 
 
          //***************
@@ -86,6 +87,10 @@ add_action('wp_enqueue_scripts', function() {
 		// resources
         if ( is_archive() && get_post_type() === 'resource' ) {
 			wp_enqueue_script('resources');
+        }
+		// archive
+        if ( is_tag() ) {
+			wp_enqueue_script('archive');
         }
 
 	}
