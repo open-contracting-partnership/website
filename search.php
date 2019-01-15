@@ -42,6 +42,14 @@
 					<?php get_partial('post-object', 'horizontal-search'); ?>
 				<?php endwhile; ?>
 
+				<?php if ( get_previous_posts_link() ) : ?>
+					<a href="<?php echo get_previous_posts_page_link(); ?>" class="button"><?php _e('Previous Page', 'ocp'); ?></a>
+				<?php endif; ?>
+
+				<?php if ( get_next_posts_link() ) : ?>
+					<a href="<?php echo get_next_posts_page_link(); ?>" class="button"><?php _e('Next Page', 'ocp'); ?></a>
+				<?php endif; ?>
+
 			<?php else : ?>
 				<p><?php _e('There are no search results', 'ocp'); ?></p>
 			<?php endif; ?>
