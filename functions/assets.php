@@ -23,7 +23,7 @@ add_action('wp_enqueue_scripts', function() {
 		Assets::registerScript('jquery', '/resources/js/libs/jquery-2.1.4.min.js', [], '2.1.4');
 
         // BASE
-        Assets::registerScript('base', '/dist/js/main.js', ['jquery'], TRUE);
+        Assets::registerScript('base', '/dist/js/main.js', ['manifest', 'jquery'], TRUE);
 
 
 		// SLICK
