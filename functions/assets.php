@@ -89,7 +89,7 @@ add_action('wp_enqueue_scripts', function() {
 			wp_enqueue_script('resources');
         }
 		// archive
-        if ( is_tag() ) {
+        if ( is_author() || is_tag() ) {
 			wp_enqueue_script('archive');
         }
 
