@@ -6,13 +6,13 @@
 
 			<router-link v-if="step > 1" :to="{ name: 'detail', params: { step: parseInt(step) - 1 } }" class="prev">
 				<svg><use xlink:href="#icon-arrow-left" /></svg>
-				<span>Prev</span>
+				<span v-html="nav_labels.prev"></span>
 			</router-link>
 
 			<h2>{{ step }}. {{ detail.title }}</h2>
 
 			<router-link v-if="step < 7" :to="{ name: 'detail', params: { step: parseInt(step) + 1 } }" class="next">
-				<span>Next</span>
+				<span v-html="nav_labels.next"></span>
 				<svg><use xlink:href="#icon-arrow-right" /></svg>
 			</router-link>
 
@@ -78,22 +78,6 @@
 
 					</div>
 
-					<div class="gs-detail__nav / print-hidden">
-
-						<router-link :to="{ name: 'detail', params: { step: step == 1 ? 1 : (parseInt(step) - 1) } }">
-							<svg><use xlink:href="#icon-arrow-left" /></svg>
-						</router-link>
-
-						<router-link v-for="n in 7" :key="n" :to="{ name: 'detail', params: { step: n } }" v-bind:class="{ active: n == step }">
-							{{ n }}
-						</router-link>
-
-						<router-link :to="{ name: 'detail', params: { step: step == 7 ? 7 : (parseInt(step) + 1) } }">
-							<svg><use xlink:href="#icon-arrow-right" /></svg>
-						</router-link>
-
-					</div>
-
 				</div>
 
 			</aside>
@@ -154,6 +138,18 @@
 
 		</div>
 
+		<div class="gs-detail__nav / print-hidden">
+
+			<div class="gs-detail__nav-inner">
+
+				<router-link v-for="(step, index) in steps" :key="index" :to="{ name: 'detail', params: { step: index + 1 } }">
+					{{ index + 1}}. {{ step.title }}
+				</router-link>
+
+			</div>
+
+		</div>
+
 	</div>
 
 </template>
@@ -166,6 +162,26 @@
 
 			detail() {
 				return this.$root.steps[this.step - 1];
+			},
+
+			nav_labels() {
+
+				let labels = {};
+
+				if ( this.$root.steps[this.step - 2] ) {
+					labels.prev = this.$root.steps[this.step - 2].title;
+				}
+
+				if ( this.$root.steps[this.step] ) {
+					labels.next = this.$root.steps[this.step].title;
+				}
+
+				return labels;
+
+			},
+
+			steps() {
+				return this.$root.steps;
 			},
 
 			step() {

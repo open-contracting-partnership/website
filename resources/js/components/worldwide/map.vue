@@ -593,7 +593,7 @@
 			pointer-events: all;
 			overflow: hidden;
 			display: flex;
-			justify-content: start;
+			justify-content: flex-start;
 			transition: flex-basis 1s ease;
 
 			&:not(.open) {

@@ -384,3 +384,8 @@ category:
 .button--white {
 	color: map-get($colours, 'white');
 }
+
+.button--solid-green {
+	background-color: #23B2A7;
+	color: color('white');
+}

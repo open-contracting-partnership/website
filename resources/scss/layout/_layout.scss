@@ -16,14 +16,3 @@
 		padding: 0;
 	}
 }
-
-.wrapper--inner {
-	@include container();
-	max-width: $max-width + px;
-	box-sizing: border-box;
-	padding: 0;
-
-	@include mq(M) {
-		padding: 0 3em;
-	}
-}

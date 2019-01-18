@@ -85,6 +85,8 @@
 
 	.impact-card {
 
+		margin-bottom: spacing(2);
+
 		@include mq(500, L) {
 			@include col(2, 4);
 		}

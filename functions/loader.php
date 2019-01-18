@@ -7,12 +7,21 @@
 require(get_theme_root() . '/' . get_template() . '/vendor/autoload.php');
 
 
- //************************
-// THEME PLUGINS DIRECTORY
+ //***********************
+// SENTRY ERROR REPORTING
 
-if ( ! defined('THEME_PLUGINS_DIRECTORY') ) {
-	define('THEME_PLUGINS_DIRECTORY', get_theme_root() . '/' . get_template() . '/plugins');
-}
+$sentryClient = new Raven_Client('https://83ad0f87126d451bb12da818e5c7e46d@sentry.io/1369375');
+
+$error_handler = new Raven_ErrorHandler($sentryClient);
+$error_handler->registerExceptionHandler();
+$error_handler->registerErrorHandler();
+$error_handler->registerShutdownFunction();
+
+
+ //****************
+// THEME AUTLOADER
+
+require(get_theme_root() . '/' . get_template() . '/classes/autoload.php');
 
 
  //*******************

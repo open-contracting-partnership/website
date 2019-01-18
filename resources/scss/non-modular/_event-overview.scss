@@ -53,6 +53,14 @@
 
 }
 
+.future-events {
+	@include font;
+	@include font-size(12);
+	color: color('grey');
+	text-transform: uppercase;
+	margin-bottom: spacing(1);
+}
+
 .archive-event__view {
 	display: none;
 

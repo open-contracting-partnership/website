@@ -18,28 +18,28 @@
 
 %page--margin-top {
 
-	margin-top: spacing(5);
+	padding-top: spacing(5);
 
 	@include mq(M) {
-	    margin-top: spacing(7);
+	    padding-top: spacing(7);
 	}
 
 	@include mq(L) {
-	    margin-top: spacing(9);
+	    padding-top: spacing(9);
 	}
 
 }
 
 %page--margin-bottom {
 
-	margin-bottom: spacing(8);
+	padding-bottom: spacing(8);
 
 	@include mq(M) {
-		margin-bottom: spacing(12);
+		padding-bottom: spacing(12);
 	}
 
 	@include mq(L) {
-		margin-bottom: spacing(15);
+		padding-bottom: spacing(15);
 	}
 
 }

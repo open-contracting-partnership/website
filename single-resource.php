@@ -13,12 +13,11 @@
 				<a href="/resources">View All Resources</a>
 			</div>
 
-
 			<?php if ( $type = get_field('resource_type') ) : ?>
 				<span class="card__type" data-content-type="resource"><?php echo $type->name; ?></span>
 			<?php endif; ?>
 
-			<h1><?php the_title(); ?></h1>
+			<h1 class="resource-heading"><?php the_title(); ?></h1>
 
 			<p class="resource__meta">
 
@@ -31,12 +30,26 @@
 			</p>
 
 			<?php if ( $attachments = get_field('attachments') ) : ?>
-				<p><a onclick="_gaq.push(['_trackEvent', 'Resources', 'Download', '<?php the_title(); ?>']);" href="<?php echo $attachments[0]['file']; ?>" class="button button--small button--icon button--icon--reverse button--icon--stroke / resource-single__button">Download resource<svg><use xlink:href="#icon-download" /></svg></a></p>
+
+				<a
+					onclick="_gaq.push(['_trackEvent', 'Resources', 'Download', '<?php the_title(); ?>']);"
+					href="<?php echo $attachments[0]['file']; ?>"
+					class="button button--large button--solid-green button--icon button--icon--reverse button--icon--stroke / resource-single__button"
+				>Download resource<svg><use xlink:href="#icon-download" /></svg></a>
+
 			<?php endif; ?>
 
 			<?php if ( $link = get_field('link') ) : ?>
-				<p><a onclick="_gaq.push(['_trackEvent', 'Resources', 'Visit', '<?php the_title(); ?>']);" href="<?php echo $link; ?>" class="button button--small / resource-single__button">View resource</a></p>
+
+				<a
+					onclick="_gaq.push(['_trackEvent', 'Resources', 'Visit', '<?php the_title(); ?>']);"
+					href="<?php echo $link; ?>"
+					class="button button--large button--solid-green / resource-single__button"
+				>View resource</a>
+
 			<?php endif; ?>
+
+			<hr class="resource-line" data-colour="grey">
 
 			<div class="resource__details">
 

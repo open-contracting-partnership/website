@@ -7,23 +7,6 @@
 
 		<script>var template_url = '<?php bloginfo('template_directory'); ?>';</script>
 
-		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/resources/js/libs/modernizr.js"></script>
-
-		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/dist/css/styles.css">
-
-		<script src="https://use.typekit.net/xpw3jps.js"></script>
-		<script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/public/js/libs/css-element-queries/src/ResizeSensor.js"></script>
-		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/public/js/libs/css-element-queries/src/ElementQueries.js"></script>
-
-		<script>
-
-			//attaches to DOMLoadContent
-			ElementQueries.listen();
-
-		</script>
-
 		<title><?php wp_title('&raquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
 		<meta charset="utf-8">
@@ -57,11 +40,9 @@
 		<meta name="msapplication-config" content="<?php bloginfo('template_directory'); ?>/resources/img/favicons/browserconfig.xml">
 		<meta name="theme-color" content="#323238">
 
-		<script src="<?php bloginfo('template_directory'); ?>/resources/js/libs/jquery-2.1.4.min.js"></script>
-		<script src="<?php bloginfo('template_directory'); ?>/resources/js/libs/vue.min.js"></script>
 
-		<script src="<?php bloginfo('template_directory'); ?>/public/js/libs/slick-slider/slick.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/public/js/libs/slick-slider/slick.css">
+
+
 
 		<?php wp_head(); ?>
 
@@ -95,11 +76,11 @@
 
 	<body <?php body_class(basename(get_permalink())); ?>>
 
-		<header class="site-header">
+		<header class="site-header" data-nav-active="<?php echo OCP_Nav::nav_is_active() ? 'true' : 'false'; ?>">
 
 			<div class="site-header__top">
 
-				<div class="wrapper">
+				<div class="site-header__wrapper">
 
 					<a href="<?php echo get_home_url(); ?>" class="logo">
 
@@ -130,21 +111,17 @@
 
 						<div class="header-nav__side-item / header-social">
 
-							<ul class="button__list button__social">
+							<?php if ( $facebook_url = get_field('facebook_url', 'options') ) : ?>
+								<a class="button" href="<?php echo $facebook_url; ?>" target="_blank"><svg><use xlink:href="#icon-facebook" /></svg></a>
+							<?php endif; ?>
 
-								<?php if ( $facebook_url = get_field('facebook_url', 'options') ) : ?>
-									<li><a class="button" href="<?php echo $facebook_url; ?>" target="_blank"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
-								<?php endif; ?>
+							<?php if ( $linkedin_url = get_field('linkedin_url', 'options') ) : ?>
+								<a class="button" href="<?php echo $linkedin_url; ?>" target="_blank"><svg><use xlink:href="#icon-linkedin" /></svg></a>
+							<?php endif; ?>
 
-								<?php if ( $linkedin_url = get_field('linkedin_url', 'options') ) : ?>
-									<li><a class="button" href="<?php echo $linkedin_url; ?>" target="_blank"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
-								<?php endif; ?>
-
-								<?php if ( $twitter_url = get_field('twitter_url', 'options') ) : ?>
-									<li><a class="button" href="<?php echo $twitter_url; ?>" target="_blank"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
-								<?php endif; ?>
-
-							</ul>
+							<?php if ( $twitter_url = get_field('twitter_url', 'options') ) : ?>
+								<a class="button" href="<?php echo $twitter_url; ?>" target="_blank"><svg><use xlink:href="#icon-twitter" /></svg></a>
+							<?php endif; ?>
 
 						</div>
 
@@ -172,53 +149,22 @@
 
 			</div>
 
-			<nav class="primary-nav">
+			<nav class="nav nav--header nav--mobile">
 
-				<div class="wrapper">
+				<?php
 
-					<?php
+					// output the entire multi-level navigation for mobile
+					wp_nav_menu([
+						'theme_location' => 'header-primary',
+						'sort_column' => 'menu_order',
+						'container' => 'ul',
+						'menu_class' => '',
+						'depth' => 2
+					]);
 
-						// before outputting the standard menu, consider the secondary navigation
-						$secondary_nav = OCP_Nav::prepare_primary_nav();
+				?>
 
-						// output the entire multi-level navigation
-						// we won't show it all, but on mobile it's used for the slide out
-
-						wp_nav_menu([
-							'theme_location' => 'header-primary',
-							'sort_column' => 'menu_order',
-							'container' => 'ul',
-							'menu_class' => 'nav nav--horizontal',
-							'depth' => 2
-						]);
-
-					?>
-
-				</div>
-
-			</nav> <!-- / .primary-nav -->
-
-			<?php if ( ! empty($secondary_nav) ) : ?>
-
-				<nav class="secondary-nav">
-
-					<div class="wrapper">
-
-						<ul class="nav nav--horizontal">
-
-							<li class="nav__home"><a href="/">&nbsp;</a></li>
-
-							<?php foreach ( $secondary_nav as $menu_item ) : ?>
-								<li class="<?php echo implode(' ', $menu_item->classes); ?>"><a href="<?php echo $menu_item->url; ?>"><?php echo $menu_item->title; ?></a></li>
-							<?php endforeach; ?>
-
-						</ul>
-
-					</div> <!-- / .wrapper -->
-
-				</nav> <!-- / .secondary-nav -->
-
-			<?php endif; ?>
+			</nav> <!-- / .nav--header -->
 
 		</header>
 

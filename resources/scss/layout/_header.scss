@@ -16,44 +16,51 @@
 	}
 
 	.logo {
-		display: none;
-		margin: em(40) 0 em(20);
 
-		@include mq(ML) {
-			display: inline-block;
+		@include upto(ML) {
+			display: none;
 		}
 
-		svg {
+		> svg {
 			width: em(482);
 			height: em(38);
 		}
+
 	}
 
 	.logo--mobile {
-		display: inline-block;
-		margin: 1.1em 0;
 
 		@include mq(ML) {
 			display: none;
 		}
 
-		svg {
+		> svg {
 			width: 7em;
 			height: em(38);
 		}
+
 	}
+
+	@include from(ML) {
+
+		&[data-nav-active="true"] {
+			margin-bottom: 67px;
+		}
+
+	}
+
 }
 
 .mobile-menu {
+
 	width: 1em;
 	height: 1em;
 	fill: color('white');
-	float: right;
-	margin-top: 1.5em;
 
 	@include mq(ML) {
 		display: none;
 	}
+
 }
 
 .mobile-menu__open {
@@ -79,48 +86,64 @@
 	position: relative;
 }
 
+.site-header__wrapper {
+
+	@include wrapper;
+	padding-top: spacing(2);
+	padding-bottom: spacing(2);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	@include from(ML) {
+		padding-top: spacing(5);
+		padding-bottom: spacing(3);
+	}
+
+}
+
 .header-nav__side {
+
 	display: none;
 
 	@include mq(ML) {
 		display: block;
-		float: right;
+		display: flex;
+		align-items: center;
 	}
+
 }
 
 .header-nav__side-item {
-	float: left;
+
+	&:not(:last-child) {
+		margin-right: spacing(2);
+	}
+
 }
 
 .header-social {
-	margin-top: 2.3em;
 
-	> a {
-		@include font-size(14);
-		color: color('white');
-		text-decoration: none;
-		text-transform: uppercase;
-		letter-spacing: 1px;
+	display: flex;
 
-		&:hover,
-		&:focus {
-			text-decoration: underline;
-		}
+	a {
 
-		&:active {
-			text-decoration: none;
-		}
-	}
-
-	.button__social li {
-		margin-right: 0;
-		padding-left: 0;
-	}
-
-	.button__social a {
-
+		font-size: 16px;
 		fill: color('light-grey');
 		transition: fill .3s ease;
+		padding: spacing(.5);
+		display: block;
+		margin-bottom: 0;
+
+		&:not(:last-child) {
+			margin-right: spacing(1);
+		}
+
+		> svg {
+			display: block;
+			height: 1em;
+			width: 1em;
+		}
 
 		&:hover,
 		&:active {
@@ -129,37 +152,32 @@
 
 	}
 
-	.button__list {
-		margin-left: .3em;
-	}
-}
-
-.header-language {
-	margin: 2.3em .5em 0 0;
 }
 
 .header-search {
 
-	margin-left: .5rem;
-
 	a {
-		padding: 2.5rem .5rem;
+
+		padding: spacing(.5);
 		margin: 0;
 		border: 0;
-	}
 
-	svg {
-		width: .95rem;
-		height: .95rem;
-		fill: color('light-grey');
-		transition: fill .3s ease;
-	}
+		> svg {
+			display: block;
+			font-size: 16px;
+			width: 1em;
+			height: 1em;
+			fill: color('light-grey');
+			transition: fill .3s ease;
+		}
 
-	a:hover,
-	a:active {
+		&:hover,
+		&:active {
 
-		svg {
-			fill: color('white');
+			> svg {
+				fill: color('white');
+			}
+
 		}
 
 	}
@@ -259,6 +277,21 @@
 
 // extra specificity to overrule pluging styles
 .site-header .wpml-ls-legacy-dropdown {
+
 	@include font-size(12);
 	max-width: 10em;
+	background-color: color('dark-background');
+	border-color: color('body');
+	color: color('light-grey');
+
+	a {
+		background-color: color('dark-background') !important;
+		border-color: color('body') !important;
+		color: color('light-grey') !important;
+	}
+
+	.wpml-ls-sub-menu {
+		border-color: color('body') !important;
+	}
+
 }

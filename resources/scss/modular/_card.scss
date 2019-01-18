@@ -64,7 +64,7 @@
 // }
 
 .card__strap {
-	@extend p.smallest;
+	@extend .smallest;
 	margin-top: spacing(2);
 	margin-bottom: auto;
 }

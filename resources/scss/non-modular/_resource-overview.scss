@@ -227,7 +227,7 @@ body.resource-open {
 
 }
 
-.resource-transition.resource__overlay {
+.resource__overlay {
 	background-color: color('white', .8);
 	position: fixed;
 	top: 0;
@@ -239,7 +239,12 @@ body.resource-open {
 	transition: background-color .3s ease-in-out;
 }
 
-.resource-transition.resource {
+.resource-overlay-enter,
+.resource-overlay-leave-to /* .fade-leave-active below version 2.1.8 */ {
+	background-color: color('white', 0);
+}
+
+.resource {
 
 	@include font-size(16);
 	position: fixed;
@@ -261,55 +266,38 @@ body.resource-open {
 	    width: 33%;
 	}
 
+	hr {
+		border-color: color('lighter-grey');
+	}
+
+	.resource__close {
+
+		position: absolute;
+		top: em(26);
+		right: em(26);
+
+		svg {
+			width: em(18);
+			height: em(18);
+			fill: color('background');
+		}
+
+	}
+
+	.resource-heading {
+		margin-bottom: spacing(2);
+	}
+
+
 }
 
 .resource-enter,
 .resource-leave {
-
-	&.resource__overlay {
-		background-color: color('white', 0);
-	}
-
-	&.resource {
-		transform: translateX(100%);
-	}
-
+	transform: translateX(100%);
 }
 
 .resource__meta {
-
 	@include font-size(14);
 	text-transform: uppercase;
 	margin-bottom: spacing(2);
-
-	@include mq(M) {
-		margin-bottom: spacing(8);
-	}
-
-	@include mq(L) {
-		margin-bottom: spacing(5);
-	}
-
-	p {
-		margin-bottom: 0;
-	}
-
-}
-
-.resource hr {
-	border-color: color('lighter-grey');
-}
-
-.resource__close {
-
-	position: absolute;
-	top: em(26);
-	right: em(26);
-
-	svg {
-		width: em(18);
-		height: em(18);
-		fill: color('background');
-	}
-
 }

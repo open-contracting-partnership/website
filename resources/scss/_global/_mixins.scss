@@ -19,12 +19,10 @@
 
 	@if ($weight == null) {
 		@error 'Font weight "#{$weight}" passed to `font` mixin does not exist';
-		@return false;
 	}
 
 	@if ($style != 'normal' and $style != 'italic') {
 		@error 'Font style "#{$style}" passed to `font` mixin is invalid';
-		@return false;
 	}
 
 	$typekit: map-get($font-choice, typekit);
@@ -190,6 +188,10 @@
 		$arg1: map-get($breakpoints, $arg1);
 	}
 
+	@if $arg2 == 'max-width' {
+		$arg1: $arg1 - 1;
+	}
+
 	@if type-of($arg1) == 'number' {
 		$arg1: $arg1 + px;
 	}
@@ -202,12 +204,8 @@
 
 	// maybe arg2 is a number
 	@if type-of($arg2) == 'number' {
-		$arg2: $arg2 + px;
+		$arg2: ($arg2 - 1) * 1px;
 		$between: true;
-	}
-
-	@if $arg2 == 'max-width' {
-		$arg1: $arg1 - 1px;
 	}
 
 	@if $between == false {
@@ -218,7 +216,7 @@
 
 	} @else {
 
-		@media screen and (min-width: $arg1) and (max-width: $arg2 - 1px) {
+		@media screen and (min-width: $arg1) and (max-width: $arg2) {
 			@content;
 		}
 
@@ -281,5 +279,31 @@
 	&:nth-of-type(#{$context / $col}n) {
 		@include last;
 	}
+
+	&:nth-of-type(#{$context / $col}n+1) {
+		clear: both;
+	}
+
+ }
+
+
+ @mixin wrapper {
+
+ 	max-width: $max-width + px;
+ 	box-sizing: border-box;
+ 	padding-right: spacing(2);
+ 	padding-left: spacing(2);
+	margin-right: auto;
+	margin-left: auto;
+
+ 	@include mq(M) {
+ 		padding-right: spacing(3);
+ 		padding-left: spacing(3);
+ 	}
+
+ 	@include mq($max-width + 40) {
+ 		padding-right: 0;
+ 		padding-left: 0;
+ 	}
 
  }

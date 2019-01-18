@@ -85,7 +85,7 @@
 						<div class="site-footer__email">
 
 							<h4><?php _e('Subscribe to our newsletter', 'ocp'); ?></h4>
-							<p><a href="#" class="js-subscribe-footer / button button--white"><?php _e('Get our newsletter', 'ocp'); ?></a></p>
+							<p><button class="js-subscribe-footer / button button--white"><?php _e('Get our newsletter', 'ocp'); ?></button></p>
 
 						</div>
 
@@ -152,12 +152,10 @@
 
 		</div> <!-- / .site-footer -->
 
-		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/dist/js/main.js?v=<?php echo wp_get_theme()->Version; ?>"></script>
-
 		<script>
 
 			var ajax = new XMLHttpRequest();
-			ajax.open('GET', '<?php echo get_bloginfo('template_directory'); ?>/dist/img/icons.svg?v=<?php echo wp_get_theme()->Version; ?>', true);
+			ajax.open('GET', '<?php echo get_bloginfo('template_directory'); ?>/dist/svg/icons.svg?v=<?php echo wp_get_theme()->Version; ?>', true);
 			ajax.send();
 			ajax.onload = function(e) {
 
@@ -173,25 +171,13 @@
 
 		<?php wp_footer(); ?>
 
-		<!-- Hotjar Tracking Code for Open Contracting Partnership -->
-		<script>
-			(function(h,o,t,j,a,r){
-				h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-				h._hjSettings={hjid:109763,hjsv:5};
-				a=o.getElementsByTagName('head')[0];
-				r=o.createElement('script');r.async=1;
-				r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-				a.appendChild(r);
-			})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-		</script>
-
 		<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
 
 		<script>
 
 			function showMailingPopUp() {
 			    require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us12.list-manage.com","uuid":"4257477995e0a1fa5cb6587b2","lid":"fc9ec0e34b"}) })
-			    document.cookie = "MCPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			    document.cookie = "MCPopupClosed=;path=/;expires=Thu, 01 Jan 1970 00:00:00 UTC;";
 			};
 
 		</script>

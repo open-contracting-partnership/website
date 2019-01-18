@@ -5,16 +5,29 @@
 		@include push(2 of 12);
 	}
 
-}
+	.card__type {
+		@include font-size(14);
+	}
 
-.resource__details {
-	margin-bottom: spacing(4);
-}
+	.resource-heading {
+		margin-bottom: spacing(2);
+	}
 
-.resource-single__button {
+	.resource__details {
+		margin-bottom: spacing(4);
+	}
 
-	@include mq(400, 'max-width') {
-		display: block;
+	.resource-single__button {
+
+		@include mq(400, 'max-width') {
+			display: block;
+		}
+
+	}
+
+	.resource-line {
+		width: 100%;
+		max-width: spacing(31);
 	}
 
 }
