@@ -35,9 +35,9 @@
 
 				<section class="impact-stories__main / cf">
 
-					<div v-if="hasVisibleStories">
+					<template v-if="hasVisibleStories">
 						<story-card v-for="(story, index) in visibleStories" :story="story" :key="index"></story-card>
-					</div>
+					</template>
 
 					<p v-else>No stories match your filter, <a href="#" @click.prevent="resetFilter()">reset filter?</a></p>
 

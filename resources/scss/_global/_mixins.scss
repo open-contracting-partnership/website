@@ -280,6 +280,10 @@
 		@include last;
 	}
 
+	&:nth-of-type(#{$context / $col}n+1) {
+		clear: both;
+	}
+
  }
 
 
