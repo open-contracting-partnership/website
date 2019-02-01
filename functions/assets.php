@@ -25,14 +25,17 @@ add_action('wp_enqueue_scripts', function() {
         // BASE
         Assets::registerScript('base', '/dist/js/main.js', ['manifest', 'jquery'], TRUE);
 
-		// SLICK
+		// PLUGINS
 		Assets::registerScript('slick-slider', '/public/js/libs/slick-slider/slick.min.js', ['jquery'], TRUE);
 		Assets::registerStyle('slick-slider', '/public/js/libs/slick-slider/slick.css');
+		Assets::registerScript('tablesorter', '/resources/js/libs/jquery.tablesorter.min.js', ['jquery'], TRUE);
+
 
 		// SPECIFIC
 		Assets::registerScript('page-worldwide', '/dist/js/worldwide.js', ['manifest', 'vendor'], TRUE);
 		Assets::registerScript('page-get-started', '/dist/js/get-started.js', ['manifest', 'vendor'], TRUE);
 		Assets::registerScript('page-impact-stories', '/dist/js/impact-stories.js', ['manifest', 'vendor'], TRUE);
+		Assets::registerScript('page-contracts', '/dist/js/contracts.js', ['manifest', 'jquery', 'tablesorter'], TRUE);
 		Assets::registerScript('timeline', '/dist/js/timeline.js', ['manifest', 'jquery', 'slick-slider'], TRUE);
 		Assets::registerScript('resources', '/dist/js/resources.js', ['manifest', 'vendor'], TRUE);
 		Assets::registerScript('latest-news', '/dist/js/latest-news.js', ['manifest', 'vendor'], TRUE);
@@ -72,6 +75,11 @@ add_action('wp_enqueue_scripts', function() {
 		if ( basename(get_page_template()) === 'page-advisory-board.php' ) {
 			wp_enqueue_script('timeline');
 			wp_enqueue_style('slick-slider');
+		}
+
+		// contracts
+		if ( basename(get_page_template()) === 'page-contracts.php' ) {
+			wp_enqueue_script('page-contracts');
 		}
 
 		// advisory board
