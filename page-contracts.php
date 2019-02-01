@@ -1,5 +1,7 @@
 <?php
 
+	use \App\Contracts;
+
 	if ( isset($_GET['reset_contracts']) ) {
 		header('Location: /contracts/');
 	}

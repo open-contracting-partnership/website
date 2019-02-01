@@ -1,4 +1,10 @@
-<?php the_post(); ?>
+<?php
+
+use \App\Contracts;
+
+the_post();
+
+?>
 
 <div class="page__wrapper / contracts-overview">
 
