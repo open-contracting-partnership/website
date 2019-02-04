@@ -40,10 +40,6 @@
 		<meta name="msapplication-config" content="<?php bloginfo('template_directory'); ?>/resources/img/favicons/browserconfig.xml">
 		<meta name="theme-color" content="#323238">
 
-
-
-
-
 		<?php wp_head(); ?>
 
 		<script type="text/javascript">

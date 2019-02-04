@@ -1,5 +1,7 @@
 <?php
 
+	use \App\Contracts;
+
 	$data = get_partial_options($options)->contract;
 
 	// fetch the phase index, based on the phases array
