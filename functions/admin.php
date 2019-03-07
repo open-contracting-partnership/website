@@ -179,3 +179,11 @@ function disable_wp_emojicons() {
 
 }
 add_action( 'init', 'disable_wp_emojicons' );
+
+
+ //**********
+// ADMIN CSS
+
+add_action( 'admin_enqueue_scripts', function() {
+	wp_enqueue_style('admin_css', get_template_directory_uri() . '/resources/css/admin.css');
+});

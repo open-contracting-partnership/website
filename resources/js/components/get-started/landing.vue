@@ -4,7 +4,7 @@
 
 		<div class="page__wrapper">
 
-			<h1 class="gs-landing__title">The Open Contracting Journey</h1>
+			<h1 class="gs-landing__title" v-html="landing_content.title"></h1>
 
 			<div class="gs-landing__main">
 
