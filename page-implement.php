@@ -12,6 +12,7 @@
 
 		wp_localize_script('page-get-started', 'content', [
 			'landing_page' => array(
+				'title' => get_the_title(),
 				'introduction' => get_field('introduction'),
 				'secondary_copy_1st_column' => get_field('secondary_copy_1st_column'),
 				'secondary_copy_2nd_column' => get_field('secondary_copy_2nd_column'),
