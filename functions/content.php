@@ -399,26 +399,6 @@ function get_tweets() {
 
 
  //*******************
-// TITLE WIDOW FILTER
-
-add_filter('the_title', function($title) {
-
-	$minWords = 3;
-	$arr = explode(' ', $title);
-
-	if ( count($arr) >= $minWords ) {
-		$arr[count($arr) - 2].= '&nbsp;' . $arr[count($arr) - 1];
-		array_pop($arr);
-		$title = implode(' ',$arr);
-	}
-
-	return $title;
-
-
-}, 10, 1);
-
-
- //*******************
 // TERMS (POST TYPES)
 
 add_filter('terms_clauses', function($clauses, $taxonomy, $args) {
