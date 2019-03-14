@@ -159,7 +159,7 @@ new Vue({
 		},
 
 		trackClick(action, label) {
-			console.log(_gaq.push(['_trackEvent', 'Resources', action, label]));
+			_gaq.push(['_trackEvent', 'Resources', action, label]);
 		}
 
 	},

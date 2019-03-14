@@ -21,7 +21,15 @@ add_filter('query_vars', function($query_vars) {
 });
 
 function fetch_contracts() {
+
+	// fire the contract fetch process
 	(new Contracts)->fetch_contracts();
+
+	// attempt to send a success message to the console
+	if ( defined('WP_CLI') && \WP_CLI ) {
+		\WP_CLI::success('Fetch contracts completed');
+	}
+
 }
 
 if ( isset($_POST['reset_contracts']) && $_POST['reset_contracts'] === "true" ) {
@@ -29,5 +37,5 @@ if ( isset($_POST['reset_contracts']) && $_POST['reset_contracts'] === "true" ) 
 }
 
 if ( defined('WP_CLI') && \WP_CLI ) {
-	\WP_CLI::add_command('fetch-contracts', 'fetch_contracts');
+	\WP_CLI::add_command('ocp fetch-contracts', 'fetch_contracts');
 }
