@@ -21,7 +21,7 @@
 
 		// finally re-run the query
 		query_posts([
-			'post_type' => ['post', 'news'],
+			'post_type' => ['post', 'page', 'news', 'event', 'resource'],
 			'post__in' => $search_post_ids,
 			'orderby' => 'post__in'
 		]);
