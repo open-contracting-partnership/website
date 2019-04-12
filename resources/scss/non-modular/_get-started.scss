@@ -13,6 +13,7 @@
 	@include font-size(16);
 	@include font('primary', 'bold');
 	fill: #FFF;
+	text-transform: uppercase;
 }
 
 .gs-diamonds--clickable {

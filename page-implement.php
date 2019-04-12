@@ -11,6 +11,7 @@
 	<?php
 
 		wp_localize_script('page-get-started', 'content', [
+			'language_code' => get_language_code(),
 			'sections' => array(
 				'what_happens' => __('What happens at this step?', 'ocp'),
 				'key_outputs' => __('What are the key outputs?', 'ocp'),

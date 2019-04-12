@@ -57,8 +57,12 @@
 								1
 							</text>
 
-							<text class="gs-diamonds__step-title" text-anchor="middle" transform="translate(15, 16)">
-								DESIGN
+							<text
+								class="gs-diamonds__step-title"
+								text-anchor="middle"
+								transform="translate(15, 16)"
+								v-html="labels.design"
+							>
 							</text>
 
 						</g>
@@ -80,8 +84,12 @@
 								2
 							</text>
 
-							<text class="gs-diamonds__step-title" text-anchor="middle" transform="translate(15, 16)">
-								MAP
+							<text
+								class="gs-diamonds__step-title"
+								text-anchor="middle"
+								transform="translate(15, 16)"
+								v-html="labels.map"
+							>
 							</text>
 
 						</g>
@@ -103,8 +111,12 @@
 								3
 							</text>
 
-							<text class="gs-diamonds__step-title" text-anchor="middle" transform="translate(15, 16)">
-								BUILD
+							<text
+								class="gs-diamonds__step-title"
+								text-anchor="middle"
+								transform="translate(15, 16)"
+								v-html="labels.build"
+							>
 							</text>
 
 						</g>
@@ -126,8 +138,12 @@
 								4
 							</text>
 
-							<text class="gs-diamonds__step-title" text-anchor="middle" transform="translate(15, 16)">
-								PUBLISH
+							<text
+								class="gs-diamonds__step-title"
+								text-anchor="middle"
+								transform="translate(15, 16)"
+								v-html="labels.publish"
+							>
 							</text>
 
 						</g>
@@ -149,8 +165,12 @@
 								5
 							</text>
 
-							<text class="gs-diamonds__step-title" text-anchor="middle" transform="translate(15, 16)">
-								USE
+							<text
+								class="gs-diamonds__step-title"
+								text-anchor="middle"
+								transform="translate(15, 16)"
+								v-html="labels.use"
+							>
 							</text>
 
 						</g>
@@ -172,9 +192,14 @@
 								6
 							</text>
 
-							<text class="gs-diamonds__step-title" text-anchor="middle" transform="translate(15, 16)">
-								EVALUATE
+							<text
+								class="gs-diamonds__step-title"
+								text-anchor="middle"
+								transform="translate(15, 16)"
+								v-html="labels.evaluate"
+							>
 							</text>
+
 
 						</g>
 
@@ -197,12 +222,20 @@
 								7
 							</text>
 
-							<text class="gs-diamonds__step-title" text-anchor="middle" transform="translate(15, 0)">
-								LEARN
+							<text
+								class="gs-diamonds__step-title"
+								text-anchor="middle"
+								transform="translate(15, 0)"
+								v-html="labels.learn[0]"
+							>
 							</text>
 
-							<text class="gs-diamonds__step-title" text-anchor="middle" transform="translate(15, 16)">
-								&amp; SHARE
+							<text
+								class="gs-diamonds__step-title"
+								text-anchor="middle"
+								transform="translate(15, 16)"
+								v-html="labels.learn[1]"
+							>
 							</text>
 
 						</g>
@@ -239,6 +272,41 @@
 		props: ['prefix'],
 
 		computed: {
+
+			content() {
+				return content;
+			},
+
+			lang() {
+				return this.content.language_code;
+			},
+
+			labels() {
+
+				const labels = {
+					en: {
+						design: 'Design',
+						map: 'Map',
+						build: 'Build',
+						publish: 'Publish',
+						use: 'Use',
+						evaluate: 'Evaluate',
+						learn: ['Learn', '& Share']
+					},
+					es: {
+						design: 'Diseña',
+						map: 'Mapear',
+						build: 'Construir',
+						publish: 'Publicar',
+						use: 'Usar',
+						evaluate: 'Evaluar',
+						learn: ['Aprender', 'y Compartir']
+					}
+				};
+
+				return labels[this.lang];
+
+			},
 
 			step() {
 				return this.$parent.step;
