@@ -97,8 +97,9 @@ add_action('wp_enqueue_scripts', function() {
         if ( is_archive() && get_post_type() === 'resource' ) {
 			wp_enqueue_script('resources');
         }
+
 		// archive
-        if ( is_author() || is_tag() ) {
+        if ( is_author() || is_tag() || is_tax() ) {
 			wp_enqueue_script('archive');
         }
 
