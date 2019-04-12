@@ -39,11 +39,11 @@
 
 				<g>
 
-					<use class="gs-diamonds__circle" fill="#FFF" stroke="#B7B7B7" stroke-width="2" :mask="'url(#' + prefix + '--mask-1)'" stroke-dasharray="11" :xlink:href="'#' + prefix + '--circle-1'"/>
+					<use class="gs-diamonds__circle" fill="#FFF" stroke="#B7B7B7" stroke-width="2" :mask="'url(#' + prefix + '--mask-1)'" stroke-dasharray="11" :xlink:href="'#' + prefix + '--circle-1'"></use>
 
 					<g stroke="#B7B7B7">
-						<use class="gs-diamonds__circle" fill="#FFF" stroke-width="2" :mask="'url(#' + prefix + '--mask-2)'" stroke-dasharray="11" :xlink:href="'#' + prefix + '--circle-2'"/>
-						<circle cx="186.6" cy="186.6" r="121.27"/>
+						<use class="gs-diamonds__circle" fill="#FFF" stroke-width="2" :mask="'url(#' + prefix + '--mask-2)'" stroke-dasharray="11" :xlink:href="'#' + prefix + '--circle-2'"></use>
+						<circle cx="186.6" cy="186.6" r="121.27"></circle>
 					</g>
 
 					<!-- 1, design -->
