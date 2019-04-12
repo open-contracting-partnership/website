@@ -11,6 +11,19 @@
 	<?php
 
 		wp_localize_script('page-get-started', 'content', [
+			'sections' => array(
+				'what_happens' => __('What happens at this step?', 'ocp'),
+				'key_outputs' => __('What are the key outputs?', 'ocp'),
+				'resources' => __('What resources can I use?', 'ocp'),
+				'other_publishers' => __('What have other publishers done?', 'ocp')
+			),
+			'key' => array(
+				'title' => __('Key', 'ocp'),
+				'connect' => __('Connect', 'ocp'),
+				'complete' => __('Complete', 'ocp'),
+				'read' => __('Read', 'ocp'),
+				'get_inspired' => __('Get inspired', 'ocp')
+			),
 			'landing_page' => array(
 				'title' => get_the_title(),
 				'introduction' => get_field('introduction'),
