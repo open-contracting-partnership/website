@@ -88,7 +88,8 @@ add_action('wp_enqueue_scripts', function() {
 		}
 
 		// national partnership
-        if ( is_archive() && get_post_type() === 'event' ) {
+        if ( is_post_type_archive('event') ) {
+
 			wp_enqueue_script('events');
         }
 
