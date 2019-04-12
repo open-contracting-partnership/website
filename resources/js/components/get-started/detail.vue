@@ -30,10 +30,10 @@
 					<diamonds prefix="sidebar"></diamonds>
 
 					<div class="gs-detail__toc">
-						<a href="#" v-if="detail.what_happens" @click.prevent="jumpTo('what_happens')" >What happens at this step?</a>
-						<a href="#" v-if="detail.outputs" @click.prevent="jumpTo('outputs')" >What are the key outputs?</a>
-						<a href="#" v-if="detail.resources" @click.prevent="jumpTo('resources')" >What resources can I use?</a>
-						<a href="#" v-if="detail.publishers" @click.prevent="jumpTo('publishers')" >What have other publishers done?</a>
+						<a href="#" v-if="detail.what_happens" @click.prevent="jumpTo('what_happens')" v-html="content.sections.what_happens"></a>
+						<a href="#" v-if="detail.outputs" @click.prevent="jumpTo('outputs')" v-html="content.sections.key_outputs"></a>
+						<a href="#" v-if="detail.resources" @click.prevent="jumpTo('resources')" v-html="content.sections.resources"></a>
+						<a href="#" v-if="detail.publishers" @click.prevent="jumpTo('publishers')" v-html="content.sections.other_publishers"></a>
 					</div>
 
 				</div>
@@ -42,7 +42,7 @@
 
 					<div class="gs-detail__key">
 
-						<span class="gs-detail__key-title">Key</span>
+						<span class="gs-detail__key-title" v-html="content.key.title"></span>
 
 						<div class="gs-detail__key-inner">
 
@@ -50,12 +50,12 @@
 
 								<div class="gs-detail__key-item">
 									<svg data-type="connect"><use xlink:href="#icon-7-connect" /></svg>
-									<span>Connect</span>
+									<span v-html="content.key.connect"></span>
 								</div>
 
 								<div class="gs-detail__key-item">
 									<svg data-type="read"><use xlink:href="#icon-7-read" /></svg>
-									<span>Read</span>
+									<span v-html="content.key.read"></span>
 								</div>
 
 							</div>
@@ -64,12 +64,12 @@
 
 								<div class="gs-detail__key-item">
 									<svg data-type="complete"><use xlink:href="#icon-7-complete" /></svg>
-									<span>Complete</span>
+									<span v-html="content.key.complete"></span>
 								</div>
 
 								<div class="gs-detail__key-item">
 									<svg data-type="get_inspired"><use xlink:href="#icon-7-get_inspired" /></svg>
-									<span>Get inspired</span>
+									<span v-html="content.key.get_inspired"></span>
 								</div>
 
 							</div>
@@ -86,7 +86,7 @@
 
 				<div v-if="detail.what_happens" id="what_happens">
 
-					<h2 class="delta">What happens at this step?</h2>
+					<h2 class="delta" v-html="content.sections.what_happens"></h2>
 
 					<div v-for="section in detail.what_happens" class="gs-detail__section">
 
@@ -116,17 +116,17 @@
 				</div>
 
 				<div v-if="detail.outputs" id="outputs" class="get-started__section">
-					<h2 class="delta">What are the key outputs?</h2>
+					<h2 class="delta" v-html="content.sections.key_outputs"></h2>
 					<div v-html="detail.outputs"></div>
 				</div>
 
 				<div v-if="detail.resources" id="resources" class="get-started__section">
-					<h2 class="delta">What resources can I use?</h2>
+					<h2 class="delta" v-html="content.sections.resources"></h2>
 					<div v-html="detail.resources"></div>
 				</div>
 
 				<div v-if="detail.publishers" id="publishers" class="get-started__section">
-					<h2 class="delta">What have other publishers done?</h2>
+					<h2 class="delta" v-html="content.sections.other_publishers"></h2>
 					<div v-html="detail.publishers"></div>
 				</div>
 
@@ -159,6 +159,10 @@
     export default {
 
 		computed: {
+
+			content() {
+				return content;
+			},
 
 			detail() {
 				return this.$root.steps[this.step - 1];
