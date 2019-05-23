@@ -17,26 +17,16 @@
 
 	.logo {
 
-		@include upto(ML) {
-			display: none;
-		}
-
 		> svg {
-			width: em(482);
-			height: em(38);
-		}
+			
+			font-size: spacing(8);
+			height: 1em;
+			width: 2.9em;
 
-	}
+			@include from(M) {
+				font-size: spacing(10);
+			}
 
-	.logo--mobile {
-
-		@include mq(ML) {
-			display: none;
-		}
-
-		> svg {
-			width: 7em;
-			height: em(38);
 		}
 
 	}

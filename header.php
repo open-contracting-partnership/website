@@ -86,14 +86,6 @@
 
 					</a>
 
-					<a href="<?php echo get_home_url(); ?>" class="logo--mobile">
-
-						<svg>
-							<use xlink:href="#ocp-logo-small" />
-						</svg>
-
-					</a>
-
 					<svg class="mobile-menu">
 						<use class="mobile-menu__open" xlink:href="#icon-menu" />
 						<use class="mobile-menu__close" xlink:href="#icon-close" />
