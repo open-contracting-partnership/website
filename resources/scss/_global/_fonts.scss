@@ -1,26 +1,39 @@
 @font-face {
     font-family: 'gt_eesti_pro_display';
-	font-weight: 700;
     src: url('../fonts/gteestiprodisplay-bold-webfont.woff2') format('woff2'),
          url('../fonts/gteestiprodisplay-bold-webfont.woff') format('woff');
-    font-weight: normal;
+    font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'gt_eesti_pro_display';
-	font-weight: 500;
     src: url('../fonts/gteestiprodisplay-medium-webfont.woff2') format('woff2'),
          url('../fonts/gteestiprodisplay-medium-webfont.woff') format('woff');
-    font-weight: normal;
+    font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'gt_eesti_pro_display';
-	font-weight: 400;
     src: url('../fonts/gteestiprodisplay-regular-webfont.woff2') format('woff2'),
          url('../fonts/gteestiprodisplay-regular-webfont.woff') format('woff');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'gt_eesti_pro_text'; // light
+    src: url('../fonts/gteestiprotext-light-webfont.woff2') format('woff2'),
+         url('../fonts/gteestiprotext-light-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gt_eesti_pro_text'; // light
+    src: url('../fonts/gteestiprotext-lightitalic-webfont.woff2') format('woff2'),
+         url('../fonts/gteestiprotext-lightitalic-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
 }
