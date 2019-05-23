@@ -164,7 +164,7 @@ category:
 .button--tag {
 	@include font('secondary', 'medium');
 	@include font-size(12);
-	padding: em(3, 12) em(8, 12);
+	padding: em(4, 12) em(8, 12) em(1, 12);
 	text-transform: uppercase;
 }
 
