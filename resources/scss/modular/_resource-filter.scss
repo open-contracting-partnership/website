@@ -31,6 +31,8 @@ category:
 	background-color: color('white');
 	margin-bottom: spacing(3);
 	user-select: none;
+	display: flex;
+	align-items: center;
 
 	@include mq(M) {
 		padding: em(10, 17) em(16, 17);
@@ -39,7 +41,12 @@ category:
 	}
 
 	/* span */ .custom-checkbox__box {
-		margin-bottom: 1px;
+		margin-right: spacing(1);
+		flex: 0 0 auto;
 	}
 
 }
+
+	.resource-filter__label {
+		margin-top: .2em;
+	}

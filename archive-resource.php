@@ -61,7 +61,7 @@
 								<svg><use xlink:href="#icon-close"></use></svg>
 							</span>
 
-							<span v-html="resource_type.name"></span>
+							<span class="resource-filter__label" v-html="resource_type.name"></span>
 
 						</label>
 

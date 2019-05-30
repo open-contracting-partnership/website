@@ -10,6 +10,8 @@ mix.setPublicPath(path.resolve('./'));
 // enable versioning for all compiled files
 mix.version();
 
+mix.copy('resources/fonts', 'dist/fonts');
+
 mix.sass('resources/scss/styles.scss', 'dist/css')
 	.options({
 		processCssUrls: false

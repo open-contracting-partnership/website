@@ -1,0 +1,91 @@
+// DISPLAY
+
+@font-face {
+    font-family: 'gt_eesti_pro_display';
+    src: url('../fonts/gteestiprodisplay-bold-webfont.woff2') format('woff2'),
+         url('../fonts/gteestiprodisplay-bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gt_eesti_pro_display';
+    src: url('../fonts/gteestiprodisplay-medium-webfont.woff2') format('woff2'),
+         url('../fonts/gteestiprodisplay-medium-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gt_eesti_pro_display';
+    src: url('../fonts/gteestiprodisplay-regular-webfont.woff2') format('woff2'),
+         url('../fonts/gteestiprodisplay-regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+// TEXT
+
+@font-face {
+    font-family: 'gt_eesti_pro_text';
+    src: url('../fonts/gteestiprotext-thin-webfont.woff2') format('woff2'),
+         url('../fonts/gteestiprotext-thin-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gt_eesti_pro_text';
+    src: url('../fonts/gteestiprotext-thinitalic-webfont.woff2') format('woff2'),
+         url('../fonts/gteestiprotext-thinitalic-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'gt_eesti_pro_text';
+    src: url('../fonts/gteestiprotext-light-webfont.woff2') format('woff2'),
+         url('../fonts/gteestiprotext-light-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gt_eesti_pro_text';
+    src: url('../fonts/gteestiprotext-lightitalic-webfont.woff2') format('woff2'),
+         url('../fonts/gteestiprotext-lightitalic-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'gt_eesti_pro_text';
+    src: url('../fonts/gteestiprotext-medium-webfont.woff2') format('woff2'),
+         url('../fonts/gteestiprotext-medium-webfont.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gt_eesti_pro_text';
+    src: url('../fonts/gteestiprotext-mediumitalic-webfont.woff2') format('woff2'),
+         url('../fonts/gteestiprotext-mediumitalic-webfont.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'gt_eesti_pro_text';
+    src: url('../fonts/gteestiprotext-bold-webfont.woff2') format('woff2'),
+         url('../fonts/gteestiprotext-bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gt_eesti_pro_text';
+    src: url('../fonts/gteestiprotext-bolditalic-webfont.woff2') format('woff2'),
+         url('../fonts/gteestiprotext-bolditalic-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
