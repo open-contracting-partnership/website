@@ -91,7 +91,7 @@
 
 	@include font('secondary', 'medium');
 	background-color: color('brand');
-	padding: .225em .42em .125em;
+	padding: em(4, 12) em(6, 12) em(1, 12);
 	margin-right: .5em;
 	text-transform: uppercase;
 
