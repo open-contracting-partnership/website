@@ -7,10 +7,7 @@ add_action('wp_enqueue_scripts', function() {
 	// only use this method is we're not in wp-admin
 	if ( ! is_admin() ) {
 
-		wp_register_style('typekit', 'https://use.typekit.net/xpw3jps.css');
-		Assets::registerStyle('main', '/dist/css/styles.css', ['typekit']);
-
-
+		Assets::registerStyle('main', '/dist/css/styles.css');
 
 		// // extracted
 		Assets::registerScript('manifest', '/dist/js/manifest.js', [], true);
