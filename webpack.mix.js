@@ -43,14 +43,14 @@ mix.js('resources/js/scripts.js', 'dist/js')
 
 			const files = Object.keys(stats.compilation.assets);
 			const trigger_files = [
-				'dist/css/styles.css'
+				'/css/styles.css'
 			];
-
+			
 			// check if any of the trigger files are in the latest compile
 			const diff = files.filter(function(n) {
 			    return trigger_files.indexOf(n) !== -1;
 			});
-console.log(diff);
+
 			// and if they are, trigger the styleguide
 			if ( diff.length ) {
 
