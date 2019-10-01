@@ -1,0 +1,59 @@
+html {
+    font-size: 100%;
+}
+
+body {
+	@include font;
+	@include font-size(16, 18);
+	line-height: 1.5;
+	color: $ui-black;
+
+	margin: 0;
+	padding: 0;
+	background-color: $ui-white;
+
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+
+	-webkit-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+
+	@include mq(S) {
+
+		// apply the overlay
+		&::after {
+			content: '';
+			background: $ui-black;
+			opacity: 0;
+			position: fixed;
+			top: 0;
+			left: 0;
+			// width of the side-menu
+			right: 396px;
+			bottom: 0;
+			z-index: 100;
+			transition: opacity .2s ease;
+			pointer-events: none;
+		}
+
+		&.menu-active::after {
+			opacity: .5;
+		}
+	}
+}
+
+ //**********
+// SELECTION
+
+::-moz-selection {
+   background: $ui-black;
+   color: $ui-white;
+   text-shadow: none;
+}
+
+::selection {
+   background: $ui-black;
+   color: $ui-white;
+   text-shadow: none;
+}

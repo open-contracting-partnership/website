@@ -5,81 +5,244 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 
-		<title>Styleguide</title>
+		<title>Style Guide</title>
 
-		<script src="https://use.typekit.net/xpw3jps.js"></script>
-		<script>try{Typekit.load({ async: true });}catch(e){}</script>
+		<!-- <script src="https://use.typekit.net/jaj0dkp.js"></script>
+		<script>try{Typekit.load({ async: true });}catch(e){}</script> -->
 
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
 
-		<link href="../../assets/css/styles.css" rel="stylesheet">
+		<link href="../../dist/css/styles.css" rel="stylesheet">
 
 		<link href="../../aigis_assets/styles/highlight/prism.css" rel="stylesheet">
-		<link href="../../aigis_assets/styles/theme.css" rel="stylesheet">
-
-		<script type="text/javascript" src="../../public/js/libs/css-element-queries/src/ResizeSensor.js"></script>
-		<script type="text/javascript" src="../../public/js/libs/css-element-queries/src/ElementQueries.js"></script>
-
-		<script>
-
-			//attaches to DOMLoadContent
-			ElementQueries.listen();
-
-		</script>
+		<link href="../../aigis_assets/dist/theme.css" rel="stylesheet">
 
 	</head>
 	<body class="aigis-body">
 
-		<script>
-			var ajax = new XMLHttpRequest();
-			ajax.open('GET', '../../assets/img/icons.svg', true);
-			ajax.send();
-			ajax.onload = function(e) {
-				var div = document.createElement('div');
-				div.style.display = 'none';
-				div.style.visibility = 'hidden';
-				div.innerHTML = ajax.responseText;
-				document.body.insertBefore(div, document.body.childNodes[0]);
-			}
-		</script>
+		<header class="aigis-header">
+
+			<a href="../../index.html" class="aigis-header__logo">
+				<img src="../../aigis_assets/images/bureau-shield.svg" alt="Website Logo">
+			</a>
+
+			<div class="aigis-header__navigation">
+
+				<ul data-path-depth="0"><li data-path-depth="0"><a href="../../category/Base/index.html" data-tree-current>Base</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Base/Figure/index.html">Figure</a></li><li data-path-depth="1"><a href="../../category/Base/Forms/index.html">Forms</a></li><li data-path-depth="1"><a href="../../category/Base/Headings/index.html">Headings</a></li><li data-path-depth="1"><a href="../../category/Base/Horizontal-Rule/index.html">Horizontal Rule</a></li><li data-path-depth="1"><a href="../../category/Base/Lists/index.html">Lists</a></li><li data-path-depth="1"><a href="../../category/Base/Quotes/index.html">Quotes</a></li><li data-path-depth="1"><a href="../../category/Base/Structure/index.html">Structure</a></li><li data-path-depth="1"><a href="../../category/Base/Table/index.html">Table</a></li><li data-path-depth="1"><a href="../../category/Base/Type/index.html">Type</a></li><li data-path-depth="1"><a href="../../category/Base/Utilities/index.html">Utilities</a></li></ul></li><li data-path-depth="0"><a href="../../category/Design/index.html">Design</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Design/Colours/index.html">Colours</a></li></ul></li><li data-path-depth="0"><a href="../../category/Layout/index.html">Layout</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Layout/Flex-Input/index.html">Flex Input</a></li><li data-path-depth="1"><a href="../../category/Layout/Footer/index.html">Footer</a></li><li data-path-depth="1"><a href="../../category/Layout/Header/index.html">Header</a></li></ul></li></ul>
+
+				<ul class="aigis-header__sub-navigation">
+					<li class="subtle">Select a category to continue&hellip;</li>
+				</ul>
+
+			</div>
+
+			<div class="aigis-header__close">
+
+				<svg class="aigis-header__close-cross" xmlns="http://www.w3.org/2000/svg" viewBox="1384 27 16 16">
+					<path fill="#535353" fill-rule="evenodd" d="M1400 28.62l-1.62-1.62-6.38 6.38-6.38-6.38-1.62 1.62 6.38 6.38-6.38 6.38 1.62 1.62 6.38-6.38 6.38 6.38 1.62-1.62-6.38-6.38"/>
+				</svg>
+
+			</div>
+
+		</header>
 
 		<div class="aigis-container">
 
-			<div class="aigis-sidemenu">
-
-    <header class="aigis-header">
-        <a href="../../index.html"><img src="../../aigis_assets/images/bureau-shield.svg" alt=""></a>
-    </header>
-
-	<label class="aigis-search-wrapper">
-        <svg class="aigis-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="32 19 16 16" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <defs>
-                <path id="a" d="M0 16V0h16v16z"/>
-            </defs>
-	        <g fill="none" fill-rule="evenodd" transform="translate(32 19)">
-                <mask id="b" fill="#fff">
-                    <use xlink:href="#a"/>
-                </mask>
-                <path fill="#999" d="M6 1.33c2.57 0 4.67 2.1 4.67 4.67S8.57 10.67 6 10.67 1.33 8.57 1.33 6 3.43 1.33 6 1.33M6 12c1.42 0 2.73-.5 3.76-1.33l5.1 5.13c.26.27.68.27.94 0 .27-.25.27-.68 0-.94l-5.1-5.13C11.5 8.7 12 7.4 12 6c0-3.3-2.7-6-6-6S0 2.7 0 6s2.7 6 6 6" mask="url(#b)"/>
-            </g>
-        </svg>
-
-    	<input type="search" class="aigis-search" placeholder="Search">
-	</label>
-
-    <nav class="aigis-categoryList">
-        <ul data-path-depth="0"><li data-path-depth="0"><a href="../../category/Base/index.html" data-tree-current>Base</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Base/Headings/index.html">Headings</a></li><li data-path-depth="1"><a href="../../category/Base/Kitchen-Sink/index.html">Kitchen Sink</a></li><li data-path-depth="1"><a href="../../category/Base/Quotes/index.html">Quotes</a></li><li data-path-depth="1"><a href="../../category/Base/Type/index.html">Type</a></li></ul></li><li data-path-depth="0"><a href="../../category/Components/index.html">Components</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Components/Buttons/index.html">Buttons</a></li><li data-path-depth="1"><a href="../../category/Components/Card/index.html">Card</a></li><li data-path-depth="1"><a href="../../category/Components/Forms/index.html">Forms</a></li><li data-path-depth="1"><a href="../../category/Components/Heading-Highlight/index.html">Heading Highlight</a></li><li data-path-depth="1"><a href="../../category/Components/Profile/index.html">Profile</a></li><li data-path-depth="1"><a href="../../category/Components/Related-Posts/index.html">Related Posts</a></li><li data-path-depth="1"><a href="../../category/Components/Timeline/index.html">Timeline</a></li></ul></li><li data-path-depth="0"><a href="../../category/Design/index.html">Design</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Design/Colours/index.html">Colours</a></li></ul></li><li data-path-depth="0"><a href="../../category/Layout/index.html">Layout</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Layout/Nav/index.html">Nav</a></li><li data-path-depth="1"><a href="../../category/Layout/Page/index.html">Page</a></li><li data-path-depth="1"><a href="../../category/Layout/Sidebar/index.html">Sidebar</a></li></ul></li></ul>
-    </nav>
-
-</div>
-
-
-			<div class="aigis-contents">
-
-				<div class="aigis-contents__body">
-					
+			<div class="aigis-contents__components">
+				
 
 	<div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Form Components">
+					Form Components
+				</h1>
+
+				<h2 id="form-example">Form Example</h2>
+<div class="aigis-preview">
+  <form action="" method="post">
+    <fieldset>
+        <legend>Title</legend>
+        <input type="radio" id="radio">
+        <label for="radio">Click me</label>
+        <label for="radio">
+            <input type="radio" id="radio">Click me </label>
+    </fieldset>
+</form></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>form</span> <span class="token attr-name" >action</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span><span class="token punctuation" >"</span></span> <span class="token attr-name" >method</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>post<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>fieldset</span><span class="token punctuation" >></span></span>
+
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>legend</span><span class="token punctuation" >></span></span>Title<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>legend</span><span class="token punctuation" >></span></span>
+
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Click me<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+            <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Click me
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>fieldset</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>form</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="text">Text</h2>
+<div class="aigis-preview">
+  <input type="text" placeholder="text" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="text-with-label">Text with Label</h2>
+<div class="aigis-preview">
+  <label>First Name: <input type="text" placeholder="Agent" />
+</label></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span><span class="token punctuation" >></span></span>First Name:
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>Agent<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="email">Email</h2>
+<div class="aigis-preview">
+  <input type="email" placeholder="email" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>email<span class="token punctuation" >"</span></span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>email<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="search">Search</h2>
+<div class="aigis-preview">
+  <input type="search" placeholder="search" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>search<span class="token punctuation" >"</span></span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>search<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="radio">Radio</h2>
+<div class="aigis-preview">
+  <label><input type="radio" />Option 1</label></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>Option 1<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="checkbox">Checkbox</h2>
+<div class="aigis-preview">
+  <label><input type="checkbox" />Option 1</label></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>checkbox<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>Option 1<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="url">URL</h2>
+<div class="aigis-preview">
+  <input type="url" placeholder="url" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>url<span class="token punctuation" >"</span></span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>url<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="number">Number</h2>
+<div class="aigis-preview">
+  <input type="number" placeholder="42" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>number<span class="token punctuation" >"</span></span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>42<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="tel">Tel</h2>
+<div class="aigis-preview">
+  <input type="tel" placeholder="01823" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>tel<span class="token punctuation" >"</span></span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>01823<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="color">Color</h2>
+<div class="aigis-preview">
+  <input type="color" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>color<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="range">Range</h2>
+<div class="aigis-preview">
+  <input type="range" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>range<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="time">Time</h2>
+<div class="aigis-preview">
+  <input type="time" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>time<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="date">Date</h2>
+<div class="aigis-preview">
+  <input type="date" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>date<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="month">Month</h2>
+<div class="aigis-preview">
+  <input type="month" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>month<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="week">Week</h2>
+<div class="aigis-preview">
+  <input type="week" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>week<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="datetime">Datetime</h2>
+<div class="aigis-preview">
+  <input type="datetime" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>datetime<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="datetime-local">Datetime Local</h2>
+<div class="aigis-preview">
+  <input type="datetime-local" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>datetime-local<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="textarea">Textarea</h2>
+<div class="aigis-preview">
+  <textarea placeholder="Text area"></textarea></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>textarea</span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>Text area<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>textarea</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="select">Select</h2>
+<div class="aigis-preview">
+  <select>
+    <optgroup label="Group 1">
+        <option>Option 1</option>
+    </optgroup>
+    <option>Option 2</option>
+</select></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>select</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>optgroup</span> <span class="token attr-name" >label</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>Group 1<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>option</span><span class="token punctuation" >></span></span>Option 1<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>option</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>optgroup</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>option</span><span class="token punctuation" >></span></span>Option 2<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>option</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>select</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="progress">Progress</h2>
+<div class="aigis-preview">
+  <progress value="70" max="100">70%</progress></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>progress</span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>70<span class="token punctuation" >"</span></span> <span class="token attr-name" >max</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>100<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>70%<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>progress</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="submit">Submit</h2>
+<div class="aigis-preview">
+  <input type="submit" value="submit" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>submit<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>submit<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="output">Output</h2>
+<p>Represents the result of a calculation or user action.</p>
+<div class="aigis-preview">
+  <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+    <input type="range" name="b" value="50" /> + <input type="number" name="a" value="10" /> = <output name="result">60</output>
+</form></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>form</span> <span class="token attr-name" >oninput</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>result.value<span class="token punctuation" >=</span>parseInt(a.value)+parseInt(b.value)<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>range<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>b<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>50<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span> +
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>number<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>a<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>10<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span> =
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>output</span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>result<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>60<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>output</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>form</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
 
 		
 
@@ -89,7 +252,9 @@
 					Headings
 				</h1>
 
-				<div class="aigis-preview">
+				<h2 id="base-headings">Base Headings</h2>
+<p>The class structure follows the structure discussed by Harry Roberts in his article <a href="http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/" title="null">practical font sizing in CSS</a> on CSS Wizardry.</p>
+<div class="aigis-preview">
   <h1 class="alpha">The fox</h1>
 <h2 class="beta">The fox</h2>
 <h3 class="gamma">The fox</h3>
@@ -97,12 +262,31 @@
 <h5 class="epsilon">The fox</h5>
 <h6 class="zeta">The fox</h6></div>
 
-<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alpha<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The fox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>beta<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The fox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>gamma<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The fox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>delta<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The fox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h5</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>epsilon<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The fox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h5</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h6</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>zeta<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The fox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h6</span><span class="token punctuation">></span></span>
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>alpha<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>The fox<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h2</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>beta<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>The fox<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h2</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h3</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>gamma<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>The fox<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h3</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h4</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>delta<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>The fox<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h4</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h5</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>epsilon<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>The fox<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h5</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h6</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>zeta<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>The fox<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h6</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="utilities">Utilities</h2>
+<h3 id="style">Style</h3>
+<p>Use the <code>.is-uppercase</code> class to enforce a heading to be in capitals.</p>
+<div class="aigis-preview">
+  <h1 class="is-uppercase">The fox</h1></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>is-uppercase<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>The fox<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h3 id="spacing">Spacing</h3>
+<p>Using <code>.drop</code> class applies only half the regular bottom bottom.</p>
+<div class="aigis-preview">
+  <h1 class="drop">The fox</h1>
+<h1>The fox</h1>
+<h1>The fox</h1></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>drop<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>The fox<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span>The fox<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span>The fox<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
 </code></pre>
 
 
@@ -112,16 +296,16 @@
 
 			<div class="aigis-module">
 
-				<h1 class="aigis-module__heading" id="Strapline">
-					Strapline
+				<h1 class="aigis-module__heading" id="Horizontal Rule">
+					Horizontal Rule
 				</h1>
 
-				<div class="aigis-preview">
-  <h1 class="alpha">The fox</h1>
-<h4 class="beta strapline">The fox</h4></div>
+				<h2 id="default-styling">Default Styling</h2>
+<p>This is the default markup and styling for a horizontal rule.</p>
+<div class="aigis-preview">
+  <hr></div>
 
-<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>alpha<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The fox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>beta strapline<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The fox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span>
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>hr</span><span class="token punctuation" >></span></span>
 </code></pre>
 
 
@@ -131,18 +315,134 @@
 
 			<div class="aigis-module">
 
-				<h1 class="aigis-module__heading" id="Border Top">
-					Border Top
+				<h1 class="aigis-module__heading" id="Lists">
+					Lists
 				</h1>
 
-				<div class="aigis-preview">
-  <h4 class="border-top">Subscribe to our newsletter</h4>
-<h4 class="border-top border-top--dark">Subscribe to our newsletter</h4>
-<h4 class="border-top border-top--blue">Subscribe to our newsletter</h4></div>
+				<p>Use the <code>.is-plain</code> class on any list to remove type-styling, margin, and padding.</p>
+<h2 id="unordered-list">Unordered List</h2>
+<p>This is just a plain unordered list, no special classes have been applied.</p>
+<div class="aigis-preview">
+  <ul>
+    <li>List item</li>
+    <li>List item</li>
+    <li>List item</li>
+</ul></div>
 
-<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>border-top<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Subscribe to our newsletter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>border-top border-top--dark<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Subscribe to our newsletter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>border-top border-top--blue<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Subscribe to our newsletter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span>
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ul</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>List item<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>List item<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>List item<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ul</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="ordered-list">Ordered List</h2>
+<p>This is just a plain ordered list, no special classes have been applied.</p>
+<div class="aigis-preview">
+  <ol>
+    <li>List item</li>
+    <li>List item</li>
+    <li>List item</li>
+</ol></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ol</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>List item<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>List item<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>List item<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ol</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="plain-list">Plain List</h2>
+<p>Use the <code>.is-plain</code> class on any list to remove type-styling, margin, and padding.</p>
+<div class="aigis-preview">
+  <ul class="is-plain">
+    <li>List item</li>
+    <li>List item</li>
+    <li>List item</li>
+</ul></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ul</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>is-plain<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>List item<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>List item<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span>List item<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ul</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Definition List">
+					Definition List
+				</h1>
+
+				<p>Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).</p>
+<p>For inline definitions use the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn" title="null">dfn</a> element.</p>
+<div class="aigis-preview">
+  <dl>
+    <div>
+        <dt>Name</dt>
+        <dd>Godzilla</dd>
+    </div>
+    <div>
+        <dt>Born</dt>
+        <dd>1952</dd>
+    </div>
+    <div>
+        <dt>Birthplace</dt>
+        <dd>Japan</dd>
+    </div>
+    <div>
+        <dt>Color</dt>
+        <dd>Green</dd>
+    </div>
+</dl></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>dl</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>dt</span><span class="token punctuation" >></span></span>Name<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>dt</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>dd</span><span class="token punctuation" >></span></span>Godzilla<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>dd</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>dt</span><span class="token punctuation" >></span></span>Born<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>dt</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>dd</span><span class="token punctuation" >></span></span>1952<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>dd</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>dt</span><span class="token punctuation" >></span></span>Birthplace<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>dt</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>dd</span><span class="token punctuation" >></span></span>Japan<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>dd</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>dt</span><span class="token punctuation" >></span></span>Color<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>dt</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>dd</span><span class="token punctuation" >></span></span>Green<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>dd</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>dl</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Figure">
+					Figure
+				</h1>
+
+				<p>Usually an image, illustration, diagram, code snippet, etc. followed by a figcaption.</p>
+<div class="aigis-preview">
+  <figure>
+    <img src="https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png" alt="An awesome picture">
+    <figcaption>Fig1. MDN Logo</figcaption>
+</figure></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>figure</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>img</span>
+  <span class="token attr-name" >src</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png<span class="token punctuation" >"</span></span>
+  <span class="token attr-name" >alt</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>An awesome picture<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>figcaption</span><span class="token punctuation" >></span></span>Fig1. MDN Logo<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>figcaption</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>figure</span><span class="token punctuation" >></span></span>
 </code></pre>
 
 
@@ -159,12 +459,13 @@
 				<p>The Block Quotation Element indicates that the enclosed text is an extended quotation.</p>
 <div class="aigis-preview">
   <blockquote cite="http://developer.mozilla.org">
-    <p>“We open up public contracting through disclosure, data and engagement so that the huge sums of money involved are spent honestly, fairly, and effectively.”</p>
+    <p>This is a quotation taken from the Mozilla Developer Center.</p>
 </blockquote></div>
 
-<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>blockquote</span> <span class="token attr-name">cite</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://developer.mozilla.org<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>“We open up public contracting through disclosure, data and engagement so that the huge sums of money involved are spent honestly, fairly, and effectively.”<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>blockquote</span><span class="token punctuation">></span></span>
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>blockquote</span> <span class="token attr-name" >cite</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>http://developer.mozilla.org<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>This is a quotation taken from
+  the Mozilla Developer Center.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>blockquote</span><span class="token punctuation" >></span></span>
 </code></pre>
 
 
@@ -174,19 +475,372 @@
 
 			<div class="aigis-module">
 
-				<h1 class="aigis-module__heading" id="Large Blockquote">
-					Large Blockquote
+				<h1 class="aigis-module__heading" id="Quote">
+					Quote
 				</h1>
 
-				<p>The Block Quotation Element indicates that the enclosed text is an extended quotation.</p>
+				<p>This element is intended for short quotations that don&#39;t require paragraph breaks.</p>
 <div class="aigis-preview">
-  <blockquote class="blockquote--large" cite="http://developer.mozilla.org">
-    <p>“We open up public contracting through disclosure, data and engagement so that the huge sums of money involved are spent honestly, fairly, and effectively.”</p> <span class="blockquote__caption">The Caption</span> </blockquote></div>
+  <p>According to Mozilla&#39;s website, <q cite="https://www.mozilla.org/en-US/about/history/details/">Firefox 1.0was released in 2004 and became a big success.</q></p></div>
 
-<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>blockquote</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>blockquote--large<span class="token punctuation">"</span></span> <span class="token attr-name">cite</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://developer.mozilla.org<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>“We open up public contracting through disclosure, data and engagement so that the huge sums of money involved are spent honestly, fairly, and effectively.”<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>blockquote__caption<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The Caption<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>blockquote</span><span class="token punctuation">></span></span>
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>According to Mozilla's website, <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>q</span> <span class="token attr-name" >cite</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>https://www.mozilla.org/en-US/about/history/details/<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Firefox 1.0was released in 2004 and became a big success.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>q</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Cite">
+					Cite
+				</h1>
+
+				<p>Used for referencing external sources.</p>
+<div class="aigis-preview">
+  <cite><a href="http://www.brucelawson.co.uk/2013/on-citing-quotations-again/">Bruce Lawson</a></cite></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>cite</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>http://www.brucelawson.co.uk/2013/on-citing-quotations-again/<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Bruce Lawson<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>cite</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Header">
+					Header
+				</h1>
+
+				<p>Used to denote the main banner area, or a heading group inside a content section.</p>
+<div class="aigis-preview">
+  <header role="banner">Hero Content</header>
+<article>
+    <header>
+        <h1>Main title</h1>
+        <p>Sub title</p>
+    </header>
+</article></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>header</span> <span class="token attr-name" >role</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>banner<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Hero Content<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>header</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>article</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>header</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span>Main title<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>Sub title<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>header</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>article</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Nav">
+					Nav
+				</h1>
+
+				<p>For major page navigation, including pagination.</p>
+<div class="aigis-preview">
+  <nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>nav</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>ul</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>#<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Home<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>#<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>About<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>#<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Blog<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>li</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>#<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Contact<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>li</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>ul</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>nav</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Main">
+					Main
+				</h1>
+
+				<p>Only one per page, for the main content.</p>
+<div class="aigis-preview">
+  <main>
+    <header>
+        <h1>Apples</h1>
+        <p>The apple is the pomaceous fruit of the apple tree.</p>
+    </header>
+    <article>
+        <h2>Red Delicious</h2>
+        <p>These bright red apples are the most common found in many supermarkets.</p>
+        <p>... </p>
+        <p>... </p>
+    </article>
+    <article>
+        <h2>Granny Smith</h2>
+        <p>These juicy, green apples make a great filling for apple pies.</p>
+        <p>... </p>
+        <p>... </p>
+    </article>
+</main></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>main</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>header</span><span class="token punctuation" >></span></span>
+          <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span>Apples<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>The apple is the pomaceous fruit of the apple tree.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>header</span><span class="token punctuation" >></span></span>
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>article</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h2</span><span class="token punctuation" >></span></span>Red Delicious<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h2</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>These bright red apples are the most common found in many
+        supermarkets.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>... <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>... <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>article</span><span class="token punctuation" >></span></span>
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>article</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h2</span><span class="token punctuation" >></span></span>Granny Smith<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h2</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>These juicy, green apples make a great filling for
+        apple pies.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>... <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>... <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>article</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>main</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Aside">
+					Aside
+				</h1>
+
+				<p>Contains complementary content to it&#39;s parent section. (often used as a sidebar)</p>
+<div class="aigis-preview">
+  <article>
+    <p> The Disney movie <em>The Little Mermaid</em> was first released to theatres in 1989. </p>
+    <aside>
+        <p> The movie earned $87 million during its initial release. </p>
+    </aside>
+    <p> More info about the movie... </p>
+</article></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>article</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+    The Disney movie <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>em</span><span class="token punctuation" >></span></span>The Little Mermaid<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>em</span><span class="token punctuation" >></span></span> was
+    first released to theatres in 1989.
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>aside</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+      The movie earned $87 million during its initial release.
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>aside</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+    More info about the movie...
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>article</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Article">
+					Article
+				</h1>
+
+				<p>The article element should contain a piece of self-contained content that could be distributed outside the context of the page.
+This includes things like:</p>
+<ul>
+<li>news articles</li>
+<li>blog posts</li>
+<li>user comments</li>
+</ul>
+<div class="aigis-preview">
+  <article class="film_review">
+    <header>
+        <h2>Jurassic Park</h2>
+    </header>
+    <section class="main_review">
+        <p>Dinos were great!</p>
+    </section>
+    <section class="user_reviews">
+        <article class="user_review">
+            <p>Way too scary for me.</p>
+            <footer>
+                <p> Posted on <time datetime="2015-05-16 19:00">May 16</time> by Lisa. </p>
+            </footer>
+        </article>
+        <article class="user_review">
+            <p>I agree, dinos are my favorite.</p>
+            <footer>
+                <p> Posted on <time datetime="2015-05-17 19:00">May 17</time> by Tom. </p>
+            </footer>
+        </article>
+    </section>
+    <footer>
+        <p> Posted on <time datetime="2015-05-15 19:00">May 15</time> by Staff. </p>
+    </footer>
+</article></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>article</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>film_review<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>header</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h2</span><span class="token punctuation" >></span></span>Jurassic Park<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h2</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>header</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>section</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>main_review<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>Dinos were great!<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>section</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>section</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>user_reviews<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>article</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>user_review<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>Way too scary for me.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>footer</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+          Posted on
+          <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>time</span> <span class="token attr-name" >datetime</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>2015-05-16 19:00<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>May 16<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>time</span><span class="token punctuation" >></span></span>
+          by Lisa.
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>footer</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>article</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>article</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>user_review<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>I agree, dinos are my favorite.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>footer</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+          Posted on
+          <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>time</span> <span class="token attr-name" >datetime</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>2015-05-17 19:00<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>May 17<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>time</span><span class="token punctuation" >></span></span>
+          by Tom.
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>footer</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>article</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>section</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>footer</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>
+      Posted on
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>time</span> <span class="token attr-name" >datetime</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>2015-05-15 19:00<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>May 15<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>time</span><span class="token punctuation" >></span></span>
+      by Staff.
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>footer</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>article</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Section">
+					Section
+				</h1>
+
+				<p>For groups of content that have headings.</p>
+<div class="aigis-preview">
+  <section>
+    <h1>Test</h1>
+    <p>Some content</p>
+</section></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>section</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>h1</span><span class="token punctuation" >></span></span>Test<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>h1</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>Some content<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>section</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Footer">
+					Footer
+				</h1>
+
+				<p>A footer typically contains information about the author of the section, copyright data or links to related documents.</p>
+<div class="aigis-preview">
+  <footer> Some copyright info or perhaps some author info for an &lt;article&gt;? </footer></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>footer</span><span class="token punctuation" >></span></span>
+  Some copyright info or perhaps some author
+  info for an <span class="token entity" title="&lt;">&amp;lt;</span>article<span class="token entity" title="&gt;">&amp;gt;</span>?
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>footer</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Table">
+					Table
+				</h1>
+
+				<div class="aigis-preview">
+  <table>
+    <thead>
+        <tr>
+            <th>Header content 1</th>
+            <th>Header content 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Body content 1</td>
+            <td>Body content 2</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>Footer content 1</td>
+            <td>Footer content 2</td>
+        </tr>
+    </tfoot>
+</table></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>table</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>thead</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>tr</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>th</span><span class="token punctuation" >></span></span>Header content 1<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>th</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>th</span><span class="token punctuation" >></span></span>Header content 2<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>th</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>tr</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>thead</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>tbody</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>tr</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>td</span><span class="token punctuation" >></span></span>Body content 1<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>td</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>td</span><span class="token punctuation" >></span></span>Body content 2<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>td</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>tr</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>tbody</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>tfoot</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>tr</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>td</span><span class="token punctuation" >></span></span>Footer content 1<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>td</span><span class="token punctuation" >></span></span>
+      <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>td</span><span class="token punctuation" >></span></span>Footer content 2<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>td</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>tr</span><span class="token punctuation" >></span></span>
+  <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>tfoot</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>table</span><span class="token punctuation" >></span></span>
 </code></pre>
 
 
@@ -203,76 +857,15 @@
 				<p>All of the spacing throughout the website is based from the type styling,
 conforming to a rule of 1.5 times the font-size. Here you can see two paragraphs
 of generated lorem-ipsum to get a feel of the line-height and spacing.</p>
-<p><strong>Modifiers</strong></p>
-<ul>
-<li><code>.small</code></li>
-<li><code>.smallest</code></li>
-</ul>
 <div class="aigis-preview">
   <p>The quick brown fox jumped over the lazy dog</p>
-<p class="small">The quick brown fox jumped over the lazy dog</p>
-<p class="smallest">The quick brown fox jumped over the lazy dog</p>
 <p>The quick brown fox jumped <small>over the lazy dog</small></p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p></div>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis. Quisque malesuada euismod lorem ac luctus. Sed sit amet nunc tellus. Suspendisse maximus nunc sed mi vehicula rutrum. Praesent lobortis euismod turpis sit amet venenatis. Nullam eu enim suscipit, accumsan arcu ut, fringilla odio. Pellentesque ultrices accumsan leo, sit amet vulputate ipsum feugiat id. Pellentesque a pharetra quam. Aliquam rutrum, turpis hendrerit varius pulvinar, libero nisi congue augue, in condimentum diam urna volutpat lectus. Praesent at ipsum a lacus accumsan accumsan. Integer mollis velit ac urna efficitur, eget ultricies nisl posuere. Nullam elementum nunc ac ante fermentum, ac consequat felis scelerisque. Cras dui lacus, posuere semper magna et, ornare porta arcu. <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin sit amet erat accumsan, sagittis metus eget, bibendum nisl. Curabitur dolor enim, bibendum id libero non, cursus iaculis libero. Vivamus orci nisl, posuere vel nibh eu, maximus ullamcorper augue. Vivamus scelerisque laoreet tristique. Donec ut urna lacus. Morbi et nisi sit amet leo vehicula pharetra sed ut elit. Pellentesque tincidunt, quam ut viverra tincidunt, lorem risus facilisis sapien, at gravida lorem dui fermentum arcu. Nam varius felis risus. Morbi a ipsum imperdiet, posuere lorem quis, tincidunt augue. Sed sed metus vitae nunc ullamcorper elementum. Vestibulum ornare augue tellus, vel accumsan augue euismod at. Quisque vitae convallis dolor, id tempus ipsum. Phasellus nisl ante, ullamcorper sit amet tortor at, suscipit venenatis sapien. Sed commodo odio in dolor tempus, eget rhoncus mauris bibendum.</p></div>
 
-<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>The quick brown fox jumped over the lazy dog<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>small<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The quick brown fox jumped over the lazy dog<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>smallest<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The quick brown fox jumped over the lazy dog<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>The quick brown fox jumped <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>small</span><span class="token punctuation">></span></span>over the lazy dog<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>small</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-</code></pre>
-
-
-			</div>
-
-		
-
-			<div class="aigis-module">
-
-				<h1 class="aigis-module__heading" id="Article Spacing">
-					Article Spacing
-				</h1>
-
-				<p>The spacing rules for article flow are as follows:</p>
-<ul>
-<li>Heading → Paragraph = 16px</li>
-<li>Paragraph → Paragraph = 32px</li>
-<li>Paragraph → Heading = 64px</li>
-</ul>
-<div class="aigis-preview">
-  <article>
-    <h1>Heading 1</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
-    <h2>Heading 2</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
-    <h3>Heading 3</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
-    <h4>Heading 4</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
-    <h5>Heading 5</h5>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
-    <h6>Heading 6</h6>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.</p>
-</article></div>
-
-<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Heading 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>Heading 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>Heading 3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span><span class="token punctuation">></span></span>Heading 4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h5</span><span class="token punctuation">></span></span>Heading 5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h5</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h6</span><span class="token punctuation">></span></span>Heading 6<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h6</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">></span></span>
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>The quick brown fox jumped over the lazy dog<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>The quick brown fox jumped <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>small</span><span class="token punctuation" >></span></span>over the lazy dog<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>small</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis. Quisque malesuada euismod lorem ac luctus. Sed sit amet nunc tellus. Suspendisse maximus nunc sed mi vehicula rutrum. Praesent lobortis euismod turpis sit amet venenatis. Nullam eu enim suscipit, accumsan arcu ut, fringilla odio. Pellentesque ultrices accumsan leo, sit amet vulputate ipsum feugiat id. Pellentesque a pharetra quam. Aliquam rutrum, turpis hendrerit varius pulvinar, libero nisi congue augue, in condimentum diam urna volutpat lectus. Praesent at ipsum a lacus accumsan accumsan. Integer mollis velit ac urna efficitur, eget ultricies nisl posuere. Nullam elementum nunc ac ante fermentum, ac consequat felis scelerisque. Cras dui lacus, posuere semper magna et, ornare porta arcu.
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin sit amet erat accumsan, sagittis metus eget, bibendum nisl. Curabitur dolor enim, bibendum id libero non, cursus iaculis libero. Vivamus orci nisl, posuere vel nibh eu, maximus ullamcorper augue. Vivamus scelerisque laoreet tristique. Donec ut urna lacus. Morbi et nisi sit amet leo vehicula pharetra sed ut elit. Pellentesque tincidunt, quam ut viverra tincidunt, lorem risus facilisis sapien, at gravida lorem dui fermentum arcu. Nam varius felis risus. Morbi a ipsum imperdiet, posuere lorem quis, tincidunt augue. Sed sed metus vitae nunc ullamcorper elementum. Vestibulum ornare augue tellus, vel accumsan augue euismod at. Quisque vitae convallis dolor, id tempus ipsum. Phasellus nisl ante, ullamcorper sit amet tortor at, suscipit venenatis sapien. Sed commodo odio in dolor tempus, eget rhoncus mauris bibendum.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
 </code></pre>
 
 
@@ -292,8 +885,8 @@ of generated lorem-ipsum to get a feel of the line-height and spacing.</p>
   <p>The quick <b>brown</b> fox jumped over the <strong>lazy</strong> dog</p>
 <p>The quick <i>brown</i> fox jumped over the <em>lazy</em> dog</p></div>
 
-<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>The quick <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">></span></span>brown<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b</span><span class="token punctuation">></span></span> fox jumped over the <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>strong</span><span class="token punctuation">></span></span>lazy<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>strong</span><span class="token punctuation">></span></span> dog<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>The quick <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span><span class="token punctuation">></span></span>brown<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span> fox jumped over the <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>em</span><span class="token punctuation">></span></span>lazy<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>em</span><span class="token punctuation">></span></span> dog<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>The quick <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>b</span><span class="token punctuation" >></span></span>brown<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>b</span><span class="token punctuation" >></span></span> fox jumped over the <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>strong</span><span class="token punctuation" >></span></span>lazy<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>strong</span><span class="token punctuation" >></span></span> dog<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>The quick <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>i</span><span class="token punctuation" >></span></span>brown<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>i</span><span class="token punctuation" >></span></span> fox jumped over the <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>em</span><span class="token punctuation" >></span></span>lazy<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>em</span><span class="token punctuation" >></span></span> dog<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
 </code></pre>
 
 
@@ -303,237 +896,215 @@ of generated lorem-ipsum to get a feel of the line-height and spacing.</p>
 
 			<div class="aigis-module">
 
-				<h1 class="aigis-module__heading" id="Kitchen Sink">
-					Kitchen Sink
+				<h1 class="aigis-module__heading" id="Sup">
+					Sup
 				</h1>
 
-				<div class="aigis-preview">
-  <article class="post-content">
-    <h1>Heading 1</h1>
-    <h2 class="delta strapline">Here is an example of a strapline that&#39;s been created</h2>
-    <p>We <a href="#">strive</a> to <em>fully</em> <i>disclose</i> the source, <strong>amount</strong> and <b>purpose</b> of <del>our</del> <u>funding</u> and to publish our own open contracting data. Our financial reporting and planning data is included
-        as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.</p>
-    <hr>
-    <h2>Heading 2</h2>
-    <p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed
-        here.</p>
-    <h3>Heading 3</h3>
-    <p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed
-        here.</p>
-    <p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed
-        here.</p>
-    <h4>Heading 4</h4>
-    <p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed
-        here.</p>
-    <blockquote>
-        <p>We open up public contracting through disclosure, data and engagement so that the huge sums of money involved are spent honestly, fairly, and effectively.</p>
-    </blockquote>
-    <p>So far, we have received funding and support from the following institutions:</p>
-    <table>
-        <thead>
-            <tr>
-                <th>Supplier</th>
-                <th>Title</th>
-                <th>Status</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Amount</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Karolis Granickas</td>
-                <td>Scoping methodology for open contracting in 15 countries</td>
-                <td>Terminated</td>
-                <td>2016-02-28</td>
-                <td>2016-12-30</td>
-                <td data-value="29700">29,700 USD</td>
-            </tr>
-            <tr>
-                <td>Young Innovations</td>
-                <td>Scoping Report Nepal</td>
-                <td>Terminated</td>
-                <td>2016-02-26</td>
-                <td>2016-06-30</td>
-                <td data-value="14250">14,250 USD</td>
-            </tr>
-            <tr>
-                <td>Gilbert Sendugwa</td>
-                <td>Open Contracting Training Uganda</td>
-                <td>Terminated</td>
-                <td>-</td>
-                <td>-</td>
-                <td data-value="14000">14,000 USD</td>
-            </tr>
-            <tr>
-                <td>Gabriela Rodriguez</td>
-                <td>OCDS implementation in Mexico</td>
-                <td>Terminated</td>
-                <td>2015-06-06</td>
-                <td>2015-06-18</td>
-                <td data-value="6000">6,000 USD</td>
-            </tr>
-            <tr>
-                <td>Oscar Montiel</td>
-                <td>OCDS Mapping</td>
-                <td>Terminated</td>
-                <td>2016-04-26</td>
-                <td>2016-05-15</td>
-                <td data-value="2625">2,625 USD</td>
-            </tr>
-            <tr>
-                <td>Public and Private Development Centre</td>
-                <td>Scoping studies Ghana, Nigeria</td>
-                <td>Terminated</td>
-                <td>2016-03-25</td>
-                <td>2016-06-20</td>
-                <td data-value="30000">30,000 USD</td>
-            </tr>
-            <tr>
-                <td>John Ernest Kitoka</td>
-                <td>Tanzania Assessment</td>
-                <td>Terminated</td>
-                <td>2016-05-26</td>
-                <td>2016-07-25</td>
-                <td data-value="14757">14,757 USD</td>
-            </tr>
-        </tbody>
-    </table>
-    <p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed
-        here:</p>
-    <ul>
-        <li>List-item</li>
-        <li>List-item</li>
-        <li>List-item</li>
-    </ul>
-    <ol>
-        <li>List-item</li>
-        <li>List-item</li>
-        <li>List-item</li>
-    </ol>
-    <p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed
-        here:</p>
-    <blockquote class="blockquote--large">
-        <p>“We open up public contracting through disclosure, data and engagement so that the huge sums of money involved are spent honestly, fairly, and effectively.”</p> <span class="blockquote__caption">The Caption</span> </blockquote>
-    <p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed
-        here.</p>
-    <h5>Heading 5</h5>
-    <p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed
-        here.</p>
-    <h6>Heading 6</h6>
-    <p>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed
-        here.</p>
-</article></div>
+				<p>For text that should be displayed, for typographic reasons, higher, and often smaller, than the main span of text.</p>
+<div class="aigis-preview">
+  <p>This text is <sup>superscripted</sup></p></div>
 
-<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Heading 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>delta strapline<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Here is an example of a strapline that's been created<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>We <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>strive<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span> to <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>em</span><span class="token punctuation">></span></span>fully<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>em</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span><span class="token punctuation">></span></span>disclose<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span> the source, <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>strong</span><span class="token punctuation">></span></span>amount<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>strong</span><span class="token punctuation">></span></span> and <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">></span></span>purpose<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b</span><span class="token punctuation">></span></span> of <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>del</span><span class="token punctuation">></span></span>our<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>del</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>u</span><span class="token punctuation">></span></span>funding<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>u</span><span class="token punctuation">></span></span> and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>Heading 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>Heading 3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span><span class="token punctuation">></span></span>Heading 4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>blockquote</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>We open up public contracting through disclosure, data and engagement so that the huge sums of money involved are spent honestly, fairly, and effectively.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>blockquote</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>So far, we have received funding and support from the following institutions:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>thead</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>Supplier<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>Title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>Status<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>Start Date<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>End Date<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">></span></span>Amount<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>thead</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tbody</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Karolis Granickas<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Scoping methodology for open contracting in 15 countries<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Terminated<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>2016-02-28<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>2016-12-30<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name">data-value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>29700<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>29,700 USD<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Young Innovations<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Scoping Report Nepal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Terminated<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>2016-02-26<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>2016-06-30<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name">data-value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>14250<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>14,250 USD<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Gilbert Sendugwa<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Open Contracting Training Uganda<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Terminated<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name">data-value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>14000<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>14,000 USD<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Gabriela Rodriguez<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>OCDS implementation in Mexico<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Terminated<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>2015-06-06<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>2015-06-18<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name">data-value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>6000<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>6,000 USD<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Oscar Montiel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>OCDS Mapping<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Terminated<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>2016-04-26<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>2016-05-15<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name">data-value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2625<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>2,625 USD<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Public and Private Development Centre<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Scoping studies Ghana, Nigeria<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Terminated<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>2016-03-25<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>2016-06-20<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name">data-value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>30000<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>30,000 USD<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>John Ernest Kitoka<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Tanzania Assessment<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>Terminated<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>2016-05-26<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">></span></span>2016-07-25<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span> <span class="token attr-name">data-value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>14757<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>14,757 USD<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tbody</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>List-item<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>List-item<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>List-item<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ol</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>List-item<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>List-item<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>List-item<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ol</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>blockquote</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>blockquote--large<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>“We open up public contracting through disclosure, data and engagement so that the huge sums of money involved are spent honestly, fairly, and effectively.”<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>blockquote__caption<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The Caption<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>blockquote</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h5</span><span class="token punctuation">></span></span>Heading 5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h5</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h6</span><span class="token punctuation">></span></span>Heading 6<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h6</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>We strive to fully disclose the source, amount and purpose of our funding and to publish our own open contracting data. Our financial reporting and planning data is included as part of our Annual Reports. Our contracts, ongoing and closed, are listed here.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">></span></span>
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>This text is <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>sup</span><span class="token punctuation" >></span></span>superscripted<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>sup</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
 </code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Sub">
+					Sub
+				</h1>
+
+				<p>For text that should be displayed, for typographic reasons, lower, and often smaller, than the main span of text.</p>
+<div class="aigis-preview">
+  <p>This text is <sub>superscripted</sub></p></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>This text is <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>sub</span><span class="token punctuation" >></span></span>superscripted<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>sub</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Strikethrough">
+					Strikethrough
+				</h1>
+
+				<p>Use the strikethrough element to represent things that are no longer relevant or no longer accurate.</p>
+<div class="aigis-preview">
+  <p>This text is <sub>superscripted</sub></p></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>This text is <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>sub</span><span class="token punctuation" >></span></span>superscripted<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>sub</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Mark">
+					Mark
+				</h1>
+
+				<p>For a run of text marked for reference purpose, due to its relevance in a particular context.
+For example it can be used in a page showing search results to highlight every instance of the searched-for word.</p>
+<div class="aigis-preview">
+  <p>The &lt;mark&gt; element is used to <mark>highlight</mark> text</p></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>The <span class="token entity" title="&lt;">&amp;lt;</span>mark<span class="token entity" title="&gt;">&amp;gt;</span> element is used to <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>mark</span><span class="token punctuation" >></span></span>highlight<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>mark</span><span class="token punctuation" >></span></span> text<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Code and Pre">
+					Code and Pre
+				</h1>
+
+				<p>The code element is for displaying raw computer code.
+Note: whitepsace and new lines aren&#39;t considered important.</p>
+<p>While the pre element is for preformatted text, and it preserves whitespace and line breaks.</p>
+<div class="aigis-preview">
+  <p>This is how we declare a Javascript variable:&lt;br>
+        <code>var i = 0;</code>
+</p>
+<pre>
+body {
+  color:red;
+}
+</pre></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>This is how we declare a Javascript variable:<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>br\</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>code</span><span class="token punctuation" >></span></span>var i = 0;<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>code</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>pre</span><span class="token punctuation" >></span></span>
+body {
+  color:red;
+}
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>pre</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Time">
+					Time
+				</h1>
+
+				<p>The time element represents either a time on a 24-hour clock or a precise date in the Gregorian calendar</p>
+<div class="aigis-preview">
+  <p>The concert starts at <time>20:00</time>.</p></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>The concert starts at <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>time</span><span class="token punctuation" >></span></span>20:00<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>time</span><span class="token punctuation" >></span></span>.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Address">
+					Address
+				</h1>
+
+				<p>The address element supplies contact information for its nearest article
+or body ancestor; in the latter case, it applies to the whole document.</p>
+<div class="aigis-preview">
+  <address> You can contact author at <a href="http://www.somedomain.com/contact">www.somedomain.com</a>.<br> If you see any bugs, please <a href="mailto:webmaster@somedomain.com">contact webmaster</a>.<br> You may also want to visit us:<br> Mozilla Foundation<br> 1981 Landings Drive<br> Building K<br> Mountain View, CA 94043-0801<br> USA </address></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>address</span><span class="token punctuation" >></span></span>
+    You can contact author at <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>http://www.somedomain.com/contact<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>www.somedomain.com<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span>.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>br</span><span class="token punctuation" >></span></span>
+    If you see any bugs, please <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>mailto:webmaster@somedomain.com<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>contact webmaster<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span>.<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>br</span><span class="token punctuation" >></span></span>
+    You may also want to visit us:<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>br</span><span class="token punctuation" >></span></span>
+    Mozilla Foundation<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>br</span><span class="token punctuation" >></span></span>
+    1981 Landings Drive<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>br</span><span class="token punctuation" >></span></span>
+    Building K<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>br</span><span class="token punctuation" >></span></span>
+    Mountain View, CA 94043-0801<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>br</span><span class="token punctuation" >></span></span>
+    USA
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>address</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Abbreviation">
+					Abbreviation
+				</h1>
+
+				<p>Use the title attribute to define the full description of the abbreviation. Many user agents present this as a tooltip.</p>
+<div class="aigis-preview">
+  <p>Welcome to the <abbr title="World Wide Web">WWW</abbr>!</p></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>p</span><span class="token punctuation" >></span></span>Welcome to the <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>abbr</span> <span class="token attr-name" >title</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>World Wide Web<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>WWW<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>abbr</span><span class="token punctuation" >></span></span>!<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>p</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Utilities">
+					Utilities
+				</h1>
+
+				<h2 id="list-of-utility-classes">List of Utility Classes</h2>
+<h3 id="hidden">Hidden</h3>
+<blockquote>
+<p>.is-hidden</p>
+</blockquote>
+<p>This is used to completely remove an element from the document flow and from screen-readers.</p>
+<p>This is usually applied or removed with JavaScript.</p>
+<blockquote>
+<p>.is-visually-hidden</p>
+</blockquote>
+<p>This is still visible to screen-readers, so it is used for accessibility purposes.</p>
+<h3 id="floats">Floats</h3>
+<blockquote>
+<p>.pull-right</p>
+</blockquote>
+<p>This is used to apply a right float.</p>
+<blockquote>
+<p>.pull-left</p>
+</blockquote>
+<p>This is used to apply a left float.</p>
+<h3 id="alignment">Alignment</h3>
+<blockquote>
+<p>.align-right</p>
+</blockquote>
+<p>This is used to apply <code>text-align: right;</code></p>
+<blockquote>
+<p>.align-center</p>
+</blockquote>
+<p>This is used to apply <code>text-align: center;</code></p>
+<blockquote>
+<p>.align-left</p>
+</blockquote>
+<p>This is used to apply <code>text-align: left;</code></p>
 
 
 			</div>
@@ -544,47 +1115,32 @@ of generated lorem-ipsum to get a feel of the line-height and spacing.</p>
 
 
 
-				</div>
-
 			</div>
 
-			<div class="aigis-modal__wrapper">
-
-				<div class="aigis-modal__header">
-
-					<a href="../../index.html" class="aigis-modal__logo">
-						<img src="../../aigis_assets/images/bureau-shield.svg" alt="Website Logo">
-					</a>
-
-					<div class="aigis-modal__close">
-
-						<div class="aigis-modal__close-back">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 30 9 11">
-								<path fill="#535353" fill-rule="evenodd" d="M16.75 35.37l5.35 4.58c.04.04.1.05.15.05.05 0 .1-.03.13-.07l.9-1.03c.06-.08.05-.2-.04-.28l-3.97-3.4 3.97-3.4c.1-.08.1-.2.03-.3l-.9-1c-.03-.06-.08-.1-.14-.1-.04 0-.1.03-.13.06l-5.35 4.6c-.04.02-.07.08-.07.14 0 .06.03.1.07.15"/>
-							</svg>
-							Back
-						</div>
-
-						<svg class="aigis-modal__close-cross" xmlns="http://www.w3.org/2000/svg" viewBox="1384 27 16 16">
-							<path fill="#535353" fill-rule="evenodd" d="M1400 28.62l-1.62-1.62-6.38 6.38-6.38-6.38-1.62 1.62 6.38 6.38-6.38 6.38 1.62 1.62 6.38-6.38 6.38 6.38 1.62-1.62-6.38-6.38"/>
-						</svg>
-
-					</div>
-
-				</div>
-
-				<div class="aigis-modal"></div>
-
+			<div class="aigis-contents__preview">
 			</div>
 
 		</div>
 
 		<img class="link-icon" src="../../aigis_assets/images/link.svg" alt="Link to single component view">
 
+		<script>
+
+			var ajax = new XMLHttpRequest();
+			ajax.open('GET', '../../dist/svg/icons.svg', true);
+			ajax.send();
+			ajax.onload = function(e) {
+				var div = document.createElement('div');
+				div.style.display = 'none';
+				div.style.visibility = 'hidden';
+				div.innerHTML = ajax.responseText;
+				document.body.insertBefore(div, document.body.childNodes[0]);
+			}
+
+		</script>
+
 		<script src="../../aigis_assets/dist/styleguide.js"></script>
-		<script src="../../assets/js/libs/modernizr.js"></script>
-		<script src="../../assets/js/libs/jquery-2.1.4.min.js"></script>
-		<script src="../../assets/js/main.js"></script>
+		<script src="../../dist/js/scripts.js"></script>
 
 	</body>
 </html>

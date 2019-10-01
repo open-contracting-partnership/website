@@ -1,0 +1,109 @@
+/*
+
+---
+name: Headings
+category:
+ - Base
+ - Base/Headings
+---
+
+## Base Headings
+
+The class structure follows the structure discussed by Harry Roberts in his article [practical font sizing in CSS](http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/) on CSS Wizardry.
+
+```html
+<h1 class="alpha">The fox</h1>
+<h2 class="beta">The fox</h2>
+<h3 class="gamma">The fox</h3>
+<h4 class="delta">The fox</h4>
+<h5 class="epsilon">The fox</h5>
+<h6 class="zeta">The fox</h6>
+```
+
+## Utilities
+
+
+### Style
+
+Use the `.is-uppercase` class to enforce a heading to be in capitals.
+
+```html
+<h1 class="is-uppercase">The fox</h1>
+```
+
+### Spacing
+
+Using `.drop` class applies only half the regular bottom bottom.
+
+```html
+<h1 class="drop">The fox</h1>
+<h1>The fox</h1>
+<h1>The fox</h1>
+```
+
+*/
+
+h1,
+.alpha,
+h2,
+.beta,
+h3,
+.gamma,
+h4,
+.delta,
+h5,
+.epsilon,
+h6,
+.zeta {
+	@include font('secondary', 'bold');
+	line-height: 1.3;
+	margin-bottom: $space;
+
+	 //*******
+	// Styles
+
+	&.is-uppercase {
+		text-transform: uppercase;
+	}
+
+	 //*******
+	// Spacing
+
+	&.drop {
+		margin-bottom: $space / 2;
+	}
+}
+
+h1,
+.alpha {
+	@include font-size(20, 30, 46);
+
+	&.alt-font {
+		@include font-size(22, 22, 36);
+	}
+}
+
+h2,
+.beta {
+	@include font-size(18, 24, 40);
+}
+
+h3,
+.gamma {
+	@include font-size(15, 19, 35);
+}
+
+h4,
+.delta {
+	@include font-size(13, 16, 22);
+}
+
+h5,
+.epsilon {
+	@include font-size(12, 15, 20);
+}
+
+h6,
+.zeta {
+	@include font-size(12, 12, 18);
+}

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" class="aigis-html">
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+
+		<title>Style Guide</title>
+
+		<!-- <script src="https://use.typekit.net/jaj0dkp.js"></script>
+		<script>try{Typekit.load({ async: true });}catch(e){}</script> -->
+
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+
+		<link href="../../../dist/css/styles.css" rel="stylesheet">
+
+		<link href="../../../aigis_assets/styles/highlight/prism.css" rel="stylesheet">
+		<link href="../../../aigis_assets/dist/theme.css" rel="stylesheet">
+
+	</head>
+	<body class="aigis-body">
+
+		<header class="aigis-header">
+
+			<a href="../../../index.html" class="aigis-header__logo">
+				<img src="../../../aigis_assets/images/bureau-shield.svg" alt="Website Logo">
+			</a>
+
+			<div class="aigis-header__navigation">
+
+				<ul data-path-depth="0"><li data-path-depth="0"><a href="../../../category/Base/index.html">Base</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Base/Figure/index.html">Figure</a></li><li data-path-depth="1"><a href="../../../category/Base/Forms/index.html" data-tree-current>Forms</a></li><li data-path-depth="1"><a href="../../../category/Base/Headings/index.html">Headings</a></li><li data-path-depth="1"><a href="../../../category/Base/Horizontal-Rule/index.html">Horizontal Rule</a></li><li data-path-depth="1"><a href="../../../category/Base/Lists/index.html">Lists</a></li><li data-path-depth="1"><a href="../../../category/Base/Quotes/index.html">Quotes</a></li><li data-path-depth="1"><a href="../../../category/Base/Structure/index.html">Structure</a></li><li data-path-depth="1"><a href="../../../category/Base/Table/index.html">Table</a></li><li data-path-depth="1"><a href="../../../category/Base/Type/index.html">Type</a></li><li data-path-depth="1"><a href="../../../category/Base/Utilities/index.html">Utilities</a></li></ul></li><li data-path-depth="0"><a href="../../../category/Design/index.html">Design</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Design/Colours/index.html">Colours</a></li></ul></li><li data-path-depth="0"><a href="../../../category/Layout/index.html">Layout</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../../category/Layout/Flex-Input/index.html">Flex Input</a></li><li data-path-depth="1"><a href="../../../category/Layout/Footer/index.html">Footer</a></li><li data-path-depth="1"><a href="../../../category/Layout/Header/index.html">Header</a></li></ul></li></ul>
+
+				<ul class="aigis-header__sub-navigation">
+					<li class="subtle">Select a category to continue&hellip;</li>
+				</ul>
+
+			</div>
+
+			<div class="aigis-header__close">
+
+				<svg class="aigis-header__close-cross" xmlns="http://www.w3.org/2000/svg" viewBox="1384 27 16 16">
+					<path fill="#535353" fill-rule="evenodd" d="M1400 28.62l-1.62-1.62-6.38 6.38-6.38-6.38-1.62 1.62 6.38 6.38-6.38 6.38 1.62 1.62 6.38-6.38 6.38 6.38 1.62-1.62-6.38-6.38"/>
+				</svg>
+
+			</div>
+
+		</header>
+
+		<div class="aigis-container">
+
+			<div class="aigis-contents__components">
+				
+
+	<div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Form Components">
+					Form Components
+				</h1>
+
+				<h2 id="form-example">Form Example</h2>
+<div class="aigis-preview">
+  <form action="" method="post">
+    <fieldset>
+        <legend>Title</legend>
+        <input type="radio" id="radio">
+        <label for="radio">Click me</label>
+        <label for="radio">
+            <input type="radio" id="radio">Click me </label>
+    </fieldset>
+</form></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>form</span> <span class="token attr-name" >action</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span><span class="token punctuation" >"</span></span> <span class="token attr-name" >method</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>post<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>fieldset</span><span class="token punctuation" >></span></span>
+
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>legend</span><span class="token punctuation" >></span></span>Title<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>legend</span><span class="token punctuation" >></span></span>
+
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Click me<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span> <span class="token attr-name" >for</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+            <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span> <span class="token attr-name" >id</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Click me
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>fieldset</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>form</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="text">Text</h2>
+<div class="aigis-preview">
+  <input type="text" placeholder="text" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="text-with-label">Text with Label</h2>
+<div class="aigis-preview">
+  <label>First Name: <input type="text" placeholder="Agent" />
+</label></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span><span class="token punctuation" >></span></span>First Name:
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>Agent<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="email">Email</h2>
+<div class="aigis-preview">
+  <input type="email" placeholder="email" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>email<span class="token punctuation" >"</span></span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>email<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="search">Search</h2>
+<div class="aigis-preview">
+  <input type="search" placeholder="search" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>search<span class="token punctuation" >"</span></span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>search<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="radio">Radio</h2>
+<div class="aigis-preview">
+  <label><input type="radio" />Option 1</label></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>radio<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>Option 1<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="checkbox">Checkbox</h2>
+<div class="aigis-preview">
+  <label><input type="checkbox" />Option 1</label></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>label</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>checkbox<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>Option 1<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>label</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="url">URL</h2>
+<div class="aigis-preview">
+  <input type="url" placeholder="url" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>url<span class="token punctuation" >"</span></span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>url<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="number">Number</h2>
+<div class="aigis-preview">
+  <input type="number" placeholder="42" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>number<span class="token punctuation" >"</span></span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>42<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="tel">Tel</h2>
+<div class="aigis-preview">
+  <input type="tel" placeholder="01823" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>tel<span class="token punctuation" >"</span></span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>01823<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="color">Color</h2>
+<div class="aigis-preview">
+  <input type="color" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>color<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="range">Range</h2>
+<div class="aigis-preview">
+  <input type="range" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>range<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="time">Time</h2>
+<div class="aigis-preview">
+  <input type="time" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>time<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="date">Date</h2>
+<div class="aigis-preview">
+  <input type="date" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>date<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="month">Month</h2>
+<div class="aigis-preview">
+  <input type="month" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>month<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="week">Week</h2>
+<div class="aigis-preview">
+  <input type="week" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>week<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="datetime">Datetime</h2>
+<div class="aigis-preview">
+  <input type="datetime" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>datetime<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="datetime-local">Datetime Local</h2>
+<div class="aigis-preview">
+  <input type="datetime-local" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>datetime-local<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="textarea">Textarea</h2>
+<div class="aigis-preview">
+  <textarea placeholder="Text area"></textarea></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>textarea</span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>Text area<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>textarea</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="select">Select</h2>
+<div class="aigis-preview">
+  <select>
+    <optgroup label="Group 1">
+        <option>Option 1</option>
+    </optgroup>
+    <option>Option 2</option>
+</select></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>select</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>optgroup</span> <span class="token attr-name" >label</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>Group 1<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>option</span><span class="token punctuation" >></span></span>Option 1<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>option</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>optgroup</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>option</span><span class="token punctuation" >></span></span>Option 2<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>option</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>select</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="progress">Progress</h2>
+<div class="aigis-preview">
+  <progress value="70" max="100">70%</progress></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>progress</span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>70<span class="token punctuation" >"</span></span> <span class="token attr-name" >max</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>100<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>70%<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>progress</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="submit">Submit</h2>
+<div class="aigis-preview">
+  <input type="submit" value="submit" /></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>submit<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>submit<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+</code></pre>
+<h2 id="output">Output</h2>
+<p>Represents the result of a calculation or user action.</p>
+<div class="aigis-preview">
+  <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+    <input type="range" name="b" value="50" /> + <input type="number" name="a" value="10" /> = <output name="result">60</output>
+</form></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>form</span> <span class="token attr-name" >oninput</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>result.value<span class="token punctuation" >=</span>parseInt(a.value)+parseInt(b.value)<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>range<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>b<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>50<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span> +
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>number<span class="token punctuation" >"</span></span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>a<span class="token punctuation" >"</span></span> <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>10<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span> =
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>output</span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>result<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>60<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>output</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>form</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+	</div>
+
+
+
+			</div>
+
+			<div class="aigis-contents__preview">
+			</div>
+
+		</div>
+
+		<img class="link-icon" src="../../../aigis_assets/images/link.svg" alt="Link to single component view">
+
+		<script>
+
+			var ajax = new XMLHttpRequest();
+			ajax.open('GET', '../../../dist/svg/icons.svg', true);
+			ajax.send();
+			ajax.onload = function(e) {
+				var div = document.createElement('div');
+				div.style.display = 'none';
+				div.style.visibility = 'hidden';
+				div.innerHTML = ajax.responseText;
+				document.body.insertBefore(div, document.body.childNodes[0]);
+			}
+
+		</script>
+
+		<script src="../../../aigis_assets/dist/styleguide.js"></script>
+		<script src="../../../dist/js/scripts.js"></script>
+
+	</body>
+</html>

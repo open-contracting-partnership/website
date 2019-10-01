@@ -1,0 +1,71 @@
+/*------------------------------------*\
+	VARIABLES
+\*------------------------------------*/
+
+ //********
+// COLOURS
+
+$ui-white: #FFF;
+$ui-grey: #999;
+$ui-black: #000;
+
+
+ //***************
+// SOCIAL COLOURS
+
+$social-colors: (
+    'youtube': #CC181E,
+    'twitter': #00ACEE,
+    'facebook': #3B5998,
+    'google': #DD4B39,
+    'linkedin': #007BB6,
+);
+
+
+ //**************
+// TYPE SETTINGS
+
+$base-font-size: 16;
+
+$copy: $ui-black;
+$border-radius: 4px;
+
+
+ //****************
+// LAYOUT SETTINGS
+
+$max-width: 1440;
+$space: 1.5rem; // NOTE: This is needs to be changed depending on the lineheight of the <p>
+
+$breakpoints: (
+    S: 640,
+    M: 1024,
+	L: 1440
+);
+
+
+ //******
+// FONTS
+
+$fonts: (
+    primary: (
+        family: 'sans-serif',
+        fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+        weights: (
+            regular: 400,
+			semibold: 600,
+            bold: 700
+        ),
+        typekit: false
+    ),
+    secondary: (
+        family: 'sans-serif',
+        fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+        weights: (
+            regular: 400,
+			semibold: 600,
+            bold: 700
+        ),
+        typekit: false
+    )
+);

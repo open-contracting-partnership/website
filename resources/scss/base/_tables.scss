@@ -1,0 +1,104 @@
+/*
+
+---
+name: Table
+category:
+ - Base
+ - Base/Table
+---
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th>Header content 1</th>
+      <th>Header content 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Body content 1</td>
+      <td>Body content 2</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Footer content 1</td>
+      <td>Footer content 2</td>
+    </tr>
+  </tfoot>
+</table>
+```
+
+*/
+
+table {
+	color: $ui-black;
+	background: $ui-white;
+	width: 100%;
+	text-align: center;
+	border-spacing: 0;
+	border-right: 1px solid $ui-black;
+
+	&::before {
+		// this is where the magic happens
+		content: attr(aria-label) '';
+
+		@include mq(S) {
+			display: none;
+		}
+	}
+
+	&:last-child {
+		margin-bottom: $space;
+	}
+}
+
+th {
+	padding: 13px;
+	display: block;
+
+	@include mq(S) {
+		@include font-size(13, 16, 22);
+		@include font('secondary', 'bold');
+		background-color: $ui-black;
+		color: $ui-white;
+		padding: 8px;
+		display: table-cell;
+	}
+
+	@include mq(M) {
+		@include font($weight: 'semibold');
+		padding: 16px;
+	}
+}
+
+td {
+	display: block;
+	border-bottom: 1px solid $ui-black;
+	border-left: 1px solid $ui-black;
+	padding: 10px;
+
+	@include mq(S) {
+		padding: 17px;
+		display: table-cell;
+	}
+
+	@include mq(M) {
+	    padding: 30px;
+	}
+}
+
+thead tr {
+	color: transparent;
+	font: 0/0 a;
+
+	@include mq(S) {
+		color: inherit;
+		font: inherit;
+	}
+}
+
+tbody tr {
+	padding: 1em;
+}

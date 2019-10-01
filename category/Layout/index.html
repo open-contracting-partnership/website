@@ -5,79 +5,51 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 
-		<title>Styleguide</title>
+		<title>Style Guide</title>
 
-		<script src="https://use.typekit.net/xpw3jps.js"></script>
-		<script>try{Typekit.load({ async: true });}catch(e){}</script>
+		<!-- <script src="https://use.typekit.net/jaj0dkp.js"></script>
+		<script>try{Typekit.load({ async: true });}catch(e){}</script> -->
 
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
 
-		<link href="../../assets/css/styles.css" rel="stylesheet">
+		<link href="../../dist/css/styles.css" rel="stylesheet">
 
 		<link href="../../aigis_assets/styles/highlight/prism.css" rel="stylesheet">
-		<link href="../../aigis_assets/styles/theme.css" rel="stylesheet">
-
-		<script type="text/javascript" src="../../public/js/libs/css-element-queries/src/ResizeSensor.js"></script>
-		<script type="text/javascript" src="../../public/js/libs/css-element-queries/src/ElementQueries.js"></script>
-
-		<script>
-
-			//attaches to DOMLoadContent
-			ElementQueries.listen();
-
-		</script>
+		<link href="../../aigis_assets/dist/theme.css" rel="stylesheet">
 
 	</head>
 	<body class="aigis-body">
 
-		<script>
-			var ajax = new XMLHttpRequest();
-			ajax.open('GET', '../../assets/img/icons.svg', true);
-			ajax.send();
-			ajax.onload = function(e) {
-				var div = document.createElement('div');
-				div.style.display = 'none';
-				div.style.visibility = 'hidden';
-				div.innerHTML = ajax.responseText;
-				document.body.insertBefore(div, document.body.childNodes[0]);
-			}
-		</script>
+		<header class="aigis-header">
+
+			<a href="../../index.html" class="aigis-header__logo">
+				<img src="../../aigis_assets/images/bureau-shield.svg" alt="Website Logo">
+			</a>
+
+			<div class="aigis-header__navigation">
+
+				<ul data-path-depth="0"><li data-path-depth="0"><a href="../../category/Base/index.html">Base</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Base/Figure/index.html">Figure</a></li><li data-path-depth="1"><a href="../../category/Base/Forms/index.html">Forms</a></li><li data-path-depth="1"><a href="../../category/Base/Headings/index.html">Headings</a></li><li data-path-depth="1"><a href="../../category/Base/Horizontal-Rule/index.html">Horizontal Rule</a></li><li data-path-depth="1"><a href="../../category/Base/Lists/index.html">Lists</a></li><li data-path-depth="1"><a href="../../category/Base/Quotes/index.html">Quotes</a></li><li data-path-depth="1"><a href="../../category/Base/Structure/index.html">Structure</a></li><li data-path-depth="1"><a href="../../category/Base/Table/index.html">Table</a></li><li data-path-depth="1"><a href="../../category/Base/Type/index.html">Type</a></li><li data-path-depth="1"><a href="../../category/Base/Utilities/index.html">Utilities</a></li></ul></li><li data-path-depth="0"><a href="../../category/Design/index.html">Design</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Design/Colours/index.html">Colours</a></li></ul></li><li data-path-depth="0"><a href="../../category/Layout/index.html" data-tree-current>Layout</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Layout/Flex-Input/index.html">Flex Input</a></li><li data-path-depth="1"><a href="../../category/Layout/Footer/index.html">Footer</a></li><li data-path-depth="1"><a href="../../category/Layout/Header/index.html">Header</a></li></ul></li></ul>
+
+				<ul class="aigis-header__sub-navigation">
+					<li class="subtle">Select a category to continue&hellip;</li>
+				</ul>
+
+			</div>
+
+			<div class="aigis-header__close">
+
+				<svg class="aigis-header__close-cross" xmlns="http://www.w3.org/2000/svg" viewBox="1384 27 16 16">
+					<path fill="#535353" fill-rule="evenodd" d="M1400 28.62l-1.62-1.62-6.38 6.38-6.38-6.38-1.62 1.62 6.38 6.38-6.38 6.38 1.62 1.62 6.38-6.38 6.38 6.38 1.62-1.62-6.38-6.38"/>
+				</svg>
+
+			</div>
+
+		</header>
 
 		<div class="aigis-container">
 
-			<div class="aigis-sidemenu">
-
-    <header class="aigis-header">
-        <a href="../../index.html"><img src="../../aigis_assets/images/bureau-shield.svg" alt=""></a>
-    </header>
-
-	<label class="aigis-search-wrapper">
-        <svg class="aigis-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="32 19 16 16" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <defs>
-                <path id="a" d="M0 16V0h16v16z"/>
-            </defs>
-	        <g fill="none" fill-rule="evenodd" transform="translate(32 19)">
-                <mask id="b" fill="#fff">
-                    <use xlink:href="#a"/>
-                </mask>
-                <path fill="#999" d="M6 1.33c2.57 0 4.67 2.1 4.67 4.67S8.57 10.67 6 10.67 1.33 8.57 1.33 6 3.43 1.33 6 1.33M6 12c1.42 0 2.73-.5 3.76-1.33l5.1 5.13c.26.27.68.27.94 0 .27-.25.27-.68 0-.94l-5.1-5.13C11.5 8.7 12 7.4 12 6c0-3.3-2.7-6-6-6S0 2.7 0 6s2.7 6 6 6" mask="url(#b)"/>
-            </g>
-        </svg>
-
-    	<input type="search" class="aigis-search" placeholder="Search">
-	</label>
-
-    <nav class="aigis-categoryList">
-        <ul data-path-depth="0"><li data-path-depth="0"><a href="../../category/Base/index.html">Base</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Base/Headings/index.html">Headings</a></li><li data-path-depth="1"><a href="../../category/Base/Kitchen-Sink/index.html">Kitchen Sink</a></li><li data-path-depth="1"><a href="../../category/Base/Quotes/index.html">Quotes</a></li><li data-path-depth="1"><a href="../../category/Base/Type/index.html">Type</a></li></ul></li><li data-path-depth="0"><a href="../../category/Components/index.html">Components</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Components/Buttons/index.html">Buttons</a></li><li data-path-depth="1"><a href="../../category/Components/Card/index.html">Card</a></li><li data-path-depth="1"><a href="../../category/Components/Forms/index.html">Forms</a></li><li data-path-depth="1"><a href="../../category/Components/Heading-Highlight/index.html">Heading Highlight</a></li><li data-path-depth="1"><a href="../../category/Components/Profile/index.html">Profile</a></li><li data-path-depth="1"><a href="../../category/Components/Related-Posts/index.html">Related Posts</a></li><li data-path-depth="1"><a href="../../category/Components/Timeline/index.html">Timeline</a></li></ul></li><li data-path-depth="0"><a href="../../category/Design/index.html">Design</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Design/Colours/index.html">Colours</a></li></ul></li><li data-path-depth="0"><a href="../../category/Layout/index.html" data-tree-current>Layout</a><ul data-path-depth="1"><li data-path-depth="1"><a href="../../category/Layout/Nav/index.html">Nav</a></li><li data-path-depth="1"><a href="../../category/Layout/Page/index.html">Page</a></li><li data-path-depth="1"><a href="../../category/Layout/Sidebar/index.html">Sidebar</a></li></ul></li></ul>
-    </nav>
-
-</div>
-
-
-			<div class="aigis-contents">
-
-				<div class="aigis-contents__body">
-					
+			<div class="aigis-contents__components">
+				
 
 	<div>
 
@@ -85,45 +57,62 @@
 
 			<div class="aigis-module">
 
-				<h1 class="aigis-module__heading" id="Sidebar">
-					Sidebar
+				<h1 class="aigis-module__heading" id="Flex Input">
+					Flex Input
+				</h1>
+
+				<h2 id="default-styling">Default Styling</h2>
+<p>This allows you to have a button in the same row as its input field.</p>
+<div class="aigis-preview">
+  <form class="flex-input">
+    <input type="text" placeholder="text" />
+    <button>Submit</button>
+</form></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>form</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>flex-input<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >type</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span> <span class="token attr-name" >placeholder</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>text<span class="token punctuation" >"</span></span> <span class="token punctuation" >/></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>button</span><span class="token punctuation" >></span></span>Submit<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>button</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>form</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Footer">
+					Footer
 				</h1>
 
 				<div class="aigis-preview">
-  <aside class="sidebar">
-    <nav class="page__section-nav">
-        <h6 class="border-top border-top--clean">Jump to section</h6>
-        <ul class="nav nav--vertical nav--in-page">
-            <li><a href="#">Section 1</a></li>
-            <li><a href="#">Section 2</a></li>
-            <li><a href="#">Section 3</a></li>
-        </ul>
-    </nav>
-    <div class="blog__subscribe-container / band">
-        <h6 class="border-top border-top--clean">Subscribe to our newsletter</h6>
-        <p>Sign up to our monthly email where you can receive updates on our current work</p>
-        <form class="flex-field" action="" method="post"> <input type="email" placeholder="Enter your email" name="email" required=""> <button>Send</button> </form>
-    </div>
-</aside></div>
+  <footer class="site-footer">
+</footer></div>
 
-<pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>sidebar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>page__section-nav<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h6</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>border-top border-top--clean<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Jump to section<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h6</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nav nav--vertical nav--in-page<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Section 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Section 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Section 3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nav</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>blog__subscribe-container / band<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h6</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>border-top border-top--clean<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Subscribe to our newsletter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h6</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Sign up to our monthly email where you can receive updates on our current work<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>flex-field<span class="token punctuation">"</span></span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Enter your email<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>email<span class="token punctuation">"</span></span> <span class="token attr-name">required</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span>Send<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>aside</span><span class="token punctuation">></span></span>
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>footer</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>site-footer<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>footer</span><span class="token punctuation" >></span></span>
+</code></pre>
+
+
+			</div>
+
+		
+
+			<div class="aigis-module">
+
+				<h1 class="aigis-module__heading" id="Header">
+					Header
+				</h1>
+
+				<div class="aigis-preview">
+  <header class="site-header">
+</header></div>
+
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>header</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>site-header<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>header</span><span class="token punctuation" >></span></span>
 </code></pre>
 
 
@@ -135,47 +124,32 @@
 
 
 
-				</div>
-
 			</div>
 
-			<div class="aigis-modal__wrapper">
-
-				<div class="aigis-modal__header">
-
-					<a href="../../index.html" class="aigis-modal__logo">
-						<img src="../../aigis_assets/images/bureau-shield.svg" alt="Website Logo">
-					</a>
-
-					<div class="aigis-modal__close">
-
-						<div class="aigis-modal__close-back">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 30 9 11">
-								<path fill="#535353" fill-rule="evenodd" d="M16.75 35.37l5.35 4.58c.04.04.1.05.15.05.05 0 .1-.03.13-.07l.9-1.03c.06-.08.05-.2-.04-.28l-3.97-3.4 3.97-3.4c.1-.08.1-.2.03-.3l-.9-1c-.03-.06-.08-.1-.14-.1-.04 0-.1.03-.13.06l-5.35 4.6c-.04.02-.07.08-.07.14 0 .06.03.1.07.15"/>
-							</svg>
-							Back
-						</div>
-
-						<svg class="aigis-modal__close-cross" xmlns="http://www.w3.org/2000/svg" viewBox="1384 27 16 16">
-							<path fill="#535353" fill-rule="evenodd" d="M1400 28.62l-1.62-1.62-6.38 6.38-6.38-6.38-1.62 1.62 6.38 6.38-6.38 6.38 1.62 1.62 6.38-6.38 6.38 6.38 1.62-1.62-6.38-6.38"/>
-						</svg>
-
-					</div>
-
-				</div>
-
-				<div class="aigis-modal"></div>
-
+			<div class="aigis-contents__preview">
 			</div>
 
 		</div>
 
 		<img class="link-icon" src="../../aigis_assets/images/link.svg" alt="Link to single component view">
 
+		<script>
+
+			var ajax = new XMLHttpRequest();
+			ajax.open('GET', '../../dist/svg/icons.svg', true);
+			ajax.send();
+			ajax.onload = function(e) {
+				var div = document.createElement('div');
+				div.style.display = 'none';
+				div.style.visibility = 'hidden';
+				div.innerHTML = ajax.responseText;
+				document.body.insertBefore(div, document.body.childNodes[0]);
+			}
+
+		</script>
+
 		<script src="../../aigis_assets/dist/styleguide.js"></script>
-		<script src="../../assets/js/libs/modernizr.js"></script>
-		<script src="../../assets/js/libs/jquery-2.1.4.min.js"></script>
-		<script src="../../assets/js/main.js"></script>
+		<script src="../../dist/js/scripts.js"></script>
 
 	</body>
 </html>

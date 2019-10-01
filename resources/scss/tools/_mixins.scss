@@ -1,0 +1,180 @@
+/*------------------------------------*\
+    GLOBAL MIXINS
+\*------------------------------------*/
+
+ //*****************
+// FONT DECLARATION
+
+@mixin font($family: primary, $weight: regular, $style: normal) {
+
+	$font-choice: map-get($fonts, $family);
+	$font: map-get($font-choice, family);
+
+	@if $font == null {
+		@error 'Incorrect use of fonts';
+	}
+
+	$fallback: unquote(map-get($font-choice, fallback));
+	$weight: map-get(map-get($font-choice, weights), $weight);
+
+	@if ($weight == null) {
+		@error 'Font weight "#{$weight}" passed to `font` mixin does not exist';
+	}
+
+	@if ($style != 'normal' and $style != 'italic') {
+		@error 'Font style "#{$style}" passed to `font` mixin is invalid';
+	}
+
+	$typekit: map-get($font-choice, typekit);
+
+	font-weight: $weight;
+	font-style: $style;
+	-webkit-font-smoothing: antialiased;
+
+	@if $typekit == true {
+		// replace all spaces with dashes
+		$typekit-font: str_replace(to-lower-case($font), ' ', '-');
+
+		font-family: "#{$typekit-font}-" + str-slice($style, 0, 1) + ($weight / 100), $font, $fallback;
+	} @else {
+		font-family: $font, $fallback;
+	}
+}
+
+
+ //***************************
+// TYPE AND LIST BASED MIXINS
+
+@mixin font-size($size: $base-font-size, $S-size: null, $M-size: null, $L-size: null) {
+	font-size: $size + px;
+	font-size: $size / $base-font-size + rem;
+
+	@if ($S-size != null) {
+
+		@include mq(S) {
+			font-size: $S-size + px;
+			font-size: $S-size / $base-font-size + rem;
+		}
+	}
+
+	@if ($M-size != null) {
+
+		@include mq(M) {
+			font-size: $M-size + px;
+			font-size: $M-size / $base-font-size + rem;
+		}
+	}
+
+	@if ($L-size != null) {
+
+		@include mq(L) {
+			font-size: $L-size + px;
+			font-size: $L-size / $base-font-size + rem;
+		}
+	}
+}
+
+// Generates em value based on the root font size
+// otherwise supply different value
+@function em($value, $size: $base-font-size) {
+	@return $value / $size + em;
+}
+
+
+ //*******************
+// COLOR BASED FUNCTIONS
+
+@function color($colour, $opacity: 1) {
+
+	$color: map-get($colours, $colour);
+
+	@if ($color == null) {
+		@error 'Colour "#{$colour}" passed to `color` mixin does not exist';
+	}
+
+	@if $opacity < 1 {
+		@return rgba($color, $opacity);
+	} @else {
+		@return $color;
+	}
+}
+
+
+ //***************
+// STRING REPLACE
+
+@function str-replace($string, $search, $replace: '') {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+
+ //**************
+// MEDIA QUERIES
+
+// $value: can be a number, 'landscape', or a breakpoint letter
+// $feature: default is min-width, can be overwritten with 'max-width', or 'orientation' etc.
+@mixin mq($value, $feature: 'min-width') {
+
+	@if map-has-key($breakpoints, $value) {
+		$value: map-get($breakpoints, $value);
+	}
+
+	@if type-of($value) == 'number' {
+		$value: $value + px;
+	}
+
+    @media screen and (#{$feature}: $value) {
+        @content;
+    }
+}
+
+
+/**
+ * Example of use
+ *
+
+    .example {
+        @include font-size(12);
+
+        @include mq(400) {
+            @include font-size(14);
+        }
+
+        @include mq(S) {
+            @include font-size(18);
+        }
+    }
+
+ *
+ */
+
+
+ //**********************
+// Maintain Aspect Ratio
+//
+// https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
+
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+
+	&::before {
+		display: block;
+		content: '';
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+
+	> .content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}

@@ -1,0 +1,271 @@
+/*
+
+---
+name: Form Components
+category:
+ - Base
+ - Base/Forms
+---
+
+## Form Example
+
+```html
+<form action="" method="post">
+	<fieldset>
+
+		<legend>Title</legend>
+
+		<input type="radio" id="radio">
+		<label for="radio">Click me</label>
+
+		<label for="radio">
+			<input type="radio" id="radio">Click me
+		</label>
+
+	</fieldset>
+</form>
+```
+
+## Text
+
+```html
+<input type="text" placeholder="text" />
+```
+
+## Text with Label
+
+```html
+<label>First Name:
+	<input type="text" placeholder="Agent" />
+</label>
+```
+
+## Email
+
+```html
+<input type="email" placeholder="email" />
+```
+
+## Search
+
+```html
+<input type="search" placeholder="search" />
+```
+
+## Radio
+
+```html
+<label><input type="radio" />Option 1</label>
+```
+
+## Checkbox
+
+```html
+<label><input type="checkbox" />Option 1</label>
+```
+
+## URL
+
+```html
+<input type="url" placeholder="url" />
+```
+
+## Number
+
+```html
+<input type="number" placeholder="42" />
+```
+
+## Tel
+
+```html
+<input type="tel" placeholder="01823" />
+```
+
+## Color
+
+```html
+<input type="color" />
+```
+
+## Range
+
+```html
+<input type="range" />
+```
+
+## Time
+
+```html
+<input type="time" />
+```
+
+## Date
+
+```html
+<input type="date" />
+```
+
+## Month
+
+```html
+<input type="month" />
+```
+
+## Week
+
+```html
+<input type="week" />
+```
+
+## Datetime
+
+```html
+<input type="datetime" />
+```
+
+## Datetime Local
+
+```html
+<input type="datetime-local" />
+```
+
+## Textarea
+
+```html
+<textarea placeholder="Text area"></textarea>
+```
+
+## Select
+
+```html
+<select>
+	<optgroup label="Group 1">
+		<option>Option 1</option>
+	</optgroup>
+	<option>Option 2</option>
+</select>
+```
+
+## Progress
+
+```html
+<progress value="70" max="100">70%</progress>
+```
+
+## Submit
+
+```html
+<input type="submit" value="submit" />
+```
+
+## Output
+
+Represents the result of a calculation or user action.
+
+```html
+<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+    <input type="range" name="b" value="50" /> +
+    <input type="number" name="a" value="10" /> =
+    <output name="result">60</output>
+</form>
+```
+
+*/
+
+fieldset,
+form {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+label,
+legend {
+	@include font-size(13);
+	color: $ui-black;
+	text-transform: uppercase;
+
+	display: block;
+	margin-bottom: 0;
+
+	cursor: pointer;
+}
+
+abbr[title="Required"] {
+	@include font('primary', 'bold');
+	color: $ui-black;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="number"],
+input[type="tel"],
+input[type="color"],
+input[type="range"],
+input[type="time"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="datetime"],
+input[type="datetime-local"],
+textarea {
+	@include font('primary', 'regular');
+	@include font-size(12, 12, 14);
+	color: $ui-black;
+	background-color: $ui-white;
+
+	width: 100%;
+	border: 1px solid $ui-black;
+	border-radius: $border-radius;
+	padding: .5rem 1rem;
+	margin-bottom: $space / 2;
+
+	&:focus {
+		box-shadow: none;
+		outline: none;
+	}
+
+	@include mq(M) {
+	    padding: em(16, 14) em(12, 14);
+	}
+}
+
+input[type="color"] {
+	width: 1em;
+}
+
+textarea {
+	line-height: 1.5;
+}
+
+// input[type="text"].valid,
+// input[type="email"].valid {
+// }
+//
+// input[type="text"].not-valid,
+// input[type="email"].not-valid {
+// }
+
+
+ //*******************
+// PLACEHOLDER STYLES
+
+::-webkit-input-placeholder {
+   color: $ui-grey;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+ 	color: $ui-grey;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $ui-grey;
+}
+
+:-ms-input-placeholder {
+   color: $ui-grey;
+}

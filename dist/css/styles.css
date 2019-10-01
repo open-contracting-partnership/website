@@ -1,0 +1,2372 @@
+/*
+
+Atomic design is philosophically complimentary with these CSS approaches:
+
+* SMACSS by Jonathan Snook http://smacss.com/
+* OOCSS by Nicole Sullivan http://oocss.org/
+* BEM CSS Methology : http://bem.info/method/
+* CSS Guidelines by Harry Roberts : http://cssguidelin.es/
+
+Sass Globbing is used so an import utilising an asterisk (*) will use every
+partial in the specified directory .
+
+*/
+/*------------------------------------*\
+    $TOOLS
+\*------------------------------------*/
+/*------------------------------------*\
+    RESET
+\*------------------------------------*/
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body,
+div,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+form,
+legend,
+label,
+table,
+header,
+footer,
+nav,
+section,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+header,
+footer,
+nav,
+section,
+article,
+hgroup,
+figure {
+  display: block;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/*------------------------------------*\
+	FONTS
+\*------------------------------------*/
+/*------------------------------------*\
+    GLOBAL MIXINS
+\*------------------------------------*/
+/**
+ * Example of use
+ *
+
+    .example {
+        @include font-size(12);
+
+        @include mq(400) {
+            @include font-size(14);
+        }
+
+        @include mq(S) {
+            @include font-size(18);
+        }
+    }
+
+ *
+ */
+/*------------------------------------*\
+	VARIABLES
+\*------------------------------------*/
+/*------------------------------------*\
+ * THE IDEA BUREAU - GRID
+ * https://github.com/theideabureau/grid
+\*------------------------------------*/
+.row {
+  margin-left: -1.5rem;
+  *zoom: 1;
+}
+.row::before, .row::after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.row::after {
+  clear: both;
+}
+
+.col {
+  border: 0 solid transparent;
+  float: left;
+  box-sizing: border-box;
+  background-clip: padding-box !important;
+  border-left-width: 1.5rem;
+  margin-left: 0;
+  padding: 0 0;
+}
+
+.S-hide {
+  display: none;
+}
+
+.S-1 {
+  display: block;
+  width: 8.3333333333%;
+}
+
+.row--clearfix .S-1:nth-child(n) {
+  clear: none;
+}
+
+.row--clearfix .S-1:nth-child(12n+1) {
+  clear: left;
+}
+
+.S-2 {
+  display: block;
+  width: 16.6666666667%;
+}
+
+.row--clearfix .S-2:nth-child(n) {
+  clear: none;
+}
+
+.row--clearfix .S-2:nth-child(6n+1) {
+  clear: left;
+}
+
+.S-3 {
+  display: block;
+  width: 25%;
+}
+
+.row--clearfix .S-3:nth-child(n) {
+  clear: none;
+}
+
+.row--clearfix .S-3:nth-child(4n+1) {
+  clear: left;
+}
+
+.S-4 {
+  display: block;
+  width: 33.3333333333%;
+}
+
+.row--clearfix .S-4:nth-child(n) {
+  clear: none;
+}
+
+.row--clearfix .S-4:nth-child(3n+1) {
+  clear: left;
+}
+
+.S-5 {
+  display: block;
+  width: 41.6666666667%;
+}
+
+.row--clearfix .S-5:nth-child(n) {
+  clear: none;
+}
+
+.row--clearfix .S-5:nth-child(2n+1) {
+  clear: left;
+}
+
+.S-6 {
+  display: block;
+  width: 50%;
+}
+
+.row--clearfix .S-6:nth-child(n) {
+  clear: none;
+}
+
+.row--clearfix .S-6:nth-child(2n+1) {
+  clear: left;
+}
+
+.S-7 {
+  display: block;
+  width: 58.3333333333%;
+}
+
+.row--clearfix .S-7:nth-child(n) {
+  clear: none;
+}
+
+.row--clearfix .S-7:nth-child(1n+1) {
+  clear: left;
+}
+
+.S-8 {
+  display: block;
+  width: 66.6666666667%;
+}
+
+.row--clearfix .S-8:nth-child(n) {
+  clear: none;
+}
+
+.row--clearfix .S-8:nth-child(1n+1) {
+  clear: left;
+}
+
+.S-9 {
+  display: block;
+  width: 75%;
+}
+
+.row--clearfix .S-9:nth-child(n) {
+  clear: none;
+}
+
+.row--clearfix .S-9:nth-child(1n+1) {
+  clear: left;
+}
+
+.S-10 {
+  display: block;
+  width: 83.3333333333%;
+}
+
+.row--clearfix .S-10:nth-child(n) {
+  clear: none;
+}
+
+.row--clearfix .S-10:nth-child(1n+1) {
+  clear: left;
+}
+
+.S-11 {
+  display: block;
+  width: 91.6666666667%;
+}
+
+.row--clearfix .S-11:nth-child(n) {
+  clear: none;
+}
+
+.row--clearfix .S-11:nth-child(1n+1) {
+  clear: left;
+}
+
+.S-all {
+  display: block;
+  margin-left: 0;
+  width: 100%;
+}
+
+@media screen and (false: 1024px) {
+  .M-hide {
+    display: none;
+  }
+
+  .M-1 {
+    display: block;
+    width: 8.3333333333%;
+  }
+
+  .row--clearfix .M-1:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .M-1:nth-child(12n+1) {
+    clear: left;
+  }
+
+  .M-2 {
+    display: block;
+    width: 16.6666666667%;
+  }
+
+  .row--clearfix .M-2:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .M-2:nth-child(6n+1) {
+    clear: left;
+  }
+
+  .M-3 {
+    display: block;
+    width: 25%;
+  }
+
+  .row--clearfix .M-3:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .M-3:nth-child(4n+1) {
+    clear: left;
+  }
+
+  .M-4 {
+    display: block;
+    width: 33.3333333333%;
+  }
+
+  .row--clearfix .M-4:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .M-4:nth-child(3n+1) {
+    clear: left;
+  }
+
+  .M-5 {
+    display: block;
+    width: 41.6666666667%;
+  }
+
+  .row--clearfix .M-5:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .M-5:nth-child(2n+1) {
+    clear: left;
+  }
+
+  .M-6 {
+    display: block;
+    width: 50%;
+  }
+
+  .row--clearfix .M-6:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .M-6:nth-child(2n+1) {
+    clear: left;
+  }
+
+  .M-7 {
+    display: block;
+    width: 58.3333333333%;
+  }
+
+  .row--clearfix .M-7:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .M-7:nth-child(1n+1) {
+    clear: left;
+  }
+
+  .M-8 {
+    display: block;
+    width: 66.6666666667%;
+  }
+
+  .row--clearfix .M-8:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .M-8:nth-child(1n+1) {
+    clear: left;
+  }
+
+  .M-9 {
+    display: block;
+    width: 75%;
+  }
+
+  .row--clearfix .M-9:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .M-9:nth-child(1n+1) {
+    clear: left;
+  }
+
+  .M-10 {
+    display: block;
+    width: 83.3333333333%;
+  }
+
+  .row--clearfix .M-10:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .M-10:nth-child(1n+1) {
+    clear: left;
+  }
+
+  .M-11 {
+    display: block;
+    width: 91.6666666667%;
+  }
+
+  .row--clearfix .M-11:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .M-11:nth-child(1n+1) {
+    clear: left;
+  }
+
+  .M-all {
+    display: block;
+    margin-left: 0;
+    width: 100%;
+  }
+}
+@media screen and (false: 1440px) {
+  .L-hide {
+    display: none;
+  }
+
+  .L-1 {
+    display: block;
+    width: 8.3333333333%;
+  }
+
+  .row--clearfix .L-1:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .L-1:nth-child(12n+1) {
+    clear: left;
+  }
+
+  .L-2 {
+    display: block;
+    width: 16.6666666667%;
+  }
+
+  .row--clearfix .L-2:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .L-2:nth-child(6n+1) {
+    clear: left;
+  }
+
+  .L-3 {
+    display: block;
+    width: 25%;
+  }
+
+  .row--clearfix .L-3:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .L-3:nth-child(4n+1) {
+    clear: left;
+  }
+
+  .L-4 {
+    display: block;
+    width: 33.3333333333%;
+  }
+
+  .row--clearfix .L-4:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .L-4:nth-child(3n+1) {
+    clear: left;
+  }
+
+  .L-5 {
+    display: block;
+    width: 41.6666666667%;
+  }
+
+  .row--clearfix .L-5:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .L-5:nth-child(2n+1) {
+    clear: left;
+  }
+
+  .L-6 {
+    display: block;
+    width: 50%;
+  }
+
+  .row--clearfix .L-6:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .L-6:nth-child(2n+1) {
+    clear: left;
+  }
+
+  .L-7 {
+    display: block;
+    width: 58.3333333333%;
+  }
+
+  .row--clearfix .L-7:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .L-7:nth-child(1n+1) {
+    clear: left;
+  }
+
+  .L-8 {
+    display: block;
+    width: 66.6666666667%;
+  }
+
+  .row--clearfix .L-8:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .L-8:nth-child(1n+1) {
+    clear: left;
+  }
+
+  .L-9 {
+    display: block;
+    width: 75%;
+  }
+
+  .row--clearfix .L-9:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .L-9:nth-child(1n+1) {
+    clear: left;
+  }
+
+  .L-10 {
+    display: block;
+    width: 83.3333333333%;
+  }
+
+  .row--clearfix .L-10:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .L-10:nth-child(1n+1) {
+    clear: left;
+  }
+
+  .L-11 {
+    display: block;
+    width: 91.6666666667%;
+  }
+
+  .row--clearfix .L-11:nth-child(n) {
+    clear: none;
+  }
+
+  .row--clearfix .L-11:nth-child(1n+1) {
+    clear: left;
+  }
+
+  .L-all {
+    display: block;
+    margin-left: 0;
+    width: 100%;
+  }
+}
+/*
+
+---
+name: Utilities
+category:
+ - Base
+ - Base/Utilities
+---
+
+## List of Utility Classes
+
+### Hidden
+
+> .is-hidden
+
+This is used to completely remove an element from the document flow and from screen-readers.
+
+This is usually applied or removed with JavaScript.
+
+> .is-visually-hidden
+
+This is still visible to screen-readers, so it is used for accessibility purposes.
+
+
+### Floats
+
+> .pull-right
+
+This is used to apply a right float.
+
+> .pull-left
+
+This is used to apply a left float.
+
+
+### Alignment
+
+> .align-right
+
+This is used to apply `text-align: right;`
+
+> .align-center
+
+This is used to apply `text-align: center;`
+
+> .align-left
+
+This is used to apply `text-align: left;`
+
+*/
+.is-hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.is-visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-left {
+  text-align: left;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  background-color: #FFF;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+@media screen and (min-width: 640px) {
+  body {
+    font-size: 18px;
+    font-size: 1.125rem;
+  }
+}
+@media screen and (min-width: 640px) {
+  body::after {
+    content: "";
+    background: #000;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 396px;
+    bottom: 0;
+    z-index: 100;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+  }
+  body.menu-active::after {
+    opacity: 0.5;
+  }
+}
+
+::-moz-selection {
+  background: #000;
+  color: #FFF;
+  text-shadow: none;
+}
+
+::selection {
+  background: #000;
+  color: #FFF;
+  text-shadow: none;
+}
+
+/*------------------------------------*\
+    PRINT STYLES
+\*------------------------------------*/
+@media print {
+  *,
+*::before,
+*::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  a[href^="#"]::after,
+a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre,
+blockquote {
+    border: 1px solid #000;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+h2,
+h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+h3 {
+    page-break-after: avoid;
+  }
+}
+/*------------------------------------*\
+    $BASE ELEMENTS
+\*------------------------------------*/
+/*
+
+---
+name: Form Components
+category:
+ - Base
+ - Base/Forms
+---
+
+## Form Example
+
+```html
+<form action="" method="post">
+	<fieldset>
+
+		<legend>Title</legend>
+
+		<input type="radio" id="radio">
+		<label for="radio">Click me</label>
+
+		<label for="radio">
+			<input type="radio" id="radio">Click me
+		</label>
+
+	</fieldset>
+</form>
+```
+
+## Text
+
+```html
+<input type="text" placeholder="text" />
+```
+
+## Text with Label
+
+```html
+<label>First Name:
+	<input type="text" placeholder="Agent" />
+</label>
+```
+
+## Email
+
+```html
+<input type="email" placeholder="email" />
+```
+
+## Search
+
+```html
+<input type="search" placeholder="search" />
+```
+
+## Radio
+
+```html
+<label><input type="radio" />Option 1</label>
+```
+
+## Checkbox
+
+```html
+<label><input type="checkbox" />Option 1</label>
+```
+
+## URL
+
+```html
+<input type="url" placeholder="url" />
+```
+
+## Number
+
+```html
+<input type="number" placeholder="42" />
+```
+
+## Tel
+
+```html
+<input type="tel" placeholder="01823" />
+```
+
+## Color
+
+```html
+<input type="color" />
+```
+
+## Range
+
+```html
+<input type="range" />
+```
+
+## Time
+
+```html
+<input type="time" />
+```
+
+## Date
+
+```html
+<input type="date" />
+```
+
+## Month
+
+```html
+<input type="month" />
+```
+
+## Week
+
+```html
+<input type="week" />
+```
+
+## Datetime
+
+```html
+<input type="datetime" />
+```
+
+## Datetime Local
+
+```html
+<input type="datetime-local" />
+```
+
+## Textarea
+
+```html
+<textarea placeholder="Text area"></textarea>
+```
+
+## Select
+
+```html
+<select>
+	<optgroup label="Group 1">
+		<option>Option 1</option>
+	</optgroup>
+	<option>Option 2</option>
+</select>
+```
+
+## Progress
+
+```html
+<progress value="70" max="100">70%</progress>
+```
+
+## Submit
+
+```html
+<input type="submit" value="submit" />
+```
+
+## Output
+
+Represents the result of a calculation or user action.
+
+```html
+<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+    <input type="range" name="b" value="50" /> +
+    <input type="number" name="a" value="10" /> =
+    <output name="result">60</output>
+</form>
+```
+
+*/
+fieldset,
+form {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+label,
+legend {
+  font-size: 13px;
+  font-size: 0.8125rem;
+  color: #000;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+abbr[title=Required] {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=search],
+input[type=url],
+input[type=number],
+input[type=tel],
+input[type=color],
+input[type=range],
+input[type=time],
+input[type=date],
+input[type=month],
+input[type=week],
+input[type=datetime],
+input[type=datetime-local],
+textarea {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-size: 0.75rem;
+  color: #000;
+  background-color: #FFF;
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+}
+@media screen and (min-width: 640px) {
+  input[type=text],
+input[type=email],
+input[type=password],
+input[type=search],
+input[type=url],
+input[type=number],
+input[type=tel],
+input[type=color],
+input[type=range],
+input[type=time],
+input[type=date],
+input[type=month],
+input[type=week],
+input[type=datetime],
+input[type=datetime-local],
+textarea {
+    font-size: 12px;
+    font-size: 0.75rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  input[type=text],
+input[type=email],
+input[type=password],
+input[type=search],
+input[type=url],
+input[type=number],
+input[type=tel],
+input[type=color],
+input[type=range],
+input[type=time],
+input[type=date],
+input[type=month],
+input[type=week],
+input[type=datetime],
+input[type=datetime-local],
+textarea {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=url]:focus,
+input[type=number]:focus,
+input[type=tel]:focus,
+input[type=color]:focus,
+input[type=range]:focus,
+input[type=time]:focus,
+input[type=date]:focus,
+input[type=month]:focus,
+input[type=week]:focus,
+input[type=datetime]:focus,
+input[type=datetime-local]:focus,
+textarea:focus {
+  box-shadow: none;
+  outline: none;
+}
+@media screen and (min-width: 1024px) {
+  input[type=text],
+input[type=email],
+input[type=password],
+input[type=search],
+input[type=url],
+input[type=number],
+input[type=tel],
+input[type=color],
+input[type=range],
+input[type=time],
+input[type=date],
+input[type=month],
+input[type=week],
+input[type=datetime],
+input[type=datetime-local],
+textarea {
+    padding: 1.1428571429em 0.8571428571em;
+  }
+}
+
+input[type=color] {
+  width: 1em;
+}
+
+textarea {
+  line-height: 1.5;
+}
+
+::-webkit-input-placeholder {
+  color: #999;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #999;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #999;
+}
+
+:-ms-input-placeholder {
+  color: #999;
+}
+
+/*
+
+---
+name: Headings
+category:
+ - Base
+ - Base/Headings
+---
+
+## Base Headings
+
+The class structure follows the structure discussed by Harry Roberts in his article [practical font sizing in CSS](http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/) on CSS Wizardry.
+
+```html
+<h1 class="alpha">The fox</h1>
+<h2 class="beta">The fox</h2>
+<h3 class="gamma">The fox</h3>
+<h4 class="delta">The fox</h4>
+<h5 class="epsilon">The fox</h5>
+<h6 class="zeta">The fox</h6>
+```
+
+## Utilities
+
+
+### Style
+
+Use the `.is-uppercase` class to enforce a heading to be in capitals.
+
+```html
+<h1 class="is-uppercase">The fox</h1>
+```
+
+### Spacing
+
+Using `.drop` class applies only half the regular bottom bottom.
+
+```html
+<h1 class="drop">The fox</h1>
+<h1>The fox</h1>
+<h1>The fox</h1>
+```
+
+*/
+h1,
+.alpha,
+h2,
+.beta,
+h3,
+.gamma,
+h4,
+.delta,
+h5,
+.epsilon,
+h6,
+.zeta {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+h1.is-uppercase,
+.alpha.is-uppercase,
+h2.is-uppercase,
+.beta.is-uppercase,
+h3.is-uppercase,
+.gamma.is-uppercase,
+h4.is-uppercase,
+.delta.is-uppercase,
+h5.is-uppercase,
+.epsilon.is-uppercase,
+h6.is-uppercase,
+.zeta.is-uppercase {
+  text-transform: uppercase;
+}
+h1.drop,
+.alpha.drop,
+h2.drop,
+.beta.drop,
+h3.drop,
+.gamma.drop,
+h4.drop,
+.delta.drop,
+h5.drop,
+.epsilon.drop,
+h6.drop,
+.zeta.drop {
+  margin-bottom: 0.75rem;
+}
+
+h1,
+.alpha {
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+@media screen and (min-width: 640px) {
+  h1,
+.alpha {
+    font-size: 30px;
+    font-size: 1.875rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  h1,
+.alpha {
+    font-size: 46px;
+    font-size: 2.875rem;
+  }
+}
+h1.alt-font,
+.alpha.alt-font {
+  font-size: 22px;
+  font-size: 1.375rem;
+}
+@media screen and (min-width: 640px) {
+  h1.alt-font,
+.alpha.alt-font {
+    font-size: 22px;
+    font-size: 1.375rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  h1.alt-font,
+.alpha.alt-font {
+    font-size: 36px;
+    font-size: 2.25rem;
+  }
+}
+
+h2,
+.beta {
+  font-size: 18px;
+  font-size: 1.125rem;
+}
+@media screen and (min-width: 640px) {
+  h2,
+.beta {
+    font-size: 24px;
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  h2,
+.beta {
+    font-size: 40px;
+    font-size: 2.5rem;
+  }
+}
+
+h3,
+.gamma {
+  font-size: 15px;
+  font-size: 0.9375rem;
+}
+@media screen and (min-width: 640px) {
+  h3,
+.gamma {
+    font-size: 19px;
+    font-size: 1.1875rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  h3,
+.gamma {
+    font-size: 35px;
+    font-size: 2.1875rem;
+  }
+}
+
+h4,
+.delta {
+  font-size: 13px;
+  font-size: 0.8125rem;
+}
+@media screen and (min-width: 640px) {
+  h4,
+.delta {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  h4,
+.delta {
+    font-size: 22px;
+    font-size: 1.375rem;
+  }
+}
+
+h5,
+.epsilon {
+  font-size: 12px;
+  font-size: 0.75rem;
+}
+@media screen and (min-width: 640px) {
+  h5,
+.epsilon {
+    font-size: 15px;
+    font-size: 0.9375rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  h5,
+.epsilon {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+}
+
+h6,
+.zeta {
+  font-size: 12px;
+  font-size: 0.75rem;
+}
+@media screen and (min-width: 640px) {
+  h6,
+.zeta {
+    font-size: 12px;
+    font-size: 0.75rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  h6,
+.zeta {
+    font-size: 18px;
+    font-size: 1.125rem;
+  }
+}
+
+/*
+
+---
+name: Horizontal Rule
+category:
+ - Base
+ - Base/Horizontal Rule
+---
+
+## Default Styling
+
+This is the default markup and styling for a horizontal rule.
+
+```html
+<hr>
+```
+
+*/
+hr {
+  border-style: solid;
+  border-color: #000;
+  border-top-width: 1px 0 0;
+  height: 1px;
+  margin: 0 0 1.5rem;
+}
+
+/*------------------------------------*\
+    LINKS
+\*------------------------------------*/
+a {
+  text-decoration: underline;
+  word-wrap: break-word;
+}
+a:hover, a:focus {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: underline;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a {
+  text-decoration: none;
+}
+h1 a:hover, h1 a:focus,
+h2 a:hover,
+h2 a:focus,
+h3 a:hover,
+h3 a:focus,
+h4 a:hover,
+h4 a:focus,
+h5 a:hover,
+h5 a:focus {
+  text-decoration: underline;
+}
+h1 a:active,
+h2 a:active,
+h3 a:active,
+h4 a:active,
+h5 a:active {
+  text-decoration: none;
+}
+
+tbody tr a {
+  color: inherit;
+  text-decoration: underline;
+}
+tbody tr a:hover, tbody tr a:focus {
+  text-decoration: none;
+}
+tbody tr a:active {
+  text-decoration: underline;
+}
+
+/*
+
+---
+name: Lists
+category:
+ - Base
+ - Base/Lists
+---
+
+Use the `.is-plain` class on any list to remove type-styling, margin, and padding.
+
+## Unordered List
+
+This is just a plain unordered list, no special classes have been applied.
+
+```html
+<ul>
+	<li>List item</li>
+	<li>List item</li>
+	<li>List item</li>
+</ul>
+```
+
+## Ordered List
+
+This is just a plain ordered list, no special classes have been applied.
+
+```html
+<ol>
+	<li>List item</li>
+	<li>List item</li>
+	<li>List item</li>
+</ol>
+```
+
+## Plain List
+
+Use the `.is-plain` class on any list to remove type-styling, margin, and padding.
+
+```html
+<ul class="is-plain">
+	<li>List item</li>
+	<li>List item</li>
+	<li>List item</li>
+</ul>
+```
+
+*/
+ul {
+  list-style: disc;
+}
+
+ol,
+ul {
+  margin-bottom: 1.5rem;
+}
+ol.is-plain,
+ul.is-plain {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul ul,
+ol ol {
+  margin-bottom: 0;
+}
+
+/*
+
+---
+name: Definition List
+category:
+ - Base
+ - Base/Lists
+---
+
+Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
+
+For inline definitions use the [dfn](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn) element.
+
+```html
+<dl>
+  <div>
+    <dt>Name</dt>
+    <dd>Godzilla</dd>
+  </div>
+  <div>
+    <dt>Born</dt>
+    <dd>1952</dd>
+  </div>
+  <div>
+    <dt>Birthplace</dt>
+    <dd>Japan</dd>
+  </div>
+  <div>
+    <dt>Color</dt>
+    <dd>Green</dd>
+  </div>
+</dl>
+```
+
+*/
+/*------------------------------------*\
+    MEDIA ELEMENTS
+\*------------------------------------*/
+audio,
+canvas,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+iframe,
+img {
+  max-width: 100%;
+  width: 100%;
+}
+
+img {
+  vertical-align: middle;
+  height: auto;
+  width: auto;
+}
+
+a img {
+  border: 0;
+}
+
+/*
+
+---
+name: Figure
+category:
+ - Base
+ - Base/Figure
+---
+
+Usually an image, illustration, diagram, code snippet, etc. followed by a figcaption.
+
+```html
+<figure>
+  <img
+  src="https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png"
+  alt="An awesome picture">
+  <figcaption>Fig1. MDN Logo</figcaption>
+</figure>
+```
+
+*/
+/*
+
+---
+name: Blockquote
+category:
+ - Base
+ - Base/Quotes
+---
+
+The Block Quotation Element indicates that the enclosed text is an extended quotation.
+
+```html
+<blockquote cite="http://developer.mozilla.org">
+  <p>This is a quotation taken from
+  the Mozilla Developer Center.</p>
+</blockquote>
+```
+
+*/
+blockquote {
+  font-size: 20px;
+  font-size: 1.25rem;
+  padding: 0.5em 1em;
+  margin: 0 0 1em;
+  border-left: 5px solid #000;
+}
+blockquote p {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 0.75rem;
+}
+blockquote footer {
+  display: block;
+}
+
+/*
+
+---
+name: Quote
+category:
+ - Base
+ - Base/Quotes
+---
+
+This element is intended for short quotations that don't require paragraph breaks.
+
+```html
+<p>According to Mozilla's website, <q cite="https://www.mozilla.org/en-US/about/history/details/">Firefox 1.0was released in 2004 and became a big success.</q></p>
+```
+
+*/
+/*
+
+---
+name: Cite
+category:
+ - Base
+ - Base/Quotes
+---
+
+Used for referencing external sources.
+
+```html
+<cite><a href="http://www.brucelawson.co.uk/2013/on-citing-quotations-again/">Bruce Lawson</a></cite>
+```
+
+*/
+/*
+
+---
+name: Header
+category:
+ - Base
+ - Base/Structure
+---
+
+Used to denote the main banner area, or a heading group inside a content section.
+
+```html
+<header role="banner">Hero Content</header>
+<article>
+	<header>
+		<h1>Main title</h1>
+		<p>Sub title</p>
+	</header>
+</article>
+```
+
+*/
+/*
+
+---
+name: Nav
+category:
+ - Base
+ - Base/Structure
+---
+
+For major page navigation, including pagination.
+
+```html
+<nav>
+	<ul>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Blog</a></li>
+		<li><a href="#">Contact</a></li>
+	</ul>
+</nav>
+```
+
+*/
+/*
+
+---
+name: Main
+category:
+ - Base
+ - Base/Structure
+---
+
+Only one per page, for the main content.
+
+```html
+<main>
+	<header>
+  		<h1>Apples</h1>
+		<p>The apple is the pomaceous fruit of the apple tree.</p>
+	</header>
+
+	<article>
+		<h2>Red Delicious</h2>
+		<p>These bright red apples are the most common found in many
+		supermarkets.</p>
+		<p>... </p>
+		<p>... </p>
+	</article>
+
+	<article>
+		<h2>Granny Smith</h2>
+		<p>These juicy, green apples make a great filling for
+		apple pies.</p>
+		<p>... </p>
+		<p>... </p>
+	</article>
+</main>
+```
+
+*/
+/*
+
+---
+name: Aside
+category:
+ - Base
+ - Base/Structure
+---
+
+Contains complementary content to it's parent section. (often used as a sidebar)
+
+```html
+<article>
+  <p>
+    The Disney movie <em>The Little Mermaid</em> was
+    first released to theatres in 1989.
+  </p>
+  <aside>
+    <p>
+      The movie earned $87 million during its initial release.
+    </p>
+  </aside>
+  <p>
+    More info about the movie...
+  </p>
+</article>
+```
+
+*/
+/*
+
+---
+name: Article
+category:
+ - Base
+ - Base/Structure
+---
+
+The article element should contain a piece of self-contained content that could be distributed outside the context of the page.
+This includes things like:
+- news articles
+- blog posts
+- user comments
+
+```html
+<article class="film_review">
+  <header>
+    <h2>Jurassic Park</h2>
+  </header>
+  <section class="main_review">
+    <p>Dinos were great!</p>
+  </section>
+  <section class="user_reviews">
+    <article class="user_review">
+      <p>Way too scary for me.</p>
+      <footer>
+        <p>
+          Posted on
+          <time datetime="2015-05-16 19:00">May 16</time>
+          by Lisa.
+        </p>
+      </footer>
+    </article>
+    <article class="user_review">
+      <p>I agree, dinos are my favorite.</p>
+      <footer>
+        <p>
+          Posted on
+          <time datetime="2015-05-17 19:00">May 17</time>
+          by Tom.
+        </p>
+      </footer>
+    </article>
+  </section>
+  <footer>
+    <p>
+      Posted on
+      <time datetime="2015-05-15 19:00">May 15</time>
+      by Staff.
+    </p>
+  </footer>
+</article>
+```
+
+*/
+/*
+
+---
+name: Section
+category:
+ - Base
+ - Base/Structure
+---
+
+For groups of content that have headings.
+
+```html
+<section>
+	<h1>Test</h1>
+	<p>Some content</p>
+</section>
+```
+
+*/
+/*
+
+---
+name: Footer
+category:
+ - Base
+ - Base/Structure
+---
+
+A footer typically contains information about the author of the section, copyright data or links to related documents.
+
+```html
+<footer>
+  Some copyright info or perhaps some author
+  info for an &lt;article&gt;?
+</footer>
+```
+
+*/
+/*
+
+---
+name: Table
+category:
+ - Base
+ - Base/Table
+---
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th>Header content 1</th>
+      <th>Header content 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Body content 1</td>
+      <td>Body content 2</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Footer content 1</td>
+      <td>Footer content 2</td>
+    </tr>
+  </tfoot>
+</table>
+```
+
+*/
+table {
+  color: #000;
+  background: #FFF;
+  width: 100%;
+  text-align: center;
+  border-spacing: 0;
+  border-right: 1px solid #000;
+}
+table::before {
+  content: attr(aria-label) "";
+}
+@media screen and (min-width: 640px) {
+  table::before {
+    display: none;
+  }
+}
+table:last-child {
+  margin-bottom: 1.5rem;
+}
+
+th {
+  padding: 13px;
+  display: block;
+}
+@media screen and (min-width: 640px) {
+  th {
+    font-size: 13px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #000;
+    color: #FFF;
+    padding: 8px;
+    display: table-cell;
+  }
+}
+@media screen and (min-width: 640px) and (min-width: 640px) {
+  th {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 640px) and (min-width: 1024px) {
+  th {
+    font-size: 22px;
+    font-size: 1.375rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  th {
+    font-weight: 600;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 16px;
+  }
+}
+
+td {
+  display: block;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  padding: 10px;
+}
+@media screen and (min-width: 640px) {
+  td {
+    padding: 17px;
+    display: table-cell;
+  }
+}
+@media screen and (min-width: 1024px) {
+  td {
+    padding: 30px;
+  }
+}
+
+thead tr {
+  color: transparent;
+  font: 0/0 a;
+}
+@media screen and (min-width: 640px) {
+  thead tr {
+    color: inherit;
+    font: inherit;
+  }
+}
+
+tbody tr {
+  padding: 1em;
+}
+
+/*
+
+---
+name: Base Paragraph Styles
+category:
+ - Base
+ - Base/Type
+---
+
+All of the spacing throughout the website is based from the type styling,
+conforming to a rule of 1.5 times the font-size. Here you can see two paragraphs
+of generated lorem-ipsum to get a feel of the line-height and spacing.
+
+```html
+<p>The quick brown fox jumped over the lazy dog</p>
+<p>The quick brown fox jumped <small>over the lazy dog</small></p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis. Quisque malesuada euismod lorem ac luctus. Sed sit amet nunc tellus. Suspendisse maximus nunc sed mi vehicula rutrum. Praesent lobortis euismod turpis sit amet venenatis. Nullam eu enim suscipit, accumsan arcu ut, fringilla odio. Pellentesque ultrices accumsan leo, sit amet vulputate ipsum feugiat id. Pellentesque a pharetra quam. Aliquam rutrum, turpis hendrerit varius pulvinar, libero nisi congue augue, in condimentum diam urna volutpat lectus. Praesent at ipsum a lacus accumsan accumsan. Integer mollis velit ac urna efficitur, eget ultricies nisl posuere. Nullam elementum nunc ac ante fermentum, ac consequat felis scelerisque. Cras dui lacus, posuere semper magna et, ornare porta arcu.
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin sit amet erat accumsan, sagittis metus eget, bibendum nisl. Curabitur dolor enim, bibendum id libero non, cursus iaculis libero. Vivamus orci nisl, posuere vel nibh eu, maximus ullamcorper augue. Vivamus scelerisque laoreet tristique. Donec ut urna lacus. Morbi et nisi sit amet leo vehicula pharetra sed ut elit. Pellentesque tincidunt, quam ut viverra tincidunt, lorem risus facilisis sapien, at gravida lorem dui fermentum arcu. Nam varius felis risus. Morbi a ipsum imperdiet, posuere lorem quis, tincidunt augue. Sed sed metus vitae nunc ullamcorper elementum. Vestibulum ornare augue tellus, vel accumsan augue euismod at. Quisque vitae convallis dolor, id tempus ipsum. Phasellus nisl ante, ullamcorper sit amet tortor at, suscipit venenatis sapien. Sed commodo odio in dolor tempus, eget rhoncus mauris bibendum.</p>
+```
+
+*/
+p,
+ul,
+ol,
+dl {
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+small {
+  font-size: 0.8rem;
+}
+
+/*
+
+---
+name: Bold and Strong; Italic and Emphasis
+category:
+ - Base
+ - Base/Type
+---
+
+The __bold__ and __italic__ elements are used for presentational purposes, whereas the
+__strong__ and __emphasis__ elements represent structure.
+
+```html
+<p>The quick <b>brown</b> fox jumped over the <strong>lazy</strong> dog</p>
+<p>The quick <i>brown</i> fox jumped over the <em>lazy</em> dog</p>
+```
+
+*/
+b,
+strong {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+/*
+
+---
+name: Sup
+category:
+ - Base
+ - Base/Type
+---
+
+For text that should be displayed, for typographic reasons, higher, and often smaller, than the main span of text.
+
+```html
+<p>This text is <sup>superscripted</sup></p>
+```
+
+*/
+/*
+
+---
+name: Sub
+category:
+ - Base
+ - Base/Type
+---
+
+For text that should be displayed, for typographic reasons, lower, and often smaller, than the main span of text.
+
+```html
+<p>This text is <sub>superscripted</sub></p>
+```
+
+*/
+/*
+
+---
+name: Strikethrough
+category:
+ - Base
+ - Base/Type
+---
+
+Use the strikethrough element to represent things that are no longer relevant or no longer accurate.
+
+```html
+<p>This text is <sub>superscripted</sub></p>
+```
+
+*/
+/*
+
+---
+name: Mark
+category:
+ - Base
+ - Base/Type
+---
+
+For a run of text marked for reference purpose, due to its relevance in a particular context.
+For example it can be used in a page showing search results to highlight every instance of the searched-for word.
+
+```html
+<p>The &lt;mark&gt; element is used to <mark>highlight</mark> text</p>
+```
+
+*/
+/*
+
+---
+name: Code and Pre
+category:
+ - Base
+ - Base/Type
+---
+
+The code element is for displaying raw computer code.
+Note: whitepsace and new lines aren't considered important.
+
+While the pre element is for preformatted text, and it preserves whitespace and line breaks.
+
+```html
+<p>This is how we declare a Javascript variable:<br\>
+	<code>var i = 0;</code>
+</p>
+
+<pre>
+body {
+  color:red;
+}
+</pre>
+```
+
+*/
+/*
+
+---
+name: Time
+category:
+ - Base
+ - Base/Type
+---
+
+The time element represents either a time on a 24-hour clock or a precise date in the Gregorian calendar
+
+```html
+<p>The concert starts at <time>20:00</time>.</p>
+```
+
+*/
+time {
+  font-weight: 600;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  color: #000;
+  letter-spacing: 0.1px;
+  line-height: 1;
+  display: block;
+  margin-bottom: 1em;
+}
+@media screen and (min-width: 640px) {
+  time {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  time {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 640px) {
+  time {
+    margin-bottom: 0.875em;
+  }
+}
+
+/*
+
+---
+name: Address
+category:
+ - Base
+ - Base/Type
+---
+
+The address element supplies contact information for its nearest article
+or body ancestor; in the latter case, it applies to the whole document.
+
+```html
+<address>
+    You can contact author at <a href="http://www.somedomain.com/contact">www.somedomain.com</a>.<br>
+    If you see any bugs, please <a href="mailto:webmaster@somedomain.com">contact webmaster</a>.<br>
+    You may also want to visit us:<br>
+    Mozilla Foundation<br>
+    1981 Landings Drive<br>
+    Building K<br>
+    Mountain View, CA 94043-0801<br>
+    USA
+</address>
+```
+
+*/
+address {
+  font-style: normal;
+}
+
+/*
+
+---
+name: Abbreviation
+category:
+ - Base
+ - Base/Type
+---
+
+Use the title attribute to define the full description of the abbreviation. Many user agents present this as a tooltip.
+
+```html
+<p>Welcome to the <abbr title="World Wide Web">WWW</abbr>!</p>
+```
+
+*/
+/*------------------------------------*\
+    $LAYOUT
+\*------------------------------------*/
+/*
+
+---
+name: Flex Input
+category:
+ - Layout
+ - Layout/Flex Input
+---
+
+## Default Styling
+
+This allows you to have a button in the same row as its input field.
+
+```html
+<form class="flex-input">
+	<input type="text" placeholder="text" />
+	<button>Submit</button>
+</form>
+```
+
+*/
+.flex-input {
+  display: flex;
+}
+.flex-input input {
+  border-right: 0;
+  border-radius: 4px 0 0 4px;
+}
+.flex-input button {
+  padding: 0 1em;
+  border-radius: 0 4px 4px 0;
+}
+
+/*
+
+---
+name: Footer
+category:
+ - Layout
+ - Layout/Footer
+---
+
+```html
+<footer class="site-footer">
+
+</footer>
+```
+
+*/
+/*
+
+---
+name: Header
+category:
+ - Layout
+ - Layout/Header
+---
+
+```html
+<header class="site-header">
+
+</header>
+```
+
+*/
+/*------------------------------------*\
+    NAVIGATION
+\*------------------------------------*/
+.nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.nav a {
+  text-decoration: none;
+}
+.nav a:hover, .nav a:focus {
+  text-decoration: underline;
+}
+.nav a:active {
+  text-decoration: none;
+}
+.nav li {
+  list-style: none;
+}
+
+.nav--horizontal li {
+  float: left;
+  padding-left: 0;
+}
+.nav--horizontal a {
+  display: block;
+}
+
+.nav--vertical li {
+  margin-bottom: 1em;
+}
+.nav--vertical li:last-child {
+  margin-bottom: 0;
+}
+.nav--vertical a {
+  display: inline-block;
+}
+
+/*------------------------------------*\
+    LAYOUT
+\*------------------------------------*/
+.wrapper {
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.wrapper--padded {
+  padding: 0 1.5rem;
+}
+@media screen and (min-width: 1024px) {
+  .wrapper--padded {
+    padding: 0 3rem;
+  }
+}
+
+/*------------------------------------*\
+    $MODULAR
+\*------------------------------------*/
+/*------------------------------------*\
+    $NON-MODULAR
+\*------------------------------------*/

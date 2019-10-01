@@ -1,0 +1,532 @@
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+.aigis-html {
+	box-sizing: border-box;
+}
+
+.aigis-body {
+	background: white;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.aigis-container {
+	box-sizing: border-box;
+	flex: 1 1 100%;
+	overflow-y: auto;
+}
+
+.aigis-contents {
+	box-sizing: border-box;
+	// padding: 16px;
+	margin: 0 auto;
+	font-size: 1em;
+}
+
+.aigis-contents__components {
+
+	position: relative;
+	margin: 0 auto;
+	padding: 24px;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	@media (min-width: 678px) {
+		margin: 0 auto;
+		padding: 32px 48px;
+	}
+
+	@media (min-width: 1240px) {
+		padding: 56px 64px;
+	}
+
+}
+
+.aigis-body.aigis-modal--active .aigis-contents__components {
+	display: none;
+}
+
+.aigis-body:not(.aigis-modal--active) .aigis-contents__preview {
+	display: none;
+}
+
+.aigis-contents__components > *:first-child {
+	margin-top: 0;
+}
+
+.aigis-contents__components > p,
+.aigis-module > ul,
+.aigis-module > ol,
+.aigis-module > p,
+.aigis-module__heading,
+.aigis-contents__components > h1,
+.aigis-module > h2,
+.aigis-module > h2,
+.aigis-module > h3,
+.aigis-module > h4 {
+	text-transform: none;
+	letter-spacing: normal;
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, arial, sans-serif;
+
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.aigis-contents__components > p {
+	margin-bottom: 1em;
+}
+
+.aigis-contents__components > h2 {
+	font-size: 30px;
+}
+
+.aigis-contents__components > h3 {
+	font-size: 24px;
+}
+
+.aigis-colorpalette {
+	width: 46%;
+	float: left;
+	margin: 2%;
+	border-radius: 4px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .24);
+	overflow: hidden;
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, arial, sans-serif;
+}
+
+.aigis-colorpalette__swatches {
+	position: relative;
+	width: 100%;
+	height: 120px;
+	display: flex;
+	align-items: flex-end;
+}
+
+.aigis-colorpalette__swatches--main {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.aigis-colorpalette__swatches--small {
+	height: 33%;
+	width: 100%;
+	flex: 1;
+}
+
+.aigis-colorpalette__label {
+	padding: 16px 13px;
+}
+
+.aigis-colorpalette__label div span {
+	display: block;
+	font-size: 14px;
+	color: #000;
+}
+
+.aigis-colorpalette__label div span:last-child {
+	font-size: 13px;
+	color: #444;
+	margin-bottom: 10px;
+}
+
+.aigis-colorpalette__label div:last-child span:last-child {
+	margin-bottom: 0;
+}
+
+.aigis-colorPalette {
+	width: 21%;
+	float: left;
+	margin: 2%;
+	border-radius: 4px;
+	box-shadow: 0 2px 7px 0 rgba(0, 0, 0, .24);
+	overflow: hidden;
+}
+
+.aigis-colorPalette__color {
+	width: 100%;
+	height: 80px;
+}
+
+.aigis-colorPalette__label {
+	padding: 16px 13px;
+}
+
+.aigis-module code {
+	color: #666;
+	background-color: #f7f7f7;
+	padding: 0 3px;
+	font-size: .8em;
+	border-radius: 3px;
+}
+
+.aigis-welcome {
+	display: block;
+	width: 50%;
+	margin: auto !important;
+}
+
+.aigis-module {
+	*zoom: 1;
+}
+
+.aigis-module:before,
+.aigis-module:after {
+	content: ' ';
+	display: table;
+}
+
+.aigis-module:after {
+	clear: both;
+}
+
+.aigis-codeblock,
+.aigis-preview {
+	position: relative;
+	margin: 0;
+	overflow: scroll;
+}
+
+.aigis-preview + pre {
+	margin-top: 0;
+}
+
+.aigis-module > pre {
+	background-color: #F7F6F4;
+	color: #4C4C4C;
+	font-size: 16px;
+	position: relative;
+	padding: 16px;
+	border-radius: 2px;
+	margin: 0 auto 47px;
+	overflow: scroll;
+	border: 1px solid #ECECEC;
+}
+
+.aigis-preview {
+	border: 1px solid #ECECEC;
+	border-radius: 2px;
+	border-radius: 2px 2px 0 0;
+	padding: 24px;
+	margin-top: 39px;
+}
+
+.aigis-preview.aigis-preview--color {
+	border: none;
+	padding: 0;
+	margin-bottom: 48px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.aigis-preview.aigis-preview--color + pre {
+	display: none;
+}
+
+.aigis-preview + pre {
+	border-radius: 0 0 2px 2px;
+	margin-top: -1px;
+}
+
+
+
+
+
+
+/**
+ * Aigis Module
+ */
+
+.aigis-module > ul,
+.aigis-module > ol,
+.aigis-module > p {
+	color: #727272;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.aigis-contents__components > ul li,
+.aigis-contents__components > ol li,
+.aigis-module > ul li,
+.aigis-module > ol li {
+	margin-bottom: .5em;
+}
+
+.aigis-contents__components > h1 {
+	position: relative;
+	font-size: 36px;
+	font-weight: 600;
+	color: #4C4C4C;
+	line-height: 1.3333333;
+	margin-top: 0;
+	margin-bottom: 1.11111em;
+}
+
+.aigis-module__heading,
+.aigis-module > h2,
+.aigis-module > h3,
+.aigis-module > h4 {
+	position: relative;
+	font-weight: 600;
+	color: #4C4C4C;
+	line-height: 1.3333333;
+	padding-left: 40px;
+	margin-bottom: 1em;
+}
+
+.aigis-module__heading {
+	font-size: 36px;
+	margin-top: 0;
+	margin-bottom: 1.11111em;
+}
+
+.aigis-module > h2 {
+	font-size: 24px;
+}
+
+.aigis-module > h3 {
+	font-size: 18px;
+	margin-bottom: 24px;
+}
+
+.aigis-module > p a {
+	font-weight: bolder;
+	color: #727272;
+	text-decoration: none;
+	transition: color .2s ease;
+}
+
+.aigis-module > p a:hover {
+	color: #4C4C4C;
+}
+
+.preview-link {
+	font-size: 1em;
+	cursor: pointer;
+	text-decoration: none;
+	line-height: 1;
+	position: absolute;
+	z-index: 1000;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+}
+
+.preview-link:hover {
+	text-decoration: none;
+}
+
+.link-icon {
+	height: .6em;
+	width: .6em;
+	display: none;
+}
+
+.preview-link .link-icon {
+	display: block;
+}
+
+
+
+
+::-webkit-input-placeholder {
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, arial, sans-serif;
+	font-weight: normal;
+	text-transform: none;
+	color: #4C4C4C;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, arial, sans-serif;
+	font-weight: normal;
+	text-transform: none;
+	color: #4C4C4C;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, arial, sans-serif;
+	font-weight: normal;
+	text-transform: none;
+	color: #4C4C4C;
+   }
+
+:-ms-input-placeholder {
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, arial, sans-serif;
+	font-weight: normal;
+	text-transform: none;
+	color: #4C4C4C;
+}
+
+@media (min-width: 678px) {
+
+	.aigis-colorpalette {
+		width: 29%;
+		margin: 2%;
+	}
+
+	/**
+	 * Aigis Module
+	 */
+
+	.aigis-module__heading,
+	.aigis-module > h2,
+	.aigis-module > h3,
+	.aigis-module > h4 {
+		padding-left: 0;
+	}
+
+	.preview-link {
+		left: calc(-0.6em - 8px);
+	}
+
+
+
+}
+
+
+/* HEADER */
+
+.aigis-header {
+	flex: 0 0 auto;
+	background-color: white;
+	border-bottom: 1px solid #ECECEC;
+	display: flex;
+}
+
+.aigis-header__logo {
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 16px;
+	flex: 0 0 auto;
+	border-right: 1px solid #ECECEC;
+
+	img {
+		max-height: 32px;
+		height: 100%;
+	}
+
+}
+
+.aigis-header__navigation {
+
+	flex: 1 1 100%;
+	padding: 16px 24px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	ul,
+	li {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	a {
+
+		color: inherit;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+
+	}
+
+	li.is-active > a {
+		font-weight: 600;
+	}
+
+	ul[data-path-depth="0"] {
+		display: flex;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	}
+
+	li[data-path-depth="0"] {
+		margin-right: 24px;
+	}
+
+	ul[data-path-depth="0"] ul {
+		display: none;
+	}
+
+	.aigis-header__sub-navigation {
+
+		color: rgba(0, 0, 0, .8);
+		font-size: .8em;
+		display: flex;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		margin-top: 8px;
+
+		li {
+			margin-right: 16px;
+		}
+
+		a.is-active {
+			font-weight: 600;
+		}
+
+		.subtle {
+			color: rgba(0, 0, 0, .6);
+		}
+
+	}
+
+}
+
+.aigis-header__close {
+	cursor: pointer;
+	flex: 0 0 auto;
+	border-left: 1px solid #ECECEC;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 16px;
+}
+
+.aigis-header__close-cross {
+	display: block;
+	height: 16px;
+	width: 16px;
+}
+
+.aigis-body:not(.aigis-modal--active) .aigis-header__close {
+	display: none;
+}
+
+@media (min-width: 678px) {
+
+	.aigis-header__logo {
+		padding: 16px 24px;
+	}
+
+	.aigis-header__logo:hover,
+	.aigis-header__logo:active,
+	.aigis-header__logo:focus {
+		border-right: 1px solid #ECECEC;
+	}
+
+	.aigis-header__close {
+		padding: 16px 24px;
+	}
+
+}

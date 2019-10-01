@@ -1,0 +1,115 @@
+/*
+
+---
+name: Lists
+category:
+ - Base
+ - Base/Lists
+---
+
+Use the `.is-plain` class on any list to remove type-styling, margin, and padding.
+
+## Unordered List
+
+This is just a plain unordered list, no special classes have been applied.
+
+```html
+<ul>
+	<li>List item</li>
+	<li>List item</li>
+	<li>List item</li>
+</ul>
+```
+
+## Ordered List
+
+This is just a plain ordered list, no special classes have been applied.
+
+```html
+<ol>
+	<li>List item</li>
+	<li>List item</li>
+	<li>List item</li>
+</ol>
+```
+
+## Plain List
+
+Use the `.is-plain` class on any list to remove type-styling, margin, and padding.
+
+```html
+<ul class="is-plain">
+	<li>List item</li>
+	<li>List item</li>
+	<li>List item</li>
+</ul>
+```
+
+*/
+
+ul {
+	list-style: disc;
+}
+
+ol,
+ul {
+	margin-bottom: $space;
+
+	&.is-plain {
+		list-style-type: none;
+
+		margin: 0;
+		padding: 0;
+	}
+}
+
+ul ul,
+ol ol {
+	margin-bottom: 0;
+}
+
+
+/*
+
+---
+name: Definition List
+category:
+ - Base
+ - Base/Lists
+---
+
+Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
+
+For inline definitions use the [dfn](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn) element.
+
+```html
+<dl>
+  <div>
+    <dt>Name</dt>
+    <dd>Godzilla</dd>
+  </div>
+  <div>
+    <dt>Born</dt>
+    <dd>1952</dd>
+  </div>
+  <div>
+    <dt>Birthplace</dt>
+    <dd>Japan</dd>
+  </div>
+  <div>
+    <dt>Color</dt>
+    <dd>Green</dd>
+  </div>
+</dl>
+```
+
+*/
+
+// dl {
+// }
+//
+// dt {
+// }
+//
+// dd {
+// }

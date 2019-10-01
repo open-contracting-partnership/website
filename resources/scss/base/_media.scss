@@ -1,0 +1,67 @@
+/*------------------------------------*\
+    MEDIA ELEMENTS
+\*------------------------------------*/
+
+audio,
+canvas,
+img,
+svg,
+video {
+	vertical-align: middle;
+}
+
+iframe,
+img {
+	max-width: 100%;
+	width: 100%;
+}
+
+img {
+	vertical-align: middle;
+	height: auto;
+	width: auto;
+}
+
+a img {
+	border: 0;
+}
+
+// img,
+// video,
+// object {
+// }
+//
+// iframe {
+// }
+
+
+/*
+
+---
+name: Figure
+category:
+ - Base
+ - Base/Figure
+---
+
+Usually an image, illustration, diagram, code snippet, etc. followed by a figcaption.
+
+```html
+<figure>
+  <img
+  src="https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png"
+  alt="An awesome picture">
+  <figcaption>Fig1. MDN Logo</figcaption>
+</figure>
+```
+
+*/
+
+// figure {
+//
+// 	img {
+// 	}
+// }
+//
+// figcaption {
+// }

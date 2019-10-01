@@ -1,0 +1,273 @@
+/*
+
+---
+name: Base Paragraph Styles
+category:
+ - Base
+ - Base/Type
+---
+
+All of the spacing throughout the website is based from the type styling,
+conforming to a rule of 1.5 times the font-size. Here you can see two paragraphs
+of generated lorem-ipsum to get a feel of the line-height and spacing.
+
+```html
+<p>The quick brown fox jumped over the lazy dog</p>
+<p>The quick brown fox jumped <small>over the lazy dog</small></p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis. Quisque malesuada euismod lorem ac luctus. Sed sit amet nunc tellus. Suspendisse maximus nunc sed mi vehicula rutrum. Praesent lobortis euismod turpis sit amet venenatis. Nullam eu enim suscipit, accumsan arcu ut, fringilla odio. Pellentesque ultrices accumsan leo, sit amet vulputate ipsum feugiat id. Pellentesque a pharetra quam. Aliquam rutrum, turpis hendrerit varius pulvinar, libero nisi congue augue, in condimentum diam urna volutpat lectus. Praesent at ipsum a lacus accumsan accumsan. Integer mollis velit ac urna efficitur, eget ultricies nisl posuere. Nullam elementum nunc ac ante fermentum, ac consequat felis scelerisque. Cras dui lacus, posuere semper magna et, ornare porta arcu.
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin sit amet erat accumsan, sagittis metus eget, bibendum nisl. Curabitur dolor enim, bibendum id libero non, cursus iaculis libero. Vivamus orci nisl, posuere vel nibh eu, maximus ullamcorper augue. Vivamus scelerisque laoreet tristique. Donec ut urna lacus. Morbi et nisi sit amet leo vehicula pharetra sed ut elit. Pellentesque tincidunt, quam ut viverra tincidunt, lorem risus facilisis sapien, at gravida lorem dui fermentum arcu. Nam varius felis risus. Morbi a ipsum imperdiet, posuere lorem quis, tincidunt augue. Sed sed metus vitae nunc ullamcorper elementum. Vestibulum ornare augue tellus, vel accumsan augue euismod at. Quisque vitae convallis dolor, id tempus ipsum. Phasellus nisl ante, ullamcorper sit amet tortor at, suscipit venenatis sapien. Sed commodo odio in dolor tempus, eget rhoncus mauris bibendum.</p>
+```
+
+*/
+
+p,
+ul,
+ol,
+dl {
+	line-height: 1.5;
+    margin-bottom: $space;
+}
+
+small {
+	font-size: .8rem;
+}
+
+
+/*
+
+---
+name: Bold and Strong; Italic and Emphasis
+category:
+ - Base
+ - Base/Type
+---
+
+The __bold__ and __italic__ elements are used for presentational purposes, whereas the
+__strong__ and __emphasis__ elements represent structure.
+
+```html
+<p>The quick <b>brown</b> fox jumped over the <strong>lazy</strong> dog</p>
+<p>The quick <i>brown</i> fox jumped over the <em>lazy</em> dog</p>
+```
+
+*/
+
+b,
+strong {
+	@include font('primary', 'bold');
+}
+
+i,
+em {
+	font-style: italic;
+}
+
+
+/*
+
+---
+name: Sup
+category:
+ - Base
+ - Base/Type
+---
+
+For text that should be displayed, for typographic reasons, higher, and often smaller, than the main span of text.
+
+```html
+<p>This text is <sup>superscripted</sup></p>
+```
+
+*/
+
+// sup {
+//
+// }
+
+
+/*
+
+---
+name: Sub
+category:
+ - Base
+ - Base/Type
+---
+
+For text that should be displayed, for typographic reasons, lower, and often smaller, than the main span of text.
+
+```html
+<p>This text is <sub>superscripted</sub></p>
+```
+
+*/
+
+// sub {
+//
+// }
+
+
+/*
+
+---
+name: Strikethrough
+category:
+ - Base
+ - Base/Type
+---
+
+Use the strikethrough element to represent things that are no longer relevant or no longer accurate.
+
+```html
+<p>This text is <sub>superscripted</sub></p>
+```
+
+*/
+
+// s {
+//
+// }
+
+
+/*
+
+---
+name: Mark
+category:
+ - Base
+ - Base/Type
+---
+
+For a run of text marked for reference purpose, due to its relevance in a particular context.
+For example it can be used in a page showing search results to highlight every instance of the searched-for word.
+
+```html
+<p>The &lt;mark&gt; element is used to <mark>highlight</mark> text</p>
+```
+
+*/
+
+// mark {
+//
+// }
+
+
+/*
+
+---
+name: Code and Pre
+category:
+ - Base
+ - Base/Type
+---
+
+The code element is for displaying raw computer code.
+Note: whitepsace and new lines aren't considered important.
+
+While the pre element is for preformatted text, and it preserves whitespace and line breaks.
+
+```html
+<p>This is how we declare a Javascript variable:<br\>
+	<code>var i = 0;</code>
+</p>
+
+<pre>
+body {
+  color:red;
+}
+</pre>
+```
+
+*/
+
+// code {
+//
+// }
+//
+// pre {
+//
+// }
+
+/*
+
+---
+name: Time
+category:
+ - Base
+ - Base/Type
+---
+
+The time element represents either a time on a 24-hour clock or a precise date in the Gregorian calendar
+
+```html
+<p>The concert starts at <time>20:00</time>.</p>
+```
+
+*/
+
+time {
+	@include font('secondary', 'semibold');
+	@include font-size(14, 16, 16);
+	color: $ui-black;
+	letter-spacing: .1px;
+	line-height: 1;
+
+	display: block;
+	margin-bottom: 1em;
+
+	@include mq(S) {
+	    margin-bottom: em(14, 16);
+	}
+}
+
+/*
+
+---
+name: Address
+category:
+ - Base
+ - Base/Type
+---
+
+The address element supplies contact information for its nearest article
+or body ancestor; in the latter case, it applies to the whole document.
+
+```html
+<address>
+    You can contact author at <a href="http://www.somedomain.com/contact">www.somedomain.com</a>.<br>
+    If you see any bugs, please <a href="mailto:webmaster@somedomain.com">contact webmaster</a>.<br>
+    You may also want to visit us:<br>
+    Mozilla Foundation<br>
+    1981 Landings Drive<br>
+    Building K<br>
+    Mountain View, CA 94043-0801<br>
+    USA
+</address>
+```
+
+*/
+
+address {
+	font-style: normal;
+}
+
+
+/*
+
+---
+name: Abbreviation
+category:
+ - Base
+ - Base/Type
+---
+
+Use the title attribute to define the full description of the abbreviation. Many user agents present this as a tooltip.
+
+```html
+<p>Welcome to the <abbr title="World Wide Web">WWW</abbr>!</p>
+```
+
+*/
+
+// abbr {
+// }

@@ -1,0 +1,98 @@
+/*
+
+---
+name: Utilities
+category:
+ - Base
+ - Base/Utilities
+---
+
+## List of Utility Classes
+
+### Hidden
+
+> .is-hidden
+
+This is used to completely remove an element from the document flow and from screen-readers.
+
+This is usually applied or removed with JavaScript.
+
+> .is-visually-hidden
+
+This is still visible to screen-readers, so it is used for accessibility purposes.
+
+
+### Floats
+
+> .pull-right
+
+This is used to apply a right float.
+
+> .pull-left
+
+This is used to apply a left float.
+
+
+### Alignment
+
+> .align-right
+
+This is used to apply `text-align: right;`
+
+> .align-center
+
+This is used to apply `text-align: center;`
+
+> .align-left
+
+This is used to apply `text-align: left;`
+
+*/
+
+
+// Completely remove from the flow and screen readers.
+
+.is-hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+// Completely remove from the flow but leave available to screen readers.
+
+.is-visually-hidden {
+    position: absolute !important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+ //*******
+// FLOATS
+
+.pull-right {
+	float: right;
+}
+
+.pull-left {
+	float: left;
+}
+
+
+ //***************
+// TEXT ALIGNMENT
+
+.align-right {
+	text-align: right;
+}
+
+.align-center {
+	text-align: center;
+}
+
+.align-left {
+	text-align: left;
+}

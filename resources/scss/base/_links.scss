@@ -1,0 +1,64 @@
+/*------------------------------------*\
+    LINKS
+\*------------------------------------*/
+
+a {
+    text-decoration: underline;
+    word-wrap: break-word;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+
+    &:active {
+        text-decoration: underline;
+    }
+}
+
+%reverse-underline {
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+
+	&:active {
+		text-decoration: none;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+
+	a {
+		text-decoration: none;
+
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+
+        &:active {
+          text-decoration: none;
+        }
+	}
+}
+
+tbody tr a {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+
+    &:active {
+        text-decoration: underline;
+    }
+}
