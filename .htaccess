@@ -1,8 +1,0 @@
-# BEGIN Styleguide
-<IfModule mod_rewrite.c>
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^styleguide(/|$) styleguide/index.php [L]
-</IfModule>
-# END Styleguide

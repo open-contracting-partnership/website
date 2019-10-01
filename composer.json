@@ -1,5 +1,0 @@
-{
-    "require": {
-        "sentry/sentry": "^1.10"
-    }
-}
