@@ -23,7 +23,7 @@
 		"prod": "yarn run production",
 		"production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
 		"build-styleguide": "node_modules/.bin/aigis run -c ./styleguide_config.yml",
-		"deploy-styleguide": "node_modules/.bin/aigis run -c ./styleguide_config.yml && node_modules/gh-pages/bin/gh-pages -d styleguide"
+		"deploy-styleguide": "node_modules/.bin/aigis run -c ./styleguide_config.yml && node_modules/gh-pages/bin/gh-pages.js -d styleguide"
 	},
 	"devDependencies": {
 		"@babel/plugin-transform-runtime": "^7.2.0",

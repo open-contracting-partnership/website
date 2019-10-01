@@ -15,7 +15,7 @@
 		<link href="<%- root %>dist/css/styles.css" rel="stylesheet">
 
 		<link href="<%- root %>aigis_assets/styles/highlight/prism.css" rel="stylesheet">
-		<link href="<%- root %>aigis_assets/dist/theme.css" rel="stylesheet">
+		<link href="<%- root %>dist/styleguide/theme.css" rel="stylesheet">
 
 	</head>
 	<body class="aigis-body">
@@ -61,20 +61,20 @@
 
 		<script>
 
-			var ajax = new XMLHttpRequest();
-			ajax.open('GET', '<%- root %>dist/svg/icons.svg', true);
-			ajax.send();
-			ajax.onload = function(e) {
-				var div = document.createElement('div');
-				div.style.display = 'none';
-				div.style.visibility = 'hidden';
-				div.innerHTML = ajax.responseText;
-				document.body.insertBefore(div, document.body.childNodes[0]);
-			}
+			// var ajax = new XMLHttpRequest();
+			// ajax.open('GET', '<%- root %>dist/svg/icons.svg', true);
+			// ajax.send();
+			// ajax.onload = function(e) {
+			// 	var div = document.createElement('div');
+			// 	div.style.display = 'none';
+			// 	div.style.visibility = 'hidden';
+			// 	div.innerHTML = ajax.responseText;
+			// 	document.body.insertBefore(div, document.body.childNodes[0]);
+			// }
 
 		</script>
 
-		<script src="<%- root %>aigis_assets/dist/styleguide.js"></script>
+		<script src="<%- root %>dist/styleguide/styleguide.js"></script>
 		<script src="<%- root %>dist/js/scripts.js"></script>
 
 	</body>

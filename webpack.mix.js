@@ -1,11 +1,16 @@
 const mix = require('laravel-mix');
-const path = require('path');
 const SvgStore = require('webpack-svgstore-plugin');
+
+// set the public path directory
+mix.setPublicPath('dist');
+
+// enable versioning for all compiled files
+mix.version();
 
 // watch for any changes in styleguide.js, only when not production
 if ( ! mix.inProduction() ) {
 
-	mix.js('styleguide_assets/aigis_assets/scripts/styleguide.js', 'styleguide_assets/aigis_assets/dist')
+	mix.js('styleguide_assets/aigis_assets/scripts/styleguide.js', 'styleguide')
 		.webpackConfig({
 			module: {
 				rules: [
@@ -25,7 +30,7 @@ if ( ! mix.inProduction() ) {
 }
 
 mix.sass('resources/scss/styles.scss', 'dist/css')
-	.sass('styleguide_assets/aigis_assets/styles/theme.scss', 'styleguide_assets/aigis_assets/dist')
+	.sass('styleguide_assets/aigis_assets/styles/theme.scss', 'styleguide')
 	.options({
 		processCssUrls: false
 	});
@@ -45,7 +50,7 @@ mix.js('resources/js/scripts.js', 'dist/js')
 			const diff = files.filter(function(n) {
 			    return trigger_files.indexOf(n) !== -1;
 			});
-
+console.log(diff);
 			// and if they are, trigger the styleguide
 			if ( diff.length ) {
 
