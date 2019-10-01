@@ -1,0 +1,46 @@
+{
+	"name": "bureau-style-guide",
+	"version": "1.4.0",
+	"description": "The Idea Bureau, Style Guide",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/theideabureau/bureau-style-guide"
+	},
+	"author": {
+		"name": "The Idea Bureau",
+		"url": "https://theideabureau.co"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/theideabureau/bureau-style-guide/issues"
+	},
+	"homepage": "https://github.com/theideabureau/bureau-style-guide",
+	"scripts": {
+		"dev": "yarn run development",
+		"development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"prod": "yarn run production",
+		"production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"build-styleguide": "node_modules/.bin/aigis run -c ./styleguide_config.yml",
+		"deploy-styleguide": "node_modules/.bin/aigis run -c ./styleguide_config.yml && node_modules/gh-pages/bin/gh-pages -d styleguide"
+	},
+	"devDependencies": {
+		"@babel/plugin-transform-runtime": "^7.2.0",
+		"@babel/polyfill": "^7.2.5",
+		"@babel/preset-env": "^7.3.1",
+		"babel-loader": "^8.0.5",
+		"cross-env": "^5.1.3",
+		"css-element-queries": "^1.0.2",
+		"gh-pages": "^1.1.0",
+		"import-glob-loader": "^1.1.0",
+		"laravel-mix": "^5.0.0",
+		"node-aigis": "^1.4.1",
+		"sass": "^1.17.0",
+		"sass-loader": "7.*",
+		"underscore": "^1.8.3",
+		"vue-template-compiler": "^2.6.4",
+		"webpack-svgstore-plugin": "^4.0.1"
+	},
+	"dependencies": {}
+}

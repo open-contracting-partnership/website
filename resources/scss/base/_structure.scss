@@ -1,0 +1,245 @@
+/*
+
+---
+name: Header
+category:
+ - Base
+ - Base/Structure
+---
+
+Used to denote the main banner area, or a heading group inside a content section.
+
+```html
+<header role="banner">Hero Content</header>
+<article>
+	<header>
+		<h1>Main title</h1>
+		<p>Sub title</p>
+	</header>
+</article>
+```
+
+*/
+
+// header {
+//
+// }
+
+
+/*
+
+---
+name: Nav
+category:
+ - Base
+ - Base/Structure
+---
+
+For major page navigation, including pagination.
+
+```html
+<nav>
+	<ul>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Blog</a></li>
+		<li><a href="#">Contact</a></li>
+	</ul>
+</nav>
+```
+
+*/
+
+// nav {
+//
+// }
+
+
+/*
+
+---
+name: Main
+category:
+ - Base
+ - Base/Structure
+---
+
+Only one per page, for the main content.
+
+```html
+<main>
+	<header>
+  		<h1>Apples</h1>
+		<p>The apple is the pomaceous fruit of the apple tree.</p>
+	</header>
+
+	<article>
+		<h2>Red Delicious</h2>
+		<p>These bright red apples are the most common found in many
+		supermarkets.</p>
+		<p>... </p>
+		<p>... </p>
+	</article>
+
+	<article>
+		<h2>Granny Smith</h2>
+		<p>These juicy, green apples make a great filling for
+		apple pies.</p>
+		<p>... </p>
+		<p>... </p>
+	</article>
+</main>
+```
+
+*/
+
+// main {
+//
+// }
+
+
+/*
+
+---
+name: Aside
+category:
+ - Base
+ - Base/Structure
+---
+
+Contains complementary content to it's parent section. (often used as a sidebar)
+
+```html
+<article>
+  <p>
+    The Disney movie <em>The Little Mermaid</em> was
+    first released to theatres in 1989.
+  </p>
+  <aside>
+    <p>
+      The movie earned $87 million during its initial release.
+    </p>
+  </aside>
+  <p>
+    More info about the movie...
+  </p>
+</article>
+```
+
+*/
+
+// aside {
+//
+// }
+
+
+/*
+
+---
+name: Article
+category:
+ - Base
+ - Base/Structure
+---
+
+The article element should contain a piece of self-contained content that could be distributed outside the context of the page.
+This includes things like:
+- news articles
+- blog posts
+- user comments
+
+```html
+<article class="film_review">
+  <header>
+    <h2>Jurassic Park</h2>
+  </header>
+  <section class="main_review">
+    <p>Dinos were great!</p>
+  </section>
+  <section class="user_reviews">
+    <article class="user_review">
+      <p>Way too scary for me.</p>
+      <footer>
+        <p>
+          Posted on
+          <time datetime="2015-05-16 19:00">May 16</time>
+          by Lisa.
+        </p>
+      </footer>
+    </article>
+    <article class="user_review">
+      <p>I agree, dinos are my favorite.</p>
+      <footer>
+        <p>
+          Posted on
+          <time datetime="2015-05-17 19:00">May 17</time>
+          by Tom.
+        </p>
+      </footer>
+    </article>
+  </section>
+  <footer>
+    <p>
+      Posted on
+      <time datetime="2015-05-15 19:00">May 15</time>
+      by Staff.
+    </p>
+  </footer>
+</article>
+```
+
+*/
+
+// article {
+//
+// }
+
+
+/*
+
+---
+name: Section
+category:
+ - Base
+ - Base/Structure
+---
+
+For groups of content that have headings.
+
+```html
+<section>
+	<h1>Test</h1>
+	<p>Some content</p>
+</section>
+```
+
+*/
+
+// section {
+//
+// }
+
+
+/*
+
+---
+name: Footer
+category:
+ - Base
+ - Base/Structure
+---
+
+A footer typically contains information about the author of the section, copyright data or links to related documents.
+
+```html
+<footer>
+  Some copyright info or perhaps some author
+  info for an &lt;article&gt;?
+</footer>
+```
+
+*/
+
+// footer {
+//
+// }

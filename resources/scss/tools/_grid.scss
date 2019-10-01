@@ -1,0 +1,109 @@
+/*------------------------------------*\
+ * THE IDEA BUREAU - GRID
+ * https://github.com/theideabureau/grid
+\*------------------------------------*/
+
+ //************
+// GRID CONFIG
+
+$padding: 0 0;
+$gutter_pc: 0;
+// Base spacing located in settings partial
+
+// format: (prefix, columns, [breakpoint])
+
+$grids: (
+	(S, 12),
+	(M, 12, map-get($breakpoints, M)),
+	(L, 12, map-get($breakpoints, L))
+);
+
+// media query variables
+$old_ie_support: false;
+
+
+ //****************
+// HERE BE DRAGONS
+
+.row {
+	margin-left: -$space;
+	*zoom: 1;
+
+	&::before,
+	&::after {
+		content: ' '; /* 1 */
+		display: table; /* 2 */
+	}
+
+	&::after {
+		clear: both;
+	}
+}
+
+.col {
+	border: 0 solid transparent;
+	float: left;
+	box-sizing: border-box;
+	background-clip: padding-box !important;
+	border-left-width: $space;
+	margin-left: $gutter_pc;
+	padding: $padding;
+}
+
+@mixin span($num, $gutter_pc, $max_columns) {
+
+	$one_col: (100% - ($gutter_pc * ($max_columns - 1))) / $max_columns;
+
+	display: block;
+	width: ($one_col * $num) + ($gutter_pc * ($num - 1));
+}
+
+@mixin span_first {
+	display: block;
+	margin-left: 0;
+}
+
+@mixin grid($prefix, $columns) {
+
+	.#{$prefix}-hide { display: none; }
+
+	@for $i from 1 through $columns - 1 {
+
+		.#{$prefix}-#{$i} {
+			@include span($i, $gutter_pc, $columns);
+		}
+
+
+		$clear-number: floor($columns / $i);
+
+		// use an "empty" nth-child selector to break previous clearfixes
+		.row--clearfix .#{$prefix}-#{$i}:nth-child(n) {
+			clear: none;
+		}
+
+		.row--clearfix .#{$prefix}-#{$i}:nth-child(#{$clear-number}n+1) {
+			clear: left;
+		}
+	}
+
+	.#{$prefix}-all {
+		@include span_first;
+
+		width: 100%;
+	}
+}
+
+@each $grid in $grids {
+
+	// #{nth($grid, 1)}-grid
+
+	// have we got a prefix *and* an mq breakpoint?
+	@if length($grid) > 2 {
+
+		@include mq(nth($grid, 3), $old_ie_support) {
+			@include grid(nth($grid, 1), nth($grid, 2));
+		}
+	} @else {
+		@include grid(nth($grid, 1), nth($grid, 2));
+	}
+}

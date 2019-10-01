@@ -1,0 +1,79 @@
+/*
+
+---
+name: Blockquote
+category:
+ - Base
+ - Base/Quotes
+---
+
+The Block Quotation Element indicates that the enclosed text is an extended quotation.
+
+```html
+<blockquote cite="http://developer.mozilla.org">
+  <p>This is a quotation taken from
+  the Mozilla Developer Center.</p>
+</blockquote>
+```
+
+*/
+
+blockquote {
+	@include font-size(20);
+	padding: .5em 1em;
+	margin: 0 0 1em;
+	border-left: 5px solid $ui-black;
+
+    p {
+        @include font;
+        margin-bottom: $space / 2;
+    }
+
+    footer {
+        display: block;
+    }
+}
+
+
+/*
+
+---
+name: Quote
+category:
+ - Base
+ - Base/Quotes
+---
+
+This element is intended for short quotations that don't require paragraph breaks.
+
+```html
+<p>According to Mozilla's website, <q cite="https://www.mozilla.org/en-US/about/history/details/">Firefox 1.0was released in 2004 and became a big success.</q></p>
+```
+
+*/
+
+// q {
+//
+// }
+
+
+/*
+
+---
+name: Cite
+category:
+ - Base
+ - Base/Quotes
+---
+
+Used for referencing external sources.
+
+```html
+<cite><a href="http://www.brucelawson.co.uk/2013/on-citing-quotations-again/">Bruce Lawson</a></cite>
+```
+
+*/
+
+// cite {
+//
+// }
