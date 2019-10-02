@@ -167,6 +167,7 @@ category:
 	overflow: hidden;
 	background: $ui-grey;
 	color: $ui-white;
+	box-shadow: 4px 4px 12px rgba(0, 0, 0, .25);
 	max-width: 600px; // temp, dev
 
 	.card__image {
