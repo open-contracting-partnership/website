@@ -206,7 +206,7 @@ The time element represents either a time on a 24-hour clock or a precise date i
 */
 
 time {
-	@include font('secondary', 'semibold');
+	@include font('secondary', 'bold');
 	@include font-size(14, 16, 16);
 	color: $ui-black;
 	letter-spacing: .1px;

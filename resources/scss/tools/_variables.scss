@@ -48,24 +48,25 @@ $breakpoints: (
 // FONTS
 
 $fonts: (
-    primary: (
-        family: 'sans-serif',
-        fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-        weights: (
-            regular: 400,
+	primary: (
+		family: 'gt_eesti_pro_text',
+		fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+		weights: (
+			light: 300,
+			regular: 400,
 			semibold: 600,
-            bold: 700
-        ),
-        typekit: false
-    ),
-    secondary: (
-        family: 'sans-serif',
-        fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-        weights: (
-            regular: 400,
-			semibold: 600,
-            bold: 700
-        ),
-        typekit: false
-    )
+			bold: 700
+		),
+		typekit: false
+	),
+	secondary: (
+		family: 'gt_eesti_pro_display',
+		fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+		weights: (
+			regular: 400,
+			medium: 500,
+			bold: 700
+		),
+		typekit: false
+	)
 );
