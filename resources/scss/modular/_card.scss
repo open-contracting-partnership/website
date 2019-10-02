@@ -1,3 +1,16 @@
+// FU WP.
+.card {
+	position: initial;
+	margin-top: initial;
+	padding: initial;
+	min-width: initial;
+	max-width: initial;
+	border: initial;
+	box-shadow: initial;
+	background: initial;
+	box-sizing: initial;
+}
+
 /*
 
 ---
@@ -208,6 +221,7 @@ category:
 				.card__title {
 					font-size: 24px;
 					margin-bottom: 10px;
+					color: currentColor;
 				}
 
 			.card__intro {
