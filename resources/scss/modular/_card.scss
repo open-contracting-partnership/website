@@ -1,14 +1,107 @@
 /*
 
 ---
-name: Card
+name: Primary card
 category:
  - Components
- - Components/Card
+ - Components/Cards
 ---
 
 ```html
-<a href="#" class="button">Button</a>
+<div class="card card--primary">
+
+	<div class="card__image">
+
+		<img src="https://ocp.imgix.net/wp-content/uploads/2019/04/IMG-3028.jpg?fm=pjpg&fit=max&w=1000" />
+
+		<div class="card__image-overlay"></div>
+
+	</div>
+
+	<div class="card__main">
+
+		<a class="card__title-link" href="#">
+			<h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin America</h2>
+		</a>
+
+		<div class="card__footer">
+
+			<div class="card__meta">
+				Nicolas Penagos
+			</div>
+
+			<div class="card__cta">
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
 ```
 
 */
+
+.card--primary {
+
+	border-radius: spacing(4) spacing(1) spacing(0) spacing(2);
+	overflow: hidden;
+	background: $ui-grey;
+	color: $ui-white;
+	max-width: 310px; // temp, dev
+
+	.card__image {
+
+		position: relative;
+		width: 100%;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+
+	}
+
+		.card__image-overlay {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: linear-gradient(180deg, #2F2F2F 0%, rgba(255, 255, 255, 0) 100%);
+			background-blend-mode: darken;
+		}
+
+	.card__main {
+		padding: spacing(1.5) spacing(2.5);
+	}
+
+		.card__title-link {
+			color: currentColor;
+			text-decoration: none;
+		}
+
+			.card__title {
+				font-size: 18px;
+			}
+
+		.card__footer {
+			display: flex;
+		}
+
+			.card__meta {
+				@include font('secondary');
+				font-size: 14px;
+				text-transform: uppercase;
+				flex: 1 1 100%;
+			}
+
+			.card__cta {
+				margin-left: spacing(2);
+				flex: 0 0 auto;
+			}
+
+
+
+}
