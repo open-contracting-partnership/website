@@ -225,6 +225,12 @@
 	margin-top: 39px;
 }
 
+.aigis-preview .aigis-preview__background {
+	margin: -24px;
+	padding: 24px;
+	background-color: rgba(0, 0, 0, .3);
+}
+
 .aigis-preview.aigis-preview--color {
 	border: none;
 	padding: 0;

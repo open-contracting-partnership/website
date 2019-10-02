@@ -72,14 +72,40 @@ category:
  - Base/Links
 ---
 
+## Default
+
 ```html
-<a class="arrow-link" href="#">
+<div class="aigis-preview__background">
 
-	<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+	<a class="arrow-link" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
 
-	<span class="arrow-link__label">Read</span>
+</div>
+```
 
-</a>
+## Colours
+
+```html
+<div class="aigis-preview__background">
+
+	<a class="arrow-link" data-icon-color="white" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" data-icon-color="white" data-text-color="black" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" data-text-color="black" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+</div>
 ```
 
 */
@@ -89,7 +115,7 @@ category:
 	display: flex;
 	align-items: center;
 	text-decoration: none;
-	color: currentColor;
+	color: $ui-white;
 
 	&:hover,
 	&:focus,
@@ -104,6 +130,7 @@ category:
 		height: 1em;
 		width: 1em;
 		margin-right: spacing(1);
+		fill: $ui-brand;
 	}
 
 	.arrow-link__label {
@@ -111,3 +138,11 @@ category:
 		@include font('secondary', 'medium');
 		text-transform: uppercase;
 	}
+
+.arrow-link[data-icon-color="white"] .arrow-link__icon {
+	fill: $ui-white;
+}
+
+.arrow-link[data-text-color="black"] {
+	color: $ui-grey-2;
+}
