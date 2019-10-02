@@ -1,6 +1,6 @@
 <?php
 
-function getContrastColor($hexColor) {
+function isContrastingColourLight($hexColor) {
 
     // hexColor RGB
     $R1 = hexdec(substr($hexColor, 1, 2));
@@ -30,11 +30,6 @@ function getContrastColor($hexColor) {
     }
 
     // If contrast is more than 5, return black color
-    if ($contrastRatio > 5) {
-        return '#000000';
-    } else {
-        // if not, return white color.
-        return '#FFFFFF';
-    }
+    return $contrastRatio <= 5;
 
 }

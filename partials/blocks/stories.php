@@ -5,7 +5,8 @@
 	$title = get_field('title') ?: 'Add your title here&hellip;';
 	$primary_posts = get_field('primary_stories');
 	$background_colour = get_field('background_colour') ?: '#6C75E1';
-	$text_colour = get_field('text_colour') ?: getContrastColor($background_colour);
+	$text_colour = isContrastingColourLight($background_colour) ? '#FFF' : '#000';
+	$text_colour = get_field('text_colour') ?: $text_colour;
 
 ?>
 
