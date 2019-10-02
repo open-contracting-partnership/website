@@ -86,8 +86,7 @@ category:
 
 .arrow-link {
 
-	display: inline-flex;
-	justify-content: center;
+	display: flex;
 	align-items: center;
 	text-decoration: none;
 	color: currentColor;
@@ -101,7 +100,7 @@ category:
 }
 
 	.arrow-link__icon {
-		font-size: 20px;
+		font-size: 28px;
 		height: 1em;
 		width: 1em;
 		margin-right: spacing(1);
