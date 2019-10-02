@@ -14,7 +14,9 @@ category:
 
 		<img src="https://ocp.imgix.net/wp-content/uploads/2019/04/IMG-3028.jpg?fm=pjpg&fit=max&w=1000" />
 
-		<div class="card__image-overlay"></div>
+		<div class="card__image-overlay">
+			<div class="card__tag">Blog</div>
+		</div>
 
 	</div>
 
@@ -79,7 +81,15 @@ category:
 			left: 0;
 			background: linear-gradient(180deg, #2F2F2F 0%, rgba(255, 255, 255, 0) 100%);
 			background-blend-mode: darken;
+			padding: spacing(2) spacing(3);
 		}
+
+			.card__tag {
+				font-size: 18px;
+				color: $ui-brand;
+				text-transform: uppercase;
+				@include font('secondary', 'bold');
+			}
 
 	.card__main {
 		padding: spacing(1.5) spacing(2.5);
