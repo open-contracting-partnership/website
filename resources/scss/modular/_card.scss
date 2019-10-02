@@ -176,6 +176,7 @@ category:
 
 .card--image {
 
+	position: relative;
 	border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
 	overflow: hidden;
 	background: $ui-grey;
@@ -212,10 +213,27 @@ category:
 		}
 
 			.card__title-link {
+
 				display: block;
 				color: currentColor;
 				text-decoration: none;
 				text-transform: uppercase;
+
+				&::after {
+					content: '';
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+				}
+
+				&:hover,
+				&:focus,
+				&:active {
+					text-decoration: underline;
+				}
+
 			}
 
 				.card__title {
