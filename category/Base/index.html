@@ -319,21 +319,67 @@
 					Arrow link
 				</h1>
 
-				<div class="aigis-preview">
-  <a class="arrow-link" href="#">
-    <svg class="arrow-link__icon">
-        <use xlink:href="#icon-arrow-circle"></use>
-    </svg>
-    <span class="arrow-link__label">Read</span>
-</a></div>
+				<h2 id="default">Default</h2>
+<div class="aigis-preview">
+  <div class="aigis-preview__background">
+    <a class="arrow-link" href="#">
+        <svg class="arrow-link__icon">
+            <use xlink:href="#icon-arrow-circle"></use>
+        </svg>
+        <span class="arrow-link__label">Read</span>
+    </a>
+</div></div>
 
-<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>arrow-link<span class="token punctuation" >"</span></span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>#<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>aigis-preview__background<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
 
-    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>svg</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>arrow-link__icon<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>use</span> <span class="token attr-name" ><span class="token namespace" >xlink:</span>href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>#icon-arrow-circle<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>use</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>svg</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>arrow-link<span class="token punctuation" >"</span></span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>#<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>svg</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>arrow-link__icon<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>use</span> <span class="token attr-name" ><span class="token namespace" >xlink:</span>href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>#icon-arrow-circle<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>use</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>svg</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>span</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>arrow-link__label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Read<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>span</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span>
 
-    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>span</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>arrow-link__label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Read<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>span</span><span class="token punctuation" >></span></span>
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
+</code></pre>
+<h2 id="colours">Colours</h2>
+<div class="aigis-preview">
+  <div class="aigis-preview__background">
+    <a class="arrow-link" data-icon-color="white" href="#">
+        <svg class="arrow-link__icon">
+            <use xlink:href="#icon-arrow-circle"></use>
+        </svg>
+        <span class="arrow-link__label">Read</span>
+    </a>
+    <a class="arrow-link" data-icon-color="white" data-text-color="black" href="#">
+        <svg class="arrow-link__icon">
+            <use xlink:href="#icon-arrow-circle"></use>
+        </svg>
+        <span class="arrow-link__label">Read</span>
+    </a>
+    <a class="arrow-link" data-text-color="black" href="#">
+        <svg class="arrow-link__icon">
+            <use xlink:href="#icon-arrow-circle"></use>
+        </svg>
+        <span class="arrow-link__label">Read</span>
+    </a>
+</div></div>
 
-<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span>
+<pre><code class="language-html"><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>aigis-preview__background<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>arrow-link<span class="token punctuation" >"</span></span> <span class="token attr-name" >data-icon-color</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>white<span class="token punctuation" >"</span></span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>#<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>svg</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>arrow-link__icon<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>use</span> <span class="token attr-name" ><span class="token namespace" >xlink:</span>href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>#icon-arrow-circle<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>use</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>svg</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>span</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>arrow-link__label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Read<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>span</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span>
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>arrow-link<span class="token punctuation" >"</span></span> <span class="token attr-name" >data-icon-color</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>white<span class="token punctuation" >"</span></span> <span class="token attr-name" >data-text-color</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>black<span class="token punctuation" >"</span></span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>#<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>svg</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>arrow-link__icon<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>use</span> <span class="token attr-name" ><span class="token namespace" >xlink:</span>href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>#icon-arrow-circle<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>use</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>svg</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>span</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>arrow-link__label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Read<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>span</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span>
+
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>a</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>arrow-link<span class="token punctuation" >"</span></span> <span class="token attr-name" >data-text-color</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>black<span class="token punctuation" >"</span></span> <span class="token attr-name" >href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>#<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>svg</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>arrow-link__icon<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>use</span> <span class="token attr-name" ><span class="token namespace" >xlink:</span>href</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>#icon-arrow-circle<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>use</span><span class="token punctuation" >></span></span><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>svg</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>span</span> <span class="token attr-name" >class</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>arrow-link__label<span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span>Read<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>span</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>a</span><span class="token punctuation" >></span></span>
+
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span>
 </code></pre>
 
 

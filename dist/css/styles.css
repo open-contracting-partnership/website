@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 
 Atomic design is philosophically complimentary with these CSS approaches:
@@ -1493,33 +1494,59 @@ category:
  - Base/Links
 ---
 
+## Default
+
 ```html
-<a class="arrow-link" href="#">
+<div class="aigis-preview__background">
 
-	<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+	<a class="arrow-link" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
 
-	<span class="arrow-link__label">Read</span>
+</div>
+```
 
-</a>
+## Colours
+
+```html
+<div class="aigis-preview__background">
+
+	<a class="arrow-link" data-icon-color="white" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" data-icon-color="white" data-text-color="black" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" data-text-color="black" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+</div>
 ```
 
 */
 .arrow-link {
-  display: inline-flex;
-  justify-content: center;
+  display: flex;
   align-items: center;
   text-decoration: none;
-  color: currentColor;
+  color: #FFF;
 }
 .arrow-link:hover, .arrow-link:focus, .arrow-link:active {
   text-decoration: underline;
 }
 
 .arrow-link__icon {
-  font-size: 20px;
+  font-size: 28px;
   height: 1em;
   width: 1em;
   margin-right: 8px;
+  fill: #E0E83D;
 }
 
 .arrow-link__label {
@@ -1529,6 +1556,14 @@ category:
   -webkit-font-smoothing: antialiased;
   font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
+}
+
+.arrow-link[data-icon-color=white] .arrow-link__icon {
+  fill: #FFF;
+}
+
+.arrow-link[data-text-color=black] {
+  color: #4B4B4B;
 }
 
 /*
@@ -2473,16 +2508,18 @@ category:
 
 	<div class="card__image">
 
-		<img src="https://ocp.imgix.net/wp-content/uploads/2019/04/IMG-3028.jpg?fm=pjpg&fit=max&w=1000" />
+		<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
 
-		<div class="card__image-overlay"></div>
+		<div class="card__image-overlay">
+			<div class="card__tag">Blog</div>
+		</div>
 
 	</div>
 
 	<div class="card__main">
 
 		<a class="card__title-link" href="#">
-			<h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin America</h2>
+			<h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
 		</a>
 
 		<div class="card__footer">
@@ -2492,6 +2529,14 @@ category:
 			</div>
 
 			<div class="card__cta">
+
+				<a class="arrow-link" href="#">
+
+					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+					<span class="arrow-link__label">Read</span>
+
+				</a>
 
 			</div>
 
@@ -2526,19 +2571,33 @@ category:
   left: 0;
   background: linear-gradient(180deg, #2F2F2F 0%, rgba(255, 255, 255, 0) 100%);
   background-blend-mode: darken;
+  padding: 16px 24px;
+}
+.card--primary .card__tag {
+  font-size: 18px;
+  color: #E0E83D;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .card--primary .card__main {
   padding: 12px 20px;
 }
 .card--primary .card__title-link {
+  display: block;
   color: currentColor;
   text-decoration: none;
+  max-width: 90%;
 }
 .card--primary .card__title {
   font-size: 18px;
+  margin-bottom: 10px;
 }
 .card--primary .card__footer {
   display: flex;
+  align-items: flex-start;
 }
 .card--primary .card__meta {
   font-weight: 400;
@@ -2552,6 +2611,87 @@ category:
 .card--primary .card__cta {
   margin-left: 16px;
   flex: 0 0 auto;
+}
+
+/*
+
+---
+name: Image card
+category:
+ - Components
+ - Components/Cards
+---
+
+```html
+<div class="card card--image">
+
+	<div class="card__image">
+
+		<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+		<div class="card__image-overlay">
+
+			<a class="card__title-link" href="#">
+				<h2 class="card__title">Honduras</h2>
+			</a>
+
+			<div class="card__intro">
+				<p>How open contracting is driving more powerful controls — from spot checks to analyzing sector trends.</p>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+.card--image {
+  border-radius: 32px 8px 8px 8px;
+  overflow: hidden;
+  background: #4D4D53;
+  color: #FFF;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+  max-width: 600px;
+}
+.card--image .card__image {
+  position: relative;
+  width: 100%;
+}
+.card--image .card__image img {
+  display: block;
+  width: 100%;
+}
+.card--image .card__image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 24.48%, #2F2F2F 100%), linear-gradient(0deg, rgba(38, 38, 38, 0.4), rgba(38, 38, 38, 0.4));
+  background-blend-mode: darken, normal;
+  padding: 40px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.card--image .card__title-link {
+  display: block;
+  color: currentColor;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.card--image .card__title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.card--image .card__intro {
+  font-size: 16px;
+  max-width: 60%;
+}
+.card--image .card__intro p:last-child {
+  margin-bottom: 0;
 }
 
 /*------------------------------------*\
