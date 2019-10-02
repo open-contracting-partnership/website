@@ -62,3 +62,53 @@ tbody tr a {
         text-decoration: underline;
     }
 }
+
+/*
+
+---
+name: Arrow link
+category:
+ - Base
+ - Base/Links
+---
+
+```html
+<a class="arrow-link" href="#">
+
+	<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+	<span class="arrow-link__label">Read</span>
+
+</a>
+```
+
+*/
+
+.arrow-link {
+
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	color: currentColor;
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: underline;
+	}
+
+}
+
+	.arrow-link__icon {
+		font-size: 20px;
+		height: 1em;
+		width: 1em;
+		margin-right: spacing(1);
+	}
+
+	.arrow-link__label {
+		font-size: 14px;
+		@include font('secondary', 'medium');
+		text-transform: uppercase;
+	}

@@ -3,6 +3,7 @@ html {
 }
 
 body {
+	
 	@include font;
 	@include font-size(16, 18);
 	line-height: 1.5;
@@ -19,28 +20,6 @@ body {
 	-moz-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 
-	@include mq(S) {
-
-		// apply the overlay
-		&::after {
-			content: '';
-			background: $ui-black;
-			opacity: 0;
-			position: fixed;
-			top: 0;
-			left: 0;
-			// width of the side-menu
-			right: 396px;
-			bottom: 0;
-			z-index: 100;
-			transition: opacity .2s ease;
-			pointer-events: none;
-		}
-
-		&.menu-active::after {
-			opacity: .5;
-		}
-	}
 }
 
  //**********

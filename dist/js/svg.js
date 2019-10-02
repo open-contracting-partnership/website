@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __svgstore__ = { filename: __webpack_require__.p +"dist/svg/icons.svg" };
+var __svgstore__ = { filename: __webpack_require__.p +"svg/icons.svg" };
 
 /***/ }),
 

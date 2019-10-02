@@ -68,9 +68,72 @@ button::-moz-focus-inner {
   border: 0;
 }
 
-/*------------------------------------*\
-	FONTS
-\*------------------------------------*/
+@font-face {
+  font-family: "gt_eesti_pro_display";
+  src: url("../../resources/fonts/gteestiprodisplay-bold-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprodisplay-bold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gt_eesti_pro_display";
+  src: url("../../resources/fonts/gteestiprodisplay-medium-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprodisplay-medium-webfont.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gt_eesti_pro_display";
+  src: url("../../resources/fonts/gteestiprodisplay-regular-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprodisplay-regular-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-thin-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-thin-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-thinitalic-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-thinitalic-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-light-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-light-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-lightitalic-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-lightitalic-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-medium-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-medium-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-mediumitalic-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-mediumitalic-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-bold-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-bold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-bolditalic-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-bolditalic-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+}
 /*------------------------------------*\
     GLOBAL MIXINS
 \*------------------------------------*/
@@ -677,7 +740,7 @@ body {
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "gt_eesti_pro_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5;
@@ -695,24 +758,6 @@ body {
   body {
     font-size: 18px;
     font-size: 1.125rem;
-  }
-}
-@media screen and (min-width: 640px) {
-  body::after {
-    content: "";
-    background: #000;
-    opacity: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 396px;
-    bottom: 0;
-    z-index: 100;
-    transition: opacity 0.2s ease;
-    pointer-events: none;
-  }
-  body.menu-active::after {
-    opacity: 0.5;
   }
 }
 
@@ -989,7 +1034,7 @@ abbr[title=Required] {
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "gt_eesti_pro_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #000;
 }
 
@@ -1012,7 +1057,7 @@ textarea {
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "gt_eesti_pro_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   font-size: 0.75rem;
   color: #000;
@@ -1114,21 +1159,21 @@ textarea {
 }
 
 ::-webkit-input-placeholder {
-  color: #999;
+  color: #4D4D53;
 }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: #999;
+  color: #4D4D53;
 }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #999;
+  color: #4D4D53;
 }
 
 :-ms-input-placeholder {
-  color: #999;
+  color: #4D4D53;
 }
 
 /*
@@ -1190,7 +1235,7 @@ h6,
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.3;
   margin-bottom: 1.5rem;
 }
@@ -1442,6 +1487,53 @@ tbody tr a:active {
 /*
 
 ---
+name: Arrow link
+category:
+ - Base
+ - Base/Links
+---
+
+```html
+<a class="arrow-link" href="#">
+
+	<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+	<span class="arrow-link__label">Read</span>
+
+</a>
+```
+
+*/
+.arrow-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: currentColor;
+}
+.arrow-link:hover, .arrow-link:focus, .arrow-link:active {
+  text-decoration: underline;
+}
+
+.arrow-link__icon {
+  font-size: 20px;
+  height: 1em;
+  width: 1em;
+  margin-right: 8px;
+}
+
+.arrow-link__label {
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+/*
+
+---
 name: Lists
 category:
  - Base
@@ -1620,7 +1712,7 @@ blockquote p {
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "gt_eesti_pro_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-bottom: 0.75rem;
 }
 blockquote footer {
@@ -1928,7 +2020,7 @@ th {
     font-weight: 700;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
-    font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: #000;
     color: #FFF;
     padding: 8px;
@@ -1952,7 +2044,7 @@ th {
     font-weight: 600;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
-    font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "gt_eesti_pro_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 16px;
   }
 }
@@ -2046,7 +2138,7 @@ strong {
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "gt_eesti_pro_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 i,
@@ -2163,10 +2255,10 @@ The time element represents either a time on a 24-hour clock or a precise date i
 
 */
 time {
-  font-weight: 600;
+  font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  font-family: "sans-serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-size: 0.875rem;
   color: #000;
@@ -2367,6 +2459,101 @@ category:
 /*------------------------------------*\
     $MODULAR
 \*------------------------------------*/
+/*
+
+---
+name: Primary card
+category:
+ - Components
+ - Components/Cards
+---
+
+```html
+<div class="card card--primary">
+
+	<div class="card__image">
+
+		<img src="https://ocp.imgix.net/wp-content/uploads/2019/04/IMG-3028.jpg?fm=pjpg&fit=max&w=1000" />
+
+		<div class="card__image-overlay"></div>
+
+	</div>
+
+	<div class="card__main">
+
+		<a class="card__title-link" href="#">
+			<h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin America</h2>
+		</a>
+
+		<div class="card__footer">
+
+			<div class="card__meta">
+				Nicolas Penagos
+			</div>
+
+			<div class="card__cta">
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+.card--primary {
+  border-radius: 32px 8px 0px 16px;
+  overflow: hidden;
+  background: #4D4D53;
+  color: #FFF;
+  max-width: 310px;
+}
+.card--primary .card__image {
+  position: relative;
+  width: 100%;
+}
+.card--primary .card__image img {
+  display: block;
+  width: 100%;
+}
+.card--primary .card__image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, #2F2F2F 0%, rgba(255, 255, 255, 0) 100%);
+  background-blend-mode: darken;
+}
+.card--primary .card__main {
+  padding: 12px 20px;
+}
+.card--primary .card__title-link {
+  color: currentColor;
+  text-decoration: none;
+}
+.card--primary .card__title {
+  font-size: 18px;
+}
+.card--primary .card__footer {
+  display: flex;
+}
+.card--primary .card__meta {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  flex: 1 1 100%;
+}
+.card--primary .card__cta {
+  margin-left: 16px;
+  flex: 0 0 auto;
+}
+
 /*------------------------------------*\
     $NON-MODULAR
 \*------------------------------------*/
