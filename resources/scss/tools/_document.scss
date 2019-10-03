@@ -3,9 +3,9 @@ html {
 }
 
 body {
-	
+
 	@include font;
-	@include font-size(16, 18);
+	font-size: 18px;
 	line-height: 1.5;
 	color: $ui-black;
 

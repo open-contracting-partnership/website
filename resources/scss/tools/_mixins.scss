@@ -42,42 +42,12 @@
 }
 
 
- //***************************
-// TYPE AND LIST BASED MIXINS
-
-@mixin font-size($size: $base-font-size, $S-size: null, $M-size: null, $L-size: null) {
-	font-size: $size + px;
-	font-size: $size / $base-font-size + rem;
-
-	@if ($S-size != null) {
-
-		@include mq(S) {
-			font-size: $S-size + px;
-			font-size: $S-size / $base-font-size + rem;
-		}
-	}
-
-	@if ($M-size != null) {
-
-		@include mq(M) {
-			font-size: $M-size + px;
-			font-size: $M-size / $base-font-size + rem;
-		}
-	}
-
-	@if ($L-size != null) {
-
-		@include mq(L) {
-			font-size: $L-size + px;
-			font-size: $L-size / $base-font-size + rem;
-		}
-	}
-}
-
-// Generates em value based on the root font size
-// otherwise supply different value
 @function em($value, $size: $base-font-size) {
 	@return $value / $size + em;
+}
+
+@function rem($value) {
+	@return $value / $base-font-size + em;
 }
 
 

@@ -59,7 +59,6 @@ th {
 	display: block;
 
 	@include mq(S) {
-		@include font-size(13, 16, 22);
 		@include font('secondary', 'bold');
 		background-color: $ui-black;
 		color: $ui-white;

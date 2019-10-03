@@ -19,7 +19,7 @@ The Block Quotation Element indicates that the enclosed text is an extended quot
 */
 
 blockquote {
-	@include font-size(20);
+	font-size: 20px;
 	padding: .5em 1em;
 	margin: 0 0 1em;
 	border-left: 5px solid $ui-black;
