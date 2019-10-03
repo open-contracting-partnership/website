@@ -14,35 +14,39 @@
 
 ?>
 
-<div class="block block--stories" style="color: <?php echo $text_colour; ?>; background-color: <?php echo $background_colour; ?>">
+<div class="block" data-block-type="stories">
 
-	<h1 class="block__heading"><?php echo $primary_title; ?></h1>
+	<div class="block__container" style="color: <?php echo $text_colour; ?>; background-color: <?php echo $background_colour; ?>">
 
-	<?php if ( $primary_posts ) : ?>
+		<h1 class="block__heading"><?php echo $primary_title; ?></h1>
 
-		<?php foreach ( $primary_posts as $post_id ) : ?>
+		<?php if ( $primary_posts ) : ?>
 
-			<?php setup_postdata($post = $post_id); ?>
+			<?php foreach ( $primary_posts as $post_id ) : ?>
 
-			<?php the_partial('card', 'feature'); ?>
+				<?php setup_postdata($post = $post_id); ?>
 
-		<?php endforeach; /* and */ wp_reset_postdata(); ?>
+				<?php the_partial('card', 'feature'); ?>
 
-	<?php endif; ?>
+			<?php endforeach; /* and */ wp_reset_postdata(); ?>
+
+		<?php endif; ?>
 
 
-	<h2 class="block__heading"><?php echo $secondary_title; ?></h2>
+		<h2 class="block__heading"><?php echo $secondary_title; ?></h2>
 
-	<?php if ( $secondary_posts ) : ?>
+		<?php if ( $secondary_posts ) : ?>
 
-		<?php foreach ( $secondary_posts as $post_data ) : ?>
+			<?php foreach ( $secondary_posts as $post_data ) : ?>
 
-			<?php setup_postdata($post = $post_data['post']); ?>
+				<?php setup_postdata($post = $post_data['post']); ?>
 
-			<?php the_partial('card', 'primary'); ?>
+				<?php the_partial('card', 'primary'); ?>
 
-		<?php endforeach; /* and */ wp_reset_postdata(); ?>
+			<?php endforeach; /* and */ wp_reset_postdata(); ?>
 
-	<?php endif; ?>
+		<?php endif; ?>
+
+	</div>
 
 </div>
