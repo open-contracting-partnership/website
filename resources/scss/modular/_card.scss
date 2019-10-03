@@ -255,3 +255,51 @@ category:
 			}
 
 }
+
+/*
+
+---
+name: Square card
+category:
+ - Components
+ - Components/Cards
+---
+
+```html
+<div class="card card--square">
+
+	<div class="card__image">
+
+		<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=crop&h=500&w=500&sat=-100" />
+
+
+
+	</div>
+
+</div>
+```
+
+*/
+
+.card--square {
+
+	position: relative;
+	border-radius: spacing(4) spacing(1);
+	overflow: hidden;
+	background: $ui-grey;
+	color: $ui-white;
+	box-shadow: 4px 4px 12px rgba(0, 0, 0, .25);
+	max-width: 600px; // temp, dev
+
+	.card__image {
+
+		width: 100%;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+
+	}
+
+}
