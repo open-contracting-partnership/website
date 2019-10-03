@@ -35,6 +35,7 @@
 		"gh-pages": "^1.1.0",
 		"import-glob-loader": "^1.1.0",
 		"laravel-mix": "^5.0.0",
+		"modern-css-reset": "^1.0.2",
 		"node-aigis": "^1.4.1",
 		"sass": "^1.17.0",
 		"sass-loader": "7.*",
