@@ -25,7 +25,7 @@
 
 ?>
 
-<div class="card card--image">
+<div class="card card--feature">
 
 	<div class="card__image">
 

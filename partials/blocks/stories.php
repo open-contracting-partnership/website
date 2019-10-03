@@ -24,7 +24,7 @@
 
 			<?php setup_postdata($post = $post_id); ?>
 
-			<?php the_partial('card', 'image'); ?>
+			<?php the_partial('card', 'feature'); ?>
 
 		<?php endforeach; /* and */ wp_reset_postdata(); ?>
 

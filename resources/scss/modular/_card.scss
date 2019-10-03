@@ -143,14 +143,14 @@ category:
 /*
 
 ---
-name: Image card
+name: Feature card
 category:
  - Components
  - Components/Cards
 ---
 
 ```html
-<div class="card card--image">
+<div class="card card--feature">
 
 	<div class="card__image">
 
@@ -175,7 +175,7 @@ category:
 
 */
 
-.card--image {
+.card--feature {
 
 	position: relative;
 	border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
