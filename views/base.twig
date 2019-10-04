@@ -1,4 +1,21 @@
+<!DOCTYPE html>
+<html {{ site.language_attributes }} class="no-js">
+
+    {% include 'html-header.twig' %}
+
+    <body class="{{ body_class }}">
+
+		<main>
+
+			{{ function('get_search_form') }}
+
+			{% block content %}
+	            <p>Sorry, no content</p>
+	        {% endblock %}
+
 		</main>
+
+        {% include 'html-footer.twig' %}
 
 		<script>
 
@@ -15,8 +32,6 @@
 
 		</script>
 
-		<?php wp_footer(); ?>
-
-	</body>
+    </body>
 
 </html>

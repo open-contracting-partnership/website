@@ -1,0 +1,5 @@
+{
+    "require": {
+        "rareloop/lumberjack-core": "^4.3"
+    }
+}
