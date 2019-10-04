@@ -10,6 +10,11 @@
 require_once('functions/loader.php');
 
 
+ //***********
+// INIT HOOKS
+\App\Search::initHooks();
+
+
  //**************
 // THEME SUPPORT
 
