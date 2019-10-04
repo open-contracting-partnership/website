@@ -9,19 +9,22 @@ use App\Http\Controllers\Controller;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Post;
 use Timber\Timber;
+use App\Search;
 
 class SearchController extends Controller
 {
     public function handle()
     {
         $context = Timber::get_context();
-        $searchQuery = get_search_query();
+        $search_query = get_search_query();
 
-        $context['title'] = 'Search results for \''.htmlspecialchars($searchQuery).'\'';
-        $context['posts'] = Post::query([
-            's' => $searchQuery,
-        ]);
+		$page = get_query_var('page', 1);
+		$search = new Search($search_query, $page);
 
-        return new TimberResponse('templates/posts.twig', $context);
+        $context['title'] = 'Search results for \''.htmlspecialchars($search_query).'\'';
+        $context['search'] = $search;
+		$context['page'] = $page;
+
+        return new TimberResponse('templates/search.twig', $context);
     }
 }

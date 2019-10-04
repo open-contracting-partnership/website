@@ -1,0 +1,31 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <main>
+
+        <h1>{{ title }}</h1>
+
+        {% if search.hasResults %}
+
+            {% for result in search.getResults %}
+
+				<div>
+					<h4><a href="{{ result.link }}">{{ result.htmlTitle }}</a></h4>
+					<p>{{ result.htmlFormattedUrl }}</p>
+					<p>{{ result.htmlSnippet }}</p>
+				</div>
+
+            {% endfor %}
+
+			{% if search.hasNextPage %}
+				<p><strong><a href="/?s={{ function('get_search_query') }}&page={{ page + 1 }}">Next Page &raquo;</a></strong></p>
+			{% endif %}
+
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
+
+    </main>
+
+{% endblock %}
