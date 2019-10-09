@@ -3,8 +3,10 @@
 \*------------------------------------*/
 
 a {
+	
     text-decoration: underline;
     word-wrap: break-word;
+	color: currentColor;
 
     &:hover,
     &:focus {
@@ -14,6 +16,7 @@ a {
     &:active {
         text-decoration: underline;
     }
+
 }
 
 %reverse-underline {
