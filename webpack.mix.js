@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-const SvgStore = require('webpack-svgstore-plugin');
+require('laravel-mix-svg-sprite');
 
 // set the public path directory
 mix.setPublicPath('dist');
@@ -29,6 +29,8 @@ if ( ! mix.inProduction() ) {
 
 }
 
+mix.svgSprite('resources/svg', 'svg/icons.svg')
+
 mix.sass('resources/scss/styles.scss', 'dist/css')
 	.sass('styleguide_assets/aigis_assets/styles/theme.scss', 'styleguide')
 	.options({
@@ -45,7 +47,7 @@ mix.js('resources/js/scripts.js', 'dist/js')
 			const trigger_files = [
 				'/css/styles.css'
 			];
-			
+
 			// check if any of the trigger files are in the latest compile
 			const diff = files.filter(function(n) {
 			    return trigger_files.indexOf(n) !== -1;
@@ -77,12 +79,12 @@ mix.js('resources/js/scripts.js', 'dist/js')
 					test: /\.scss/,
 					enforce: 'pre',
 					loader: 'import-glob-loader'
+				},
+				{
+					test: /\.js/,
+					enforce: 'pre',
+					loader: 'import-glob-loader'
 				}
 			]
-		},
-		plugins: [
-			new SvgStore({
-				prefix: ''
-			})
-		]
+		}
 	});

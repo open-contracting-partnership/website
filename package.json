@@ -35,13 +35,13 @@
 		"gh-pages": "^1.1.0",
 		"import-glob-loader": "^1.1.0",
 		"laravel-mix": "^5.0.0",
+		"laravel-mix-svg-sprite": "^1.0.0",
 		"modern-css-reset": "^1.0.2",
 		"node-aigis": "^1.4.1",
 		"sass": "^1.17.0",
 		"sass-loader": "7.*",
 		"underscore": "^1.8.3",
-		"vue-template-compiler": "^2.6.4",
-		"webpack-svgstore-plugin": "^4.0.1"
+		"vue-template-compiler": "^2.6.4"
 	},
 	"dependencies": {}
 }
