@@ -9,3 +9,62 @@
 	}
 
 }
+
+%column-grid {
+	display: grid;
+	grid-column-gap: spacing(2);
+	grid-template-columns: [all-start] repeat(12, 1fr) [all-end];
+}
+
+%shell-grid {
+
+	display: grid;
+	grid-template-columns:
+		[full-start]
+			minmax(0, auto)
+			[wide-start]
+				minmax(0, 1240px)
+			[wide-end]
+			minmax(0, auto)
+		[full-end];
+
+}
+
+/*
+
+---
+name: Shell Grid
+category:
+ - Layout
+ - Layout/Grid
+---
+
+```html
+<div class="shell-grid-example">
+	<div class="shell-grid-example__full"></div>
+	<div class="shell-grid-example__wide"></div>
+</div>
+```
+
+*/
+
+.shell-grid-example {
+	@extend %shell-grid;
+}
+
+	.shell-grid-example__full {
+		background-color: blue;
+		height: 100px;
+		grid-column: full;
+	}
+
+	.shell-grid-example__wide {
+		background-color: red;
+		height: 100px;
+		grid-column: wide;
+	}
+
+
+// full
+// wide
+// internal

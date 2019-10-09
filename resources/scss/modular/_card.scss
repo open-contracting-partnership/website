@@ -68,7 +68,7 @@ category:
 
 .card--primary {
 
-	border-radius: spacing(4) spacing(1) spacing(0) spacing(2);
+	border-radius: spacing(4) spacing(1) 0 spacing(2);
 	overflow: hidden;
 	background: $ui-grey;
 	color: $ui-white;

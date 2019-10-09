@@ -20,12 +20,13 @@ of generated lorem-ipsum to get a feel of the line-height and spacing.
 
 */
 
+// NOTE: check the footer contact box if this changes
 p,
 ul,
 ol,
 dl {
 	line-height: 1.5;
-    margin-bottom: $space;
+    margin-bottom: 1.3em;
 }
 
 small {

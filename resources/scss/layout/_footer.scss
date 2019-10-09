@@ -10,7 +10,320 @@ category:
 ```html
 <footer class="site-footer">
 
+	<div class="site-footer__container">
+
+		<div class="site-footer__logo">
+			<svg><use xlink:href="#logo-vertical"></use></svg>
+		</div>
+
+		<ul class="site-footer__navigation">
+
+			<li>
+				<a href="#">What is Open Contracting</a>
+			</li>
+
+			<li>
+
+				<a href="#">Impact</a>
+
+				<ul>
+					<li><a href="#">Worldwide</a></li>
+				</ul>
+
+			</li>
+
+			<li>
+				<a href="#">Implement</a>
+			</li>
+
+			<li>
+
+				<a href="#">Data</a>
+
+				<ul>
+					<li><a href="#">Data Standard</a></li>
+				</ul>
+
+			</li>
+
+			<li>
+				<a href="#">About</a>
+			</li>
+
+			<li>
+				<a href="#">Latest</a>
+			</li>
+
+		</ul>
+
+		<div class="site-footer__cta">
+
+			<a class="arrow-link" href="#">
+				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+				<span class="arrow-link__label">Get Our Newsletter</span>
+			</a>
+
+		</div>
+
+		<div class="site-footer__contact">
+			<h3 class="site-footer__contact-heading / uppercase">Contact</h3>
+			<p><a href="#">engage@open-contracting.org</a></p>
+			<p>Open Contracting Partnership,<br />641 S Street NW, 20001 Washington, D.C., USA</p>
+		</div>
+
+		<div class="site-footer__social">
+
+			<h4 class="site-footer__social-header">Connect with us:</h4>
+
+			<a href="#">
+				<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
+			</a>
+
+			<a href="#">
+				<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
+			</a>
+
+			<a href="#">
+				<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
+			</a>
+
+		</div>
+
+		<div class="site-footer__license">
+			<p>This work by the Open Contracting Partnership, unless otherwise noted, is licensed under a Creative Commons Attribution 4.0 International License.</p>
+		</div>
+
+		<div class="site-footer__copyright">
+			<span>Open Contracting Partnership 2019</span>
+			<a href="#">Terms</a>
+		</div>
+
+	</div>
+
 </footer>
 ```
 
 */
+
+$footer-break-1: 'S';
+$footer-break-2: 800;
+$footer-break-3: 1240;
+
+.site-footer {
+	background-color: $ui-grey-3;
+	color: $ui-white;
+	@extend %shell-grid;
+}
+
+	.site-footer__container {
+
+		grid-column: wide;
+		padding: spacing(4);
+
+		@include from($footer-break-1) {
+			display: grid;
+			grid-template-columns: [all-start] repeat(3, auto) [all-end];
+			grid-column-gap: spacing(3);
+		}
+
+		@include from($footer-break-2) {
+			grid-template-columns: [all-start] repeat(4, auto) [all-end];
+		}
+
+	}
+
+		.site-footer__logo {
+
+			@include upto($footer-break-1) {
+				display: none;
+			}
+
+			@include from($footer-break-1) {
+				grid-column: 1;
+				grid-row: 1;
+			}
+
+		}
+
+			.site-footer__logo > svg {
+				font-size: 148px;
+				height: 1em;
+				width: .60em;
+				display: block;
+			}
+
+		.site-footer__navigation {
+
+			@include upto($footer-break-2) {
+				display: none;
+			}
+
+			font-size: 14px;
+			@include font('secondary', 'bold');
+			grid-column: 2;
+			grid-row: 1;
+			display: flex;
+			flex-wrap: wrap;
+			align-content: flex-start;
+
+			> li {
+				margin-right: spacing(4);
+				margin-bottom: spacing(2);
+			}
+
+			a {
+				@extend %reverse-underline;
+			}
+
+			ul {
+
+				font-size: 10px;
+				color: $ui-grey-5;
+				list-style: none;
+				margin: 0;
+				padding: spacing(1) 0 0 0;
+
+				@include upto($footer-break-3) {
+					display: none;
+				}
+
+			}
+
+		}
+
+		.site-footer__cta {
+
+			margin-bottom: spacing(3);
+
+			@include from($footer-break-1) {
+				display: none;
+			}
+
+		}
+
+		.site-footer__contact {
+
+			font-size: 12px;
+			@include font('secondary');
+			border: 3px solid $ui-brand;
+			border-radius: spacing(4) 0 0 0;
+			padding: spacing(2) spacing(3);
+			margin-bottom: spacing(4);
+
+			@include from($footer-break-1) {
+				grid-column: -3;
+				grid-row: 1;
+			}
+
+		}
+
+			.site-footer__contact-heading {
+				font-size: 20px;
+			}
+
+			.site-footer__contact a {
+				font-size: 14px;
+			}
+
+			.site-footer__contact p {
+				margin-bottom: spacing(1);
+			}
+
+			.site-footer__contact p:last-child {
+				margin-bottom: 0;
+			}
+
+
+		.site-footer__social {
+
+			display: flex;
+			align-items: center;
+			margin-bottom: spacing(4);
+
+			@include from($footer-break-1) {
+				grid-column: -2;
+				grid-row: 1;
+				flex-direction: column;
+			}
+
+		}
+
+			.site-footer__social-header {
+
+				font-size: 19px;
+				margin-bottom: 0;
+
+				@include from($footer-break-1) {
+					font-size: 14px;
+				}
+
+			}
+
+			.site-footer__social a {
+
+				display: block;
+
+				@include upto($footer-break-1) {
+					margin-left: spacing(3);
+				}
+
+				@include from($footer-break-1) {
+					margin-top: spacing(2);
+				}
+
+			}
+
+			.site-footer__social a > svg {
+
+				font-size: 24px;
+				height: 1em;
+				fill: $ui-brand;
+				display: block;
+
+				&[data-platform="twitter"] {
+					width: 1.09em;
+				}
+
+				&[data-platform="facebook"] {
+					width: 0.54em;
+				}
+
+				&[data-platform="linkedin"] {
+					width: 0.90em;
+				}
+
+			}
+
+		.site-footer__license {
+
+			font-size: 9px;
+			color: $ui-grey-4;
+			margin-bottom: spacing(2);
+
+			@include from($footer-break-1) {
+				grid-column: all;
+				grid-row: 2;
+			}
+
+		}
+
+			.site-footer__license p:last-child {
+				margin-bottom: 0;
+			}
+
+
+		.site-footer__copyright {
+
+			font-size: 9px;
+			color: $ui-grey-5;
+
+			@include from($footer-break-1) {
+				grid-column: all;
+				grid-row: 3;
+			}
+
+		}
+
+			.site-footer__copyright > *:not(:last-child) {
+				margin-right: spacing(3);
+			}
