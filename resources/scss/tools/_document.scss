@@ -3,9 +3,9 @@ html {
 }
 
 body {
-	
+
 	@include font;
-	@include font-size(16, 18);
+	font-size: 18px;
 	line-height: 1.5;
 	color: $ui-black;
 
@@ -19,6 +19,25 @@ body {
 	-webkit-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
+
+	position: relative;
+	right: 0;
+	transition: right .3s ease;
+
+	&.mobile-menu-active {
+		right: calc(100% - 80px);
+		overflow: hidden;
+		cursor: pointer;
+	}
+
+	@include mq(M) {
+
+		&.mobile-menu-active {
+			right: auto;
+			overflow: initial;
+		}
+
+	}
 
 }
 

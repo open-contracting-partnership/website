@@ -1,0 +1,42 @@
+/*
+
+---
+name: Stories
+category:
+ - Blocks
+ - Blocks/Stories
+---
+
+```html
+
+<div class="block" data-block-type="stories">
+
+	<div class="block__background" style="color: white; background-color: red">
+
+		<div class="block__container">
+			<h1 class="block__heading">Title</h1>
+			<h2 class="block__heading">Secondary</h2>
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.block[data-block-type="stories"] {
+
+	.block__background {
+		grid-column: full;
+	}
+
+	.block__container {
+		grid-column: wide;
+	}
+
+	.block__heading {
+		color: currentColor;
+	}
+
+}

@@ -1,3 +1,16 @@
+// FU WP.
+.card {
+	position: initial;
+	margin-top: initial;
+	padding: initial;
+	min-width: initial;
+	max-width: initial;
+	border: initial;
+	box-shadow: initial;
+	background: initial;
+	box-sizing: initial;
+}
+
 /*
 
 ---
@@ -55,7 +68,7 @@ category:
 
 .card--primary {
 
-	border-radius: spacing(4) spacing(1) spacing(0) spacing(2);
+	border-radius: spacing(4) spacing(1) 0 spacing(2);
 	overflow: hidden;
 	background: $ui-grey;
 	color: $ui-white;
@@ -105,6 +118,7 @@ category:
 			.card__title {
 				font-size: 18px;
 				margin-bottom: 10px;
+				color: currentColor;
 			}
 
 		.card__footer {
@@ -129,14 +143,14 @@ category:
 /*
 
 ---
-name: Image card
+name: Feature card
 category:
  - Components
  - Components/Cards
 ---
 
 ```html
-<div class="card card--image">
+<div class="card card--feature">
 
 	<div class="card__image">
 
@@ -161,8 +175,9 @@ category:
 
 */
 
-.card--image {
+.card--feature {
 
+	position: relative;
 	border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
 	overflow: hidden;
 	background: $ui-grey;
@@ -199,15 +214,33 @@ category:
 		}
 
 			.card__title-link {
+
 				display: block;
 				color: currentColor;
 				text-decoration: none;
 				text-transform: uppercase;
+
+				&::after {
+					content: '';
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+				}
+
+				&:hover,
+				&:focus,
+				&:active {
+					text-decoration: underline;
+				}
+
 			}
 
 				.card__title {
 					font-size: 24px;
 					margin-bottom: 10px;
+					color: currentColor;
 				}
 
 			.card__intro {
@@ -220,5 +253,53 @@ category:
 				}
 
 			}
+
+}
+
+/*
+
+---
+name: Square card
+category:
+ - Components
+ - Components/Cards
+---
+
+```html
+<div class="card card--square">
+
+	<div class="card__image">
+
+		<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=crop&h=500&w=500&sat=-100" />
+
+
+
+	</div>
+
+</div>
+```
+
+*/
+
+.card--square {
+
+	position: relative;
+	border-radius: spacing(4) spacing(1);
+	overflow: hidden;
+	background: $ui-grey;
+	color: $ui-white;
+	box-shadow: 4px 4px 12px rgba(0, 0, 0, .25);
+	max-width: 600px; // temp, dev
+
+	.card__image {
+
+		width: 100%;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+
+	}
 
 }
