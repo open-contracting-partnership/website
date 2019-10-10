@@ -58,6 +58,10 @@ category:
 
 			</ul>
 
+			<div class="site-header__mobile-language">
+				<a href="#">Espanol</a>
+			</div>
+
 		</nav>
 
 		<div class="site-header__toolbox">
@@ -212,6 +216,16 @@ $header-break-3: 1240;
   					-webkit-overflow-scrolling: touch;
 				}
 
+				ul {
+					list-style: none;
+					margin: spacing(1) 0 0 0;
+					padding: 0;
+				}
+
+				ul ul {
+					padding-left: spacing(3);
+				}
+
 				li {
 					margin-bottom: spacing(1);
 				}
@@ -229,10 +243,10 @@ $header-break-3: 1240;
 
 				}
 
-				ul {
-					list-style: none;
-					margin: spacing(1) 0 0 0;
-					padding: 0 0 0 spacing(3);
+				.site-header__mobile-language {
+					margin-top: spacing(3);
+					padding-top: spacing(3);
+					border-top: 2px solid $ui-grey-4;
 				}
 
 			}
@@ -256,6 +270,10 @@ $header-break-3: 1240;
 
 				a {
 					display: block;
+				}
+
+				.site-header__mobile-language {
+					display: none;
 				}
 
 				// top-level
