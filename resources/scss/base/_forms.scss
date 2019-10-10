@@ -269,3 +269,89 @@ textarea {
 :-ms-input-placeholder {
    color: $ui-grey;
 }
+
+/*
+
+---
+name: Header Select
+category:
+ - Base
+ - Base/Forms
+---
+
+```html
+<div class="select-menu select-menu--block select-menu--alt select-menu--small">
+
+	<label class="visually-hidden">Child marriage and…</label>
+
+	<select class="">
+		<option>Spanish</option>
+		<option>English</option>
+	</select>
+
+	<div class="select-menu__arrow"></div>
+
+</div>
+```
+
+*/
+
+.select-menu {
+
+	position: relative;
+	display: inline-block;
+	padding: 0;
+	text-align: left;
+	color: $ui-grey-5;
+	background-color: $ui-grey-3;
+	border: 1px solid $ui-grey-5;
+	border-radius: 2px 10px 10px 2px;
+	margin-bottom: $space;
+
+	.select-menu__arrow {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto spacing(1);
+		width: 0;
+		height: 0;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		border-top: 8px solid $ui-grey-5;
+	}
+
+	select {
+
+		@include font('secondary', 'bold');
+		font-size: 11px;
+		position: relative;
+		height: 20px;
+		display: grid;
+		align-items: center;
+		padding-left: 6px;
+		padding-right: spacing(3);
+		color: $ui-grey-5;
+		width: 100%;
+		cursor: pointer;
+		background: transparent;
+		border: none;
+		border-radius: 5px;
+		box-sizing: border-box;
+	  	appearance: none;
+		z-index: 1;
+
+	  	&:focus {
+	    	outline: 0;
+		}
+
+	}
+
+	option {
+		@include font('secondary');
+		background: $ui-white;
+		color: $ui-black;
+	}
+
+
+}
