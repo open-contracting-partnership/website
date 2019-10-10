@@ -79,6 +79,16 @@ category:
 
 			</div>
 
+			<div class="site-header__search">
+
+				<input type="text" placeholder="Search">
+
+				<button class="button--naked">
+					<svg><use xlink:href="#icon-search"></use></svg>
+				</button>
+
+			</div>
+
 		</div>
 
 		<div class="site-header__hamburger">
@@ -121,6 +131,7 @@ $header-break-3: 1240;
 		display: grid;
 		padding: spacing(2) spacing(3);
 		grid-template-columns: auto 32px;
+		z-index: 1;
 
 		@include from($header-break-2) {
 			grid-template-columns: [all-start] repeat(2, auto) [all-end];
@@ -139,6 +150,7 @@ $header-break-3: 1240;
 			height: 1em;
 			width: 1em;
 			position: absolute;
+			z-index: -1;
 
 			@include upto($header-break-2) {
 				top: 50%;
@@ -155,19 +167,6 @@ $header-break-3: 1240;
 			}
 
 		}
-
-
-		// padding: spacing(4);
-
-		// @include from($header-break-1) {
-		// 	display: grid;
-		// 	grid-template-columns: [all-start] repeat(3, auto) [all-end];
-		// 	grid-column-gap: spacing(3);
-		// }
-		//
-		// @include from($header-break-2) {
-		// 	grid-template-columns: [all-start] repeat(4, auto) [all-end];
-		// }
 
 	}
 
@@ -426,8 +425,87 @@ $header-break-3: 1240;
 
 			grid-column: -2;
 			grid-row: 1;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+ 			margin-bottom: auto;
+
+			a {
+				font-size: 11px;
+				@include font('secondary', 'bold');
+				color: $ui-grey-5;
+				@extend %reverse-underline;
+			}
+
+			> *:not(:last-child) {
+				margin-right: spacing(2);
+			}
 
 		}
+
+			.site-header__search {
+
+				height: 20px;
+				border: 1px solid $ui-grey-5;
+				border-radius: 2px 10px 10px 2px;
+				display: flex;
+				padding: 1px;
+				width: 100px;
+
+				input {
+
+					font-size: 11px;
+					flex: 1 1 100%;
+					@include font('secondary', 'bold');
+					border: none;
+					background: none;
+					border-radius: 0;
+					color: $ui-grey-5;
+					padding: 0 3px 0 9px;
+					margin: 0;
+					min-width: 0;
+
+					&::-webkit-input-placeholder {
+						@include font('secondary', 'bold');
+						color: $ui-grey-5;
+						opacity: 1;
+					}
+
+					&:-moz-placeholder { /* Firefox 18- */
+						@include font('secondary', 'bold');
+						color: $ui-grey-5;
+						opacity: 1;
+					}
+
+					&::-moz-placeholder {  /* Firefox 19+ */
+						@include font('secondary', 'bold');
+						color: $ui-grey-5;
+						opacity: 1;
+					}
+
+					&:-ms-input-placeholder {
+						@include font('secondary', 'bold');
+						color: $ui-grey-5;
+						opacity: 1;
+					}
+
+				}
+
+				button {
+
+					flex: 0 0 auto;
+
+					> svg {
+						display: block;
+						font-size: 16px;
+						height: 1em;
+						width: 1em;
+						fill: $ui-grey-5;
+					}
+
+				}
+
+			}
 
 		.site-header__hamburger {
 

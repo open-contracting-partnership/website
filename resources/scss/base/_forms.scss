@@ -306,7 +306,6 @@ category:
 	background-color: $ui-grey-3;
 	border: 1px solid $ui-grey-5;
 	border-radius: 2px 10px 10px 2px;
-	margin-bottom: $space;
 
 	.select-menu__arrow {
 		position: absolute;
@@ -326,7 +325,7 @@ category:
 		@include font('secondary', 'bold');
 		font-size: 11px;
 		position: relative;
-		height: 20px;
+		height: 18px;
 		display: grid;
 		align-items: center;
 		padding-left: 6px;
