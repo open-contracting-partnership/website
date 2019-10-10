@@ -38,6 +38,7 @@ mix.sass('resources/scss/styles.scss', 'dist/css')
 	});
 
 mix.js('resources/js/scripts.js', 'dist/js')
+	.js('resources/js/header.js', 'dist/js')
 	.js('resources/js/svg.js', 'dist/js')
 	.then((stats) => {
 

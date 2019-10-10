@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 a {
-	
+
     text-decoration: underline;
     word-wrap: break-word;
 	color: currentColor;
@@ -30,6 +30,21 @@ a {
 	&:active {
 		text-decoration: none;
 	}
+}
+
+@mixin reverse-underline {
+
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+
+	&:active {
+		text-decoration: none;
+	}
+
 }
 
 h1,

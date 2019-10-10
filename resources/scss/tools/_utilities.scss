@@ -17,7 +17,7 @@ This is used to completely remove an element from the document flow and from scr
 
 This is usually applied or removed with JavaScript.
 
-> .is-visually-hidden
+> .visually-hidden
 
 This is still visible to screen-readers, so it is used for accessibility purposes.
 
@@ -59,7 +59,7 @@ This is used to apply `text-align: left;`
 
 // Completely remove from the flow but leave available to screen readers.
 
-.is-visually-hidden {
+.visually-hidden {
     position: absolute !important;
     overflow: hidden;
     width: 1px;

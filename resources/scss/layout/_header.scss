@@ -10,7 +10,460 @@ category:
 ```html
 <header class="site-header">
 
+	<div class="site-header__container">
+
+		<a class="site-header__logo" href="#">
+			<svg><use xlink:href="#logo-horizontal"></use></svg>
+		</a>
+
+		<nav class="site-header__navigation">
+
+			<ul class="">
+
+				<li>
+					<a href="#">What is Open Contracting</a>
+				</li>
+
+				<li>
+
+					<a href="#">Impact</a>
+
+					<ul>
+						<li><a href="#">Worldwide</a></li>
+					</ul>
+
+				</li>
+
+				<li>
+					<a href="#">Implement</a>
+				</li>
+
+				<li>
+
+					<a href="#">Data</a>
+
+					<ul>
+						<li><a href="#">Data Standard</a></li>
+					</ul>
+
+				</li>
+
+				<li>
+					<a href="#">About</a>
+				</li>
+
+				<li>
+					<a href="#">Latest</a>
+				</li>
+
+			</ul>
+
+		</nav>
+
+		<div class="site-header__toolbox">
+
+			<a href="#">Data Standard</a>
+
+			<a href="#">Worldwide</a>
+
+			<div class="select-menu select-menu--block select-menu--alt select-menu--small">
+
+				<label class="visually-hidden">Child marriage and…</label>
+
+				<select class="">
+					<option>Spanish</option>
+					<option>English</option>
+				</select>
+
+				<div class="select-menu__arrow"></div>
+
+			</div>
+
+		</div>
+
+		<div class="site-header__hamburger">
+
+			<svg data-icon="menu">
+				<use xlink:href="#icon-menu" />
+			</svg>
+
+			<svg data-icon="close">
+				<use xlink:href="#icon-close" />
+			</svg>
+
+		</div>
+
+	</div>
+
 </header>
 ```
 
 */
+
+$header-break-1: 'S';
+$header-break-2: 768;
+$header-break-3: 1240;
+
+.site-header {
+	background-color: $ui-grey-3;
+	color: $ui-white;
+	@extend %shell-grid;
+}
+
+	.site-header__container {
+
+		@include upto(1024) {
+			overflow: hidden;
+		}
+
+		position: relative;
+		grid-column: wide;
+		display: grid;
+		padding: spacing(2) spacing(3);
+		grid-template-columns: auto 32px;
+
+		@include from($header-break-2) {
+			grid-template-columns: [all-start] repeat(2, auto) [all-end];
+			grid-row-gap: spacing(2);
+			padding: spacing(3) spacing(3) 0;
+		}
+
+		&::before {
+
+			content: '';
+			display: block;
+			border: spacing(3) solid $ui-grey-2;
+			border-radius: 50%;
+			opacity: .8;
+			font-size: 120px;
+			height: 1em;
+			width: 1em;
+			position: absolute;
+
+			@include upto($header-break-2) {
+				top: 50%;
+				right: -20px;
+				transform: translateY(-50%);
+			}
+
+			@include from($header-break-2) {
+				border-width: spacing(4);
+				font-size: 150px;
+				top: -70px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+
+		}
+
+
+		// padding: spacing(4);
+
+		// @include from($header-break-1) {
+		// 	display: grid;
+		// 	grid-template-columns: [all-start] repeat(3, auto) [all-end];
+		// 	grid-column-gap: spacing(3);
+		// }
+		//
+		// @include from($header-break-2) {
+		// 	grid-template-columns: [all-start] repeat(4, auto) [all-end];
+		// }
+
+	}
+
+		.site-header__logo {
+
+			grid-column: 1;
+			grid-row: 1;
+
+			> svg {
+
+				font-size: 56px;
+				height: 1em;
+				width: 2.833em;
+
+				@include from(1024) {
+					font-size: 65px;
+				}
+
+			}
+
+		}
+
+		.site-header__navigation {
+
+			// mobile
+			@include upto($header-break-2) {
+
+				font-size: 18px;
+				@include font('secondary', 'bold');
+				background-color: $ui-grey-3;
+				z-index: 1;
+				padding: spacing(5) spacing(4);
+				position: fixed;
+				top: 0;
+				bottom: 0;
+				left: 100%;
+				width: calc(100% - 80px);
+				transition: left .3s ease;
+
+				body.mobile-menu-active & {
+					left: 80px;
+					overflow-y: scroll;
+  					-webkit-overflow-scrolling: touch;
+				}
+
+				li {
+					margin-bottom: spacing(1);
+				}
+
+				a {
+
+					color: $ui-white;
+					text-decoration: none;
+
+					&:hover,
+					&:focus,
+					&:active {
+						text-decoration: underline;
+					}
+
+				}
+
+				ul {
+					list-style: none;
+					margin: spacing(1) 0 0 0;
+					padding: 0 0 0 spacing(3);
+				}
+
+			}
+
+			// desktop
+			@include from($header-break-2) {
+
+				// generic
+
+				font-size: 15px;
+				@include font('secondary', 'bold');
+				grid-column: all;
+				grid-row: 2;
+				position: relative;
+
+				ul,
+				li {
+					margin: 0;
+					padding: 0;
+				}
+
+				a {
+					display: block;
+				}
+
+				// top-level
+				> ul {
+
+					display: flex;
+					flex-wrap: wrap;
+
+					> li {
+
+						> a {
+
+							font-size: 15px;
+							color: $ui-white;
+							padding: spacing(2) 0;
+							margin-right: spacing(6);
+							text-decoration: none;
+
+							border-bottom: 5px solid transparent;
+							position: relative;
+
+							&::before {
+								content: '';
+								display: block;
+								position: absolute;
+								left: 0;
+								right: 0;
+								bottom: -5px;
+								height: 0;
+								background-color: $ui-brand;
+								transition: height .2s ease;
+							}
+
+							&:hover,
+							&:active,
+							&:focus {
+
+								text-decoration: none;
+
+								&::before {
+									height: 5px;
+								}
+
+							}
+
+						}
+
+						&.current-menu-item > ul,
+						&.current-menu-ancestor > ul {
+							display: flex;
+						}
+
+						&:hover > ul {
+							display: flex;
+							z-index: 1;
+						}
+
+						&.menu-item-has-children > a {
+
+							display: flex;
+							align-items: center;
+
+							&::after {
+								content: '';
+								background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 8'%3E%3Cpath fill='%23fff' d='M6 8L1 1h10L6 8z'/%3E%3C/svg%3E");
+								display: block;
+								height: 8px;
+								width: 12px;
+								margin-left: spacing(1);
+							}
+
+						}
+
+						&:hover.menu-item-has-children,
+						&.current-menu-ancestor.menu-item-has-children,
+						&.current-menu-item.menu-item-has-children {
+
+							> a::after {
+								background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 8'%3E%3Cpath fill='%23B9C504' d='M6 8L1 1h10L6 8z'/%3E%3C/svg%3E");
+							}
+
+						}
+
+					}
+
+				}
+
+				// second level
+				ul ul {
+
+					display: none;
+
+					font-size: 18px;
+					@include font('secondary', 'medium');
+					// color: color('body');
+					// background-color: color('lightest-grey');
+					// border-bottom: 1px solid color('lighter-grey');
+					position: absolute;
+					top: 100%;
+					left: 0;
+					right: 0;
+					margin: 0;
+
+					box-sizing: border-box;
+					padding: 0 spacing(3);
+
+					@include mq(XL) {
+						padding: 0 calc((100vw - 1152px) / 2);
+					}
+
+					@include mq($max-width + 40) {
+						padding: 0 calc((100vw - 1200px) / 2);
+					}
+
+
+					a {
+
+						color: inherit;
+						text-decoration: none;
+						padding: spacing(3) 0;
+						margin-right: spacing(4);
+						position: relative;
+						overflow: hidden;
+						line-height: 1;
+
+						&:after {
+							content: '';
+							display: block;
+							position: absolute;
+							left: 0;
+							right: 0;
+							bottom: -3px;
+							height: 3px;
+							background-color: $ui-brand;
+							transition: bottom .2s ease;
+						}
+
+						&:hover,
+						&:active,
+						&:focus,
+						&.current-menu-item,
+						&.current-menu-parent {
+
+							text-decoration: none;
+
+							&:after {
+								bottom: 0;
+							}
+
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+
+
+		.site-header__toolbox {
+
+			@include upto($header-break-2) {
+				display: none;
+			}
+
+			grid-column: -2;
+			grid-row: 1;
+
+		}
+
+		.site-header__hamburger {
+
+			font-size: 33px;
+			height: 1em;
+			width: 1em;
+			position: relative;
+			align-self: center;
+			cursor: pointer;
+
+			@include from($header-break-2) {
+				display: none;
+			}
+
+			> svg {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				fill: $ui-white;
+				display: block;
+				width: 1em;
+				height: 1em;
+				transition: opacity .3s ease;
+			}
+
+			> svg[data-icon="menu"] {
+				height: .67em;
+			}
+
+			body.mobile-menu-active & > svg[data-icon="menu"] {
+				opacity: 0;
+			}
+
+			body:not(.mobile-menu-active) & > svg[data-icon="close"] {
+				opacity: 0;
+			}
+
+		}
