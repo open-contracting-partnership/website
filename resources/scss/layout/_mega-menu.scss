@@ -1,0 +1,171 @@
+/*
+
+---
+name: Mega Menu
+category:
+ - Layout
+ - Layout/Mega Menu
+---
+
+```html
+<nav class="mega-menu" aria-label="secondary">
+
+	<div class="mega-menu__container">
+
+		<h3 class="mega-menu__heading">
+
+			<a class="arrow-link" data-icon-color="white" href="#">
+				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+				<span class="arrow-link__label">Learn more about who we are</span>
+			</a>
+
+		</h3>
+
+		<div class="mega-menu__intro">
+			<p>We transform public contracting so that it is fair and efficient. Learn about who we are, our vision, mission, strategy and values.</p>
+		</div>
+
+		<ul class="mega-menu__nav">
+
+			<li>
+				<a href="#">Team</a>
+			</li>
+
+			<li>
+				<a href="#">Advisory Board</a>
+			</li>
+
+			<li>
+				<a href="#">Governance</a>
+			</li>
+
+			<li>
+				<a href="#">Financing</a>
+			</li>
+
+		</ul>
+
+		<ul class="mega-menu__nav">
+
+			<li>
+
+				<span class="mega-menu__sub-nav-heading">Topics</span>
+
+				<ul class="mega-menu__sub-nav">
+
+					<li>
+						<a href="#">Beneficial Ownership</a>
+					</li>
+
+					<li>
+						<a href="#">Gender</a>
+					</li>
+
+					<li>
+						<a href="#">Education</a>
+					</li>
+
+					<li>
+						<a href="#">Health</a>
+					</li>
+
+					<li>
+						<a href="#">Extractives</a>
+					</li>
+
+					<li>
+						<a href="#">Infrastructure</a>
+					</li>
+
+				</ul>
+
+			</li>
+
+		</ul>
+
+	</div>
+
+</nav>
+```
+
+*/
+
+$header-break-1: 'S';
+$header-break-2: 768;
+$header-break-3: 1240;
+
+.mega-menu {
+	@include shell-grid;
+	background-color: #505596;
+	color: $ui-white;
+}
+
+	.mega-menu__container {
+
+		grid-column: 2;
+		padding: spacing(4) spacing(3) spacing(8);
+
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: spacing(3) spacing(2);
+
+		@include from($header-break-3) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+	}
+
+		.mega-menu__heading {
+
+			grid-row: 1;
+			grid-column: 1 / -1;
+			margin-bottom: 0;
+
+			@include from($header-break-3) {
+				grid-column: 2 / -1;
+				margin-left: -36px;
+			}
+
+		}
+
+		.mega-menu__intro {
+
+			font-size: 16px;
+			font-style: italic;
+			grid-row: 2;
+			color: $ui-grey-7;
+			padding-right: spacing(8);
+
+			p:last-child {
+				margin-bottom: 0;
+			}
+
+		}
+
+		.mega-menu__nav {
+
+			font-size: 14px;
+			@include font('secondary', 'bold');
+			grid-row: 2;
+
+			li {
+				margin-bottom: spacing(1);
+			}
+
+			a {
+				@extend %reverse-underline;
+			}
+
+		}
+
+			.mega-menu__sub-nav-heading {
+				display: block;
+				margin-bottom: spacing(2);
+			}
+
+			.mega-menu__sub-nav {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-column-gap: spacing(1);
+				@include font('secondary');
+			}
