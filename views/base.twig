@@ -5,9 +5,9 @@
 
     <body class="{{ body_class }}">
 
-		<main>
+		{% include 'partial-header.twig' %}
 
-			{{ function('get_search_form') }}
+		<main>
 
 			{% block content %}
 	            <p>Sorry, no content</p>
@@ -20,7 +20,7 @@
 		<script>
 
 			var ajax = new XMLHttpRequest();
-			ajax.open('GET', '<?php echo get_bloginfo('template_directory'); ?>/dist/svg/icons.svg?v=<?php echo wp_get_theme()->Version; ?>', true);
+			ajax.open('GET', '{{ theme.uri }}/dist/svg/icons.svg?v={{ theme.version }}', true);
 			ajax.send();
 			ajax.onload = function(e) {
 				var div = document.createElement('div');
