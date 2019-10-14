@@ -970,13 +970,13 @@ a:active {
   text-decoration: underline;
 }
 
-.site-header__toolbox a, .site-footer__navigation a {
+.mega-menu__nav a, .site-header__toolbox a, .site-footer__navigation a {
   text-decoration: none;
 }
-.site-header__toolbox a:hover, .site-footer__navigation a:hover, .site-header__toolbox a:focus, .site-footer__navigation a:focus {
+.mega-menu__nav a:hover, .site-header__toolbox a:hover, .site-footer__navigation a:hover, .mega-menu__nav a:focus, .site-header__toolbox a:focus, .site-footer__navigation a:focus {
   text-decoration: underline;
 }
-.site-header__toolbox a:active, .site-footer__navigation a:active {
+.mega-menu__nav a:active, .site-header__toolbox a:active, .site-footer__navigation a:active {
   text-decoration: none;
 }
 
@@ -2247,6 +2247,85 @@ category:
 						<li><a href="#">Worldwide</a></li>
 					</ul>
 
+					<nav class="site-header__mega-nav / mega-menu" aria-label="secondary">
+
+						<div class="mega-menu__container">
+
+							<h3 class="mega-menu__heading">
+
+								<a class="arrow-link" data-icon-color="white" href="#">
+									<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+									<span class="arrow-link__label">Learn more about who we are</span>
+								</a>
+
+							</h3>
+
+							<div class="mega-menu__intro">
+								<p>We transform public contracting so that it is fair and efficient. Learn about who we are, our vision, mission, strategy and values.</p>
+							</div>
+
+							<ul class="mega-menu__nav">
+
+								<li>
+									<a href="#">Team</a>
+								</li>
+
+								<li>
+									<a href="#">Advisory Board</a>
+								</li>
+
+								<li>
+									<a href="#">Governance</a>
+								</li>
+
+								<li>
+									<a href="#">Financing</a>
+								</li>
+
+							</ul>
+
+							<ul class="mega-menu__nav">
+
+								<li>
+
+									<span class="mega-menu__sub-nav-heading">Topics</span>
+
+									<ul class="mega-menu__sub-nav">
+
+										<li>
+											<a href="#">Beneficial Ownership</a>
+										</li>
+
+										<li>
+											<a href="#">Gender</a>
+										</li>
+
+										<li>
+											<a href="#">Education</a>
+										</li>
+
+										<li>
+											<a href="#">Health</a>
+										</li>
+
+										<li>
+											<a href="#">Extractives</a>
+										</li>
+
+										<li>
+											<a href="#">Infrastructure</a>
+										</li>
+
+									</ul>
+
+								</li>
+
+							</ul>
+
+						</div>
+
+					</nav>
+
 				</li>
 
 				<li>
@@ -2272,6 +2351,10 @@ category:
 				</li>
 
 			</ul>
+
+			<div class="site-header__mobile-language">
+				<a href="#">Espanol</a>
+			</div>
 
 		</nav>
 
@@ -2337,7 +2420,7 @@ category:
   grid-template-columns: auto 32px;
   z-index: 1;
 }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 767px) {
   .site-header__container {
     overflow: hidden;
   }
@@ -2415,6 +2498,14 @@ category:
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
   }
+  .site-header__navigation ul {
+    list-style: none;
+    margin: 8px 0 0 0;
+    padding: 0;
+  }
+  .site-header__navigation ul ul {
+    padding-left: 24px;
+  }
   .site-header__navigation li {
     margin-bottom: 8px;
   }
@@ -2425,10 +2516,10 @@ category:
   .site-header__navigation a:hover, .site-header__navigation a:focus, .site-header__navigation a:active {
     text-decoration: underline;
   }
-  .site-header__navigation ul {
-    list-style: none;
-    margin: 8px 0 0 0;
-    padding: 0 0 0 24px;
+  .site-header__navigation .site-header__mobile-language {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 2px solid #666666;
   }
 }
 @media screen and (min-width: 768px) {
@@ -2447,14 +2538,29 @@ category:
     margin: 0;
     padding: 0;
   }
-  .site-header__navigation a {
-    display: block;
+  .site-header__navigation .site-header__mobile-language {
+    display: none;
   }
+  .site-header__navigation .site-header__mega-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 -24px;
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 1240px) {
+  .site-header__navigation .site-header__mega-nav {
+    margin: 0 calc(-24px - ((100vw - 1240px) / 2));
+  }
+}
+@media screen and (min-width: 768px) {
   .site-header__navigation > ul {
     display: flex;
     flex-wrap: wrap;
   }
   .site-header__navigation > ul > li > a {
+    display: block;
     font-size: 15px;
     color: #FFF;
     padding: 16px 0;
@@ -2480,80 +2586,39 @@ category:
   .site-header__navigation > ul > li > a:hover::before, .site-header__navigation > ul > li > a:active::before, .site-header__navigation > ul > li > a:focus::before {
     height: 5px;
   }
-  .site-header__navigation > ul > li.current-menu-item > ul, .site-header__navigation > ul > li.current-menu-ancestor > ul {
-    display: flex;
-  }
-  .site-header__navigation > ul > li:hover > ul {
-    display: flex;
-    z-index: 1;
-  }
-  .site-header__navigation > ul > li.menu-item-has-children > a {
-    display: flex;
-    align-items: center;
-  }
-  .site-header__navigation > ul > li.menu-item-has-children > a::after {
-    content: "";
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 8'%3E%3Cpath fill='%23fff' d='M6 8L1 1h10L6 8z'/%3E%3C/svg%3E");
+  .site-header__navigation > ul > li:hover .site-header__mega-nav {
     display: block;
-    height: 8px;
-    width: 12px;
-    margin-left: 8px;
   }
-  .site-header__navigation > ul > li:hover.menu-item-has-children > a::after, .site-header__navigation > ul > li.current-menu-ancestor.menu-item-has-children > a::after, .site-header__navigation > ul > li.current-menu-item.menu-item-has-children > a::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 8'%3E%3Cpath fill='%23B9C504' d='M6 8L1 1h10L6 8z'/%3E%3C/svg%3E");
+  .site-header__navigation > ul > li:hover > a {
+    text-decoration: none;
   }
-  .site-header__navigation ul ul {
+  .site-header__navigation > ul > li:hover > a::before {
+    height: 5px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .site-header__navigation > ul > li > ul {
     display: none;
-    font-size: 18px;
-    font-weight: 500;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+}
+@media screen and (min-width: 768px) {
+  .site-header__navigation .site-header__mobile-language {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .site-header__navigation .site-header__mega-nav {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    margin: 0;
-    box-sizing: border-box;
-    padding: 0 24px;
+    margin: 0 -24px;
   }
 }
-@media screen and (min-width: 768px) and (min-width: XL) {
-  .site-header__navigation ul ul {
-    padding: 0 calc((100vw - 1152px) / 2);
-  }
-}
-@media screen and (min-width: 768px) and (min-width: 1480px) {
-  .site-header__navigation ul ul {
-    padding: 0 calc((100vw - 1200px) / 2);
-  }
-}
-@media screen and (min-width: 768px) {
-  .site-header__navigation ul ul a {
-    color: inherit;
-    text-decoration: none;
-    padding: 24px 0;
-    margin-right: 32px;
-    position: relative;
-    overflow: hidden;
-    line-height: 1;
-  }
-  .site-header__navigation ul ul a:after {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -3px;
-    height: 3px;
-    background-color: #E0E83D;
-    transition: bottom 0.2s ease;
-  }
-  .site-header__navigation ul ul a:hover, .site-header__navigation ul ul a:active, .site-header__navigation ul ul a:focus, .site-header__navigation ul ul a.current-menu-item, .site-header__navigation ul ul a.current-menu-parent {
-    text-decoration: none;
-  }
-  .site-header__navigation ul ul a:hover:after, .site-header__navigation ul ul a:active:after, .site-header__navigation ul ul a:focus:after, .site-header__navigation ul ul a.current-menu-item:after, .site-header__navigation ul ul a.current-menu-parent:after {
-    bottom: 0;
+@media screen and (min-width: 768px) and (min-width: 1240px) {
+  .site-header__navigation .site-header__mega-nav {
+    margin: 0 calc(-24px - ((100vw - 1240px) / 2));
   }
 }
 
@@ -2587,7 +2652,7 @@ category:
   border: 1px solid #C4C4C4;
   border-radius: 2px 10px 10px 2px;
   display: flex;
-  padding: 1px;
+  padding: 2px;
   width: 100px;
 }
 .site-header__search input {
@@ -2644,7 +2709,7 @@ category:
 }
 .site-header__search button > svg {
   display: block;
-  font-size: 16px;
+  font-size: 14px;
   height: 1em;
   width: 1em;
   fill: #C4C4C4;
@@ -2682,6 +2747,166 @@ body.mobile-menu-active .site-header__hamburger > svg[data-icon=menu] {
 }
 body:not(.mobile-menu-active) .site-header__hamburger > svg[data-icon=close] {
   opacity: 0;
+}
+
+/*
+
+---
+name: Mega Menu
+category:
+ - Layout
+ - Layout/Mega Menu
+---
+
+```html
+<nav class="mega-menu" aria-label="secondary">
+
+	<div class="mega-menu__container">
+
+		<h3 class="mega-menu__heading">
+
+			<a class="arrow-link" data-icon-color="white" href="#">
+				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+				<span class="arrow-link__label">Learn more about who we are</span>
+			</a>
+
+		</h3>
+
+		<div class="mega-menu__intro">
+			<p>We transform public contracting so that it is fair and efficient. Learn about who we are, our vision, mission, strategy and values.</p>
+		</div>
+
+		<ul class="mega-menu__nav">
+
+			<li>
+				<a href="#">Team</a>
+			</li>
+
+			<li>
+				<a href="#">Advisory Board</a>
+			</li>
+
+			<li>
+				<a href="#">Governance</a>
+			</li>
+
+			<li>
+				<a href="#">Financing</a>
+			</li>
+
+		</ul>
+
+		<ul class="mega-menu__nav">
+
+			<li>
+
+				<span class="mega-menu__sub-nav-heading">Topics</span>
+
+				<ul class="mega-menu__sub-nav">
+
+					<li>
+						<a href="#">Beneficial Ownership</a>
+					</li>
+
+					<li>
+						<a href="#">Gender</a>
+					</li>
+
+					<li>
+						<a href="#">Education</a>
+					</li>
+
+					<li>
+						<a href="#">Health</a>
+					</li>
+
+					<li>
+						<a href="#">Extractives</a>
+					</li>
+
+					<li>
+						<a href="#">Infrastructure</a>
+					</li>
+
+				</ul>
+
+			</li>
+
+		</ul>
+
+	</div>
+
+</nav>
+```
+
+*/
+.mega-menu {
+  display: grid;
+  grid-template-columns: [full-start] minmax(0, auto) [wide-start] minmax(0, 1240px) [wide-end] minmax(0, auto) [full-end];
+  background-color: #505596;
+  color: #FFF;
+}
+
+.mega-menu__container {
+  grid-column: 2;
+  padding: 32px 24px 64px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 24px 16px;
+}
+@media screen and (min-width: 1240px) {
+  .mega-menu__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.mega-menu__heading {
+  grid-row: 1;
+  grid-column: 1/-1;
+  margin-bottom: 0;
+}
+@media screen and (min-width: 1240px) {
+  .mega-menu__heading {
+    grid-column: 2/-1;
+    margin-left: -36px;
+  }
+}
+
+.mega-menu__intro {
+  font-size: 16px;
+  font-style: italic;
+  grid-row: 2;
+  color: #DADADA;
+  padding-right: 64px;
+}
+.mega-menu__intro p:last-child {
+  margin-bottom: 0;
+}
+
+.mega-menu__nav {
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  grid-row: 2;
+}
+.mega-menu__nav li {
+  margin-bottom: 8px;
+}
+.mega-menu__sub-nav-heading {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.mega-menu__sub-nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 8px;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /*------------------------------------*\
@@ -3059,6 +3284,159 @@ category:
 .card--square .card__image img {
   display: block;
   width: 100%;
+}
+
+/*
+
+---
+name: Resource card
+category:
+ - Components
+ - Components/Cards
+---
+
+## Default
+
+```html
+<div class="card card--resource">
+
+	<div class="card__body">
+		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+	</div>
+
+	<div class="card__footer">
+		<div class="card__icon"></div>
+		<span class="card__type">Resource</span>
+	</div>
+
+</div>
+```
+
+## Highlight Colours
+
+```html
+<div class="card card--resource" data-highlight-colour="orange">
+
+	<div class="card__body">
+		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+	</div>
+
+	<div class="card__footer">
+		<div class="card__icon"></div>
+		<span class="card__type">Resource</span>
+	</div>
+
+</div>
+
+<div class="card card--resource" data-highlight-colour="blue">
+
+	<div class="card__body">
+		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+	</div>
+
+	<div class="card__footer">
+		<div class="card__icon"></div>
+		<span class="card__type">Resource</span>
+	</div>
+
+</div>
+```
+
+## Background Colours
+
+```html
+<div class="card card--resource" data-colour-scheme="light" data-highlight-colour="orange">
+
+	<div class="card__body">
+		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+	</div>
+
+	<div class="card__footer">
+		<div class="card__icon"></div>
+		<span class="card__type">Resource</span>
+	</div>
+
+</div>
+
+<div class="card card--resource" data-colour-scheme="light" data-highlight-colour="blue">
+
+	<div class="card__body">
+		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+	</div>
+
+	<div class="card__footer">
+		<div class="card__icon"></div>
+		<span class="card__type">Resource</span>
+	</div>
+
+</div>
+```
+
+*/
+.card--resource {
+  background-color: #323232;
+  color: #FFF;
+  border-radius: 32px 8px 32px 8px;
+  max-width: 320px;
+  padding: 20px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.card--resource .card__link {
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  line-height: 1.15;
+}
+.card--resource .card__footer {
+  border-top: 4px solid #FFF;
+  margin-top: 8px;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+}
+.card--resource .card__icon {
+  display: block;
+  font-size: 30px;
+  height: 1em;
+  width: 1em;
+  border-radius: 50%;
+  border: 8px solid #FFF;
+  flex: 0 0 auto;
+  margin-right: 8px;
+  box-sizing: border-box;
+}
+.card--resource .card__type {
+  font-size: 14px;
+  flex: 1 1 100%;
+  text-transform: uppercase;
+  padding-top: 0.1em;
+}
+.card--resource[data-colour-scheme=light] {
+  background-color: #E2E1E1;
+  color: #000;
+}
+.card--resource[data-colour-scheme=light] .card__footer {
+  border-color: #000;
+}
+.card--resource[data-colour-scheme=light] .card__icon {
+  border-color: #000;
+}
+.card--resource[data-highlight-colour=orange] .card__footer {
+  border-color: #FB6045;
+}
+.card--resource[data-highlight-colour=orange] .card__icon {
+  border-color: #FB6045;
+}
+.card--resource[data-highlight-colour=blue] .card__footer {
+  border-color: #6C75E1;
+}
+.card--resource[data-highlight-colour=blue] .card__icon {
+  border-color: #6C75E1;
 }
 
 /*------------------------------------*\

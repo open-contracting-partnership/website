@@ -30,6 +30,20 @@
 
 }
 
+@mixin shell-grid() {
+
+	display: grid;
+	grid-template-columns:
+		[full-start]
+			minmax(0, auto)
+			[wide-start]
+				minmax(0, 1240px)
+			[wide-end]
+			minmax(0, auto)
+		[full-end];
+		
+}
+
 /*
 
 ---
