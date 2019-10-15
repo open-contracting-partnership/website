@@ -5,7 +5,7 @@
 	column-gap: spacing(2);
 
 	@include from(M) {
-		grid-template-columns: [wide-start] minmax(#{spacing(2)}, 1fr) [all-start] repeat(12, minmax(0, 100px)) [all-end] minmax(#{spacing(2)}, 1fr) [wide-end];
+		grid-template-columns: [wide-start] minmax(#{spacing(2)}, 1fr) [all-start]  [all-end] minmax(#{spacing(2)}, 1fr) [wide-end];
 	}
 
 }
@@ -16,20 +16,6 @@
 	grid-template-columns: [all-start] repeat(12, 1fr) [all-end];
 }
 
-%shell-grid {
-
-	display: grid;
-	grid-template-columns:
-		[full-start]
-			minmax(0, auto)
-			[wide-start]
-				minmax(0, 1240px)
-			[wide-end]
-			minmax(0, auto)
-		[full-end];
-
-}
-
 @mixin shell-grid() {
 
 	display: grid;
@@ -37,11 +23,44 @@
 		[full-start]
 			minmax(0, auto)
 			[wide-start]
-				minmax(0, 1240px)
+				0
+				[intermediate-start]
+					spacing(3)
+					[content-start]
+						repeat(12, minmax(0, 100px))
+					[content-end]
+					spacing(3)
+				[intermediate-end]
+				0
 			[wide-end]
 			minmax(0, auto)
 		[full-end];
-		
+
+	@include from(M) {
+
+		grid-template-columns:
+			[full-start]
+				minmax(0, auto)
+				[wide-start]
+					minmax(0, spacing(6))
+					[intermediate-start]
+						spacing(3)
+						[content-start]
+							repeat(12, minmax(0, 100px))
+						[content-end]
+						spacing(3)
+					[intermediate-end]
+					minmax(0, spacing(6))
+				[wide-end]
+				minmax(0, auto)
+			[full-end];
+
+	}
+
+}
+
+%shell-grid {
+	@include shell-grid();
 }
 
 /*

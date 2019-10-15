@@ -29,6 +29,10 @@ return [
 
         // Application Providers
         App\Providers\AppServiceProvider::class,
+
+		// Block Providers
+        App\Providers\Blocks\CoverServiceProvider::class,
+
     ],
 
     'aliases' => [
