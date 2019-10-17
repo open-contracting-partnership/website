@@ -29,6 +29,7 @@ return [
 
         // Application Providers
         App\Providers\AppServiceProvider::class,
+        App\Providers\AdminServiceProvider::class,
 
 		// Block Providers
         App\Providers\Blocks\CoverServiceProvider::class,
