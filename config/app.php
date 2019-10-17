@@ -33,6 +33,7 @@ return [
 
 		// Block Providers
         App\Providers\Blocks\CoverServiceProvider::class,
+        App\Providers\Blocks\ContentWithSidebarServiceProvider::class,
 
     ],
 

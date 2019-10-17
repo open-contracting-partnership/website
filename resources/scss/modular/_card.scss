@@ -442,7 +442,9 @@ category:
 
 	&[data-colour-scheme="light"] {
 
-		background-color: $ui-grey-6;
+		// NOTE: the light resource is a different colour, but then the impact
+		// page asks for this, could it remain the lighter (this) colour.
+		background-color: #F6F6F6;
 		color: $ui-black;
 
 		.card__footer {

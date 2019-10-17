@@ -1,0 +1,74 @@
+/*
+
+---
+name: Content with Sidebar
+category:
+ - Blocks
+ - Blocks/Content with Sidebar
+---
+
+```html
+<div class="block" data-block-type="content-with-sidebar">
+
+	<div class="block__background" style="background-color: #D9E021"></div>
+
+	<div class="block__content">
+		<h2>The evidence</h2>
+		<p>There is increasing evidence that open contracting delivers.</p>
+		<p>Academic research shows that improved openness and transparency is good for public integrity, value for money and competition. A study of more than 3.5 million government contracts across Europe determined that every additional item of information shared about a tender decreases the risk of a single bid contract. This matters because single bid contracts are both a governance risk and over 7% more expensive than the norm. Publishing five more pieces of information about each contract in Europe would add up to 3.6 billion Euros in savings.</p>
+		<p>Results from countries that are implementing open contracting show that openness combined with monitoring works. In Peru, a study from Columbia University looked at the impact of transparency and monitoring of contracts on the procurement process of infrastructure projects and found that monitoring decreased spending by 50%. Similar results have been found in Afghanistan.</p>
+	</div>
+
+	<div class="block__sidebar">
+		Sidebar
+	</div>
+
+</div>
+```
+
+*/
+
+.block[data-block-type="content-with-sidebar"] {
+
+	@include fluid-type(--padding, 360px, 1240px, spacing(3), spacing(9));
+
+	grid-template-rows: [all-start] var(--padding) auto auto var(--padding) [all-end];
+
+	.block__background {
+		grid-column: wide;
+		grid-row: all;
+	}
+
+	.block__content {
+
+		grid-column: content;
+		grid-row: 2;
+
+		@include upto(M) {
+			margin-bottom: spacing(3);
+		}
+
+		@include from(M) {
+			grid-column: content / -8;
+		}
+
+		> *:last-child {
+			margin-bottom: 0;
+		}
+
+	}
+
+	.block__sidebar {
+
+		grid-column: content;
+		grid-row: 3;
+
+		@include from(M) {
+			grid-column: -7 / content;
+			grid-row: 2;
+			align-self: flex-end;
+		}
+
+	}
+
+}
