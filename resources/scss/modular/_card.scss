@@ -72,7 +72,6 @@ category:
 	overflow: hidden;
 	background: $ui-grey;
 	color: $ui-white;
-	max-width: 310px; // temp, dev
 
 	.card__image {
 
@@ -138,6 +137,10 @@ category:
 				flex: 0 0 auto;
 			}
 
+}
+
+.aigis-preview > .card--primary {
+	max-width: 310px;
 }
 
 /*
