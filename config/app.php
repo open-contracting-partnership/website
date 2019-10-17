@@ -34,6 +34,7 @@ return [
 		// Block Providers
         App\Providers\Blocks\CoverServiceProvider::class,
         App\Providers\Blocks\ContentWithSidebarServiceProvider::class,
+        App\Providers\Blocks\StoriesServiceProvider::class,
 
     ],
 

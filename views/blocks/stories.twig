@@ -1,38 +1,31 @@
-/*
-
----
-name: Stories
-category:
- - Blocks
- - Blocks/Stories
----
-
-```html
 <div class="block" data-block-type="stories">
 
-	<div class="block__background" style="background-color: #6C75E1"></div>
+	<div class="block__background" style="background-color: {{ block.background_colour }}"></div>
 
-	<div class="block__container" style="color: white;">
+	<div class="block__container" style="color: {{ block.text_colour }};">
 
 		<div class="block__header">
 
-			<h1 class="block__heading">Delivering Impact</h1>
+			<h1 class="block__heading">{{ block.primary_title }}</h1>
 
-			<a class="arrow-link" href="#">
-				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-				<span class="arrow-link__label">All our stories</span>
-			</a>
+			{% for link in block.primary_links %}
 
-			<a class="arrow-link" href="#">
-				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-				<span class="arrow-link__label">Our impact</span>
-			</a>
+				<a class="arrow-link" href="{{ link.url }}">
+					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+					<span class="arrow-link__label">{{ link.title }}</span>
+				</a>
+
+			{% endfor %}
 
 		</div>
 
-		<div class="block__content">
-			<p>More than 50 countries and cities, from Argentina to Zambia, are pursuing open contracting reforms. It takes hard work, political will, technical skills, and sustained engagement. Explore stories from around the world that show how open contracting is changing lives — from value for money to value for many. </p>
-		</div>
+		{% if block.primary_content %}
+
+			<div class="block__content">
+				{{ block.primary_content | raw }}
+			</div>
+
+		{% endif %}
 
 		<div class="block__primary-stories">
 
@@ -83,12 +76,27 @@ category:
 		</div> <!-- / .block__primary-stories -->
 
 		<div class="block__header">
-			<h2 class="block__heading">What's New</h2>
+
+			<h1 class="block__heading">{{ block.secondary_title }}</h1>
+
+			{% for link in block.secondary_links %}
+
+				<a class="arrow-link" href="{{ link.url }}">
+					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+					<span class="arrow-link__label">{{ link.title }}</span>
+				</a>
+
+			{% endfor %}
+
 		</div>
 
-		<div class="block__content">
-			<p>More than 50 countries and cities, from Argentina to Zambia, are pursuing open contracting reforms. It takes hard work, political will, technical skills, and sustained engagement. Explore stories from around the world that show how open contracting is changing lives — from value for money to value for many. </p>
-		</div>
+		{% if block.secondary_content %}
+
+			<div class="block__content">
+				{{ block.secondary_content | raw }}
+			</div>
+
+		{% endif %}
 
 		<div class="block__secondary-stories">
 
@@ -218,190 +226,8 @@ category:
 
 			</div>
 
-
 		</div> <!-- / .block__secondary-stories -->
 
 	</div>
 
 </div>
-```
-
-*/
-
-.block[data-block-type="stories"] {
-
-	@include fluid-type(--padding, 360px, 1240px, spacing(2), spacing(6));
-
-	grid-template-rows: [all-start] var(--padding) auto var(--padding) [all-end];
-
-	.block__background {
-
-		grid-column: wide;
-		grid-row: all;
-		position: relative;
-		z-index: -1;
-		overflow: hidden;
-
-		&::before {
-			@include fluid-type(font-size, 360px, 1344px, 145px, 500px);
-			content: '';
-			display: block;
-			border: .14em solid $ui-grey-6;
-			border-radius: 50%;
-			opacity: .1;
-			height: 1em;
-			width: 1em;
-			position: absolute;
-			top: -.55em;
-			left: 50%;
-			transform: translateX(-50%);
-		}
-
-	}
-
-	.block__container {
-		grid-column: content;
-		grid-row: 2;
-	}
-
-		.block__header {
-
-			display: flex;
-			flex-wrap: wrap;
-			align-items: center;
-			margin-bottom: spacing(3);
-
-			@include from(T) {
-				margin-bottom: spacing(4);
-			}
-
-		}
-
-			.block__heading {
-
-				@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
-				margin-right: spacing(5);
-				margin-bottom: 0;
-				margin-right: auto;
-
-				@include upto(T) {
-					flex: 0 0 100%;
-				}
-
-			}
-
-			.arrow-link{
-
-				margin-top: spacing(2);
-
-				&:not(:last-child) {
-
-					margin-right: spacing(3);
-
-					@include from(T) {
-						margin-right: spacing(5);
-					}
-
-				}
-
-			}
-
-		.block__content {
-
-			margin-bottom: spacing(4);
-
-			@include from(T) {
-				max-width: 60%;
-			}
-
-		}
-
-		.block__primary-stories {
-
-			@include upto(T) {
-
-				display: flex;
-				overflow-x: scroll;
-				scroll-snap-type: x mandatory;
-				-webkit-overflow-scrolling: touch;
-				margin: 0 spacing(-3);
-				padding: 0 spacing(3);
-				margin-bottom: spacing(3);
-
-				> .card {
-
-					scroll-snap-align: center;
-					min-width: 100%;
-					box-shadow: none;
-
-					// the ::after element is now the far side margin, so dont
-					// set this on the last child, otherwise we'll have double
-					&:not(:last-child) {
-						margin-right: spacing(3);
-					}
-
-				}
-
-				// we can't use last-child margin to create our right hand side
-				// spacing, so we need to force the issue with an after element
-				&::after {
-					content: '';
-					display: block;
-					flex: 0 0 24px;
-				}
-
-			}
-
-			@include from(T) {
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				grid-gap: spacing(3);
-				margin-bottom: spacing(5);
-			}
-
-		}
-
-		.block__secondary-stories {
-
-			@include upto(T) {
-
-				display: flex;
-				overflow-x: scroll;
-				scroll-snap-type: x mandatory;
-				-webkit-overflow-scrolling: touch;
-				margin: 0 spacing(-3);
-				padding: 0 spacing(3);
-
-				> .card {
-
-					scroll-snap-align: center;
-					min-width: 75%;
-					box-shadow: none;
-
-					// the ::after element is now the far side margin, so dont
-					// set this on the last child, otherwise we'll have double
-					&:not(:last-child) {
-						margin-right: spacing(3);
-					}
-
-				}
-
-				// we can't use last-child margin to create our right hand side
-				// spacing, so we need to force the issue with an after element
-				&::after {
-					content: '';
-					display: block;
-					flex: 0 0 24px;
-				}
-
-			}
-
-			@include from(T) {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				grid-gap: spacing(3);
-			}
-
-		}
-
-}
