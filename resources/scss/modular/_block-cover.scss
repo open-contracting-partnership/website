@@ -23,11 +23,8 @@ category:
 .block[data-block-type="cover"] {
 
 	color: $ui-white;
-	// min-height: 360px;
-
 
 	@include fluid-type(--padding, 360px, 1240px, spacing(2), spacing(15));
-
 
 	grid-template-rows: [all-start] var(--padding) auto var(--padding) [all-end];
 
