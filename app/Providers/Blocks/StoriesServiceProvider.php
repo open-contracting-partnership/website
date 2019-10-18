@@ -18,7 +18,7 @@ class StoriesServiceProvider
 		add_action('acf/init', function() {
 
 			acf_register_block_type([
-				'name' => 'stories',
+				'name' => 'ocp/stories',
 				'title' => __('Stories'),
 				'description' => __('A block to display stories'),
 				'render_callback' => array($this, 'render'),
