@@ -1,0 +1,153 @@
+/*
+
+---
+name: Link card
+category:
+ - Cards
+ - Cards/Link
+---
+
+## Default
+
+```html
+<div class="card card--link">
+
+	<div class="card__body">
+		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+	</div>
+
+	<div class="card__footer">
+
+		<a class="arrow-link" href="#" data-icon-color="white" data-text-color="black">
+			<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+			<span class="arrow-link__label">Read</span>
+		</a>
+
+	</div>
+
+</div>
+```
+
+## Light
+
+```html
+<div class="card card--link" data-colour-scheme="light">
+
+	<div class="card__body">
+		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+	</div>
+
+	<div class="card__footer">
+
+		<a class="arrow-link" href="#" data-text-color="black">
+			<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+			<span class="arrow-link__label">Read</span>
+		</a>
+
+	</div>
+
+</div>
+```
+
+## Transparent
+
+```html
+<div class="aigis-preview__background">
+
+	<div class="card card--link" data-colour-scheme="transparent">
+
+		<div class="card__body">
+			<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+		</div>
+
+		<div class="card__footer">
+
+			<a class="arrow-link" href="#" data-icon-color="white" data-text-color="white">
+				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+				<span class="arrow-link__label">Read</span>
+			</a>
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.card--link {
+
+	background-color: $ui-grey-6;
+	color: $ui-black;
+	border: 3px solid transparent;
+	border-radius: spacing(4) spacing(1) spacing(4) spacing(1);
+	padding: spacing(4) spacing(4) spacing(3);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+
+	.card__link {
+		font-size: 18px;
+		@include font('secondary', 'bold');
+		text-decoration: none;
+		line-height: 1.15;
+	}
+
+	.card__footer {
+		border-top: 4px solid $ui-white;
+		margin-top: spacing(2);
+		padding-top: spacing(2);
+		display: flex;
+		align-items: center;
+	}
+
+		.card__icon {
+			display: block;
+			font-size: 30px;
+			height: 1em;
+			width: 1em;
+			border-radius: 50%;
+			border: 8px solid $ui-white;
+			flex: 0 0 auto;
+			margin-right: spacing(1);
+			box-sizing: border-box;
+		}
+
+		.card__type {
+			font-size: 14px;
+			flex: 1 1 100%;
+			text-transform: uppercase;
+			padding-top: .1em;
+		}
+
+
+	// Colour Scheme
+
+	&[data-colour-scheme="light"] {
+
+		background-color: $ui-grey-7;
+
+		.card__footer {
+			border-color: $ui-grey-6;
+		}
+
+	}
+
+	&[data-colour-scheme="transparent"] {
+
+		background-color: transparent;
+		border-color: $ui-white;
+
+		.card__footer {
+			border-color: $ui-white;
+		}
+
+	}
+
+}
+
+.aigis-preview__background > .card--link,
+.aigis-preview > .card--link {
+	max-width: 250px;
+}

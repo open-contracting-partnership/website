@@ -1,0 +1,131 @@
+/*
+
+---
+name: Primary card
+category:
+ - Cards
+ - Cards/Primary
+---
+
+```html
+<div class="card card--primary">
+
+	<div class="card__image">
+
+		<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+		<div class="card__image-overlay">
+			<div class="card__tag">Blog</div>
+		</div>
+
+	</div>
+
+	<div class="card__main">
+
+		<a class="card__title-link" href="#">
+			<h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
+		</a>
+
+		<div class="card__footer">
+
+			<div class="card__meta">
+				Nicolas Penagos
+			</div>
+
+			<div class="card__cta">
+
+				<a class="arrow-link" href="#">
+
+					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+					<span class="arrow-link__label">Read</span>
+
+				</a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.card--primary {
+
+	border-radius: spacing(4) spacing(1) 0 spacing(2);
+	overflow: hidden;
+	background: $ui-grey;
+	color: $ui-white;
+
+	.card__image {
+
+		position: relative;
+		width: 100%;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+
+	}
+
+		.card__image-overlay {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: linear-gradient(180deg, #2F2F2F 0%, rgba(255, 255, 255, 0) 100%);
+			background-blend-mode: darken;
+			padding: spacing(2) spacing(3);
+		}
+
+			.card__tag {
+				font-size: 18px;
+				color: $ui-brand;
+				text-transform: uppercase;
+				@include font('secondary', 'bold');
+			}
+
+	.card__main {
+		padding: spacing(1.5) spacing(2.5);
+	}
+
+		.card__title-link {
+			display: block;
+			color: currentColor;
+			text-decoration: none;
+			max-width: 90%;
+		}
+
+			.card__title {
+				font-size: 18px;
+				margin-bottom: 10px;
+				color: currentColor;
+			}
+
+		.card__footer {
+			display: flex;
+			align-items: flex-start;
+		}
+
+			.card__meta {
+				@include font('secondary');
+				font-size: 14px;
+				text-transform: uppercase;
+				flex: 1 1 100%;
+			}
+
+			.card__cta {
+				margin-left: spacing(2);
+				flex: 0 0 auto;
+			}
+
+}
+
+.aigis-preview > .card--primary {
+	max-width: 310px;
+}
