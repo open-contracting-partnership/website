@@ -34,16 +34,16 @@ class StoriesServiceProvider
 	public function render() {
 
 		$context = Timber::get_context();
-	
+
 		$context['block'] = [];
 
 		$context['block']['primary_title'] = get_field('primary_title') ?: 'Primary title here...';
-		$context['block']['primary_links'] = array_column(get_field('primary_links'), 'link');
+		$context['block']['primary_links'] = array_column(get_field('primary_links') ?: [], 'link');
 		$context['block']['primary_content'] = get_field('primary_content');
 		$context['block']['primary_stories'] = get_field('primary_stories');
 
 		$context['block']['secondary_title'] = get_field('secondary_title') ?: 'Secondary title here...';
-		$context['block']['secondary_links'] = array_column(get_field('secondary_links'), 'link');
+		$context['block']['secondary_links'] = array_column(get_field('secondary_links') ?: [], 'link');
 		$context['block']['secondary_content'] = get_field('secondary_content');
 		$context['block']['secondary_stories'] = get_field('secondary_stories');
 
