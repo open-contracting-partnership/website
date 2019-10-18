@@ -98,11 +98,12 @@ $header-break-3: 1240;
 	@include shell-grid;
 	background-color: #505596;
 	color: $ui-white;
+	z-index: 3;
 }
 
 	.mega-menu__container {
 
-		grid-column: 2;
+		grid-column: wide;
 		padding: spacing(4) spacing(3) spacing(8);
 
 		display: grid;
