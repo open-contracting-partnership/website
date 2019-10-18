@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html {{ site.language_attributes }} class="no-js">
 
-    {% include 'html-header.twig' %}
+    {% include 'partials/html-head.twig' %}
 
-    <body class="{{ body_class }}">
+    <body class="ocp / {{ body_class }}">
 
-		{% include 'partial-header.twig' %}
+		{% include 'partials/site-header.twig' %}
 
 		<main>
 
@@ -15,9 +15,11 @@
 
 		</main>
 
-        {% include 'html-footer.twig' %}
+        {% include 'partials/site-footer.twig' %}
 
         {% include 'partials/svg-loader.twig' %}
+
+		{{ function('wp_footer') }}
 
     </body>
 
