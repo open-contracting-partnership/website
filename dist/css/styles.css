@@ -136,13 +136,19 @@ input, button, textarea, select {
 /*------------------------------------*\
 	VARIABLES
 \*------------------------------------*/
+.block[data-block-type=resource] .block__container {
+  display: grid;
+  grid-column-gap: 16px;
+  grid-template-columns: [all-start] repeat(12, 1fr) [all-end];
+}
+
 .block, .site-header, .site-footer, .shell-grid-example {
   display: grid;
-  grid-template-columns: [full-start] minmax(0, auto) [wide-start] 0 [intermediate-start] 24px [content-start] minmax(0, 1200px) [content-end] 24px [intermediate-end] 0 [wide-end] minmax(0, auto) [full-end];
+  grid-template-columns: [full-start] minmax(0, auto) [wide-start] 0 [intermediate-start] 24px [content-start] repeat(12, minmax(0, 100px)) [content-end] 24px [intermediate-end] 0 [wide-end] minmax(0, auto) [full-end];
 }
 @media screen and (min-width: 1024px) {
   .block, .site-header, .site-footer, .shell-grid-example {
-    grid-template-columns: [full-start] minmax(0, auto) [wide-start] minmax(0, 48px) [intermediate-start] 24px [content-start] minmax(0, 1200px) [content-end] 24px [intermediate-end] minmax(0, 48px) [wide-end] minmax(0, auto) [full-end];
+    grid-template-columns: [full-start] minmax(0, auto) [wide-start] minmax(0, 48px) [intermediate-start] 24px [content-start] repeat(12, minmax(0, 100px)) [content-end] 24px [intermediate-end] minmax(0, 48px) [wide-end] minmax(0, auto) [full-end];
   }
 }
 
@@ -2839,13 +2845,13 @@ category:
 */
 .mega-menu {
   display: grid;
-  grid-template-columns: [full-start] minmax(0, auto) [wide-start] 0 [intermediate-start] 24px [content-start] minmax(0, 1200px) [content-end] 24px [intermediate-end] 0 [wide-end] minmax(0, auto) [full-end];
+  grid-template-columns: [full-start] minmax(0, auto) [wide-start] 0 [intermediate-start] 24px [content-start] repeat(12, minmax(0, 100px)) [content-end] 24px [intermediate-end] 0 [wide-end] minmax(0, auto) [full-end];
   background-color: #505596;
   color: #FFF;
 }
 @media screen and (min-width: 1024px) {
   .mega-menu {
-    grid-template-columns: [full-start] minmax(0, auto) [wide-start] minmax(0, 48px) [intermediate-start] 24px [content-start] minmax(0, 1200px) [content-end] 24px [intermediate-end] minmax(0, 48px) [wide-end] minmax(0, auto) [full-end];
+    grid-template-columns: [full-start] minmax(0, auto) [wide-start] minmax(0, 48px) [intermediate-start] 24px [content-start] repeat(12, minmax(0, 100px)) [content-end] 24px [intermediate-end] minmax(0, 48px) [wide-end] minmax(0, auto) [full-end];
   }
 }
 
@@ -2878,7 +2884,7 @@ category:
   font-size: 16px;
   font-style: italic;
   grid-row: 2;
-  color: #DADADA;
+  color: #F6F6F6;
   padding-right: 64px;
 }
 .mega-menu__intro p:last-child {
@@ -2993,7 +2999,24 @@ category:
 	</div>
 
 	<div class="block__sidebar">
-		Sidebar
+
+		<div class="card card--link" data-colour-scheme="transparent">
+
+			<div class="card__body">
+				<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+			</div>
+
+			<div class="card__footer">
+
+				<a class="arrow-link" href="#" data-icon-color="white" data-text-color="white">
+					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+					<span class="arrow-link__label">Read</span>
+				</a>
+
+			</div>
+
+		</div>
+
 	</div>
 
 </div>
@@ -3124,6 +3147,658 @@ category:
 /*
 
 ---
+name: More Stories
+category:
+ - Blocks
+ - Blocks/More Stories
+---
+
+```html
+<div class="block" data-block-type="more-stories">
+
+	<div class="block__background" style="background-color: #DADADA;"></div>
+
+	<div class="block__container" style="color: #000000;">
+
+		<h1 class="block__heading">More impact</h1>
+
+		<div class="block__stories">
+
+			<div class="card card--primary">
+
+				<div class="card__image">
+
+					<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+					<div class="card__image-overlay">
+						<div class="card__tag">Blog</div>
+					</div>
+
+				</div>
+
+				<div class="card__main">
+
+					<a class="card__title-link" href="#">
+						<h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
+					</a>
+
+					<div class="card__footer">
+
+						<div class="card__meta">
+							Nicolas Penagos
+						</div>
+
+						<div class="card__cta">
+
+							<a class="arrow-link" href="#">
+
+								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+								<span class="arrow-link__label">Read</span>
+
+							</a>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="card card--primary">
+
+				<div class="card__image">
+
+					<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+					<div class="card__image-overlay">
+						<div class="card__tag">Blog</div>
+					</div>
+
+				</div>
+
+				<div class="card__main">
+
+					<a class="card__title-link" href="#">
+						<h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
+					</a>
+
+					<div class="card__footer">
+
+						<div class="card__meta">
+							Nicolas Penagos
+						</div>
+
+						<div class="card__cta">
+
+							<a class="arrow-link" href="#">
+
+								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+								<span class="arrow-link__label">Read</span>
+
+							</a>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="card card--primary">
+
+				<div class="card__image">
+
+					<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+					<div class="card__image-overlay">
+						<div class="card__tag">Blog</div>
+					</div>
+
+				</div>
+
+				<div class="card__main">
+
+					<a class="card__title-link" href="#">
+						<h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
+					</a>
+
+					<div class="card__footer">
+
+						<div class="card__meta">
+							Nicolas Penagos
+						</div>
+
+						<div class="card__cta">
+
+							<a class="arrow-link" href="#">
+
+								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+								<span class="arrow-link__label">Read</span>
+
+							</a>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div> <!-- / .block__stories -->
+
+	</div>
+
+</div>
+```
+
+*/
+.block[data-block-type=more-stories] .block__background {
+  grid-column: wide;
+  grid-row: 1;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+}
+.block[data-block-type=more-stories] .block__container {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  grid-column: content;
+  grid-row: 1;
+}
+@media screen and (min-width: 375px) {
+  .block[data-block-type=more-stories] .block__container {
+    padding-top: calc(16px + 32 * (100vw - 375px) / 865);
+    padding-bottom: calc(16px + 32 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=more-stories] .block__container {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+.block[data-block-type=more-stories] .block__heading {
+  font-size: 22px;
+  margin-bottom: 0.88em;
+}
+@media screen and (min-width: 375px) {
+  .block[data-block-type=more-stories] .block__heading {
+    font-size: calc(22px + 14 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=more-stories] .block__heading {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .block[data-block-type=more-stories] .block__stories {
+    display: flex;
+    overflow-x: scroll;
+    -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -24px;
+    padding: 0 24px;
+  }
+  .block[data-block-type=more-stories] .block__stories > .card {
+    scroll-snap-align: center;
+    flex: 0 0 85%;
+    box-shadow: none;
+  }
+  .block[data-block-type=more-stories] .block__stories > .card:not(:last-child) {
+    margin-right: 24px;
+  }
+  .block[data-block-type=more-stories] .block__stories::after {
+    content: "";
+    display: block;
+    flex: 0 0 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .block[data-block-type=more-stories] .block__stories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 24px;
+  }
+}
+
+/*
+
+---
+name: Resource
+category:
+ - Blocks
+ - Blocks/Resource
+---
+
+```html
+<div class="block" data-block-type="resource">
+
+	<div class="block__background" style="background-color: #23B2A7"></div>
+
+	<div class="block__container" style="color: white;">
+
+		<h2 class="block__heading">How we measure impact</h2>
+
+		<div class="block__content">
+			<p>Sustained implementation of open contracting takes time and rarely proceeds on a smooth, linear path. We set a high bar for measuring impact and don’t stop and simply publishing data. For us, impact means significant, widespread, documented change where we can show both a shift in behavior and the outcomes when we look at competition, savings, better services, and/or improvement in governance or public trust. </p>
+			<p>We work on the ground with partners across government, business, and civil society to catalyze and assist specific local reforms at the city, regional and national level.</p>
+			<p>We have developed resources that help you with measuring impact from the start of procurement reforms and we regularly write about what we have learned from our interventions.</p>
+		</div>
+
+		<div class="block__links">
+
+			<div class="card card--link" data-colour-scheme="transparent">
+
+				<div class="card__body">
+					<a class="card__link" href="">We can help measure your impact.</a>
+				</div>
+
+				<div class="card__footer">
+
+					<a class="arrow-link" href="" data-icon-color="white" data-text-color="black">
+						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+						<span class="arrow-link__label">More</span>
+					</a>
+
+				</div>
+
+			</div>
+
+
+			<div class="card card--link" data-colour-scheme="transparent">
+
+				<div class="card__body">
+					<a class="card__link" href="">How we are reporting. Our rapid reflections.</a>
+				</div>
+
+				<div class="card__footer">
+
+					<a class="arrow-link" href="" data-icon-color="white" data-text-color="black">
+						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+						<span class="arrow-link__label">More</span>
+					</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<h2 class="block__sub-heading">How we measure impact</h2>
+
+		<div class="block__resources">
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="block__author">
+
+			<div class="block__author-avatar">
+				<img src="//placehold.it/300">
+			</div>
+
+			<div class="block__author-details">
+
+				<h4 class="block__author-heading">CONTACT OUR EXPERT</h4>
+
+				<p>Ben Everard, <br />Developer</p>
+
+				<div class="block__author-social">
+
+					<a href="#">
+						<svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
+					</a>
+
+					<a href="#">
+						<svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
+					</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+.block[data-block-type=resource] {
+  grid-template-rows: [all-start] repeat(6, auto) [all-end];
+}
+.block[data-block-type=resource] .block__background {
+  grid-column: wide;
+  grid-row: all;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+}
+.block[data-block-type=resource] .block__background::before {
+  font-size: 145px;
+  content: "";
+  display: block;
+  border: 0.14em solid #E2E1E1;
+  border-radius: 50%;
+  opacity: 0.1;
+  height: 1em;
+  width: 1em;
+  position: absolute;
+  bottom: -0.55em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media screen and (min-width: 360px) {
+  .block[data-block-type=resource] .block__background::before {
+    font-size: calc(145px + 355 * (100vw - 360px) / 984);
+  }
+}
+@media screen and (min-width: 1344px) {
+  .block[data-block-type=resource] .block__background::before {
+    font-size: 500px;
+  }
+}
+.block[data-block-type=resource] .block__container {
+  grid-column: content;
+  grid-row: 2;
+  display: grid;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+@media screen and (min-width: 375px) {
+  .block[data-block-type=resource] .block__container {
+    padding-top: calc(32px + 16 * (100vw - 375px) / 865);
+    padding-bottom: calc(32px + 16 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=resource] .block__container {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+.block[data-block-type=resource] .block__heading {
+  grid-column: all;
+  grid-row: 1;
+  font-size: 22px;
+  margin-bottom: 0.88em;
+}
+@media screen and (min-width: 360px) {
+  .block[data-block-type=resource] .block__heading {
+    font-size: calc(22px + 14 * (100vw - 360px) / 880);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=resource] .block__heading {
+    font-size: 36px;
+  }
+}
+.block[data-block-type=resource] .block__content {
+  grid-column: all;
+  grid-row: 2;
+  margin-bottom: 16px;
+}
+.block[data-block-type=resource] .block__content > :last-child {
+  margin-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .block[data-block-type=resource] .block__content {
+    grid-column: 1/-5;
+    margin-bottom: 64px;
+  }
+}
+.block[data-block-type=resource] .block__links {
+  grid-column: all;
+  grid-row: 3;
+}
+@media screen and (max-width: 767px) {
+  .block[data-block-type=resource] .block__links {
+    margin-bottom: 16px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .block[data-block-type=resource] .block__links {
+    grid-column: -4/-1;
+    grid-row: 2;
+    margin-bottom: 24px;
+    align-self: flex-end;
+  }
+}
+.block[data-block-type=resource] .block__links > *:not(:last-child) {
+  margin-bottom: 24px;
+}
+.block[data-block-type=resource] .block__sub-heading {
+  grid-column: all;
+  grid-row: 4;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+@media screen and (min-width: 375px) {
+  .block[data-block-type=resource] .block__sub-heading {
+    font-size: calc(22px + 2 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=resource] .block__sub-heading {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 375px) {
+  .block[data-block-type=resource] .block__sub-heading {
+    margin-bottom: calc(16px + 8 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=resource] .block__sub-heading {
+    margin-bottom: 24px;
+  }
+}
+.block[data-block-type=resource] .block__resources {
+  grid-column: all;
+  grid-row: 5;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 90%);
+  grid-gap: 24px;
+  grid-auto-flow: column;
+  margin-bottom: 32px;
+}
+@media screen and (min-width: 375px) {
+  .block[data-block-type=resource] .block__resources {
+    margin-bottom: calc(32px + 16 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=resource] .block__resources {
+    margin-bottom: 48px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .block[data-block-type=resource] .block__resources {
+    overflow-x: scroll;
+    -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -24px;
+    padding: 0 24px;
+    margin-bottom: 24px;
+  }
+  .block[data-block-type=resource] .block__resources > .card {
+    scroll-snap-align: center;
+    box-shadow: none;
+  }
+  .block[data-block-type=resource] .block__resources::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 1px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .block[data-block-type=resource] .block__resources {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.block[data-block-type=resource] .block__author {
+  grid-column: all;
+  grid-row: 6;
+  display: flex;
+}
+.block[data-block-type=resource] .block__author-avatar {
+  flex: 0 0 100px;
+  margin-right: 16px;
+}
+@media screen and (min-width: 768px) {
+  .block[data-block-type=resource] .block__author-avatar {
+    flex-basis: 175px;
+    margin-right: 32px;
+  }
+}
+.block[data-block-type=resource] .block__author-avatar img {
+  border-radius: 50%;
+  border: 6px solid #FFF;
+}
+.block[data-block-type=resource] .block__author-heading {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+@media screen and (min-width: 768px) {
+  .block[data-block-type=resource] .block__author-heading {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+}
+.block[data-block-type=resource] .block__author-details {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.block[data-block-type=resource] .block__author-details p {
+  margin-bottom: 8px;
+}
+@media screen and (max-width: 767px) {
+  .block[data-block-type=resource] .block__author-details {
+    font-size: 16px;
+  }
+  .block[data-block-type=resource] .block__author-details br {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .block[data-block-type=resource] .block__author-details p {
+    margin-bottom: 16px;
+  }
+}
+.block[data-block-type=resource] .block__author-social {
+  display: flex;
+  color: #FFF;
+}
+.block[data-block-type=resource] .block__author-social a {
+  margin-right: 24px;
+}
+.block[data-block-type=resource] .block__author-social a > svg {
+  font-size: 28px;
+  height: 1em;
+  display: block;
+  fill: currentColor;
+}
+.block[data-block-type=resource] .block__author-social a > svg[data-icon=mail] {
+  width: 1.384em;
+}
+.block[data-block-type=resource] .block__author-social a > svg[data-icon=twitter] {
+  width: 1.09em;
+}
+
+/*
+
+---
 name: Stories
 category:
  - Blocks
@@ -3131,14 +3806,31 @@ category:
 ---
 
 ```html
-
 <div class="block" data-block-type="stories">
 
-	<div class="block__background" style="background-color: red"></div>
+	<div class="block__background" style="background-color: #6C75E1"></div>
 
 	<div class="block__container" style="color: white;">
-		<h1 class="block__heading">Title</h1>
 
+		<div class="block__header">
+
+			<h1 class="block__heading">Delivering Impact</h1>
+
+			<a class="arrow-link" href="#">
+				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+				<span class="arrow-link__label">All our stories</span>
+			</a>
+
+			<a class="arrow-link" href="#">
+				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+				<span class="arrow-link__label">Our impact</span>
+			</a>
+
+		</div>
+
+		<div class="block__content">
+			<p>More than 50 countries and cities, from Argentina to Zambia, are pursuing open contracting reforms. It takes hard work, political will, technical skills, and sustained engagement. Explore stories from around the world that show how open contracting is changing lives — from value for money to value for many. </p>
+		</div>
 
 		<div class="block__primary-stories">
 
@@ -3188,7 +3880,13 @@ category:
 
 		</div> <!-- / .block__primary-stories -->
 
-		<h2 class="block__heading">Secondary</h2>
+		<div class="block__header">
+			<h2 class="block__heading">What's New</h2>
+		</div>
+
+		<div class="block__content">
+			<p>More than 50 countries and cities, from Argentina to Zambia, are pursuing open contracting reforms. It takes hard work, political will, technical skills, and sustained engagement. Explore stories from around the world that show how open contracting is changing lives — from value for money to value for many. </p>
+		</div>
 
 		<div class="block__secondary-stories">
 
@@ -3344,13 +4042,88 @@ category:
 .block[data-block-type=stories] .block__background {
   grid-column: wide;
   grid-row: all;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+}
+.block[data-block-type=stories] .block__background::before {
+  font-size: 145px;
+  content: "";
+  display: block;
+  border: 0.14em solid #E2E1E1;
+  border-radius: 50%;
+  opacity: 0.1;
+  height: 1em;
+  width: 1em;
+  position: absolute;
+  top: -0.55em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media screen and (min-width: 360px) {
+  .block[data-block-type=stories] .block__background::before {
+    font-size: calc(145px + 355 * (100vw - 360px) / 984);
+  }
+}
+@media screen and (min-width: 1344px) {
+  .block[data-block-type=stories] .block__background::before {
+    font-size: 500px;
+  }
 }
 .block[data-block-type=stories] .block__container {
   grid-column: content;
   grid-row: 2;
 }
+.block[data-block-type=stories] .block__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 24px;
+}
+@media screen and (min-width: 768px) {
+  .block[data-block-type=stories] .block__header {
+    margin-bottom: 32px;
+  }
+}
 .block[data-block-type=stories] .block__heading {
-  color: currentColor;
+  font-size: 22px;
+  margin-right: 40px;
+  margin-bottom: 0;
+  margin-right: auto;
+}
+@media screen and (min-width: 360px) {
+  .block[data-block-type=stories] .block__heading {
+    font-size: calc(22px + 14 * (100vw - 360px) / 880);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=stories] .block__heading {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .block[data-block-type=stories] .block__heading {
+    flex: 0 0 100%;
+  }
+}
+.block[data-block-type=stories] .arrow-link {
+  margin-top: 16px;
+}
+.block[data-block-type=stories] .arrow-link:not(:last-child) {
+  margin-right: 24px;
+}
+@media screen and (min-width: 768px) {
+  .block[data-block-type=stories] .arrow-link:not(:last-child) {
+    margin-right: 40px;
+  }
+}
+.block[data-block-type=stories] .block__content {
+  margin-bottom: 32px;
+}
+@media screen and (min-width: 768px) {
+  .block[data-block-type=stories] .block__content {
+    max-width: 60%;
+  }
 }
 @media screen and (max-width: 767px) {
   .block[data-block-type=stories] .block__primary-stories {
@@ -3359,13 +4132,22 @@ category:
     -ms-scroll-snap-type: x mandatory;
         scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    margin: 0 -24px;
+    padding: 0 24px;
+    margin-bottom: 24px;
   }
-  .block[data-block-type=stories] .block__primary-stories > * {
-    scroll-snap-align: start;
+  .block[data-block-type=stories] .block__primary-stories > .card {
+    scroll-snap-align: center;
     min-width: 100%;
+    box-shadow: none;
   }
-  .block[data-block-type=stories] .block__primary-stories > *:not(:last-child) {
+  .block[data-block-type=stories] .block__primary-stories > .card:not(:last-child) {
     margin-right: 24px;
+  }
+  .block[data-block-type=stories] .block__primary-stories::after {
+    content: "";
+    display: block;
+    flex: 0 0 24px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -3373,6 +4155,7 @@ category:
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 24px;
+    margin-bottom: 40px;
   }
 }
 @media screen and (max-width: 767px) {
@@ -3388,6 +4171,7 @@ category:
   .block[data-block-type=stories] .block__secondary-stories > .card {
     scroll-snap-align: center;
     min-width: 75%;
+    box-shadow: none;
   }
   .block[data-block-type=stories] .block__secondary-stories > .card:not(:last-child) {
     margin-right: 24px;
@@ -3420,16 +4204,237 @@ category:
   outline: none;
 }
 
-.card {
-  position: initial;
-  margin-top: initial;
-  padding: initial;
-  min-width: initial;
-  max-width: initial;
-  border: initial;
-  box-shadow: initial;
-  background: initial;
-  box-sizing: initial;
+/*
+
+---
+name: Feature card
+category:
+ - Cards
+ - Cards/Feature
+---
+
+```html
+<div class="card card--feature">
+
+	<div class="card__image">
+
+		<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+		<div class="card__image-overlay">
+
+			<a class="card__title-link" href="#">
+				<h2 class="card__title">Honduras</h2>
+			</a>
+
+			<div class="card__intro">
+				<p>How open contracting is driving more powerful controls — from spot checks to analyzing sector trends.</p>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+.card.card--feature {
+  position: relative;
+  border-radius: 32px 8px 8px 8px;
+  overflow: hidden;
+  background: #4D4D53;
+  color: #FFF;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+  max-width: 600px;
+}
+.card.card--feature .card__image {
+  position: relative;
+  width: 100%;
+}
+.card.card--feature .card__image img {
+  display: block;
+  width: 100%;
+}
+.card.card--feature .card__image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 24.48%, #2F2F2F 100%), linear-gradient(0deg, rgba(38, 38, 38, 0.4), rgba(38, 38, 38, 0.4));
+  background-blend-mode: darken, normal;
+  padding: 40px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.card.card--feature .card__title-link {
+  display: block;
+  color: currentColor;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.card.card--feature .card__title-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.card.card--feature .card__title-link:hover, .card.card--feature .card__title-link:focus, .card.card--feature .card__title-link:active {
+  text-decoration: underline;
+}
+.card.card--feature .card__title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: currentColor;
+}
+.card.card--feature .card__intro {
+  font-size: 16px;
+  max-width: 60%;
+}
+.card.card--feature .card__intro p:last-child {
+  margin-bottom: 0;
+}
+
+/*
+
+---
+name: Link card
+category:
+ - Cards
+ - Cards/Link
+---
+
+## Default
+
+```html
+<div class="card card--link">
+
+	<div class="card__body">
+		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+	</div>
+
+	<div class="card__footer">
+
+		<a class="arrow-link" href="#" data-icon-color="white" data-text-color="black">
+			<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+			<span class="arrow-link__label">Read</span>
+		</a>
+
+	</div>
+
+</div>
+```
+
+## Light
+
+```html
+<div class="card card--link" data-colour-scheme="light">
+
+	<div class="card__body">
+		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+	</div>
+
+	<div class="card__footer">
+
+		<a class="arrow-link" href="#" data-text-color="black">
+			<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+			<span class="arrow-link__label">Read</span>
+		</a>
+
+	</div>
+
+</div>
+```
+
+## Transparent
+
+```html
+<div class="aigis-preview__background">
+
+	<div class="card card--link" data-colour-scheme="transparent">
+
+		<div class="card__body">
+			<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+		</div>
+
+		<div class="card__footer">
+
+			<a class="arrow-link" href="#" data-icon-color="white" data-text-color="white">
+				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+				<span class="arrow-link__label">Read</span>
+			</a>
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+.card.card--link {
+  background-color: #E2E1E1;
+  color: #000;
+  border: 3px solid transparent;
+  border-radius: 32px 8px 32px 8px;
+  padding: 32px 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.card.card--link .card__link {
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  line-height: 1.15;
+}
+.card.card--link .card__footer {
+  border-top: 4px solid #FFF;
+  margin-top: 16px;
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+}
+.card.card--link .card__icon {
+  display: block;
+  font-size: 30px;
+  height: 1em;
+  width: 1em;
+  border-radius: 50%;
+  border: 8px solid #FFF;
+  flex: 0 0 auto;
+  margin-right: 8px;
+  box-sizing: border-box;
+}
+.card.card--link .card__type {
+  font-size: 14px;
+  flex: 1 1 100%;
+  text-transform: uppercase;
+  padding-top: 0.1em;
+}
+.card.card--link[data-colour-scheme=light] {
+  background-color: #F6F6F6;
+}
+.card.card--link[data-colour-scheme=light] .card__footer {
+  border-color: #E2E1E1;
+}
+.card.card--link[data-colour-scheme=transparent] {
+  background-color: transparent;
+  border-color: #FFF;
+}
+.card.card--link[data-colour-scheme=transparent] .card__footer {
+  border-color: #FFF;
+}
+
+.aigis-preview__background > .card--link,
+.aigis-preview > .card--link {
+  max-width: 250px;
 }
 
 /*
@@ -3437,8 +4442,8 @@ category:
 ---
 name: Primary card
 category:
- - Components
- - Components/Cards
+ - Cards
+ - Cards/Primary
 ---
 
 ```html
@@ -3486,21 +4491,21 @@ category:
 ```
 
 */
-.card--primary {
+.card.card--primary {
   border-radius: 32px 8px 0 16px;
   overflow: hidden;
   background: #4D4D53;
   color: #FFF;
 }
-.card--primary .card__image {
+.card.card--primary .card__image {
   position: relative;
   width: 100%;
 }
-.card--primary .card__image img {
+.card.card--primary .card__image img {
   display: block;
   width: 100%;
 }
-.card--primary .card__image-overlay {
+.card.card--primary .card__image-overlay {
   position: absolute;
   top: 0;
   right: 0;
@@ -3510,7 +4515,7 @@ category:
   background-blend-mode: darken;
   padding: 16px 24px;
 }
-.card--primary .card__tag {
+.card.card--primary .card__tag {
   font-size: 18px;
   color: #E0E83D;
   text-transform: uppercase;
@@ -3519,25 +4524,25 @@ category:
   -webkit-font-smoothing: antialiased;
   font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-.card--primary .card__main {
+.card.card--primary .card__main {
   padding: 12px 20px;
 }
-.card--primary .card__title-link {
+.card.card--primary .card__title-link {
   display: block;
   color: currentColor;
   text-decoration: none;
   max-width: 90%;
 }
-.card--primary .card__title {
+.card.card--primary .card__title {
   font-size: 18px;
   margin-bottom: 10px;
   color: currentColor;
 }
-.card--primary .card__footer {
+.card.card--primary .card__footer {
   display: flex;
   align-items: flex-start;
 }
-.card--primary .card__meta {
+.card.card--primary .card__meta {
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -3546,7 +4551,7 @@ category:
   text-transform: uppercase;
   flex: 1 1 100%;
 }
-.card--primary .card__cta {
+.card.card--primary .card__cta {
   margin-left: 16px;
   flex: 0 0 auto;
 }
@@ -3558,145 +4563,10 @@ category:
 /*
 
 ---
-name: Feature card
-category:
- - Components
- - Components/Cards
----
-
-```html
-<div class="card card--feature">
-
-	<div class="card__image">
-
-		<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
-
-		<div class="card__image-overlay">
-
-			<a class="card__title-link" href="#">
-				<h2 class="card__title">Honduras</h2>
-			</a>
-
-			<div class="card__intro">
-				<p>How open contracting is driving more powerful controls — from spot checks to analyzing sector trends.</p>
-			</div>
-
-		</div>
-
-	</div>
-
-</div>
-```
-
-*/
-.card--feature {
-  position: relative;
-  border-radius: 32px 8px 8px 8px;
-  overflow: hidden;
-  background: #4D4D53;
-  color: #FFF;
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
-  max-width: 600px;
-}
-.card--feature .card__image {
-  position: relative;
-  width: 100%;
-}
-.card--feature .card__image img {
-  display: block;
-  width: 100%;
-}
-.card--feature .card__image-overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 24.48%, #2F2F2F 100%), linear-gradient(0deg, rgba(38, 38, 38, 0.4), rgba(38, 38, 38, 0.4));
-  background-blend-mode: darken, normal;
-  padding: 40px 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-.card--feature .card__title-link {
-  display: block;
-  color: currentColor;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.card--feature .card__title-link::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-.card--feature .card__title-link:hover, .card--feature .card__title-link:focus, .card--feature .card__title-link:active {
-  text-decoration: underline;
-}
-.card--feature .card__title {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: currentColor;
-}
-.card--feature .card__intro {
-  font-size: 16px;
-  max-width: 60%;
-}
-.card--feature .card__intro p:last-child {
-  margin-bottom: 0;
-}
-
-/*
-
----
-name: Square card
-category:
- - Components
- - Components/Cards
----
-
-```html
-<div class="card card--square">
-
-	<div class="card__image">
-
-		<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=crop&h=500&w=500&sat=-100" />
-
-
-
-	</div>
-
-</div>
-```
-
-*/
-.card--square {
-  position: relative;
-  border-radius: 32px 8px;
-  overflow: hidden;
-  background: #4D4D53;
-  color: #FFF;
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
-  max-width: 600px;
-}
-.card--square .card__image {
-  width: 100%;
-}
-.card--square .card__image img {
-  display: block;
-  width: 100%;
-}
-
-/*
-
----
 name: Resource card
 category:
- - Components
- - Components/Cards
+ - Cards
+ - Cards/Resource
 ---
 
 ## Default
@@ -3777,17 +4647,16 @@ category:
 ```
 
 */
-.card--resource {
+.card.card--resource {
   background-color: #323232;
   color: #FFF;
   border-radius: 32px 8px 32px 8px;
-  max-width: 320px;
   padding: 20px 28px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
-.card--resource .card__link {
+.card.card--resource .card__link {
   font-size: 18px;
   font-weight: 700;
   font-style: normal;
@@ -3796,14 +4665,14 @@ category:
   text-decoration: none;
   line-height: 1.15;
 }
-.card--resource .card__footer {
+.card.card--resource .card__footer {
   border-top: 4px solid #FFF;
   margin-top: 8px;
   padding-top: 10px;
   display: flex;
   align-items: center;
 }
-.card--resource .card__icon {
+.card.card--resource .card__icon {
   display: block;
   font-size: 30px;
   height: 1em;
@@ -3814,33 +4683,86 @@ category:
   margin-right: 8px;
   box-sizing: border-box;
 }
-.card--resource .card__type {
+.card.card--resource .card__type {
   font-size: 14px;
   flex: 1 1 100%;
   text-transform: uppercase;
   padding-top: 0.1em;
 }
-.card--resource[data-colour-scheme=light] {
+.card.card--resource[data-colour-scheme=light] {
   background-color: #F6F6F6;
   color: #000;
 }
-.card--resource[data-colour-scheme=light] .card__footer {
+.card.card--resource[data-colour-scheme=light] .card__footer {
   border-color: #000;
 }
-.card--resource[data-colour-scheme=light] .card__icon {
+.card.card--resource[data-colour-scheme=light] .card__icon {
   border-color: #000;
 }
-.card--resource[data-highlight-colour=orange] .card__footer {
+.card.card--resource[data-highlight-colour=orange] .card__footer {
   border-color: #FB6045;
 }
-.card--resource[data-highlight-colour=orange] .card__icon {
+.card.card--resource[data-highlight-colour=orange] .card__icon {
   border-color: #FB6045;
 }
-.card--resource[data-highlight-colour=blue] .card__footer {
+.card.card--resource[data-highlight-colour=blue] .card__footer {
   border-color: #6C75E1;
 }
-.card--resource[data-highlight-colour=blue] .card__icon {
+.card.card--resource[data-highlight-colour=blue] .card__icon {
   border-color: #6C75E1;
+}
+
+.aigis-preview > .card--resource {
+  max-width: 320px;
+}
+
+/*
+
+---
+name: Square card
+category:
+ - Cards
+ - Cards/Square
+---
+
+```html
+<div class="card card--square">
+
+	<div class="card__image">
+		<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=crop&h=500&w=500&sat=-100" />
+	</div>
+
+</div>
+```
+
+*/
+.card.card--square {
+  position: relative;
+  border-radius: 32px 8px;
+  overflow: hidden;
+  background: #4D4D53;
+  color: #FFF;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+  max-width: 600px;
+}
+.card.card--square .card__image {
+  width: 100%;
+}
+.card.card--square .card__image img {
+  display: block;
+  width: 100%;
+}
+
+.card {
+  position: initial;
+  margin-top: initial;
+  padding: initial;
+  min-width: initial;
+  max-width: initial;
+  border: initial;
+  box-shadow: initial;
+  background: initial;
+  box-sizing: initial;
 }
 
 /*------------------------------------*\

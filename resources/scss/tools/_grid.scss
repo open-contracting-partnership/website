@@ -27,8 +27,7 @@
 				[intermediate-start]
 					spacing(3)
 					[content-start]
-						// repeat(12, minmax(0, 100px))
-						minmax(0, 1200px)
+						repeat(12, minmax(0, 100px))
 					[content-end]
 					spacing(3)
 				[intermediate-end]
@@ -47,8 +46,7 @@
 					[intermediate-start]
 						spacing(3)
 						[content-start]
-							// repeat(12, minmax(0, 100px))
-							minmax(0, 1200px)
+							repeat(12, minmax(0, 100px))
 						[content-end]
 						spacing(3)
 					[intermediate-end]

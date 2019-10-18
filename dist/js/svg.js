@@ -97,13 +97,15 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _svg_icon_arrow_circle_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../svg/icon-arrow-circle.svg */ "./resources/svg/icon-arrow-circle.svg");
 /* harmony import */ var _svg_icon_close_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../svg/icon-close.svg */ "./resources/svg/icon-close.svg");
-/* harmony import */ var _svg_icon_menu_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../svg/icon-menu.svg */ "./resources/svg/icon-menu.svg");
-/* harmony import */ var _svg_icon_search_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../svg/icon-search.svg */ "./resources/svg/icon-search.svg");
-/* harmony import */ var _svg_logo_horizontal_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../svg/logo-horizontal.svg */ "./resources/svg/logo-horizontal.svg");
-/* harmony import */ var _svg_logo_vertical_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../svg/logo-vertical.svg */ "./resources/svg/logo-vertical.svg");
-/* harmony import */ var _svg_social_facebook_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../svg/social-facebook.svg */ "./resources/svg/social-facebook.svg");
-/* harmony import */ var _svg_social_linkedin_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../svg/social-linkedin.svg */ "./resources/svg/social-linkedin.svg");
-/* harmony import */ var _svg_social_twitter_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../svg/social-twitter.svg */ "./resources/svg/social-twitter.svg");
+/* harmony import */ var _svg_icon_mail_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../svg/icon-mail.svg */ "./resources/svg/icon-mail.svg");
+/* harmony import */ var _svg_icon_menu_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../svg/icon-menu.svg */ "./resources/svg/icon-menu.svg");
+/* harmony import */ var _svg_icon_search_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../svg/icon-search.svg */ "./resources/svg/icon-search.svg");
+/* harmony import */ var _svg_logo_horizontal_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../svg/logo-horizontal.svg */ "./resources/svg/logo-horizontal.svg");
+/* harmony import */ var _svg_logo_vertical_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../svg/logo-vertical.svg */ "./resources/svg/logo-vertical.svg");
+/* harmony import */ var _svg_social_facebook_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../svg/social-facebook.svg */ "./resources/svg/social-facebook.svg");
+/* harmony import */ var _svg_social_linkedin_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../svg/social-linkedin.svg */ "./resources/svg/social-linkedin.svg");
+/* harmony import */ var _svg_social_twitter_svg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../svg/social-twitter.svg */ "./resources/svg/social-twitter.svg");
+
 
 
 
@@ -149,6 +151,26 @@ __webpack_require__.r(__webpack_exports__);
       id: "icon-close-usage",
       viewBox: "0 0 32 32",
       url: __webpack_require__.p + "svg/icons.svg#icon-close",
+      toString: function () {
+        return this.url;
+      }
+    });
+
+/***/ }),
+
+/***/ "./resources/svg/icon-mail.svg":
+/*!*************************************!*\
+  !*** ./resources/svg/icon-mail.svg ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+      id: "icon-mail-usage",
+      viewBox: "0 0 38 26",
+      url: __webpack_require__.p + "svg/icons.svg#icon-mail",
       toString: function () {
         return this.url;
       }
