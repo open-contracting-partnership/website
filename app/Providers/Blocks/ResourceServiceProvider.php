@@ -41,6 +41,7 @@ class ResourceServiceProvider
 		$context['block']['content'] = get_field('content');
 		$context['block']['resources_title'] = get_field('resources_title');
 		$context['block']['contact'] = get_field('contact') ? get_field('contact')[0] : [];
+		$context['block']['sidebar_links'] = array_column(get_field('sidebar_links') ?: [], 'link');
 
 		if ( $context['block']['contact'] ) {
 

@@ -10,23 +10,23 @@
 
 		{% if block.cta %}
 
-			<div class="card card--resource" data-colour-scheme="light">
+			<div class="card card--link" data-colour-scheme="transparent">
 
-			    <div class="card__body">
-			        <a class="card__link" href="{{ block.cta.link.link }}">{{ block.cta.title }}</a>
-			    </div>
+				<div class="card__body">
+					<a class="card__link" href="{{ block.cta.link.link }}">{{ block.cta.title }}</a>
+				</div>
 
-			    <div class="card__footer">
+				<div class="card__footer">
 
 					<a class="arrow-link" href="{{ block.cta.link.link }}" data-text-color="black">
 						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
 						<span class="arrow-link__label">{{ block.cta.link.title }}</span>
 					</a>
 
-			    </div>
+				</div>
 
 			</div>
-
+			
 		{% endif %}
 
 	</div>

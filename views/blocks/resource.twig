@@ -14,9 +14,34 @@
 
 		{% endif %}
 
-		<div class="block__links">
-			<a href="#">Bob</a>
-		</div>
+		{% if block.sidebar_links %}
+
+			<div class="block__links">
+
+				{% for link in block.sidebar_links %}
+
+					<div class="card card--link" data-colour-scheme="transparent">
+
+						<div class="card__body">
+							<a class="card__link" href="{{ link.link }}">{{ link.title }}</a>
+						</div>
+
+						<div class="card__footer">
+
+							<a class="arrow-link" href="{{ link.link }}" data-icon-color="white" data-text-color="black">
+								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+								<span class="arrow-link__label">More</span>
+							</a>
+
+						</div>
+
+					</div>
+
+				{% endfor %}
+
+			</div>
+
+		{% endif %}
 
 		{% if block.resources_title %}
 			<h2 class="block__sub-heading">{{ block.resources_title }}</h2>

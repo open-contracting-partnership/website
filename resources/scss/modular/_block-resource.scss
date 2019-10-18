@@ -23,7 +23,42 @@ category:
 		</div>
 
 		<div class="block__links">
-			<a href="#">Bob</a>
+
+			<div class="card card--link" data-colour-scheme="transparent">
+
+				<div class="card__body">
+					<a class="card__link" href="">We can help measure your impact.</a>
+				</div>
+
+				<div class="card__footer">
+
+					<a class="arrow-link" href="" data-icon-color="white" data-text-color="black">
+						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+						<span class="arrow-link__label">More</span>
+					</a>
+
+				</div>
+
+			</div>
+
+
+			<div class="card card--link" data-colour-scheme="transparent">
+
+				<div class="card__body">
+					<a class="card__link" href="">How we are reporting. Our rapid reflections.</a>
+				</div>
+
+				<div class="card__footer">
+
+					<a class="arrow-link" href="" data-icon-color="white" data-text-color="black">
+						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+						<span class="arrow-link__label">More</span>
+					</a>
+
+				</div>
+
+			</div>
+
 		</div>
 
 		<h2 class="block__sub-heading">How we measure impact</h2>
@@ -220,6 +255,14 @@ category:
 				grid-row: 2;
 				margin-bottom: spacing(3);
 				align-self: flex-end;
+			}
+
+			> * {
+
+				&:not(:last-child) {
+					margin-bottom: spacing(3);
+				}
+
 			}
 
 		}
