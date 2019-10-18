@@ -1,0 +1,149 @@
+<div class="block" data-block-type="resource">
+
+	<div class="block__background" style="background-color: {{ block.background_colour }};"></div>
+
+	<div class="block__container" style="color: {{ block.text_colour }};">
+
+		<h2 class="block__heading">{{ block.title }}</h2>
+
+		{% if block.content %}
+
+			<div class="block__content">
+				{{ block.content | raw }}
+			</div>
+
+		{% endif %}
+
+		<div class="block__links">
+			<a href="#">Bob</a>
+		</div>
+
+		{% if block.resources_title %}
+			<h2 class="block__sub-heading">{{ block.resources_title }}</h2>
+		{% endif %}
+
+		<div class="block__resources">
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+		</div>
+
+		{% if block.contact %}
+
+			<div class="block__author">
+
+				<div class="block__author-avatar">
+					<img src="//placehold.it/300">
+				</div>
+
+				<div class="block__author-details">
+
+					<h4 class="block__author-heading">{{ block.contact.title }}</h4>
+
+					<p>{{ block.contact.name_bio }}</p>
+
+					<div class="block__author-social">
+
+						{% if block.contact.email_address %}
+
+							<a href="{{ block.contact.email_address }}">
+								<svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
+							</a>
+
+						{% endif %}
+
+						{% if block.contact.twitter_url %}
+
+							<a href="{{ block.contact.twitter_url }}">
+								<svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
+							</a>
+
+						{% endif %}
+
+					</div>
+
+				</div>
+
+			</div>
+
+		{% endif %}
+
+	</div>
+
+</div>

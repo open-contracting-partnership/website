@@ -1,0 +1,376 @@
+/*
+
+---
+name: Resource
+category:
+ - Blocks
+ - Blocks/Resource
+---
+
+```html
+<div class="block" data-block-type="resource">
+
+	<div class="block__background" style="background-color: #23B2A7"></div>
+
+	<div class="block__container" style="color: white;">
+
+		<h2 class="block__heading">How we measure impact</h2>
+
+		<div class="block__content">
+			<p>Sustained implementation of open contracting takes time and rarely proceeds on a smooth, linear path. We set a high bar for measuring impact and don’t stop and simply publishing data. For us, impact means significant, widespread, documented change where we can show both a shift in behavior and the outcomes when we look at competition, savings, better services, and/or improvement in governance or public trust. </p>
+			<p>We work on the ground with partners across government, business, and civil society to catalyze and assist specific local reforms at the city, regional and national level.</p>
+			<p>We have developed resources that help you with measuring impact from the start of procurement reforms and we regularly write about what we have learned from our interventions.</p>
+		</div>
+
+		<div class="block__links">
+			<a href="#">Bob</a>
+		</div>
+
+		<h2 class="block__sub-heading">How we measure impact</h2>
+
+		<div class="block__resources">
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+			<div class="card card--resource" data-highlight-colour="orange">
+
+				<div class="card__body">
+					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+				</div>
+
+				<div class="card__footer">
+					<div class="card__icon"></div>
+					<span class="card__type">Resource</span>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="block__author">
+
+			<div class="block__author-avatar">
+				<img src="//placehold.it/300">
+			</div>
+
+			<div class="block__author-details">
+
+				<h4 class="block__author-heading">CONTACT OUR EXPERT</h4>
+
+				<p>Ben Everard, <br />Developer</p>
+
+				<div class="block__author-social">
+
+					<a href="#">
+						<svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
+					</a>
+
+					<a href="#">
+						<svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
+					</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.block[data-block-type="resource"] {
+
+	grid-template-rows: [all-start] repeat(6, auto) [all-end];
+
+	.block__background {
+
+		grid-column: wide;
+		grid-row: all;
+		position: relative;
+		z-index: -1;
+		overflow: hidden;
+
+		&::before {
+			@include fluid-type(font-size, 360px, 1344px, 145px, 500px);
+			content: '';
+			display: block;
+			border: .14em solid $ui-grey-6;
+			border-radius: 50%;
+			opacity: .1;
+			height: 1em;
+			width: 1em;
+			position: absolute;
+			bottom: -.55em;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+	}
+
+	.block__container {
+		grid-column: content;
+		grid-row: 2;
+		display: grid;
+		@extend %column-grid;
+		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(4), spacing(6));
+	}
+
+		.block__heading {
+			grid-column: all;
+			grid-row: 1;
+			@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+			margin-bottom: .88em;
+		}
+
+		.block__content {
+
+			grid-column: all;
+			grid-row: 2;
+			margin-bottom: spacing(2);
+
+			> :last-child {
+				margin-bottom: 0;
+			}
+
+			@include from(T) {
+				grid-column: 1 / -5;
+				margin-bottom: spacing(8);
+			}
+
+		}
+
+		.block__links {
+
+			grid-column: all;
+			grid-row: 3;
+
+			@include upto(T) {
+				margin-bottom: spacing(2);
+			}
+
+			@include from(T) {
+				grid-column: -4 / -1;
+				grid-row: 2;
+				margin-bottom: spacing(3);
+				align-self: flex-end;
+			}
+
+		}
+
+		.block__sub-heading {
+			grid-column: all;
+			grid-row: 4;
+			@include fluid-type(font-size, 375px, 1240px, 22px, 24px);
+			@include fluid-type(margin-bottom, 375px, 1240px, spacing(2), spacing(3));
+		}
+
+		.block__resources {
+
+			grid-column: all;
+			grid-row: 5;
+
+			display: grid;
+			grid-template-rows: repeat(2, 1fr);
+			grid-template-columns: repeat(3, 90%);
+			grid-gap: spacing(3);
+			grid-auto-flow: column;
+			@include fluid-type(margin-bottom, 375px, 1240px, spacing(4), spacing(6));
+
+			@include upto(T) {
+
+				overflow-x: scroll;
+				scroll-snap-type: x mandatory;
+				-webkit-overflow-scrolling: touch;
+				margin: 0 spacing(-3);
+				padding: 0 spacing(3);
+				margin-bottom: spacing(3);
+
+				> .card {
+					scroll-snap-align: center;
+					box-shadow: none;
+				}
+
+				// we can't use last-child margin to create our right hand side
+				// spacing, so we need to force the issue with an after element
+				&::after {
+					content: '';
+					display: block;
+					width: 1px;
+					height: 1px;
+				}
+
+			}
+
+			@include from(T) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+
+		}
+
+		.block__author {
+			grid-column: all;
+			grid-row: 6;
+			display: flex;
+
+		}
+
+			.block__author-avatar {
+
+				flex: 0 0 100px;
+				margin-right: spacing(2);
+
+				@include from(T) {
+					flex-basis: 175px;
+					margin-right: spacing(4);
+				}
+
+				img {
+					border-radius: 50%;
+					border: 6px solid $ui-white;
+				}
+
+			}
+
+			.block__author-heading {
+
+				font-size: 18px;
+				margin-bottom: spacing(.5);
+
+				@include from(T) {
+					font-size: 20px;
+					margin-bottom: spacing(2);
+				}
+
+			}
+
+			.block__author-details {
+
+				flex: 1 1 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+
+				p {
+					margin-bottom: spacing(1);
+				}
+
+				@include upto(T) {
+
+					font-size: 16px;
+
+					br {
+						display: none;
+					}
+
+				}
+
+				@include from(T) {
+
+					p {
+						margin-bottom: spacing(2);
+					}
+
+				}
+
+			}
+
+			.block__author-social {
+
+				display: flex;
+				color: $ui-white;
+
+				a {
+
+					margin-right: spacing(3);
+
+					> svg {
+
+						font-size: 28px;
+						height: 1em;
+						display: block;
+						fill: currentColor;
+
+						&[data-icon="mail"] {
+							width: 1.384em;
+						}
+
+						&[data-icon="twitter"] {
+							width: 1.09em;
+						}
+
+					}
+
+				}
+
+
+			}
+
+
+}

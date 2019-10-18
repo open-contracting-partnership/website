@@ -32,8 +32,9 @@ return [
         App\Providers\AdminServiceProvider::class,
 
 		// Block Providers
-        App\Providers\Blocks\CoverServiceProvider::class,
         App\Providers\Blocks\ContentWithSidebarServiceProvider::class,
+        App\Providers\Blocks\CoverServiceProvider::class,
+        App\Providers\Blocks\ResourceServiceProvider::class,
         App\Providers\Blocks\StoriesServiceProvider::class,
 
     ],

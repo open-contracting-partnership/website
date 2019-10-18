@@ -400,7 +400,6 @@ category:
 	background-color: $ui-grey-3;
 	color: $ui-white;
 	border-radius: spacing(4) spacing(1) spacing(4) spacing(1);
-	max-width: 320px;
 	padding: 20px 28px;
 	display: flex;
 	flex-direction: column;
@@ -486,4 +485,8 @@ category:
 
 	}
 
+}
+
+.aigis-preview > .card--resource {
+	max-width: 320px;
 }
