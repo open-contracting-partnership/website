@@ -391,7 +391,7 @@ $header-break-3: 1240;
 							margin-right: spacing(6);
 							text-decoration: none;
 
-							border-bottom: 5px solid transparent;
+							border-bottom: 3px solid transparent;
 							position: relative;
 
 							&::before {
@@ -400,7 +400,7 @@ $header-break-3: 1240;
 								position: absolute;
 								left: 0;
 								right: 0;
-								bottom: -5px;
+								bottom: -3px;
 								height: 0;
 								background-color: $ui-brand;
 								transition: height .2s ease;
@@ -413,7 +413,7 @@ $header-break-3: 1240;
 								text-decoration: none;
 
 								&::before {
-									height: 5px;
+									height: 3px;
 								}
 
 							}
@@ -431,7 +431,7 @@ $header-break-3: 1240;
 								text-decoration: none;
 
 								&::before {
-									height: 5px;
+									height: 3px;
 								}
 
 							}
