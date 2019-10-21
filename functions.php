@@ -32,14 +32,18 @@ add_filter('timber/context', function($context) {
 
 	foreach ( $context['header_primary_menu']->items as &$item ) {
 
-		$mega_menu = array_filter($mega_menus, function($menu) use ($item){
-			return $menu['parent'] == $item->id;
-		});
-
 		$item->mega_menu = false;
 
-		if ( $mega_menu ) {
-			$item->mega_menu = $mega_menu[0];
+		if ( $mega_menus ) {
+
+			$mega_menu = array_filter($mega_menus, function($menu) use ($item){
+				return $menu['parent'] == $item->id;
+			});
+
+			if ( $mega_menu ) {
+				$item->mega_menu = $mega_menu[0];
+			}
+
 		}
 
 	}
@@ -89,4 +93,39 @@ function hex2rgba($color, $opacity = false) {
 
         //Return rgb(a) color string
         return $output;
+}
+
+
+
+
+function action_function_name( $field ) {
+// echo '<pre>'; print_r($field); echo '</pre>';
+	// echo '<p>Some extra HTML</p>';
+
+}
+add_action( 'acf/render_field', 'action_function_name', 10, 1 );
+
+
+
+add_action('acf/render_field_settings', 'addFieldTranslationOption');
+
+/**
+ * Add "Translate field" option to ACF field, can then be used to translate
+ * specific custom fields
+ * @param array $field the field object
+ */
+function addFieldTranslationOption($field) {
+
+	acf_render_field_setting($field, array(
+		'label' => __('Gutenberg visibility'),
+		'instructions' => 'Where should this field display within the Gutenberg editor?',
+		'name' => 'gutenberg_visibility',
+		'type' => 'select',
+		'choices' => [
+			'both' => 'Block Settings and Edit Screen',
+			'block_settings' => 'Just Block Settings',
+			'edit_screen' => 'Just Edit Screen',
+		]
+	), true);
+
 }
