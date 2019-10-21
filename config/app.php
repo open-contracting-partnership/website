@@ -55,7 +55,7 @@ return [
      */
     'logs' => [
         'enabled' => true,
-        'path' => '/Users/beneverard/log.txt',
+        'path' => false,
         'level' => Monolog\Logger::DEBUG,
     ],
 
