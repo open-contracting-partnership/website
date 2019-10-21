@@ -362,20 +362,6 @@ category:
 					display: none;
 				}
 
-				.site-header__mega-nav {
-
-					position: absolute;
-					top: 100%;
-					left: 0;
-					right: 0;
-					margin: 0 -24px;
-
-					@include from($header-break-4) {
-						margin: 0 calc(-24px - ((100vw - 1240px) / 2));
-					}
-
-				}
-
 				// top-level
 				> ul {
 
@@ -467,7 +453,7 @@ category:
 					}
 
 					@include from($header-break-4) {
-						margin: 0 calc(-48px - ((100vw - 1240px) / 2));
+						margin: 0 calc(0px - ((100vw - 1248px) / 2));
 					}
 
 				}
@@ -475,9 +461,7 @@ category:
 			}
 
 		}
-
-
-
+		
 		.site-header__toolbox {
 
 			@include upto($header-break-2) {
