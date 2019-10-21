@@ -90,10 +90,6 @@ category:
 
 */
 
-$header-break-1: 'S';
-$header-break-2: 768;
-$header-break-3: 1240;
-
 .mega-menu {
 	@include shell-grid;
 	background-color: #505596;
@@ -103,14 +99,18 @@ $header-break-3: 1240;
 
 	.mega-menu__container {
 
-		grid-column: wide;
-		padding: spacing(4) spacing(3) spacing(8);
+		grid-column: content;
+		padding: spacing(4) 0 spacing(8);
 
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		grid-gap: spacing(3) spacing(2);
 
 		@include from($header-break-3) {
+			grid-column: intermediate;
+		}
+
+		@include from($header-break-4) {
 			grid-template-columns: repeat(4, 1fr);
 		}
 
@@ -122,7 +122,7 @@ $header-break-3: 1240;
 			grid-column: 1 / -1;
 			margin-bottom: 0;
 
-			@include from($header-break-3) {
+			@include from($header-break-4) {
 				grid-column: 2 / -1;
 				margin-left: -36px;
 			}
