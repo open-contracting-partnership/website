@@ -2,7 +2,10 @@ html {
     font-size: 100%;
 }
 
-body {
+// set the body selector based on if we're loading into gutenberg or the front-end
+$body-selector: if($is-gutenberg, '&', 'body');
+
+#{$body-selector} {
 
 	@include font;
 	font-size: 18px;

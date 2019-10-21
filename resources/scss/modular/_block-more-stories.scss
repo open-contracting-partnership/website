@@ -160,7 +160,6 @@ category:
 		grid-column: wide;
 		grid-row: 1;
 		position: relative;
-		z-index: -1;
 		overflow: hidden;
 
 		// &::before {
@@ -181,6 +180,7 @@ category:
 	}
 
 	.block__container {
+		position: relative;
 		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(2), spacing(6));
 		grid-column: content;
 		grid-row: 1;

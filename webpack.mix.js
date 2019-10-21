@@ -32,6 +32,7 @@ if ( ! mix.inProduction() ) {
 mix.svgSprite('resources/svg', 'svg/icons.svg')
 
 mix.sass('resources/scss/styles.scss', 'dist/css')
+	.sass('resources/scss/gutenberg.scss', 'dist/css')
 	.sass('styleguide_assets/aigis_assets/styles/theme.scss', 'styleguide')
 	.options({
 		processCssUrls: false

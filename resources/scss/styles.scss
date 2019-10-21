@@ -12,12 +12,14 @@ partial in the specified directory .
 
 */
 
+$is-gutenberg: false;
+
+@import 'tools/fonts';
 
 /*------------------------------------*\
     $TOOLS
 \*------------------------------------*/
 @import 'modern-css-reset';
-@import 'tools/fonts';
 @import 'tools/mixins';
 @import 'tools/variables';
 @import 'tools/grid';
