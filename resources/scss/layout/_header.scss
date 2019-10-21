@@ -453,7 +453,7 @@ category:
 					}
 
 					@include from($header-break-4) {
-						margin: 0 calc(0px - ((100vw - 1248px) / 2));
+						margin: 0 calc((-100vw - -1248px) / 2);
 					}
 
 				}
@@ -461,7 +461,7 @@ category:
 			}
 
 		}
-		
+
 		.site-header__toolbox {
 
 			@include upto($header-break-2) {
