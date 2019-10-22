@@ -19,6 +19,12 @@ class Lumberjack extends LumberjackCore
         // versatile than Wordpress's wp_nav_menu. (You need never again rely on a
         // crazy "Walker Function!")
 
+		$context['social_links'] = array(
+			'twitter' => get_field('twitter_url', 'options') ?: NULL,
+			'facebook' => get_field('facebook_url', 'options') ?: NULL,
+			'linkedin' => get_field('linkedin_url', 'options') ?: NULL
+		);
+
 		$context['header_primary_menu'] = new \Timber\Menu('Header: Primary');
 		$context['header_secondary_menu'] = new \Timber\Menu('Header: Secondary');
 		$context['footer_menu'] = new \Timber\Menu('Footer');

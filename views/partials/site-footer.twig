@@ -55,17 +55,29 @@
 
 			<h4 class="site-footer__social-header">Connect with us:</h4>
 
-			<a href="#">
-				<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
-			</a>
+			{% if social_links.twitter %}
 
-			<a href="#">
-				<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
-			</a>
+				<a href="{{ social_links.twitter }}">
+					<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
+				</a>
 
-			<a href="#">
-				<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
-			</a>
+			{% endif %}
+
+			{% if social_links.facebook %}
+
+				<a href="{{ social_links.facebook }}">
+					<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
+				</a>
+
+			{% endif %}
+
+			{% if social_links.linkedin %}
+
+				<a href="{{ social_links.linkedin }}">
+					<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
+				</a>
+
+			{% endif %}
 
 		</div>
 
