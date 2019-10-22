@@ -28,7 +28,7 @@ add_filter('acf/load_field/key=field_5da4546ef870e', function($field) {
 	$locations = get_nav_menu_locations();
 
 	// Get object id by location
-	$object = wp_get_nav_menu_object($locations['main-nav']);
+	$object = wp_get_nav_menu_object($locations['header-primary-nav']);
 
 	// Get menu items by menu name
 	$menu_items = wp_get_nav_menu_items( $object->name );

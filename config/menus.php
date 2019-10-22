@@ -5,7 +5,8 @@ return [
      * List of menus to register with WordPress during bootstrap
      */
     'menus' => [
-        'main-nav' => __('Main Navigation'),
-        'footer-nav' => __('Footer Navigation'),
+        'header-primary-nav' => __('Header: Primary Navigation'),
+        'header-secondary-nav' => __('Header: Secondary Navigation'),
+        'footer-nav' => __('Footer: Navigation'),
     ],
 ];
