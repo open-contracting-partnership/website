@@ -41,7 +41,7 @@ add_filter('timber/context', function($context) {
 			});
 
 			if ( $mega_menu ) {
-				$item->mega_menu = $mega_menu[0];
+				$item->mega_menu = current($mega_menu);
 			}
 
 		}
