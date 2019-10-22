@@ -8,41 +8,31 @@
 
 		<ul class="site-footer__navigation">
 
-			<li>
-				<a href="#">What is Open Contracting</a>
-			</li>
+			{% for item in footer_menu.items %}
 
-			<li>
+				<li class="nav-main-item {{ item.classes|join(' ') }}">
 
-				<a href="#">Impact</a>
+					<a class="nav-main-link" href="{{ item.link }}">{{ item.title }}</a>
 
-				<ul>
-					<li><a href="#">Worldwide</a></li>
-				</ul>
+					{% if item.children %}
 
-			</li>
+						<ul class="nav-drop">
 
-			<li>
-				<a href="#">Implement</a>
-			</li>
+							{% for child in item.children %}
 
-			<li>
+								<li class="nav-drop-item">
+									<a href="{{ child.link }}">{{ child.title }}</a>
+								</li>
 
-				<a href="#">Data</a>
+							{% endfor %}
 
-				<ul>
-					<li><a href="#">Data Standard</a></li>
-				</ul>
+						</ul>
 
-			</li>
+					{% endif %}
 
-			<li>
-				<a href="#">About</a>
-			</li>
+				</li>
 
-			<li>
-				<a href="#">Latest</a>
-			</li>
+			{% endfor %}
 
 		</ul>
 
