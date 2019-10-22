@@ -20,6 +20,13 @@ if ( function_exists('acf_add_options_page') && function_exists('acf_add_options
 		'parent_slug' => $parent['menu_slug'],
 	]);
 
+	// add sub page
+	acf_add_options_sub_page([
+		'page_title' => 'Test',
+		'menu_title' => 'Test',
+		'parent_slug' => $parent['menu_slug'],
+	]);
+
 }
 
 add_filter('acf/load_field/key=field_5da4546ef870e', function($field) {
