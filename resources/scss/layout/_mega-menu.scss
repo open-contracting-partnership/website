@@ -25,63 +25,67 @@ category:
 			<p>We transform public contracting so that it is fair and efficient. Learn about who we are, our vision, mission, strategy and values.</p>
 		</div>
 
-		<ul class="mega-menu__nav">
+		<div class="mega-menu__nav-container">
 
-			<li>
-				<a href="#">Team</a>
-			</li>
+			<ul class="mega-menu__nav" data-type="menu">
 
-			<li>
-				<a href="#">Advisory Board</a>
-			</li>
+				<li>
+					<a href="#">Team</a>
+				</li>
 
-			<li>
-				<a href="#">Governance</a>
-			</li>
+				<li>
+					<a href="#">Advisory Board</a>
+				</li>
 
-			<li>
-				<a href="#">Financing</a>
-			</li>
+				<li>
+					<a href="#">Governance</a>
+				</li>
 
-		</ul>
+				<li>
+					<a href="#">Financing</a>
+				</li>
 
-		<ul class="mega-menu__nav">
+			</ul>
 
-			<li>
+			<ul class="mega-menu__nav" data-type="grouped-menu">
 
-				<span class="mega-menu__sub-nav-heading">Topics</span>
+				<li>
 
-				<ul class="mega-menu__sub-nav">
+					<span class="mega-menu__sub-nav-heading">Topics</span>
 
-					<li>
-						<a href="#">Beneficial Ownership</a>
-					</li>
+					<ul class="mega-menu__sub-nav">
 
-					<li>
-						<a href="#">Gender</a>
-					</li>
+						<li>
+							<a href="#">Beneficial Ownership</a>
+						</li>
 
-					<li>
-						<a href="#">Education</a>
-					</li>
+						<li>
+							<a href="#">Gender</a>
+						</li>
 
-					<li>
-						<a href="#">Health</a>
-					</li>
+						<li>
+							<a href="#">Education</a>
+						</li>
 
-					<li>
-						<a href="#">Extractives</a>
-					</li>
+						<li>
+							<a href="#">Health</a>
+						</li>
 
-					<li>
-						<a href="#">Infrastructure</a>
-					</li>
+						<li>
+							<a href="#">Extractives</a>
+						</li>
 
-				</ul>
+						<li>
+							<a href="#">Infrastructure</a>
+						</li>
 
-			</li>
+					</ul>
 
-		</ul>
+				</li>
+
+			</ul>
+
+		</div>
 
 	</div>
 
@@ -103,7 +107,7 @@ category:
 		padding: spacing(4) 0 spacing(8);
 
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: 1fr 2fr; //repeat(3, 1fr);
 		grid-gap: spacing(3) spacing(2);
 
 		@include from($header-break-3) {
@@ -111,7 +115,7 @@ category:
 		}
 
 		@include from($header-break-4) {
-			grid-template-columns: repeat(4, 1fr);
+			grid-template-columns: 1fr 3fr; //repeat(4, 1fr);
 		}
 
 	}
@@ -124,7 +128,6 @@ category:
 
 			@include from($header-break-4) {
 				grid-column: 2 / -1;
-				margin-left: -36px;
 			}
 
 		}
@@ -144,30 +147,44 @@ category:
 
 		}
 
-		.mega-menu__nav {
-
-			font-size: 14px;
-			@include font('secondary', 'bold');
+		.mega-menu__nav-container {
 			grid-row: 2;
-
-			li {
-				margin-bottom: spacing(1);
-			}
-
-			a {
-				@extend %reverse-underline;
-			}
-
+			grid-column: 2 / -1;
+			display: flex;
 		}
 
-			.mega-menu__sub-nav-heading {
-				display: block;
-				margin-bottom: spacing(2);
+			ul.mega-menu__nav {
+
+				font-size: 14px;
+				@include font('secondary', 'bold');
+				margin-right: spacing(3);
+
+				&[data-type="menu"] {
+					flex: 0 1 175px;
+				}
+
+				&[data-type="grouped-menu"] {
+					flex: 0 1 300px;
+				}
+
+				li {
+					margin-bottom: spacing(1);
+				}
+
+				a {
+					@extend %reverse-underline;
+				}
+
 			}
 
-			.mega-menu__sub-nav {
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				grid-column-gap: spacing(1);
-				@include font('secondary');
-			}
+				.mega-menu__sub-nav-heading {
+					display: block;
+					margin-bottom: spacing(2);
+				}
+
+				.mega-menu__sub-nav {
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					grid-column-gap: spacing(1);
+					@include font('secondary');
+				}

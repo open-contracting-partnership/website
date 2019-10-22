@@ -53,53 +53,55 @@
 											{{ item.mega_menu.introduction }}
 										</div>
 
-										{% for sub_menu in item.mega_menu.sub_menus %}
+										<div class="mega-menu__nav-container">
 
-											{% if sub_menu.acf_fc_layout == 'menu' %}
+											{% for sub_menu in item.mega_menu.sub_menus %}
 
-												<ul class="mega-menu__nav">
+												{% if sub_menu.acf_fc_layout == 'menu' %}
 
-													{% for item in sub_menu.links %}
+													<ul class="mega-menu__nav" data-type="menu">
+
+														{% for item in sub_menu.links %}
+
+															<li>
+																<a href="{{ item.link.url }}">{{ item.link.title }}</a>
+															</li>
+
+														{% endfor %}
+
+													</ul>
+
+												{% endif %}
+
+												{% if sub_menu.acf_fc_layout == 'grouped_menu' %}
+
+													<ul class="mega-menu__nav" data-type="grouped-menu">
 
 														<li>
-															<a href="{{ item.link.url }}">{{ item.link.title }}</a>
+
+															<span class="mega-menu__sub-nav-heading">{{ sub_menu.title }}</span>
+
+															<ul class="mega-menu__sub-nav">
+
+																{% for item in sub_menu.links %}
+
+																	<li>
+																		<a href="{{ item.link.url }}">{{ item.link.title }}</a>
+																	</li>
+
+																{% endfor %}
+
+															</ul>
+
 														</li>
 
-													{% endfor %}
+													</ul>
 
-												</ul>
+												{% endif %}
 
-											{% endif %}
+											{% endfor %}
 
-											{% if sub_menu.acf_fc_layout == 'grouped_menu' %}
-
-												<ul class="mega-menu__nav">
-
-													<li>
-
-														<span class="mega-menu__sub-nav-heading">{{ sub_menu.title }}</span>
-
-														<ul class="mega-menu__sub-nav">
-
-															{% for item in sub_menu.links %}
-
-																<li>
-																	<a href="{{ item.link.url }}">{{ item.link.title }}</a>
-																</li>
-
-															{% endfor %}
-
-														</ul>
-
-													</li>
-
-												</ul>
-
-											{% endif %}
-
-											{#  #}
-
-										{% endfor %}
+										</div>
 
 									</div>
 
