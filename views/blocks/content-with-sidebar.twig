@@ -7,14 +7,14 @@
 		<h2 class="block__heading">{{ block.title }}</h2>
 
 		{{ block.content | raw }}
-		
+
 	</div>
 
 	<div class="block__sidebar">
 
 		{% if block.cta %}
 
-			<div class="card card--link">
+			<div class="card card--link" data-colour-scheme="light">
 
 				<div class="card__body">
 					<a class="card__link" href="{{ block.cta.link.link }}">{{ block.cta.title }}</a>

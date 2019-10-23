@@ -121,12 +121,16 @@ category:
 			padding-top: .1em;
 		}
 
+		.arrow-link__label {
+			color: $ui-black;
+		}
+
 
 	// Colour Scheme
 
 	&[data-colour-scheme="light"] {
 
-		background-color: $ui-grey-7;
+		background-color: $ui-grey-8;
 
 		.card__footer {
 			border-color: $ui-grey-6;
