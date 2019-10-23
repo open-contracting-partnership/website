@@ -23,13 +23,13 @@ class ImgixServiceProvider extends ServiceProvider
     {
 
 		add_filter('timber/twig', function(\Twig_Environment $twig) {
-		    $twig->addFunction(new \Twig_Function('imgix', [$this, 'render']));
+		    $twig->addFunction(new \Twig\TwigFunction('imgix', [$this, 'render']));
 		    return $twig;
 		});
 
     }
 
-	private function render($args) {
+	public function render($args) {
 
 		$this->prepareParams($args);
 
