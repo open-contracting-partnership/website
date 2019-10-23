@@ -27,7 +27,7 @@ category:
 ## Highlight Colours
 
 ```html
-<div class="card card--resource" data-highlight-colour="orange">
+<div class="card card--resource" data-post-type="orange">
 
 	<div class="card__body">
 		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
@@ -40,7 +40,7 @@ category:
 
 </div>
 
-<div class="card card--resource" data-highlight-colour="blue">
+<div class="card card--resource" data-post-type="resource">
 
 	<div class="card__body">
 		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
@@ -57,7 +57,7 @@ category:
 ## Background Colours
 
 ```html
-<div class="card card--resource" data-colour-scheme="light" data-highlight-colour="orange">
+<div class="card card--resource" data-colour-scheme="light" data-post-type="post">
 
 	<div class="card__body">
 		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
@@ -65,12 +65,12 @@ category:
 
 	<div class="card__footer">
 		<div class="card__icon"></div>
-		<span class="card__type">Resource</span>
+		<span class="card__type">Blog</span>
 	</div>
 
 </div>
 
-<div class="card card--resource" data-colour-scheme="light" data-highlight-colour="blue">
+<div class="card card--resource" data-colour-scheme="light" data-post-type="resource">
 
 	<div class="card__body">
 		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
@@ -96,12 +96,19 @@ category:
 	flex-direction: column;
 	justify-content: flex-end;
 
-	.card__link {
-		font-size: 18px;
-		@include font('secondary', 'bold');
-		text-decoration: none;
-		line-height: 1.15;
+	.card__body {
+		flex: 1 1 100%;
+		display: flex;
+		align-items: center;
+		padding: spacing(1) 0;
 	}
+
+		.card__link {
+			font-size: 18px;
+			@include font('secondary', 'bold');
+			text-decoration: none;
+			line-height: 1.15;
+		}
 
 	.card__footer {
 		border-top: 4px solid $ui-white;
@@ -152,7 +159,7 @@ category:
 
 	// Highlight Colour
 
-	&[data-highlight-colour="orange"] {
+	&[data-post-type="post"] {
 
 		.card__footer {
 			border-color: $ui-orange;
@@ -164,7 +171,7 @@ category:
 
 	}
 
-	&[data-highlight-colour="blue"] {
+	&[data-post-type="resource"] {
 
 		.card__footer {
 			border-color: $ui-blue;

@@ -49,83 +49,9 @@
 
 		<div class="block__resources">
 
-			<div class="card card--resource" data-highlight-colour="orange">
-
-				<div class="card__body">
-					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
-				</div>
-
-				<div class="card__footer">
-					<div class="card__icon"></div>
-					<span class="card__type">Resource</span>
-				</div>
-
-			</div>
-
-			<div class="card card--resource" data-highlight-colour="orange">
-
-				<div class="card__body">
-					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
-				</div>
-
-				<div class="card__footer">
-					<div class="card__icon"></div>
-					<span class="card__type">Resource</span>
-				</div>
-
-			</div>
-
-			<div class="card card--resource" data-highlight-colour="orange">
-
-				<div class="card__body">
-					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
-				</div>
-
-				<div class="card__footer">
-					<div class="card__icon"></div>
-					<span class="card__type">Resource</span>
-				</div>
-
-			</div>
-
-			<div class="card card--resource" data-highlight-colour="orange">
-
-				<div class="card__body">
-					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
-				</div>
-
-				<div class="card__footer">
-					<div class="card__icon"></div>
-					<span class="card__type">Resource</span>
-				</div>
-
-			</div>
-
-			<div class="card card--resource" data-highlight-colour="orange">
-
-				<div class="card__body">
-					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
-				</div>
-
-				<div class="card__footer">
-					<div class="card__icon"></div>
-					<span class="card__type">Resource</span>
-				</div>
-
-			</div>
-
-			<div class="card card--resource" data-highlight-colour="orange">
-
-				<div class="card__body">
-					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
-				</div>
-
-				<div class="card__footer">
-					<div class="card__icon"></div>
-					<span class="card__type">Resource</span>
-				</div>
-
-			</div>
+			{% for card in block.resources %}
+				{% include 'cards/resource.twig' with card %}
+			{% endfor %}
 
 		</div>
 
@@ -134,7 +60,28 @@
 			<div class="block__author">
 
 				<div class="block__author-avatar">
-					<img src="//placehold.it/300">
+
+					{{ imgix({
+						src: block.contact.avatar.url,
+						params: {
+							auto: 'format',
+							fit: 'crop'
+						},
+						aspect_ratio: [1, 1],
+						transforms: [{
+							w: 125
+						}, {
+							w: 175
+						}, {
+							w: 250
+						}, {
+							w: 350
+						}, {
+							w: 525
+						}],
+						sizes: '100vw'
+					}) }}
+
 				</div>
 
 				<div class="block__author-details">

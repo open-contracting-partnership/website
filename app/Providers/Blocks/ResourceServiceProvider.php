@@ -2,6 +2,7 @@
 
 namespace App\Providers\Blocks;
 
+use App\Cards\ResourceCard;
 use App\Providers\Blocks\BaseBlock;
 use Timber\Timber;
 
@@ -41,6 +42,15 @@ class ResourceServiceProvider
 		$context['block']['resources_title'] = get_field('resources_title');
 		$context['block']['contact'] = get_field('contact') ? get_field('contact')[0] : [];
 		$context['block']['sidebar_links'] = array_column(get_field('sidebar_links') ?: [], 'link');
+		$context['block']['resources'] = [];
+
+		if ( $resources = get_field('resources') ) {
+
+			foreach ( $resources as $resource ) {
+				$context['block']['resources'][] = ResourceCard::buildData($resource->ID);
+			}
+
+		}
 
 		if ( $context['block']['contact'] ) {
 

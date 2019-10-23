@@ -32,3 +32,43 @@ add_filter('excerpt_more', function() {
 function prevent_widow($text) {
 	return preg_replace('|([^\s])\s+([^\s]+)\s*$|', '$1&nbsp;$2', $text);
 }
+
+
+ //*****************
+// POST TYPE LABELS
+
+/**
+ * returns the label for a given post type
+ * @param  mixed $post_type
+ * @param  boolean $plural
+ * @return string
+ */
+function get_post_type_label($post_type = NULL, $plural = FALSE) {
+
+	$post_type = $post_type ?: get_post_type();
+	$post_type_object = get_post_type_object($post_type);
+	$label = FALSE;
+
+	if ( $post_type_object ) {
+
+		if ( $plural === TRUE ) {
+			$label = $post_type_object->labels->name;
+		} else {
+			$label = $post_type_object->labels->singular_name;
+		}
+
+	}
+
+	return $label;
+
+}
+
+/**
+ * echo alias of `get_post_type_label`
+ * @param  mixed $post_type
+ * @param  boolean $plural
+ * @return NULL
+ */
+function the_post_type_label($post_type = NULL, $plural = FALSE) {
+	echo get_post_type_label($post_type, $plural);
+}
