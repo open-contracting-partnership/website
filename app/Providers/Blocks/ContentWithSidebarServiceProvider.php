@@ -35,10 +35,8 @@ class ContentWithSidebarServiceProvider
 		$context = Timber::get_context();
 
 		$context['block'] = [];
+		$context['block']['title'] = get_field('title');
 		$context['block']['content'] = get_field('content');
-		// $context['block']['image'] = get_field('image');
-		// $context['block']['overlay_color'] = get_field('overlay_colour') ?: '#000000';
-		// $context['block']['background_opacity'] = get_field('background_opacity') / 100;
 		$context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';
 		$context['block']['is_dark'] = isContrastingColourLight($context['block']['background_colour']);
 		$context['block']['text_colour'] = $context['block']['is_dark'] ? '#FFF' : '#000';

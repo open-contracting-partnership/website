@@ -3,6 +3,26 @@
     "title": "Block: Content with Sidebar",
     "fields": [
         {
+            "key": "field_5db08fa9738ff",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5da5d7bb5a602",
             "label": "Content",
             "name": "content",
@@ -15,10 +35,10 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 0,
+            "gutenberg_visibility": "edit_screen",
             "default_value": "",
             "tabs": "all",
-            "toolbar": "full",
+            "toolbar": "basic",
             "media_upload": 1,
             "delay": 0
         },
@@ -144,5 +164,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571663199
+    "modified": 1571852344
 }
