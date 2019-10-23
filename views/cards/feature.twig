@@ -1,0 +1,21 @@
+<div class="card card--feature">
+
+    <div class="card__image">
+
+        <img src="{{ card.image_url }}" />
+
+        <div class="card__image-overlay">
+
+            <a class="card__title-link" href="{{ card.url }}">
+                <h2 class="card__title">{{ card.title }}</h2>
+            </a>
+
+            <div class="card__intro">
+				{{ card.intro | raw }}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
