@@ -35,12 +35,12 @@
                 "class": "",
                 "id": ""
             },
+            "gutenberg_visibility": "edit_screen",
             "default_value": "",
             "tabs": "all",
-            "toolbar": "full",
+            "toolbar": "basic",
             "media_upload": 0,
-            "delay": 0,
-            "wpml_cf_preferences": 0
+            "delay": 0
         },
         {
             "key": "field_5da8806bb28ef",
@@ -55,12 +55,12 @@
                 "class": "",
                 "id": ""
             },
+            "gutenberg_visibility": "edit_screen",
             "collapsed": "",
             "min": 0,
             "max": 2,
             "layout": "table",
             "button_label": "Add Link",
-            "wpml_cf_preferences": 0,
             "sub_fields": [
                 {
                     "key": "field_5da8807eb28f0",
@@ -113,6 +113,7 @@
                 "class": "",
                 "id": ""
             },
+            "gutenberg_visibility": "edit_screen",
             "post_type": "",
             "taxonomy": "",
             "filters": [
@@ -122,8 +123,7 @@
             "elements": "",
             "min": "",
             "max": 6,
-            "return_format": "object",
-            "wpml_cf_preferences": 0
+            "return_format": "object"
         },
         {
             "key": "field_5da880cab28f3",
@@ -138,7 +138,7 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 0,
+            "gutenberg_visibility": "edit_screen",
             "collapsed": "",
             "min": 0,
             "max": 1,
@@ -318,5 +318,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571663197
+    "modified": 1571853070
 }
