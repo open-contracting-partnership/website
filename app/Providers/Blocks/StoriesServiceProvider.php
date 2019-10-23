@@ -5,7 +5,6 @@ namespace App\Providers\Blocks;
 use App\Providers\Blocks\BaseBlock;
 use App\Cards\FeatureCard;
 use App\Cards\PrimaryCard;
-use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Timber\Timber;
 
 class StoriesServiceProvider

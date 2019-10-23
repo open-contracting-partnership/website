@@ -3,7 +3,6 @@
 namespace App\Providers\Blocks;
 
 use App\Providers\Blocks\BaseBlock;
-use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Timber\Timber;
 
 class ResourceServiceProvider
