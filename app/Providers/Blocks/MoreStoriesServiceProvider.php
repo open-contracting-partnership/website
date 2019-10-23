@@ -3,6 +3,7 @@
 namespace App\Providers\Blocks;
 
 use App\Providers\Blocks\BaseBlock;
+use App\Cards\PrimaryCard;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Timber\Timber;
 
@@ -36,9 +37,33 @@ class MoreStoriesServiceProvider
 		$context = Timber::get_context();
 
 		$context['block'] = [];
-
 		$context['block']['title'] = get_field('title') ?: 'Title here...';
-		$context['block']['stories'] = get_field('stories');
+		$context['block']['stories'] = [];
+
+		if ( $stories = get_field('stories') ) {
+
+			foreach ( $stories as $story ) {
+
+				if ( $story['acf_fc_layout'] === 'internal_link' ) {
+					$context['block']['stories'][] = PrimaryCard::buildData($story['link'][0]);
+				}
+
+				if ( $story['acf_fc_layout'] === 'custom_link' ) {
+
+					$context['block']['stories'][] = [
+						'image_url' => $story['image']['url'],
+						'type_label' => $story['type'],
+						'title' => $story['title'],
+						'url' => $story['url'],
+						'meta' => $story['meta'],
+						'button_label' => $story['button_label'] ?: __('Read', 'ocp')
+					];
+
+				}
+
+			}
+
+		}
 
 		$context['block']['background_colour'] = get_field('background_colour') ?: '#6C75E1';
 		$context['block']['text_colour'] = isContrastingColourLight($context['block']['background_colour']) ? '#FFF' : '#000';

@@ -23,10 +23,10 @@
             "maxlength": ""
         },
         {
-            "key": "field_5da9858a4507e",
+            "key": "field_5db0274372b2d",
             "label": "Stories",
             "name": "stories",
-            "type": "relationship",
+            "type": "flexible_content",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -35,18 +35,81 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 0,
-            "post_type": "",
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "elements": [
-                "featured_image"
-            ],
+            "gutenberg_visibility": "edit_screen",
+            "layouts": {
+                "layout_5db0277772b2e": {
+                    "key": "layout_5db0277772b2e",
+                    "name": "internal_link",
+                    "label": "Internal Link",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5db0279172b2f",
+                            "label": "Link",
+                            "name": "link",
+                            "type": "relationship",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "gutenberg_visibility": "both",
+                            "post_type": "",
+                            "taxonomy": "",
+                            "filters": [
+                                "search",
+                                "post_type"
+                            ],
+                            "elements": [
+                                "featured_image"
+                            ],
+                            "min": 1,
+                            "max": 1,
+                            "return_format": "id"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5db027628c2ac": {
+                    "key": "layout_5db027628c2ac",
+                    "name": "custom_link",
+                    "label": "Custom Link",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5db0293407865",
+                            "label": "Link",
+                            "name": "link",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "gutenberg_visibility": "both",
+                            "clone": [
+                                "group_5db0288e5e5a9"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Story Link",
             "min": "",
-            "max": "",
-            "return_format": "id"
+            "max": ""
         },
         {
             "key": "field_5da9858a7e655",
@@ -98,5 +161,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571663198
+    "modified": 1571827457
 }
