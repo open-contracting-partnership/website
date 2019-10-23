@@ -30,6 +30,7 @@ return [
         // Application Providers
         App\Providers\AppServiceProvider::class,
         App\Providers\AdminServiceProvider::class,
+        App\Providers\ImgixServiceProvider::class,
 
 		// Block Providers
         App\Providers\Blocks\ContentWithSidebarServiceProvider::class,
@@ -67,4 +68,5 @@ return [
      * The key used by the Encrypter. This should be a random 32 character string.
      */
     'key' => getenv('APP_KEY'),
+
 ];

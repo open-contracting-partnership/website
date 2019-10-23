@@ -2,7 +2,26 @@
 
     <div class="card__image">
 
-        <img src="{{ card.image_url }}" />
+		{{ imgix({
+			src: card.image_url,
+			params: {
+				auto: 'format',
+				fit: 'crop'
+			},
+			aspect_ratio: [4, 3],
+			transforms: [{
+				w: 415
+			}, {
+				w: 830
+			}, {
+				w: 1024
+			}, {
+				w: 1536
+			}, {
+				w: 2048
+			}],
+			sizes: '100vw'
+		}) }}
 
         <div class="card__image-overlay">
 
