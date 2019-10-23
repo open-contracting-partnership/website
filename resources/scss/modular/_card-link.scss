@@ -88,6 +88,7 @@ category:
 	justify-content: flex-end;
 
 	.card__link {
+		display: block;
 		font-size: 18px;
 		@include font('secondary', 'bold');
 		text-decoration: none;
