@@ -33,6 +33,7 @@ return [
         App\Providers\ImgixServiceProvider::class,
 
 		// Block Providers
+        App\Providers\Blocks\ContentServiceProvider::class,
         App\Providers\Blocks\ContentWithSidebarServiceProvider::class,
         App\Providers\Blocks\CoverServiceProvider::class,
         App\Providers\Blocks\ImageWithLinksServiceProvider::class,

@@ -1,0 +1,16 @@
+.svg-ocp-how-we-work {
+
+	display: grid;
+
+	object {
+
+		margin: auto;
+		max-width: 400px;
+		
+		@include from(700) {
+			max-width: 830px;
+		}
+
+	}
+
+}
