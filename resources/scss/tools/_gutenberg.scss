@@ -1,25 +1,3 @@
-
-
-// target the gutenberg editor
-body.edit-post-visual-editor {
-
-	min-height: initial !important;
-	padding: 50px 0 !important;
-
-	*,
-	*::before,
-	*::after {
-		box-sizing: content-box;
-	}
-
-	.acf-block-preview {
-
-		*,
-		*::before,
-		*::after {
-			box-sizing: border-box;
-		}
-
-	}
-
+#wpadminbar {
+	position: fixed !important;
 }

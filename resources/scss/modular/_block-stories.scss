@@ -230,16 +230,11 @@ category:
 
 .block[data-block-type="stories"] {
 
-	@include fluid-type(--padding, 360px, 1240px, spacing(2), spacing(6));
-
-	grid-template-rows: [all-start] var(--padding) auto var(--padding) [all-end];
-
 	.block__background {
 
 		grid-column: wide;
-		grid-row: all;
+		grid-row: 1;
 		position: relative;
-		z-index: -1;
 		overflow: hidden;
 
 		&::before {
@@ -260,8 +255,10 @@ category:
 	}
 
 	.block__container {
+		position: relative;
 		grid-column: content;
-		grid-row: 2;
+		grid-row: 1;
+		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(2), spacing(6));
 	}
 
 		.block__header {

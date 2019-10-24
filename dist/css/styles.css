@@ -12,58 +12,6 @@ Sass Globbing is used so an import utilising an asterisk (*) will use every
 partial in the specified directory .
 
 */
-/*------------------------------------*\
-    $TOOLS
-\*------------------------------------*/
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-ul[class], ol[class] {
-  padding: 0;
-}
-
-body, h1, h2, h3, h4, p, ul[class], ol[class], li, figure, figcaption, blockquote, dl, dd {
-  margin: 0;
-}
-
-body {
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-}
-
-ul[class], ol[class] {
-  list-style: none;
-}
-
-a:not([class]) {
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-article > * + * {
-  margin-top: 1em;
-}
-
-input, button, textarea, select {
-  font: inherit;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    -webkit-animation-play-state: paused !important;
-            animation-play-state: paused !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
-}
 @font-face {
   font-family: "gt_eesti_pro_display";
   src: url("../../resources/fonts/gteestiprodisplay-bold-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprodisplay-bold-webfont.woff") format("woff");
@@ -131,12 +79,64 @@ input, button, textarea, select {
   font-style: italic;
 }
 /*------------------------------------*\
+    $TOOLS
+\*------------------------------------*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+ul[class], ol[class] {
+  padding: 0;
+}
+
+body, h1, h2, h3, h4, p, ul[class], ol[class], li, figure, figcaption, blockquote, dl, dd {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+ul[class], ol[class] {
+  list-style: none;
+}
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+article > * + * {
+  margin-top: 1em;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-play-state: paused !important;
+            animation-play-state: paused !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+/*------------------------------------*\
     GLOBAL MIXINS
 \*------------------------------------*/
 /*------------------------------------*\
 	VARIABLES
 \*------------------------------------*/
-.block[data-block-type=resource] .block__container {
+.block[data-block-type=resource] .block__container, .block[data-block-type=image-with-links] .block__container {
   display: grid;
   grid-column-gap: 16px;
   grid-template-columns: [all-start] repeat(12, 1fr) [all-end];
@@ -380,6 +380,10 @@ h3 {
     page-break-after: avoid;
   }
 }
+#wpadminbar {
+  position: fixed !important;
+}
+
 /*------------------------------------*\
     $BASE ELEMENTS
 \*------------------------------------*/
@@ -970,13 +974,13 @@ a:active {
   text-decoration: underline;
 }
 
-.mega-menu__nav a, .site-header__toolbox a, .site-footer__navigation a {
+ul.mega-menu__nav a, .site-header__toolbox a, .site-footer__navigation a {
   text-decoration: none;
 }
-.mega-menu__nav a:hover, .site-header__toolbox a:hover, .site-footer__navigation a:hover, .mega-menu__nav a:focus, .site-header__toolbox a:focus, .site-footer__navigation a:focus {
+ul.mega-menu__nav a:hover, .site-header__toolbox a:hover, .site-footer__navigation a:hover, ul.mega-menu__nav a:focus, .site-header__toolbox a:focus, .site-footer__navigation a:focus {
   text-decoration: underline;
 }
-.mega-menu__nav a:active, .site-header__toolbox a:active, .site-footer__navigation a:active {
+ul.mega-menu__nav a:active, .site-header__toolbox a:active, .site-footer__navigation a:active {
   text-decoration: none;
 }
 
@@ -1015,87 +1019,6 @@ tbody tr a:hover, tbody tr a:focus {
 }
 tbody tr a:active {
   text-decoration: underline;
-}
-
-/*
-
----
-name: Arrow link
-category:
- - Base
- - Base/Links
----
-
-## Default
-
-```html
-<div class="aigis-preview__background">
-
-	<a class="arrow-link" href="#">
-		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-		<span class="arrow-link__label">Read</span>
-	</a>
-
-</div>
-```
-
-## Colours
-
-```html
-<div class="aigis-preview__background">
-
-	<a class="arrow-link" data-icon-color="white" href="#">
-		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-		<span class="arrow-link__label">Read</span>
-	</a>
-
-	<a class="arrow-link" data-icon-color="white" data-text-color="black" href="#">
-		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-		<span class="arrow-link__label">Read</span>
-	</a>
-
-	<a class="arrow-link" data-text-color="black" href="#">
-		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-		<span class="arrow-link__label">Read</span>
-	</a>
-
-</div>
-```
-
-*/
-.arrow-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #FFF;
-}
-.arrow-link:hover, .arrow-link:focus, .arrow-link:active {
-  text-decoration: underline;
-}
-
-.arrow-link__icon {
-  font-size: 28px;
-  height: 1em;
-  width: 1em;
-  margin-right: 8px;
-  fill: #E0E83D;
-}
-
-.arrow-link__label {
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-}
-
-.arrow-link[data-icon-color=white] .arrow-link__icon {
-  fill: #FFF;
-}
-
-.arrow-link[data-text-color=black] {
-  color: #4B4B4B;
 }
 
 /*
@@ -2184,7 +2107,7 @@ category:
 
 .site-footer__license {
   font-size: 9px;
-  color: #666666;
+  color: #C4C4C4;
   margin-bottom: 16px;
 }
 @media screen and (min-width: 640px) {
@@ -2427,9 +2350,15 @@ category:
 }
 @media screen and (min-width: 768px) {
   .site-header__container {
+    grid-column: content;
     grid-template-columns: [all-start] repeat(2, auto) [all-end];
     grid-row-gap: 16px;
-    padding: 24px 24px 0;
+    padding: 24px 0 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .site-header__container {
+    grid-column: intermediate;
   }
 }
 .site-header__container::before {
@@ -2506,6 +2435,9 @@ category:
   .site-header__navigation ul ul {
     padding-left: 24px;
   }
+  .site-header__navigation ul ul a {
+    font-size: 0.8em;
+  }
   .site-header__navigation li {
     margin-bottom: 8px;
   }
@@ -2520,6 +2452,7 @@ category:
     margin-top: 24px;
     padding-top: 24px;
     border-top: 2px solid #666666;
+    margin-bottom: 24px;
   }
   .site-header__navigation .site-header__mega-nav {
     display: none;
@@ -2544,20 +2477,6 @@ category:
   .site-header__navigation .site-header__mobile-language {
     display: none;
   }
-  .site-header__navigation .site-header__mega-nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    margin: 0 -24px;
-  }
-}
-@media screen and (min-width: 768px) and (min-width: 1240px) {
-  .site-header__navigation .site-header__mega-nav {
-    margin: 0 calc(-24px - ((100vw - 1240px) / 2));
-  }
-}
-@media screen and (min-width: 768px) {
   .site-header__navigation > ul {
     display: flex;
     flex-wrap: wrap;
@@ -2569,7 +2488,7 @@ category:
     padding: 16px 0;
     margin-right: 48px;
     text-decoration: none;
-    border-bottom: 5px solid transparent;
+    border-bottom: 3px solid transparent;
     position: relative;
   }
   .site-header__navigation > ul > li > a::before {
@@ -2578,7 +2497,7 @@ category:
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -5px;
+    bottom: -3px;
     height: 0;
     background-color: #E0E83D;
     transition: height 0.2s ease;
@@ -2587,7 +2506,7 @@ category:
     text-decoration: none;
   }
   .site-header__navigation > ul > li > a:hover::before, .site-header__navigation > ul > li > a:active::before, .site-header__navigation > ul > li > a:focus::before {
-    height: 5px;
+    height: 3px;
   }
   .site-header__navigation > ul > li:hover .site-header__mega-nav {
     display: block;
@@ -2596,20 +2515,14 @@ category:
     text-decoration: none;
   }
   .site-header__navigation > ul > li:hover > a::before {
-    height: 5px;
+    height: 3px;
   }
-}
-@media screen and (min-width: 768px) {
   .site-header__navigation > ul > li > ul {
     display: none;
   }
-}
-@media screen and (min-width: 768px) {
   .site-header__navigation .site-header__mobile-language {
     display: none;
   }
-}
-@media screen and (min-width: 768px) {
   .site-header__navigation .site-header__mega-nav {
     display: none;
     position: absolute;
@@ -2619,9 +2532,14 @@ category:
     margin: 0 -24px;
   }
 }
+@media screen and (min-width: 768px) and (min-width: 1024px) {
+  .site-header__navigation .site-header__mega-nav {
+    margin: 0 -48px;
+  }
+}
 @media screen and (min-width: 768px) and (min-width: 1240px) {
   .site-header__navigation .site-header__mega-nav {
-    margin: 0 calc(-24px - ((100vw - 1240px) / 2));
+    margin: 0 calc((-100vw - -1248px) / 2);
   }
 }
 
@@ -2779,63 +2697,67 @@ category:
 			<p>We transform public contracting so that it is fair and efficient. Learn about who we are, our vision, mission, strategy and values.</p>
 		</div>
 
-		<ul class="mega-menu__nav">
+		<div class="mega-menu__nav-container">
 
-			<li>
-				<a href="#">Team</a>
-			</li>
+			<ul class="mega-menu__nav" data-type="menu">
 
-			<li>
-				<a href="#">Advisory Board</a>
-			</li>
+				<li>
+					<a href="#">Team</a>
+				</li>
 
-			<li>
-				<a href="#">Governance</a>
-			</li>
+				<li>
+					<a href="#">Advisory Board</a>
+				</li>
 
-			<li>
-				<a href="#">Financing</a>
-			</li>
+				<li>
+					<a href="#">Governance</a>
+				</li>
 
-		</ul>
+				<li>
+					<a href="#">Financing</a>
+				</li>
 
-		<ul class="mega-menu__nav">
+			</ul>
 
-			<li>
+			<ul class="mega-menu__nav" data-type="grouped-menu">
 
-				<span class="mega-menu__sub-nav-heading">Topics</span>
+				<li>
 
-				<ul class="mega-menu__sub-nav">
+					<span class="mega-menu__sub-nav-heading">Topics</span>
 
-					<li>
-						<a href="#">Beneficial Ownership</a>
-					</li>
+					<ul class="mega-menu__sub-nav">
 
-					<li>
-						<a href="#">Gender</a>
-					</li>
+						<li>
+							<a href="#">Beneficial Ownership</a>
+						</li>
 
-					<li>
-						<a href="#">Education</a>
-					</li>
+						<li>
+							<a href="#">Gender</a>
+						</li>
 
-					<li>
-						<a href="#">Health</a>
-					</li>
+						<li>
+							<a href="#">Education</a>
+						</li>
 
-					<li>
-						<a href="#">Extractives</a>
-					</li>
+						<li>
+							<a href="#">Health</a>
+						</li>
 
-					<li>
-						<a href="#">Infrastructure</a>
-					</li>
+						<li>
+							<a href="#">Extractives</a>
+						</li>
 
-				</ul>
+						<li>
+							<a href="#">Infrastructure</a>
+						</li>
 
-			</li>
+					</ul>
 
-		</ul>
+				</li>
+
+			</ul>
+
+		</div>
 
 	</div>
 
@@ -2848,6 +2770,7 @@ category:
   grid-template-columns: [full-start] minmax(0, auto) [wide-start] 0 [intermediate-start] 24px [content-start] repeat(12, minmax(0, 100px)) [content-end] 24px [intermediate-end] 0 [wide-end] minmax(0, auto) [full-end];
   background-color: #505596;
   color: #FFF;
+  z-index: 3;
 }
 @media screen and (min-width: 1024px) {
   .mega-menu {
@@ -2856,15 +2779,20 @@ category:
 }
 
 .mega-menu__container {
-  grid-column: 2;
-  padding: 32px 24px 64px;
+  grid-column: content;
+  padding: 32px 0 64px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 2fr;
   grid-gap: 24px 16px;
+}
+@media screen and (min-width: 1024px) {
+  .mega-menu__container {
+    grid-column: intermediate;
+  }
 }
 @media screen and (min-width: 1240px) {
   .mega-menu__container {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 3fr;
   }
 }
 
@@ -2876,30 +2804,42 @@ category:
 @media screen and (min-width: 1240px) {
   .mega-menu__heading {
     grid-column: 2/-1;
-    margin-left: -36px;
   }
 }
 
 .mega-menu__intro {
   font-size: 16px;
   font-style: italic;
+  font-weight: 400;
   grid-row: 2;
-  color: #F6F6F6;
+  color: #DADADA;
   padding-right: 64px;
 }
 .mega-menu__intro p:last-child {
   margin-bottom: 0;
 }
 
-.mega-menu__nav {
+.mega-menu__nav-container {
+  grid-row: 2;
+  grid-column: 2/-1;
+  display: flex;
+}
+
+ul.mega-menu__nav {
   font-size: 14px;
   font-weight: 700;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  grid-row: 2;
+  margin-right: 24px;
 }
-.mega-menu__nav li {
+ul.mega-menu__nav[data-type=menu] {
+  flex: 0 1 175px;
+}
+ul.mega-menu__nav[data-type=grouped-menu] {
+  flex: 0 1 300px;
+}
+ul.mega-menu__nav li {
   margin-bottom: 8px;
 }
 .mega-menu__sub-nav-heading {
@@ -2980,6 +2920,100 @@ category:
 /*
 
 ---
+name: Arrow link
+category:
+ - Components
+ - Components/Arrow link
+---
+
+## Default
+
+```html
+<div class="aigis-preview__background">
+
+	<a class="arrow-link" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+</div>
+```
+
+## Sizes
+
+```html
+<a class="arrow-link" data-size="large" data-text-color="black" href="#">
+	<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+	<span class="arrow-link__label">Read</span>
+</a>
+```
+
+## Colours
+
+```html
+<div class="aigis-preview__background">
+
+	<a class="arrow-link" data-icon-color="white" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" data-icon-color="white" data-text-color="black" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" data-text-color="black" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+</div>
+```
+
+*/
+.arrow-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #FFF;
+}
+.arrow-link:hover, .arrow-link:focus, .arrow-link:active {
+  text-decoration: underline;
+}
+
+.arrow-link__icon {
+  font-size: 28px;
+  height: 1em;
+  width: 1em;
+  margin-right: 8px;
+  fill: #E0E83D;
+}
+
+.arrow-link__label {
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top: 0.2em;
+}
+
+.arrow-link[data-size=large] .arrow-link__label {
+  font-size: 24px;
+}
+
+.arrow-link[data-icon-color=white] .arrow-link__icon {
+  fill: #FFF;
+}
+
+.arrow-link[data-text-color=black] {
+  color: #4B4B4B;
+}
+
+/*
+
+---
 name: Content with Sidebar
 category:
  - Blocks
@@ -3041,6 +3075,19 @@ category:
   grid-column: wide;
   grid-row: all;
 }
+.block[data-block-type=content-with-sidebar] .block__heading {
+  font-size: 22px;
+}
+@media screen and (min-width: 360px) {
+  .block[data-block-type=content-with-sidebar] .block__heading {
+    font-size: calc(22px + 14 * (100vw - 360px) / 880);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=content-with-sidebar] .block__heading {
+    font-size: 36px;
+  }
+}
 .block[data-block-type=content-with-sidebar] .block__content {
   grid-column: content;
   grid-row: 2;
@@ -3082,10 +3129,10 @@ category:
 ```html
 <div class="block" data-block-type="cover">
 
-	<h1 class="block__heading">Open contracting is making public  spending count for everyone</h1>
-
 	<div class="block__image" style="background-image: url('https://open-contracting.test/wp-content/uploads/2019/10/IMG_4716.jpg');"></div>
 	<div class="block__image-overlay" style="background-color: rgba(0,0,0,0.3);"></div>
+
+	<h1 class="block__heading">Open contracting is making public  spending count for everyone</h1>
 
 </div>
 ```
@@ -3109,7 +3156,6 @@ category:
 .block[data-block-type=cover] .block__image {
   grid-column: wide;
   grid-row: all;
-  z-index: 1;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
@@ -3117,14 +3163,12 @@ category:
 .block[data-block-type=cover] .block__image-overlay {
   grid-column: wide;
   grid-row: all;
-  z-index: 2;
 }
 .block[data-block-type=cover] .block__heading {
   grid-column: content/-6;
   grid-row: 2;
   color: currentColor;
   margin-bottom: 0;
-  z-index: 3;
   align-self: center;
   font-size: 25px;
 }
@@ -3142,6 +3186,160 @@ category:
   .block[data-block-type=cover] .block__heading {
     grid-column: content/-8;
   }
+}
+
+/*
+
+---
+name: Image with Links
+category:
+ - Blocks
+ - Blocks/Image with Links
+---
+
+```html
+<div class="block" data-block-type="image-with-links" style="color: #FFF">
+
+	<div class="block__background" style="background-color: #4d4d53"></div>
+
+	<div class="block__container">
+
+		<h2 class="block__heading">Our team</h2>
+
+		<div class="block__image">
+			<img src="https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=415&amp;h=277" srcset="https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=415&amp;h=277 415w, https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=830&amp;h=554 830w, https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=1024&amp;h=683 1024w, https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=1536&amp;h=1024 1536w, https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=2048&amp;h=1366 2048w" sizes="100vw" alt="" width="3" height="2">
+		</div>
+
+		<div class="block__sidebar">
+
+			<div class="block__link">
+
+				<a class="arrow-link" href="#" data-size="large" data-text-color="black">
+					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+					<span class="arrow-link__label">Meet our team</span>
+				</a>
+
+				<p class="block__link-description">We’re a remote team. See who is doing what, where.</p>
+
+			</div>
+
+			<div class="block__link">
+
+				<a class="arrow-link" href="#" data-size="large" data-text-color="black">
+					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+					<span class="arrow-link__label">Work with us</span>
+				</a>
+
+				<p class="block__link-description">We’re a high impact, fast moving, global team. Think you have what it takes? Great: check out these opportunities to work with us.</p>
+
+			</div>
+
+			<div class="block__link">
+
+				<a class="arrow-link" href="#" data-size="large" data-text-color="black">
+					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+					<span class="arrow-link__label">Partner with us</span>
+				</a>
+
+				<p class="block__link-description">We work with a global network of partners in over 50 countries to make public contracts open, fair and efficient. Want to partner with us? Get in touch today. </p>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+.block[data-block-type=image-with-links] .block__background {
+  grid-column: wide;
+  grid-row: 1;
+}
+.block[data-block-type=image-with-links] .block__container {
+  grid-column: content;
+  grid-row: 1;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: grid;
+}
+@media screen and (min-width: 375px) {
+  .block[data-block-type=image-with-links] .block__container {
+    padding-top: calc(24px + 48 * (100vw - 375px) / 865);
+    padding-bottom: calc(24px + 48 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=image-with-links] .block__container {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+}
+.block[data-block-type=image-with-links] .block__heading {
+  grid-row: 1;
+  grid-column: all;
+  font-size: 22px;
+}
+@media screen and (min-width: 360px) {
+  .block[data-block-type=image-with-links] .block__heading {
+    font-size: calc(22px + 14 * (100vw - 360px) / 880);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=image-with-links] .block__heading {
+    font-size: 36px;
+  }
+}
+.block[data-block-type=image-with-links] .block__image {
+  grid-column: all;
+  align-self: center;
+}
+@media screen and (max-width: 767px) {
+  .block[data-block-type=image-with-links] .block__image {
+    margin-bottom: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .block[data-block-type=image-with-links] .block__image {
+    grid-column: 1/7;
+    grid-row: 2;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .block[data-block-type=image-with-links] .block__image {
+    grid-column: 1/8;
+  }
+}
+.block[data-block-type=image-with-links] .block__image img {
+  border: 3px solid #FFF;
+  border-radius: 32px 8px 8px 8px;
+}
+.block[data-block-type=image-with-links] .block__sidebar {
+  grid-column: all;
+  align-self: center;
+}
+@media screen and (min-width: 768px) {
+  .block[data-block-type=image-with-links] .block__sidebar {
+    grid-column: -1/-7;
+    grid-row: 2;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .block[data-block-type=image-with-links] .block__sidebar {
+    grid-column: 9/all;
+  }
+}
+.block[data-block-type=image-with-links] .block__link:not(:last-child) {
+  margin-bottom: 24px;
+}
+.block[data-block-type=image-with-links] .arrow-link {
+  color: #FFF;
+  margin-bottom: 8px;
+}
+.block[data-block-type=image-with-links] .block__link-description {
+  font-size: 14px;
+  margin-bottom: 0;
 }
 
 /*
@@ -3302,10 +3500,10 @@ category:
   grid-column: wide;
   grid-row: 1;
   position: relative;
-  z-index: -1;
   overflow: hidden;
 }
 .block[data-block-type=more-stories] .block__container {
+  position: relative;
   padding-top: 16px;
   padding-bottom: 16px;
   grid-column: content;
@@ -3557,7 +3755,6 @@ category:
   grid-column: wide;
   grid-row: all;
   position: relative;
-  z-index: -1;
   overflow: hidden;
 }
 .block[data-block-type=resource] .block__background::before {
@@ -3585,6 +3782,7 @@ category:
   }
 }
 .block[data-block-type=resource] .block__container {
+  position: relative;
   grid-column: content;
   grid-row: 2;
   display: grid;
@@ -4025,25 +4223,10 @@ category:
 ```
 
 */
-.block[data-block-type=stories] {
-  --padding: 16px;
-  grid-template-rows: [all-start] var(--padding) auto var(--padding) [all-end];
-}
-@media screen and (min-width: 360px) {
-  .block[data-block-type=stories] {
-    --padding:calc(16px + 32 * (100vw - 360px) / 880);
-  }
-}
-@media screen and (min-width: 1240px) {
-  .block[data-block-type=stories] {
-    --padding: 48px;
-  }
-}
 .block[data-block-type=stories] .block__background {
   grid-column: wide;
-  grid-row: all;
+  grid-row: 1;
   position: relative;
-  z-index: -1;
   overflow: hidden;
 }
 .block[data-block-type=stories] .block__background::before {
@@ -4071,8 +4254,23 @@ category:
   }
 }
 .block[data-block-type=stories] .block__container {
+  position: relative;
   grid-column: content;
-  grid-row: 2;
+  grid-row: 1;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+@media screen and (min-width: 375px) {
+  .block[data-block-type=stories] .block__container {
+    padding-top: calc(16px + 32 * (100vw - 375px) / 865);
+    padding-bottom: calc(16px + 32 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=stories] .block__container {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
 }
 .block[data-block-type=stories] .block__header {
   display: flex;
@@ -4386,6 +4584,7 @@ category:
   justify-content: flex-end;
 }
 .card.card--link .card__link {
+  display: block;
   font-size: 18px;
   font-weight: 700;
   font-style: normal;
@@ -4417,6 +4616,9 @@ category:
   flex: 1 1 100%;
   text-transform: uppercase;
   padding-top: 0.1em;
+}
+.card.card--link .arrow-link__label {
+  color: #000;
 }
 .card.card--link[data-colour-scheme=light] {
   background-color: #F6F6F6;
@@ -4589,7 +4791,7 @@ category:
 ## Highlight Colours
 
 ```html
-<div class="card card--resource" data-highlight-colour="orange">
+<div class="card card--resource" data-post-type="orange">
 
 	<div class="card__body">
 		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
@@ -4602,7 +4804,7 @@ category:
 
 </div>
 
-<div class="card card--resource" data-highlight-colour="blue">
+<div class="card card--resource" data-post-type="resource">
 
 	<div class="card__body">
 		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
@@ -4619,7 +4821,7 @@ category:
 ## Background Colours
 
 ```html
-<div class="card card--resource" data-colour-scheme="light" data-highlight-colour="orange">
+<div class="card card--resource" data-colour-scheme="light" data-post-type="post">
 
 	<div class="card__body">
 		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
@@ -4627,12 +4829,12 @@ category:
 
 	<div class="card__footer">
 		<div class="card__icon"></div>
-		<span class="card__type">Resource</span>
+		<span class="card__type">Blog</span>
 	</div>
 
 </div>
 
-<div class="card card--resource" data-colour-scheme="light" data-highlight-colour="blue">
+<div class="card card--resource" data-colour-scheme="light" data-post-type="resource">
 
 	<div class="card__body">
 		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
@@ -4655,6 +4857,12 @@ category:
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+.card.card--resource .card__body {
+  flex: 1 1 100%;
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
 }
 .card.card--resource .card__link {
   font-size: 18px;
@@ -4699,16 +4907,16 @@ category:
 .card.card--resource[data-colour-scheme=light] .card__icon {
   border-color: #000;
 }
-.card.card--resource[data-highlight-colour=orange] .card__footer {
+.card.card--resource[data-post-type=post] .card__footer {
   border-color: #FB6045;
 }
-.card.card--resource[data-highlight-colour=orange] .card__icon {
+.card.card--resource[data-post-type=post] .card__icon {
   border-color: #FB6045;
 }
-.card.card--resource[data-highlight-colour=blue] .card__footer {
+.card.card--resource[data-post-type=resource] .card__footer {
   border-color: #6C75E1;
 }
-.card.card--resource[data-highlight-colour=blue] .card__icon {
+.card.card--resource[data-post-type=resource] .card__icon {
   border-color: #6C75E1;
 }
 

@@ -56,6 +56,10 @@ category:
 		grid-row: all;
 	}
 
+	.block__heading {
+		@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+	}
+
 	.block__content {
 
 		grid-column: content;

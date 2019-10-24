@@ -189,7 +189,6 @@ category:
 		grid-column: wide;
 		grid-row: all;
 		position: relative;
-		z-index: -1;
 		overflow: hidden;
 
 		&::before {
@@ -210,6 +209,7 @@ category:
 	}
 
 	.block__container {
+		position: relative;
 		grid-column: content;
 		grid-row: 2;
 		display: grid;

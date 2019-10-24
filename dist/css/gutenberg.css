@@ -1,0 +1,5439 @@
+@charset "UTF-8";
+/*
+
+Atomic design is philosophically complimentary with these CSS approaches:
+
+* SMACSS by Jonathan Snook http://smacss.com/
+* OOCSS by Nicole Sullivan http://oocss.org/
+* BEM CSS Methology : http://bem.info/method/
+* CSS Guidelines by Harry Roberts : http://cssguidelin.es/
+
+Sass Globbing is used so an import utilising an asterisk (*) will use every
+partial in the specified directory .
+
+*/
+@font-face {
+  font-family: "gt_eesti_pro_display";
+  src: url("../../resources/fonts/gteestiprodisplay-bold-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprodisplay-bold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gt_eesti_pro_display";
+  src: url("../../resources/fonts/gteestiprodisplay-medium-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprodisplay-medium-webfont.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gt_eesti_pro_display";
+  src: url("../../resources/fonts/gteestiprodisplay-regular-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprodisplay-regular-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-thin-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-thin-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-thinitalic-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-thinitalic-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-light-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-light-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-lightitalic-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-lightitalic-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-medium-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-medium-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-mediumitalic-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-mediumitalic-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-bold-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-bold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "gt_eesti_pro_text";
+  src: url("../../resources/fonts/gteestiprotext-bolditalic-webfont.woff2") format("woff2"), url("../../resources/fonts/gteestiprotext-bolditalic-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+}
+body [data-block] .acf-block-preview,
+body [data-block] [class^=wp-block-] {
+  /*------------------------------------*\
+      $TOOLS
+  \*------------------------------------*/
+  /*------------------------------------*\
+      GLOBAL MIXINS
+  \*------------------------------------*/
+  /*------------------------------------*\
+  	VARIABLES
+  \*------------------------------------*/
+  /*
+
+  ---
+  name: Shell Grid
+  category:
+   - Layout
+   - Layout/Grid
+  ---
+
+  ```html
+  <div class="shell-grid-example">
+  	<div class="shell-grid-example__full"></div>
+  	<div class="shell-grid-example__wide"></div>
+  </div>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Utilities
+  category:
+   - Base
+   - Base/Utilities
+  ---
+
+  ## List of Utility Classes
+
+  ### Hidden
+
+  > .is-hidden
+
+  This is used to completely remove an element from the document flow and from screen-readers.
+
+  This is usually applied or removed with JavaScript.
+
+  > .visually-hidden
+
+  This is still visible to screen-readers, so it is used for accessibility purposes.
+
+
+  ### Floats
+
+  > .pull-right
+
+  This is used to apply a right float.
+
+  > .pull-left
+
+  This is used to apply a left float.
+
+
+  ### Alignment
+
+  > .align-right
+
+  This is used to apply `text-align: right;`
+
+  > .align-center
+
+  This is used to apply `text-align: center;`
+
+  > .align-left
+
+  This is used to apply `text-align: left;`
+
+  */
+  /*------------------------------------*\
+      PRINT STYLES
+  \*------------------------------------*/
+  /*------------------------------------*\
+      $BASE ELEMENTS
+  \*------------------------------------*/
+  /*
+
+  ---
+  name: Form Components
+  category:
+   - Base
+   - Base/Forms
+  ---
+
+  ## Form Example
+
+  ```html
+  <form action="" method="post">
+  	<fieldset>
+
+  		<legend>Title</legend>
+
+  		<input type="radio" id="radio">
+  		<label for="radio">Click me</label>
+
+  		<label for="radio">
+  			<input type="radio" id="radio">Click me
+  		</label>
+
+  	</fieldset>
+  </form>
+  ```
+
+  ## Text
+
+  ```html
+  <input type="text" placeholder="text" />
+  ```
+
+  ## Text with Label
+
+  ```html
+  <label>First Name:
+  	<input type="text" placeholder="Agent" />
+  </label>
+  ```
+
+  ## Email
+
+  ```html
+  <input type="email" placeholder="email" />
+  ```
+
+  ## Search
+
+  ```html
+  <input type="search" placeholder="search" />
+  ```
+
+  ## Radio
+
+  ```html
+  <label><input type="radio" />Option 1</label>
+  ```
+
+  ## Checkbox
+
+  ```html
+  <label><input type="checkbox" />Option 1</label>
+  ```
+
+  ## URL
+
+  ```html
+  <input type="url" placeholder="url" />
+  ```
+
+  ## Number
+
+  ```html
+  <input type="number" placeholder="42" />
+  ```
+
+  ## Tel
+
+  ```html
+  <input type="tel" placeholder="01823" />
+  ```
+
+  ## Color
+
+  ```html
+  <input type="color" />
+  ```
+
+  ## Range
+
+  ```html
+  <input type="range" />
+  ```
+
+  ## Time
+
+  ```html
+  <input type="time" />
+  ```
+
+  ## Date
+
+  ```html
+  <input type="date" />
+  ```
+
+  ## Month
+
+  ```html
+  <input type="month" />
+  ```
+
+  ## Week
+
+  ```html
+  <input type="week" />
+  ```
+
+  ## Datetime
+
+  ```html
+  <input type="datetime" />
+  ```
+
+  ## Datetime Local
+
+  ```html
+  <input type="datetime-local" />
+  ```
+
+  ## Textarea
+
+  ```html
+  <textarea placeholder="Text area"></textarea>
+  ```
+
+  ## Select
+
+  ```html
+  <select>
+  	<optgroup label="Group 1">
+  		<option>Option 1</option>
+  	</optgroup>
+  	<option>Option 2</option>
+  </select>
+  ```
+
+  ## Progress
+
+  ```html
+  <progress value="70" max="100">70%</progress>
+  ```
+
+  ## Submit
+
+  ```html
+  <input type="submit" value="submit" />
+  ```
+
+  ## Output
+
+  Represents the result of a calculation or user action.
+
+  ```html
+  <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+      <input type="range" name="b" value="50" /> +
+      <input type="number" name="a" value="10" /> =
+      <output name="result">60</output>
+  </form>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Header Select
+  category:
+   - Base
+   - Base/Forms
+  ---
+
+  ```html
+  <div class="select-menu select-menu--block select-menu--alt select-menu--small">
+
+  	<label class="visually-hidden">Child marriage and…</label>
+
+  	<select class="">
+  		<option>Spanish</option>
+  		<option>English</option>
+  	</select>
+
+  	<div class="select-menu__arrow"></div>
+
+  </div>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Headings
+  category:
+   - Base
+   - Base/Headings
+  ---
+
+  ## Base Headings
+
+  The class structure follows the structure discussed by Harry Roberts in his article [practical font sizing in CSS](http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/) on CSS Wizardry.
+
+  ```html
+  <h1 class="alpha">The fox</h1>
+  <h2 class="beta">The fox</h2>
+  <h3 class="gamma">The fox</h3>
+  <h4 class="delta">The fox</h4>
+  <h5 class="epsilon">The fox</h5>
+  <h6 class="zeta">The fox</h6>
+  ```
+
+  ### Style
+
+  Use the `.uppercase` class to enforce a heading to be in capitals.
+
+  ```html
+  <h1 class="alpha / uppercase">The fox</h1>
+  <h2 class="beta / uppercase">The fox</h2>
+  <h3 class="gamma / uppercase">The fox</h3>
+  <h4 class="delta / uppercase">The fox</h4>
+  <h5 class="epsilon / uppercase">The fox</h5>
+  <h6 class="zeta / uppercase">The fox</h6>
+  ```
+
+  ### Spacing
+
+  Using `.drop` class applies only half the regular bottom bottom.
+
+  ```html
+  <h1 class="drop">The fox</h1>
+  <h1>The fox</h1>
+  <h1>The fox</h1>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Horizontal Rule
+  category:
+   - Base
+   - Base/Horizontal Rule
+  ---
+
+  ## Default Styling
+
+  This is the default markup and styling for a horizontal rule.
+
+  ```html
+  <hr>
+  ```
+
+  */
+  /*------------------------------------*\
+      LINKS
+  \*------------------------------------*/
+  /*
+
+  ---
+  name: Lists
+  category:
+   - Base
+   - Base/Lists
+  ---
+
+  Use the `.is-plain` class on any list to remove type-styling, margin, and padding.
+
+  ## Unordered List
+
+  This is just a plain unordered list, no special classes have been applied.
+
+  ```html
+  <ul>
+  	<li>List item</li>
+  	<li>List item</li>
+  	<li>List item</li>
+  </ul>
+  ```
+
+  ## Ordered List
+
+  This is just a plain ordered list, no special classes have been applied.
+
+  ```html
+  <ol>
+  	<li>List item</li>
+  	<li>List item</li>
+  	<li>List item</li>
+  </ol>
+  ```
+
+  ## Plain List
+
+  Use the `.is-plain` class on any list to remove type-styling, margin, and padding.
+
+  ```html
+  <ul class="is-plain">
+  	<li>List item</li>
+  	<li>List item</li>
+  	<li>List item</li>
+  </ul>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Definition List
+  category:
+   - Base
+   - Base/Lists
+  ---
+
+  Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
+
+  For inline definitions use the [dfn](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn) element.
+
+  ```html
+  <dl>
+    <div>
+      <dt>Name</dt>
+      <dd>Godzilla</dd>
+    </div>
+    <div>
+      <dt>Born</dt>
+      <dd>1952</dd>
+    </div>
+    <div>
+      <dt>Birthplace</dt>
+      <dd>Japan</dd>
+    </div>
+    <div>
+      <dt>Color</dt>
+      <dd>Green</dd>
+    </div>
+  </dl>
+  ```
+
+  */
+  /*------------------------------------*\
+      MEDIA ELEMENTS
+  \*------------------------------------*/
+  /*
+
+  ---
+  name: Figure
+  category:
+   - Base
+   - Base/Figure
+  ---
+
+  Usually an image, illustration, diagram, code snippet, etc. followed by a figcaption.
+
+  ```html
+  <figure>
+    <img
+    src="https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png"
+    alt="An awesome picture">
+    <figcaption>Fig1. MDN Logo</figcaption>
+  </figure>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Blockquote
+  category:
+   - Base
+   - Base/Quotes
+  ---
+
+  The Block Quotation Element indicates that the enclosed text is an extended quotation.
+
+  ```html
+  <blockquote cite="http://developer.mozilla.org">
+    <p>This is a quotation taken from
+    the Mozilla Developer Center.</p>
+  </blockquote>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Quote
+  category:
+   - Base
+   - Base/Quotes
+  ---
+
+  This element is intended for short quotations that don't require paragraph breaks.
+
+  ```html
+  <p>According to Mozilla's website, <q cite="https://www.mozilla.org/en-US/about/history/details/">Firefox 1.0was released in 2004 and became a big success.</q></p>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Cite
+  category:
+   - Base
+   - Base/Quotes
+  ---
+
+  Used for referencing external sources.
+
+  ```html
+  <cite><a href="http://www.brucelawson.co.uk/2013/on-citing-quotations-again/">Bruce Lawson</a></cite>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Header
+  category:
+   - Base
+   - Base/Structure
+  ---
+
+  Used to denote the main banner area, or a heading group inside a content section.
+
+  ```html
+  <header role="banner">Hero Content</header>
+  <article>
+  	<header>
+  		<h1>Main title</h1>
+  		<p>Sub title</p>
+  	</header>
+  </article>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Nav
+  category:
+   - Base
+   - Base/Structure
+  ---
+
+  For major page navigation, including pagination.
+
+  ```html
+  <nav>
+  	<ul>
+  		<li><a href="#">Home</a></li>
+  		<li><a href="#">About</a></li>
+  		<li><a href="#">Blog</a></li>
+  		<li><a href="#">Contact</a></li>
+  	</ul>
+  </nav>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Main
+  category:
+   - Base
+   - Base/Structure
+  ---
+
+  Only one per page, for the main content.
+
+  ```html
+  <main>
+  	<header>
+    		<h1>Apples</h1>
+  		<p>The apple is the pomaceous fruit of the apple tree.</p>
+  	</header>
+
+  	<article>
+  		<h2>Red Delicious</h2>
+  		<p>These bright red apples are the most common found in many
+  		supermarkets.</p>
+  		<p>... </p>
+  		<p>... </p>
+  	</article>
+
+  	<article>
+  		<h2>Granny Smith</h2>
+  		<p>These juicy, green apples make a great filling for
+  		apple pies.</p>
+  		<p>... </p>
+  		<p>... </p>
+  	</article>
+  </main>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Aside
+  category:
+   - Base
+   - Base/Structure
+  ---
+
+  Contains complementary content to it's parent section. (often used as a sidebar)
+
+  ```html
+  <article>
+    <p>
+      The Disney movie <em>The Little Mermaid</em> was
+      first released to theatres in 1989.
+    </p>
+    <aside>
+      <p>
+        The movie earned $87 million during its initial release.
+      </p>
+    </aside>
+    <p>
+      More info about the movie...
+    </p>
+  </article>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Article
+  category:
+   - Base
+   - Base/Structure
+  ---
+
+  The article element should contain a piece of self-contained content that could be distributed outside the context of the page.
+  This includes things like:
+  - news articles
+  - blog posts
+  - user comments
+
+  ```html
+  <article class="film_review">
+    <header>
+      <h2>Jurassic Park</h2>
+    </header>
+    <section class="main_review">
+      <p>Dinos were great!</p>
+    </section>
+    <section class="user_reviews">
+      <article class="user_review">
+        <p>Way too scary for me.</p>
+        <footer>
+          <p>
+            Posted on
+            <time datetime="2015-05-16 19:00">May 16</time>
+            by Lisa.
+          </p>
+        </footer>
+      </article>
+      <article class="user_review">
+        <p>I agree, dinos are my favorite.</p>
+        <footer>
+          <p>
+            Posted on
+            <time datetime="2015-05-17 19:00">May 17</time>
+            by Tom.
+          </p>
+        </footer>
+      </article>
+    </section>
+    <footer>
+      <p>
+        Posted on
+        <time datetime="2015-05-15 19:00">May 15</time>
+        by Staff.
+      </p>
+    </footer>
+  </article>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Section
+  category:
+   - Base
+   - Base/Structure
+  ---
+
+  For groups of content that have headings.
+
+  ```html
+  <section>
+  	<h1>Test</h1>
+  	<p>Some content</p>
+  </section>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Footer
+  category:
+   - Base
+   - Base/Structure
+  ---
+
+  A footer typically contains information about the author of the section, copyright data or links to related documents.
+
+  ```html
+  <footer>
+    Some copyright info or perhaps some author
+    info for an &lt;article&gt;?
+  </footer>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Table
+  category:
+   - Base
+   - Base/Table
+  ---
+
+  ```html
+  <table>
+    <thead>
+      <tr>
+        <th>Header content 1</th>
+        <th>Header content 2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Body content 1</td>
+        <td>Body content 2</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>Footer content 1</td>
+        <td>Footer content 2</td>
+      </tr>
+    </tfoot>
+  </table>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Base Paragraph Styles
+  category:
+   - Base
+   - Base/Type
+  ---
+
+  All of the spacing throughout the website is based from the type styling,
+  conforming to a rule of 1.5 times the font-size. Here you can see two paragraphs
+  of generated lorem-ipsum to get a feel of the line-height and spacing.
+
+  ```html
+  <p>The quick brown fox jumped over the lazy dog</p>
+  <p>The quick brown fox jumped <small>over the lazy dog</small></p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu porttitor mauris. Duis a viverra dolor, lacinia porta massa. Aliquam faucibus libero viverra rhoncus lobortis. Quisque malesuada euismod lorem ac luctus. Sed sit amet nunc tellus. Suspendisse maximus nunc sed mi vehicula rutrum. Praesent lobortis euismod turpis sit amet venenatis. Nullam eu enim suscipit, accumsan arcu ut, fringilla odio. Pellentesque ultrices accumsan leo, sit amet vulputate ipsum feugiat id. Pellentesque a pharetra quam. Aliquam rutrum, turpis hendrerit varius pulvinar, libero nisi congue augue, in condimentum diam urna volutpat lectus. Praesent at ipsum a lacus accumsan accumsan. Integer mollis velit ac urna efficitur, eget ultricies nisl posuere. Nullam elementum nunc ac ante fermentum, ac consequat felis scelerisque. Cras dui lacus, posuere semper magna et, ornare porta arcu.
+  <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin sit amet erat accumsan, sagittis metus eget, bibendum nisl. Curabitur dolor enim, bibendum id libero non, cursus iaculis libero. Vivamus orci nisl, posuere vel nibh eu, maximus ullamcorper augue. Vivamus scelerisque laoreet tristique. Donec ut urna lacus. Morbi et nisi sit amet leo vehicula pharetra sed ut elit. Pellentesque tincidunt, quam ut viverra tincidunt, lorem risus facilisis sapien, at gravida lorem dui fermentum arcu. Nam varius felis risus. Morbi a ipsum imperdiet, posuere lorem quis, tincidunt augue. Sed sed metus vitae nunc ullamcorper elementum. Vestibulum ornare augue tellus, vel accumsan augue euismod at. Quisque vitae convallis dolor, id tempus ipsum. Phasellus nisl ante, ullamcorper sit amet tortor at, suscipit venenatis sapien. Sed commodo odio in dolor tempus, eget rhoncus mauris bibendum.</p>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Bold and Strong; Italic and Emphasis
+  category:
+   - Base
+   - Base/Type
+  ---
+
+  The __bold__ and __italic__ elements are used for presentational purposes, whereas the
+  __strong__ and __emphasis__ elements represent structure.
+
+  ```html
+  <p>The quick <b>brown</b> fox jumped over the <strong>lazy</strong> dog</p>
+  <p>The quick <i>brown</i> fox jumped over the <em>lazy</em> dog</p>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Sup
+  category:
+   - Base
+   - Base/Type
+  ---
+
+  For text that should be displayed, for typographic reasons, higher, and often smaller, than the main span of text.
+
+  ```html
+  <p>This text is <sup>superscripted</sup></p>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Sub
+  category:
+   - Base
+   - Base/Type
+  ---
+
+  For text that should be displayed, for typographic reasons, lower, and often smaller, than the main span of text.
+
+  ```html
+  <p>This text is <sub>superscripted</sub></p>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Strikethrough
+  category:
+   - Base
+   - Base/Type
+  ---
+
+  Use the strikethrough element to represent things that are no longer relevant or no longer accurate.
+
+  ```html
+  <p>This text is <sub>superscripted</sub></p>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Mark
+  category:
+   - Base
+   - Base/Type
+  ---
+
+  For a run of text marked for reference purpose, due to its relevance in a particular context.
+  For example it can be used in a page showing search results to highlight every instance of the searched-for word.
+
+  ```html
+  <p>The &lt;mark&gt; element is used to <mark>highlight</mark> text</p>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Code and Pre
+  category:
+   - Base
+   - Base/Type
+  ---
+
+  The code element is for displaying raw computer code.
+  Note: whitepsace and new lines aren't considered important.
+
+  While the pre element is for preformatted text, and it preserves whitespace and line breaks.
+
+  ```html
+  <p>This is how we declare a Javascript variable:<br\>
+  	<code>var i = 0;</code>
+  </p>
+
+  <pre>
+  body {
+    color:red;
+  }
+  </pre>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Time
+  category:
+   - Base
+   - Base/Type
+  ---
+
+  The time element represents either a time on a 24-hour clock or a precise date in the Gregorian calendar
+
+  ```html
+  <p>The concert starts at <time>20:00</time>.</p>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Address
+  category:
+   - Base
+   - Base/Type
+  ---
+
+  The address element supplies contact information for its nearest article
+  or body ancestor; in the latter case, it applies to the whole document.
+
+  ```html
+  <address>
+      You can contact author at <a href="http://www.somedomain.com/contact">www.somedomain.com</a>.<br>
+      If you see any bugs, please <a href="mailto:webmaster@somedomain.com">contact webmaster</a>.<br>
+      You may also want to visit us:<br>
+      Mozilla Foundation<br>
+      1981 Landings Drive<br>
+      Building K<br>
+      Mountain View, CA 94043-0801<br>
+      USA
+  </address>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Abbreviation
+  category:
+   - Base
+   - Base/Type
+  ---
+
+  Use the title attribute to define the full description of the abbreviation. Many user agents present this as a tooltip.
+
+  ```html
+  <p>Welcome to the <abbr title="World Wide Web">WWW</abbr>!</p>
+  ```
+
+  */
+  /*------------------------------------*\
+      $LAYOUT
+  \*------------------------------------*/
+  /*
+
+  ---
+  name: Flex Input
+  category:
+   - Layout
+   - Layout/Flex Input
+  ---
+
+  ## Default Styling
+
+  This allows you to have a button in the same row as its input field.
+
+  ```html
+  <form class="flex-input">
+  	<input type="text" placeholder="text" />
+  	<button>Submit</button>
+  </form>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Footer
+  category:
+   - Layout
+   - Layout/Footer
+  ---
+
+  ```html
+  <footer class="site-footer">
+
+  	<div class="site-footer__container">
+
+  		<div class="site-footer__logo">
+  			<svg><use xlink:href="#logo-vertical"></use></svg>
+  		</div>
+
+  		<ul class="site-footer__navigation">
+
+  			<li>
+  				<a href="#">What is Open Contracting</a>
+  			</li>
+
+  			<li>
+
+  				<a href="#">Impact</a>
+
+  				<ul>
+  					<li><a href="#">Worldwide</a></li>
+  				</ul>
+
+  			</li>
+
+  			<li>
+  				<a href="#">Implement</a>
+  			</li>
+
+  			<li>
+
+  				<a href="#">Data</a>
+
+  				<ul>
+  					<li><a href="#">Data Standard</a></li>
+  				</ul>
+
+  			</li>
+
+  			<li>
+  				<a href="#">About</a>
+  			</li>
+
+  			<li>
+  				<a href="#">Latest</a>
+  			</li>
+
+  		</ul>
+
+  		<div class="site-footer__cta">
+
+  			<a class="arrow-link" href="#">
+  				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  				<span class="arrow-link__label">Get Our Newsletter</span>
+  			</a>
+
+  		</div>
+
+  		<div class="site-footer__contact">
+  			<h3 class="site-footer__contact-heading / uppercase">Contact</h3>
+  			<p><a href="#">engage@open-contracting.org</a></p>
+  			<p>Open Contracting Partnership,<br />641 S Street NW, 20001 Washington, D.C., USA</p>
+  		</div>
+
+  		<div class="site-footer__social">
+
+  			<h4 class="site-footer__social-header">Connect with us:</h4>
+
+  			<a href="#">
+  				<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
+  			</a>
+
+  			<a href="#">
+  				<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
+  			</a>
+
+  			<a href="#">
+  				<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
+  			</a>
+
+  		</div>
+
+  		<div class="site-footer__license">
+  			<p>This work by the Open Contracting Partnership, unless otherwise noted, is licensed under a Creative Commons Attribution 4.0 International License.</p>
+  		</div>
+
+  		<div class="site-footer__copyright">
+  			<span>Open Contracting Partnership 2019</span>
+  			<a href="#">Terms</a>
+  		</div>
+
+  	</div>
+
+  </footer>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Header
+  category:
+   - Layout
+   - Layout/Header
+  ---
+
+  ```html
+  <header class="site-header">
+
+  	<div class="site-header__container">
+
+  		<a class="site-header__logo" href="#">
+  			<svg><use xlink:href="#logo-horizontal"></use></svg>
+  		</a>
+
+  		<nav class="site-header__navigation">
+
+  			<ul class="">
+
+  				<li>
+  					<a href="#">What is Open Contracting</a>
+  				</li>
+
+  				<li>
+
+  					<a href="#">Impact</a>
+
+  					<ul>
+  						<li><a href="#">Worldwide</a></li>
+  					</ul>
+
+  					<nav class="site-header__mega-nav / mega-menu" aria-label="secondary">
+
+  						<div class="mega-menu__container">
+
+  							<h3 class="mega-menu__heading">
+
+  								<a class="arrow-link" data-icon-color="white" href="#">
+  									<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  									<span class="arrow-link__label">Learn more about who we are</span>
+  								</a>
+
+  							</h3>
+
+  							<div class="mega-menu__intro">
+  								<p>We transform public contracting so that it is fair and efficient. Learn about who we are, our vision, mission, strategy and values.</p>
+  							</div>
+
+  							<ul class="mega-menu__nav">
+
+  								<li>
+  									<a href="#">Team</a>
+  								</li>
+
+  								<li>
+  									<a href="#">Advisory Board</a>
+  								</li>
+
+  								<li>
+  									<a href="#">Governance</a>
+  								</li>
+
+  								<li>
+  									<a href="#">Financing</a>
+  								</li>
+
+  							</ul>
+
+  							<ul class="mega-menu__nav">
+
+  								<li>
+
+  									<span class="mega-menu__sub-nav-heading">Topics</span>
+
+  									<ul class="mega-menu__sub-nav">
+
+  										<li>
+  											<a href="#">Beneficial Ownership</a>
+  										</li>
+
+  										<li>
+  											<a href="#">Gender</a>
+  										</li>
+
+  										<li>
+  											<a href="#">Education</a>
+  										</li>
+
+  										<li>
+  											<a href="#">Health</a>
+  										</li>
+
+  										<li>
+  											<a href="#">Extractives</a>
+  										</li>
+
+  										<li>
+  											<a href="#">Infrastructure</a>
+  										</li>
+
+  									</ul>
+
+  								</li>
+
+  							</ul>
+
+  						</div>
+
+  					</nav>
+
+  				</li>
+
+  				<li>
+  					<a href="#">Implement</a>
+  				</li>
+
+  				<li>
+
+  					<a href="#">Data</a>
+
+  					<ul>
+  						<li><a href="#">Data Standard</a></li>
+  					</ul>
+
+  				</li>
+
+  				<li>
+  					<a href="#">About</a>
+  				</li>
+
+  				<li>
+  					<a href="#">Latest</a>
+  				</li>
+
+  			</ul>
+
+  			<div class="site-header__mobile-language">
+  				<a href="#">Espanol</a>
+  			</div>
+
+  		</nav>
+
+  		<div class="site-header__toolbox">
+
+  			<a href="#">Data Standard</a>
+
+  			<a href="#">Worldwide</a>
+
+  			<div class="select-menu select-menu--block select-menu--alt select-menu--small">
+
+  				<label class="visually-hidden">Child marriage and…</label>
+
+  				<select class="">
+  					<option>Spanish</option>
+  					<option>English</option>
+  				</select>
+
+  				<div class="select-menu__arrow"></div>
+
+  			</div>
+
+  			<div class="site-header__search">
+
+  				<input type="text" placeholder="Search">
+
+  				<button class="button--naked">
+  					<svg><use xlink:href="#icon-search"></use></svg>
+  				</button>
+
+  			</div>
+
+  		</div>
+
+  		<div class="site-header__hamburger">
+
+  			<svg data-icon="menu">
+  				<use xlink:href="#icon-menu" />
+  			</svg>
+
+  			<svg data-icon="close">
+  				<use xlink:href="#icon-close" />
+  			</svg>
+
+  		</div>
+
+  	</div>
+
+  </header>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Mega Menu
+  category:
+   - Layout
+   - Layout/Mega Menu
+  ---
+
+  ```html
+  <nav class="mega-menu" aria-label="secondary">
+
+  	<div class="mega-menu__container">
+
+  		<h3 class="mega-menu__heading">
+
+  			<a class="arrow-link" data-icon-color="white" href="#">
+  				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  				<span class="arrow-link__label">Learn more about who we are</span>
+  			</a>
+
+  		</h3>
+
+  		<div class="mega-menu__intro">
+  			<p>We transform public contracting so that it is fair and efficient. Learn about who we are, our vision, mission, strategy and values.</p>
+  		</div>
+
+  		<div class="mega-menu__nav-container">
+
+  			<ul class="mega-menu__nav" data-type="menu">
+
+  				<li>
+  					<a href="#">Team</a>
+  				</li>
+
+  				<li>
+  					<a href="#">Advisory Board</a>
+  				</li>
+
+  				<li>
+  					<a href="#">Governance</a>
+  				</li>
+
+  				<li>
+  					<a href="#">Financing</a>
+  				</li>
+
+  			</ul>
+
+  			<ul class="mega-menu__nav" data-type="grouped-menu">
+
+  				<li>
+
+  					<span class="mega-menu__sub-nav-heading">Topics</span>
+
+  					<ul class="mega-menu__sub-nav">
+
+  						<li>
+  							<a href="#">Beneficial Ownership</a>
+  						</li>
+
+  						<li>
+  							<a href="#">Gender</a>
+  						</li>
+
+  						<li>
+  							<a href="#">Education</a>
+  						</li>
+
+  						<li>
+  							<a href="#">Health</a>
+  						</li>
+
+  						<li>
+  							<a href="#">Extractives</a>
+  						</li>
+
+  						<li>
+  							<a href="#">Infrastructure</a>
+  						</li>
+
+  					</ul>
+
+  				</li>
+
+  			</ul>
+
+  		</div>
+
+  	</div>
+
+  </nav>
+  ```
+
+  */
+  /*------------------------------------*\
+      NAVIGATION
+  \*------------------------------------*/
+  /*------------------------------------*\
+      LAYOUT
+  \*------------------------------------*/
+  /*------------------------------------*\
+      $MODULAR
+  \*------------------------------------*/
+  /*
+
+  ---
+  name: Arrow link
+  category:
+   - Components
+   - Components/Arrow link
+  ---
+
+  ## Default
+
+  ```html
+  <div class="aigis-preview__background">
+
+  	<a class="arrow-link" href="#">
+  		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  		<span class="arrow-link__label">Read</span>
+  	</a>
+
+  </div>
+  ```
+
+  ## Sizes
+
+  ```html
+  <a class="arrow-link" data-size="large" data-text-color="black" href="#">
+  	<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  	<span class="arrow-link__label">Read</span>
+  </a>
+  ```
+
+  ## Colours
+
+  ```html
+  <div class="aigis-preview__background">
+
+  	<a class="arrow-link" data-icon-color="white" href="#">
+  		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  		<span class="arrow-link__label">Read</span>
+  	</a>
+
+  	<a class="arrow-link" data-icon-color="white" data-text-color="black" href="#">
+  		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  		<span class="arrow-link__label">Read</span>
+  	</a>
+
+  	<a class="arrow-link" data-text-color="black" href="#">
+  		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  		<span class="arrow-link__label">Read</span>
+  	</a>
+
+  </div>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Content with Sidebar
+  category:
+   - Blocks
+   - Blocks/Content with Sidebar
+  ---
+
+  ```html
+  <div class="block" data-block-type="content-with-sidebar">
+
+  	<div class="block__background" style="background-color: #D9E021"></div>
+
+  	<div class="block__content">
+  		<h2>The evidence</h2>
+  		<p>There is increasing evidence that open contracting delivers.</p>
+  		<p>Academic research shows that improved openness and transparency is good for public integrity, value for money and competition. A study of more than 3.5 million government contracts across Europe determined that every additional item of information shared about a tender decreases the risk of a single bid contract. This matters because single bid contracts are both a governance risk and over 7% more expensive than the norm. Publishing five more pieces of information about each contract in Europe would add up to 3.6 billion Euros in savings.</p>
+  		<p>Results from countries that are implementing open contracting show that openness combined with monitoring works. In Peru, a study from Columbia University looked at the impact of transparency and monitoring of contracts on the procurement process of infrastructure projects and found that monitoring decreased spending by 50%. Similar results have been found in Afghanistan.</p>
+  	</div>
+
+  	<div class="block__sidebar">
+
+  		<div class="card card--link" data-colour-scheme="transparent">
+
+  			<div class="card__body">
+  				<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+  			</div>
+
+  			<div class="card__footer">
+
+  				<a class="arrow-link" href="#" data-icon-color="white" data-text-color="white">
+  					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  					<span class="arrow-link__label">Read</span>
+  				</a>
+
+  			</div>
+
+  		</div>
+
+  	</div>
+
+  </div>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Cover
+  category:
+   - Blocks
+   - Blocks/Cover
+  ---
+
+  ```html
+  <div class="block" data-block-type="cover">
+
+  	<div class="block__image" style="background-image: url('https://open-contracting.test/wp-content/uploads/2019/10/IMG_4716.jpg');"></div>
+  	<div class="block__image-overlay" style="background-color: rgba(0,0,0,0.3);"></div>
+
+  	<h1 class="block__heading">Open contracting is making public  spending count for everyone</h1>
+
+  </div>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Image with Links
+  category:
+   - Blocks
+   - Blocks/Image with Links
+  ---
+
+  ```html
+  <div class="block" data-block-type="image-with-links" style="color: #FFF">
+
+  	<div class="block__background" style="background-color: #4d4d53"></div>
+
+  	<div class="block__container">
+
+  		<h2 class="block__heading">Our team</h2>
+
+  		<div class="block__image">
+  			<img src="https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=415&amp;h=277" srcset="https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=415&amp;h=277 415w, https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=830&amp;h=554 830w, https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=1024&amp;h=683 1024w, https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=1536&amp;h=1024 1536w, https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=2048&amp;h=1366 2048w" sizes="100vw" alt="" width="3" height="2">
+  		</div>
+
+  		<div class="block__sidebar">
+
+  			<div class="block__link">
+
+  				<a class="arrow-link" href="#" data-size="large" data-text-color="black">
+  					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  					<span class="arrow-link__label">Meet our team</span>
+  				</a>
+
+  				<p class="block__link-description">We’re a remote team. See who is doing what, where.</p>
+
+  			</div>
+
+  			<div class="block__link">
+
+  				<a class="arrow-link" href="#" data-size="large" data-text-color="black">
+  					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  					<span class="arrow-link__label">Work with us</span>
+  				</a>
+
+  				<p class="block__link-description">We’re a high impact, fast moving, global team. Think you have what it takes? Great: check out these opportunities to work with us.</p>
+
+  			</div>
+
+  			<div class="block__link">
+
+  				<a class="arrow-link" href="#" data-size="large" data-text-color="black">
+  					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  					<span class="arrow-link__label">Partner with us</span>
+  				</a>
+
+  				<p class="block__link-description">We work with a global network of partners in over 50 countries to make public contracts open, fair and efficient. Want to partner with us? Get in touch today. </p>
+
+  			</div>
+
+  		</div>
+
+  	</div>
+
+  </div>
+  ```
+
+  */
+  /*
+
+  ---
+  name: More Stories
+  category:
+   - Blocks
+   - Blocks/More Stories
+  ---
+
+  ```html
+  <div class="block" data-block-type="more-stories">
+
+  	<div class="block__background" style="background-color: #DADADA;"></div>
+
+  	<div class="block__container" style="color: #000000;">
+
+  		<h1 class="block__heading">More impact</h1>
+
+  		<div class="block__stories">
+
+  			<div class="card card--primary">
+
+  				<div class="card__image">
+
+  					<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+  					<div class="card__image-overlay">
+  						<div class="card__tag">Blog</div>
+  					</div>
+
+  				</div>
+
+  				<div class="card__main">
+
+  					<a class="card__title-link" href="#">
+  						<h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
+  					</a>
+
+  					<div class="card__footer">
+
+  						<div class="card__meta">
+  							Nicolas Penagos
+  						</div>
+
+  						<div class="card__cta">
+
+  							<a class="arrow-link" href="#">
+
+  								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+  								<span class="arrow-link__label">Read</span>
+
+  							</a>
+
+  						</div>
+
+  					</div>
+
+  				</div>
+
+  			</div>
+
+  			<div class="card card--primary">
+
+  				<div class="card__image">
+
+  					<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+  					<div class="card__image-overlay">
+  						<div class="card__tag">Blog</div>
+  					</div>
+
+  				</div>
+
+  				<div class="card__main">
+
+  					<a class="card__title-link" href="#">
+  						<h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
+  					</a>
+
+  					<div class="card__footer">
+
+  						<div class="card__meta">
+  							Nicolas Penagos
+  						</div>
+
+  						<div class="card__cta">
+
+  							<a class="arrow-link" href="#">
+
+  								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+  								<span class="arrow-link__label">Read</span>
+
+  							</a>
+
+  						</div>
+
+  					</div>
+
+  				</div>
+
+  			</div>
+
+  			<div class="card card--primary">
+
+  				<div class="card__image">
+
+  					<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+  					<div class="card__image-overlay">
+  						<div class="card__tag">Blog</div>
+  					</div>
+
+  				</div>
+
+  				<div class="card__main">
+
+  					<a class="card__title-link" href="#">
+  						<h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
+  					</a>
+
+  					<div class="card__footer">
+
+  						<div class="card__meta">
+  							Nicolas Penagos
+  						</div>
+
+  						<div class="card__cta">
+
+  							<a class="arrow-link" href="#">
+
+  								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+  								<span class="arrow-link__label">Read</span>
+
+  							</a>
+
+  						</div>
+
+  					</div>
+
+  				</div>
+
+  			</div>
+
+  		</div> <!-- / .block__stories -->
+
+  	</div>
+
+  </div>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Resource
+  category:
+   - Blocks
+   - Blocks/Resource
+  ---
+
+  ```html
+  <div class="block" data-block-type="resource">
+
+  	<div class="block__background" style="background-color: #23B2A7"></div>
+
+  	<div class="block__container" style="color: white;">
+
+  		<h2 class="block__heading">How we measure impact</h2>
+
+  		<div class="block__content">
+  			<p>Sustained implementation of open contracting takes time and rarely proceeds on a smooth, linear path. We set a high bar for measuring impact and don’t stop and simply publishing data. For us, impact means significant, widespread, documented change where we can show both a shift in behavior and the outcomes when we look at competition, savings, better services, and/or improvement in governance or public trust. </p>
+  			<p>We work on the ground with partners across government, business, and civil society to catalyze and assist specific local reforms at the city, regional and national level.</p>
+  			<p>We have developed resources that help you with measuring impact from the start of procurement reforms and we regularly write about what we have learned from our interventions.</p>
+  		</div>
+
+  		<div class="block__links">
+
+  			<div class="card card--link" data-colour-scheme="transparent">
+
+  				<div class="card__body">
+  					<a class="card__link" href="">We can help measure your impact.</a>
+  				</div>
+
+  				<div class="card__footer">
+
+  					<a class="arrow-link" href="" data-icon-color="white" data-text-color="black">
+  						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  						<span class="arrow-link__label">More</span>
+  					</a>
+
+  				</div>
+
+  			</div>
+
+
+  			<div class="card card--link" data-colour-scheme="transparent">
+
+  				<div class="card__body">
+  					<a class="card__link" href="">How we are reporting. Our rapid reflections.</a>
+  				</div>
+
+  				<div class="card__footer">
+
+  					<a class="arrow-link" href="" data-icon-color="white" data-text-color="black">
+  						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  						<span class="arrow-link__label">More</span>
+  					</a>
+
+  				</div>
+
+  			</div>
+
+  		</div>
+
+  		<h2 class="block__sub-heading">How we measure impact</h2>
+
+  		<div class="block__resources">
+
+  			<div class="card card--resource" data-highlight-colour="orange">
+
+  				<div class="card__body">
+  					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+  				</div>
+
+  				<div class="card__footer">
+  					<div class="card__icon"></div>
+  					<span class="card__type">Resource</span>
+  				</div>
+
+  			</div>
+
+  			<div class="card card--resource" data-highlight-colour="orange">
+
+  				<div class="card__body">
+  					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+  				</div>
+
+  				<div class="card__footer">
+  					<div class="card__icon"></div>
+  					<span class="card__type">Resource</span>
+  				</div>
+
+  			</div>
+
+  			<div class="card card--resource" data-highlight-colour="orange">
+
+  				<div class="card__body">
+  					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+  				</div>
+
+  				<div class="card__footer">
+  					<div class="card__icon"></div>
+  					<span class="card__type">Resource</span>
+  				</div>
+
+  			</div>
+
+  			<div class="card card--resource" data-highlight-colour="orange">
+
+  				<div class="card__body">
+  					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+  				</div>
+
+  				<div class="card__footer">
+  					<div class="card__icon"></div>
+  					<span class="card__type">Resource</span>
+  				</div>
+
+  			</div>
+
+  			<div class="card card--resource" data-highlight-colour="orange">
+
+  				<div class="card__body">
+  					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+  				</div>
+
+  				<div class="card__footer">
+  					<div class="card__icon"></div>
+  					<span class="card__type">Resource</span>
+  				</div>
+
+  			</div>
+
+  			<div class="card card--resource" data-highlight-colour="orange">
+
+  				<div class="card__body">
+  					<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+  				</div>
+
+  				<div class="card__footer">
+  					<div class="card__icon"></div>
+  					<span class="card__type">Resource</span>
+  				</div>
+
+  			</div>
+
+  		</div>
+
+  		<div class="block__author">
+
+  			<div class="block__author-avatar">
+  				<img src="//placehold.it/300">
+  			</div>
+
+  			<div class="block__author-details">
+
+  				<h4 class="block__author-heading">CONTACT OUR EXPERT</h4>
+
+  				<p>Ben Everard, <br />Developer</p>
+
+  				<div class="block__author-social">
+
+  					<a href="#">
+  						<svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
+  					</a>
+
+  					<a href="#">
+  						<svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
+  					</a>
+
+  				</div>
+
+  			</div>
+
+  		</div>
+
+  	</div>
+
+  </div>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Stories
+  category:
+   - Blocks
+   - Blocks/Stories
+  ---
+
+  ```html
+  <div class="block" data-block-type="stories">
+
+  	<div class="block__background" style="background-color: #6C75E1"></div>
+
+  	<div class="block__container" style="color: white;">
+
+  		<div class="block__header">
+
+  			<h1 class="block__heading">Delivering Impact</h1>
+
+  			<a class="arrow-link" href="#">
+  				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  				<span class="arrow-link__label">All our stories</span>
+  			</a>
+
+  			<a class="arrow-link" href="#">
+  				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  				<span class="arrow-link__label">Our impact</span>
+  			</a>
+
+  		</div>
+
+  		<div class="block__content">
+  			<p>More than 50 countries and cities, from Argentina to Zambia, are pursuing open contracting reforms. It takes hard work, political will, technical skills, and sustained engagement. Explore stories from around the world that show how open contracting is changing lives — from value for money to value for many. </p>
+  		</div>
+
+  		<div class="block__primary-stories">
+
+  			<div class="card card--feature">
+
+  			    <div class="card__image">
+
+  			        <img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+  			        <div class="card__image-overlay">
+
+  			            <a class="card__title-link" href="#">
+  			                <h2 class="card__title">Honduras</h2>
+  			            </a>
+
+  			            <div class="card__intro">
+  			                <p>How open contracting is driving more powerful controls — from spot checks to analyzing sector trends.</p>
+  			            </div>
+
+  			        </div>
+
+  			    </div>
+
+  			</div>
+
+  			<div class="card card--feature">
+
+  			    <div class="card__image">
+
+  			        <img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+  			        <div class="card__image-overlay">
+
+  			            <a class="card__title-link" href="#">
+  			                <h2 class="card__title">Honduras</h2>
+  			            </a>
+
+  			            <div class="card__intro">
+  			                <p>How open contracting is driving more powerful controls — from spot checks to analyzing sector trends.</p>
+  			            </div>
+
+  			        </div>
+
+  			    </div>
+
+  			</div>
+
+  		</div> <!-- / .block__primary-stories -->
+
+  		<div class="block__header">
+  			<h2 class="block__heading">What's New</h2>
+  		</div>
+
+  		<div class="block__content">
+  			<p>More than 50 countries and cities, from Argentina to Zambia, are pursuing open contracting reforms. It takes hard work, political will, technical skills, and sustained engagement. Explore stories from around the world that show how open contracting is changing lives — from value for money to value for many. </p>
+  		</div>
+
+  		<div class="block__secondary-stories">
+
+  			<div class="card card--primary">
+
+  			    <div class="card__image">
+
+  			        <img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+  			        <div class="card__image-overlay">
+  			            <div class="card__tag">Blog</div>
+  			        </div>
+
+  			    </div>
+
+  			    <div class="card__main">
+
+  			        <a class="card__title-link" href="#">
+  			            <h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
+  			        </a>
+
+  			        <div class="card__footer">
+
+  			            <div class="card__meta">
+  			                Nicolas Penagos
+  			            </div>
+
+  			            <div class="card__cta">
+
+  			                <a class="arrow-link" href="#">
+
+  			                    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+  			                    <span class="arrow-link__label">Read</span>
+
+  			                </a>
+
+  			            </div>
+
+  			        </div>
+
+  			    </div>
+
+  			</div>
+
+  			<div class="card card--primary">
+
+  			    <div class="card__image">
+
+  			        <img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+  			        <div class="card__image-overlay">
+  			            <div class="card__tag">Blog</div>
+  			        </div>
+
+  			    </div>
+
+  			    <div class="card__main">
+
+  			        <a class="card__title-link" href="#">
+  			            <h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
+  			        </a>
+
+  			        <div class="card__footer">
+
+  			            <div class="card__meta">
+  			                Nicolas Penagos
+  			            </div>
+
+  			            <div class="card__cta">
+
+  			                <a class="arrow-link" href="#">
+
+  			                    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+  			                    <span class="arrow-link__label">Read</span>
+
+  			                </a>
+
+  			            </div>
+
+  			        </div>
+
+  			    </div>
+
+  			</div>
+
+  			<div class="card card--primary">
+
+  			    <div class="card__image">
+
+  			        <img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+  			        <div class="card__image-overlay">
+  			            <div class="card__tag">Blog</div>
+  			        </div>
+
+  			    </div>
+
+  			    <div class="card__main">
+
+  			        <a class="card__title-link" href="#">
+  			            <h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
+  			        </a>
+
+  			        <div class="card__footer">
+
+  			            <div class="card__meta">
+  			                Nicolas Penagos
+  			            </div>
+
+  			            <div class="card__cta">
+
+  			                <a class="arrow-link" href="#">
+
+  			                    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+  			                    <span class="arrow-link__label">Read</span>
+
+  			                </a>
+
+  			            </div>
+
+  			        </div>
+
+  			    </div>
+
+  			</div>
+
+
+  		</div> <!-- / .block__secondary-stories -->
+
+  	</div>
+
+  </div>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Feature card
+  category:
+   - Cards
+   - Cards/Feature
+  ---
+
+  ```html
+  <div class="card card--feature">
+
+  	<div class="card__image">
+
+  		<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+  		<div class="card__image-overlay">
+
+  			<a class="card__title-link" href="#">
+  				<h2 class="card__title">Honduras</h2>
+  			</a>
+
+  			<div class="card__intro">
+  				<p>How open contracting is driving more powerful controls — from spot checks to analyzing sector trends.</p>
+  			</div>
+
+  		</div>
+
+  	</div>
+
+  </div>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Link card
+  category:
+   - Cards
+   - Cards/Link
+  ---
+
+  ## Default
+
+  ```html
+  <div class="card card--link">
+
+  	<div class="card__body">
+  		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+  	</div>
+
+  	<div class="card__footer">
+
+  		<a class="arrow-link" href="#" data-icon-color="white" data-text-color="black">
+  			<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  			<span class="arrow-link__label">Read</span>
+  		</a>
+
+  	</div>
+
+  </div>
+  ```
+
+  ## Light
+
+  ```html
+  <div class="card card--link" data-colour-scheme="light">
+
+  	<div class="card__body">
+  		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+  	</div>
+
+  	<div class="card__footer">
+
+  		<a class="arrow-link" href="#" data-text-color="black">
+  			<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  			<span class="arrow-link__label">Read</span>
+  		</a>
+
+  	</div>
+
+  </div>
+  ```
+
+  ## Transparent
+
+  ```html
+  <div class="aigis-preview__background">
+
+  	<div class="card card--link" data-colour-scheme="transparent">
+
+  		<div class="card__body">
+  			<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+  		</div>
+
+  		<div class="card__footer">
+
+  			<a class="arrow-link" href="#" data-icon-color="white" data-text-color="white">
+  				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+  				<span class="arrow-link__label">Read</span>
+  			</a>
+
+  		</div>
+
+  	</div>
+
+  </div>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Primary card
+  category:
+   - Cards
+   - Cards/Primary
+  ---
+
+  ```html
+  <div class="card card--primary">
+
+  	<div class="card__image">
+
+  		<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+  		<div class="card__image-overlay">
+  			<div class="card__tag">Blog</div>
+  		</div>
+
+  	</div>
+
+  	<div class="card__main">
+
+  		<a class="card__title-link" href="#">
+  			<h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
+  		</a>
+
+  		<div class="card__footer">
+
+  			<div class="card__meta">
+  				Nicolas Penagos
+  			</div>
+
+  			<div class="card__cta">
+
+  				<a class="arrow-link" href="#">
+
+  					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+  					<span class="arrow-link__label">Read</span>
+
+  				</a>
+
+  			</div>
+
+  		</div>
+
+  	</div>
+
+  </div>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Resource card
+  category:
+   - Cards
+   - Cards/Resource
+  ---
+
+  ## Default
+
+  ```html
+  <div class="card card--resource">
+
+  	<div class="card__body">
+  		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+  	</div>
+
+  	<div class="card__footer">
+  		<div class="card__icon"></div>
+  		<span class="card__type">Resource</span>
+  	</div>
+
+  </div>
+  ```
+
+  ## Highlight Colours
+
+  ```html
+  <div class="card card--resource" data-post-type="orange">
+
+  	<div class="card__body">
+  		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+  	</div>
+
+  	<div class="card__footer">
+  		<div class="card__icon"></div>
+  		<span class="card__type">Resource</span>
+  	</div>
+
+  </div>
+
+  <div class="card card--resource" data-post-type="resource">
+
+  	<div class="card__body">
+  		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+  	</div>
+
+  	<div class="card__footer">
+  		<div class="card__icon"></div>
+  		<span class="card__type">Resource</span>
+  	</div>
+
+  </div>
+  ```
+
+  ## Background Colours
+
+  ```html
+  <div class="card card--resource" data-colour-scheme="light" data-post-type="post">
+
+  	<div class="card__body">
+  		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+  	</div>
+
+  	<div class="card__footer">
+  		<div class="card__icon"></div>
+  		<span class="card__type">Blog</span>
+  	</div>
+
+  </div>
+
+  <div class="card card--resource" data-colour-scheme="light" data-post-type="resource">
+
+  	<div class="card__body">
+  		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+  	</div>
+
+  	<div class="card__footer">
+  		<div class="card__icon"></div>
+  		<span class="card__type">Resource</span>
+  	</div>
+
+  </div>
+  ```
+
+  */
+  /*
+
+  ---
+  name: Square card
+  category:
+   - Cards
+   - Cards/Square
+  ---
+
+  ```html
+  <div class="card card--square">
+
+  	<div class="card__image">
+  		<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=crop&h=500&w=500&sat=-100" />
+  	</div>
+
+  </div>
+  ```
+
+  */
+  /*------------------------------------*\
+      $NON-MODULAR
+  \*------------------------------------*/
+}
+body [data-block] .acf-block-preview *, body [data-block] .acf-block-preview *::before, body [data-block] .acf-block-preview *::after,
+body [data-block] [class^=wp-block-] *,
+body [data-block] [class^=wp-block-] *::before,
+body [data-block] [class^=wp-block-] *::after {
+  box-sizing: border-box;
+}
+body [data-block] .acf-block-preview ul[class], body [data-block] .acf-block-preview ol[class],
+body [data-block] [class^=wp-block-] ul[class],
+body [data-block] [class^=wp-block-] ol[class] {
+  padding: 0;
+}
+body [data-block] .acf-block-preview body, body [data-block] .acf-block-preview h1, body [data-block] .acf-block-preview h2, body [data-block] .acf-block-preview h3, body [data-block] .acf-block-preview h4, body [data-block] .acf-block-preview p, body [data-block] .acf-block-preview ul[class], body [data-block] .acf-block-preview ol[class], body [data-block] .acf-block-preview li, body [data-block] .acf-block-preview figure, body [data-block] .acf-block-preview figcaption, body [data-block] .acf-block-preview blockquote, body [data-block] .acf-block-preview dl, body [data-block] .acf-block-preview dd,
+body [data-block] [class^=wp-block-] body,
+body [data-block] [class^=wp-block-] h1,
+body [data-block] [class^=wp-block-] h2,
+body [data-block] [class^=wp-block-] h3,
+body [data-block] [class^=wp-block-] h4,
+body [data-block] [class^=wp-block-] p,
+body [data-block] [class^=wp-block-] ul[class],
+body [data-block] [class^=wp-block-] ol[class],
+body [data-block] [class^=wp-block-] li,
+body [data-block] [class^=wp-block-] figure,
+body [data-block] [class^=wp-block-] figcaption,
+body [data-block] [class^=wp-block-] blockquote,
+body [data-block] [class^=wp-block-] dl,
+body [data-block] [class^=wp-block-] dd {
+  margin: 0;
+}
+body [data-block] .acf-block-preview body,
+body [data-block] [class^=wp-block-] body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+body [data-block] .acf-block-preview ul[class], body [data-block] .acf-block-preview ol[class],
+body [data-block] [class^=wp-block-] ul[class],
+body [data-block] [class^=wp-block-] ol[class] {
+  list-style: none;
+}
+body [data-block] .acf-block-preview a:not([class]),
+body [data-block] [class^=wp-block-] a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+body [data-block] .acf-block-preview img,
+body [data-block] [class^=wp-block-] img {
+  max-width: 100%;
+  display: block;
+}
+body [data-block] .acf-block-preview article > * + *,
+body [data-block] [class^=wp-block-] article > * + * {
+  margin-top: 1em;
+}
+body [data-block] .acf-block-preview input, body [data-block] .acf-block-preview button, body [data-block] .acf-block-preview textarea, body [data-block] .acf-block-preview select,
+body [data-block] [class^=wp-block-] input,
+body [data-block] [class^=wp-block-] button,
+body [data-block] [class^=wp-block-] textarea,
+body [data-block] [class^=wp-block-] select {
+  font: inherit;
+}
+@media (prefers-reduced-motion: reduce) {
+  body [data-block] .acf-block-preview *,
+body [data-block] [class^=wp-block-] * {
+    -webkit-animation-play-state: paused !important;
+            animation-play-state: paused !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__container, body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__container,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__container,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__container {
+  display: grid;
+  grid-column-gap: 16px;
+  grid-template-columns: [all-start] repeat(12, 1fr) [all-end];
+}
+body [data-block] .acf-block-preview .block, body [data-block] .acf-block-preview .site-header, body [data-block] .acf-block-preview .site-footer, body [data-block] .acf-block-preview .shell-grid-example,
+body [data-block] [class^=wp-block-] .block,
+body [data-block] [class^=wp-block-] .site-header,
+body [data-block] [class^=wp-block-] .site-footer,
+body [data-block] [class^=wp-block-] .shell-grid-example {
+  display: grid;
+  grid-template-columns: [full-start] minmax(0, auto) [wide-start] 0 [intermediate-start] 24px [content-start] repeat(12, minmax(0, 100px)) [content-end] 24px [intermediate-end] 0 [wide-end] minmax(0, auto) [full-end];
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview .block, body [data-block] .acf-block-preview .site-header, body [data-block] .acf-block-preview .site-footer, body [data-block] .acf-block-preview .shell-grid-example,
+body [data-block] [class^=wp-block-] .block,
+body [data-block] [class^=wp-block-] .site-header,
+body [data-block] [class^=wp-block-] .site-footer,
+body [data-block] [class^=wp-block-] .shell-grid-example {
+    grid-template-columns: [full-start] minmax(0, auto) [wide-start] minmax(0, 48px) [intermediate-start] 24px [content-start] repeat(12, minmax(0, 100px)) [content-end] 24px [intermediate-end] minmax(0, 48px) [wide-end] minmax(0, auto) [full-end];
+  }
+}
+body [data-block] .acf-block-preview .shell-grid-example__full,
+body [data-block] [class^=wp-block-] .shell-grid-example__full {
+  background-color: blue;
+  height: 100px;
+  grid-column: full;
+}
+body [data-block] .acf-block-preview .shell-grid-example__wide,
+body [data-block] [class^=wp-block-] .shell-grid-example__wide {
+  background-color: red;
+  height: 100px;
+  grid-column: wide;
+}
+body [data-block] .acf-block-preview .is-hidden,
+body [data-block] [class^=wp-block-] .is-hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+body [data-block] .acf-block-preview .visually-hidden,
+body [data-block] [class^=wp-block-] .visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+body [data-block] .acf-block-preview .uppercase,
+body [data-block] [class^=wp-block-] .uppercase {
+  text-transform: uppercase;
+}
+body [data-block] .acf-block-preview .pull-right,
+body [data-block] [class^=wp-block-] .pull-right {
+  float: right;
+}
+body [data-block] .acf-block-preview .pull-left,
+body [data-block] [class^=wp-block-] .pull-left {
+  float: left;
+}
+body [data-block] .acf-block-preview .align-right,
+body [data-block] [class^=wp-block-] .align-right {
+  text-align: right;
+}
+body [data-block] .acf-block-preview .align-center,
+body [data-block] [class^=wp-block-] .align-center {
+  text-align: center;
+}
+body [data-block] .acf-block-preview .align-left,
+body [data-block] [class^=wp-block-] .align-left {
+  text-align: left;
+}
+body [data-block] .acf-block-preview html,
+body [data-block] [class^=wp-block-] html {
+  font-size: 100%;
+}
+body [data-block] .acf-block-preview,
+body [data-block] [class^=wp-block-] {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  background-color: #FFF;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  position: relative;
+  right: 0;
+  transition: right 0.3s ease;
+}
+body [data-block] .acf-block-preview.mobile-menu-active,
+body [data-block] [class^=wp-block-].mobile-menu-active {
+  right: calc(100% - 80px);
+  overflow: hidden;
+  cursor: pointer;
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview.mobile-menu-active,
+body [data-block] [class^=wp-block-].mobile-menu-active {
+    right: auto;
+    overflow: initial;
+  }
+}
+body [data-block] .acf-block-preview ::-moz-selection,
+body [data-block] [class^=wp-block-] ::-moz-selection {
+  background: #000;
+  color: #FFF;
+  text-shadow: none;
+}
+body [data-block] .acf-block-preview ::selection,
+body [data-block] [class^=wp-block-] ::selection {
+  background: #000;
+  color: #FFF;
+  text-shadow: none;
+}
+@media print {
+  body [data-block] .acf-block-preview *,
+body [data-block] .acf-block-preview *::before,
+body [data-block] .acf-block-preview *::after,
+body [data-block] [class^=wp-block-] *,
+body [data-block] [class^=wp-block-] *::before,
+body [data-block] [class^=wp-block-] *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  body [data-block] .acf-block-preview a,
+body [data-block] .acf-block-preview a:visited,
+body [data-block] [class^=wp-block-] a,
+body [data-block] [class^=wp-block-] a:visited {
+    text-decoration: underline;
+  }
+  body [data-block] .acf-block-preview a[href]::after,
+body [data-block] [class^=wp-block-] a[href]::after {
+    content: " (" attr(href) ")";
+  }
+  body [data-block] .acf-block-preview abbr[title]::after,
+body [data-block] [class^=wp-block-] abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+  body [data-block] .acf-block-preview a[href^="#"]::after,
+body [data-block] .acf-block-preview a[href^="javascript:"]::after,
+body [data-block] [class^=wp-block-] a[href^="#"]::after,
+body [data-block] [class^=wp-block-] a[href^="javascript:"]::after {
+    content: "";
+  }
+  body [data-block] .acf-block-preview pre,
+body [data-block] .acf-block-preview blockquote,
+body [data-block] [class^=wp-block-] pre,
+body [data-block] [class^=wp-block-] blockquote {
+    border: 1px solid #000;
+    page-break-inside: avoid;
+  }
+  body [data-block] .acf-block-preview thead,
+body [data-block] [class^=wp-block-] thead {
+    display: table-header-group;
+  }
+  body [data-block] .acf-block-preview tr,
+body [data-block] .acf-block-preview img,
+body [data-block] [class^=wp-block-] tr,
+body [data-block] [class^=wp-block-] img {
+    page-break-inside: avoid;
+  }
+  body [data-block] .acf-block-preview img,
+body [data-block] [class^=wp-block-] img {
+    max-width: 100% !important;
+  }
+  body [data-block] .acf-block-preview p,
+body [data-block] .acf-block-preview h2,
+body [data-block] .acf-block-preview h3,
+body [data-block] [class^=wp-block-] p,
+body [data-block] [class^=wp-block-] h2,
+body [data-block] [class^=wp-block-] h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  body [data-block] .acf-block-preview h2,
+body [data-block] .acf-block-preview h3,
+body [data-block] [class^=wp-block-] h2,
+body [data-block] [class^=wp-block-] h3 {
+    page-break-after: avoid;
+  }
+}
+body [data-block] .acf-block-preview #wpadminbar,
+body [data-block] [class^=wp-block-] #wpadminbar {
+  position: fixed !important;
+}
+body [data-block] .acf-block-preview fieldset,
+body [data-block] .acf-block-preview form,
+body [data-block] [class^=wp-block-] fieldset,
+body [data-block] [class^=wp-block-] form {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+body [data-block] .acf-block-preview label,
+body [data-block] .acf-block-preview legend,
+body [data-block] [class^=wp-block-] label,
+body [data-block] [class^=wp-block-] legend {
+  font-size: 13px;
+  color: #000;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+body [data-block] .acf-block-preview abbr[title=Required],
+body [data-block] [class^=wp-block-] abbr[title=Required] {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+}
+body [data-block] .acf-block-preview input[type=text],
+body [data-block] .acf-block-preview input[type=email],
+body [data-block] .acf-block-preview input[type=password],
+body [data-block] .acf-block-preview input[type=search],
+body [data-block] .acf-block-preview input[type=url],
+body [data-block] .acf-block-preview input[type=number],
+body [data-block] .acf-block-preview input[type=tel],
+body [data-block] .acf-block-preview input[type=color],
+body [data-block] .acf-block-preview input[type=range],
+body [data-block] .acf-block-preview input[type=time],
+body [data-block] .acf-block-preview input[type=date],
+body [data-block] .acf-block-preview input[type=month],
+body [data-block] .acf-block-preview input[type=week],
+body [data-block] .acf-block-preview input[type=datetime],
+body [data-block] .acf-block-preview input[type=datetime-local],
+body [data-block] .acf-block-preview textarea,
+body [data-block] [class^=wp-block-] input[type=text],
+body [data-block] [class^=wp-block-] input[type=email],
+body [data-block] [class^=wp-block-] input[type=password],
+body [data-block] [class^=wp-block-] input[type=search],
+body [data-block] [class^=wp-block-] input[type=url],
+body [data-block] [class^=wp-block-] input[type=number],
+body [data-block] [class^=wp-block-] input[type=tel],
+body [data-block] [class^=wp-block-] input[type=color],
+body [data-block] [class^=wp-block-] input[type=range],
+body [data-block] [class^=wp-block-] input[type=time],
+body [data-block] [class^=wp-block-] input[type=date],
+body [data-block] [class^=wp-block-] input[type=month],
+body [data-block] [class^=wp-block-] input[type=week],
+body [data-block] [class^=wp-block-] input[type=datetime],
+body [data-block] [class^=wp-block-] input[type=datetime-local],
+body [data-block] [class^=wp-block-] textarea {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  background-color: #FFF;
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+}
+body [data-block] .acf-block-preview input[type=text]:focus,
+body [data-block] .acf-block-preview input[type=email]:focus,
+body [data-block] .acf-block-preview input[type=password]:focus,
+body [data-block] .acf-block-preview input[type=search]:focus,
+body [data-block] .acf-block-preview input[type=url]:focus,
+body [data-block] .acf-block-preview input[type=number]:focus,
+body [data-block] .acf-block-preview input[type=tel]:focus,
+body [data-block] .acf-block-preview input[type=color]:focus,
+body [data-block] .acf-block-preview input[type=range]:focus,
+body [data-block] .acf-block-preview input[type=time]:focus,
+body [data-block] .acf-block-preview input[type=date]:focus,
+body [data-block] .acf-block-preview input[type=month]:focus,
+body [data-block] .acf-block-preview input[type=week]:focus,
+body [data-block] .acf-block-preview input[type=datetime]:focus,
+body [data-block] .acf-block-preview input[type=datetime-local]:focus,
+body [data-block] .acf-block-preview textarea:focus,
+body [data-block] [class^=wp-block-] input[type=text]:focus,
+body [data-block] [class^=wp-block-] input[type=email]:focus,
+body [data-block] [class^=wp-block-] input[type=password]:focus,
+body [data-block] [class^=wp-block-] input[type=search]:focus,
+body [data-block] [class^=wp-block-] input[type=url]:focus,
+body [data-block] [class^=wp-block-] input[type=number]:focus,
+body [data-block] [class^=wp-block-] input[type=tel]:focus,
+body [data-block] [class^=wp-block-] input[type=color]:focus,
+body [data-block] [class^=wp-block-] input[type=range]:focus,
+body [data-block] [class^=wp-block-] input[type=time]:focus,
+body [data-block] [class^=wp-block-] input[type=date]:focus,
+body [data-block] [class^=wp-block-] input[type=month]:focus,
+body [data-block] [class^=wp-block-] input[type=week]:focus,
+body [data-block] [class^=wp-block-] input[type=datetime]:focus,
+body [data-block] [class^=wp-block-] input[type=datetime-local]:focus,
+body [data-block] [class^=wp-block-] textarea:focus {
+  box-shadow: none;
+  outline: none;
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview input[type=text],
+body [data-block] .acf-block-preview input[type=email],
+body [data-block] .acf-block-preview input[type=password],
+body [data-block] .acf-block-preview input[type=search],
+body [data-block] .acf-block-preview input[type=url],
+body [data-block] .acf-block-preview input[type=number],
+body [data-block] .acf-block-preview input[type=tel],
+body [data-block] .acf-block-preview input[type=color],
+body [data-block] .acf-block-preview input[type=range],
+body [data-block] .acf-block-preview input[type=time],
+body [data-block] .acf-block-preview input[type=date],
+body [data-block] .acf-block-preview input[type=month],
+body [data-block] .acf-block-preview input[type=week],
+body [data-block] .acf-block-preview input[type=datetime],
+body [data-block] .acf-block-preview input[type=datetime-local],
+body [data-block] .acf-block-preview textarea,
+body [data-block] [class^=wp-block-] input[type=text],
+body [data-block] [class^=wp-block-] input[type=email],
+body [data-block] [class^=wp-block-] input[type=password],
+body [data-block] [class^=wp-block-] input[type=search],
+body [data-block] [class^=wp-block-] input[type=url],
+body [data-block] [class^=wp-block-] input[type=number],
+body [data-block] [class^=wp-block-] input[type=tel],
+body [data-block] [class^=wp-block-] input[type=color],
+body [data-block] [class^=wp-block-] input[type=range],
+body [data-block] [class^=wp-block-] input[type=time],
+body [data-block] [class^=wp-block-] input[type=date],
+body [data-block] [class^=wp-block-] input[type=month],
+body [data-block] [class^=wp-block-] input[type=week],
+body [data-block] [class^=wp-block-] input[type=datetime],
+body [data-block] [class^=wp-block-] input[type=datetime-local],
+body [data-block] [class^=wp-block-] textarea {
+    padding: 1.1428571429em 0.8571428571em;
+  }
+}
+body [data-block] .acf-block-preview input[type=color],
+body [data-block] [class^=wp-block-] input[type=color] {
+  width: 1em;
+}
+body [data-block] .acf-block-preview textarea,
+body [data-block] [class^=wp-block-] textarea {
+  line-height: 1.5;
+}
+body [data-block] .acf-block-preview ::-webkit-input-placeholder,
+body [data-block] [class^=wp-block-] ::-webkit-input-placeholder {
+  color: #4D4D53;
+}
+body [data-block] .acf-block-preview :-moz-placeholder,
+body [data-block] [class^=wp-block-] :-moz-placeholder {
+  /* Firefox 18- */
+  color: #4D4D53;
+}
+body [data-block] .acf-block-preview ::-moz-placeholder,
+body [data-block] [class^=wp-block-] ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #4D4D53;
+}
+body [data-block] .acf-block-preview :-ms-input-placeholder,
+body [data-block] [class^=wp-block-] :-ms-input-placeholder {
+  color: #4D4D53;
+}
+body [data-block] .acf-block-preview .select-menu,
+body [data-block] [class^=wp-block-] .select-menu {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  text-align: left;
+  color: #C4C4C4;
+  background-color: #323232;
+  border: 1px solid #C4C4C4;
+  border-radius: 2px 10px 10px 2px;
+}
+body [data-block] .acf-block-preview .select-menu .select-menu__arrow,
+body [data-block] [class^=wp-block-] .select-menu .select-menu__arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto 8px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 8px solid #C4C4C4;
+}
+body [data-block] .acf-block-preview .select-menu select,
+body [data-block] [class^=wp-block-] .select-menu select {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  position: relative;
+  height: 18px;
+  display: grid;
+  align-items: center;
+  padding-left: 6px;
+  padding-right: 24px;
+  color: #C4C4C4;
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  z-index: 1;
+}
+body [data-block] .acf-block-preview .select-menu select:focus,
+body [data-block] [class^=wp-block-] .select-menu select:focus {
+  outline: 0;
+}
+body [data-block] .acf-block-preview .select-menu option,
+body [data-block] [class^=wp-block-] .select-menu option {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #FFF;
+  color: #000;
+}
+body [data-block] .acf-block-preview h1,
+body [data-block] .acf-block-preview .alpha,
+body [data-block] .acf-block-preview h2,
+body [data-block] .acf-block-preview .beta,
+body [data-block] .acf-block-preview h3,
+body [data-block] .acf-block-preview .gamma,
+body [data-block] .acf-block-preview h4,
+body [data-block] .acf-block-preview .delta,
+body [data-block] .acf-block-preview h5,
+body [data-block] .acf-block-preview .epsilon,
+body [data-block] .acf-block-preview h6,
+body [data-block] .acf-block-preview .zeta,
+body [data-block] [class^=wp-block-] h1,
+body [data-block] [class^=wp-block-] .alpha,
+body [data-block] [class^=wp-block-] h2,
+body [data-block] [class^=wp-block-] .beta,
+body [data-block] [class^=wp-block-] h3,
+body [data-block] [class^=wp-block-] .gamma,
+body [data-block] [class^=wp-block-] h4,
+body [data-block] [class^=wp-block-] .delta,
+body [data-block] [class^=wp-block-] h5,
+body [data-block] [class^=wp-block-] .epsilon,
+body [data-block] [class^=wp-block-] h6,
+body [data-block] [class^=wp-block-] .zeta {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.3;
+  margin: 0 0 0.6em 0;
+  color: currentColor;
+}
+body [data-block] .acf-block-preview h1,
+body [data-block] .acf-block-preview .alpha,
+body [data-block] [class^=wp-block-] h1,
+body [data-block] [class^=wp-block-] .alpha {
+  font-size: 20px;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview h1,
+body [data-block] .acf-block-preview .alpha,
+body [data-block] [class^=wp-block-] h1,
+body [data-block] [class^=wp-block-] .alpha {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview h1,
+body [data-block] .acf-block-preview .alpha,
+body [data-block] [class^=wp-block-] h1,
+body [data-block] [class^=wp-block-] .alpha {
+    font-size: 46px;
+  }
+}
+body [data-block] .acf-block-preview h2,
+body [data-block] .acf-block-preview .beta,
+body [data-block] [class^=wp-block-] h2,
+body [data-block] [class^=wp-block-] .beta {
+  font-size: 18px;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview h2,
+body [data-block] .acf-block-preview .beta,
+body [data-block] [class^=wp-block-] h2,
+body [data-block] [class^=wp-block-] .beta {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview h2,
+body [data-block] .acf-block-preview .beta,
+body [data-block] [class^=wp-block-] h2,
+body [data-block] [class^=wp-block-] .beta {
+    font-size: 40px;
+  }
+}
+body [data-block] .acf-block-preview h3,
+body [data-block] .acf-block-preview .gamma,
+body [data-block] [class^=wp-block-] h3,
+body [data-block] [class^=wp-block-] .gamma {
+  font-size: 15px;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview h3,
+body [data-block] .acf-block-preview .gamma,
+body [data-block] [class^=wp-block-] h3,
+body [data-block] [class^=wp-block-] .gamma {
+    font-size: 19px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview h3,
+body [data-block] .acf-block-preview .gamma,
+body [data-block] [class^=wp-block-] h3,
+body [data-block] [class^=wp-block-] .gamma {
+    font-size: 35px;
+  }
+}
+body [data-block] .acf-block-preview h4,
+body [data-block] .acf-block-preview .delta,
+body [data-block] [class^=wp-block-] h4,
+body [data-block] [class^=wp-block-] .delta {
+  font-size: 13px;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview h4,
+body [data-block] .acf-block-preview .delta,
+body [data-block] [class^=wp-block-] h4,
+body [data-block] [class^=wp-block-] .delta {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview h4,
+body [data-block] .acf-block-preview .delta,
+body [data-block] [class^=wp-block-] h4,
+body [data-block] [class^=wp-block-] .delta {
+    font-size: 22px;
+  }
+}
+body [data-block] .acf-block-preview h5,
+body [data-block] .acf-block-preview .epsilon,
+body [data-block] [class^=wp-block-] h5,
+body [data-block] [class^=wp-block-] .epsilon {
+  font-size: 12px;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview h5,
+body [data-block] .acf-block-preview .epsilon,
+body [data-block] [class^=wp-block-] h5,
+body [data-block] [class^=wp-block-] .epsilon {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview h5,
+body [data-block] .acf-block-preview .epsilon,
+body [data-block] [class^=wp-block-] h5,
+body [data-block] [class^=wp-block-] .epsilon {
+    font-size: 20px;
+  }
+}
+body [data-block] .acf-block-preview h6,
+body [data-block] .acf-block-preview .zeta,
+body [data-block] [class^=wp-block-] h6,
+body [data-block] [class^=wp-block-] .zeta {
+  font-size: 12px;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview h6,
+body [data-block] .acf-block-preview .zeta,
+body [data-block] [class^=wp-block-] h6,
+body [data-block] [class^=wp-block-] .zeta {
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview h6,
+body [data-block] .acf-block-preview .zeta,
+body [data-block] [class^=wp-block-] h6,
+body [data-block] [class^=wp-block-] .zeta {
+    font-size: 18px;
+  }
+}
+body [data-block] .acf-block-preview hr,
+body [data-block] [class^=wp-block-] hr {
+  border-style: solid;
+  border-color: #000;
+  border-top-width: 1px 0 0;
+  height: 1px;
+  margin: 0 0 1.5rem;
+}
+body [data-block] .acf-block-preview a,
+body [data-block] [class^=wp-block-] a {
+  text-decoration: underline;
+  word-wrap: break-word;
+  color: currentColor;
+}
+body [data-block] .acf-block-preview a:hover, body [data-block] .acf-block-preview a:focus,
+body [data-block] [class^=wp-block-] a:hover,
+body [data-block] [class^=wp-block-] a:focus {
+  text-decoration: none;
+}
+body [data-block] .acf-block-preview a:active,
+body [data-block] [class^=wp-block-] a:active {
+  text-decoration: underline;
+}
+body [data-block] .acf-block-preview ul.mega-menu__nav a, body [data-block] .acf-block-preview .site-header__toolbox a, body [data-block] .acf-block-preview .site-footer__navigation a,
+body [data-block] [class^=wp-block-] ul.mega-menu__nav a,
+body [data-block] [class^=wp-block-] .site-header__toolbox a,
+body [data-block] [class^=wp-block-] .site-footer__navigation a {
+  text-decoration: none;
+}
+body [data-block] .acf-block-preview ul.mega-menu__nav a:hover, body [data-block] .acf-block-preview .site-header__toolbox a:hover, body [data-block] .acf-block-preview .site-footer__navigation a:hover, body [data-block] .acf-block-preview ul.mega-menu__nav a:focus, body [data-block] .acf-block-preview .site-header__toolbox a:focus, body [data-block] .acf-block-preview .site-footer__navigation a:focus,
+body [data-block] [class^=wp-block-] ul.mega-menu__nav a:hover,
+body [data-block] [class^=wp-block-] .site-header__toolbox a:hover,
+body [data-block] [class^=wp-block-] .site-footer__navigation a:hover,
+body [data-block] [class^=wp-block-] ul.mega-menu__nav a:focus,
+body [data-block] [class^=wp-block-] .site-header__toolbox a:focus,
+body [data-block] [class^=wp-block-] .site-footer__navigation a:focus {
+  text-decoration: underline;
+}
+body [data-block] .acf-block-preview ul.mega-menu__nav a:active, body [data-block] .acf-block-preview .site-header__toolbox a:active, body [data-block] .acf-block-preview .site-footer__navigation a:active,
+body [data-block] [class^=wp-block-] ul.mega-menu__nav a:active,
+body [data-block] [class^=wp-block-] .site-header__toolbox a:active,
+body [data-block] [class^=wp-block-] .site-footer__navigation a:active {
+  text-decoration: none;
+}
+body [data-block] .acf-block-preview h1 a,
+body [data-block] .acf-block-preview h2 a,
+body [data-block] .acf-block-preview h3 a,
+body [data-block] .acf-block-preview h4 a,
+body [data-block] .acf-block-preview h5 a,
+body [data-block] [class^=wp-block-] h1 a,
+body [data-block] [class^=wp-block-] h2 a,
+body [data-block] [class^=wp-block-] h3 a,
+body [data-block] [class^=wp-block-] h4 a,
+body [data-block] [class^=wp-block-] h5 a {
+  text-decoration: none;
+}
+body [data-block] .acf-block-preview h1 a:hover, body [data-block] .acf-block-preview h1 a:focus,
+body [data-block] .acf-block-preview h2 a:hover,
+body [data-block] .acf-block-preview h2 a:focus,
+body [data-block] .acf-block-preview h3 a:hover,
+body [data-block] .acf-block-preview h3 a:focus,
+body [data-block] .acf-block-preview h4 a:hover,
+body [data-block] .acf-block-preview h4 a:focus,
+body [data-block] .acf-block-preview h5 a:hover,
+body [data-block] .acf-block-preview h5 a:focus,
+body [data-block] [class^=wp-block-] h1 a:hover,
+body [data-block] [class^=wp-block-] h1 a:focus,
+body [data-block] [class^=wp-block-] h2 a:hover,
+body [data-block] [class^=wp-block-] h2 a:focus,
+body [data-block] [class^=wp-block-] h3 a:hover,
+body [data-block] [class^=wp-block-] h3 a:focus,
+body [data-block] [class^=wp-block-] h4 a:hover,
+body [data-block] [class^=wp-block-] h4 a:focus,
+body [data-block] [class^=wp-block-] h5 a:hover,
+body [data-block] [class^=wp-block-] h5 a:focus {
+  text-decoration: underline;
+}
+body [data-block] .acf-block-preview h1 a:active,
+body [data-block] .acf-block-preview h2 a:active,
+body [data-block] .acf-block-preview h3 a:active,
+body [data-block] .acf-block-preview h4 a:active,
+body [data-block] .acf-block-preview h5 a:active,
+body [data-block] [class^=wp-block-] h1 a:active,
+body [data-block] [class^=wp-block-] h2 a:active,
+body [data-block] [class^=wp-block-] h3 a:active,
+body [data-block] [class^=wp-block-] h4 a:active,
+body [data-block] [class^=wp-block-] h5 a:active {
+  text-decoration: none;
+}
+body [data-block] .acf-block-preview tbody tr a,
+body [data-block] [class^=wp-block-] tbody tr a {
+  color: inherit;
+  text-decoration: underline;
+}
+body [data-block] .acf-block-preview tbody tr a:hover, body [data-block] .acf-block-preview tbody tr a:focus,
+body [data-block] [class^=wp-block-] tbody tr a:hover,
+body [data-block] [class^=wp-block-] tbody tr a:focus {
+  text-decoration: none;
+}
+body [data-block] .acf-block-preview tbody tr a:active,
+body [data-block] [class^=wp-block-] tbody tr a:active {
+  text-decoration: underline;
+}
+body [data-block] .acf-block-preview ul,
+body [data-block] [class^=wp-block-] ul {
+  list-style: disc;
+}
+body [data-block] .acf-block-preview ol,
+body [data-block] .acf-block-preview ul,
+body [data-block] [class^=wp-block-] ol,
+body [data-block] [class^=wp-block-] ul {
+  margin-bottom: 1.5rem;
+}
+body [data-block] .acf-block-preview ol.is-plain,
+body [data-block] .acf-block-preview ul.is-plain,
+body [data-block] [class^=wp-block-] ol.is-plain,
+body [data-block] [class^=wp-block-] ul.is-plain {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+body [data-block] .acf-block-preview ul ul,
+body [data-block] .acf-block-preview ol ol,
+body [data-block] [class^=wp-block-] ul ul,
+body [data-block] [class^=wp-block-] ol ol {
+  margin-bottom: 0;
+}
+body [data-block] .acf-block-preview audio,
+body [data-block] .acf-block-preview canvas,
+body [data-block] .acf-block-preview img,
+body [data-block] .acf-block-preview svg,
+body [data-block] .acf-block-preview video,
+body [data-block] [class^=wp-block-] audio,
+body [data-block] [class^=wp-block-] canvas,
+body [data-block] [class^=wp-block-] img,
+body [data-block] [class^=wp-block-] svg,
+body [data-block] [class^=wp-block-] video {
+  vertical-align: middle;
+}
+body [data-block] .acf-block-preview iframe,
+body [data-block] .acf-block-preview img,
+body [data-block] [class^=wp-block-] iframe,
+body [data-block] [class^=wp-block-] img {
+  max-width: 100%;
+  width: 100%;
+}
+body [data-block] .acf-block-preview img,
+body [data-block] [class^=wp-block-] img {
+  vertical-align: middle;
+  height: auto;
+  width: auto;
+}
+body [data-block] .acf-block-preview a img,
+body [data-block] [class^=wp-block-] a img {
+  border: 0;
+}
+body [data-block] .acf-block-preview blockquote,
+body [data-block] [class^=wp-block-] blockquote {
+  font-size: 20px;
+  padding: 0.5em 1em;
+  margin: 0 0 1em;
+  border-left: 5px solid #000;
+}
+body [data-block] .acf-block-preview blockquote p,
+body [data-block] [class^=wp-block-] blockquote p {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 0.75rem;
+}
+body [data-block] .acf-block-preview blockquote footer,
+body [data-block] [class^=wp-block-] blockquote footer {
+  display: block;
+}
+body [data-block] .acf-block-preview table,
+body [data-block] [class^=wp-block-] table {
+  color: #000;
+  background: #FFF;
+  width: 100%;
+  text-align: center;
+  border-spacing: 0;
+  border-right: 1px solid #000;
+}
+body [data-block] .acf-block-preview table::before,
+body [data-block] [class^=wp-block-] table::before {
+  content: attr(aria-label) "";
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview table::before,
+body [data-block] [class^=wp-block-] table::before {
+    display: none;
+  }
+}
+body [data-block] .acf-block-preview table:last-child,
+body [data-block] [class^=wp-block-] table:last-child {
+  margin-bottom: 1.5rem;
+}
+body [data-block] .acf-block-preview th,
+body [data-block] [class^=wp-block-] th {
+  padding: 13px;
+  display: block;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview th,
+body [data-block] [class^=wp-block-] th {
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #000;
+    color: #FFF;
+    padding: 8px;
+    display: table-cell;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview th,
+body [data-block] [class^=wp-block-] th {
+    font-weight: 600;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "gt_eesti_pro_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 16px;
+  }
+}
+body [data-block] .acf-block-preview td,
+body [data-block] [class^=wp-block-] td {
+  display: block;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  padding: 10px;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview td,
+body [data-block] [class^=wp-block-] td {
+    padding: 17px;
+    display: table-cell;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview td,
+body [data-block] [class^=wp-block-] td {
+    padding: 30px;
+  }
+}
+body [data-block] .acf-block-preview thead tr,
+body [data-block] [class^=wp-block-] thead tr {
+  color: transparent;
+  font: 0/0 a;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview thead tr,
+body [data-block] [class^=wp-block-] thead tr {
+    color: inherit;
+    font: inherit;
+  }
+}
+body [data-block] .acf-block-preview tbody tr,
+body [data-block] [class^=wp-block-] tbody tr {
+  padding: 1em;
+}
+body [data-block] .acf-block-preview p,
+body [data-block] .acf-block-preview ul,
+body [data-block] .acf-block-preview ol,
+body [data-block] .acf-block-preview dl,
+body [data-block] [class^=wp-block-] p,
+body [data-block] [class^=wp-block-] ul,
+body [data-block] [class^=wp-block-] ol,
+body [data-block] [class^=wp-block-] dl {
+  line-height: 1.5;
+  margin-bottom: 1.3em;
+}
+body [data-block] .acf-block-preview small,
+body [data-block] [class^=wp-block-] small {
+  font-size: 0.8rem;
+}
+body [data-block] .acf-block-preview b,
+body [data-block] .acf-block-preview strong,
+body [data-block] [class^=wp-block-] b,
+body [data-block] [class^=wp-block-] strong {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body [data-block] .acf-block-preview i,
+body [data-block] .acf-block-preview em,
+body [data-block] [class^=wp-block-] i,
+body [data-block] [class^=wp-block-] em {
+  font-style: italic;
+}
+body [data-block] .acf-block-preview time,
+body [data-block] [class^=wp-block-] time {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+  letter-spacing: 0.1px;
+  line-height: 1;
+  display: block;
+  margin-bottom: 1em;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview time,
+body [data-block] [class^=wp-block-] time {
+    margin-bottom: 0.875em;
+  }
+}
+body [data-block] .acf-block-preview address,
+body [data-block] [class^=wp-block-] address {
+  font-style: normal;
+}
+body [data-block] .acf-block-preview .flex-input,
+body [data-block] [class^=wp-block-] .flex-input {
+  display: flex;
+}
+body [data-block] .acf-block-preview .flex-input input,
+body [data-block] [class^=wp-block-] .flex-input input {
+  border-right: 0;
+  border-radius: 4px 0 0 4px;
+}
+body [data-block] .acf-block-preview .flex-input button,
+body [data-block] [class^=wp-block-] .flex-input button {
+  padding: 0 1em;
+  border-radius: 0 4px 4px 0;
+}
+body [data-block] .acf-block-preview .site-footer,
+body [data-block] [class^=wp-block-] .site-footer {
+  background-color: #323232;
+  color: #FFF;
+}
+body [data-block] .acf-block-preview .site-footer__container,
+body [data-block] [class^=wp-block-] .site-footer__container {
+  grid-column: wide;
+  padding: 32px;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview .site-footer__container,
+body [data-block] [class^=wp-block-] .site-footer__container {
+    display: grid;
+    grid-template-columns: [all-start] repeat(3, auto) [all-end];
+    grid-column-gap: 24px;
+  }
+}
+@media screen and (min-width: 800px) {
+  body [data-block] .acf-block-preview .site-footer__container,
+body [data-block] [class^=wp-block-] .site-footer__container {
+    grid-template-columns: [all-start] repeat(4, auto) [all-end];
+  }
+}
+@media screen and (max-width: 639px) {
+  body [data-block] .acf-block-preview .site-footer__logo,
+body [data-block] [class^=wp-block-] .site-footer__logo {
+    display: none;
+  }
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview .site-footer__logo,
+body [data-block] [class^=wp-block-] .site-footer__logo {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+body [data-block] .acf-block-preview .site-footer__logo > svg,
+body [data-block] [class^=wp-block-] .site-footer__logo > svg {
+  font-size: 148px;
+  height: 1em;
+  width: 0.6em;
+  display: block;
+}
+body [data-block] .acf-block-preview .site-footer__navigation,
+body [data-block] [class^=wp-block-] .site-footer__navigation {
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+@media screen and (max-width: 799px) {
+  body [data-block] .acf-block-preview .site-footer__navigation,
+body [data-block] [class^=wp-block-] .site-footer__navigation {
+    display: none;
+  }
+}
+body [data-block] .acf-block-preview .site-footer__navigation > li,
+body [data-block] [class^=wp-block-] .site-footer__navigation > li {
+  margin-right: 32px;
+  margin-bottom: 16px;
+}
+body [data-block] .acf-block-preview .site-footer__navigation ul,
+body [data-block] [class^=wp-block-] .site-footer__navigation ul {
+  font-size: 10px;
+  color: #C4C4C4;
+  list-style: none;
+  margin: 0;
+  padding: 8px 0 0 0;
+}
+@media screen and (max-width: 1239px) {
+  body [data-block] .acf-block-preview .site-footer__navigation ul,
+body [data-block] [class^=wp-block-] .site-footer__navigation ul {
+    display: none;
+  }
+}
+body [data-block] .acf-block-preview .site-footer__cta,
+body [data-block] [class^=wp-block-] .site-footer__cta {
+  margin-bottom: 24px;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview .site-footer__cta,
+body [data-block] [class^=wp-block-] .site-footer__cta {
+    display: none;
+  }
+}
+body [data-block] .acf-block-preview .site-footer__contact,
+body [data-block] [class^=wp-block-] .site-footer__contact {
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: 3px solid #E0E83D;
+  border-radius: 32px 0 0 0;
+  padding: 16px 24px;
+  margin-bottom: 32px;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview .site-footer__contact,
+body [data-block] [class^=wp-block-] .site-footer__contact {
+    grid-column: -3;
+    grid-row: 1;
+  }
+}
+body [data-block] .acf-block-preview .site-footer__contact-heading,
+body [data-block] [class^=wp-block-] .site-footer__contact-heading {
+  font-size: 20px;
+}
+body [data-block] .acf-block-preview .site-footer__contact a,
+body [data-block] [class^=wp-block-] .site-footer__contact a {
+  font-size: 14px;
+}
+body [data-block] .acf-block-preview .site-footer__contact p,
+body [data-block] [class^=wp-block-] .site-footer__contact p {
+  margin-bottom: 8px;
+}
+body [data-block] .acf-block-preview .site-footer__contact p:last-child,
+body [data-block] [class^=wp-block-] .site-footer__contact p:last-child {
+  margin-bottom: 0;
+}
+body [data-block] .acf-block-preview .site-footer__social,
+body [data-block] [class^=wp-block-] .site-footer__social {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview .site-footer__social,
+body [data-block] [class^=wp-block-] .site-footer__social {
+    grid-column: -2;
+    grid-row: 1;
+    flex-direction: column;
+  }
+}
+body [data-block] .acf-block-preview .site-footer__social-header,
+body [data-block] [class^=wp-block-] .site-footer__social-header {
+  font-size: 19px;
+  margin-bottom: 0;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview .site-footer__social-header,
+body [data-block] [class^=wp-block-] .site-footer__social-header {
+    font-size: 14px;
+  }
+}
+body [data-block] .acf-block-preview .site-footer__social a,
+body [data-block] [class^=wp-block-] .site-footer__social a {
+  display: block;
+}
+@media screen and (max-width: 639px) {
+  body [data-block] .acf-block-preview .site-footer__social a,
+body [data-block] [class^=wp-block-] .site-footer__social a {
+    margin-left: 24px;
+  }
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview .site-footer__social a,
+body [data-block] [class^=wp-block-] .site-footer__social a {
+    margin-top: 16px;
+  }
+}
+body [data-block] .acf-block-preview .site-footer__social a > svg,
+body [data-block] [class^=wp-block-] .site-footer__social a > svg {
+  font-size: 24px;
+  height: 1em;
+  fill: #E0E83D;
+  display: block;
+}
+body [data-block] .acf-block-preview .site-footer__social a > svg[data-platform=twitter],
+body [data-block] [class^=wp-block-] .site-footer__social a > svg[data-platform=twitter] {
+  width: 1.09em;
+}
+body [data-block] .acf-block-preview .site-footer__social a > svg[data-platform=facebook],
+body [data-block] [class^=wp-block-] .site-footer__social a > svg[data-platform=facebook] {
+  width: 0.54em;
+}
+body [data-block] .acf-block-preview .site-footer__social a > svg[data-platform=linkedin],
+body [data-block] [class^=wp-block-] .site-footer__social a > svg[data-platform=linkedin] {
+  width: 0.9em;
+}
+body [data-block] .acf-block-preview .site-footer__license,
+body [data-block] [class^=wp-block-] .site-footer__license {
+  font-size: 9px;
+  color: #C4C4C4;
+  margin-bottom: 16px;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview .site-footer__license,
+body [data-block] [class^=wp-block-] .site-footer__license {
+    grid-column: all;
+    grid-row: 2;
+  }
+}
+body [data-block] .acf-block-preview .site-footer__license p:last-child,
+body [data-block] [class^=wp-block-] .site-footer__license p:last-child {
+  margin-bottom: 0;
+}
+body [data-block] .acf-block-preview .site-footer__copyright,
+body [data-block] [class^=wp-block-] .site-footer__copyright {
+  font-size: 9px;
+  color: #C4C4C4;
+}
+@media screen and (min-width: 640px) {
+  body [data-block] .acf-block-preview .site-footer__copyright,
+body [data-block] [class^=wp-block-] .site-footer__copyright {
+    grid-column: all;
+    grid-row: 3;
+  }
+}
+body [data-block] .acf-block-preview .site-footer__copyright > *:not(:last-child),
+body [data-block] [class^=wp-block-] .site-footer__copyright > *:not(:last-child) {
+  margin-right: 24px;
+}
+body [data-block] .acf-block-preview .site-header,
+body [data-block] [class^=wp-block-] .site-header {
+  background-color: #323232;
+  color: #FFF;
+}
+body [data-block] .acf-block-preview .site-header__container,
+body [data-block] [class^=wp-block-] .site-header__container {
+  position: relative;
+  grid-column: wide;
+  display: grid;
+  padding: 16px 24px;
+  grid-template-columns: auto 32px;
+  z-index: 1;
+}
+@media screen and (max-width: 767px) {
+  body [data-block] .acf-block-preview .site-header__container,
+body [data-block] [class^=wp-block-] .site-header__container {
+    overflow: hidden;
+  }
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .site-header__container,
+body [data-block] [class^=wp-block-] .site-header__container {
+    grid-column: content;
+    grid-template-columns: [all-start] repeat(2, auto) [all-end];
+    grid-row-gap: 16px;
+    padding: 24px 0 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview .site-header__container,
+body [data-block] [class^=wp-block-] .site-header__container {
+    grid-column: intermediate;
+  }
+}
+body [data-block] .acf-block-preview .site-header__container::before,
+body [data-block] [class^=wp-block-] .site-header__container::before {
+  content: "";
+  display: block;
+  border: 24px solid #4B4B4B;
+  border-radius: 50%;
+  opacity: 0.8;
+  font-size: 120px;
+  height: 1em;
+  width: 1em;
+  position: absolute;
+  z-index: -1;
+}
+@media screen and (max-width: 767px) {
+  body [data-block] .acf-block-preview .site-header__container::before,
+body [data-block] [class^=wp-block-] .site-header__container::before {
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+  }
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .site-header__container::before,
+body [data-block] [class^=wp-block-] .site-header__container::before {
+    border-width: 32px;
+    font-size: 150px;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+body [data-block] .acf-block-preview .site-header__logo,
+body [data-block] [class^=wp-block-] .site-header__logo {
+  grid-column: 1;
+  grid-row: 1;
+}
+body [data-block] .acf-block-preview .site-header__logo > svg,
+body [data-block] [class^=wp-block-] .site-header__logo > svg {
+  font-size: 56px;
+  height: 1em;
+  width: 2.833em;
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview .site-header__logo > svg,
+body [data-block] [class^=wp-block-] .site-header__logo > svg {
+    font-size: 65px;
+  }
+}
+@media screen and (max-width: 767px) {
+  body [data-block] .acf-block-preview .site-header__navigation,
+body [data-block] [class^=wp-block-] .site-header__navigation {
+    font-size: 18px;
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #323232;
+    z-index: 1;
+    padding: 40px 32px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    width: calc(100% - 80px);
+    transition: left 0.3s ease;
+  }
+  body.mobile-menu-active body [data-block] .acf-block-preview .site-header__navigation,
+body.mobile-menu-active body [data-block] [class^=wp-block-] .site-header__navigation {
+    left: 80px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation ul,
+body [data-block] [class^=wp-block-] .site-header__navigation ul {
+    list-style: none;
+    margin: 8px 0 0 0;
+    padding: 0;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation ul ul,
+body [data-block] [class^=wp-block-] .site-header__navigation ul ul {
+    padding-left: 24px;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation ul ul a,
+body [data-block] [class^=wp-block-] .site-header__navigation ul ul a {
+    font-size: 0.8em;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation li,
+body [data-block] [class^=wp-block-] .site-header__navigation li {
+    margin-bottom: 8px;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation a,
+body [data-block] [class^=wp-block-] .site-header__navigation a {
+    color: #FFF;
+    text-decoration: none;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation a:hover, body [data-block] .acf-block-preview .site-header__navigation a:focus, body [data-block] .acf-block-preview .site-header__navigation a:active,
+body [data-block] [class^=wp-block-] .site-header__navigation a:hover,
+body [data-block] [class^=wp-block-] .site-header__navigation a:focus,
+body [data-block] [class^=wp-block-] .site-header__navigation a:active {
+    text-decoration: underline;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation .site-header__mobile-language,
+body [data-block] [class^=wp-block-] .site-header__navigation .site-header__mobile-language {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 2px solid #666666;
+    margin-bottom: 24px;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation .site-header__mega-nav,
+body [data-block] [class^=wp-block-] .site-header__navigation .site-header__mega-nav {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .site-header__navigation,
+body [data-block] [class^=wp-block-] .site-header__navigation {
+    font-size: 15px;
+    font-weight: 700;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    grid-column: all;
+    grid-row: 2;
+    position: relative;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation ul,
+body [data-block] .acf-block-preview .site-header__navigation li,
+body [data-block] [class^=wp-block-] .site-header__navigation ul,
+body [data-block] [class^=wp-block-] .site-header__navigation li {
+    margin: 0;
+    padding: 0;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation .site-header__mobile-language,
+body [data-block] [class^=wp-block-] .site-header__navigation .site-header__mobile-language {
+    display: none;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation > ul,
+body [data-block] [class^=wp-block-] .site-header__navigation > ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation > ul > li > a,
+body [data-block] [class^=wp-block-] .site-header__navigation > ul > li > a {
+    display: block;
+    font-size: 15px;
+    color: #FFF;
+    padding: 16px 0;
+    margin-right: 48px;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    position: relative;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation > ul > li > a::before,
+body [data-block] [class^=wp-block-] .site-header__navigation > ul > li > a::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    height: 0;
+    background-color: #E0E83D;
+    transition: height 0.2s ease;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation > ul > li > a:hover, body [data-block] .acf-block-preview .site-header__navigation > ul > li > a:active, body [data-block] .acf-block-preview .site-header__navigation > ul > li > a:focus,
+body [data-block] [class^=wp-block-] .site-header__navigation > ul > li > a:hover,
+body [data-block] [class^=wp-block-] .site-header__navigation > ul > li > a:active,
+body [data-block] [class^=wp-block-] .site-header__navigation > ul > li > a:focus {
+    text-decoration: none;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation > ul > li > a:hover::before, body [data-block] .acf-block-preview .site-header__navigation > ul > li > a:active::before, body [data-block] .acf-block-preview .site-header__navigation > ul > li > a:focus::before,
+body [data-block] [class^=wp-block-] .site-header__navigation > ul > li > a:hover::before,
+body [data-block] [class^=wp-block-] .site-header__navigation > ul > li > a:active::before,
+body [data-block] [class^=wp-block-] .site-header__navigation > ul > li > a:focus::before {
+    height: 3px;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation > ul > li:hover .site-header__mega-nav,
+body [data-block] [class^=wp-block-] .site-header__navigation > ul > li:hover .site-header__mega-nav {
+    display: block;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation > ul > li:hover > a,
+body [data-block] [class^=wp-block-] .site-header__navigation > ul > li:hover > a {
+    text-decoration: none;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation > ul > li:hover > a::before,
+body [data-block] [class^=wp-block-] .site-header__navigation > ul > li:hover > a::before {
+    height: 3px;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation > ul > li > ul,
+body [data-block] [class^=wp-block-] .site-header__navigation > ul > li > ul {
+    display: none;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation .site-header__mobile-language,
+body [data-block] [class^=wp-block-] .site-header__navigation .site-header__mobile-language {
+    display: none;
+  }
+  body [data-block] .acf-block-preview .site-header__navigation .site-header__mega-nav,
+body [data-block] [class^=wp-block-] .site-header__navigation .site-header__mega-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 -24px;
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 1024px) {
+  body [data-block] .acf-block-preview .site-header__navigation .site-header__mega-nav,
+body [data-block] [class^=wp-block-] .site-header__navigation .site-header__mega-nav {
+    margin: 0 -48px;
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .site-header__navigation .site-header__mega-nav,
+body [data-block] [class^=wp-block-] .site-header__navigation .site-header__mega-nav {
+    margin: 0 calc((-100vw - -1248px) / 2);
+  }
+}
+body [data-block] .acf-block-preview .site-header__toolbox,
+body [data-block] [class^=wp-block-] .site-header__toolbox {
+  grid-column: -2;
+  grid-row: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: auto;
+}
+@media screen and (max-width: 767px) {
+  body [data-block] .acf-block-preview .site-header__toolbox,
+body [data-block] [class^=wp-block-] .site-header__toolbox {
+    display: none;
+  }
+}
+body [data-block] .acf-block-preview .site-header__toolbox a,
+body [data-block] [class^=wp-block-] .site-header__toolbox a {
+  font-size: 11px;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #C4C4C4;
+}
+body [data-block] .acf-block-preview .site-header__toolbox > *:not(:last-child),
+body [data-block] [class^=wp-block-] .site-header__toolbox > *:not(:last-child) {
+  margin-right: 16px;
+}
+body [data-block] .acf-block-preview .site-header__search,
+body [data-block] [class^=wp-block-] .site-header__search {
+  height: 20px;
+  border: 1px solid #C4C4C4;
+  border-radius: 2px 10px 10px 2px;
+  display: flex;
+  padding: 2px;
+  width: 100px;
+}
+body [data-block] .acf-block-preview .site-header__search input,
+body [data-block] [class^=wp-block-] .site-header__search input {
+  font-size: 11px;
+  flex: 1 1 100%;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: none;
+  background: none;
+  border-radius: 0;
+  color: #C4C4C4;
+  padding: 0 3px 0 9px;
+  margin: 0;
+  min-width: 0;
+}
+body [data-block] .acf-block-preview .site-header__search input::-webkit-input-placeholder,
+body [data-block] [class^=wp-block-] .site-header__search input::-webkit-input-placeholder {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #C4C4C4;
+  opacity: 1;
+}
+body [data-block] .acf-block-preview .site-header__search input:-moz-placeholder,
+body [data-block] [class^=wp-block-] .site-header__search input:-moz-placeholder {
+  /* Firefox 18- */
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #C4C4C4;
+  opacity: 1;
+}
+body [data-block] .acf-block-preview .site-header__search input::-moz-placeholder,
+body [data-block] [class^=wp-block-] .site-header__search input::-moz-placeholder {
+  /* Firefox 19+ */
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #C4C4C4;
+  opacity: 1;
+}
+body [data-block] .acf-block-preview .site-header__search input:-ms-input-placeholder,
+body [data-block] [class^=wp-block-] .site-header__search input:-ms-input-placeholder {
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #C4C4C4;
+  opacity: 1;
+}
+body [data-block] .acf-block-preview .site-header__search button,
+body [data-block] [class^=wp-block-] .site-header__search button {
+  flex: 0 0 auto;
+}
+body [data-block] .acf-block-preview .site-header__search button > svg,
+body [data-block] [class^=wp-block-] .site-header__search button > svg {
+  display: block;
+  font-size: 14px;
+  height: 1em;
+  width: 1em;
+  fill: #C4C4C4;
+}
+body [data-block] .acf-block-preview .site-header__hamburger,
+body [data-block] [class^=wp-block-] .site-header__hamburger {
+  font-size: 33px;
+  height: 1em;
+  width: 1em;
+  position: relative;
+  align-self: center;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .site-header__hamburger,
+body [data-block] [class^=wp-block-] .site-header__hamburger {
+    display: none;
+  }
+}
+body [data-block] .acf-block-preview .site-header__hamburger > svg,
+body [data-block] [class^=wp-block-] .site-header__hamburger > svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  fill: #FFF;
+  display: block;
+  width: 1em;
+  height: 1em;
+  transition: opacity 0.3s ease;
+}
+body [data-block] .acf-block-preview .site-header__hamburger > svg[data-icon=menu],
+body [data-block] [class^=wp-block-] .site-header__hamburger > svg[data-icon=menu] {
+  height: 0.67em;
+}
+body.mobile-menu-active body [data-block] .acf-block-preview .site-header__hamburger > svg[data-icon=menu],
+body.mobile-menu-active body [data-block] [class^=wp-block-] .site-header__hamburger > svg[data-icon=menu] {
+  opacity: 0;
+}
+body:not(.mobile-menu-active) body [data-block] .acf-block-preview .site-header__hamburger > svg[data-icon=close],
+body:not(.mobile-menu-active) body [data-block] [class^=wp-block-] .site-header__hamburger > svg[data-icon=close] {
+  opacity: 0;
+}
+body [data-block] .acf-block-preview .mega-menu,
+body [data-block] [class^=wp-block-] .mega-menu {
+  display: grid;
+  grid-template-columns: [full-start] minmax(0, auto) [wide-start] 0 [intermediate-start] 24px [content-start] repeat(12, minmax(0, 100px)) [content-end] 24px [intermediate-end] 0 [wide-end] minmax(0, auto) [full-end];
+  background-color: #505596;
+  color: #FFF;
+  z-index: 3;
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview .mega-menu,
+body [data-block] [class^=wp-block-] .mega-menu {
+    grid-template-columns: [full-start] minmax(0, auto) [wide-start] minmax(0, 48px) [intermediate-start] 24px [content-start] repeat(12, minmax(0, 100px)) [content-end] 24px [intermediate-end] minmax(0, 48px) [wide-end] minmax(0, auto) [full-end];
+  }
+}
+body [data-block] .acf-block-preview .mega-menu__container,
+body [data-block] [class^=wp-block-] .mega-menu__container {
+  grid-column: content;
+  padding: 32px 0 64px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 24px 16px;
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview .mega-menu__container,
+body [data-block] [class^=wp-block-] .mega-menu__container {
+    grid-column: intermediate;
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .mega-menu__container,
+body [data-block] [class^=wp-block-] .mega-menu__container {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+body [data-block] .acf-block-preview .mega-menu__heading,
+body [data-block] [class^=wp-block-] .mega-menu__heading {
+  grid-row: 1;
+  grid-column: 1/-1;
+  margin-bottom: 0;
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .mega-menu__heading,
+body [data-block] [class^=wp-block-] .mega-menu__heading {
+    grid-column: 2/-1;
+  }
+}
+body [data-block] .acf-block-preview .mega-menu__intro,
+body [data-block] [class^=wp-block-] .mega-menu__intro {
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  grid-row: 2;
+  color: #DADADA;
+  padding-right: 64px;
+}
+body [data-block] .acf-block-preview .mega-menu__intro p:last-child,
+body [data-block] [class^=wp-block-] .mega-menu__intro p:last-child {
+  margin-bottom: 0;
+}
+body [data-block] .acf-block-preview .mega-menu__nav-container,
+body [data-block] [class^=wp-block-] .mega-menu__nav-container {
+  grid-row: 2;
+  grid-column: 2/-1;
+  display: flex;
+}
+body [data-block] .acf-block-preview ul.mega-menu__nav,
+body [data-block] [class^=wp-block-] ul.mega-menu__nav {
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-right: 24px;
+}
+body [data-block] .acf-block-preview ul.mega-menu__nav[data-type=menu],
+body [data-block] [class^=wp-block-] ul.mega-menu__nav[data-type=menu] {
+  flex: 0 1 175px;
+}
+body [data-block] .acf-block-preview ul.mega-menu__nav[data-type=grouped-menu],
+body [data-block] [class^=wp-block-] ul.mega-menu__nav[data-type=grouped-menu] {
+  flex: 0 1 300px;
+}
+body [data-block] .acf-block-preview ul.mega-menu__nav li,
+body [data-block] [class^=wp-block-] ul.mega-menu__nav li {
+  margin-bottom: 8px;
+}
+body [data-block] .acf-block-preview .mega-menu__sub-nav-heading,
+body [data-block] [class^=wp-block-] .mega-menu__sub-nav-heading {
+  display: block;
+  margin-bottom: 16px;
+}
+body [data-block] .acf-block-preview .mega-menu__sub-nav,
+body [data-block] [class^=wp-block-] .mega-menu__sub-nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 8px;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body [data-block] .acf-block-preview .nav,
+body [data-block] [class^=wp-block-] .nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+body [data-block] .acf-block-preview .nav a,
+body [data-block] [class^=wp-block-] .nav a {
+  text-decoration: none;
+}
+body [data-block] .acf-block-preview .nav a:hover, body [data-block] .acf-block-preview .nav a:focus,
+body [data-block] [class^=wp-block-] .nav a:hover,
+body [data-block] [class^=wp-block-] .nav a:focus {
+  text-decoration: underline;
+}
+body [data-block] .acf-block-preview .nav a:active,
+body [data-block] [class^=wp-block-] .nav a:active {
+  text-decoration: none;
+}
+body [data-block] .acf-block-preview .nav li,
+body [data-block] [class^=wp-block-] .nav li {
+  list-style: none;
+}
+body [data-block] .acf-block-preview .nav--horizontal li,
+body [data-block] [class^=wp-block-] .nav--horizontal li {
+  float: left;
+  padding-left: 0;
+}
+body [data-block] .acf-block-preview .nav--horizontal a,
+body [data-block] [class^=wp-block-] .nav--horizontal a {
+  display: block;
+}
+body [data-block] .acf-block-preview .nav--vertical li,
+body [data-block] [class^=wp-block-] .nav--vertical li {
+  margin-bottom: 1em;
+}
+body [data-block] .acf-block-preview .nav--vertical li:last-child,
+body [data-block] [class^=wp-block-] .nav--vertical li:last-child {
+  margin-bottom: 0;
+}
+body [data-block] .acf-block-preview .nav--vertical a,
+body [data-block] [class^=wp-block-] .nav--vertical a {
+  display: inline-block;
+}
+body [data-block] .acf-block-preview .wrapper,
+body [data-block] [class^=wp-block-] .wrapper {
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+body [data-block] .acf-block-preview .wrapper--padded,
+body [data-block] [class^=wp-block-] .wrapper--padded {
+  padding: 0 1.5rem;
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview .wrapper--padded,
+body [data-block] [class^=wp-block-] .wrapper--padded {
+    padding: 0 3rem;
+  }
+}
+body [data-block] .acf-block-preview .arrow-link,
+body [data-block] [class^=wp-block-] .arrow-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #FFF;
+}
+body [data-block] .acf-block-preview .arrow-link:hover, body [data-block] .acf-block-preview .arrow-link:focus, body [data-block] .acf-block-preview .arrow-link:active,
+body [data-block] [class^=wp-block-] .arrow-link:hover,
+body [data-block] [class^=wp-block-] .arrow-link:focus,
+body [data-block] [class^=wp-block-] .arrow-link:active {
+  text-decoration: underline;
+}
+body [data-block] .acf-block-preview .arrow-link__icon,
+body [data-block] [class^=wp-block-] .arrow-link__icon {
+  font-size: 28px;
+  height: 1em;
+  width: 1em;
+  margin-right: 8px;
+  fill: #E0E83D;
+}
+body [data-block] .acf-block-preview .arrow-link__label,
+body [data-block] [class^=wp-block-] .arrow-link__label {
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top: 0.2em;
+}
+body [data-block] .acf-block-preview .arrow-link[data-size=large] .arrow-link__label,
+body [data-block] [class^=wp-block-] .arrow-link[data-size=large] .arrow-link__label {
+  font-size: 24px;
+}
+body [data-block] .acf-block-preview .arrow-link[data-icon-color=white] .arrow-link__icon,
+body [data-block] [class^=wp-block-] .arrow-link[data-icon-color=white] .arrow-link__icon {
+  fill: #FFF;
+}
+body [data-block] .acf-block-preview .arrow-link[data-text-color=black],
+body [data-block] [class^=wp-block-] .arrow-link[data-text-color=black] {
+  color: #4B4B4B;
+}
+body [data-block] .acf-block-preview .block[data-block-type=content-with-sidebar],
+body [data-block] [class^=wp-block-] .block[data-block-type=content-with-sidebar] {
+  --padding: 24px;
+  grid-template-rows: [all-start] var(--padding) auto auto var(--padding) [all-end];
+}
+@media screen and (min-width: 360px) {
+  body [data-block] .acf-block-preview .block[data-block-type=content-with-sidebar],
+body [data-block] [class^=wp-block-] .block[data-block-type=content-with-sidebar] {
+    --padding:calc(24px + 48 * (100vw - 360px) / 880);
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .block[data-block-type=content-with-sidebar],
+body [data-block] [class^=wp-block-] .block[data-block-type=content-with-sidebar] {
+    --padding: 72px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=content-with-sidebar] .block__background,
+body [data-block] [class^=wp-block-] .block[data-block-type=content-with-sidebar] .block__background {
+  grid-column: wide;
+  grid-row: all;
+}
+body [data-block] .acf-block-preview .block[data-block-type=content-with-sidebar] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=content-with-sidebar] .block__heading {
+  font-size: 22px;
+}
+@media screen and (min-width: 360px) {
+  body [data-block] .acf-block-preview .block[data-block-type=content-with-sidebar] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=content-with-sidebar] .block__heading {
+    font-size: calc(22px + 14 * (100vw - 360px) / 880);
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .block[data-block-type=content-with-sidebar] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=content-with-sidebar] .block__heading {
+    font-size: 36px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=content-with-sidebar] .block__content,
+body [data-block] [class^=wp-block-] .block[data-block-type=content-with-sidebar] .block__content {
+  grid-column: content;
+  grid-row: 2;
+}
+@media screen and (max-width: 1023px) {
+  body [data-block] .acf-block-preview .block[data-block-type=content-with-sidebar] .block__content,
+body [data-block] [class^=wp-block-] .block[data-block-type=content-with-sidebar] .block__content {
+    margin-bottom: 24px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview .block[data-block-type=content-with-sidebar] .block__content,
+body [data-block] [class^=wp-block-] .block[data-block-type=content-with-sidebar] .block__content {
+    grid-column: content/-8;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=content-with-sidebar] .block__content > *:last-child,
+body [data-block] [class^=wp-block-] .block[data-block-type=content-with-sidebar] .block__content > *:last-child {
+  margin-bottom: 0;
+}
+body [data-block] .acf-block-preview .block[data-block-type=content-with-sidebar] .block__sidebar,
+body [data-block] [class^=wp-block-] .block[data-block-type=content-with-sidebar] .block__sidebar {
+  grid-column: content;
+  grid-row: 3;
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview .block[data-block-type=content-with-sidebar] .block__sidebar,
+body [data-block] [class^=wp-block-] .block[data-block-type=content-with-sidebar] .block__sidebar {
+    grid-column: -7/content;
+    grid-row: 2;
+    align-self: flex-end;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=cover],
+body [data-block] [class^=wp-block-] .block[data-block-type=cover] {
+  color: #FFF;
+  --padding: 16px;
+  grid-template-rows: [all-start] var(--padding) auto var(--padding) [all-end];
+}
+@media screen and (min-width: 360px) {
+  body [data-block] .acf-block-preview .block[data-block-type=cover],
+body [data-block] [class^=wp-block-] .block[data-block-type=cover] {
+    --padding:calc(16px + 104 * (100vw - 360px) / 880);
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .block[data-block-type=cover],
+body [data-block] [class^=wp-block-] .block[data-block-type=cover] {
+    --padding: 120px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=cover] .block__image,
+body [data-block] [class^=wp-block-] .block[data-block-type=cover] .block__image {
+  grid-column: wide;
+  grid-row: all;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+body [data-block] .acf-block-preview .block[data-block-type=cover] .block__image-overlay,
+body [data-block] [class^=wp-block-] .block[data-block-type=cover] .block__image-overlay {
+  grid-column: wide;
+  grid-row: all;
+}
+body [data-block] .acf-block-preview .block[data-block-type=cover] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=cover] .block__heading {
+  grid-column: content/-6;
+  grid-row: 2;
+  color: currentColor;
+  margin-bottom: 0;
+  align-self: center;
+  font-size: 25px;
+}
+@media screen and (min-width: 360px) {
+  body [data-block] .acf-block-preview .block[data-block-type=cover] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=cover] .block__heading {
+    font-size: calc(25px + 14 * (100vw - 360px) / 880);
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .block[data-block-type=cover] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=cover] .block__heading {
+    font-size: 39px;
+  }
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .block[data-block-type=cover] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=cover] .block__heading {
+    grid-column: content/-8;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__background,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__background {
+  grid-column: wide;
+  grid-row: 1;
+}
+body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__container,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__container {
+  grid-column: content;
+  grid-row: 1;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: grid;
+}
+@media screen and (min-width: 375px) {
+  body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__container,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__container {
+    padding-top: calc(24px + 48 * (100vw - 375px) / 865);
+    padding-bottom: calc(24px + 48 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__container,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__container {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__heading {
+  grid-row: 1;
+  grid-column: all;
+  font-size: 22px;
+}
+@media screen and (min-width: 360px) {
+  body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__heading {
+    font-size: calc(22px + 14 * (100vw - 360px) / 880);
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__heading {
+    font-size: 36px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__image,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__image {
+  grid-column: all;
+  align-self: center;
+}
+@media screen and (max-width: 767px) {
+  body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__image,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__image {
+    margin-bottom: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__image,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__image {
+    grid-column: 1/7;
+    grid-row: 2;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__image,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__image {
+    grid-column: 1/8;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__image img,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__image img {
+  border: 3px solid #FFF;
+  border-radius: 32px 8px 8px 8px;
+}
+body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__sidebar,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__sidebar {
+  grid-column: all;
+  align-self: center;
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__sidebar,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__sidebar {
+    grid-column: -1/-7;
+    grid-row: 2;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__sidebar,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__sidebar {
+    grid-column: 9/all;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__link:not(:last-child),
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__link:not(:last-child) {
+  margin-bottom: 24px;
+}
+body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .arrow-link,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .arrow-link {
+  color: #FFF;
+  margin-bottom: 8px;
+}
+body [data-block] .acf-block-preview .block[data-block-type=image-with-links] .block__link-description,
+body [data-block] [class^=wp-block-] .block[data-block-type=image-with-links] .block__link-description {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+body [data-block] .acf-block-preview .block[data-block-type=more-stories] .block__background,
+body [data-block] [class^=wp-block-] .block[data-block-type=more-stories] .block__background {
+  grid-column: wide;
+  grid-row: 1;
+  position: relative;
+  overflow: hidden;
+}
+body [data-block] .acf-block-preview .block[data-block-type=more-stories] .block__container,
+body [data-block] [class^=wp-block-] .block[data-block-type=more-stories] .block__container {
+  position: relative;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  grid-column: content;
+  grid-row: 1;
+}
+@media screen and (min-width: 375px) {
+  body [data-block] .acf-block-preview .block[data-block-type=more-stories] .block__container,
+body [data-block] [class^=wp-block-] .block[data-block-type=more-stories] .block__container {
+    padding-top: calc(16px + 32 * (100vw - 375px) / 865);
+    padding-bottom: calc(16px + 32 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .block[data-block-type=more-stories] .block__container,
+body [data-block] [class^=wp-block-] .block[data-block-type=more-stories] .block__container {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=more-stories] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=more-stories] .block__heading {
+  font-size: 22px;
+  margin-bottom: 0.88em;
+}
+@media screen and (min-width: 375px) {
+  body [data-block] .acf-block-preview .block[data-block-type=more-stories] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=more-stories] .block__heading {
+    font-size: calc(22px + 14 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .block[data-block-type=more-stories] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=more-stories] .block__heading {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 767px) {
+  body [data-block] .acf-block-preview .block[data-block-type=more-stories] .block__stories,
+body [data-block] [class^=wp-block-] .block[data-block-type=more-stories] .block__stories {
+    display: flex;
+    overflow-x: scroll;
+    -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -24px;
+    padding: 0 24px;
+  }
+  body [data-block] .acf-block-preview .block[data-block-type=more-stories] .block__stories > .card,
+body [data-block] [class^=wp-block-] .block[data-block-type=more-stories] .block__stories > .card {
+    scroll-snap-align: center;
+    flex: 0 0 85%;
+    box-shadow: none;
+  }
+  body [data-block] .acf-block-preview .block[data-block-type=more-stories] .block__stories > .card:not(:last-child),
+body [data-block] [class^=wp-block-] .block[data-block-type=more-stories] .block__stories > .card:not(:last-child) {
+    margin-right: 24px;
+  }
+  body [data-block] .acf-block-preview .block[data-block-type=more-stories] .block__stories::after,
+body [data-block] [class^=wp-block-] .block[data-block-type=more-stories] .block__stories::after {
+    content: "";
+    display: block;
+    flex: 0 0 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .block[data-block-type=more-stories] .block__stories,
+body [data-block] [class^=wp-block-] .block[data-block-type=more-stories] .block__stories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 24px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource],
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] {
+  grid-template-rows: [all-start] repeat(6, auto) [all-end];
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__background,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__background {
+  grid-column: wide;
+  grid-row: all;
+  position: relative;
+  overflow: hidden;
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__background::before,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__background::before {
+  font-size: 145px;
+  content: "";
+  display: block;
+  border: 0.14em solid #E2E1E1;
+  border-radius: 50%;
+  opacity: 0.1;
+  height: 1em;
+  width: 1em;
+  position: absolute;
+  bottom: -0.55em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media screen and (min-width: 360px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__background::before,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__background::before {
+    font-size: calc(145px + 355 * (100vw - 360px) / 984);
+  }
+}
+@media screen and (min-width: 1344px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__background::before,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__background::before {
+    font-size: 500px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__container,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__container {
+  position: relative;
+  grid-column: content;
+  grid-row: 2;
+  display: grid;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+@media screen and (min-width: 375px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__container,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__container {
+    padding-top: calc(32px + 16 * (100vw - 375px) / 865);
+    padding-bottom: calc(32px + 16 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__container,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__container {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__heading {
+  grid-column: all;
+  grid-row: 1;
+  font-size: 22px;
+  margin-bottom: 0.88em;
+}
+@media screen and (min-width: 360px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__heading {
+    font-size: calc(22px + 14 * (100vw - 360px) / 880);
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__heading {
+    font-size: 36px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__content,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__content {
+  grid-column: all;
+  grid-row: 2;
+  margin-bottom: 16px;
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__content > :last-child,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__content > :last-child {
+  margin-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__content,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__content {
+    grid-column: 1/-5;
+    margin-bottom: 64px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__links,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__links {
+  grid-column: all;
+  grid-row: 3;
+}
+@media screen and (max-width: 767px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__links,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__links {
+    margin-bottom: 16px;
+  }
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__links,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__links {
+    grid-column: -4/-1;
+    grid-row: 2;
+    margin-bottom: 24px;
+    align-self: flex-end;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__links > *:not(:last-child),
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__links > *:not(:last-child) {
+  margin-bottom: 24px;
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__sub-heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__sub-heading {
+  grid-column: all;
+  grid-row: 4;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+@media screen and (min-width: 375px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__sub-heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__sub-heading {
+    font-size: calc(22px + 2 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__sub-heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__sub-heading {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 375px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__sub-heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__sub-heading {
+    margin-bottom: calc(16px + 8 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__sub-heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__sub-heading {
+    margin-bottom: 24px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__resources,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__resources {
+  grid-column: all;
+  grid-row: 5;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 90%);
+  grid-gap: 24px;
+  grid-auto-flow: column;
+  margin-bottom: 32px;
+}
+@media screen and (min-width: 375px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__resources,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__resources {
+    margin-bottom: calc(32px + 16 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__resources,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__resources {
+    margin-bottom: 48px;
+  }
+}
+@media screen and (max-width: 767px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__resources,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__resources {
+    overflow-x: scroll;
+    -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -24px;
+    padding: 0 24px;
+    margin-bottom: 24px;
+  }
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__resources > .card,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__resources > .card {
+    scroll-snap-align: center;
+    box-shadow: none;
+  }
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__resources::after,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__resources::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 1px;
+  }
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__resources,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__resources {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author {
+  grid-column: all;
+  grid-row: 6;
+  display: flex;
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author-avatar,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author-avatar {
+  flex: 0 0 100px;
+  margin-right: 16px;
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author-avatar,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author-avatar {
+    flex-basis: 175px;
+    margin-right: 32px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author-avatar img,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author-avatar img {
+  border-radius: 50%;
+  border: 6px solid #FFF;
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author-heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author-heading {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author-heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author-heading {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author-details,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author-details {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author-details p,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author-details p {
+  margin-bottom: 8px;
+}
+@media screen and (max-width: 767px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author-details,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author-details {
+    font-size: 16px;
+  }
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author-details br,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author-details br {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author-details p,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author-details p {
+    margin-bottom: 16px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author-social,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author-social {
+  display: flex;
+  color: #FFF;
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author-social a,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author-social a {
+  margin-right: 24px;
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author-social a > svg,
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author-social a > svg {
+  font-size: 28px;
+  height: 1em;
+  display: block;
+  fill: currentColor;
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author-social a > svg[data-icon=mail],
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author-social a > svg[data-icon=mail] {
+  width: 1.384em;
+}
+body [data-block] .acf-block-preview .block[data-block-type=resource] .block__author-social a > svg[data-icon=twitter],
+body [data-block] [class^=wp-block-] .block[data-block-type=resource] .block__author-social a > svg[data-icon=twitter] {
+  width: 1.09em;
+}
+body [data-block] .acf-block-preview .block[data-block-type=stories] .block__background,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__background {
+  grid-column: wide;
+  grid-row: 1;
+  position: relative;
+  overflow: hidden;
+}
+body [data-block] .acf-block-preview .block[data-block-type=stories] .block__background::before,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__background::before {
+  font-size: 145px;
+  content: "";
+  display: block;
+  border: 0.14em solid #E2E1E1;
+  border-radius: 50%;
+  opacity: 0.1;
+  height: 1em;
+  width: 1em;
+  position: absolute;
+  top: -0.55em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media screen and (min-width: 360px) {
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__background::before,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__background::before {
+    font-size: calc(145px + 355 * (100vw - 360px) / 984);
+  }
+}
+@media screen and (min-width: 1344px) {
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__background::before,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__background::before {
+    font-size: 500px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=stories] .block__container,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__container {
+  position: relative;
+  grid-column: content;
+  grid-row: 1;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+@media screen and (min-width: 375px) {
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__container,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__container {
+    padding-top: calc(16px + 32 * (100vw - 375px) / 865);
+    padding-bottom: calc(16px + 32 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__container,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__container {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=stories] .block__header,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 24px;
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__header,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__header {
+    margin-bottom: 32px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=stories] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__heading {
+  font-size: 22px;
+  margin-right: 40px;
+  margin-bottom: 0;
+  margin-right: auto;
+}
+@media screen and (min-width: 360px) {
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__heading {
+    font-size: calc(22px + 14 * (100vw - 360px) / 880);
+  }
+}
+@media screen and (min-width: 1240px) {
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__heading {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 767px) {
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__heading,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__heading {
+    flex: 0 0 100%;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=stories] .arrow-link,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .arrow-link {
+  margin-top: 16px;
+}
+body [data-block] .acf-block-preview .block[data-block-type=stories] .arrow-link:not(:last-child),
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .arrow-link:not(:last-child) {
+  margin-right: 24px;
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .arrow-link:not(:last-child),
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .arrow-link:not(:last-child) {
+    margin-right: 40px;
+  }
+}
+body [data-block] .acf-block-preview .block[data-block-type=stories] .block__content,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__content {
+  margin-bottom: 32px;
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__content,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__content {
+    max-width: 60%;
+  }
+}
+@media screen and (max-width: 767px) {
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__primary-stories,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__primary-stories {
+    display: flex;
+    overflow-x: scroll;
+    -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -24px;
+    padding: 0 24px;
+    margin-bottom: 24px;
+  }
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__primary-stories > .card,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__primary-stories > .card {
+    scroll-snap-align: center;
+    min-width: 100%;
+    box-shadow: none;
+  }
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__primary-stories > .card:not(:last-child),
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__primary-stories > .card:not(:last-child) {
+    margin-right: 24px;
+  }
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__primary-stories::after,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__primary-stories::after {
+    content: "";
+    display: block;
+    flex: 0 0 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__primary-stories,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__primary-stories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+    margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 767px) {
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__secondary-stories,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__secondary-stories {
+    display: flex;
+    overflow-x: scroll;
+    -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -24px;
+    padding: 0 24px;
+  }
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__secondary-stories > .card,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__secondary-stories > .card {
+    scroll-snap-align: center;
+    min-width: 75%;
+    box-shadow: none;
+  }
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__secondary-stories > .card:not(:last-child),
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__secondary-stories > .card:not(:last-child) {
+    margin-right: 24px;
+  }
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__secondary-stories::after,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__secondary-stories::after {
+    content: "";
+    display: block;
+    flex: 0 0 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  body [data-block] .acf-block-preview .block[data-block-type=stories] .block__secondary-stories,
+body [data-block] [class^=wp-block-] .block[data-block-type=stories] .block__secondary-stories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 24px;
+  }
+}
+body [data-block] .acf-block-preview .button--naked,
+body [data-block] [class^=wp-block-] .button--naked {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  border-radius: 0;
+}
+body [data-block] .acf-block-preview .button--naked:focus,
+body [data-block] [class^=wp-block-] .button--naked:focus {
+  outline: none;
+}
+body [data-block] .acf-block-preview .card.card--feature,
+body [data-block] [class^=wp-block-] .card.card--feature {
+  position: relative;
+  border-radius: 32px 8px 8px 8px;
+  overflow: hidden;
+  background: #4D4D53;
+  color: #FFF;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+  max-width: 600px;
+}
+body [data-block] .acf-block-preview .card.card--feature .card__image,
+body [data-block] [class^=wp-block-] .card.card--feature .card__image {
+  position: relative;
+  width: 100%;
+}
+body [data-block] .acf-block-preview .card.card--feature .card__image img,
+body [data-block] [class^=wp-block-] .card.card--feature .card__image img {
+  display: block;
+  width: 100%;
+}
+body [data-block] .acf-block-preview .card.card--feature .card__image-overlay,
+body [data-block] [class^=wp-block-] .card.card--feature .card__image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 24.48%, #2F2F2F 100%), linear-gradient(0deg, rgba(38, 38, 38, 0.4), rgba(38, 38, 38, 0.4));
+  background-blend-mode: darken, normal;
+  padding: 40px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+body [data-block] .acf-block-preview .card.card--feature .card__title-link,
+body [data-block] [class^=wp-block-] .card.card--feature .card__title-link {
+  display: block;
+  color: currentColor;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+body [data-block] .acf-block-preview .card.card--feature .card__title-link::after,
+body [data-block] [class^=wp-block-] .card.card--feature .card__title-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+body [data-block] .acf-block-preview .card.card--feature .card__title-link:hover, body [data-block] .acf-block-preview .card.card--feature .card__title-link:focus, body [data-block] .acf-block-preview .card.card--feature .card__title-link:active,
+body [data-block] [class^=wp-block-] .card.card--feature .card__title-link:hover,
+body [data-block] [class^=wp-block-] .card.card--feature .card__title-link:focus,
+body [data-block] [class^=wp-block-] .card.card--feature .card__title-link:active {
+  text-decoration: underline;
+}
+body [data-block] .acf-block-preview .card.card--feature .card__title,
+body [data-block] [class^=wp-block-] .card.card--feature .card__title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: currentColor;
+}
+body [data-block] .acf-block-preview .card.card--feature .card__intro,
+body [data-block] [class^=wp-block-] .card.card--feature .card__intro {
+  font-size: 16px;
+  max-width: 60%;
+}
+body [data-block] .acf-block-preview .card.card--feature .card__intro p:last-child,
+body [data-block] [class^=wp-block-] .card.card--feature .card__intro p:last-child {
+  margin-bottom: 0;
+}
+body [data-block] .acf-block-preview .card.card--link,
+body [data-block] [class^=wp-block-] .card.card--link {
+  background-color: #E2E1E1;
+  color: #000;
+  border: 3px solid transparent;
+  border-radius: 32px 8px 32px 8px;
+  padding: 32px 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+body [data-block] .acf-block-preview .card.card--link .card__link,
+body [data-block] [class^=wp-block-] .card.card--link .card__link {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  line-height: 1.15;
+}
+body [data-block] .acf-block-preview .card.card--link .card__footer,
+body [data-block] [class^=wp-block-] .card.card--link .card__footer {
+  border-top: 4px solid #FFF;
+  margin-top: 16px;
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+}
+body [data-block] .acf-block-preview .card.card--link .card__icon,
+body [data-block] [class^=wp-block-] .card.card--link .card__icon {
+  display: block;
+  font-size: 30px;
+  height: 1em;
+  width: 1em;
+  border-radius: 50%;
+  border: 8px solid #FFF;
+  flex: 0 0 auto;
+  margin-right: 8px;
+  box-sizing: border-box;
+}
+body [data-block] .acf-block-preview .card.card--link .card__type,
+body [data-block] [class^=wp-block-] .card.card--link .card__type {
+  font-size: 14px;
+  flex: 1 1 100%;
+  text-transform: uppercase;
+  padding-top: 0.1em;
+}
+body [data-block] .acf-block-preview .card.card--link .arrow-link__label,
+body [data-block] [class^=wp-block-] .card.card--link .arrow-link__label {
+  color: #000;
+}
+body [data-block] .acf-block-preview .card.card--link[data-colour-scheme=light],
+body [data-block] [class^=wp-block-] .card.card--link[data-colour-scheme=light] {
+  background-color: #F6F6F6;
+}
+body [data-block] .acf-block-preview .card.card--link[data-colour-scheme=light] .card__footer,
+body [data-block] [class^=wp-block-] .card.card--link[data-colour-scheme=light] .card__footer {
+  border-color: #E2E1E1;
+}
+body [data-block] .acf-block-preview .card.card--link[data-colour-scheme=transparent],
+body [data-block] [class^=wp-block-] .card.card--link[data-colour-scheme=transparent] {
+  background-color: transparent;
+  border-color: #FFF;
+}
+body [data-block] .acf-block-preview .card.card--link[data-colour-scheme=transparent] .card__footer,
+body [data-block] [class^=wp-block-] .card.card--link[data-colour-scheme=transparent] .card__footer {
+  border-color: #FFF;
+}
+body [data-block] .acf-block-preview .aigis-preview__background > .card--link,
+body [data-block] .acf-block-preview .aigis-preview > .card--link,
+body [data-block] [class^=wp-block-] .aigis-preview__background > .card--link,
+body [data-block] [class^=wp-block-] .aigis-preview > .card--link {
+  max-width: 250px;
+}
+body [data-block] .acf-block-preview .card.card--primary,
+body [data-block] [class^=wp-block-] .card.card--primary {
+  border-radius: 32px 8px 0 16px;
+  overflow: hidden;
+  background: #4D4D53;
+  color: #FFF;
+}
+body [data-block] .acf-block-preview .card.card--primary .card__image,
+body [data-block] [class^=wp-block-] .card.card--primary .card__image {
+  position: relative;
+  width: 100%;
+}
+body [data-block] .acf-block-preview .card.card--primary .card__image img,
+body [data-block] [class^=wp-block-] .card.card--primary .card__image img {
+  display: block;
+  width: 100%;
+}
+body [data-block] .acf-block-preview .card.card--primary .card__image-overlay,
+body [data-block] [class^=wp-block-] .card.card--primary .card__image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, #2F2F2F 0%, rgba(255, 255, 255, 0) 100%);
+  background-blend-mode: darken;
+  padding: 16px 24px;
+}
+body [data-block] .acf-block-preview .card.card--primary .card__tag,
+body [data-block] [class^=wp-block-] .card.card--primary .card__tag {
+  font-size: 18px;
+  color: #E0E83D;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body [data-block] .acf-block-preview .card.card--primary .card__main,
+body [data-block] [class^=wp-block-] .card.card--primary .card__main {
+  padding: 12px 20px;
+}
+body [data-block] .acf-block-preview .card.card--primary .card__title-link,
+body [data-block] [class^=wp-block-] .card.card--primary .card__title-link {
+  display: block;
+  color: currentColor;
+  text-decoration: none;
+  max-width: 90%;
+}
+body [data-block] .acf-block-preview .card.card--primary .card__title,
+body [data-block] [class^=wp-block-] .card.card--primary .card__title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: currentColor;
+}
+body [data-block] .acf-block-preview .card.card--primary .card__footer,
+body [data-block] [class^=wp-block-] .card.card--primary .card__footer {
+  display: flex;
+  align-items: flex-start;
+}
+body [data-block] .acf-block-preview .card.card--primary .card__meta,
+body [data-block] [class^=wp-block-] .card.card--primary .card__meta {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  flex: 1 1 100%;
+}
+body [data-block] .acf-block-preview .card.card--primary .card__cta,
+body [data-block] [class^=wp-block-] .card.card--primary .card__cta {
+  margin-left: 16px;
+  flex: 0 0 auto;
+}
+body [data-block] .acf-block-preview .aigis-preview > .card--primary,
+body [data-block] [class^=wp-block-] .aigis-preview > .card--primary {
+  max-width: 310px;
+}
+body [data-block] .acf-block-preview .card.card--resource,
+body [data-block] [class^=wp-block-] .card.card--resource {
+  background-color: #323232;
+  color: #FFF;
+  border-radius: 32px 8px 32px 8px;
+  padding: 20px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+body [data-block] .acf-block-preview .card.card--resource .card__body,
+body [data-block] [class^=wp-block-] .card.card--resource .card__body {
+  flex: 1 1 100%;
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+}
+body [data-block] .acf-block-preview .card.card--resource .card__link,
+body [data-block] [class^=wp-block-] .card.card--resource .card__link {
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  line-height: 1.15;
+}
+body [data-block] .acf-block-preview .card.card--resource .card__footer,
+body [data-block] [class^=wp-block-] .card.card--resource .card__footer {
+  border-top: 4px solid #FFF;
+  margin-top: 8px;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+}
+body [data-block] .acf-block-preview .card.card--resource .card__icon,
+body [data-block] [class^=wp-block-] .card.card--resource .card__icon {
+  display: block;
+  font-size: 30px;
+  height: 1em;
+  width: 1em;
+  border-radius: 50%;
+  border: 8px solid #FFF;
+  flex: 0 0 auto;
+  margin-right: 8px;
+  box-sizing: border-box;
+}
+body [data-block] .acf-block-preview .card.card--resource .card__type,
+body [data-block] [class^=wp-block-] .card.card--resource .card__type {
+  font-size: 14px;
+  flex: 1 1 100%;
+  text-transform: uppercase;
+  padding-top: 0.1em;
+}
+body [data-block] .acf-block-preview .card.card--resource[data-colour-scheme=light],
+body [data-block] [class^=wp-block-] .card.card--resource[data-colour-scheme=light] {
+  background-color: #F6F6F6;
+  color: #000;
+}
+body [data-block] .acf-block-preview .card.card--resource[data-colour-scheme=light] .card__footer,
+body [data-block] [class^=wp-block-] .card.card--resource[data-colour-scheme=light] .card__footer {
+  border-color: #000;
+}
+body [data-block] .acf-block-preview .card.card--resource[data-colour-scheme=light] .card__icon,
+body [data-block] [class^=wp-block-] .card.card--resource[data-colour-scheme=light] .card__icon {
+  border-color: #000;
+}
+body [data-block] .acf-block-preview .card.card--resource[data-post-type=post] .card__footer,
+body [data-block] [class^=wp-block-] .card.card--resource[data-post-type=post] .card__footer {
+  border-color: #FB6045;
+}
+body [data-block] .acf-block-preview .card.card--resource[data-post-type=post] .card__icon,
+body [data-block] [class^=wp-block-] .card.card--resource[data-post-type=post] .card__icon {
+  border-color: #FB6045;
+}
+body [data-block] .acf-block-preview .card.card--resource[data-post-type=resource] .card__footer,
+body [data-block] [class^=wp-block-] .card.card--resource[data-post-type=resource] .card__footer {
+  border-color: #6C75E1;
+}
+body [data-block] .acf-block-preview .card.card--resource[data-post-type=resource] .card__icon,
+body [data-block] [class^=wp-block-] .card.card--resource[data-post-type=resource] .card__icon {
+  border-color: #6C75E1;
+}
+body [data-block] .acf-block-preview .aigis-preview > .card--resource,
+body [data-block] [class^=wp-block-] .aigis-preview > .card--resource {
+  max-width: 320px;
+}
+body [data-block] .acf-block-preview .card.card--square,
+body [data-block] [class^=wp-block-] .card.card--square {
+  position: relative;
+  border-radius: 32px 8px;
+  overflow: hidden;
+  background: #4D4D53;
+  color: #FFF;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+  max-width: 600px;
+}
+body [data-block] .acf-block-preview .card.card--square .card__image,
+body [data-block] [class^=wp-block-] .card.card--square .card__image {
+  width: 100%;
+}
+body [data-block] .acf-block-preview .card.card--square .card__image img,
+body [data-block] [class^=wp-block-] .card.card--square .card__image img {
+  display: block;
+  width: 100%;
+}
+body [data-block] .acf-block-preview .card,
+body [data-block] [class^=wp-block-] .card {
+  position: initial;
+  margin-top: initial;
+  padding: initial;
+  min-width: initial;
+  max-width: initial;
+  border: initial;
+  box-shadow: initial;
+  background: initial;
+  box-sizing: initial;
+}

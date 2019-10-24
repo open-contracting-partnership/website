@@ -130,6 +130,17 @@ module.exports = _createClass;
 
 /***/ }),
 
+/***/ "./resources/scss/gutenberg.scss":
+/*!***************************************!*\
+  !*** ./resources/scss/gutenberg.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/scss/styles.scss":
 /*!************************************!*\
   !*** ./resources/scss/styles.scss ***!
@@ -460,14 +471,15 @@ function () {
 /***/ }),
 
 /***/ 0:
-/*!****************************************************************************************************************************************************!*\
-  !*** multi ./styleguide_assets/aigis_assets/scripts/styleguide.js ./resources/scss/styles.scss ./styleguide_assets/aigis_assets/styles/theme.scss ***!
-  \****************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************!*\
+  !*** multi ./styleguide_assets/aigis_assets/scripts/styleguide.js ./resources/scss/styles.scss ./resources/scss/gutenberg.scss ./styleguide_assets/aigis_assets/styles/theme.scss ***!
+  \************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/beneverard/Sites/open-contracting/wp-content/themes/ocp-v1/styleguide_assets/aigis_assets/scripts/styleguide.js */"./styleguide_assets/aigis_assets/scripts/styleguide.js");
 __webpack_require__(/*! /Users/beneverard/Sites/open-contracting/wp-content/themes/ocp-v1/resources/scss/styles.scss */"./resources/scss/styles.scss");
+__webpack_require__(/*! /Users/beneverard/Sites/open-contracting/wp-content/themes/ocp-v1/resources/scss/gutenberg.scss */"./resources/scss/gutenberg.scss");
 module.exports = __webpack_require__(/*! /Users/beneverard/Sites/open-contracting/wp-content/themes/ocp-v1/styleguide_assets/aigis_assets/styles/theme.scss */"./styleguide_assets/aigis_assets/styles/theme.scss");
 
 
