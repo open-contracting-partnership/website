@@ -36,7 +36,7 @@ class ContentWithSidebarServiceProvider
 
 		$context['block'] = [];
 		$context['block']['title'] = get_field('title');
-		$context['block']['content'] = get_field('content');
+		$context['block']['primary_content'] = get_field('primary_content');
 		$context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';
 		$context['block']['is_dark'] = isContrastingColourLight($context['block']['background_colour']);
 		$context['block']['text_colour'] = $context['block']['is_dark'] ? '#FFF' : '#000';

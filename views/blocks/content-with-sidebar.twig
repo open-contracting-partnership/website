@@ -6,7 +6,32 @@
 
 		<h2 class="block__heading">{{ block.title }}</h2>
 
-		{{ block.content | raw }}
+		{% for item in block.primary_content %}
+
+			{% if item.acf_fc_layout == 'content' %}
+
+				{{ block.content | raw }}
+
+			{% endif %}
+
+			{% if item.acf_fc_layout == 'arrow_links' %}
+
+				<div class="block__arrow-links">
+
+					{% for link in item.links %}
+
+						<a class="arrow-link" href="{{ link.link.url }}" data-text-color="{{ block.is_dark ? 'white' : 'black' }}">
+							<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+							<span class="arrow-link__label">{{ link.link.title }}</span>
+						</a>
+
+					{% endfor %}
+
+				</div>
+
+			{% endif %}
+
+		{% endfor %}
 
 	</div>
 

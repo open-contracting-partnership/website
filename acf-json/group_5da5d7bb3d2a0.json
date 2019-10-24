@@ -44,8 +44,8 @@
         },
         {
             "key": "field_5db19d6e2a3fa",
-            "label": "Content",
-            "name": "content2",
+            "label": "Primary Content",
+            "name": "primary_content",
             "type": "flexible_content",
             "instructions": "",
             "required": 0,
@@ -363,5 +363,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571921423
+    "modified": 1571922173
 }

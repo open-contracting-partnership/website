@@ -106,6 +106,13 @@ category:
 
 	}
 
+		.block__arrow-links {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: spacing(2);
+		}
+		
+
 	.block__sidebar {
 
 		grid-column: content;
