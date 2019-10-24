@@ -37,7 +37,9 @@ class ImgixServiceProvider extends ServiceProvider
 			'src' => $this->buildURL($args, $args['transforms'][0]),
 			'srcset' => $this->buildSources($args),
 			'sizes' => $args['sizes'],
-			'alt' => $args['alt']
+			'alt' => $args['alt'],
+			'width' => $args['aspect_ratio'] ? $args['aspect_ratio'][0] : null,
+			'height' => $args['aspect_ratio'] ? $args['aspect_ratio'][1] : null,
 		];
 
 		return Timber::compile('partials/imgix.twig', $image);
@@ -49,7 +51,8 @@ class ImgixServiceProvider extends ServiceProvider
 		// make sure the host is set within the params
 		$args = array_merge([
 			'host' => Config::get('images.imgix_base_url'),
-			'alt' => ''
+			'alt' => '',
+			'aspect_ratio' => null
 		], $args);
 
 		// ensure the src url is stripped of it's domain
