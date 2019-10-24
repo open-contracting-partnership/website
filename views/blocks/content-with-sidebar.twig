@@ -9,9 +9,7 @@
 		{% for item in block.primary_content %}
 
 			{% if item.acf_fc_layout == 'content' %}
-
-				{{ block.content | raw }}
-
+				{{ item.content | raw }}
 			{% endif %}
 
 			{% if item.acf_fc_layout == 'arrow_links' %}
