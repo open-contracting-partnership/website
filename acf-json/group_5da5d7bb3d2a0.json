@@ -46,7 +46,7 @@
                         {
                             "key": "field_5db19d6e2a3fb",
                             "label": "Content",
-                            "name": "Content",
+                            "name": "content",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 1,
@@ -343,5 +343,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571923031
+    "modified": 1571923547
 }
