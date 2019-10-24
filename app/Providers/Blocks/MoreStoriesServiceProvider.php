@@ -64,7 +64,7 @@ class MoreStoriesServiceProvider
 
 		}
 
-		$context['block']['background_colour'] = get_field('background_colour') ?: '#6C75E1';
+		$context['block']['background_colour'] = get_field('background_colour') ?: '#DADADA';
 		$context['block']['text_colour'] = isContrastingColourLight($context['block']['background_colour']) ? '#FFF' : '#000';
 		$context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
 
