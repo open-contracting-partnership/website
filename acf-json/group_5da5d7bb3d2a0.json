@@ -43,6 +43,107 @@
             "delay": 0
         },
         {
+            "key": "field_5db19911258fa",
+            "label": "Sidebar Content",
+            "name": "sidebar_content",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "edit_screen",
+            "layouts": {
+                "layout_5db19918989f2": {
+                    "key": "layout_5db19918989f2",
+                    "name": "link_box",
+                    "label": "Link Box",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5db19925258fb",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "gutenberg_visibility": "both",
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5db1992c258fc",
+                            "label": "Link",
+                            "name": "link",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "gutenberg_visibility": "both",
+                            "return_format": "array"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5db19936258fd": {
+                    "key": "layout_5db19936258fd",
+                    "name": "image",
+                    "label": "Image",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5db1993c258fe",
+                            "label": "image",
+                            "name": "image",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "gutenberg_visibility": "both",
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Item",
+            "min": "",
+            "max": ""
+        },
+        {
             "key": "field_5da5d8c6146a0",
             "label": "Background Colour",
             "name": "background_colour",
@@ -164,5 +265,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571852344
+    "modified": 1571920200
 }
