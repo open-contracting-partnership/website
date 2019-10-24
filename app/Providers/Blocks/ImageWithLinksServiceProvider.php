@@ -23,7 +23,10 @@ class ImageWithLinksServiceProvider
 				'render_callback' => array($this, 'render'),
 				'category' => 'ocp-blocks',
 				'icon' => 'format-image',
-				'keywords' => ['image', 'links', 'cta', 'call to action']
+				'keywords' => ['image', 'links', 'cta', 'call to action'],
+				'supports' => [
+					'align' => false
+				]
 			]);
 
 		});

@@ -23,7 +23,10 @@ class ContentWithSidebarServiceProvider
 				'render_callback' => array($this, 'render'),
 				'category' => 'ocp-blocks',
 				'icon' => 'format-image',
-				'keywords' => ['content', 'sidebar']
+				'keywords' => ['content', 'sidebar'],
+				'supports' => [
+					'align' => false
+				]
 			]);
 
 		});

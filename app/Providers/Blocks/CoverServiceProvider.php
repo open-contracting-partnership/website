@@ -23,7 +23,10 @@ class CoverServiceProvider
 				'render_callback' => array($this, 'render'),
 				'category' => 'ocp-blocks',
 				'icon' => 'format-image',
-				'keywords' => ['cover']
+				'keywords' => ['cover'],
+				'supports' => [
+					'align' => false
+				]
 			]);
 
 		});

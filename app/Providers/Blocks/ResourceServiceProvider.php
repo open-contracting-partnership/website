@@ -24,7 +24,10 @@ class ResourceServiceProvider
 				'render_callback' => array($this, 'render'),
 				'category' => 'ocp-blocks',
 				'icon' => 'grid-view',
-				'keywords' => ['resource', 'resources']
+				'keywords' => ['resource', 'resources'],
+				'supports' => [
+					'align' => false
+				]
 			]);
 
 		});

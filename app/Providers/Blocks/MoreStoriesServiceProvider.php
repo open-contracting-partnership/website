@@ -24,7 +24,10 @@ class MoreStoriesServiceProvider
 				'render_callback' => array($this, 'render'),
 				'category' => 'ocp-blocks',
 				'icon' => 'welcome-widgets-menus',
-				'keywords' => ['story', 'stories', 'more']
+				'keywords' => ['story', 'stories', 'more'],
+				'supports' => [
+					'align' => false
+				]
 			]);
 
 		});
