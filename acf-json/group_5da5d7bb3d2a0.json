@@ -23,26 +23,6 @@
             "maxlength": ""
         },
         {
-            "key": "field_5da5d7bb5a602",
-            "label": "Content",
-            "name": "content",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "gutenberg_visibility": "edit_screen",
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
             "key": "field_5db19d6e2a3fa",
             "label": "Primary Content",
             "name": "primary_content",
@@ -363,5 +343,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571922173
+    "modified": 1571923031
 }
