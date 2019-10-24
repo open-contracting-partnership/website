@@ -1,0 +1,106 @@
+/*
+
+---
+name: Arrow link
+category:
+ - Components
+ - Components/Arrow link
+---
+
+## Default
+
+```html
+<div class="aigis-preview__background">
+
+	<a class="arrow-link" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+</div>
+```
+
+## Sizes
+
+```html
+<a class="arrow-link" data-size="large" data-text-color="black" href="#">
+	<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+	<span class="arrow-link__label">Read</span>
+</a>
+```
+
+## Colours
+
+```html
+<div class="aigis-preview__background">
+
+	<a class="arrow-link" data-icon-color="white" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" data-icon-color="white" data-text-color="black" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" data-text-color="black" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+</div>
+```
+
+*/
+
+.arrow-link {
+
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: $ui-white;
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: underline;
+	}
+
+}
+
+	.arrow-link__icon {
+		font-size: 28px;
+		height: 1em;
+		width: 1em;
+		margin-right: spacing(1);
+		fill: $ui-brand;
+	}
+
+	.arrow-link__label {
+		font-size: 14px;
+		@include font('secondary', 'medium');
+		padding-top: .2em;
+	}
+
+.arrow-link[data-size="large"] {
+
+	.arrow-link__label {
+
+		font-size: 20px;
+
+		@include from(M) {
+			font-size: 24px;
+		}
+
+	}
+
+}
+
+.arrow-link[data-icon-color="white"] .arrow-link__icon {
+	fill: $ui-white;
+}
+
+.arrow-link[data-text-color="black"] {
+	color: $ui-grey-2;
+}
