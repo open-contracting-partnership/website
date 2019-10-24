@@ -41,16 +41,8 @@ class ContentWithSidebarServiceProvider
 		$context['block']['is_dark'] = isContrastingColourLight($context['block']['background_colour']);
 		$context['block']['text_colour'] = $context['block']['is_dark'] ? '#FFF' : '#000';
 		$context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
+		$context['block']['sidebar_content'] = get_field('sidebar_content');
 
-		$context['block']['cta'] = [];
-
-		if ( get_field('has_call_to_action') ) {
-			$context['block']['cta']['colour_sheme'] = $context['block']['is_dark'] ? 'light' : 'dark';
-			$context['block']['cta']['title'] = get_field('cta_title');
-			$context['block']['cta']['link'] = get_field('cta_link');
-		}
-
-// dd($context);
 		echo Timber::compile('blocks/content-with-sidebar.twig', $context);
 
 	}

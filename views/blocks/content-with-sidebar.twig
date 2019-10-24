@@ -12,26 +12,57 @@
 
 	<div class="block__sidebar">
 
-		{% if block.cta %}
+		{% for item in block.sidebar_content %}
 
-			<div class="card card--link" data-colour-scheme="light">
+			{% if item.acf_fc_layout == 'link_box' %}
 
-				<div class="card__body">
-					<a class="card__link" href="{{ block.cta.link.link }}">{{ block.cta.title }}</a>
+				<div class="card card--link" data-colour-scheme="light">
+
+					<div class="card__body">
+						<a class="card__link" href="{{ item.link.link }}">{{ item.title }}</a>
+					</div>
+
+					<div class="card__footer">
+
+						<a class="arrow-link" href="{{ item.link.link }}" data-text-color="black">
+							<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+							<span class="arrow-link__label">{{ item.link.title }}</span>
+						</a>
+
+					</div>
+
 				</div>
 
-				<div class="card__footer">
+			{% endif %}
 
-					<a class="arrow-link" href="{{ block.cta.link.link }}" data-text-color="black">
-						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-						<span class="arrow-link__label">{{ block.cta.link.title }}</span>
-					</a>
+			{% if item.acf_fc_layout == 'image' %}
+
+				<div class="block__sidebar-image">
+
+					{{ imgix({
+						src: item.image.url,
+						params: {
+							auto: 'format'
+						},
+						transforms: [{
+							w: 415
+						}, {
+							w: 830
+						}, {
+							w: 1024
+						}, {
+							w: 1536
+						}, {
+							w: 2048
+						}],
+						sizes: '100vw'
+					}) }}
 
 				</div>
 
-			</div>
+			{% endif %}
 
-		{% endif %}
+		{% endfor %}
 
 	</div>
 
