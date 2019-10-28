@@ -44,7 +44,7 @@ category:
 		grid-row: 1;
 
 		> *:not(:last-child):not(.block__heading) {
-			margin-bottom: spacing(4);
+			margin-bottom: spacing(6);
 		}
 
 	}
@@ -55,8 +55,10 @@ category:
 
 		.block__arrow-links {
 
-			display: flex;
-			flex-wrap: wrap;
+			@include from(T) {
+				display: flex;
+				flex-wrap: wrap;
+			}
 
 			> * {
 				margin-right: spacing(3);
