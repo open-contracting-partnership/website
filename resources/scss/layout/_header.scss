@@ -309,7 +309,7 @@ category:
 				ul ul a {
 					font-size: .8em;
 				}
-				
+
 				li {
 					margin-bottom: spacing(1);
 				}
@@ -456,7 +456,7 @@ category:
 						margin: 0 -48px;
 					}
 
-					@include from($header-break-4) {
+					@include from(1344) {
 						margin: 0 calc((-100vw - -1248px) / 2);
 					}
 
