@@ -1,0 +1,133 @@
+/*
+
+---
+name: Sign Up Cover
+category:
+ - Blocks
+ - Blocks/Sign Up Cover
+---
+
+```html
+<div class="block" data-block-type="sign-up-cover">
+
+	<div class="block__image" style="background-image: url('https://open-contracting.test/wp-content/uploads/2016/10/IODC-team.jpg');"></div>
+
+
+	<div class="block__image-overlay" style="background-color: rgba(0,0,0,0.5);"></div>
+
+	<div class="block__container">
+
+		<h1 class="block__heading">Over 50 countries are working with the Open Contracting Partnership to transform public procurement for the benefit of all. The future is open. Join us.</h1>
+
+		<div class="block__form-container">
+
+			<form class="block__form / js-mailchimp-form" data-op-form-id="0">
+
+				<p>Sign up to our online community.</p>
+				<input type="email" name="email" placeholder="Your email address" data-op-id="0" data-com.agilebits.onepassword.user-edited="yes">
+
+				<p class="js-mailchimp-form__message">Sucessfully subscribed!</p>
+
+			</form>
+
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.block[data-block-type="sign-up-cover"] {
+
+	color: $ui-white;
+
+	.block__image {
+		grid-column: wide;
+		grid-row: 1;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 50% 50%;
+		object-fit: cover;
+	}
+
+	.block__image-overlay {
+		grid-column: wide;
+		grid-row: 1;
+	}
+
+	.block__container {
+		grid-row: 1;
+		grid-column: content;
+		@include fluid-type(--padding, 375px, 1240px, spacing(2), spacing(6));
+		padding: var(--padding) 0;
+		@extend %column-grid;
+	}
+
+		.block__heading {
+			grid-row: 1;
+			grid-column: all;
+			color: currentColor;
+			@include fluid-type(font-size, 360px, 1240px, 25px, 39px);
+			@include fluid-type(margin-bottom, 360px, 1240px, 72px, 240px);
+		}
+
+		.block__form-container {
+			grid-row: 2;
+			grid-column: all;
+			display: flex;
+			justify-content: center;
+		}
+
+		.block__form {
+
+			width: 100%;
+			max-width: 400px;
+
+			p {
+				font-size: 20px;
+				@include font('secondary', 'bold');
+				margin-bottom: spacing(1);
+				text-align: center;
+			}
+
+			input[type="email"] {
+
+				font-size: 18px;
+				padding: 5px 18px;
+				border: 2px solid $ui-white;
+				border-radius: 12px;
+				background-color: transparent;
+				color: $ui-white;
+
+				&::-webkit-input-placeholder {
+				   color: $ui-white;
+				   opacity: 1;
+				   font-style: italic;
+				}
+
+				&:-moz-placeholder { /* Firefox 18- */
+				 	color: $ui-white;
+					opacity: 1;
+					font-style: italic;
+				}
+
+				&::-moz-placeholder {  /* Firefox 19+ */
+				   color: $ui-white;
+				   opacity: 1;
+				   font-style: italic;
+				}
+
+				&:-ms-input-placeholder {
+				   color: $ui-white;
+				   opacity: 1;
+				   font-style: italic;
+				}
+
+			}
+
+		}
+
+}

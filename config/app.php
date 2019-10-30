@@ -31,6 +31,7 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AdminServiceProvider::class,
         App\Providers\ImgixServiceProvider::class,
+        App\Providers\MailChimpServiceProvider::class,
 
 		// Block Providers
         App\Providers\Blocks\ContentServiceProvider::class,
@@ -39,6 +40,7 @@ return [
         App\Providers\Blocks\ImageWithLinksServiceProvider::class,
         App\Providers\Blocks\MoreStoriesServiceProvider::class,
         App\Providers\Blocks\ResourceServiceProvider::class,
+        App\Providers\Blocks\SignUpCoverServiceProvider::class,
         App\Providers\Blocks\StoriesServiceProvider::class,
 
     ],
@@ -70,5 +72,10 @@ return [
      * The key used by the Encrypter. This should be a random 32 character string.
      */
     'key' => getenv('APP_KEY'),
+
+    /**
+     * The key used by the Encrypter. This should be a random 32 character string.
+     */
+    'mailchimp_api_key' => getenv('MAILCHIMP_API_KEY'),
 
 ];
