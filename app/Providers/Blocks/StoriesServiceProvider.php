@@ -26,6 +26,7 @@ class StoriesServiceProvider
 				'category' => 'ocp-blocks',
 				'icon' => 'welcome-widgets-menus',
 				'keywords' => ['story', 'stories'],
+				'post_types' => ['page'],
 				'supports' => [
 					'align' => false
 				]

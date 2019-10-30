@@ -24,6 +24,7 @@ class CoverServiceProvider
 				'category' => 'ocp-blocks',
 				'icon' => 'format-image',
 				'keywords' => ['cover'],
+				'post_types' => ['page'],
 				'supports' => [
 					'align' => false
 				]

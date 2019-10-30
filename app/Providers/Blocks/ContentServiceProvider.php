@@ -24,6 +24,7 @@ class ContentServiceProvider
 				'category' => 'ocp-blocks',
 				'icon' => 'format-image',
 				'keywords' => ['content', 'sidebar'],
+				'post_types' => ['page'],
 				'supports' => [
 					'align' => false
 				]

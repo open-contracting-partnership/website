@@ -24,6 +24,7 @@ class ImageWithLinksServiceProvider
 				'category' => 'ocp-blocks',
 				'icon' => 'format-image',
 				'keywords' => ['image', 'links', 'cta', 'call to action'],
+				'post_types' => ['page'],
 				'supports' => [
 					'align' => false
 				]

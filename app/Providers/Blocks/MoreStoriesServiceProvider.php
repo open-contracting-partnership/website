@@ -25,6 +25,7 @@ class MoreStoriesServiceProvider
 				'category' => 'ocp-blocks',
 				'icon' => 'welcome-widgets-menus',
 				'keywords' => ['story', 'stories', 'more'],
+				'post_types' => ['page'],
 				'supports' => [
 					'align' => false
 				]

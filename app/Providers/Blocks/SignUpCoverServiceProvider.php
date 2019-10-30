@@ -34,6 +34,7 @@ class SignUpCoverServiceProvider
 
 				},
 				'keywords' => ['cover', 'sign', 'up', 'sign-up'],
+				'post_types' => ['page'],
 				'supports' => [
 					'align' => false
 				]

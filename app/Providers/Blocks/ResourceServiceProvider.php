@@ -25,6 +25,7 @@ class ResourceServiceProvider
 				'category' => 'ocp-blocks',
 				'icon' => 'grid-view',
 				'keywords' => ['resource', 'resources'],
+				'post_types' => ['page'],
 				'supports' => [
 					'align' => false
 				]
