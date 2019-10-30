@@ -67,6 +67,63 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_5db977f4f6ca8": {
+                    "key": "layout_5db977f4f6ca8",
+                    "name": "content_with_icon",
+                    "label": "Content with Icon",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5db9781ef6caa",
+                            "label": "Icon",
+                            "name": "icon",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "gutenberg_visibility": "both",
+                            "choices": {
+                                "padlock": "Open Padlock",
+                                "fist": "Fist",
+                                "magnifier": "Magnifier"
+                            },
+                            "default_value": [],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_5db977f4f6ca9",
+                            "label": "Content",
+                            "name": "content",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "gutenberg_visibility": "both",
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_5db19936258fd": {
                     "key": "layout_5db19936258fd",
                     "name": "arrow_links",
@@ -170,5 +227,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571927576
+    "modified": 1572436190
 }

@@ -53,6 +53,66 @@ category:
 			@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
 		}
 
+		.sub-content[data-type="content-with-icon"] {
+
+			@include from(S) {
+				display: flex;
+			}
+
+			.sub-content__icon {
+
+				flex: 0 0 48px;
+
+				@include upto(S) {
+					margin-bottom: spacing(2);
+				}
+
+				@include from(S) {
+					margin-right: spacing(3);
+				}
+
+				@include from(T) {
+					flex-basis: 96px;
+				}
+
+				@include from(M) {
+					flex-basis: 128px;
+					margin-right: spacing(5);
+				}
+
+				> svg {
+
+					font-size: 48px;
+					height: 1em;
+					width: 1em;
+					fill: currentColor;
+
+					@include from(T) {
+						font-size: 96px;
+					}
+
+					@include from(M) {
+						font-size: 128px;
+					}
+
+				}
+
+			}
+
+			.sub-content__content {
+
+				flex: 1 1 100%;
+
+				> *:last-child {
+					margin-bottom: 0;
+				}
+
+			}
+
+		}
+
+
+
 		.block__arrow-links {
 
 			@include from(T) {

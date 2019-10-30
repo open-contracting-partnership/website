@@ -16,6 +16,22 @@
 
 			{% endif %}
 
+			{% if item.acf_fc_layout == 'content_with_icon' %}
+
+				<div class="sub-content" data-type="content-with-icon">
+
+					<div class="sub-content__icon">
+						<svg><use xlink:href="#content-icon-{{ item.icon }}"></use></svg>
+					</div>
+
+					<div class="sub-content__content">
+						{{ item.content | raw }}
+					</div>
+
+				</div>
+
+			{% endif %}
+
 			{% if item.acf_fc_layout == 'arrow_links' %}
 
 				<div class="block__arrow-links">
