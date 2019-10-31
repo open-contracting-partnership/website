@@ -1,0 +1,109 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<section class="article__container">
+
+		<header class="article__header">
+
+			{% if back_link %}
+
+				<a class="arrow-link" href="{{ back_link.url }}" data-direction="west" data-text-color="black">
+					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+					<span class="arrow-link__label / uppercase">{{ back_link.label }}</span>
+				</a>
+
+			{% endif %}
+
+			<h1 class="article__heading">{{ title }}</h1>
+
+			<span class="article__meta">
+				{% include 'components/type-label.twig' with type %}
+				<span class="article__meta-author">{{ authors }} / {{ date }}</span>
+			</span>
+
+		</header>
+
+		<article class="article">
+
+			{% if featued_image %}
+
+				<figure class="wp-block-image">
+
+					{{ imgix({
+						src: featued_image.url,
+						params: {
+							auto: 'format'
+						},
+						transforms: [{
+							w: 415
+						}, {
+							w: 830
+						}, {
+							w: 1024
+						}, {
+							w: 1536
+						}, {
+							w: 2048
+						}],
+						sizes: '100vw, (min-width: 1340px) 800px',
+					}) }}
+
+					{% if featued_image.caption %}
+						<figcaption>{{ featued_image.caption }}</figcaption>
+					{% endif %}
+
+				</figure>
+
+			{% endif %}
+
+			{{ content|raw }}
+
+		</article>
+
+		<div class="article__share-container">
+
+			<div class="article__share">
+
+				<h4 class="article__share-heading">Share on:</h4>
+
+				<a href="https://twitter.com/opencontracting">
+					<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
+				</a>
+
+				<a href="https://www.facebook.com/OpenContracting">
+					<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
+				</a>
+
+				<a href="https://www.linkedin.com/company/open-contracting-partnership">
+					<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
+				</a>
+
+			</div>
+
+		</div>
+
+		<footer class="article__footer">
+
+			{% if tags %}
+
+				<div class="article__tags">
+
+					{% for tag in tags %}
+						<a class="box-link" href="{{ tag.url }}">{{ tag.name }}</a>
+					{% endfor %}
+
+				</div>
+
+			{% endif %}
+
+			<div class="article__discussion">
+				<h4 class="article__discussion-heading">Your comments? Thoughts? What do you think?</h4>
+				<p>Share your thoughts on social media or join our discussion groups</p>
+			</div>
+
+		</footer>
+
+	</section>
+
+{% endblock %}

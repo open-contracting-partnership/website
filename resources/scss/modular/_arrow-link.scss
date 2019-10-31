@@ -52,6 +52,28 @@ category:
 </div>
 ```
 
+## Direction
+
+```html
+<div class="aigis-preview__background">
+
+	<a class="arrow-link" href="#" data-direction="north">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" href="#" data-direction="south">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" href="#" data-direction="west">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+</div>
+```
 */
 
 .arrow-link {
@@ -105,4 +127,16 @@ category:
 
 .arrow-link[data-text-color="black"] {
 	color: $ui-grey-2;
+}
+
+.arrow-link[data-direction="north"] .arrow-link__icon {
+	transform: rotate(-90deg);
+}
+
+.arrow-link[data-direction="south"] .arrow-link__icon {
+	transform: rotate(90deg);
+}
+
+.arrow-link[data-direction="west"] .arrow-link__icon {
+	transform: rotate(180deg);
 }

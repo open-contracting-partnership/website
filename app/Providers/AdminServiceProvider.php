@@ -7,19 +7,22 @@ use Timber\Timber;
 
 class AdminServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any app specific items into the container
-     */
-    public function register()
-    {
+	/**
+	 * Register any app specific items into the container
+	 */
+	public function register()
+	{
 
-    }
+	}
 
-    /**
-     * Perform any additional boot required for this application
-     */
-    public function boot()
-    {
+	/**
+	 * Perform any additional boot required for this application
+	 */
+	public function boot()
+	{
+
+		add_action('init', [$this, 'updatePostObjectLabel']);
+		add_action( 'admin_menu', 'change_post_menu_label' );
 
 		add_action('admin_footer', function() {
 
@@ -32,7 +35,28 @@ class AdminServiceProvider extends ServiceProvider
 
 		});
 
-    }
+	}
+
+	public function updatePostMenuLabel() {
+		global $menu;
+		global $submenu;
+		$menu[5][0] = 'Blog';
+	}
+
+	public function updatePostObjectLabel() {
+		global $wp_post_types;
+		$labels = &$wp_post_types['post']->labels;
+		$labels->name = 'Blog';
+		$labels->singular_name = 'Blog';
+		$labels->add_new = 'Add Blog Post';
+		$labels->add_new_item = 'Add Blog Post';
+		$labels->edit_item = 'Edit Blog Post';
+		$labels->new_item = 'Blog';
+		$labels->view_item = 'View Blog Post';
+		$labels->search_items = 'Search blog posts';
+		$labels->not_found = 'No blog posts found';
+		$labels->not_found_in_trash = 'No blog posts found in Trash';
+	}
 
 	public function getGutenbergFieldVisibility() {
 
