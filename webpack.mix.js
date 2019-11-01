@@ -7,6 +7,9 @@ mix.setPublicPath('dist');
 // enable versioning for all compiled files
 mix.version();
 
+mix.copy('node_modules/mapbox-gl/dist/mapbox-gl.css', 'dist/node_modules/mapbox-gl/mapbox-gl.css')
+	.copy('node_modules/flag-icon-css/flags', 'dist/node_modules/flag-icon-css/flags');
+
 // watch for any changes in styleguide.js, only when not production
 if ( ! mix.inProduction() ) {
 
@@ -42,6 +45,8 @@ mix.js('resources/js/scripts.js', 'dist/js')
 	.js('resources/js/header.js', 'dist/js')
 	.js('resources/js/mailchimp.js', 'dist/js')
 	.js('resources/js/svg.js', 'dist/js')
+	.js('resources/js/modules/worldwide/worldwide.js', 'dist/js')
+	.extract(['vue'])
 	.then((stats) => {
 
 		if ( ! mix.inProduction() ) {

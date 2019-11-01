@@ -11,9 +11,17 @@ add_action('wp_enqueue_scripts', function() {
          //****************
         // REGISTER ASSETS
 
+		// BASE
 		Assets::registerStyle('main', '/dist/css/styles.css');
 		Assets::registerScript('main', '/dist/js/scripts.js', [], true);
 		Assets::registerScript('header', '/dist/js/header.js', [], true);
+
+		// EXTRACTED
+		Assets::registerScript('manifest', '/dist/js/manifest.js', [], true);
+		Assets::registerScript('vendor', '/dist/js/vendor.js', [], true);
+
+		// SPECIFIC
+		Assets::registerScript('page-worldwide', '/dist/js/worldwide.js', ['manifest', 'vendor'], TRUE);
 
 
          //************
@@ -22,6 +30,11 @@ add_action('wp_enqueue_scripts', function() {
 		wp_enqueue_style('main');
 		wp_enqueue_script('main');
 		wp_enqueue_script('header');
+
+		// WORLDWIDE
+		if ( basename(get_page_template()) === 'page-worldwide.php' ) {
+			wp_enqueue_script('page-worldwide');
+		}
 
 	}
 
