@@ -65,8 +65,6 @@
 
 			<div class="article__share">
 
-				<h4 class="article__share-heading">Share on:</h4>
-
 				<a href="https://twitter.com/opencontracting">
 					<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
 				</a>
@@ -79,6 +77,8 @@
 					<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
 				</a>
 
+				<a href="#" class="article__share-subscribe">Subscribe</a>
+
 			</div>
 
 		</div>
@@ -87,7 +87,10 @@
 
 			{% if tags %}
 
+
 				<div class="article__tags">
+
+					<h6 class="article__tags-heading / uppercase">Related Tags</h6>
 
 					{% for tag in tags %}
 						<a class="box-link" href="{{ tag.url }}">{{ tag.name }}</a>

@@ -6,6 +6,7 @@
 
 namespace App;
 
+use App\Cards\PrimaryCard;
 use App\Http\Controllers\Controller;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Post;
@@ -24,6 +25,7 @@ class SingleController extends Controller
 		$context['content'] = $post->content;
 		$context['date'] = get_the_date('j M Y', $post->ID);
 		$context['featued_image'] = false;
+		$context['more_stories'] = [];
 
 		$context['tags'] = wp_get_post_terms(get_the_ID(), 'post_tag', array(
 			'orderby' => 'count',
@@ -56,6 +58,17 @@ class SingleController extends Controller
 
 		if ( $context['authors'] ) {
 			$context['authors'] = __('By', 'ocp') . ' ' . $context['authors'];
+		}
+
+
+
+		$more_posts = Timber::get_posts([
+			'posts_per_page' => 3,
+			'post__not_in' => [$post->ID]
+		]);
+
+		foreach ( $more_posts as $more_post ) {
+			$context['more_stories'][] = PrimaryCard::buildData($more_post->ID);
 		}
 
 		return new TimberResponse('templates/single.twig', $context);
