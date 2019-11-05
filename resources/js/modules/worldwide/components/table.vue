@@ -14,8 +14,10 @@
 
 					<tr @click="sortColumn">
 						<th data-field="country" v-bind:class="{ 'sortAsc': order_by === 'country' && order_asc === true, 'sortDesc': order_by === 'country' && order_asc === false }">Country</th>
-						<th data-field="publisher" v-bind:class="{ 'sortAsc': order_by === 'publisher' && order_asc === true, 'sortDesc': order_by === 'publisher' && order_asc === false }">Who are using Open Contracting Standards</th>
-						<th data-field="year" v-bind:class="{ 'sortAsc': order_by === 'year' && order_asc === true, 'sortDesc': order_by === 'year' && order_asc === false }">Year first implemented</th>
+						<th data-field="publisher" v-bind:class="{ 'sortAsc': order_by === 'publisher' && order_asc === true, 'sortDesc': order_by === 'publisher' && order_asc === false }">Who is publishing Open Contracting Data</th>
+						<th>Status</th>
+						<th data-field="year" v-bind:class="{ 'sortAsc': order_by === 'year' && order_asc === true, 'sortDesc': order_by === 'year' && order_asc === false }">First published</th>
+						<th>Download Data</th>
 					</tr>
 
 				</thead>
@@ -37,9 +39,7 @@
 
 							<div class="country-table__agency">
 
-								<ocds-status v-if="publisher.status" :status="publisher.status.slug" v-html="publisher.status.name" />
-
-								<p v-if="publisher.name">
+								<p v-if="publisher.name" v-html="publisher.name">
 									<a :href="publisher.url" v-html="publisher.name" />
 									<svg><use xlink:href="#icon-external-link" /></svg>
 								</p>
@@ -48,8 +48,18 @@
 
 						</td>
 
-						<td>
-							<span class="country-table__year" v-html="publisher.year"></span>
+						<td class="country-table__status-container">
+							<span v-if="publisher.status" class="country-table__status" :title="publisher.status.name" :data-status="publisher.status.slug"></span>
+						</td>
+
+						<td class="country-table__year" v-html="publisher.year"></td>
+
+						<td class="country-table__data">
+
+							<a class="arrow-link" data-size="small" :href="publisher.url">
+								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+							</a>
+
 						</td>
 
 					</tr>
@@ -212,17 +222,30 @@
 
 	.map-table {
 
+		font-size: 13px;
 		background-color: $ui-white;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
 		padding: spacing(2) spacing(1);
+		text-align: left;
 
 		@include from(T) {
 			padding: spacing(3) spacing(2);
 		}
 
 	}
+		.map-table a {
+
+			text-decoration: none;
+
+			&:hover,
+			&:focus,
+			&:active {
+				text-decoration: underline;
+			}
+
+		}
 
 	.country-table__close {
 
@@ -242,6 +265,7 @@
 	.country-table__container {
 		width: 100%;
 		position: relative;
+		overflow-x: hidden;
 	}
 
 	.country-table__country {
@@ -250,9 +274,9 @@
 	}
 
 		.country-table__country .flag-icon {
-			font-size: 25px;
-			flex: 0 0 36px;
-			margin-right: spacing(1);
+			font-size: 20px;
+			flex: 0 0 auto;
+			margin-right: spacing(2);
 		}
 
 		.country-table__country a {
@@ -266,11 +290,15 @@
 		border-spacing: 0;
 		border-collapse: separate;
 		margin-bottom: 0;
+		border: 0;
+		text-align: left;
+		@include font('secondary');
+
+		border-spacing: spacing(1);
 
 		thead {
 
 			tr:first-child th {
-				background: white;
 				position: sticky;
 				top: 0;
 				z-index: 10;
@@ -296,35 +324,44 @@
 
 		th {
 
-			font-size: 14px;
-			background-color: $ui-white;
-			color: $ui-grey-3;
-			border: 0 solid $ui-grey-3;
-			border-width: 1px 0;
+			font-size: 12px;
+			background-color: $ui-grey-4;
+			color: $ui-white;
+			text-transform: uppercase;
+			padding: spacing(.5) spacing(2);
+			@include font('secondary', 'bold');
 
 			&:first-child {
-				border-left-width: 1px;
+				border-top-left-radius: spacing(2);
 			}
 
 			&:last-child {
-				border-right-width: 1px;
+				border-top-right-radius: spacing(2);
 			}
+
+
 
 		}
 
 		td {
 
-			border: 0 solid $ui-grey-3;
-			border-width: 0 0 0 1px;
+			position: relative;
+			border: none;
+			padding: spacing(2) 0;
 
-			&:last-child {
-				border-right-width: 1px;
+			&:first-child::after {
+				content: '';
+				height: 1px;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				right: -10000px;
+				background-image: repeating-linear-gradient(to right, $ui-grey 0%, $ui-grey 50%, transparent 50%, transparent 100%);
+				background-position: left top;
+				background-repeat: repeat-x;
+				background-size: 10px 1px;
 			}
 
-		}
-
-		tr:last-child td {
-			border-bottom-width: 1px;
 		}
 
 		th, td {
@@ -353,8 +390,40 @@
 
 	}
 
+	.country-table__status-container {
+		display: flex;
+		justify-content: center;
+	}
+
+		.country-table__status {
+
+			display: block;
+			font-size: 21px;
+			height: 1em;
+			width: 1em;
+			border-radius: 50%;
+
+			&[data-status="ongoing"] {
+				background-color: #497AF3;
+			}
+
+			&[data-status="implementation"] {
+				background-color: #FD843D;
+			}
+
+			&[data-status="historic"] {
+				background-color: #23B2A7;
+			}
+
+		}
+
 	.country-table__year {
-		font-size: 18px;
+		text-align: center;
+	}
+
+	.country-table__data {
+		display: flex;
+		justify-content: center;
 	}
 
 </style>

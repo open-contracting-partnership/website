@@ -39,15 +39,14 @@ Vue.component('country-filter', CountryFilter);
 const router = new VueRouter({
 	routes: [
 		{
-			name: 'table',
-			path: '/table',
-			component: Table
-		},
-		{
 			name: 'map',
 			path: '/',
 			component: Map,
 			children: [
+				{
+					name: 'table',
+					path: 'table',
+				},
 				{
 					name: 'country',
 					path: ':code'

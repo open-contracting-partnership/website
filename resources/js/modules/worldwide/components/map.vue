@@ -38,6 +38,8 @@
 			<button class="button--naked / map__filter-cta" v-if="show_filter" @click.prevent="show_filter = ! show_filter" v-html="content.map.close"></button>
 		</div>
 
+		<data-table v-show="display_table"></data-table>
+
 	</div>
 
 </template>
@@ -550,6 +552,19 @@
 
 		@include from(T) {
 			grid-row: all;
+		}
+
+	}
+
+	.map-table {
+
+		grid-row: all;
+		grid-column: all;
+		z-index: 6;
+
+		@include from(T) {
+			grid-row: all;
+			grid-column: 2 / all;
 		}
 
 	}
