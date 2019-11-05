@@ -210,6 +210,54 @@
 				margin-bottom: spacing(4);
 			}
 
-			.article__discussion > *:last-child {
-				margin-bottom: 0;
+			.article__discussion-share {
+
+				@include from(S) {
+					display: flex;
+				}
+
 			}
+
+				.article__discussion-share p {
+					
+					margin-bottom: 0;
+					margin-right: spacing(4);
+
+					@include upto(S) {
+						margin-bottom: spacing(2);
+					}
+
+				}
+
+				.article__discussion-share-icons {
+
+					flex: 0 0 auto;
+					display: flex;
+					align-items: center;
+
+					a:not(:last-child) {
+						margin-right: spacing(2);
+					}
+
+					a > svg {
+
+						font-size: 26px;
+						height: 1em;
+						fill: $ui-white;
+						display: block;
+
+						&[data-platform="twitter"] {
+							width: 1.09em;
+						}
+
+						&[data-platform="facebook"] {
+							width: 0.54em;
+						}
+
+						&[data-platform="linkedin"] {
+							width: 0.90em;
+						}
+
+					}
+
+				}
