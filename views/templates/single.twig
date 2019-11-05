@@ -18,8 +18,15 @@
 			<h1 class="article__heading">{{ title }}</h1>
 
 			<span class="article__meta">
+
 				{% include 'components/type-label.twig' with type %}
-				<span class="article__meta-author">{{ authors }} / {{ date }}</span>
+
+				{% if authors %}
+					<span class="article__meta-author">{{ authors }} / {{ date }}</span>
+				{% else %}
+					<span class="article__meta-author">{{ date }}</span>
+				{% endif %}
+
 			</span>
 
 		</header>
