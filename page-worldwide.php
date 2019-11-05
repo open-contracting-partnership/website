@@ -22,7 +22,7 @@ class PageWorldwideController extends Controller
 		$context = Timber::get_context();
 		$page = new Page();
 
-		// localise the script only *after* the scripts are queued up 
+		// localise the script only *after* the scripts are queued up
 		add_action('wp_enqueue_scripts', function() use ($page) {
 
 			wp_localize_script('page-worldwide', 'content', [
@@ -32,7 +32,7 @@ class PageWorldwideController extends Controller
 				'map_view' => __('Map view', 'ocp'),
 				'map' => array(
 					'filter' => __('Filter Options', 'ocp'),
-					'close' => __('Close', 'ocp'),
+					'close' => __('Close Filter', 'ocp'),
 				),
 				'filter' => array(
 					'all' => __('Active countries', 'ocp'),

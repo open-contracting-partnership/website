@@ -2,18 +2,18 @@
 
 	<div class="map-country">
 
-		<div class="map-country__inner">
+		<div class="country__header">
 
-			<div class="country__header">
+			<flag :code="selected_country.iso_a2.toLowerCase()" />
+			<h1 class="country__heading" v-html="selected_country.name" />
 
-				<flag :code="selected_country.iso_a2.toLowerCase()" />
-				<h1 class="country__heading" v-html="selected_country.name" />
+			<button class="map-country__close" @click="closeCountry">
+				<svg><use xlink:href="#icon-close" /></svg>
+			</button>
 
-				<button class="map-country__close" @click="closeCountry">
-					<svg><use xlink:href="#icon-close" /></svg>
-				</button>
+		</div>
 
-			</div>
+		<div class="country-content__container">
 
 			<div class="country-content">
 
@@ -95,9 +95,14 @@
 
 			</div>
 
-			<div class="country-improve">
-				<a class="button" :href="'http://survey.open-contracting.org/#/forms/oc-status/' + selected_country.iso_a2.toLowerCase()" v-html="content.country.improve_data"></a>
-			</div>
+		</div> <!-- / .country-content__container -->
+
+		<div class="country-improve">
+
+			<a class="arrow-link" data-size="small" data-icon-color="grey" data-text-color="black" :href="'http://survey.open-contracting.org/#/forms/oc-status/' + selected_country.iso_a2.toLowerCase()">
+				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+				<span class="arrow-link__label" v-html="content.country.improve_data"></span>
+			</a>
 
 		</div>
 
@@ -117,12 +122,6 @@
 				'content',
 				'selected_country'
 			])
-
-		},
-
-		watch: {
-
-
 
 		},
 
@@ -150,150 +149,139 @@
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
 		width: 100%;
+		padding: spacing(3) spacing(2);
 
 		@include from(M) {
-			min-width: 599px;
-		}
-
-	}
-
-		.map-country__inner {
-
-			position: relative;
-			padding: spacing(3) spacing(2);
-
-			@include from(M) {
-				padding: spacing(9) spacing(4);
-			}
-
-		}
-
-			.map-country__close {
-
-				border: none;
-				background: none;
-				padding: 0;
-				margin: 0 0 0 auto;
-
-				&:hover,
-				&:active,
-				&.active {
-					color: inherit;
-					background-color: inherit;
-					text-decoration: none;
-					border-color: inherit;
-				}
-
-				> svg {
-
-					font-size: 14px;
-					height: 1em;
-					width: 1em;
-
-					@include from(M) {
-						font-size: 16px;
-					}
-
-				}
-
-			}
-
-
-
-	.country__header {
-
-		display: flex;
-		align-items: center;
-
-		border-bottom: 1px solid $ui-grey-7;
-		padding-bottom: spacing(1);
-		margin-bottom: spacing(4);
-
-		@include from(M) {
-			padding-bottom: spacing(5);
-		}
-
-	}
-
-		.country__header .flag-icon {
-
-			flex: 0 0 36px;
-			margin-right: spacing(1);
-
-			@include from(M) {
-				font-size: 25px;
-			}
-
-		}
-
-		.country__heading {
-
-			font-size: 24px;
-			flex: 1 1 100%;
-			margin-bottom: 0;
-			margin-right: spacing(2);
-
-			@include from(M) {
-				font-size: 29px;
-			}
-
-		}
-
-
-	.country-content {
-
-		font-size: 15px;
-		margin-bottom: spacing(3);
-		width: 100%;
-
-		@include from(T) {
+			padding: spacing(3) spacing(4);
+			box-shadow: 10px 4px 50px rgba(0, 0, 0, 0.25);
+			border-radius: spacing(4) spacing(.5) spacing(.5) spacing(.5);
 			display: flex;
-		}
-
-		a {
-			color: inherit;
+			flex-direction: column;
 		}
 
 	}
 
-	.country-content__title {
+		.map-country__close {
 
-		font-size: 20px;
-		flex: 0 0 40%;
+			border: none;
+			background: none;
+			padding: 0;
+			margin: 0 0 0 auto;
 
-		@include from(M) {
-			font-size: 18px;
+			&:hover,
+			&:active,
+			&.active {
+				color: inherit;
+				background-color: inherit;
+				text-decoration: none;
+				border-color: inherit;
+			}
+
+			> svg {
+
+				font-size: 14px;
+				height: 1em;
+				width: 1em;
+
+				@include from(M) {
+					font-size: 16px;
+				}
+
+			}
+
 		}
 
-	}
+		.country__header {
 
-	.country-content__items {
+			display: flex;
+			align-items: center;
+			flex: 0 0 auto;
 
-		font-size: 16px;
-		border-bottom: 1px solid $ui-grey-7;
-		padding-bottom: spacing(2);
+			border-bottom: 6px solid $ui-brand;
+			padding-bottom: spacing(1);
+			margin-bottom: spacing(4);
 
-		@include from(T) {
-			margin-left: spacing(3);
-			flex: 1 1 60%;
+			@include from(M) {
+				padding-bottom: spacing(2.5);
+			}
+
 		}
 
-		a {
-			text-decoration: underline;
+			.country__header .flag-icon {
+
+				flex: 0 0 36px;
+				margin-right: spacing(1);
+
+				@include from(M) {
+					font-size: 25px;
+					margin-right: spacing(2);
+					margin-bottom: em(6, 25);
+				}
+
+			}
+
+			.country__heading {
+
+				font-size: 24px;
+				flex: 1 1 100%;
+				margin-bottom: 0;
+				margin-right: spacing(2);
+
+				@include from(M) {
+					font-size: 29px;
+				}
+
+			}
+
+
+		.country-content__container {
+			flex: 1 1 100%;
+			overflow-y: auto;
 		}
 
-	}
+			.country-content {
 
-		.country-content__item {
-			margin-bottom: spacing(1);
+				font-size: 15px;
+				margin-bottom: spacing(3);
+				width: 100%;
+
+				@include from(T) {
+					// display: flex;
+				}
+
+				a {
+					color: inherit;
+				}
+
+			}
+
+			.country-content__title {
+				font-size: 14px;
+				color: $ui-grey-4;
+			}
+
+			.country-content__items {
+
+				font-size: 12px;
+
+				a {
+					text-decoration: underline;
+				}
+
+			}
+
+				.country-content__item {
+					margin-bottom: spacing(.5);
+				}
+
+				.country-content__no-data {
+					margin-bottom: 0;
+				}
+
+		.country-improve {
+			flex: 0 0 auto;
+			display: flex;
+			justify-content: flex-end;
 		}
-
-		.country-content__no-data {
-			margin-bottom: 0;
-		}
-
-	.country-improve {
-		text-align: right;
-	}
 
 </style>

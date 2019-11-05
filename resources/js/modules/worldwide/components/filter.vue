@@ -2,6 +2,12 @@
 
 	<div class="map-filter" v-if="content">
 
+		<button class="map-filter__close" @click="closeFilter()">
+			<svg><use xlink:href="#icon-close" /></svg>
+		</button>
+
+		<h1 class="map-filter__title" v-html="content.title" />
+
 		<div class="map-view-toggle">
 
 			<span class="map-view-toggle__item" @click="showTable()">
@@ -16,17 +22,12 @@
 
 		</div>
 
-		<button class="map-filter__close" @click="closeFilter()">
-			<svg><use xlink:href="#icon-close" /></svg>
-		</button>
-
-		<h1 class="map-filter__title" v-html="content.title" />
 		<div class="map-filter__strap" v-html="content.content" />
 
 		<div class="map-filter__controls">
 
 			<label class="filter-control__all" @click="toggleFilter('all')">
-				<tick :checked="filters.all" />
+				<tick :checked="filters.all" colour="light-green" />
 				<span v-html="content.filter.all" />
 			</label>
 
@@ -35,21 +36,21 @@
 				<span v-html="content.filter.ocds" />
 			</label>
 
-				<label class="filter-control__child" @click="toggleFilter('ocds_ongoing')">
-					<tick :checked="filters.ocds_ongoing" size="small" />
-					<span>
-						<strong v-html="content.filter.ocds_status" />
-						<ocds-status status="ongoing" v-html="content.filter.ocds_ongoing" />
-					</span>
+			<div class="filter-control__children">
+
+				<p v-html="content.filter.ocds_status"></p>
+
+				<label @click="toggleFilter('ocds_ongoing')">
+					<tick :checked="filters.ocds_ongoing" colour="blue" />
+					<span v-html="content.filter.ocds_ongoing" />
 				</label>
 
-				<label class="filter-control__child" @click="toggleFilter('ocds_historic')">
-					<tick :checked="filters.ocds_historic" size="small" />
-					<span>
-						<strong v-html="content.filter.ocds_status" />
-						<ocds-status status="historic" v-html="content.filter.ocds_historic" />
-					</span>
+				<label @click="toggleFilter('ocds_historic')">
+					<tick :checked="filters.ocds_historic" colour="teal" />
+					<span v-html="content.filter.ocds_historic" />
 				</label>
+
+			</div>
 
 			<label @click="toggleFilter('commitments')">
 				<tick :checked="filters.commitments" />
@@ -126,13 +127,14 @@
 		z-index: 10;
 		background-color: $ui-white;
 		padding: spacing(2);
+		height: 100%;
 
 		@include from(T) {
 			min-width: 384px;
 		}
 
 		@include from(M) {
-			padding: spacing(5) spacing(3);
+			padding: spacing(6) spacing(8);
 		}
 
 	}
@@ -182,10 +184,11 @@
 		.map-filter__strap {
 
 			font-size: 16px;
-			margin-bottom: spacing(6);
+			@include font('secondary');
+			margin-bottom: spacing(2);
 
 			@include from(T) {
-				margin-bottom: spacing(8);
+				margin-bottom: spacing(4);
 			}
 
 			> :last-child {
@@ -194,54 +197,53 @@
 
 		}
 
+		.map-filter__controls {
+			font-size: 12px;
+			@include font('secondary', 'bold');
+			color: $ui-grey-4;
+		}
+
 		.map-filter__controls label {
 
-			font-size: 14px;
-			margin-bottom: spacing(1);
+			font-size: 12px;
+			margin-bottom: spacing(2);
 			display: flex;
+			align-items: center;
 			user-select: none;
+			text-transform: none;
 
 			.tick {
 				flex: 0 0 1em;
-				margin-top: em(4, 18);
-				margin-right: spacing(1);
+				margin-right: spacing(2);
 			}
 
-			.tick--small {
-				margin-top: em(5, 14);
-			}
-
-			@include from(M) {
-				font-size: 16px;
+			span {
+				margin-top: .1em;
 			}
 
 		}
-
 
 		label.filter-control__all {
-
-			position: relative;
-			margin-bottom: spacing(6);
-
-			&::after {
-				content: '';
-				position: absolute;
-				top: calc(100% + #{spacing(1)});
-				left: spacing(1);
-				display: block;
-				height: spacing(4);
-				width: 2px;
-				background-color: currentColor;
-			}
-
+			padding-bottom: spacing(2);
+			margin-bottom: spacing(2);
+			border-bottom: 4px solid $ui-brand-2;
 		}
 
-		.filter-control__child {
+		.filter-control__children {
 
-			margin-left: spacing(3);
+			padding-left: calc(21px + #{spacing(2)});
+			display: flex;
+			flex-wrap: wrap;
+			margin-top: spacing(-1);
 
-			strong {
-				margin-right: spacing(1);
+			p {
+				flex: 0 0 100%;
+				margin-bottom: spacing(1);
+				color: $ui-grey-9;
+			}
+
+			label {
+				margin-right: spacing(4);
 			}
 
 		}

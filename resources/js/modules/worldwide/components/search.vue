@@ -180,11 +180,23 @@
 	}
 
 	.country-search {
+
+		position: relative;
 		background-color: $ui-white;
 		border: 1px solid $ui-grey-3;
+		border-radius: 0 spacing(1) spacing(1) 0;
 		max-width: spacing(42);
 		display: flex;
 		flex-wrap: wrap;
+
+		@include from(T) {
+			border-radius: 0 17px 17px 0;
+		}
+
+		&.country-search--is-open {
+			border-bottom-right-radius: 0;
+		}
+
 	}
 
 		.country-search__input {
@@ -204,29 +216,28 @@
 
 			.country-search__input input {
 				flex: 1 1 100%;
+				font-size: 11px;
+				@include font('secondary', 'bold');
 				margin-right: spacing(1);
 				margin-bottom: 0;
 				border: none;
 				padding: spacing(.5);
 				min-width: 0;
+				text-transform: uppercase;
 
 				&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-					font-size: 14px;
 					color: $ui-grey-3;
 				}
 
 				&::-moz-placeholder { /* Firefox 19+ */
-					font-size: 14px;
 					color: $ui-grey-3;
 				}
 
 				&:-ms-input-placeholder { /* IE 10+ */
-					font-size: 14px;
 					color: $ui-grey-3;
 				}
 
 				&:-moz-placeholder { /* Firefox 18- */
-					font-size: 14px;
 					color: $ui-grey-3;
 				}
 
@@ -263,6 +274,15 @@
 			}
 
 		.country-search__results {
+			position: absolute;
+			top: 100%;
+			right: -1px;
+			left: -1px;
+			z-index: 2;
+			border-radius: 0 0 2px 2px;
+			background-color: $ui-white;
+			border: 0 solid $ui-grey-3;
+			border-width: 0 1px 1px 1px;
 			max-height: spacing(25);
 			overflow-y: auto;
 			-webkit-overflow-scrolling: touch;

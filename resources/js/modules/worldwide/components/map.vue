@@ -1,48 +1,42 @@
 <template>
 
-	<div class="map__container">
+	<div class="map">
 
-		<div class="map">
+		<div class="mapbox-container">
+			<link href='/wp-content/themes/ocp-v1/dist/node_modules/mapbox-gl/mapbox-gl.css' rel='stylesheet' />
+			<div id='map'></div>
+		</div>
 
-			<div class="map-controls">
+		<div class="map__filter" ref="filter" v-bind:class="{ 'open': display_filter }">
+			<country-filter @closeFilter="show_filter = false" />
+		</div>
 
-				<div ref="filter" class="map-controls__filter" v-bind:class="{ 'open': display_filter }">
-					<country-filter @closeFilter="show_filter = false" />
-				</div>
+		<div class="map__header">
 
-				<div class="map-controls__middle">
+			<country-search @change="setCountry" :placeholder="content.search.placeholder" />
 
-					<country-search @change="setCountry" :placeholder="content.search.placeholder" />
+			<div class="map-zoom">
 
-					<div class="map-zoom">
+				<span @click="zoomIn">
+					<svg><use xlink:href="#icon-plus" /></svg>
+				</span>
 
-						<span @click="zoomIn">
-							<svg><use xlink:href="#icon-plus" /></svg>
-						</span>
+				<span @click="zoomOut">
+					<svg><use xlink:href="#icon-minus" /></svg>
+				</span>
 
-						<span @click="zoomOut">
-							<svg><use xlink:href="#icon-minus" /></svg>
-						</span>
-
-					</div>
-
-				</div>
-
-				<div ref="country" class="map-controls__country" v-bind:class="{ 'open': selected_country }">
-					<country v-if="selected_country" />
-				</div>
-
-			</div> <!-- / .map-controls -->
-
-			<div class="mapbox-container">
-				<link href='/wp-content/themes/ocp-v1/dist/node_modules/mapbox-gl/mapbox-gl.css' rel='stylesheet' />
-				<div id='map'></div>
 			</div>
 
 		</div>
 
-		<button class="button button--dark / map__filter-cta" v-if="! show_filter" @click.prevent="show_filter = ! show_filter" v-html="content.map.filter"></button>
-		<button class="button button--brand / map__filter-cta" v-if="show_filter" @click.prevent="show_filter = ! show_filter" v-html="content.map.close"></button>
+		<div class="map__country" ref="country" v-bind:class="{ 'open': selected_country }">
+			<country v-if="selected_country" />
+		</div>
+
+		<div class="map__footer">
+			<button class="button--naked / map__filter-cta" v-if="! show_filter" @click.prevent="show_filter = ! show_filter" v-html="content.map.filter"></button>
+			<button class="button--naked / map__filter-cta" v-if="show_filter" @click.prevent="show_filter = ! show_filter" v-html="content.map.close"></button>
+		</div>
 
 	</div>
 
@@ -61,9 +55,7 @@
 			return {
 				content: content,
 				map_loaded: false,
-				show_filter: false,
-				is_mobile: false,
-				screen_width: 0
+				show_filter: false
 			}
 
 		},
@@ -89,10 +81,6 @@
 
 				if ( ['map', 'table'].indexOf(this.$route.name) === -1 ) {
 					return false;
-				}
-
-				if ( ! this.is_mobile ) {
-					return true;
 				}
 
 				return this.show_filter;
@@ -300,18 +288,6 @@
 
 				deep: true
 
-			},
-
-			screen_width() {
-
-				let height = this.$refs.filter.offsetHeight + 'px';
-
-				if ( this.is_mobile ) {
-					height = 'auto';
-				}
-
-				this.$refs.country.style.height = height;
-
 			}
 
 		},
@@ -400,25 +376,8 @@
 
 		mounted() {
 
-			var resizeThrottled = _.throttle(function() {
-				this.is_mobile = window.innerWidth <= 810;
-				this.screen_width = window.innerWidth;
-			}.bind(this), 500);
-
-			window.addEventListener('resize', resizeThrottled);
-
-			this.$nextTick(function () {
-
-				// delay the map just so, primarily to make
-				// sure the correct sizes are used
-				setTimeout(() => {
-
-					resizeThrottled();
-
-					this.setMap();
-
-				}, 50);
-
+			this.$nextTick(() => {
+				this.setMap();
 			});
 
 		}
@@ -432,33 +391,22 @@
 	// ATTN: this is not ideal, but webpack aliases aren't working
 	@import "../../../../scss/_bootstrap.scss";
 
-	.map__container {
+	.map {
 
-		@include upto(T) {
-			min-height: calc(100vh - 74px);
-			display: flex;
-			flex-direction: column;
+		display: grid;
+		grid-template-rows: [all-start] minmax(min-content, max-content) 1fr repeat(2, minmax(min-content, max-content)) [all-end];
+		grid-template-columns: [all-start] 1fr [all-end];
+		z-index: 1;
+		position: relative;
+		min-height: calc(100vh - 88px);
+
+		@include from(T) {
+			grid-template-rows: [all-start] minmax(min-content, max-content) auto [all-end];
+			grid-template-columns: [all-start] 460px auto 570px [all-end];
+			// reduce the min-height by the header height, and then an amount to all the footer to show through
+			min-height: calc((100vh - 162.5px) - 50px);
 		}
 
-		// @include between(T, ML) {
-			// min-height: calc(100vh - 82px);
-		// }
-
-	}
-
-	.map {
-		position: relative;
-		flex: 1 1 100%;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.mapbox-container {
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
 	}
 
 	[id="map"] {
@@ -476,138 +424,134 @@
 
 	}
 
-	.map-controls {
+	.map__filter {
 
-		z-index: 9;
-		display: flex;
-		justify-content: space-between;
-		pointer-events: none;
+		grid-row: all / -2;
+		grid-column: all;
+		z-index: 4;
 
 		@include from(T) {
-			min-height: 50vw;
+			grid-row: all;
+			grid-column: 1;
+		}
+
+		&:not(.open) {
+
+			@include upto(T) {
+				display: none;
+			}
+
 		}
 
 	}
 
-		.map-controls__filter {
-
-			flex: 0 0 385px;
-			pointer-events: all;
-			overflow: hidden;
-			display: flex;
-			justify-content: flex-end;
-			transition: flex-basis 1s ease;
-			background-color: $ui-white;
-
-			@include upto(T) {
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-				overflow-y: auto;
-				-webkit-overflow-scrolling: touch;
-			}
-
-			&:not(.open) {
-
-				@include upto(T) {
-					display: none;
-				}
-
-				@include from(T) {
-					flex-basis: 0;
-				}
-
-			}
-
-		}
-
-		.map-controls__middle {
-
-			flex: 1 1 100%;
-			position: relative;
-			padding: spacing(5);
-			display: flex;
-			justify-content: center;
-			align-items: flex-start;
-			pointer-events: none;
-
-			@include upto(T) {
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-			}
-
-			> * {
-				pointer-events: all;
-			}
-
-		}
-
 		.map-zoom {
 
-			position: absolute;
-
-			@include upto(910) {
-				bottom: spacing(5);
+			@include upto(T) {
+				position: absolute;
+				bottom: spacing(10);
 				right: spacing(2);
 			}
 
-			@include from(910) {
-				top: spacing(5);
-				right: spacing(5);
+			@include from(T) {
+				margin-left: spacing(2);
 			}
 
 			span {
-				border: 1px solid $ui-grey-3;
-				background-color: $ui-white;
+				font-size: 24px;
+				height: 1em;
+				width: 1em;
+				background-color: $ui-grey-4;
+				border-radius: 50%;
 				display: block;
 				padding: 4px;
 				margin-bottom: 4px;
 				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 			}
 
 			span > svg {
-				font-size: 8px;
+				font-size: em(14, 24);
 				width: 1em;
 				height: 1em;
 				display: block;
+				fill: $ui-white;
 			}
 
 		}
 
-		.map-controls__country {
+	.map__country {
 
-			@include upto(T) {
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-			}
+		grid-row: all;
+		grid-column: all;
+		z-index: 5;
 
-			flex: 0 0 600px;
-			pointer-events: all;
-			overflow: hidden;
-			display: flex;
-			justify-content: flex-start;
-			transition: flex-basis 1s ease;
-
-			&:not(.open) {
-
-				@include upto(T) {
-					display: none;
-				}
-
-				@include from(T) {
-					flex-basis: 0;
-				}
-
-			}
-
+		@include from(T) {
+			grid-row: 2;
+			grid-column: 3;
+			padding: spacing(5) spacing(6) spacing(5);
+			z-index: 2;
 		}
+
+		&:not(.open) {
+			display: none;
+		}
+
+	}
+
+	.map__header {
+
+		grid-row: 1;
+		grid-column: all;
+		padding: spacing(3);
+		display: flex;
+		justify-content: center;
+		z-index: 3;
+
+		@include from(T) {
+			grid-row: 1;
+			grid-column: 2 / 4;
+			justify-content: flex-end;
+			padding: spacing(4) spacing(6) spacing(1);
+		}
+
+	}
+
+	.map__footer {
+
+		grid-row: 4;
+		grid-column: all;
+		z-index: 2;
+
+		@include from(T) {
+			display: none;
+		}
+
+		button {
+			display: block;
+			width: 100%;
+			background-color: $ui-grey;
+			color: $ui-white;
+			padding: spacing(1);
+			font-size: 14px;
+			@include font('secondary', 'bold');
+			text-transform: uppercase;
+		}
+
+	}
+
+	.mapbox-container {
+
+		grid-row: all / -2;
+		grid-column: all;
+		z-index: 1;
+
+		@include from(T) {
+			grid-row: all;
+		}
+
+	}
 
 </style>

@@ -1,12 +1,8 @@
 <template>
 
-	<div class="tick" :checked="checked" role="checkbox" :aria-checked="checked" v-bind:class="{
-			'tick--small': size === 'small',
+	<div class="tick" :data-colour="colour" :checked="checked" role="checkbox" :aria-checked="checked" v-bind:class="{
 			'checked': checked,
 		}">
-		<svg v-show="checked === true" data-icon="tick"><use xlink:href="#icon-tick" /></svg>
-		<svg v-show="checked === false" data-icon="plus"><use xlink:href="#icon-plus" /></svg>
-
 	</div>
 
 </template>
@@ -14,7 +10,7 @@
 <script>
 
     export default {
-		props: ['checked', 'size']
+		props: ['checked', 'colour']
 	}
 
 </script>
@@ -26,42 +22,33 @@
 
 	.tick {
 
-		font-size: 18px;
-		border: 1px solid $ui-grey-3;
+		--colour: #{$ui-grey-4};
+
+		font-size: 21px;
+		border: 3px solid var(--colour);
 		background-color: $ui-white;
-		color: $ui-grey-3;
 		width: 1em;
 		height: 1em;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		cursor: pointer;
 		user-select: none;
-
-		> svg {
-
-			fill: currentColor;
-			width: 1em;
-			height: 1em;
-
-			&[data-icon="plus"] {
-				font-size: em(8, 18);
-				transform: rotate(45deg);
-			}
-
-			&[data-icon="tick"] {
-				font-size: em(9, 18);
-			}
-
-		}
+		border-radius: 50%;
 
 		&.checked {
-			background-color: $ui-brand;
+			background-color: var(--colour);
+		}
+
+		&[data-colour="blue"] {
+			--colour: #{$ui-blue};
+		}
+
+		&[data-colour="teal"] {
+			--colour: #{$ui-teal};
+		}
+
+		&[data-colour="light-green"] {
+			--colour: #{$ui-brand-2};
 		}
 
 	}
-
-		.tick--small {
-			font-size: 14px;
-		}
 
 </style>
