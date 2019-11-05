@@ -37,6 +37,10 @@ category:
 		color: $ui-orange;
 	}
 
+	&[data-post-type="news"] {
+		color: $ui-orange;
+	}
+
 	&[data-post-type="resource"] {
 		color: $ui-blue;
 	}
