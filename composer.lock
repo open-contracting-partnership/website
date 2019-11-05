@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60eacb528af2d180b7238e5b61b336e2",
+    "content-hash": "28d9179b7b743442284a286e4874dc5f",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -523,6 +523,55 @@
             ],
             "description": "A function to convert PSR-7 Response to HTTP output",
             "time": "2017-03-17T15:46:19+00:00"
+        },
+        {
+            "name": "imliam/shareable-link",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ImLiam/shareable-link.git",
+                "reference": "0e760e7a0277cdaa2f43ac2fbb68df5b931d2a82"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ImLiam/shareable-link/zipball/0e760e7a0277cdaa2f43ac2fbb68df5b931d2a82",
+                "reference": "0e760e7a0277cdaa2f43ac2fbb68df5b931d2a82",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/ShareableLink.php"
+                ],
+                "files": [
+                    "src/Functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Liam Hammett",
+                    "email": "liam@liamhammett.com",
+                    "homepage": "https://liamhammett.com/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Dennis Smink",
+                    "homepage": "https://dennissmink.nl/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Conveniently generate shareable URLs for various social media websites",
+            "time": "2018-06-27T22:42:12+00:00"
         },
         {
             "name": "jeremeamia/superclosure",

@@ -4,6 +4,7 @@ namespace App\Http;
 
 use Rareloop\Lumberjack\Http\Lumberjack as LumberjackCore;
 use App\Menu\Menu;
+use ImLiam\ShareableLink;
 
 class Lumberjack extends LumberjackCore
 {
@@ -23,6 +24,14 @@ class Lumberjack extends LumberjackCore
 			'twitter' => get_field('twitter_url', 'options') ?: NULL,
 			'facebook' => get_field('facebook_url', 'options') ?: NULL,
 			'linkedin' => get_field('linkedin_url', 'options') ?: NULL
+		);
+
+		$share_links = new ShareableLink(get_permalink(), trim(wp_title('', FALSE)));
+
+		$context['share_links'] = array(
+			'twitter' => $share_links->twitter,
+			'facebook' => $share_links->facebook,
+			'linkedin' => $share_links->linkedin
 		);
 
 		$context['header_primary_menu'] = new \Timber\Menu('Header: Primary');

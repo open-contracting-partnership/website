@@ -72,19 +72,29 @@
 
 			<div class="article__share">
 
-				<a href="https://twitter.com/opencontracting">
-					<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
-				</a>
+				{% if share_links.twitter %}
 
-				<a href="https://www.facebook.com/OpenContracting">
-					<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
-				</a>
+					<a href="{{ share_links.twitter }}">
+						<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
+					</a>
 
-				<a href="https://www.linkedin.com/company/open-contracting-partnership">
-					<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
-				</a>
+				{% endif %}
 
-				<a href="#" class="article__share-subscribe">Subscribe</a>
+				{% if share_links.facebook %}
+
+					<a href="{{ share_links.facebook }}">
+						<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
+					</a>
+
+				{% endif %}
+
+				{% if share_links.linkedin %}
+
+					<a href="{{ share_links.linkedin }}">
+						<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
+					</a>
+
+				{% endif %}
 
 			</div>
 
@@ -117,17 +127,29 @@
 
 					<div class="article__discussion-share-icons">
 
-						<a href="https://twitter.com/opencontracting">
-							<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
-						</a>
+						{% if share_links.twitter %}
 
-						<a href="https://www.facebook.com/OpenContracting">
-							<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
-						</a>
+							<a href="{{ share_links.twitter }}">
+								<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
+							</a>
 
-						<a href="https://www.linkedin.com/company/open-contracting-partnership">
-							<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
-						</a>
+						{% endif %}
+
+						{% if share_links.facebook %}
+
+							<a href="{{ share_links.facebook }}">
+								<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
+							</a>
+
+						{% endif %}
+
+						{% if share_links.linkedin %}
+
+							<a href="{{ share_links.linkedin }}">
+								<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
+							</a>
+
+						{% endif %}
 
 					</div>
 
