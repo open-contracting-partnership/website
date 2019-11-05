@@ -35,18 +35,7 @@
 
 						</td>
 
-						<td>
-
-							<div class="country-table__agency">
-
-								<p v-if="publisher.name" v-html="publisher.name">
-									<a :href="publisher.url" v-html="publisher.name" />
-									<svg><use xlink:href="#icon-external-link" /></svg>
-								</p>
-
-							</div>
-
-						</td>
+						<td class="country-table__agency" v-html="publisher.name"></td>
 
 						<td class="country-table__status-container">
 							<span v-if="publisher.status" class="country-table__status" :title="publisher.status.name" :data-status="publisher.status.slug"></span>
@@ -282,93 +271,7 @@
 		.country-table__country a {
 			flex: 1 1 100%;
 		}
-
-
-	.country-table {
-
-		table-layout: auto;
-		border-spacing: 0;
-		border-collapse: separate;
-		margin-bottom: 0;
-		border: 0;
-		text-align: left;
-		@include font('secondary');
-
-		border-spacing: spacing(1);
-
-		thead {
-
-			tr:first-child th {
-				position: sticky;
-				top: 0;
-				z-index: 10;
-				text-align: center;
-			}
-
-			th {
-
-				cursor: pointer;
-				user-select: none;
-
-				&.sortAsc::after {
-					content: ' ▲';
-				}
-
-				&.sortDesc::after {
-					content: ' ▼';
-				}
-
-			}
-
-		}
-
-		th {
-
-			font-size: 12px;
-			background-color: $ui-grey-4;
-			color: $ui-white;
-			text-transform: uppercase;
-			padding: spacing(.5) spacing(2);
-			@include font('secondary', 'bold');
-
-			&:first-child {
-				border-top-left-radius: spacing(2);
-			}
-
-			&:last-child {
-				border-top-right-radius: spacing(2);
-			}
-
-
-
-		}
-
-		td {
-
-			position: relative;
-			border: none;
-			padding: spacing(2) 0;
-
-			&:first-child::after {
-				content: '';
-				height: 1px;
-				position: absolute;
-				top: 100%;
-				left: 0;
-				right: -10000px;
-				background-image: repeating-linear-gradient(to right, $ui-grey 0%, $ui-grey 50%, transparent 50%, transparent 100%);
-				background-position: left top;
-				background-repeat: repeat-x;
-				background-size: 10px 1px;
-			}
-
-		}
-
-		th, td {
-			width: auto;
-		}
-
-	}
+		
 
 	.country-table__agency {
 
