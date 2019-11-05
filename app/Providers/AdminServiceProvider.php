@@ -22,7 +22,7 @@ class AdminServiceProvider extends ServiceProvider
 	{
 
 		add_action('init', [$this, 'updatePostObjectLabel']);
-		add_action( 'admin_menu', 'change_post_menu_label' );
+		add_action('admin_menu', [$this, 'updatePostMenuLabel']);
 
 		add_action('admin_footer', function() {
 
