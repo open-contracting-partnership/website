@@ -1,90 +1,4 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
-/******/ })
-/************************************************************************/
-/******/ ({
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/svg"],{
 
 /***/ "./resources/js/svg.js":
 /*!*****************************!*\
@@ -95,16 +9,26 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _svg_icon_arrow_circle_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../svg/icon-arrow-circle.svg */ "./resources/svg/icon-arrow-circle.svg");
-/* harmony import */ var _svg_icon_close_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../svg/icon-close.svg */ "./resources/svg/icon-close.svg");
-/* harmony import */ var _svg_icon_mail_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../svg/icon-mail.svg */ "./resources/svg/icon-mail.svg");
-/* harmony import */ var _svg_icon_menu_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../svg/icon-menu.svg */ "./resources/svg/icon-menu.svg");
-/* harmony import */ var _svg_icon_search_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../svg/icon-search.svg */ "./resources/svg/icon-search.svg");
-/* harmony import */ var _svg_logo_horizontal_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../svg/logo-horizontal.svg */ "./resources/svg/logo-horizontal.svg");
-/* harmony import */ var _svg_logo_vertical_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../svg/logo-vertical.svg */ "./resources/svg/logo-vertical.svg");
-/* harmony import */ var _svg_social_facebook_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../svg/social-facebook.svg */ "./resources/svg/social-facebook.svg");
-/* harmony import */ var _svg_social_linkedin_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../svg/social-linkedin.svg */ "./resources/svg/social-linkedin.svg");
-/* harmony import */ var _svg_social_twitter_svg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../svg/social-twitter.svg */ "./resources/svg/social-twitter.svg");
+/* harmony import */ var _svg_content_icon_fist_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../svg/content-icon-fist.svg */ "./resources/svg/content-icon-fist.svg");
+/* harmony import */ var _svg_content_icon_magnifier_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../svg/content-icon-magnifier.svg */ "./resources/svg/content-icon-magnifier.svg");
+/* harmony import */ var _svg_content_icon_padlock_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../svg/content-icon-padlock.svg */ "./resources/svg/content-icon-padlock.svg");
+/* harmony import */ var _svg_icon_arrow_circle_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../svg/icon-arrow-circle.svg */ "./resources/svg/icon-arrow-circle.svg");
+/* harmony import */ var _svg_icon_close_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../svg/icon-close.svg */ "./resources/svg/icon-close.svg");
+/* harmony import */ var _svg_icon_external_link_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../svg/icon-external-link.svg */ "./resources/svg/icon-external-link.svg");
+/* harmony import */ var _svg_icon_mail_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../svg/icon-mail.svg */ "./resources/svg/icon-mail.svg");
+/* harmony import */ var _svg_icon_menu_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../svg/icon-menu.svg */ "./resources/svg/icon-menu.svg");
+/* harmony import */ var _svg_icon_minus_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../svg/icon-minus.svg */ "./resources/svg/icon-minus.svg");
+/* harmony import */ var _svg_icon_plus_svg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../svg/icon-plus.svg */ "./resources/svg/icon-plus.svg");
+/* harmony import */ var _svg_icon_search_rounded_svg__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../svg/icon-search-rounded.svg */ "./resources/svg/icon-search-rounded.svg");
+/* harmony import */ var _svg_icon_search_svg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../svg/icon-search.svg */ "./resources/svg/icon-search.svg");
+/* harmony import */ var _svg_icon_table_svg__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../svg/icon-table.svg */ "./resources/svg/icon-table.svg");
+/* harmony import */ var _svg_icon_target_svg__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../svg/icon-target.svg */ "./resources/svg/icon-target.svg");
+/* harmony import */ var _svg_icon_tick_svg__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../svg/icon-tick.svg */ "./resources/svg/icon-tick.svg");
+/* harmony import */ var _svg_logo_horizontal_svg__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../svg/logo-horizontal.svg */ "./resources/svg/logo-horizontal.svg");
+/* harmony import */ var _svg_logo_vertical_svg__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../svg/logo-vertical.svg */ "./resources/svg/logo-vertical.svg");
+/* harmony import */ var _svg_social_facebook_svg__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../svg/social-facebook.svg */ "./resources/svg/social-facebook.svg");
+/* harmony import */ var _svg_social_linkedin_svg__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../svg/social-linkedin.svg */ "./resources/svg/social-linkedin.svg");
+/* harmony import */ var _svg_social_twitter_svg__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../svg/social-twitter.svg */ "./resources/svg/social-twitter.svg");
 
 
 
@@ -115,6 +39,76 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./resources/svg/content-icon-fist.svg":
+/*!*********************************************!*\
+  !*** ./resources/svg/content-icon-fist.svg ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+      id: "content-icon-fist-usage",
+      viewBox: "0 0 102 102",
+      url: __webpack_require__.p + "svg/icons.svg#content-icon-fist",
+      toString: function () {
+        return this.url;
+      }
+    });
+
+/***/ }),
+
+/***/ "./resources/svg/content-icon-magnifier.svg":
+/*!**************************************************!*\
+  !*** ./resources/svg/content-icon-magnifier.svg ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+      id: "content-icon-magnifier-usage",
+      viewBox: "0 0 102 102",
+      url: __webpack_require__.p + "svg/icons.svg#content-icon-magnifier",
+      toString: function () {
+        return this.url;
+      }
+    });
+
+/***/ }),
+
+/***/ "./resources/svg/content-icon-padlock.svg":
+/*!************************************************!*\
+  !*** ./resources/svg/content-icon-padlock.svg ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+      id: "content-icon-padlock-usage",
+      viewBox: "0 0 102 102",
+      url: __webpack_require__.p + "svg/icons.svg#content-icon-padlock",
+      toString: function () {
+        return this.url;
+      }
+    });
 
 /***/ }),
 
@@ -151,6 +145,26 @@ __webpack_require__.r(__webpack_exports__);
       id: "icon-close-usage",
       viewBox: "0 0 32 32",
       url: __webpack_require__.p + "svg/icons.svg#icon-close",
+      toString: function () {
+        return this.url;
+      }
+    });
+
+/***/ }),
+
+/***/ "./resources/svg/icon-external-link.svg":
+/*!**********************************************!*\
+  !*** ./resources/svg/icon-external-link.svg ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+      id: "icon-external-link-usage",
+      viewBox: "0 0 12 11",
+      url: __webpack_require__.p + "svg/icons.svg#icon-external-link",
       toString: function () {
         return this.url;
       }
@@ -198,6 +212,66 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/svg/icon-minus.svg":
+/*!**************************************!*\
+  !*** ./resources/svg/icon-minus.svg ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+      id: "icon-minus-usage",
+      viewBox: "0 0 7 1",
+      url: __webpack_require__.p + "svg/icons.svg#icon-minus",
+      toString: function () {
+        return this.url;
+      }
+    });
+
+/***/ }),
+
+/***/ "./resources/svg/icon-plus.svg":
+/*!*************************************!*\
+  !*** ./resources/svg/icon-plus.svg ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+      id: "icon-plus-usage",
+      viewBox: "0 0 7 7",
+      url: __webpack_require__.p + "svg/icons.svg#icon-plus",
+      toString: function () {
+        return this.url;
+      }
+    });
+
+/***/ }),
+
+/***/ "./resources/svg/icon-search-rounded.svg":
+/*!***********************************************!*\
+  !*** ./resources/svg/icon-search-rounded.svg ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+      id: "icon-search-rounded-usage",
+      viewBox: "0 0 15 15",
+      url: __webpack_require__.p + "svg/icons.svg#icon-search-rounded",
+      toString: function () {
+        return this.url;
+      }
+    });
+
+/***/ }),
+
 /***/ "./resources/svg/icon-search.svg":
 /*!***************************************!*\
   !*** ./resources/svg/icon-search.svg ***!
@@ -209,8 +283,68 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
       id: "icon-search-usage",
-      viewBox: "0 0 15 15",
+      viewBox: "0 0 25 25",
       url: __webpack_require__.p + "svg/icons.svg#icon-search",
+      toString: function () {
+        return this.url;
+      }
+    });
+
+/***/ }),
+
+/***/ "./resources/svg/icon-table.svg":
+/*!**************************************!*\
+  !*** ./resources/svg/icon-table.svg ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+      id: "icon-table-usage",
+      viewBox: "0 0 16 16",
+      url: __webpack_require__.p + "svg/icons.svg#icon-table",
+      toString: function () {
+        return this.url;
+      }
+    });
+
+/***/ }),
+
+/***/ "./resources/svg/icon-target.svg":
+/*!***************************************!*\
+  !*** ./resources/svg/icon-target.svg ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+      id: "icon-target-usage",
+      viewBox: "0 0 16 16",
+      url: __webpack_require__.p + "svg/icons.svg#icon-target",
+      toString: function () {
+        return this.url;
+      }
+    });
+
+/***/ }),
+
+/***/ "./resources/svg/icon-tick.svg":
+/*!*************************************!*\
+  !*** ./resources/svg/icon-tick.svg ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+      id: "icon-tick-usage",
+      viewBox: "0 0 11 11",
+      url: __webpack_require__.p + "svg/icons.svg#icon-tick",
       toString: function () {
         return this.url;
       }
@@ -318,7 +452,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!***********************************!*\
   !*** multi ./resources/js/svg.js ***!
   \***********************************/
@@ -330,4 +464,4 @@ module.exports = __webpack_require__(/*! /Users/beneverard/Sites/open-contractin
 
 /***/ })
 
-/******/ });
+},[[5,"/js/manifest"]]]);

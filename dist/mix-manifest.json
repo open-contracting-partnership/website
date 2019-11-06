@@ -1,10 +1,16 @@
 {
-    "/js/header.js": "/js/header.js?id=973055fc58667071b588",
-    "/js/scripts.js": "/js/scripts.js?id=020cd53c053713db4683",
-    "/js/svg.js": "/js/svg.js?id=4bfbebd362dfa656a968",
-    "/styleguide/styleguide.js": "/styleguide/styleguide.js?id=3749737f8eca92046e6f",
-    "/css/styles.css": "/css/styles.css?id=abde04dd145f197c2efa",
-    "/css/gutenberg.css": "/css/gutenberg.css?id=bc8757f4c42676349a4b",
+    "/js/header.js": "/js/header.js?id=bb8ce0e9813871d8d2d5",
+    "/js/latest-news.js": "/js/latest-news.js?id=733c8639b277f6774d86",
+    "/js/mailchimp.js": "/js/mailchimp.js?id=18fb3a9dd0f1939e6e77",
+    "/js/manifest.js": "/js/manifest.js?id=41f053ba9a94d81b39f8",
+    "/js/scripts.js": "/js/scripts.js?id=f2dae61c5041d44e964e",
+    "/js/svg.js": "/js/svg.js?id=e5507c7c75fb6a38ccba",
+    "/js/vendor.js": "/js/vendor.js?id=c5f8633704587a759d74",
+    "/js/worldwide.js": "/js/worldwide.js?id=2c8739e9fd03e00b4d96",
+    "/styleguide/styleguide.js": "/styleguide/styleguide.js?id=35bcad684cd88aefece5",
+    "/css/styles.css": "/css/styles.css?id=20a8a6090ff711747d24",
+    "/css/gutenberg.css": "/css/gutenberg.css?id=f3fdda6aa4bb22f2568b",
     "/styleguide/theme.css": "/styleguide/theme.css?id=54242fd895c527dca1d9",
-    "/svg/icons.svg": "/svg/icons.svg?id=6516fdac1ac9dfd6f138"
+    "/svg/icons.svg": "/svg/icons.svg?id=656e34df5fa7b63201fe",
+    "/node_modules/mapbox-gl/mapbox-gl.css": "/node_modules/mapbox-gl/mapbox-gl.css?id=1d440fceafe225711754"
 }

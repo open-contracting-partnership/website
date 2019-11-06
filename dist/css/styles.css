@@ -136,18 +136,18 @@ input, button, textarea, select {
 /*------------------------------------*\
 	VARIABLES
 \*------------------------------------*/
-.block[data-block-type=resource] .block__container, .block[data-block-type=image-with-links] .block__container {
+.block[data-block-type=sign-up-cover] .block__container, .block[data-block-type=resource] .block__container, .block[data-block-type=image-with-links] .block__container {
   display: grid;
   grid-column-gap: 16px;
   grid-template-columns: [all-start] repeat(12, 1fr) [all-end];
 }
 
-.block, .site-header, .site-footer, .shell-grid-example {
+.article__container, .block, .site-header, .site-footer, .shell-grid-example {
   display: grid;
   grid-template-columns: [full-start] minmax(0, auto) [wide-start] 0 [intermediate-start] 24px [content-start] repeat(12, minmax(0, 100px)) [content-end] 24px [intermediate-end] 0 [wide-end] minmax(0, auto) [full-end];
 }
 @media screen and (min-width: 1024px) {
-  .block, .site-header, .site-footer, .shell-grid-example {
+  .article__container, .block, .site-header, .site-footer, .shell-grid-example {
     grid-template-columns: [full-start] minmax(0, auto) [wide-start] minmax(0, 48px) [intermediate-start] 24px [content-start] repeat(12, minmax(0, 100px)) [content-end] 24px [intermediate-end] minmax(0, 48px) [wide-end] minmax(0, auto) [full-end];
   }
 }
@@ -384,6 +384,12 @@ h3 {
   position: fixed !important;
 }
 
+figure.wp-block-image figcaption {
+  font-size: 12px;
+  padding: 15px;
+  text-align: center;
+}
+
 /*------------------------------------*\
     $BASE ELEMENTS
 \*------------------------------------*/
@@ -571,7 +577,6 @@ form {
 label,
 legend {
   font-size: 13px;
-  color: #000;
   text-transform: uppercase;
   display: block;
   margin-bottom: 0;
@@ -1467,6 +1472,22 @@ category:
       <td>Body content 1</td>
       <td>Body content 2</td>
     </tr>
+    <tr>
+      <td>Body content 1</td>
+      <td>Body content 2</td>
+    </tr>
+    <tr>
+      <td>Body content 1</td>
+      <td>Body content 2</td>
+    </tr>
+    <tr>
+      <td>Body content 1</td>
+      <td>Body content 2</td>
+    </tr>
+    <tr>
+      <td>Body content 1</td>
+      <td>Body content 2</td>
+    </tr>
   </tbody>
   <tfoot>
     <tr>
@@ -1479,82 +1500,102 @@ category:
 
 */
 table {
-  color: #000;
-  background: #FFF;
-  width: 100%;
-  text-align: center;
+  font-size: 14px;
+  table-layout: auto;
   border-spacing: 0;
-  border-right: 1px solid #000;
+  border-collapse: separate;
+  margin-bottom: 0;
+  border: 0;
+  text-align: left;
+  overflow: hidden;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-table::before {
-  content: attr(aria-label) "";
+table thead {
+  margin-bottom: 8px;
 }
-@media screen and (min-width: 640px) {
-  table::before {
-    display: none;
-  }
+table thead tr:first-child th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  text-align: center;
 }
-table:last-child {
-  margin-bottom: 1.5rem;
+table thead th {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
-
-th {
-  padding: 13px;
+table thead th.sortAsc::after {
+  content: " \25B2";
+}
+table thead th.sortDesc::after {
+  content: " \25BC";
+}
+table th {
+  font-size: 12px;
+  background-color: #666666;
+  color: #FFF;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+table th:first-child {
+  border-top-left-radius: 16px;
+}
+table th:last-child {
+  border-top-right-radius: 16px;
+}
+table tbody tr {
+  position: relative;
+}
+table tbody tr:not(:last-child)::after {
+  content: "";
   display: block;
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  right: 0;
+  height: 1px;
+  background-image: repeating-linear-gradient(to right, transparent 0%, transparent 25%, #989898 25%, #989898 75%, transparent 75%, transparent 100%);
+  background-position: center top;
+  background-repeat: repeat-x;
+  background-size: 10px 1px;
 }
-@media screen and (min-width: 640px) {
-  th {
-    font-weight: 700;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #000;
-    color: #FFF;
-    padding: 8px;
-    display: table-cell;
-  }
+table tbody td {
+  background-color: #FFF;
 }
-@media screen and (min-width: 1024px) {
-  th {
-    font-weight: 600;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    font-family: "gt_eesti_pro_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    padding: 16px;
-  }
+table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
 }
-
-td {
-  display: block;
-  border-bottom: 1px solid #000;
-  border-left: 1px solid #000;
-  padding: 10px;
+table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
 }
-@media screen and (min-width: 640px) {
-  td {
-    padding: 17px;
-    display: table-cell;
-  }
+table tfoot tr {
+  background-color: #FFF;
 }
-@media screen and (min-width: 1024px) {
-  td {
-    padding: 30px;
-  }
+table td {
+  position: relative;
+  border: none;
+  padding: 16px;
 }
-
-thead tr {
-  color: transparent;
-  font: 0/0 a;
+table td:first-child::after {
+  content: "";
+  height: 1px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: -10000px;
 }
-@media screen and (min-width: 640px) {
-  thead tr {
-    color: inherit;
-    font: inherit;
-  }
-}
-
-tbody tr {
-  padding: 1em;
+table th, table td {
+  width: auto;
 }
 
 /*
@@ -2305,7 +2346,7 @@ category:
 				<input type="text" placeholder="Search">
 
 				<button class="button--naked">
-					<svg><use xlink:href="#icon-search"></use></svg>
+					<svg><use xlink:href="#icon-search-rounded"></use></svg>
 				</button>
 
 			</div>
@@ -2537,7 +2578,7 @@ category:
     margin: 0 -48px;
   }
 }
-@media screen and (min-width: 768px) and (min-width: 1240px) {
+@media screen and (min-width: 768px) and (min-width: 1344px) {
   .site-header__navigation .site-header__mega-nav {
     margin: 0 calc((-100vw - -1248px) / 2);
   }
@@ -2768,7 +2809,7 @@ category:
 .mega-menu {
   display: grid;
   grid-template-columns: [full-start] minmax(0, auto) [wide-start] 0 [intermediate-start] 24px [content-start] repeat(12, minmax(0, 100px)) [content-end] 24px [intermediate-end] 0 [wide-end] minmax(0, auto) [full-end];
-  background-color: #505596;
+  background-color: rgba(80, 85, 150, 0.97);
   color: #FFF;
   z-index: 3;
 }
@@ -2944,7 +2985,12 @@ category:
 ```html
 <a class="arrow-link" data-size="large" data-text-color="black" href="#">
 	<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-	<span class="arrow-link__label">Read</span>
+	<span class="arrow-link__label">Large</span>
+</a>
+
+<a class="arrow-link" data-size="small" data-text-color="black" href="#">
+	<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+	<span class="arrow-link__label">Small</span>
 </a>
 ```
 
@@ -2971,6 +3017,28 @@ category:
 </div>
 ```
 
+## Direction
+
+```html
+<div class="aigis-preview__background">
+
+	<a class="arrow-link" href="#" data-direction="north">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" href="#" data-direction="south">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" href="#" data-direction="west">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+</div>
+```
 */
 .arrow-link {
   display: flex;
@@ -2983,6 +3051,7 @@ category:
 }
 
 .arrow-link__icon {
+  flex: 0 0 1em;
   font-size: 28px;
   height: 1em;
   width: 1em;
@@ -2991,6 +3060,7 @@ category:
 }
 
 .arrow-link__label {
+  flex: 1 1 100%;
   font-size: 14px;
   font-weight: 500;
   font-style: normal;
@@ -3000,15 +3070,43 @@ category:
 }
 
 .arrow-link[data-size=large] .arrow-link__label {
+  font-size: 20px;
+}
+@media screen and (min-width: 1024px) {
+  .arrow-link[data-size=large] .arrow-link__label {
+    font-size: 24px;
+  }
+}
+
+.arrow-link[data-size=small] .arrow-link__icon {
   font-size: 24px;
+}
+.arrow-link[data-size=small] .arrow-link__label {
+  font-size: 11px;
 }
 
 .arrow-link[data-icon-color=white] .arrow-link__icon {
   fill: #FFF;
 }
 
+.arrow-link[data-icon-color=grey] .arrow-link__icon {
+  fill: #DADADA;
+}
+
 .arrow-link[data-text-color=black] {
   color: #4B4B4B;
+}
+
+.arrow-link[data-direction=north] .arrow-link__icon {
+  transform: rotate(-90deg);
+}
+
+.arrow-link[data-direction=south] .arrow-link__icon {
+  transform: rotate(90deg);
+}
+
+.arrow-link[data-direction=west] .arrow-link__icon {
+  transform: rotate(180deg);
 }
 
 /*
@@ -3019,6 +3117,8 @@ category:
  - Blocks
  - Blocks/Content with Sidebar
 ---
+
+### With link box
 
 ```html
 <div class="block" data-block-type="content-with-sidebar">
@@ -3049,6 +3149,31 @@ category:
 
 			</div>
 
+		</div>
+
+	</div>
+
+</div>
+```
+
+### With image
+
+```html
+<div class="block" data-block-type="content-with-sidebar">
+
+	<div class="block__background" style="background-color: #D9E021"></div>
+
+	<div class="block__content">
+		<h2>The evidence</h2>
+		<p>There is increasing evidence that open contracting delivers.</p>
+		<p>Academic research shows that improved openness and transparency is good for public integrity, value for money and competition. A study of more than 3.5 million government contracts across Europe determined that every additional item of information shared about a tender decreases the risk of a single bid contract. This matters because single bid contracts are both a governance risk and over 7% more expensive than the norm. Publishing five more pieces of information about each contract in Europe would add up to 3.6 billion Euros in savings.</p>
+		<p>Results from countries that are implementing open contracting show that openness combined with monitoring works. In Peru, a study from Columbia University looked at the impact of transparency and monitoring of contracts on the procurement process of infrastructure projects and found that monitoring decreased spending by 50%. Similar results have been found in Afghanistan.</p>
+	</div>
+
+	<div class="block__sidebar">
+
+		<div class="block__sidebar-image">
+			<img src="https://ocp.imgix.net///wp-content/uploads/2019/06/Chile-redflags.jpg?auto=format&amp;fit=crop&amp;w=415&amp;h=277" srcset="https://ocp.imgix.net///wp-content/uploads/2019/06/Chile-redflags.jpg?auto=format&amp;fit=crop&amp;w=415&amp;h=277 415w, https://ocp.imgix.net///wp-content/uploads/2019/06/Chile-redflags.jpg?auto=format&amp;fit=crop&amp;w=830&amp;h=554 830w, https://ocp.imgix.net///wp-content/uploads/2019/06/Chile-redflags.jpg?auto=format&amp;fit=crop&amp;w=1024&amp;h=683 1024w, https://ocp.imgix.net///wp-content/uploads/2019/06/Chile-redflags.jpg?auto=format&amp;fit=crop&amp;w=1536&amp;h=1024 1536w, https://ocp.imgix.net///wp-content/uploads/2019/06/Chile-redflags.jpg?auto=format&amp;fit=crop&amp;w=2048&amp;h=1366 2048w" sizes="100vw" alt="" width="3" height="2">
 		</div>
 
 	</div>
@@ -3105,6 +3230,11 @@ category:
 .block[data-block-type=content-with-sidebar] .block__content > *:last-child {
   margin-bottom: 0;
 }
+.block[data-block-type=content-with-sidebar] .block__arrow-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 16px;
+}
 .block[data-block-type=content-with-sidebar] .block__sidebar {
   grid-column: content;
   grid-row: 3;
@@ -3115,6 +3245,140 @@ category:
     grid-row: 2;
     align-self: flex-end;
   }
+}
+.block[data-block-type=content-with-sidebar] .block__sidebar-image {
+  border-radius: 32px 8px 8px 8px;
+  border: 3px solid #FFF;
+  background-color: #FFF;
+  overflow: hidden;
+}
+
+/*
+
+---
+name: Content
+category:
+ - Blocks
+ - Blocks/Content
+---
+
+```html
+<div class="block" data-block-type="content">
+
+	<div class="block__background" style="background-color: #D9E021"></div>
+
+	<div class="block__container">
+
+		<h2 class="block__heading">Our team</h2>
+
+		<div class="block__content">
+			<p>There is increasing evidence that open contracting delivers.</p>
+			<p>Academic research shows that improved openness and transparency is good for public integrity, value for money and competition. A study of more than 3.5 million government contracts across Europe determined that every additional item of information shared about a tender decreases the risk of a single bid contract. This matters because single bid contracts are both a governance risk and over 7% more expensive than the norm. Publishing five more pieces of information about each contract in Europe would add up to 3.6 billion Euros in savings.</p>
+			<p>Results from countries that are implementing open contracting show that openness combined with monitoring works. In Peru, a study from Columbia University looked at the impact of transparency and monitoring of contracts on the procurement process of infrastructure projects and found that monitoring decreased spending by 50%. Similar results have been found in Afghanistan.</p>
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+.block[data-block-type=content] .block__background {
+  grid-column: wide;
+  grid-row: 1;
+}
+.block[data-block-type=content] .block__container {
+  --padding: 24px;
+  padding: var(--padding) 0;
+  grid-column: content;
+  grid-row: 1;
+}
+@media screen and (min-width: 360px) {
+  .block[data-block-type=content] .block__container {
+    --padding:calc(24px + 48 * (100vw - 360px) / 880);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=content] .block__container {
+    --padding: 72px;
+  }
+}
+.block[data-block-type=content] .block__container > *:not(:last-child):not(.block__heading) {
+  margin-bottom: 48px;
+}
+.block[data-block-type=content] .block__heading {
+  font-size: 22px;
+}
+@media screen and (min-width: 360px) {
+  .block[data-block-type=content] .block__heading {
+    font-size: calc(22px + 14 * (100vw - 360px) / 880);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=content] .block__heading {
+    font-size: 36px;
+  }
+}
+@media screen and (min-width: 640px) {
+  .block[data-block-type=content] .sub-content[data-type=content-with-icon] {
+    display: flex;
+  }
+}
+.block[data-block-type=content] .sub-content[data-type=content-with-icon] .sub-content__icon {
+  flex: 0 0 48px;
+}
+@media screen and (max-width: 639px) {
+  .block[data-block-type=content] .sub-content[data-type=content-with-icon] .sub-content__icon {
+    margin-bottom: 16px;
+  }
+}
+@media screen and (min-width: 640px) {
+  .block[data-block-type=content] .sub-content[data-type=content-with-icon] .sub-content__icon {
+    margin-right: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .block[data-block-type=content] .sub-content[data-type=content-with-icon] .sub-content__icon {
+    flex-basis: 96px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .block[data-block-type=content] .sub-content[data-type=content-with-icon] .sub-content__icon {
+    flex-basis: 128px;
+    margin-right: 40px;
+  }
+}
+.block[data-block-type=content] .sub-content[data-type=content-with-icon] .sub-content__icon > svg {
+  font-size: 48px;
+  height: 1em;
+  width: 1em;
+  fill: currentColor;
+}
+@media screen and (min-width: 768px) {
+  .block[data-block-type=content] .sub-content[data-type=content-with-icon] .sub-content__icon > svg {
+    font-size: 96px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .block[data-block-type=content] .sub-content[data-type=content-with-icon] .sub-content__icon > svg {
+    font-size: 128px;
+  }
+}
+.block[data-block-type=content] .sub-content[data-type=content-with-icon] .sub-content__content {
+  flex: 1 1 100%;
+}
+.block[data-block-type=content] .sub-content[data-type=content-with-icon] .sub-content__content > *:last-child {
+  margin-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .block[data-block-type=content] .block__arrow-links {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.block[data-block-type=content] .block__arrow-links > * {
+  margin-right: 24px;
+  margin-bottom: 16px;
 }
 
 /*
@@ -3997,6 +4261,156 @@ category:
 /*
 
 ---
+name: Sign Up Cover
+category:
+ - Blocks
+ - Blocks/Sign Up Cover
+---
+
+```html
+<div class="block" data-block-type="sign-up-cover">
+
+	<div class="block__image" style="background-image: url('https://open-contracting.test/wp-content/uploads/2016/10/IODC-team.jpg');"></div>
+
+
+	<div class="block__image-overlay" style="background-color: rgba(0,0,0,0.5);"></div>
+
+	<div class="block__container">
+
+		<h1 class="block__heading">Over 50 countries are working with the Open Contracting Partnership to transform public procurement for the benefit of all. The future is open. Join us.</h1>
+
+		<div class="block__form-container">
+
+			<form class="block__form / js-mailchimp-form" data-op-form-id="0">
+
+				<p>Sign up to our online community.</p>
+				<input type="email" name="email" placeholder="Your email address" data-op-id="0" data-com.agilebits.onepassword.user-edited="yes">
+
+				<p class="js-mailchimp-form__message">Sucessfully subscribed!</p>
+
+			</form>
+
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+.block[data-block-type=sign-up-cover] {
+  color: #FFF;
+}
+.block[data-block-type=sign-up-cover] .block__image {
+  grid-column: wide;
+  grid-row: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.block[data-block-type=sign-up-cover] .block__image-overlay {
+  grid-column: wide;
+  grid-row: 1;
+}
+.block[data-block-type=sign-up-cover] .block__container {
+  grid-row: 1;
+  grid-column: content;
+  --padding: 16px;
+  padding: var(--padding) 0;
+}
+@media screen and (min-width: 375px) {
+  .block[data-block-type=sign-up-cover] .block__container {
+    --padding:calc(16px + 32 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=sign-up-cover] .block__container {
+    --padding: 48px;
+  }
+}
+.block[data-block-type=sign-up-cover] .block__heading {
+  grid-row: 1;
+  grid-column: all;
+  color: currentColor;
+  font-size: 25px;
+  margin-bottom: 72px;
+}
+@media screen and (min-width: 360px) {
+  .block[data-block-type=sign-up-cover] .block__heading {
+    font-size: calc(25px + 14 * (100vw - 360px) / 880);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=sign-up-cover] .block__heading {
+    font-size: 39px;
+  }
+}
+@media screen and (min-width: 360px) {
+  .block[data-block-type=sign-up-cover] .block__heading {
+    margin-bottom: calc(72px + 168 * (100vw - 360px) / 880);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .block[data-block-type=sign-up-cover] .block__heading {
+    margin-bottom: 240px;
+  }
+}
+.block[data-block-type=sign-up-cover] .block__form-container {
+  grid-row: 2;
+  grid-column: all;
+  display: flex;
+  justify-content: center;
+}
+.block[data-block-type=sign-up-cover] .block__form {
+  width: 100%;
+  max-width: 400px;
+}
+.block[data-block-type=sign-up-cover] .block__form p {
+  font-size: 20px;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.block[data-block-type=sign-up-cover] .block__form input[type=email] {
+  font-size: 18px;
+  padding: 5px 18px;
+  border: 2px solid #FFF;
+  border-radius: 12px;
+  background-color: transparent;
+  color: #FFF;
+}
+.block[data-block-type=sign-up-cover] .block__form input[type=email]::-webkit-input-placeholder {
+  color: #FFF;
+  opacity: 1;
+  font-style: italic;
+}
+.block[data-block-type=sign-up-cover] .block__form input[type=email]:-moz-placeholder {
+  /* Firefox 18- */
+  color: #FFF;
+  opacity: 1;
+  font-style: italic;
+}
+.block[data-block-type=sign-up-cover] .block__form input[type=email]::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #FFF;
+  opacity: 1;
+  font-style: italic;
+}
+.block[data-block-type=sign-up-cover] .block__form input[type=email]:-ms-input-placeholder {
+  color: #FFF;
+  opacity: 1;
+  font-style: italic;
+}
+
+/*
+
+---
 name: Stories
 category:
  - Blocks
@@ -4388,6 +4802,40 @@ category:
   }
 }
 
+/*
+
+---
+name: Box link
+category:
+ - Components
+ - Components/Box link
+---
+
+```html
+<a class="box-link" href="#">
+	Health
+</a>
+```
+
+*/
+.box-link {
+  font-size: 11px;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: 1px solid #000;
+  border-radius: 6px 2px 2px 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 3px 12px;
+  transition: all 0.3s ease;
+}
+.box-link:hover, .box-link:focus, .box-link:active {
+  color: #FFF;
+  background-color: #000;
+}
+
 .button--naked {
   background: none;
   color: inherit;
@@ -4397,6 +4845,7 @@ category:
   cursor: pointer;
   outline: inherit;
   border-radius: 0;
+  margin: 0;
 }
 .button--naked:focus {
   outline: none;
@@ -4973,6 +5422,427 @@ category:
   box-sizing: initial;
 }
 
+/*
+
+---
+name: Type label
+category:
+ - Components
+ - Components/Type label
+---
+
+```html
+<div class="type-label">
+	<div class="type-label__icon"></div>
+	<span class="type-label__name">Resource</span>
+</div>
+
+<div class="type-label" data-post-type="resource">
+	<div class="type-label__icon"></div>
+	<span class="type-label__name">Resource</span>
+</div>
+
+<div class="type-label" data-post-type="post">
+	<div class="type-label__icon"></div>
+	<span class="type-label__name">Blog</span>
+</div>
+
+```
+
+*/
+.type-label {
+  display: flex;
+  align-items: center;
+  color: #000;
+}
+.type-label[data-post-type=post] {
+  color: #FB6045;
+}
+.type-label[data-post-type=news] {
+  color: #FB6045;
+}
+.type-label[data-post-type=resource] {
+  color: #6C75E1;
+}
+
+.type-label__icon {
+  display: block;
+  font-size: 30px;
+  height: 1em;
+  width: 1em;
+  border-radius: 50%;
+  border: 8px solid currentColor;
+  flex: 0 0 auto;
+  margin-right: 8px;
+  box-sizing: border-box;
+}
+
+.type-label__name {
+  font-size: 14px;
+  flex: 1 1 100%;
+  text-transform: uppercase;
+  padding-top: 0.1em;
+}
+
 /*------------------------------------*\
     $NON-MODULAR
 \*------------------------------------*/
+.svg-ocp-how-we-work {
+  display: grid;
+}
+.svg-ocp-how-we-work object {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  max-width: 400px;
+}
+@media screen and (min-width: 700px) {
+  .svg-ocp-how-we-work object {
+    max-width: 830px;
+  }
+}
+
+.article__container {
+  margin-top: 32px;
+}
+@media screen and (min-width: 375px) {
+  .article__container {
+    margin-top: calc(32px + 32 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .article__container {
+    margin-top: 64px;
+  }
+}
+
+.article__header {
+  grid-column: content;
+  margin-bottom: 16px;
+}
+@media screen and (min-width: 375px) {
+  .article__header {
+    margin-bottom: calc(16px + 16 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .article__header {
+    margin-bottom: 32px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .article__header {
+    grid-row: 1;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .article__header {
+    grid-column: content/-7;
+  }
+}
+
+.article__header .arrow-link {
+  margin-bottom: 16px;
+}
+@media screen and (min-width: 375px) {
+  .article__header .arrow-link {
+    margin-bottom: calc(16px + 24 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .article__header .arrow-link {
+    margin-bottom: 40px;
+  }
+}
+
+.article__heading {
+  margin-bottom: 16px;
+}
+@media screen and (min-width: 375px) {
+  .article__heading {
+    margin-bottom: calc(16px + 24 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .article__heading {
+    margin-bottom: 40px;
+  }
+}
+
+.article__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.article__header .type-label {
+  margin-right: 24px;
+}
+
+.article__meta-author {
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.article {
+  grid-column: content;
+  margin-bottom: 16px;
+}
+@media screen and (min-width: 375px) {
+  .article {
+    margin-bottom: calc(16px + 48 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .article {
+    margin-bottom: 64px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .article {
+    grid-row: 2;
+    grid-column: content/-7;
+  }
+}
+
+.article__share-container {
+  grid-column: content;
+}
+@media screen and (min-width: 768px) {
+  .article__share-container {
+    grid-row: 2;
+    grid-column: -7/wide;
+  }
+}
+
+.article__share {
+  display: flex;
+  align-items: center;
+  color: #666666;
+}
+@media screen and (max-width: 767px) {
+  .article__share {
+    margin-bottom: 32px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .article__share {
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 768px) {
+  .article__share {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 16px;
+    margin-bottom: 16px;
+    width: 100%;
+    max-width: 120px;
+    margin-left: auto;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1343px) {
+  .article__share {
+    color: #FFF;
+    background: linear-gradient(90deg, #AFAFAF 0%, #979797 100%);
+    border-radius: 30px 0 0 8px;
+    padding: 24px 16px;
+  }
+}
+
+.article__share-heading {
+  font-size: 25px;
+  margin-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .article__share-heading {
+    text-transform: uppercase;
+  }
+}
+@media screen and (min-width: 1344px) {
+  .article__share-heading {
+    color: #B9C504;
+  }
+}
+
+.article__share a {
+  display: block;
+}
+@media screen and (max-width: 767px) {
+  .article__share a {
+    margin-left: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .article__share a {
+    margin-top: 16px;
+  }
+}
+
+.article__share a > svg {
+  font-size: 26px;
+  height: 1em;
+  fill: currentColor;
+  display: block;
+}
+.article__share a > svg[data-platform=twitter] {
+  width: 1.09em;
+}
+.article__share a > svg[data-platform=facebook] {
+  width: 0.54em;
+}
+.article__share a > svg[data-platform=linkedin] {
+  width: 0.9em;
+}
+
+a.article__share-subscribe {
+  font-size: 16px;
+  font-weight: 700;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  font-family: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+@media screen and (min-width: 768px) {
+  a.article__share-subscribe {
+    margin-top: 24px;
+  }
+}
+
+.article__footer {
+  grid-column: content;
+  margin-bottom: 32px;
+}
+@media screen and (min-width: 375px) {
+  .article__footer {
+    margin-bottom: calc(32px + 32 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .article__footer {
+    margin-bottom: 64px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .article__footer {
+    grid-row: 3;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .article__footer {
+    grid-column: content/-7;
+  }
+}
+
+.article__tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+@media screen and (min-width: 375px) {
+  .article__tags {
+    margin-bottom: calc(32px + 32 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .article__tags {
+    margin-bottom: 64px;
+  }
+}
+.article__tags .box-link {
+  display: block;
+  margin: 0 8px 8px 0;
+}
+
+.article__tags-heading {
+  flex: 0 0 100%;
+}
+
+.article__discussion {
+  --vertical-padding: 24px;
+  --horizontal-padding: 24px;
+  font-size: 16px;
+  background: #FB6045;
+  color: #000;
+  border-radius: 24px 4px 4px 4px;
+  padding: var(--vertical-padding) var(--horizontal-padding);
+}
+@media screen and (min-width: 375px) {
+  .article__discussion {
+    --vertical-padding:calc(24px + 16 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .article__discussion {
+    --vertical-padding: 40px;
+  }
+}
+@media screen and (min-width: 375px) {
+  .article__discussion {
+    --horizontal-padding:calc(24px + 16 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .article__discussion {
+    --horizontal-padding: 40px;
+  }
+}
+
+.article__discussion-heading {
+  font-size: 20px;
+  margin-bottom: 32px;
+}
+@media screen and (min-width: 375px) {
+  .article__discussion-heading {
+    font-size: calc(20px + 4 * (100vw - 375px) / 865);
+  }
+}
+@media screen and (min-width: 1240px) {
+  .article__discussion-heading {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .article__discussion-share {
+    display: flex;
+  }
+}
+
+.article__discussion-share p {
+  margin-bottom: 0;
+  margin-right: 32px;
+}
+@media screen and (max-width: 639px) {
+  .article__discussion-share p {
+    margin-bottom: 16px;
+  }
+}
+
+.article__discussion-share-icons {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+.article__discussion-share-icons a:not(:last-child) {
+  margin-right: 16px;
+}
+.article__discussion-share-icons a > svg {
+  font-size: 26px;
+  height: 1em;
+  fill: #FFF;
+  display: block;
+}
+.article__discussion-share-icons a > svg[data-platform=twitter] {
+  width: 1.09em;
+}
+.article__discussion-share-icons a > svg[data-platform=facebook] {
+  width: 0.54em;
+}
+.article__discussion-share-icons a > svg[data-platform=linkedin] {
+  width: 0.9em;
+}

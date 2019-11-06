@@ -96,7 +96,7 @@ category:
 
 .mega-menu {
 	@include shell-grid;
-	background-color: #505596;
+	background-color: rgba(#505596, .97);
 	color: $ui-white;
 	z-index: 3;
 }
