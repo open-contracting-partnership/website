@@ -35,12 +35,12 @@
         ]
     ],
     "menu_order": 3,
-    "position": "normal",
+    "position": "side",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571663354
+    "modified": 1573040845
 }
