@@ -109,7 +109,9 @@
 				<button v-on:click.prevent="increaseLimit()" v-if="hasNextPage">{{ load_more }}</button>
 			</div>
 
-			<div class="home__section">
+			{% if footer_latest_news %}
+
+				<div class="home__section">
 
 				<div class="home__section-header">
 
@@ -142,7 +144,11 @@
 
 			</div>
 
-			<div class="home__section">
+			{% endif %}
+			
+			{% if footer_latest_events %}
+
+				<div class="home__section">
 
 				<div class="home__section-header">
 
@@ -175,6 +181,7 @@
 
 			</div>
 
+			{% endif %}
 
 		</div> <!-- / .home__container -->
 
