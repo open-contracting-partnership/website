@@ -1,0 +1,43 @@
+/*
+
+---
+name: Text card
+category:
+ - Cards
+ - Cards/Text
+---
+
+```html
+<div class="card card--text">
+
+	<a href="#" class="card__title-link">
+		<h3 class="card__title">Lift-off for five bold public contracting reforms to improve public services</h3>
+	</a>
+
+	<p class="card__meta">15 Oct 2019</p>
+
+</div>
+```
+
+*/
+
+.card.card--text {
+
+	.card__title-link {
+		@extend %reverse-underline;
+	}
+
+	.card__title {
+		@include fluid-type(font-size, 375px, 1240px, 14px, 18px);
+		margin-bottom: spacing(.5);
+	}
+
+	.card__meta {
+		font-size: 14px;
+		@include font('secondary');
+		text-transform: uppercase;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+}

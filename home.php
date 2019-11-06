@@ -1,0 +1,135 @@
+<?php
+/**
+ * The template for displaying Archive pages.
+ *
+ * Used to display archive-type pages if nothing more specific matches a query.
+ * For example, puts together date-based pages if no date.php file exists.
+ *
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ */
+
+namespace App;
+
+use App\Cards\FeatureCard;
+use App\Http\Controllers\Controller;
+use App\PostTypes\News;
+use App\PostTypes\Event;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Post;
+use Timber\Timber;
+
+class HomeController extends Controller
+{
+	public function handle()
+	{
+		$context = Timber::get_context();
+
+		$context['title'] = _x(
+			'More blogs about open contracting and',
+			'Displayed within the latest news, proceeded by a separate string, "select a topic"',
+			'ocp'
+		);
+
+		$context['filter_label'] = _x(
+			'Select a topic',
+			'The topic filter label within the latest news',
+			'ocp'
+		);
+
+		$context['load_more'] = _x(
+			'Load more',
+			'The load more posts label for the latest news',
+			'ocp'
+		);
+
+		$context['issue_terms'] = get_terms([
+			'taxonomy' => 'issue',
+		]);
+
+
+		// localise the script only *after* the scripts are queued up
+		add_action('wp_enqueue_scripts', function() {
+
+			wp_localize_script('latest-news', 'content', [
+				'posts' => $this->getBlogs(),
+				'select_a_filter' => str_replace(' ', '&nbsp;', __('Select a topic', 'ocp'))
+			]);
+
+		});
+
+		add_filter('timber_post_get_meta', function($post_meta, $pid, $post) {
+
+			$tid = get_post_thumbnail_id($pid);
+
+			if ( $tid ) {
+				$image = new $post->ImageClass($tid);
+				$post_meta['thumbnail_url'] = $image->src;
+			}
+
+			return $post_meta;
+
+		}, 10, 3);
+
+		$context['featured_blog'] = $this->getFeaturedBlog();
+
+		$context['header_latest_news'] = $this->getLatestNews(2);
+		$context['footer_latest_news'] = $this->getLatestNews(4);
+
+		$context['header_latest_events'] = $this->getLatestEvents(1);
+		$context['footer_latest_events'] = $this->getLatestEvents(2);
+
+		return new TimberResponse('templates/home.twig', $context);
+	}
+
+	protected function getBlogs() {
+
+		return Post::query([
+			'posts_per_page' => -1
+		]);
+
+	}
+
+	protected function getFeaturedBlog() {
+
+		$featured_blog = Post::query([
+			'post_type' => 'post',
+			'posts_per_page' => 1,
+			'meta_query' => array(
+				array(
+					'key' => 'featured',
+					'value' => TRUE
+				)
+			)
+		]);
+
+		if ( count($featured_blog) ) {
+			return ['card' => FeatureCard::buildData($featured_blog[0]->ID)];
+		}
+
+	}
+
+	protected function getLatestNews($limit = 2) {
+
+		return News::query([
+			'posts_per_page' => $limit
+		]);
+
+	}
+
+	protected function getLatestEvents($limit = 1) {
+
+		return Event::query([
+			'posts_per_page' => $limit,
+			'orderby' => 'meta_value_num',
+			'order' => 'ASC',
+			'meta_key' => 'event_date',
+			'meta_query' => [[
+				'key' => 'event_date',
+				'value' => date('Ymd'),
+				'compare' => '>='
+			]]
+		]);
+
+	}
+
+}

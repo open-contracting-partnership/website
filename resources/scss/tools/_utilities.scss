@@ -104,3 +104,13 @@ This is used to apply `text-align: left;`
 .align-left {
 	text-align: left;
 }
+
+.align-contents-right {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.align-contents-center {
+	display: flex;
+	justify-content: center;
+}

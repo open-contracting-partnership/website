@@ -1,0 +1,149 @@
+<template>
+
+	<div class="card card--primary">
+
+		<div class="card__image">
+
+			<imgix
+				v-if="card.thumbnail_url"
+				:url="card.thumbnail_url"
+				:params="{
+					auto: 'format',
+					fit: 'crop'
+				}"
+				:aspect_ratio="[16, 9]"
+				:transforms="[{
+					w: 415
+				}, {
+					w: 830
+				}, {
+					w: 1024
+				}, {
+					w: 1536
+				}, {
+					w: 2048
+				}]"
+				sizes='100vw'
+			/>
+
+			<imgix
+				v-else
+				url='/wp-content/themes/ocp-v1/resources/img/fallback.jpg'
+				:params="{
+					auto: 'format',
+					fit: 'crop'
+				}"
+				:aspect_ratio="[16, 9]"
+				:transforms="[{
+					w: 415
+				}, {
+					w: 830
+				}, {
+					w: 1024
+				}, {
+					w: 1536
+				}, {
+					w: 2048
+				}]"
+				sizes='100vw'
+			/>
+
+
+
+			<!-- {{ imgix({
+				src: card.image_url,
+				params: {
+					auto: 'format',
+					fit: 'crop'
+				},
+				aspect_ratio: [4, 3],
+				transforms: [{
+					w: 415
+				}, {
+					w: 830
+				}, {
+					w: 1024
+				}, {
+					w: 1536
+				}, {
+					w: 2048
+				}],
+				sizes: '100vw'
+			}) }} -->
+
+
+			<!-- {{ imgix({
+				src: card.image_url,
+				params: {
+					auto: 'format',
+					fit: 'crop'
+				},
+				aspect_ratio: [16, 9],
+				transforms: [{
+					w: 415
+				}, {
+					w: 830
+				}, {
+					w: 1024
+				}, {
+					w: 1536
+				}, {
+					w: 2048
+				}],
+				sizes: '100vw'
+			}) }}
+
+			{% if card.type_label %}
+
+				<div class="card__image-overlay">
+					<div class="card__tag">{{ card.type_label }}</div>
+				</div>
+
+			{% endif %} -->
+
+		</div>
+
+		<div class="card__main">
+
+			<a class="card__title-link" href="#">
+				<h2 class="card__title" v-html="card.post_title"></h2>
+			</a>
+
+			<!-- <div class="card__footer">
+
+				{% if card.meta %}
+					<div class="card__meta">{{ card.meta }}</div>
+				{% endif %}
+
+				<div class="card__cta">
+
+					<a class="arrow-link" href="{{ card.url }}">
+						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+						<span class="arrow-link__label">{{ card.button_label }}</span>
+					</a>
+
+				</div>
+
+			</div> -->
+
+		</div>
+
+	</div>
+
+</template>
+
+<script>
+
+	import Imgix from '../partials/imgix.vue';
+
+	export default {
+
+		props: ['card'],
+
+		components: {
+			imgix: Imgix
+		}
+
+	}
+
+</script>

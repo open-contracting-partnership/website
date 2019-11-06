@@ -8,8 +8,8 @@ add_action('wp_enqueue_scripts', function() {
 	if ( ! is_admin() ) {
 
 
-         //****************
-        // REGISTER ASSETS
+		 //****************
+		// REGISTER ASSETS
 
 		// BASE
 		Assets::registerStyle('main', '/dist/css/styles.css');
@@ -21,15 +21,20 @@ add_action('wp_enqueue_scripts', function() {
 		Assets::registerScript('vendor', '/dist/js/vendor.js', [], true);
 
 		// SPECIFIC
+		Assets::registerScript('latest-news', '/dist/js/latest-news.js', ['manifest', 'vendor'], TRUE);
 		Assets::registerScript('page-worldwide', '/dist/js/worldwide.js', ['manifest', 'vendor'], TRUE);
 
 
-         //************
-        // LOAD ASSETS
+		 //************
+		// LOAD ASSETS
 
 		wp_enqueue_style('main');
 		wp_enqueue_script('main');
 		wp_enqueue_script('header');
+
+		if ( is_home() ) {
+			wp_enqueue_script('latest-news');
+		}
 
 		// WORLDWIDE
 		if ( basename(get_page_template()) === 'page-worldwide.php' ) {

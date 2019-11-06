@@ -1,8 +1,183 @@
 {% extends "base.twig" %}
 
 {% block content %}
-    <main>
-        <h1>{{ title }}</h1>
-        <p>{{ content|raw }}</p>
-    </main>
+
+	<main class="home" id="blog-posts">
+
+		<div class="home__container">
+
+			<div class="home__header">
+
+				{% if featured_blog %}
+					{% include 'cards/feature.twig' with featured_blog %}
+				{% endif %}
+
+				<div class="home__header-extra">
+
+					{% if header_latest_news %}
+
+						<h2 class="home__header-extra-heading">News</h2>
+
+						{% for post in header_latest_news %}
+
+							<div class="card card--text">
+
+								<a class="card__title-link" href="{{ post.url }}">
+									<h3 class="card__title">{{ post.post_title}}</h3>
+								</a>
+
+								<p class="card__meta">{{ post.date('j M Y') }}</p>
+
+							</div>
+
+						{% endfor %}
+
+						<div class="align-contents-right">
+
+							<a class="arrow-link" data-icon-color="grey" data-text-color="black" href="#">
+								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+								<span class="arrow-link__label / uppercase">View all news</span>
+							</a>
+
+						</div>
+
+					{% endif %}
+
+					{% if header_latest_events %}
+
+						<h2 class="home__header-extra-heading">Events</h2>
+
+						{% for post in header_latest_events %}
+
+							<div class="card card--text">
+
+								<a class="card__title-link" href="{{ post.url }}">
+									<h3 class="card__title">{{ post.post_title}}</h3>
+								</a>
+
+								<p class="card__meta">{{ post.event_date|date('j M Y') }}</p>
+
+							</div>
+
+						{% endfor %}
+
+						<div class="align-contents-right">
+
+							<a class="arrow-link" data-icon-color="grey" data-text-color="black" href="#">
+								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+								<span class="arrow-link__label / uppercase">View all events</span>
+							</a>
+
+						</div>
+
+					{% endif %}
+
+
+				</div>
+
+			</div>
+
+			<div class="home__title">
+
+				<h1 class="home__heading / gamma">{{ title }}</h1>
+
+				<div class="select-menu" data-colour-scheme="green">
+
+					<label class="visually-hidden">{{ filter_label }}</label>
+
+					<select class="uppercase align-center" v-model="filter">
+
+						<option value="">{{ filter_label }}</option>
+
+						{% for issue in issue_terms %}
+							<option value={{ issue.term_id }}>{{ issue.name }}</option>
+						{% endfor %}
+
+					</select>
+
+					<div class="select-menu__arrow"></div>
+
+				</div>
+
+			</div>
+
+			<section class="home__posts">
+				<primary-card v-for="post in pagedPosts" v-bind:key="post.id" :card="post" />
+			</section>
+
+			<div class="home__load-more / align-contents-center">
+				<button v-on:click.prevent="increaseLimit()" v-if="hasNextPage">{{ load_more }}</button>
+			</div>
+
+			<div class="home__section">
+
+				<div class="home__section-header">
+
+					<h2 class="gamma">News</h2>
+
+					<a class="arrow-link" data-text-color="black" href="#">
+						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+						<span class="arrow-link__label / uppercase">View all news</span>
+					</a>
+
+				</div>
+
+				<div class="home__section-post">
+
+					{% for post in footer_latest_news %}
+
+						<div class="card card--text">
+
+							<a class="card__title-link" href="{{ post.url }}">
+								<h3 class="card__title">{{ post.post_title}}</h3>
+							</a>
+
+							<p class="card__meta">{{ post.date('j M Y') }}</p>
+
+						</div>
+
+					{% endfor %}
+
+				</div>
+
+			</div>
+
+			<div class="home__section">
+
+				<div class="home__section-header">
+
+					<h2 class="gamma">Events</h2>
+
+					<a class="arrow-link" data-text-color="black" href="#">
+						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+						<span class="arrow-link__label / uppercase">View all events</span>
+					</a>
+
+				</div>
+
+				<div class="home__section-post">
+
+					{% for post in footer_latest_events %}
+
+						<div class="card card--text">
+
+							<a class="card__title-link" href="{{ post.url }}">
+								<h3 class="card__title">{{ post.post_title}}</h3>
+							</a>
+
+							<p class="card__meta">{{ post.event_date|date('j M Y') }}</p>
+
+						</div>
+
+					{% endfor %}
+
+				</div>
+
+			</div>
+
+
+		</div> <!-- / .home__container -->
+
+	</main>
+
 {% endblock %}

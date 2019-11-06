@@ -297,6 +297,7 @@ category:
 
 .select-menu {
 
+	font-size: 14px;
 	position: relative;
 	display: inline-block;
 	padding: 0;
@@ -316,31 +317,32 @@ category:
 		height: 0;
 		border-left: 4px solid transparent;
 		border-right: 4px solid transparent;
-		border-top: 8px solid $ui-grey-5;
+		border-top: 8px solid currentColor;
 	}
 
 	select {
 
-		@include font('secondary', 'bold');
-		font-size: 11px;
+		@include font('secondary', 'medium');
+		font-size: 1em;
 		position: relative;
 		height: 18px;
 		display: grid;
 		align-items: center;
 		padding-left: 6px;
 		padding-right: spacing(3);
-		color: $ui-grey-5;
+		color: currentColor;
 		width: 100%;
+		margin: em(2, 14) 0;
 		cursor: pointer;
 		background: transparent;
 		border: none;
 		border-radius: 5px;
 		box-sizing: border-box;
-	  	appearance: none;
+		appearance: none;
 		z-index: 1;
 
-	  	&:focus {
-	    	outline: 0;
+		&:focus {
+			outline: 0;
 		}
 
 	}
@@ -351,5 +353,16 @@ category:
 		color: $ui-black;
 	}
 
+	// sizes
+	&[data-size="small"] {
+		font-size: 11px;
+	}
+
+	// colour
+	&[data-colour-scheme="green"] {
+		border-color: $ui-grey-4;
+		background-color: $ui-brand;
+		color: $ui-grey;
+	}
 
 }
