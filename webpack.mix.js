@@ -7,8 +7,7 @@ mix.setPublicPath('dist');
 // enable versioning for all compiled files
 mix.version();
 
-mix.copy('node_modules/mapbox-gl/dist/mapbox-gl.css', 'dist/node_modules/mapbox-gl/mapbox-gl.css')
-	.copy('node_modules/flag-icon-css/flags', 'dist/node_modules/flag-icon-css/flags');
+mix.copy('node_modules/mapbox-gl/dist/mapbox-gl.css', 'dist/node_modules/mapbox-gl/mapbox-gl.css');
 
 // watch for any changes in styleguide.js, only when not production
 if ( ! mix.inProduction() ) {
