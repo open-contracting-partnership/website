@@ -9,7 +9,19 @@
 	}
 
 		.impact-stories__header {
+
+			@include font('secondary');
 			grid-column: all;
+			margin-bottom: var(--v-spacing);
+
+			@include from(T) {
+				grid-column: all / 10;
+			}
+
+			> *:last-child {
+				margin-bottom: 0;
+			}
+
 		}
 
 		.impact-stories__featured-stories {
@@ -18,7 +30,7 @@
 			border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
 			overflow: hidden;
 		}
-		
+
 
 		.impact-stories__filters {
 
