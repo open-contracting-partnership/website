@@ -1,0 +1,49 @@
+main.archive {
+	@extend %shell-grid;
+	margin-top: var(--v-spacing);
+}
+
+	.archive__header {
+		grid-column: content;
+		margin-bottom: var(--v-spacing);
+	}
+
+		.archive__header .arrow-link {
+			margin-bottom: var(--v-spacing-half);
+		}
+
+		.archive__heading {
+			margin-bottom: 0;
+		}
+
+	.archive__posts {
+
+		grid-column: content;
+		margin-bottom: var(--v-spacing-half);
+		--columns: 1;
+		display: grid;
+		grid-gap: spacing(4) spacing(2);
+		grid-template-columns: repeat(var(--columns), 1fr);
+
+		@include from(T) {
+			--columns: 2;
+		}
+
+		@include from(M) {
+			--columns: 3;
+		}
+
+	}
+
+	.archive__pagination {
+
+		grid-column: content;
+		display: flex;
+		justify-content: center;
+		margin-bottom: var(--v-spacing);
+
+		> *:not(:last-child) {
+			margin-right: spacing(2);
+		}
+
+	}

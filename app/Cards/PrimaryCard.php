@@ -29,4 +29,29 @@ class PrimaryCard
 
 	}
 
+	public static function convertTimberCollection($collection) {
+
+		if ( get_class($collection) !== 'Tightenco\Collect\Support\Collection' ) {
+			return false;
+		}
+
+		$new_collection = [];
+
+		foreach ( $collection as $post ) {
+
+			$new_collection[$post->ID] = [
+				'title' => $post->post_title,
+				'url' => $post->link,
+				'meta' => $post->author ? $post->author->name : null,
+				'image_url' => $post->thumbnail ? $post->thumbnail->src : null,
+				'type_label' => get_post_type_label($post->post_type),
+				'button_label' => __('Read', 'ocp')
+			];
+
+		}
+
+		return $new_collection;
+
+	}
+
 }

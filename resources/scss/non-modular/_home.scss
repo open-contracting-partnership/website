@@ -1,8 +1,3 @@
-body {
-	@include fluid-type(--v-spacing, 375px, 1240px, spacing(4), spacing(8));
-	@include fluid-type(--v-spacing-half, 375px, 1240px, spacing(2), spacing(4));
-}
-
 main.home {
 	@extend %shell-grid;
 	margin: var(--v-spacing) 0;

@@ -1,0 +1,23 @@
+/*
+
+---
+name: Type tag
+category:
+ - Components
+ - Components/Type tag
+---
+
+```html
+<span class="type-tag">News</span>
+```
+
+*/
+
+.type-tag {
+	@include font('secondary');
+	font-size: 14px;
+	background-color: $ui-brand;
+	border-radius: 2px;
+	text-transform: uppercase;
+	padding: em(3, 14) em(4, 14) em(1, 14);
+}
