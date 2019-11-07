@@ -1,0 +1,108 @@
+.impact-stories {
+	@extend %shell-grid;
+	margin-top: var(--v-spacing);
+}
+
+	.impact-stories__container {
+		grid-column: content;
+		@extend %column-grid;
+	}
+
+		.impact-stories__header {
+			grid-column: all;
+		}
+
+		.impact-stories__filters {
+
+			grid-column: all;
+			border: 2px solid $ui-grey-6;
+			border-radius: spacing(4) spacing(1);
+			padding: spacing(3);
+			margin-bottom: var(--v-spacing);
+
+			@include from(M) {
+				grid-column: all / 9;
+			}
+
+			--columns: 2;
+			display: grid;
+			grid-template-columns: [all-start] repeat(var(--columns), 1fr) [all-end];
+			grid-gap: spacing(1);
+
+			@include from(S) {
+				--columns: 3;
+			}
+
+			@include from(M) {
+				--columns: 4;
+			}
+
+		}
+
+			.impact-stories__filter-heading {
+
+				font-size: 14px;
+				@include font('secondary', 'medium');
+				margin-bottom: 0;
+				grid-column: all;
+
+				&:not(:first-child) {
+					margin-top: spacing(1);
+				}
+
+			}
+
+			.impact-stories__filters label {
+
+				font-size: 12px;
+				@include font('secondary', 'bold');
+				text-transform: none;
+				display: flex;
+				align-items: center;
+				margin-bottom: spacing(1);
+				color: $ui-grey-4;
+
+				input {
+
+					font-size: 21px;
+					flex: 0 0 auto;
+					margin: 0 spacing(1) 0 0;
+
+					height: 1em;
+					width: 1em;
+					appearance: none;
+					background-color: $ui-white;
+					border: 1px solid $ui-grey-4;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					&:checked:after {
+						content: '\2714';
+						font-size: .9em;
+						color: $ui-grey-3;
+					}
+
+				}
+
+			}
+
+		.impact-stories__posts {
+
+			grid-column: all;
+			margin-bottom: var(--v-spacing-half);
+
+			--columns: 1;
+			display: grid;
+			grid-gap: spacing(4) spacing(2);
+			grid-template-columns: repeat(var(--columns), 1fr);
+
+			@include from(T) {
+				--columns: 2;
+			}
+
+			@include from(M) {
+				--columns: 3;
+			}
+
+		}

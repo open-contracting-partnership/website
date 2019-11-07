@@ -1,0 +1,114 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<div id="impact-stories" class="impact-stories">
+
+		<div class="impact-stories__container">
+
+			<div class="impact-stories__header">
+
+				<h1>{{ title }}</h1>
+
+				{{ content | raw }}
+
+			</div>
+
+			<div class="impact-stories__filters">
+
+				{% if story_types %}
+
+					<h3 class="impact-stories__filter-heading">Story Types</h3>
+
+					{% for id, name in story_types %}
+
+						<label>
+							<input type="checkbox" v-model="filters.type" value="{{ id }}">
+							{{ name }}
+						</label>
+
+					{% endfor %}
+
+				{% endif %}
+
+				{% if countries %}
+
+					<h3 class="impact-stories__filter-heading">Countries</h3>
+
+					{% for id, name in countries %}
+
+						<label>
+							<input type="checkbox" v-model="filters.country" value="{{ id }}">
+							{{ name }}
+						</label>
+
+					{% endfor %}
+
+				{% endif %}
+
+			</div>
+
+			<div class="impact-stories__posts">
+
+				{% for key, story in stories %}
+
+					<div ref="story-{{ key }}" data-country-ids="{{ story.country_ids|json_encode|escape }}" data-story-type-ids="{{ story.story_type_ids|json_encode|escape }}" class="card card--primary">
+
+						<div class="card__image">
+
+							{{ imgix({
+								src: story.image.url,
+								params: {
+									auto: 'format',
+									fit: 'crop'
+								},
+								aspect_ratio: [16, 9],
+								transforms: [{
+									w: 415
+								}, {
+									w: 830
+								}, {
+									w: 1024
+								}, {
+									w: 1536
+								}, {
+									w: 2048
+								}],
+								sizes: '100vw'
+							}) }}
+
+						</div>
+
+						<div class="card__main">
+
+							<a class="card__title-link" href="#">
+								<h2 class="card__title">{{ story.title }}</h2>
+							</a>
+
+							{# <div class="card__footer">
+
+								<div class="card__cta">
+
+									<a class="arrow-link" href="{{ story.url }}">
+										<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+										<span class="arrow-link__label">{{ card.button_label }}</span>
+									</a>
+
+								</div>
+
+							</div> #}
+
+						</div>
+
+					</div>
+
+
+				{% endfor %}
+
+			</div>
+
+		</div>
+
+	</div>
+
+{% endblock %}
