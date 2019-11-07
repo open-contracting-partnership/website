@@ -44,6 +44,7 @@
 		"node-aigis": "^1.4.1",
 		"sass": "^1.17.0",
 		"sass-loader": "7.*",
+		"tiny-slider": "^2.9.2",
 		"topojson-client": "^3.0.1",
 		"underscore": "^1.8.3",
 		"vue": "^2.6.10",

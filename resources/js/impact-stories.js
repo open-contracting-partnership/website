@@ -1,5 +1,6 @@
 import _ from 'underscore'
 import Vue from 'vue'
+import { tns } from "../../node_modules/tiny-slider/src/tiny-slider"
 
 const _intersection = require('lodash.intersection');
 
@@ -56,6 +57,28 @@ const reports = new Vue({
 			});
 
 		}
+
+	},
+
+	mounted() {
+
+		if ( document.querySelectorAll('.impact-stories__featured-scroller').length ) {
+
+			var slider = tns({
+				"container": ".impact-stories__featured-scroller",
+				"mouseDrag": true,
+				"swipeAngle": false,
+				"speed": 400,
+				controls: false
+
+				// container: '.impact-stories__featured-scroller',
+				// mouseDrag: true,
+				// controlsContainer: '.block__scroller-controls',
+				// nav: false
+			});
+
+		}
+
 
 	}
 

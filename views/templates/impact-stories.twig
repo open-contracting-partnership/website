@@ -14,6 +14,22 @@
 
 			</div>
 
+			{% if featured_stories %}
+
+				<div class="impact-stories__featured-stories / carousel">
+
+					<div class="impact-stories__featured-scroller">
+
+						{% for card in featured_stories %}
+							{% include 'cards/carousel.twig' with card %}
+						{% endfor %}
+
+					</div>
+
+				</div>
+
+			{% endif %}
+
 			<div class="impact-stories__filters">
 
 				{% if story_types %}

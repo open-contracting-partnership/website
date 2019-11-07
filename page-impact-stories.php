@@ -61,48 +61,22 @@ class PageImpactStoriesController extends Controller
 
 		}, $context['stories']);
 
+		// filter just the featured stories
+		$context['featured_stories'] = array_filter($context['stories'], function($story) {
+			return $story['featured'];
+		});
 
-// dd($context['stories']);
-		// $context['country_ids'] = array_map('strval', $context['country_ids']);
-		// $context['story_type_ids'] = array_map('strval', $context['story_type_ids']);
+		// match the featured stories with the correct card type
+		$context['featured_stories'] = array_map(function($story) {
 
-		// // localise the script only *after* the scripts are queued up
-		// add_action('wp_enqueue_scripts', function() use ($page) {
-		//
-		// 	wp_localize_script('page-worldwide', 'content', [
-		// 		'title' => $page->title,
-		// 		'content' => str_replace(["\n", "\r"], '', apply_filters('the_content', $page->content)),
-		// 		'table_view' => __('Table view', 'ocp'),
-		// 		'map_view' => __('Map view', 'ocp'),
-		// 		'map' => array(
-		// 			'filter' => __('Filter Options', 'ocp'),
-		// 			'close' => __('Close Filter', 'ocp'),
-		// 		),
-		// 		'filter' => array(
-		// 			'all' => __('Active countries', 'ocp'),
-		// 			'ocds' => __('Using the Open Contracting Data Standard', 'ocp'),
-		// 			'ocds_status' => __('Status:', 'ocp'),
-		// 			'ocds_ongoing' => __('Ongoing', 'ocp'),
-		// 			'ocds_implementation' => __('Implementation', 'ocp'),
-		// 			'ocds_historic' => __('Historic', 'ocp'),
-		// 			'commitments' => __('With documented commitments', 'ocp'),
-		// 			'contract' => __('With innovation in contracting monitoring & data use', 'ocp'),
-		// 		),
-		// 		'country' => array(
-		// 			'ocds' => __('Using the Open Contracting Data Standard', 'ocp'),
-		// 			'commitments' => __('Documented commitments', 'ocp'),
-		// 			'contract' => __('Innovation in contract monitoring & data use', 'ocp'),
-		// 			'impact_stories' => __('Impact Stories', 'ocp'),
-		// 			'no_data' => __('No data available', 'ocp'),
-		// 			'improve_data' => __('Improve this data', 'ocp'),
-		// 		),
-		// 		'search' => array(
-		// 			'placeholder' => __('Find Country', 'ocp'),
-		// 			'no_data' => __('(No data yet)', 'ocp')
-		// 		)
-		// 	]);
-		//
-		// }, 11);
+			return [
+				'title' => $story['title'],
+				'introduction' => $story['introduction'],
+				'image_url' => $story['image']['url'],
+				'url' => $story['link']
+			];
+
+		}, $context['featured_stories']);
 
 		return new TimberResponse('templates/impact-stories.twig', $context);
 	}

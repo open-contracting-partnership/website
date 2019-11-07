@@ -12,6 +12,14 @@
 			grid-column: all;
 		}
 
+		.impact-stories__featured-stories {
+			grid-column: all;
+			margin-bottom: var(--v-spacing);
+			border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
+			overflow: hidden;
+		}
+		
+
 		.impact-stories__filters {
 
 			grid-column: all;
