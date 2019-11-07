@@ -10,7 +10,9 @@
 
 namespace App;
 
+use App\Cards\BasicCard;
 use App\Http\Controllers\Controller;
+use App\PostTypes\News;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Post;
 use Timber\Timber;
@@ -19,26 +21,37 @@ class ArchiveController extends Controller
 {
 	public function handle()
 	{
-		$data = Timber::get_context();
-		$data['title'] = 'Archive';
+		$context = Timber::get_context();
+		$context['title'] = 'Archive';
+		$context['posts'] = BasicCard::convertTimberCollection(Post::query());
 
 		if (is_day()) {
-			$data['title'] = 'Archive: '.get_the_date('D M Y');
+			$context['title'] = 'Archive: ' . get_the_date('D M Y');
 		} elseif (is_month()) {
-			$data['title'] = 'Archive: '.get_the_date('M Y');
+			$context['title'] = 'Archive: ' . get_the_date('M Y');
 		} elseif (is_year()) {
-			$data['title'] = 'Archive: '.get_the_date('Y');
+			$context['title'] = 'Archive: ' . get_the_date('Y');
 		} elseif (is_tag()) {
-			$data['title'] = single_tag_title('', false);
+			$context['title'] = 'Tag: ' . single_tag_title('', false);
 		} elseif (is_category()) {
-			$data['title'] = single_cat_title('', false);
-		} elseif (is_post_type_archive()) {
-			$data['title'] = post_type_archive_title('', false);
+			$context['title'] = 'Category: ' . single_cat_title('', false);
+		} elseif (is_post_type_archive('news')) {
+			$context['title'] = _x('News', 'Archive title', 'ocp');
+			$context['posts'] = BasicCard::convertTimberCollection(News::query());
 		}
 
-		// TODO: Currently only works for posts, fix for custom post types
-		$data['posts'] = Post::query();
+		// generate the prev/next links
+		$context['next_page_url'] = get_next_posts_link() ? get_next_posts_page_link() : null;
+		$context['next_page_label'] = _x('Next page', 'Next and previous page links for archives', 'ocp');
+		$context['previous_page_url'] = get_previous_posts_link() ? get_previous_posts_page_link() : null;
+		$context['previous_page_label'] = _x('Previous page', 'Next and previous page links for archives', 'ocp');
 
-		return new TimberResponse('templates/posts.twig', $data);
+		// set the back link
+		$context['back_link'] = [
+			'url' => get_post_type_archive_link('post'),
+			'label' => __('Back to latest')
+		];
+
+		return new TimberResponse('templates/archive.twig', $context);
 	}
 }
