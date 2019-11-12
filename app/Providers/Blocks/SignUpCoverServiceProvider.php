@@ -28,7 +28,7 @@ class SignUpCoverServiceProvider
 					wp_enqueue_script('mailchimp', get_template_directory_uri() . '/dist/js/mailchimp.js', array(), false, true);
 
 					wp_localize_script('mailchimp', 'mailchimp_options', [
-					    'root' => esc_url_raw(rest_url()),
+						'root' => esc_url_raw(rest_url()),
 						'error_text' => __('An error occured, try again later.', 'ocp')
 					]);
 

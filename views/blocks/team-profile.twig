@@ -1,0 +1,120 @@
+<div class="block" data-block-type="team-profile">
+
+	<div class="block__container">
+
+		<div class="block__avatar-container">
+
+			{% for person in block.team %}
+
+				<a class="block__avatar" href="#{{ person.slug }}">
+
+					{{ imgix({
+						src: person.image.url,
+						params: {
+							auto: 'format',
+							fit: 'crop',
+							crop: 'faces'
+						},
+						aspect_ratio: [1, 1],
+						transforms: [{
+							w: 80
+						}, {
+							w: 125
+						}, {
+							w: 180
+						}, {
+							w: 320
+						}, {
+							w: 500
+						}],
+						sizes: '28vw, (min-width: 640px) 21vw, (min-width: 768px) 18vw, (min-width: 1024px) 12vw, (min-width: 1340px) 170px',
+					}) }}
+
+					<span class="block__avatar-name">{{ person.name }}</span>
+
+				</a>
+
+			{% endfor %}
+
+		</div>
+
+		<div class="block__list">
+
+			{% for person in block.team %}
+
+				<a href="#{{ person.slug }}">
+
+					<h4 class="block__list-name">{{ person.name }}</h4>
+
+					{% if person.role %}
+						<p>{{ person.role }}</p>
+					{% endif %}
+
+				</a>
+
+			{% endfor %}
+
+		</div>
+
+		<div class="block__profile-container">
+
+			{% for person in block.team %}
+
+				<div class="block__profile" id="{{ person.slug }}">
+
+					<div class="block__profile-background"></div>
+
+					{{ imgix({
+						src: person.image.url,
+						params: {
+							auto: 'format',
+							fit: 'crop',
+							crop: 'faces'
+						},
+						aspect_ratio: [1, 1],
+						transforms: [{
+							w: 80
+						}, {
+							w: 125
+						}, {
+							w: 180
+						}, {
+							w: 320
+						}, {
+							w: 500
+						}],
+						sizes: '28vw, (min-width: 640px) 21vw, (min-width: 768px) 18vw, (min-width: 1024px) 12vw, (min-width: 1340px) 170px',
+					}) }}
+
+					<div class="block__profile-header">
+
+						<h2 class="block__profile-name">{{ person.name }}</h2>
+						<h3 class="block__profile-role">{{ person.role }}</h3>
+
+						<div class="block__profile-social">
+
+							{% if person.twitter_name %}
+
+								<a href="https://twitter.com/{{ person.twitter_name}}" title="Follow {{ person.name }} on Twitter">
+									<svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
+								</a>
+
+							{% endif %}
+
+						</div>
+
+					</div>
+
+					<div class="block__profile-content">
+						{{ person.bio | raw }}
+					</div>
+
+				</div>
+
+			{% endfor %}
+
+		</div>
+
+	</div>
+
+</div>

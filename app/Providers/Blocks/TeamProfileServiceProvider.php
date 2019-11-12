@@ -23,6 +23,9 @@ class TeamProfileServiceProvider
 				'render_callback' => array($this, 'render'),
 				'category' => 'ocp-blocks',
 				'icon' => 'format-image',
+				'enqueue_assets' => function() {
+					wp_enqueue_script('block-team-profile', get_template_directory_uri() . '/dist/js/block-team-profile.js', ['manifest', 'vendor'], false, true);
+				},
 				'keywords' => ['team', 'profile'],
 				'post_types' => ['page'],
 				'supports' => [
@@ -39,11 +42,12 @@ class TeamProfileServiceProvider
 		$context = Timber::get_context();
 
 		$context['block'] = [];
-		$context['block']['heading'] = get_field('heading') ?: 'Add primary title here&hellip;';
-		$context['block']['image'] = get_field('image');
-		$context['block']['overlay_color'] = get_field('overlay_colour') ?: '#000000';
-		$context['block']['background_opacity'] = get_field('background_opacity') / 100;
-		$context['block']['background_color'] = hex2rgba($context['block']['overlay_color'], $context['block']['background_opacity']);
+		$context['block']['team'] = get_field('team_members');
+
+		$context['block']['team'] = array_map(function($person) {
+			$person['slug'] = sanitize_title($person['name']);
+			return $person;
+		}, $context['block']['team']);
 
 		echo Timber::compile('blocks/team-profile.twig', $context);
 
