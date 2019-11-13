@@ -50,7 +50,7 @@ class PrimaryCard
 
 		}
 
-		return $new_collection;
+		return array_values($new_collection);
 
 	}
 

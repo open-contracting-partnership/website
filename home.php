@@ -11,6 +11,7 @@
 namespace App;
 
 use App\Cards\FeatureCard;
+use App\Cards\PrimaryCard;
 use App\Http\Controllers\Controller;
 use App\PostTypes\News;
 use App\PostTypes\Event;
@@ -92,9 +93,11 @@ class HomeController extends Controller
 
 	protected function getBlogs() {
 
-		return Post::query([
+		$posts = Post::query([
 			'posts_per_page' => -1
 		]);
+
+		return PrimaryCard::convertTimberCollection($posts);
 
 	}
 

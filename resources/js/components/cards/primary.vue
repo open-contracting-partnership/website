@@ -5,8 +5,8 @@
 		<div class="card__image">
 
 			<imgix
-				v-if="card.thumbnail_url"
-				:url="card.thumbnail_url"
+				v-if="card.image_url"
+				:url="card.image_url"
 				:params="{
 					auto: 'format',
 					fit: 'crop'
@@ -48,65 +48,12 @@
 				sizes='100vw'
 			/>
 
-
-
-			<!-- {{ imgix({
-				src: card.image_url,
-				params: {
-					auto: 'format',
-					fit: 'crop'
-				},
-				aspect_ratio: [4, 3],
-				transforms: [{
-					w: 415
-				}, {
-					w: 830
-				}, {
-					w: 1024
-				}, {
-					w: 1536
-				}, {
-					w: 2048
-				}],
-				sizes: '100vw'
-			}) }} -->
-
-
-			<!-- {{ imgix({
-				src: card.image_url,
-				params: {
-					auto: 'format',
-					fit: 'crop'
-				},
-				aspect_ratio: [16, 9],
-				transforms: [{
-					w: 415
-				}, {
-					w: 830
-				}, {
-					w: 1024
-				}, {
-					w: 1536
-				}, {
-					w: 2048
-				}],
-				sizes: '100vw'
-			}) }}
-
-			{% if card.type_label %}
-
-				<div class="card__image-overlay">
-					<div class="card__tag">{{ card.type_label }}</div>
-				</div>
-
-			{% endif %} -->
-
 		</div>
 
 		<div class="card__main">
 
-			<a class="card__title-link" href="#">
-				<h2 class="card__title" v-html="card.post_title"></h2>
+			<a class="card__title-link" :href="card.url">
+				<h2 class="card__title" v-html="card.title"></h2>
 			</a>
 
 			<!-- <div class="card__footer">

@@ -59,6 +59,7 @@ category:
 	overflow: hidden;
 	background: $ui-grey;
 	color: $ui-white;
+	position: relative;
 
 	.card__image {
 
@@ -95,10 +96,22 @@ category:
 	}
 
 		.card__title-link {
+
 			display: block;
 			color: currentColor;
 			text-decoration: none;
 			max-width: 90%;
+
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			}
+
 		}
 
 			.card__title {
