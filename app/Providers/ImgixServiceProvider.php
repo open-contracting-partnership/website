@@ -8,26 +8,26 @@ use Timber\Timber;
 
 class ImgixServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any app specific items into the container
-     */
-    public function register()
-    {
+	/**
+	 * Register any app specific items into the container
+	 */
+	public function register()
+	{
 
-    }
+	}
 
-    /**
-     * Perform any additional boot required for this application
-     */
-    public function boot()
-    {
+	/**
+	 * Perform any additional boot required for this application
+	 */
+	public function boot()
+	{
 
 		add_filter('timber/twig', function(\Twig_Environment $twig) {
-		    $twig->addFunction(new \Twig\TwigFunction('imgix', [$this, 'render']));
-		    return $twig;
+			$twig->addFunction(new \Twig\TwigFunction('imgix', [$this, 'render']));
+			return $twig;
 		});
 
-    }
+	}
 
 	public function render($args) {
 

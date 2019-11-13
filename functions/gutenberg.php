@@ -6,17 +6,17 @@ add_action('admin_head', function() {
 		<style type="text/css">
 		/* Main column width */
 		.wp-block {
-		    max-width: 1200px;
+			max-width: 1200px;
 		}
 
 		/* Width of "wide" blocks */
-		     .wp-block[data-align="wide"] {
-		     max-width: 1080px;
+			 .wp-block[data-align="wide"] {
+			 max-width: 1080px;
 		}
 
 		/* Width of "full-wide" blocks */
 		.wp-block[data-align="full"] {
-		    max-width: none;
+			max-width: none;
 		}
 		</style>
 	';

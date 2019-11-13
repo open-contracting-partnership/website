@@ -8,19 +8,19 @@ use Rareloop\Lumberjack\Providers\ServiceProvider;
 
 class MailChimpServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any app specific items into the container
-     */
-    public function register()
-    {
+	/**
+	 * Register any app specific items into the container
+	 */
+	public function register()
+	{
 
-    }
+	}
 
-    /**
-     * Perform any additional boot required for this application
-     */
-    public function boot()
-    {
+	/**
+	 * Perform any additional boot required for this application
+	 */
+	public function boot()
+	{
 
 		add_action('rest_api_init', function() {
 
@@ -65,6 +65,6 @@ class MailChimpServiceProvider extends ServiceProvider
 			return new \WP_Error('mailchimp_error', $result['title'], ['status' => $result['status']]);
 		}
 
-    }
+	}
 
 }

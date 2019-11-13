@@ -69,7 +69,7 @@ class Search
 			$response = json_decode($data);
 
 			// set the transient for next time
-		    set_transient($this->transient_key, $response, 30 * MINUTE_IN_SECONDS);
+			set_transient($this->transient_key, $response, 30 * MINUTE_IN_SECONDS);
 
 		}
 
