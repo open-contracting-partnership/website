@@ -206,7 +206,7 @@ category:
 		display: grid;
 		padding: spacing(2) spacing(3);
 		grid-template-columns: auto 32px;
-		z-index: 1;
+		z-index: 5;
 
 		@include upto($header-break-2) {
 			overflow: hidden;
