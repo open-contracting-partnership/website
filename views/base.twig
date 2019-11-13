@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html {{ site.language_attributes }} class="no-js">
 
-    {% include 'partials/html-head.twig' %}
+	{% include 'partials/html-head.twig' %}
 
-    <body class="ocp / {{ body_class }}">
+	<body class="ocp / {{ body_class }}">
 
 		{% include 'partials/site-header.twig' %}
 
 		<main>
 
 			{% block content %}
-	            <p>Sorry, no content</p>
-	        {% endblock %}
+				<p>Sorry, no content</p>
+			{% endblock %}
 
 		</main>
 
-        {% include 'partials/site-footer.twig' %}
+		{% include 'partials/site-footer.twig' %}
 
-        {% include 'partials/svg-loader.twig' %}
+		{% include 'partials/svg-loader.twig' %}
 
 		{{ function('wp_footer') }}
 
-    </body>
+	</body>
 
 </html>
