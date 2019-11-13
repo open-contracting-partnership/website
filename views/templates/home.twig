@@ -31,12 +31,12 @@
 							</div>
 
 						{% endfor %}
-
+						
 						<div class="align-contents-right">
 
-							<a class="arrow-link" data-icon-color="grey" data-text-color="black" href="#">
+							<a class="arrow-link" data-icon-color="grey" data-text-color="black" href="{{ news_archive_link.url }}">
 								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-								<span class="arrow-link__label / uppercase">View all news</span>
+								<span class="arrow-link__label / uppercase">{{ news_archive_link.label }}</span>
 							</a>
 
 						</div>
@@ -63,9 +63,9 @@
 
 						<div class="align-contents-right">
 
-							<a class="arrow-link" data-icon-color="grey" data-text-color="black" href="#">
+							<a class="arrow-link" data-icon-color="grey" data-text-color="black" href="{{ events_archive_link.url }}">
 								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-								<span class="arrow-link__label / uppercase">View all events</span>
+								<span class="arrow-link__label / uppercase">{{ events_archive_link.label }}</span>
 							</a>
 
 						</div>
@@ -117,9 +117,9 @@
 
 					<h2 class="gamma">News</h2>
 
-					<a class="arrow-link" data-text-color="black" href="#">
+					<a class="arrow-link" data-text-color="black" href="{{ news_archive_link.url }}">
 						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-						<span class="arrow-link__label / uppercase">View all news</span>
+						<span class="arrow-link__label / uppercase">{{ news_archive_link.label }}</span>
 					</a>
 
 				</div>
@@ -145,7 +145,7 @@
 			</div>
 
 			{% endif %}
-			
+
 			{% if footer_latest_events %}
 
 				<div class="home__section">
@@ -154,9 +154,9 @@
 
 					<h2 class="gamma">Events</h2>
 
-					<a class="arrow-link" data-text-color="black" href="#">
+					<a class="arrow-link" data-text-color="black" href="{{ events_archive_link.url }}">
 						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-						<span class="arrow-link__label / uppercase">View all events</span>
+						<span class="arrow-link__label / uppercase">{{ events_archive_link.label }}</span>
 					</a>
 
 				</div>

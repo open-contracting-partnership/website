@@ -46,7 +46,6 @@ class HomeController extends Controller
 			'taxonomy' => 'issue',
 		]);
 
-
 		// localise the script only *after* the scripts are queued up
 		add_action('wp_enqueue_scripts', function() {
 
@@ -71,6 +70,16 @@ class HomeController extends Controller
 		}, 10, 3);
 
 		$context['featured_blog'] = $this->getFeaturedBlog();
+
+		$context['news_archive_link'] = [
+			'url' => get_post_type_archive_link('news'),
+			'label' => __('View all news', 'ocp')
+		];
+
+		$context['events_archive_link'] = [
+			'url' => get_post_type_archive_link('event'),
+			'label' => __('View all events', 'ocp')
+		];
 
 		$context['header_latest_news'] = $this->getLatestNews(2);
 		$context['footer_latest_news'] = $this->getLatestNews(4);
