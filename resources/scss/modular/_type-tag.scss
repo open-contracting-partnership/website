@@ -14,10 +14,19 @@ category:
 */
 
 .type-tag {
+
 	@include font('secondary');
 	font-size: 14px;
 	background-color: $ui-brand;
 	border-radius: 2px;
 	text-transform: uppercase;
 	padding: em(3, 14) em(4, 14) em(1, 14);
+
+	&[data-post-type="post"],
+	&[data-post-type="news"],
+	&[data-post-type="event"] {
+		background-color: $ui-orange;
+		color: $ui-white;
+	}
+
 }

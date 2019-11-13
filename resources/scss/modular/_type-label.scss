@@ -33,11 +33,9 @@ category:
 	align-items: center;
 	color: $ui-black;
 
-	&[data-post-type="post"] {
-		color: $ui-orange;
-	}
-
-	&[data-post-type="news"] {
+	&[data-post-type="post"],
+	&[data-post-type="news"],
+	&[data-post-type="event"] {
 		color: $ui-orange;
 	}
 
