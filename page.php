@@ -17,15 +17,15 @@ use Timber\Timber;
 
 class PageController extends Controller
 {
-    public function handle()
-    {
-        $context = Timber::get_context();
-        $page = new Page();
+	public function handle()
+	{
+		$context = Timber::get_context();
+		$page = new Page();
 
-        $context['post'] = $page;
-        $context['title'] = $page->title;
-        $context['content'] = $page->content;
+		$context['post'] = $page;
+		$context['title'] = $page->title;
+		$context['content'] = $page->content;
 
-        return new TimberResponse('templates/generic-page.twig', $context);
-    }
+		return new TimberResponse('templates/page.twig', $context);
+	}
 }
