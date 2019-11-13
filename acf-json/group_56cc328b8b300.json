@@ -1,6 +1,6 @@
 {
     "key": "group_56cc328b8b300",
-    "title": "Team Members",
+    "title": "Block: Team Profile",
     "fields": [
         {
             "key": "field_56cc32b5754be",
@@ -31,17 +31,16 @@
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
+                    "gutenberg_visibility": "both",
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
+                    "maxlength": ""
                 },
                 {
                     "key": "field_56cc32ce754c0",
@@ -52,17 +51,16 @@
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
+                    "gutenberg_visibility": "both",
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
+                    "maxlength": ""
                 },
                 {
                     "key": "field_56cc32d5754c1",
@@ -116,17 +114,54 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
+                    "gutenberg_visibility": "both",
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5dcc16e7a8eec",
+                    "label": "Email Address",
+                    "name": "email_address",
+                    "type": "email",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_5dcc17282a860",
+                    "label": "WordPress Author",
+                    "name": "wordpress_author",
+                    "type": "user",
+                    "instructions": "Associate this person with their WordPress user to show their blog posts",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "role": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "id"
                 }
             ]
         }
@@ -150,5 +185,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1573581397
+    "modified": 1573656442
 }
