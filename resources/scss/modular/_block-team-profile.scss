@@ -873,7 +873,7 @@ Karolis earned his bachelor’s degree in international law from the University 
 
 			grid-column: all;
 
-			--columns: 3;
+			--columns: 5;
 
 			display: grid;
 			grid-template-columns: repeat(var(--columns), 1fr);
@@ -881,12 +881,8 @@ Karolis earned his bachelor’s degree in international law from the University 
 
 			margin-bottom: var(--v-spacing);
 
-			@include from(S) {
-				--columns: 4;
-			}
-
-			@include from(T) {
-				--columns: 5;
+			@include upto(T) {
+				display: none;
 			}
 
 			@include from(M) {
@@ -1045,6 +1041,10 @@ Karolis earned his bachelor’s degree in international law from the University 
 			grid-column: 1 / 5;
 			font-size: 16px;
 
+			@include upto(T) {
+				display: none;
+			}
+
 			a {
 				display: block;
 				@extend %reverse-underline;
@@ -1059,19 +1059,60 @@ Karolis earned his bachelor’s degree in international law from the University 
 
 
 		.block__profile-container {
-			grid-column: 6 / -1;
+
+			grid-column: all;
+
+			@include from(T) {
+				grid-column: 6 / -1;
+			}
+
 		}
 
 			.block__profile {
 
-				--content-padding: #{spacing(7)};
+				--profile-offset: #{spacing(2)};
+				--profile-avatar-size: 72px;
+				--content-padding: #{spacing(2)};
+				--header-padding: #{spacing(2)};
+
 				display: grid;
-				grid-template-columns: spacing(2) var(--content-padding) [content-start] calc(184px - #{spacing(2)} - var(--content-padding)) spacing(6) auto [content-end] var(--content-padding);
-				grid-template-rows: spacing(2) spacing(2) [header-start] 136px [header-end] spacing(2) spacing(3) [content-start] auto [content-end] var(--content-padding);
+				grid-template-columns:
+					var(--profile-offset)
+					var(--content-padding)
+					[content-start]
+						calc(var(--profile-avatar-size) - var(--profile-offset) - var(--content-padding))
+						var(--header-padding)
+						auto
+					[content-end]
+					var(--content-padding);
+
+				grid-template-rows:
+					var(--profile-offset)
+					[header-start]
+						minmax(
+							calc(var(--profile-avatar-size) - var(--profile-offset)), auto
+						)
+					[header-end]
+					min-content;
+
 				margin-bottom: var(--v-spacing-half);
 
-				&:not(.active) {
-					display: none;
+				@include from(T) {
+
+					--content-padding: #{spacing(4)};
+					--header-padding: #{spacing(2)};
+					--profile-avatar-size: #{spacing(16)};
+
+					&:not(.active) {
+						display: none;
+					}
+
+				}
+
+				@include from(M) {
+					--content-padding: #{spacing(7)};
+					--header-padding: #{spacing(4)};
+					--profile-avatar-size: #{spacing(23)};
 				}
 
 			}
@@ -1083,61 +1124,99 @@ Karolis earned his bachelor’s degree in international law from the University 
 					border: 5px solid $ui-brand;
 				}
 
-					.block__profile-background {
-						grid-column: 2 / -1;
-						grid-row: 2 / -1;
-						background-color: $ui-grey-8;
-						border-radius: spacing(8) spacing(1) spacing(4) spacing(1);
-					}
+				.block__profile-background {
+					grid-column: 2 / -1;
+					grid-row: 2 / -1;
+					background-color: $ui-grey-8;
+					border-radius: spacing(8) spacing(1) spacing(4) spacing(1);
+				}
 
-					.block__profile-header {
-						grid-row: header;
-						grid-column: 5 / -2;
+				.block__profile-header {
+					grid-row: header;
+					grid-column: 5 / -2;
+					padding: var(--header-padding) 0;
+
+					@include from(T) {
 						align-self: center;
 					}
 
-						.block__profile-name {
-							font-size: 30px;
-							margin-bottom: 0;
-						}
+				}
 
-						.block__profile-role {
-							font-size: 22px;
-							@include font('secondary');
-							margin-bottom: 0;
-						}
-
-						.block__profile-social {
-
-							display: flex;
-							flex-wrap: wrap;
-
-							a {
-								display: block;
-								margin-top: spacing(2);
-								margin-right: spacing(2);
-							}
-
-							a > svg {
-
-								display: block;
-								font-size: 26px;
-								fill: $ui-grey-4;
-								height: 1em;
-
-								&[data-icon="twitter"] {
-									width: 1.09em;
-								}
-
-							}
-
-						}
-
-					.block__profile-content {
-						font-size: 16px;
-						@include font('secondary');
-						grid-row: content;
-						grid-column: content;
+					.block__profile-name {
+						@include fluid-type(font-size, 375px, 1240px, 20px, 30px);
+						margin-bottom: 0;
 					}
+
+					.block__profile-role {
+						@include fluid-type(font-size, 375px, 1240px, 16px, 22px);
+						@include font('secondary');
+						margin-bottom: 0;
+					}
+
+					.block__profile-social {
+
+						display: flex;
+						flex-wrap: wrap;
+
+						@include upto(T) {
+							display: none;
+						}
+
+						a {
+							display: block;
+							margin-top: spacing(2);
+							margin-right: spacing(2);
+						}
+
+						a > svg {
+
+							display: block;
+							font-size: 26px;
+							fill: $ui-grey-4;
+							height: 1em;
+
+							&[data-icon="twitter"] {
+								width: 1.09em;
+							}
+
+						}
+
+					}
+
+					.block__profile-mobile-toggle {
+
+						@include font('secondary', 'bold');
+						margin-top: spacing(.5);
+
+						@include from(T) {
+							display: none;
+						}
+
+					}
+
+				.block__profile-content {
+					font-size: 16px;
+					@include font('secondary');
+					grid-row: -2;
+					grid-column: content;
+					margin-top: spacing(2);
+					margin-bottom: spacing(4);
+				}
+
+			@include upto(T) {
+
+				.block__profile:not(.mobile-active) .block__profile-content {
+					display: none;
+				}
+
+				.block__profile.mobile-active .block__profile-mobile-toggle[data-action="show"] {
+					display: none;
+				}
+
+				.block__profile:not(.mobile-active) .block__profile-mobile-toggle[data-action="hide"] {
+					display: none;
+				}
+
+			}
 
 }

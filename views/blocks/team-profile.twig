@@ -103,6 +103,9 @@
 
 						</div>
 
+						<button class="block__profile-mobile-toggle / button--naked" data-action="show">Show bio</button>
+						<button class="block__profile-mobile-toggle / button--naked" data-action="hide">Hide bio</button>
+
 					</div>
 
 					<div class="block__profile-content">
@@ -118,3 +121,12 @@
 	</div>
 
 </div>
+
+<script>
+
+	window.document.dispatchEvent(new Event('ocp-block-team-profile-loaded', {
+		bubbles: true,
+		cancelable: true
+	}));
+
+</script>
