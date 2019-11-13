@@ -1,3 +1,31 @@
+body {
+
+	--container-width: 1200px;
+	--container-padding: #{spacing(3)};
+
+	@include from(M) {
+		--container-padding: #{spacing(10)};
+	}
+
+}
+
+%container {
+	width: 100%;
+	max-width: calc(var(--container-width) + (var(--container-padding) * 2));
+	padding: 0 var(--container-padding);
+	margin: 0 auto;
+}
+
+%container-reset {
+
+	margin: 0 calc(0px - var(--container-padding));
+
+	@include from(1360) {
+		margin: 0 calc(0px - ((100vw - 1200px) / 2));
+	}
+
+}
+
 %grid-layout {
 
 	display: grid;

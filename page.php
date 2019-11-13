@@ -25,6 +25,7 @@ class PageController extends Controller
 		$context['post'] = $page;
 		$context['title'] = $page->title;
 		$context['content'] = $page->content;
+		$context['hide_title'] = $page->hide_title;
 
 		return new TimberResponse('templates/page.twig', $context);
 	}
