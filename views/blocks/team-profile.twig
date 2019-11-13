@@ -93,6 +93,14 @@
 
 						<div class="block__profile-social">
 
+							{% if person.email_address %}
+
+								<a href="mailto:{{ person.email_address }}" title="Email {{ person.name }}">
+									<svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
+								</a>
+
+							{% endif %}
+
 							{% if person.twitter_name %}
 
 								<a href="https://twitter.com/{{ person.twitter_name}}" title="Follow {{ person.name }} on Twitter">

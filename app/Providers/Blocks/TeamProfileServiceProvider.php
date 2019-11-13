@@ -54,7 +54,7 @@ class TeamProfileServiceProvider
 			$person['slug'] = sanitize_title($person['name']);
 			return $person;
 		}, $context['block']['team']);
-
+// dd($context['block']['team']);
 		echo Timber::compile('blocks/team-profile.twig', $context);
 
 	}
