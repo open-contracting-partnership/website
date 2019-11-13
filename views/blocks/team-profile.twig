@@ -117,7 +117,23 @@
 					</div>
 
 					<div class="block__profile-content">
+
 						{{ person.bio | raw }}
+
+						{% if person.posts | length %}
+
+							<div class="block__profile-posts">
+
+								<h4 class="heading-border">Latest blogs</h4>
+
+								{% for card in person.posts %}
+									{% include 'cards/text.twig' with card %}
+								{% endfor %}
+
+							</div>
+
+						{% endif %}
+
 					</div>
 
 				</div>

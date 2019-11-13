@@ -2,7 +2,9 @@
 
 namespace App\Providers\Blocks;
 
+use App\Cards\TextCard;
 use App\Providers\Blocks\BaseBlock;
+use Rareloop\Lumberjack\Post;
 use Timber\Timber;
 
 class TeamProfileServiceProvider
@@ -51,10 +53,26 @@ class TeamProfileServiceProvider
 		$context['block']['team'] = get_field('team_members');
 
 		$context['block']['team'] = array_map(function($person) {
+
+			// set the slug
 			$person['slug'] = sanitize_title($person['name']);
+
+			// add any blog posts
+			$person['posts'] = array();
+
+			if ( $person['wordpress_author'] ) {
+
+				$person['posts'] = TextCard::convertTimberCollection(Post::query([
+					'author' => $person['wordpress_author'],
+					'posts_per_page' => 3
+				]));
+
+			}
+
 			return $person;
+
 		}, $context['block']['team']);
-		
+
 		echo Timber::compile('blocks/team-profile.twig', $context);
 
 	}
