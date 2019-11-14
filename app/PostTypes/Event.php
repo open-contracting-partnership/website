@@ -2,6 +2,7 @@
 
 namespace App\PostTypes;
 
+use ImLiam\ShareableLink;
 use Rareloop\Lumberjack\Post;
 
 class Event extends Post
@@ -39,5 +40,50 @@ class Event extends Post
 			'supports' => ['title', 'editor'],
 			'show_in_rest' => true
 		];
+	}
+
+	public static function convertTimberObject($event) {
+
+		$context = array();
+
+		$context['title'] = $event->title;
+		$context['date'] = date('j M Y', strtotime($event->event_date));
+		$context['location'] = $event->event_location;
+		$context['link'] = $event->link;
+		$context['content'] = $event->content;
+		$context['organisation'] = $event->organisation;
+
+		// terms
+		$context['audience'] = $event->audience;
+		$context['issue'] = $event->issue;
+		$context['region'] = $event->region;
+		$context['country'] = $event->country;
+		$context['open_contracting'] = $event->open_contracting;
+
+		$taxonomies = ['audience', 'issue', 'region', 'country', 'open_contracting'];
+
+		// for each of the taxonomies, convert the term id to a term object
+		foreach ( $taxonomies as $taxonomy ) {
+
+			if ( ! is_array($context[$taxonomy]) ) {
+				continue;
+			}
+
+			$context[$taxonomy] = array_map(function($term) {
+				return get_term($term);
+			}, $context[$taxonomy]);
+
+		}
+
+		$share_links = new ShareableLink($event->link(), $event->title);
+
+		$context['share_links'] = array(
+			'twitter' => $share_links->twitter,
+			'facebook' => $share_links->facebook,
+			'linkedin' => $share_links->linkedin
+		);
+
+		return $context;
+
 	}
 }

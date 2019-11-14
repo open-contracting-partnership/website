@@ -131,7 +131,7 @@ category:
 	.arrow-link__icon {
 		font-size: 24px;
 	}
-	
+
 	.arrow-link__label {
 		font-size: 11px;
 	}
@@ -140,6 +140,10 @@ category:
 
 .arrow-link[data-icon-color="white"] .arrow-link__icon {
 	fill: $ui-white;
+}
+
+.arrow-link[data-icon-color="orange"] .arrow-link__icon {
+	fill: $ui-orange;
 }
 
 .arrow-link[data-icon-color="grey"] .arrow-link__icon {

@@ -1,0 +1,67 @@
+<section class="event">
+
+	<div class="event__date">
+		<svg><use xlink:href="#icon-event"></use></svg>
+		<span>{{ event.date }}</span>
+	</div>
+
+	<h1 class="event__title">{{ event.title }}</h1>
+
+	<p class="event__meta / uppercase">Organisation: {{ event.organisation }}. {% if event.location %}Location: {{ event.location }}{% endif %}</p>
+
+	<div class="event__content">
+		{{ event.content | raw }}
+	</div>
+
+	{% if event.link %}
+
+		<a class="arrow-link" data-icon-color="orange" data-text-color="black" href="{{ event.link }}">
+			<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+			<span class="arrow-link__label / uppercase">More details</span>
+		</a>
+
+	{% endif %}
+
+	<div class="event__share">
+
+		<h3 class="event__share-title">Share:</h3>
+
+		{% if event.share_links.twitter %}
+
+			<a class="event__share-link" href="{{ event.share_links.twitter }}">
+				<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
+			</a>
+
+		{% endif %}
+
+		{% if event.share_links.facebook %}
+
+			<a class="event__share-link" href="{{ event.share_links.facebook }}">
+				<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
+			</a>
+
+		{% endif %}
+
+		{% if event.share_links.linkedin %}
+
+			<a class="event__share-link" href="{{ event.share_links.linkedin }}">
+				<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
+			</a>
+
+		{% endif %}
+
+	</div>
+
+	<div class="event__footer">
+
+		{% if event.region %}
+			<p><strong>Location:</strong> {{ event.region[0].name }}</p>
+		{% endif %}
+
+		{% if event.audience %}
+			<p><strong>Audience:</strong> {{ event.audience[0].name }}</p>
+		{% endif %}
+
+	</div>
+
+</section>

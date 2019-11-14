@@ -1,0 +1,22 @@
+.event-single {
+	@extend %column-grid;
+}
+
+	.event-single__header {
+		grid-column: all;
+		margin-bottom: var(--v-spacing);
+	}
+
+	.event-single__event {
+
+		grid-column: all;
+
+		@include from(T) {
+			grid-column: 1 / 11;
+		}
+
+		@include from(M) {
+			grid-column: 1 / 9;
+		}
+
+	}

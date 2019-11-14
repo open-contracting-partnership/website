@@ -1,0 +1,68 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<main class="page-container / event-archive">
+
+		<header class="event-archive__header">
+
+			{% if back_link %}
+
+				<a class="arrow-link" href="{{ back_link.url }}" data-direction="west" data-text-color="black">
+					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+					<span class="arrow-link__label / uppercase">{{ back_link.label }}</span>
+				</a>
+
+			{% endif %}
+
+			<h1 class="event-archive__heading">{{ title }}</h1>
+
+			<div class="event-archive__intro">
+				<p>Open contracting events around the world. Are you hosting an event? Let us know and we'll be happy to share here.</p>
+			</div>
+
+		</header>
+
+		<aside class="event-archive__sidebar">
+
+			{% if upcoming_events | length %}
+
+				<h3 class="event-archive__sidebar-heading">Upcoming events</h3>
+
+				<div class="event-archive__sidebar-events">
+
+					{% for card in upcoming_events %}
+						{% include 'cards/event.twig' with card %}
+					{% endfor %}
+
+				</div>
+
+			{% endif %}
+
+			{% if archive_events | length %}
+
+				<h3 class="event-archive__sidebar-heading">View past events</h3>
+
+				<div class="event-archive__sidebar-events">
+
+					{% for card in archive_events %}
+						{% include 'cards/event.twig' with card %}
+					{% endfor %}
+
+				</div>
+
+			{% endif %}
+
+		</aside>
+
+		{% if latest_event %}
+
+			<div class="event-archive__next">
+				{% include 'partials/event.twig' with {event: latest_event} %}
+			</div>
+
+		{% endif %}
+
+	</main>
+
+{% endblock %}
