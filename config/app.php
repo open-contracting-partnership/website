@@ -38,6 +38,7 @@ return [
 		App\Providers\Blocks\ContentWithSidebarServiceProvider::class,
 		App\Providers\Blocks\CoverServiceProvider::class,
 		App\Providers\Blocks\ImageWithLinksServiceProvider::class,
+		App\Providers\Blocks\PersonServiceProvider::class,
 		App\Providers\Blocks\MoreStoriesServiceProvider::class,
 		App\Providers\Blocks\ResourceServiceProvider::class,
 		App\Providers\Blocks\SignUpCoverServiceProvider::class,
