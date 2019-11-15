@@ -252,6 +252,33 @@
             },
             "wpml_cf_preferences": 0,
             "default_value": ""
+        },
+        {
+            "key": "field_5dce842b8a1ef",
+            "label": "Sidebar Width",
+            "name": "sidebar_width",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "choices": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -271,5 +298,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571927588
+    "modified": 1573815488
 }

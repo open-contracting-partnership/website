@@ -46,6 +46,7 @@ class ContentWithSidebarServiceProvider
 		$context['block']['text_colour'] = $context['block']['is_dark'] ? '#FFF' : '#000';
 		$context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
 		$context['block']['sidebar_content'] = get_field('sidebar_content');
+		$context['block']['sidebar_width'] = get_field('sidebar_width');
 
 		echo Timber::compile('blocks/content-with-sidebar.twig', $context);
 
