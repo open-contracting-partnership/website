@@ -62,7 +62,7 @@ class TeamProfileServiceProvider
 
 			if ( $person['wordpress_author'] ) {
 
-				$person['posts'] = TextCard::convertTimberCollection(Post::query([
+				$person['posts'] = TextCard::convertCollection(Post::query([
 					'author' => $person['wordpress_author'],
 					'posts_per_page' => 3
 				]));

@@ -45,65 +45,41 @@ class MoreStoriesColumnsServiceProvider
 
 		foreach ( $context['block']['columns'] as &$column ) {
 
-			if ( $column['automatic_posts'] ) {
+			if ( $column['acf_fc_layout'] === 'resource' ) {
 
-				if ( $column['acf_fc_layout'] === 'resource' ) {
+				$posts = $column['manual_posts'] ?: [];
+
+				if ( $column['automatic_posts'] ) {
 
 					$posts = Timber::get_posts([
 						'post_type' => $column['automatic_post_type'],
 						'posts_per_page' => 2
 					]);
 
-					$column['posts'] = ResourceCard::convertTimberCollection($posts);
-
 				}
 
-				if ( $column['acf_fc_layout'] === 'default' ) {
+				$column['posts'] = ResourceCard::convertCollection($posts);
+
+			}
+
+			if ( $column['acf_fc_layout'] === 'default' ) {
+
+				$posts = $column['manual_posts'] ?: [];
+
+				if ( $column['automatic_posts'] ) {
 
 					$posts = Timber::get_posts([
 						'post_type' => $column['automatic_post_type'],
 						'posts_per_page' => 3
 					]);
 
-					$column['posts'] = TextCard::convertTimberCollection($posts);
-
 				}
 
-			} else {
-
+				$column['posts'] = TextCard::convertCollection($posts);
 
 			}
 
 		}
-
-
-		// dd($context['block']['columns']);
-
-		//
-		// if ( $stories = get_field('stories') ) {
-		//
-		// 	foreach ( $stories as $story ) {
-		//
-		// 		if ( $story['acf_fc_layout'] === 'internal_link' ) {
-		// 			$context['block']['stories'][] = PrimaryCard::buildData($story['link'][0]);
-		// 		}
-		//
-		// 		if ( $story['acf_fc_layout'] === 'custom_link' ) {
-		//
-		// 			$context['block']['stories'][] = [
-		// 				'image_url' => $story['image']['url'],
-		// 				'type_label' => $story['type'],
-		// 				'title' => $story['title'],
-		// 				'url' => $story['url'],
-		// 				'meta' => $story['meta'],
-		// 				'button_label' => $story['button_label'] ?: __('Read', 'ocp')
-		// 			];
-		//
-		// 		}
-		//
-		// 	}
-		//
-		// }
 
 		$context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';
 		$context['block']['text_colour'] = isContrastingColourLight($context['block']['background_colour']) ? '#FFF' : '#000';
