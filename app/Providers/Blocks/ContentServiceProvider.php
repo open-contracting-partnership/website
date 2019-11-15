@@ -39,12 +39,13 @@ class ContentServiceProvider
 		$context = Timber::get_context();
 
 		$context['block'] = [];
-		$context['block']['title'] = get_field('title') ?: 'Title...';
+		$context['block']['title'] = get_field('title');
 		$context['block']['content'] = get_field('content');
 		$context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';
 		$context['block']['is_dark'] = isContrastingColourLight($context['block']['background_colour']);
 		$context['block']['text_colour'] = $context['block']['is_dark'] ? '#FFF' : '#000';
 		$context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
+		$context['block']['width'] = get_field('width') ?: 'full';
 
 		echo Timber::compile('blocks/content.twig', $context);
 

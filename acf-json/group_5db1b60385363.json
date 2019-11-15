@@ -8,7 +8,7 @@
             "name": "title",
             "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -208,6 +208,32 @@
             },
             "wpml_cf_preferences": 0,
             "default_value": ""
+        },
+        {
+            "key": "field_5dce7dfb54b07",
+            "label": "Width",
+            "name": "width",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "choices": {
+                "full": "Full",
+                "three-quarters": "Three quarters"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -227,5 +253,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1572436190
+    "modified": 1573814052
 }

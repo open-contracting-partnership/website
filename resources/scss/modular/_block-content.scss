@@ -127,4 +127,14 @@ category:
 
 		}
 
+	// variations
+
+	@include from(T) {
+
+		&[data-width="three-quarters"] .block__container {
+			grid-column: content / 13;
+		}
+
+	}
+
 }
