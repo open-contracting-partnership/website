@@ -40,6 +40,7 @@ return [
 		App\Providers\Blocks\ImageWithLinksServiceProvider::class,
 		App\Providers\Blocks\LogosServiceProvider::class,
 		App\Providers\Blocks\PersonServiceProvider::class,
+		App\Providers\Blocks\MoreStoriesColumnsServiceProvider::class,
 		App\Providers\Blocks\MoreStoriesServiceProvider::class,
 		App\Providers\Blocks\ResourceServiceProvider::class,
 		App\Providers\Blocks\SignUpCoverServiceProvider::class,

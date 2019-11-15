@@ -20,13 +20,13 @@ class TextCard
 
 	public static function convertTimberCollection($collection) {
 
-		if ( get_class($collection) !== 'Tightenco\Collect\Support\Collection' ) {
-			return false;
-		}
-
 		$new_collection = [];
 
 		foreach ( $collection as $post ) {
+
+			if ( get_class($post) !== 'Timber\Post' ) {
+				continue;
+			}
 
 			$new_collection[$post->ID] = [
 				'title' => $post->post_title,

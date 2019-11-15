@@ -19,4 +19,27 @@ class ResourceCard
 
 	}
 
+	public static function convertTimberCollection($collection) {
+
+		$new_collection = [];
+
+		foreach ( $collection as $post ) {
+
+			if ( get_class($post) !== 'Timber\Post' ) {
+				continue;
+			}
+
+			$new_collection[$post->ID] = [
+				'title' => $post->post_title,
+				'url' => $post->link,
+				'type' => $post->post_type,
+				'type_label' => get_post_type_label($post->post_type)
+			];
+
+		}
+
+		return array_values($new_collection);
+
+	}
+
 }
