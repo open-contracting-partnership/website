@@ -34,7 +34,7 @@ category:
 	display: flex;
 	overflow: hidden;
 
-	&[data-colour="grey"] {
+	&[data-colour="grey"] .card__date {
 		background-color: $ui-grey-5;
 	}
 

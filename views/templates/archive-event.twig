@@ -46,7 +46,7 @@
 				<div class="event-archive__sidebar-events">
 
 					{% for card in archive_events %}
-						{% include 'cards/event.twig' with card %}
+						{% include 'cards/event.twig' with {card: card, options: {colour: 'grey'}} %}
 					{% endfor %}
 
 				</div>
