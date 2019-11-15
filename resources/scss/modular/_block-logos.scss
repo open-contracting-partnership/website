@@ -1,0 +1,101 @@
+/*
+
+---
+name: Logos
+category:
+ - Blocks
+ - Blocks/Logos
+---
+
+```html
+<div class="block" data-block-type="person">
+
+	<div class="block__background" style="background-color: #23B2A7"></div>
+
+	<div class="block__container" style="color: white;">
+
+		<div class="block__author">
+
+			<div class="block__author-avatar">
+				<img src="//placehold.it/300">
+			</div>
+
+			<div class="block__author-details">
+
+				<h4 class="block__author-heading">CONTACT OUR EXPERT</h4>
+
+				<p>Ben Everard, <br />Developer</p>
+
+				<div class="block__author-social">
+
+					<a href="#">
+						<svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
+					</a>
+
+					<a href="#">
+						<svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
+					</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.block[data-block-type="logos"] {
+
+	--logo-margin: #{spacing(1)};
+	@include fluid-type(--block-pading, 375px, 1240px, spacing(4), spacing(6));
+	--padding-bottom: calc(var(--block-pading) - (var(--logo-margin) * 2));
+	
+	grid-template-rows: [all-start] repeat(6, auto) [all-end];
+
+	@include from(T) {
+		--logo-margin: #{spacing(3)};
+	}
+
+	.block__background {
+		grid-column: wide;
+		grid-row: all;
+	}
+
+	.block__container {
+		position: relative;
+		grid-column: content;
+		grid-row: 2;
+		display: grid;
+		@extend %column-grid;
+		padding: var(--block-pading) 0 var(--padding-bottom);
+	}
+
+		.block__title {
+			font-size: 24px;
+			grid-column: all;
+			text-align: center;
+			margin-bottom: spacing(4);
+		}
+
+		.block__logos-container {
+			grid-column: all;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+			.block__logo {
+				height: spacing(11);
+				width: spacing(11);
+				border-radius: 50%;
+				overflow: hidden;
+				flex: 0 0 spacing(11);
+				margin: 0 var(--logo-margin) calc(var(--logo-margin) * 2);
+				background-color: $ui-white;
+			}
+}
