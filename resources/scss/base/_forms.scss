@@ -474,3 +474,62 @@ category:
 	}
 
 }
+
+/*
+
+---
+name: Input circle
+category:
+ - Base
+ - Base/Forms
+---
+
+```html
+<input type="checkbox" class="input-circle">
+```
+
+*/
+
+.input-circle {
+
+	--colour: #{$ui-grey-4};
+
+	appearance: none;
+	font-size: 21px;
+	border: 3px solid var(--colour);
+	background-color: $ui-white;
+	width: 1em;
+	height: 1em;
+	cursor: pointer;
+	user-select: none;
+	border-radius: 50%;
+	margin: 0;
+	padding: 0;
+	transition: background-color .3s ease;
+
+	&:checked,
+	&.checked {
+		background-color: var(--colour);
+	}
+
+	&[data-colour="blue"] {
+		--colour: #{$ui-blue};
+	}
+
+	&[data-colour="orange"] {
+		--colour: #{$ui-orange};
+	}
+
+	&[data-colour="teal"] {
+		--colour: #{$ui-teal};
+	}
+
+	&[data-colour="green"] {
+		--colour: #{$ui-brand};
+	}
+
+	&[data-colour="light-green"] {
+		--colour: #{$ui-brand-2};
+	}
+
+}
