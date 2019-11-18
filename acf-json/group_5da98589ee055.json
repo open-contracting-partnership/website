@@ -112,6 +112,34 @@
             "max": ""
         },
         {
+            "key": "field_5dd25beecafb7",
+            "label": "Card type",
+            "name": "card_type",
+            "type": "select",
+            "instructions": "Select which card type to use when outputting the stories",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "choices": {
+                "default": "Default",
+                "resource": "Resource"
+            },
+            "default_value": [
+                "default"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_5da9858a7e655",
             "label": "Background Colour",
             "name": "background_colour",
@@ -161,5 +189,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1573831559
+    "modified": 1574067241
 }

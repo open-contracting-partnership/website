@@ -10,9 +10,21 @@
 
 		<div class="block__stories">
 
-			{% for card in block.stories %}
-				{% include 'cards/primary.twig' with card %}
-			{% endfor %}
+			{% if block.card_type == 'default' %}
+
+				{% for card in block.stories %}
+					{% include 'cards/primary.twig' with card %}
+				{% endfor %}
+
+			{% endif %}
+
+			{% if block.card_type == 'resource' %}
+
+				{% for card in block.stories %}
+					{% include 'cards/resource.twig' with card %}
+				{% endfor %}
+
+			{% endif %}
 
 		</div> <!-- / .block__stories -->
 
