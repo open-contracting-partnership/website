@@ -54,24 +54,18 @@ class Event extends Post
 		$context['organisation'] = $event->organisation;
 
 		// terms
-		$context['audience'] = $event->audience;
-		$context['issue'] = $event->issue;
-		$context['region'] = $event->region;
-		$context['country'] = $event->country;
-		$context['open_contracting'] = $event->open_contracting;
-
-		$taxonomies = ['audience', 'issue', 'region', 'country', 'open_contracting'];
+		$context['taxonomies']['region'] = $event->region;
+		$context['taxonomies']['audience'] = $event->audience;
+		// $context['taxonomies']['issue'] = $event->issue;
+		// $context['taxonomies']['country'] = $event->country;
+		// $context['taxonomies']['open_contracting'] = $event->open_contracting;
 
 		// for each of the taxonomies, convert the term id to a term object
-		foreach ( $taxonomies as $taxonomy ) {
+		foreach ( $context['taxonomies'] as &$taxonomy ) {
 
-			if ( ! is_array($context[$taxonomy]) ) {
-				continue;
-			}
-
-			$context[$taxonomy] = array_map(function($term) {
+			$taxonomy = array_map(function($term) {
 				return get_term($term);
-			}, $context[$taxonomy]);
+			}, $taxonomy);
 
 		}
 

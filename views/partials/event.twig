@@ -26,16 +26,8 @@
 		share_links: event.share_links
 	} %}
 
-	<div class="event__footer">
-
-		{% if event.region %}
-			<p><strong>Location:</strong> {{ event.region[0].name }}</p>
-		{% endif %}
-
-		{% if event.audience %}
-			<p><strong>Audience:</strong> {{ event.audience[0].name }}</p>
-		{% endif %}
-
-	</div>
+	{% include 'partials/taxonomies-list.twig' with {
+		taxonomies: event.taxonomies
+	} %}
 
 </section>
