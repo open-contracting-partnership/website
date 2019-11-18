@@ -88,6 +88,8 @@ category:
 
 .card.card--resource {
 
+	--accent-colour: #{$ui-white};
+
 	background-color: $ui-grey-3;
 	color: $ui-white;
 	border-radius: spacing(4) spacing(1) spacing(4) spacing(1);
@@ -111,7 +113,7 @@ category:
 		}
 
 	.card__footer {
-		border-top: 4px solid $ui-white;
+		border-top: 4px solid var(--accent-colour);
 		margin-top: spacing(1);
 		padding-top: 10px;
 		display: flex;
@@ -124,7 +126,7 @@ category:
 			height: 1em;
 			width: 1em;
 			border-radius: 50%;
-			border: 8px solid $ui-white;
+			border: 8px solid var(--accent-colour);
 			flex: 0 0 auto;
 			margin-right: spacing(1);
 			box-sizing: border-box;
@@ -141,46 +143,35 @@ category:
 	// Colour Scheme
 
 	&[data-colour-scheme="light"] {
-
-		// NOTE: the light resource is a different colour, but then the impact
-		// page asks for this, could it remain the lighter (this) colour.
 		background-color: #F6F6F6;
 		color: $ui-black;
-
-		.card__footer {
-			border-color: $ui-black;
-		}
-
-		.card__icon {
-			border-color: $ui-black;
-		}
-
+		--accent-colour: #{$ui-black};
 	}
 
-	// Highlight Colour
+	// post type colours
 
 	&[data-post-type="post"] {
-
-		.card__footer {
-			border-color: $ui-orange;
-		}
-
-		.card__icon {
-			border-color: $ui-orange;
-		}
-
+		--accent-colour: #{$ui-orange};
 	}
 
 	&[data-post-type="resource"] {
+		--accent-colour: #{$ui-blue};
+	}
 
-		.card__footer {
-			border-color: $ui-blue;
-		}
+	// resource type colours
 
-		.card__icon {
-			border-color: $ui-blue;
-		}
+	&[data-post-type="annual-report"] {
+		--accent-colour: #{$ui-brand};
+	}
 
+	&[data-post-type="report"],
+	&[data-post-type="guide"] {
+		--accent-colour: #{$ui-orange};
+	}
+
+	&[data-post-type="data-tool"],
+	&[data-post-type="training-material"] {
+		--accent-colour: #{$ui-blue};
 	}
 
 }

@@ -24,6 +24,7 @@ add_action('wp_enqueue_scripts', function() {
 	// SPECIFIC
 	Assets::registerScript('page-impact-stories', '/dist/js/impact-stories.js', ['manifest', 'vendor'], TRUE);
 	Assets::registerScript('latest-news', '/dist/js/latest-news.js', ['manifest', 'vendor'], TRUE);
+	Assets::registerScript('archive-resource', '/dist/js/archive-resource.js', ['manifest', 'vendor'], TRUE);
 	Assets::registerScript('page-worldwide', '/dist/js/worldwide.js', ['manifest', 'vendor'], TRUE);
 
 
@@ -41,6 +42,10 @@ add_action('wp_enqueue_scripts', function() {
 
 	if ( is_home() ) {
 		wp_enqueue_script('latest-news');
+	}
+
+	if ( is_post_type_archive('resource') ) {
+		wp_enqueue_script('archive-resource');
 	}
 
 	// WORLDWIDE
