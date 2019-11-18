@@ -366,3 +366,111 @@ category:
 	}
 
 }
+
+/*
+
+---
+name: Search
+category:
+ - Base
+ - Base/Forms
+---
+
+```html
+<div class="search-input">
+
+	<input class="search-input__input" type="text" placeholder="Search">
+
+	<button class="search-input__button / button--naked">
+		<svg><use xlink:href="#icon-search-rounded"></use></svg>
+	</button>
+
+</div>
+```
+
+*/
+
+.search-input {
+
+	font-size: 11px;
+	color: $ui-grey-4;
+
+	height: em(20, 11);
+	border: em(1, 11) solid currentColor;
+	border-radius: em(2, 11) em(10, 11) em(10, 11) em(2, 11);
+	display: flex;
+	padding: em(2, 11);
+	// width: 100px;
+
+	.search-input__input {
+
+		font-size: 1em;
+		flex: 1 1 100%;
+		@include font('secondary', 'bold');
+		border: none;
+		background: none;
+		border-radius: 0;
+		color: currentColor;
+		padding: em(2, 11) em(3, 11) 0 em(9, 11);
+		margin: 0;
+		min-width: 0;
+
+		&::-webkit-input-placeholder {
+			@include font('secondary', 'bold');
+			color: currentColor;
+			opacity: 1;
+		}
+
+		&:-moz-placeholder { /* Firefox 18- */
+			@include font('secondary', 'bold');
+			color: currentColor;
+			opacity: 1;
+		}
+
+		&::-moz-placeholder {  /* Firefox 19+ */
+			@include font('secondary', 'bold');
+			color: currentColor;
+			opacity: 1;
+		}
+
+		&:-ms-input-placeholder {
+			@include font('secondary', 'bold');
+			color: currentColor;
+			opacity: 1;
+		}
+
+	}
+
+	.search-input__button {
+
+		flex: 0 0 auto;
+
+		> svg {
+			display: block;
+			font-size: em(14, 11);
+			height: 1em;
+			width: 1em;
+			fill: currentColor;
+		}
+
+	}
+
+	// sizes
+
+	&[data-size="large"] {
+
+		font-size: 18px;
+
+		.search-input__input {
+			font-size: .7em;
+		}
+
+	}
+
+	// colours
+
+	&[data-colour="light"] {
+		color: $ui-grey-5;
+	}
+
+}
