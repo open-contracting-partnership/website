@@ -1,3 +1,68 @@
+/*
+
+---
+name: Buttons
+category:
+ - Components
+ - Components/Buttons
+---
+
+```html
+<p>
+
+	<a class="button" href="#">
+		Download resource
+	</a>
+
+</p>
+
+<p>
+
+	<a class="button button--has-icon" href="#">
+
+		<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		Download resource
+	</a>
+
+</p>
+```
+
+*/
+
+.button {
+
+	font-size: 14px;
+	@include font('secondary', 'medium');
+	color: $ui-grey;
+	background-color: $ui-brand;
+	border-radius: spacing(.5);
+	padding: em(13, 14) em(24,  14) em(11, 14);
+	text-decoration: none;
+	text-transform: uppercase;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: darken($ui-brand, 10%);
+		text-decoration: none;
+	}
+
+}
+
+.button--has-icon {
+	display: inline-flex;
+	align-items: center;
+}
+
+	.button__icon {
+		font-size: 2em;
+		height: 1em;
+		width: 1em;
+		margin-right: spacing(2);
+		fill: $ui-white;
+		margin: em(-8, 14) spacing(2) em(-6, 14) em(-6, 14);
+	}
+
 
 .button--naked {
 
