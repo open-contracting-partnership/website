@@ -22,8 +22,8 @@ if ( function_exists('acf_add_options_page') && function_exists('acf_add_options
 
 	// add sub page
 	acf_add_options_sub_page([
-		'page_title' => 'Test',
-		'menu_title' => 'Test',
+		'page_title' => 'Resources',
+		'menu_title' => 'Resources',
 		'parent_slug' => $parent['menu_slug'],
 	]);
 
