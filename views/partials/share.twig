@@ -1,0 +1,29 @@
+<div class="share">
+
+	<h3 class="share-title">Share:</h3>
+
+	{% if share_links.twitter %}
+
+		<a class="share-link" href="{{ share_links.twitter }}">
+			<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
+		</a>
+
+	{% endif %}
+
+	{% if share_links.facebook %}
+
+		<a class="share-link" href="{{ share_links.facebook }}">
+			<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
+		</a>
+
+	{% endif %}
+
+	{% if share_links.linkedin %}
+
+		<a class="share-link" href="{{ share_links.linkedin }}">
+			<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
+		</a>
+
+	{% endif %}
+
+</div>

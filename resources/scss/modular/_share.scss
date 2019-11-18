@@ -1,0 +1,48 @@
+.share {
+
+	display: inline-flex;
+	align-items: center;
+	color: $ui-grey-4;
+	padding-bottom: spacing(2);
+	padding-right: spacing(4);
+	border-bottom: 4px solid $ui-grey-7;
+	margin-bottom: spacing(2);
+
+	> :not(:last-child) {
+		margin-right: spacing(3);
+	}
+
+}
+
+	.share-title {
+		font-size: 19px;
+		margin-bottom: 0;
+	}
+
+	.share-link {
+
+		display: block;
+
+		> svg {
+
+			display: block;
+			fill: currentColor;
+			font-size: 24px;
+			height: 1em;
+
+			&[data-platform="twitter"] {
+				width: 1.09em;
+			}
+
+			&[data-platform="facebook"] {
+				width: 0.54em;
+			}
+
+			&[data-platform="linkedin"] {
+				width: 0.90em;
+			}
+
+
+		}
+
+	}
