@@ -8,14 +8,14 @@
             "name": "title",
             "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 0,
+            "gutenberg_visibility": "both",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -161,5 +161,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571827457
+    "modified": 1573831559
 }

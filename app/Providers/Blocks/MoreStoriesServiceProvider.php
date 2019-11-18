@@ -40,7 +40,7 @@ class MoreStoriesServiceProvider
 		$context = Timber::get_context();
 
 		$context['block'] = [];
-		$context['block']['title'] = get_field('title') ?: 'Title here...';
+		$context['block']['title'] = get_field('title');
 		$context['block']['stories'] = [];
 
 		if ( $stories = get_field('stories') ) {
