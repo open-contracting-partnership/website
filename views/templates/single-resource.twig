@@ -1,0 +1,114 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<main class="page-container / resource-single">
+
+		<div class="resource-single__header">
+
+			{% if back_link %}
+
+				<a class="arrow-link" href="{{ back_link.url }}" data-direction="west" data-text-color="black">
+					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+					<span class="arrow-link__label / uppercase">{{ back_link.label }}</span>
+				</a>
+
+			{% endif %}
+
+			<h1 class="resource-single__title">{{ resource.title }}</h1>
+
+		</div>
+
+		<div class="resource-single__meta">
+
+			<div class="type-label" data-colour="green">
+				<div class="type-label__icon"></div>
+				<span class="type-label__name">{{ resource.type.name }}</span>
+			</div>
+
+			<span>{{ resource.meta }}</span>
+
+		</div>
+
+		<div class="resource-single__thumbnail">
+
+			{% if resource.image_url %}
+
+				{{ imgix({
+					src: resource.image_url,
+					params: {
+						auto: 'format',
+						fit: 'crop'
+					},
+					aspect_ratio: [210, 297],
+					transforms: [{
+						w: 415
+					}, {
+						w: 830
+					}, {
+						w: 1024
+					}, {
+						w: 1536
+					}, {
+						w: 2048
+					}],
+					sizes: '100vw'
+				}) }}
+
+			{% endif %}
+
+		</div>
+
+		<div class="resource-single__actions">
+
+			{% if resource.attachments | length %}
+
+				<p>
+
+					<a
+						onclick="_gaq.push(['_trackEvent', 'Resources', 'Download', '{{ resource.title }}']);"
+						class="button button--has-icon"
+						href="{{ resource.attachments[0].file }}"
+					>
+						<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+						Download resource
+					</a>
+
+				</p>
+
+			{% endif %}
+
+			{% if resource.link %}
+
+				<p>
+
+					<a
+						onclick="_gaq.push(['_trackEvent', 'Resources', 'Visit', '{{ resource.title }}']);"
+						class="button button--has-icon"
+						href="{{ resource.link }}"
+					>
+						<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+						View resource
+					</a>
+
+				</p>
+
+			{% endif %}
+
+			{% include 'partials/share.twig' with {
+				share_links: resource.share_links
+			} %}
+
+			{% include 'partials/taxonomies-list.twig' with {
+				taxonomies: resource.taxonomies
+			} %}
+
+		</div>
+
+		<div class="resource-single__content">
+			{{ resource.content | raw }}
+		</div>
+
+	</main>
+
+{% endblock %}

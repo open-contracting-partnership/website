@@ -36,7 +36,7 @@ class Resource extends Post
 			'has_archive' => true,
 			'rewrite' => ['resources' => 'events', 'with_front' => false],
 			'menu_icon' => 'dashicons-book-alt',
-			'supports' => ['title', 'editor'],
+			'supports' => ['title', 'editor', 'thumbnail'],
 			'show_in_rest' => true
 		];
 	}

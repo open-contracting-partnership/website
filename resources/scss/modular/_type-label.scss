@@ -43,6 +43,10 @@ category:
 		color: $ui-blue;
 	}
 
+	&[data-colour="green"] {
+		color: $ui-brand;
+	}
+
 }
 
 	.type-label__icon {
@@ -59,6 +63,7 @@ category:
 
 	.type-label__name {
 		font-size: 14px;
+		@include font('secondary');
 		flex: 1 1 100%;
 		text-transform: uppercase;
 		padding-top: .1em;
