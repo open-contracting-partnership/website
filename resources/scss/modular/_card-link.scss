@@ -126,6 +126,10 @@ category:
 		padding-top: spacing(2);
 	}
 
+		.card__footer > *:not(:last-child) {
+			margin-bottom: spacing(1);
+		}
+
 		.card__icon {
 			display: block;
 			font-size: 30px;
