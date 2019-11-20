@@ -147,9 +147,14 @@ category:
 		}
 
 		@include from(M) {
+			
 			grid-column: var(--sidebar-span) / content;
 			grid-row: 2;
-			align-self: flex-end;
+
+			&[data-alignment="bottom"] {
+				align-self: flex-end;
+			}
+
 		}
 
 	}

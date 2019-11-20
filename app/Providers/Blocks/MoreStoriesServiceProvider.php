@@ -43,6 +43,11 @@ class MoreStoriesServiceProvider
 		$context['block'] = [];
 		$context['block']['title'] = get_field('title');
 		$context['block']['card_type'] = get_field('card_type') ?: 'default';
+		$context['block']['card_options'] = [];
+
+		if ( $context['block']['card_type'] === 'resource' ) {
+			$context['block']['card_options']['colour_scheme'] = get_field('colour_scheme');
+		}
 
 		$context['block']['stories'] = [];
 

@@ -47,10 +47,11 @@ class ContentWithSidebarServiceProvider
 		$context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
 		$context['block']['sidebar_content'] = get_field('sidebar_content');
 		$context['block']['sidebar_width'] = get_field('sidebar_width');
-		$context['block']['additional_classes'] = null;
+		$context['block']['options'] = get_field('options') ?: [];
+		$context['block']['options']['sidebar_alignment'] = get_field('sidebar_alignment');
 
 		if ( isset($block['className']) ) {
-			$context['block']['additional_classes'] = $block['className'];
+			$context['block']['options']['classes'] = $block['className'];
 		}
 
 		echo Timber::compile('blocks/content-with-sidebar.twig', $context);

@@ -113,7 +113,7 @@
         },
         {
             "key": "field_5dd25beecafb7",
-            "label": "Card type",
+            "label": "Card Type",
             "name": "card_type",
             "type": "select",
             "instructions": "Select which card type to use when outputting the stories",
@@ -131,6 +131,42 @@
             },
             "default_value": [
                 "default"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5dd50cc5b4e30",
+            "label": "Colour Scheme",
+            "name": "colour_scheme",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5dd25beecafb7",
+                        "operator": "==",
+                        "value": "resource"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "choices": {
+                "light": "Light",
+                "dark": "Dark"
+            },
+            "default_value": [
+                "dark"
             ],
             "allow_null": 0,
             "multiple": 0,
@@ -189,5 +225,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1574067241
+    "modified": 1574243573
 }

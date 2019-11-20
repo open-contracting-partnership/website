@@ -38,6 +38,7 @@ return [
 		App\Providers\Blocks\ContentWithSidebarServiceProvider::class,
 		App\Providers\Blocks\CoverServiceProvider::class,
 		App\Providers\Blocks\ImageWithLinksServiceProvider::class,
+		App\Providers\Blocks\JumpToBarServiceProvider::class,
 		App\Providers\Blocks\LogosServiceProvider::class,
 		App\Providers\Blocks\PersonServiceProvider::class,
 		App\Providers\Blocks\MoreStoriesColumnsServiceProvider::class,

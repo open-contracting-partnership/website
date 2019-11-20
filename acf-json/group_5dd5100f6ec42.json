@@ -1,0 +1,62 @@
+{
+    "key": "group_5dd5100f6ec42",
+    "title": "Block: Generic Settings",
+    "fields": [
+        {
+            "key": "field_5dd510a43f993",
+            "label": "Options",
+            "name": "options",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5dd510bb3f994",
+                    "label": "ID",
+                    "name": "id",
+                    "type": "text",
+                    "instructions": "Give the block an ID so it can be targeted",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "all"
+            }
+        ]
+    ],
+    "menu_order": 9,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1574247284
+}

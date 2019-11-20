@@ -1,0 +1,109 @@
+/*
+
+---
+name: Jump-to Bar
+category:
+ - Blocks
+ - Blocks/Jump-to Bar
+---
+
+### With link box
+
+```html
+<div class="block" data-block-type="jump-to-bar" data-position="sticky">
+
+	<div class="block__background" style="background-color: #23B2A7"></div>
+
+	<div class="block__container" style="color: #ffffff;">
+
+		<span class="block__title">Go To</span>
+
+		<a class="block__link" href="#goals">
+			Goals
+		</a>
+		
+		<a class="block__link" href="#goals">
+			Things
+		</a>
+
+		<a class="block__link" href="#goals">
+			Stuff
+		</a>
+
+	</div>
+
+</div>
+```
+
+### With image
+
+```html
+<div class="block" data-block-type="content-with-sidebar">
+
+	<div class="block__background" style="background-color: #D9E021"></div>
+
+	<div class="block__content">
+		<h2>The evidence</h2>
+		<p>There is increasing evidence that open contracting delivers.</p>
+		<p>Academic research shows that improved openness and transparency is good for public integrity, value for money and competition. A study of more than 3.5 million government contracts across Europe determined that every additional item of information shared about a tender decreases the risk of a single bid contract. This matters because single bid contracts are both a governance risk and over 7% more expensive than the norm. Publishing five more pieces of information about each contract in Europe would add up to 3.6 billion Euros in savings.</p>
+		<p>Results from countries that are implementing open contracting show that openness combined with monitoring works. In Peru, a study from Columbia University looked at the impact of transparency and monitoring of contracts on the procurement process of infrastructure projects and found that monitoring decreased spending by 50%. Similar results have been found in Afghanistan.</p>
+	</div>
+
+	<div class="block__sidebar">
+
+		<div class="block__sidebar-image">
+			<img src="https://ocp.imgix.net///wp-content/uploads/2019/06/Chile-redflags.jpg?auto=format&amp;fit=crop&amp;w=415&amp;h=277" srcset="https://ocp.imgix.net///wp-content/uploads/2019/06/Chile-redflags.jpg?auto=format&amp;fit=crop&amp;w=415&amp;h=277 415w, https://ocp.imgix.net///wp-content/uploads/2019/06/Chile-redflags.jpg?auto=format&amp;fit=crop&amp;w=830&amp;h=554 830w, https://ocp.imgix.net///wp-content/uploads/2019/06/Chile-redflags.jpg?auto=format&amp;fit=crop&amp;w=1024&amp;h=683 1024w, https://ocp.imgix.net///wp-content/uploads/2019/06/Chile-redflags.jpg?auto=format&amp;fit=crop&amp;w=1536&amp;h=1024 1536w, https://ocp.imgix.net///wp-content/uploads/2019/06/Chile-redflags.jpg?auto=format&amp;fit=crop&amp;w=2048&amp;h=1366 2048w" sizes="100vw" alt="" width="3" height="2">
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.block[data-block-type="jump-to-bar"] {
+
+	z-index: 3;
+
+	&[data-position="sticky"] {
+		position: sticky;
+		top: 0;
+	}
+
+	.block__background {
+		grid-column: wide;
+		grid-row: 1;
+	}
+
+	.block__container {
+		grid-column: content;
+		grid-row: 1;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+		.block__title,
+		.block__link {
+			font-size: 20px;
+			padding: spacing(1) spacing(4);
+			text-transform: uppercase;
+		}
+
+		.block__title {
+			padding-left: 0;
+		}
+
+		.block__link {
+
+			text-decoration: none;
+			@include font('secondary', 'bold');
+
+			&:hover,
+			&:focus {
+				background-color: rgba($ui-white, 25%);
+			}
+
+		}
+
+}

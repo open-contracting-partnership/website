@@ -13,7 +13,14 @@
 			{% if block.card_type == 'default' %}
 
 				{% for card in block.stories %}
-					{% include 'cards/primary.twig' with card %}
+
+					{% include 'cards/primary.twig' with {
+						'card': card,
+						'options': {
+							'colour_scheme': block.card_options.colour_scheme
+						}
+					} %}
+
 				{% endfor %}
 
 			{% endif %}
@@ -21,7 +28,14 @@
 			{% if block.card_type == 'resource' %}
 
 				{% for card in block.stories %}
-					{% include 'cards/resource.twig' with card %}
+
+					{% include 'cards/resource.twig' with {
+						'card': card,
+						'options': {
+							'colour_scheme': block.card_options.colour_scheme
+						}
+					} %}
+					
 				{% endfor %}
 
 			{% endif %}
