@@ -1,0 +1,222 @@
+.block[data-block-type="our-model"] {
+
+	--padding: var(--v-spacing);
+
+	.block__background {
+		grid-column: wide;
+		grid-row: 1;
+	}
+
+	.block__container {
+
+		padding: var(--padding) 0;
+		grid-column: content;
+		grid-row: 1;
+		@extend %column-grid;
+
+	}
+
+		.block__header {
+
+			grid-column: all;
+			margin-bottom: var(--v-spacing);
+
+			@include from(T) {
+				grid-column: all / 10;
+			}
+
+		}
+
+			.block__heading {
+				@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+			}
+
+
+	.block__model {
+
+		grid-column: all;
+		margin-bottom: var(--v-spacing);
+
+		@include from(T) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: spacing(6);
+		}
+
+	}
+
+		.block__model-diagram {
+
+			@include upto(T) {
+				margin-bottom: var(--v-spacing);
+			}
+
+		}
+
+			.block__model-diagram > svg {
+
+				width: 100%;
+
+				&[data-section="publish"] g[data-section="publish"] path.arrow {
+					fill: #6C75E1;
+				}
+
+				&[data-section="engagement"] g[data-section="engagement"] path.arrow {
+					fill: #6C75E1;
+				}
+
+				&[data-section="measure"] g[data-section="measure"] path.arrow {
+					fill: #6C75E1;
+				}
+
+				&[data-section="goals"] g[data-section="goals"] path.arrow {
+					fill: #6C75E1;
+				}
+
+				g[data-section] {
+					cursor: pointer;
+				}
+
+			}
+
+			.block__model-content {
+
+				font-size: 16px;
+				@include font('secondary');
+				color: $ui-black;
+				background-color: $ui-grey-6;
+				border-radius: spacing(4) spacing(1);
+				padding: spacing(15) spacing(4) spacing(4);
+
+				strong {
+					font-size: 20px;
+				}
+
+				&:not([data-section]) > [data-content]:not(:first-child) {
+					display: none;
+				}
+
+				&[data-section="publish"] > :not([data-content="publish"]) {
+					display: none;
+				}
+
+				&[data-section="engagement"] > :not([data-content="engagement"]) {
+					display: none;
+				}
+
+				&[data-section="measure"] > :not([data-content="measure"]) {
+					display: none;
+				}
+
+				&[data-section="goals"] > :not([data-content="goals"]) {
+					display: none;
+				}
+
+			}
+
+				.block__sub-content-header {
+
+					--icon-height: 100px;
+
+					margin-top: calc(-1 * var(--icon-height));
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					margin-bottom: spacing(3);
+
+					@include from(T) {
+						--icon-height: 150px;
+					}
+
+					> svg {
+
+						font-size: var(--icon-height);
+						height: 1em;
+
+						&[data-icon="people-publish"] {
+							width: .738em;
+						}
+
+						&[data-icon="people-map"] {
+							width: .847em;
+						}
+
+						&[data-icon="people-learn-and-share"] {
+							width: 1.215em;
+						}
+
+						&[data-icon="people-design"] {
+							width: 1.233em;
+						}
+
+					}
+
+				}
+
+
+	.block__links {
+
+		grid-column: all;
+
+		@include from(T) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: spacing(6);
+		}
+
+		@include from(M) {
+			grid-column: 2 / -2;
+		}
+
+	}
+
+		.block__link {
+
+			--highlight-colour: #{$ui-teal};
+			border: 1px solid var(--highlight-colour);
+			border-radius: spacing(3);
+			overflow: hidden;
+
+			&[data-colour="orange"] {
+				--highlight-colour: #{$ui-orange};
+			}
+
+			@include upto(T) {
+
+				&:not(:last-child) {
+					margin-bottom: var(--v-spacing);
+				}
+
+			}
+
+		}
+
+			.block__link-header {
+
+				font-size: 22px;
+				@include font('secondary', 'bold');
+				background-color: var(--highlight-colour);
+				padding: spacing(1) spacing(2);
+				display: flex;
+				align-items: center;
+
+				> svg {
+					font-size: 38px;
+					height: 1em;
+					width: 1em;
+					flex: 0 0 1em;
+					margin-right: spacing(2);
+				}
+
+			}
+
+			.block__link-body {
+				padding: spacing(2) spacing(2);
+			}
+
+			.block__link-body > :last-child {
+				margin-bottom: 0;
+			}
+
+
+}
