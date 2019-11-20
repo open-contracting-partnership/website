@@ -35,7 +35,7 @@
                 "class": "",
                 "id": ""
             },
-            "gutenberg_visibility": "both",
+            "gutenberg_visibility": "edit_screen",
             "post_type": "",
             "taxonomy": "",
             "filters": [
@@ -162,5 +162,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1574251085
+    "modified": 1574251321
 }
