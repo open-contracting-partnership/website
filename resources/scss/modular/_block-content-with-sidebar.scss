@@ -97,16 +97,23 @@ category:
 		align-items: center;
 
 		&::before {
+
 			content: '';
 			display: block;
-			font-size: 3em;
+			font-size: 2em;
 			height: 1em;
 			width: 1em;
 			border: .25em solid $ui-teal;
-			margin-right: spacing(3);
+			margin-right: .25em;
 			border-radius: 50%;
 			margin-top: -0.1em;
 			opacity: .5;
+			flex: 0 0 1em;
+
+			@include from(M) {
+				font-size: 3em;
+			}
+
 		}
 
 	}
@@ -147,7 +154,7 @@ category:
 		}
 
 		@include from(M) {
-			
+
 			grid-column: var(--sidebar-span) / content;
 			grid-row: 2;
 
