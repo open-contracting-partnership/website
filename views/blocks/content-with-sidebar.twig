@@ -31,6 +31,23 @@
 
 			{% endif %}
 
+			{% if item.acf_fc_layout == 'arrow_buttons' %}
+
+				<div class="block__arrow-buttons">
+
+					{% for link in item.links %}
+
+						<a class="button button--has-icon" href="{{ link.link.url }}" data-colour="white" data-icon-colour="green">
+							<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+							{{ link.link.title }}
+						</a>
+
+					{% endfor %}
+
+				</div>
+
+			{% endif %}
+			
 		{% endfor %}
 
 	</div>

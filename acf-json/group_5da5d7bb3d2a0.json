@@ -114,6 +114,54 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5dd55f05a5a67": {
+                    "key": "layout_5dd55f05a5a67",
+                    "name": "arrow_buttons",
+                    "label": "Arrow Buttons",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5dd55f05a5a68",
+                            "label": "Links",
+                            "name": "links",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "gutenberg_visibility": "both",
+                            "collapsed": "field_5db19dc92a3fe",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "Add Link",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5dd55f05a5a69",
+                                    "label": "Link",
+                                    "name": "link",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "gutenberg_visibility": "both",
+                                    "return_format": "array"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Item",
@@ -443,5 +491,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1574240046
+    "modified": 1574264605
 }
