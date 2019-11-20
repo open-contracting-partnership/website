@@ -90,6 +90,27 @@ category:
 		@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
 	}
 
+	&.implement .block__heading {
+
+		position: relative;
+		display: flex;
+		align-items: center;
+
+		&::before {
+			content: '';
+			display: block;
+			font-size: 3em;
+			height: 1em;
+			width: 1em;
+			border: .25em solid $ui-teal;
+			margin-right: spacing(3);
+			border-radius: 50%;
+			margin-top: -0.1em;
+			opacity: .5;
+		}
+
+	}
+
 	.block__content {
 
 		grid-column: content;
@@ -120,6 +141,10 @@ category:
 
 		grid-column: content;
 		grid-row: 3;
+
+		> *:not(:last-child) {
+			margin-bottom: spacing(3);
+		}
 
 		@include from(M) {
 			grid-column: var(--sidebar-span) / content;

@@ -34,7 +34,7 @@ class ContentWithSidebarServiceProvider
 
 	}
 
-	public function render() {
+	public function render($block) {
 
 		$context = Timber::get_context();
 
@@ -47,6 +47,11 @@ class ContentWithSidebarServiceProvider
 		$context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
 		$context['block']['sidebar_content'] = get_field('sidebar_content');
 		$context['block']['sidebar_width'] = get_field('sidebar_width');
+		$context['block']['additional_classes'] = null;
+
+		if ( isset($block['className']) ) {
+			$context['block']['additional_classes'] = $block['className'];
+		}
 
 		echo Timber::compile('blocks/content-with-sidebar.twig', $context);
 
