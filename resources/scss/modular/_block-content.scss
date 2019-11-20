@@ -31,6 +31,8 @@ category:
 
 .block[data-block-type="content"] {
 
+	--padding: var(--v-spacing);
+
 	.block__background {
 		grid-column: wide;
 		grid-row: 1;
@@ -38,7 +40,6 @@ category:
 
 	.block__container {
 
-		@include fluid-type(--padding, 360px, 1240px, spacing(3), spacing(9));
 		padding: var(--padding) 0;
 		grid-column: content;
 		grid-row: 1;
@@ -111,9 +112,8 @@ category:
 
 		}
 
-
-
-		.block__arrow-links {
+		.block__arrow-links,
+		.block__arrow-buttons {
 
 			@include from(T) {
 				display: flex;
@@ -133,6 +133,32 @@ category:
 
 		&[data-width="three-quarters"] .block__container {
 			grid-column: content / 13;
+		}
+
+	}
+
+	&[data-alignment="center"] {
+
+		text-align: center;
+
+		.block__arrow-links,
+		.block__arrow-buttons {
+			justify-content: center;
+		}
+
+	}
+
+	&[data-size="small"] {
+
+		--padding: var(--v-spacing-half);
+		font-size: 16px;
+
+		.block__heading {
+			@include fluid-type(font-size, 360px, 1240px, 20px, 24px);
+		}
+
+		.block__container > *:not(:last-child):not(.block__heading) {
+			margin-bottom: spacing(3);
 		}
 
 	}

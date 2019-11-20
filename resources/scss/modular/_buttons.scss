@@ -47,6 +47,18 @@ category:
 		text-decoration: none;
 	}
 
+	&[data-colour="white"] {
+
+		background-color: $ui-white;
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: darken($ui-white, 2%);
+		}
+
+	}
+
 }
 
 .button--has-icon {
@@ -63,6 +75,9 @@ category:
 		margin: em(-8, 14) spacing(2) em(-6, 14) em(-6, 14);
 	}
 
+.button[data-icon-colour] .button__icon {
+	fill: $ui-brand;
+}
 
 .button--naked {
 

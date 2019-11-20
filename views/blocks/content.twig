@@ -1,4 +1,4 @@
-<div class="block" data-block-type="content" style="color: {{ block.text_colour }}" data-width="{{ block.width }}">
+<div class="block" data-block-type="content" style="color: {{ block.text_colour }}" data-width="{{ block.width }}" data-alignment="{{ block.alignment }}"  data-size="{{ block.size }}">
 
 	<div class="block__background" style="background-color: {{ block.background_colour }}"></div>
 
@@ -43,6 +43,23 @@
 						<a class="arrow-link" href="{{ link.link.url }}" data-text-color="{{ block.is_dark ? 'white' : 'black' }}">
 							<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
 							<span class="arrow-link__label">{{ link.link.title }}</span>
+						</a>
+
+					{% endfor %}
+
+				</div>
+
+			{% endif %}
+
+			{% if item.acf_fc_layout == 'arrow_buttons' %}
+
+				<div class="block__arrow-buttons">
+
+					{% for link in item.links %}
+
+						<a class="button button--has-icon" href="{{ link.link.url }}" data-colour="white" data-icon-colour="green">
+							<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+							{{ link.link.title }}
 						</a>
 
 					{% endfor %}
