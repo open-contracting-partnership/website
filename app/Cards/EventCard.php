@@ -2,10 +2,10 @@
 
 namespace App\Cards;
 
-class EventCard
+class EventCard extends BaseCard
 {
 
-	public static function buildData($post_id)
+	public static function buildPostById($post_id)
 	{
 
 		$data = array();
@@ -19,26 +19,14 @@ class EventCard
 
 	}
 
-	public static function convertTimberCollection($collection) {
+	public static function convertTimberPost($post) {
 
-		if ( get_class($collection) !== 'Tightenco\Collect\Support\Collection' ) {
-			return false;
-		}
-
-		$new_collection = [];
-
-		foreach ( $collection as $post ) {
-
-			$new_collection[$post->ID] = [
-				'title' => $post->post_title,
-				'url' => $post->link(),
-				'day' => date('j', strtotime($post->event_date)),
-				'month' => date('M', strtotime($post->event_date))
-			];
-
-		}
-
-		return $new_collection;
+		return [
+			'title' => $post->post_title,
+			'url' => $post->link(),
+			'day' => date('j', strtotime($post->event_date)),
+			'month' => date('M', strtotime($post->event_date))
+		];
 
 	}
 

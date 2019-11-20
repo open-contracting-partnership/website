@@ -53,47 +53,12 @@ class MoreStoriesServiceProvider
 
 		if ( $stories = get_field('stories') ) {
 
-			foreach ( $stories as $story ) {
+			if ( $context['block']['card_type'] === 'default' ) {
+				$context['block']['stories'] = PrimaryCard::convertCollection($stories);
+			}
 
-				if ( $context['block']['card_type'] === 'default' ) {
-
-					if ( $story['acf_fc_layout'] === 'internal_link' ) {
-						$context['block']['stories'][] = PrimaryCard::buildData($story['link'][0]);
-					}
-
-					if ( $story['acf_fc_layout'] === 'custom_link' ) {
-
-						$context['block']['stories'][] = [
-							'image_url' => $story['image']['url'],
-							'type_label' => $story['type'],
-							'title' => $story['title'],
-							'url' => $story['url'],
-							'meta' => $story['meta'],
-							'button_label' => $story['button_label'] ?: __('Read', 'ocp')
-						];
-
-					}
-
-				}
-
-				if ( $context['block']['card_type'] === 'resource' ) {
-
-					if ( $story['acf_fc_layout'] === 'internal_link' ) {
-						$context['block']['stories'][] = ResourceCard::buildPostById($story['link'][0]);
-					}
-
-					if ( $story['acf_fc_layout'] === 'custom_link' ) {
-
-						$context['block']['stories'][] = [
-							'title' => $story['title'],
-							'type_label' => $story['type'],
-							'url' => $story['url']
-						];
-
-					}
-
-				}
-
+			if ( $context['block']['card_type'] === 'resource' ) {
+				$context['block']['stories'] = ResourceCard::convertCollection($stories);
 			}
 
 		}

@@ -52,7 +52,7 @@ class StoriesServiceProvider
 			foreach ( $primary_stories as $story ) {
 
 				if ( $story['acf_fc_layout'] === 'internal_link' ) {
-					$context['block']['primary_stories'][] = FeatureCard::buildData($story['link'][0]);
+					$context['block']['primary_stories'][] = FeatureCard::convertPost($story['link'][0]);
 				}
 
 				if ( $story['acf_fc_layout'] === 'custom_link' ) {
@@ -80,7 +80,7 @@ class StoriesServiceProvider
 			foreach ( $secondary_stories as $story ) {
 
 				if ( $story['acf_fc_layout'] === 'internal_link' ) {
-					$context['block']['secondary_stories'][] = PrimaryCard::buildData($story['link'][0]);
+					$context['block']['secondary_stories'][] = PrimaryCard::convertPost($story['link'][0]);
 				}
 
 				if ( $story['acf_fc_layout'] === 'custom_link' ) {

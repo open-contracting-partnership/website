@@ -97,7 +97,7 @@ class HomeController extends Controller
 			'posts_per_page' => -1
 		]);
 
-		return PrimaryCard::convertTimberCollection($posts);
+		return PrimaryCard::convertCollection($posts);
 
 	}
 
@@ -115,7 +115,7 @@ class HomeController extends Controller
 		]);
 
 		if ( count($featured_blog) ) {
-			return ['card' => FeatureCard::buildData($featured_blog[0]->ID)];
+			return ['card' => FeatureCard::convertPost($featured_blog[0]->ID)];
 		}
 
 	}

@@ -23,7 +23,7 @@ class ArchiveController extends Controller
 	{
 		$context = Timber::get_context();
 		$context['title'] = 'Archive';
-		$context['posts'] = BasicCard::convertTimberCollection(Post::query());
+		$context['posts'] = BasicCard::convertCollection(Post::query());
 
 		if (is_day()) {
 			$context['title'] = 'Archive: ' . get_the_date('D M Y');
@@ -37,7 +37,7 @@ class ArchiveController extends Controller
 			$context['title'] = 'Category: ' . single_cat_title('', false);
 		} elseif (is_post_type_archive('news')) {
 			$context['title'] = _x('News', 'Archive title', 'ocp');
-			$context['posts'] = BasicCard::convertTimberCollection(News::query());
+			$context['posts'] = BasicCard::convertCollection(News::query());
 		}
 
 		// generate the prev/next links

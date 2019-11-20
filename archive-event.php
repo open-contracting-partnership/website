@@ -34,7 +34,7 @@ class ArchiveEventController extends Controller
 			$context['latest_event'] = Event::convertTimberObject($upcoming_events[0]);
 		}
 
-		$context['upcoming_events'] = EventCard::convertTimberCollection($upcoming_events);
+		$context['upcoming_events'] = EventCard::convertCollection($upcoming_events);
 
 		$archive_events = Event::query([
 			'post_type' => 'event',
@@ -49,7 +49,7 @@ class ArchiveEventController extends Controller
 			]]
 		]);
 
-		$context['archive_events'] = EventCard::convertTimberCollection($archive_events);
+		$context['archive_events'] = EventCard::convertCollection($archive_events);
 
 		return new TimberResponse('templates/archive-event.twig', $context);
 	}

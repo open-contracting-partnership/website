@@ -2,11 +2,10 @@
 
 namespace App\Cards;
 
-class BasicCard
+class BasicCard extends BaseCard
 {
 
-	public static function buildData($post_id)
-	{
+	public static function buildPostById($post_id) {
 
 		$data = array();
 
@@ -19,27 +18,15 @@ class BasicCard
 
 	}
 
-	public static function convertTimberCollection($collection) {
+	public static function convertTimberPost($post) {
 
-		if ( get_class($collection) !== 'Tightenco\Collect\Support\Collection' ) {
-			return false;
-		}
-
-		$new_collection = [];
-
-		foreach ( $collection as $post ) {
-
-			$new_collection[$post->ID] = [
-				'title' => $post->post_title,
-				'url' => $post->link,
-				'meta' => $post->date('j M Y'),
-				'type' => $post->post_type,
-				'type_label' => get_post_type_label($post->post_type)
-			];
-
-		}
-
-		return $new_collection;
+		return [
+			'title' => $post->post_title,
+			'url' => $post->link,
+			'meta' => $post->date('j M Y'),
+			'type' => $post->post_type,
+			'type_label' => get_post_type_label($post->post_type)
+		];
 
 	}
 

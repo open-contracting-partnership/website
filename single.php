@@ -60,16 +60,12 @@ class SingleController extends Controller
 			$context['authors'] = __('By', 'ocp') . ' ' . $context['authors'];
 		}
 
-
-
 		$more_posts = Timber::get_posts([
 			'posts_per_page' => 3,
 			'post__not_in' => [$post->ID]
 		]);
 
-		foreach ( $more_posts as $more_post ) {
-			$context['more_stories'][] = PrimaryCard::buildData($more_post->ID);
-		}
+		$context['more_stories'] = PrimaryCard::convertCollection($more_posts);
 
 		return new TimberResponse('templates/single.twig', $context);
 	}

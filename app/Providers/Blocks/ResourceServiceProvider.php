@@ -51,7 +51,7 @@ class ResourceServiceProvider
 		if ( $resources = get_field('resources') ) {
 
 			foreach ( $resources as $resource ) {
-				$context['block']['resources'][] = ResourceCard::buildPostById($resource->ID);
+				$context['block']['resources'][] = ResourceCard::convertPost($resource->ID);
 			}
 
 		}

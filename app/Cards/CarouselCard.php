@@ -5,7 +5,7 @@ namespace App\Cards;
 class CarouselCard
 {
 
-	public static function buildData($post_id)
+	public static function buildPostById($post_id)
 	{
 
 		$data = array();
@@ -19,26 +19,14 @@ class CarouselCard
 
 	}
 
-	public static function convertTimberCollection($collection) {
+	public static function convertTimberPost($post) {
 
-		if ( get_class($collection) !== 'Tightenco\Collect\Support\Collection' ) {
-			return false;
-		}
-
-		$new_collection = [];
-
-		foreach ( $collection as $post ) {
-
-			$new_collection[$post->ID] = [
-				'title' => $post->post_title,
-				'introduction' => $post->excerpt,
-				'image' => $post->thumbnail->src,
-				'url' => $post->link
-			];
-
-		}
-
-		return $new_collection;
+		return [
+			'title' => $post->post_title,
+			'introduction' => $post->excerpt,
+			'image' => $post->thumbnail->src,
+			'url' => $post->link
+		];
 
 	}
 

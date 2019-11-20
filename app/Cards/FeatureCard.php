@@ -2,10 +2,10 @@
 
 namespace App\Cards;
 
-class FeatureCard
+class FeatureCard extends BaseCard
 {
 
-	public static function buildData($post_id)
+	public static function buildPostById($post_id)
 	{
 
 		$data = array();
@@ -16,6 +16,17 @@ class FeatureCard
 		$data['button_label'] = __('Read', 'ocp');
 
 		return $data;
+
+	}
+
+	public static function convertTimberPost($post) {
+
+		return [
+			'image_url' => $post->thumbnail ? $post->thumbnail->src : null,
+			'title' => $post->post_title,
+			'url' => $post->link(),
+			'button_label' => __('Read', 'ocp')
+		];
 
 	}
 
