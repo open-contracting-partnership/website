@@ -185,6 +185,11 @@ category:
 		--highlight-colour: #{$ui-white};
 	}
 
+	&[data-colour-scheme="green"] {
+		--background-colour: #{$ui-brand};
+		--highlight-colour: #{$ui-white};
+	}
+
 }
 
 .aigis-preview__background > .card--link,
