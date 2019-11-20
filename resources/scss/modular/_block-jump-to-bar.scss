@@ -21,7 +21,7 @@ category:
 		<a class="block__link" href="#goals">
 			Goals
 		</a>
-		
+
 		<a class="block__link" href="#goals">
 			Things
 		</a>
@@ -67,8 +67,12 @@ category:
 	z-index: 3;
 
 	&[data-position="sticky"] {
-		position: sticky;
-		top: 0;
+
+		@include from(M) {
+			position: sticky;
+			top: 0;
+		}
+
 	}
 
 	.block__background {
@@ -77,17 +81,32 @@ category:
 	}
 
 	.block__container {
+
 		grid-column: content;
 		grid-row: 1;
-		display: flex;
-		flex-wrap: wrap;
+		padding: spacing(1) 0;
+
+		@include from(T) {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
 	}
 
 		.block__title,
 		.block__link {
-			font-size: 20px;
-			padding: spacing(1) spacing(4);
+
+			font-size: 18px;
+			padding: spacing(1) spacing(2);
 			text-transform: uppercase;
+			display: block;
+			border-radius: spacing(.5);
+
+			@include from(L) {
+				font-size: 20px;
+				padding: spacing(1) spacing(4);
+			}
+
 		}
 
 		.block__title {
