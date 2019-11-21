@@ -8,9 +8,13 @@
 
 			<div class="home__header">
 
-				{% if featured_blog %}
-					{% include 'cards/feature.twig' with featured_blog %}
-				{% endif %}
+				<div class="home__header-featured">
+
+					{% if featured_blog %}
+						{% include 'cards/feature.twig' with featured_blog %}
+					{% endif %}
+
+				</div>
 
 				<div class="home__header-extra">
 
@@ -31,7 +35,7 @@
 							</div>
 
 						{% endfor %}
-						
+
 						<div class="align-contents-right">
 
 							<a class="arrow-link" data-icon-color="grey" data-text-color="black" href="{{ news_archive_link.url }}">
@@ -72,7 +76,6 @@
 
 					{% endif %}
 
-
 				</div>
 
 			</div>
@@ -106,7 +109,12 @@
 			</section>
 
 			<div class="home__load-more / align-contents-center">
-				<button v-on:click.prevent="increaseLimit()" v-if="hasNextPage">{{ load_more }}</button>
+
+				<btton class="button button--has-icon" v-on:click.prevent="increaseLimit()" v-if="hasNextPage">
+					<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+					{{ load_more }}
+				</btton>
+
 			</div>
 
 			{% if footer_latest_news %}
