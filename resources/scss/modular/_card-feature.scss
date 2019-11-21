@@ -55,6 +55,10 @@ category:
 	}
 
 		.card__image-overlay {
+
+			@include fluid-type(--v-padding, 375px, 1240px, spacing(2), spacing(5));
+			@include fluid-type(--h-padding, 375px, 1240px, spacing(3), spacing(6));
+
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -64,7 +68,7 @@ category:
 				linear-gradient(180deg, rgba(255, 255, 255, 0) 24.48%, #2F2F2F 100%),
 				linear-gradient(0deg, rgba(38, 38, 38, 0.4), rgba(38, 38, 38, 0.4));
 			background-blend-mode: darken, normal;
-			padding: spacing(5) spacing(6);
+			padding: var(--v-padding) var(--h-padding);
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-end;
