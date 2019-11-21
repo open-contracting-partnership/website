@@ -34,11 +34,21 @@
 		<div class="archive__pagination">
 
 			{% if previous_page_url %}
-				<a href="{{ previous_page_url }}">{{ previous_page_label }}</a>
+
+				<a class="button button--has-icon" data-icon-direction="west" href="{{ previous_page_url }}">
+					<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+					{{ previous_page_label }}
+				</a>
+
 			{% endif %}
 
 			{% if next_page_url %}
-				<a href="{{ next_page_url }}">{{ next_page_label }}</a>
+
+				<a class="button button--has-icon" href="{{ next_page_url }}">
+					<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+					{{ next_page_label }}
+				</a>
+
 			{% endif %}
 
 		</div>

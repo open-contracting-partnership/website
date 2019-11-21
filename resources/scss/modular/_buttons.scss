@@ -80,6 +80,18 @@ category:
 	fill: $ui-brand;
 }
 
+.button[data-icon-direction="north"] .button__icon {
+	transform: rotate(270deg);
+}
+
+.button[data-icon-direction="south"] .button__icon {
+	transform: rotate(90deg);
+}
+
+.button[data-icon-direction="west"] .button__icon {
+	transform: rotate(180deg);
+}
+
 .button--naked {
 
 	background: none;
