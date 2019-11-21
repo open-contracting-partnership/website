@@ -1,4 +1,6 @@
-<div class="block" data-block-type="content" style="color: {{ block.text_colour }}" data-width="{{ block.width }}" data-alignment="{{ block.alignment }}"  data-size="{{ block.size }}">
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div id="{{ options.id }}" class="block" data-block-type="content" style="color: {{ block.text_colour }}" data-width="{{ block.width }}" data-alignment="{{ block.alignment }}"  data-size="{{ block.size }}">
 
 	<div class="block__background" style="background-color: {{ block.background_colour }}"></div>
 

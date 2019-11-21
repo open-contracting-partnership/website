@@ -50,6 +50,7 @@ class ContentServiceProvider
 		$context['block']['width'] = get_field('width') ?: 'full';
 		$context['block']['alignment'] = get_field('alignment') ?: 'left';
 		$context['block']['size'] = get_field('size') ?: 'normal';
+		$context['block']['options'] = get_field('options') ?: [];
 
 		echo Timber::compile('blocks/content.twig', $context);
 
