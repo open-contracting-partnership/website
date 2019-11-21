@@ -121,15 +121,9 @@ category:
 	}
 
 		.mega-menu__heading {
-
 			grid-row: 1;
-			grid-column: 1 / -1;
+			grid-column: 2 / -1;
 			margin-bottom: 0;
-
-			@include from($header-break-4) {
-				grid-column: 2 / -1;
-			}
-
 		}
 
 		.mega-menu__intro {
