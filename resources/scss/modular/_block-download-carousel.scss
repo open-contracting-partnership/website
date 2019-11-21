@@ -1,0 +1,133 @@
+.block[data-block-type="download-carousel"] {
+
+	.block__container {
+		grid-column: content;
+		font-size: 17px;
+		@include font('secondary', 'medium');
+		justify-content: space-around;
+		overflow: hidden;
+		position: relative;
+		color: $ui-grey-4;
+		padding-top: spacing(7);
+		margin-bottom: var(--v-spacing);
+	}
+
+		.block__carousel-controls {
+
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: var(--v-spacing-half);
+
+			button[disabled] {
+				opacity: .5;
+				cursor: default;
+			}
+
+		}
+
+		.block__carousel-item {
+
+			overflow: hidden;
+			position: relative;
+			display: inline-block;
+			text-align: center;
+
+			&:last-child {
+				margin-bottom: 1em;
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: em(59, 17);
+				bottom: auto;
+				right: 0;
+				left: 0;
+				margin: auto 0;
+				height: 1px;
+				width: auto;
+				background-color: $ui-grey-4;
+			}
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: em(52, 17);
+				right: 0;
+				left: 0;
+				margin: auto;
+				width: 15px;
+				height: 15px;
+				background-color: $ui-brand;
+				border-radius: 50%;
+				box-shadow: 0 0 6px 7px rgba($ui-brand, .25);
+			}
+
+			&:last-child {
+
+				color: $ui-grey;
+
+				&:after {
+					top: em(47, 17);
+					width: 25px;
+					height: 25px;
+					box-shadow: 0 0 10px 12px rgba($ui-brand, .25);
+				}
+
+				.block__carousel-item-date {
+					font-size: 17px;
+					margin-top: 0;
+				}
+
+				.block__carousel-item-title {
+
+					font-size: 24px;
+					@include font('secondary', 'bold');
+					margin-top: em(50, 17);
+
+					span.text--nano {
+						font-size: 17px;
+					}
+
+				}
+
+			}
+
+		}
+
+			.block__carousel-item-date {
+				font-size: 14px;
+				display: block;
+				margin-top: em(22, 14);
+				text-align: center;
+				text-transform: uppercase;
+			}
+
+			.block__carousel-item-title {
+
+				display: block;
+				text-align: center;
+				margin-bottom: 0;
+				margin-top: em(45, 17);
+				line-height: 1.3;
+				color: currentColor;
+
+				@extend %reverse-underline;
+
+				&:hover,
+				&:focus,
+				&:active {
+					text-decoration: underline;
+				}
+
+				span.text--nano {
+					font-size: 14px;
+					@include font('secondary');
+					display: block;
+					text-align: center;
+					margin-top: em(5, 14);
+				}
+
+			}
+
+}
