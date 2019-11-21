@@ -96,7 +96,8 @@
 			{% endif %}
 
 			{% include 'partials/share.twig' with {
-				share_links: resource.share_links
+				share_links: resource.share_links,
+				tracker: 'Resource Single'
 			} %}
 
 			{% include 'partials/taxonomies-list.twig' with {

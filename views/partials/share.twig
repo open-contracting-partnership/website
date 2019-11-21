@@ -4,7 +4,7 @@
 
 	{% if share_links.twitter %}
 
-		<a class="share-link" href="{{ share_links.twitter }}">
+		<a class="share-link" href="{{ share_links.twitter }}" onclick="_gaq.push(['_trackEvent', 'Social', '{{ tracker }}', 'Twitter']);">
 			<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
 		</a>
 
@@ -12,7 +12,7 @@
 
 	{% if share_links.facebook %}
 
-		<a class="share-link" href="{{ share_links.facebook }}">
+		<a class="share-link" href="{{ share_links.facebook }}" onclick="_gaq.push(['_trackEvent', 'Social', '{{ tracker }}', 'Facebook']);">
 			<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
 		</a>
 
@@ -20,7 +20,7 @@
 
 	{% if share_links.linkedin %}
 
-		<a class="share-link" href="{{ share_links.linkedin }}">
+		<a class="share-link" href="{{ share_links.linkedin }}" onclick="_gaq.push(['_trackEvent', 'Social', '{{ tracker }}', 'Linkedin']);">
 			<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
 		</a>
 

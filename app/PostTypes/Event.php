@@ -63,6 +63,10 @@ class Event extends Post
 		// for each of the taxonomies, convert the term id to a term object
 		foreach ( $context['taxonomies'] as &$taxonomy ) {
 
+			if ( ! is_array($taxonomy) ) {
+				continue;
+			}
+
 			$taxonomy = array_map(function($term) {
 				return get_term($term);
 			}, $taxonomy);

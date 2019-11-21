@@ -23,7 +23,8 @@
 	{% endif %}
 
 	{% include 'partials/share.twig' with {
-		share_links: event.share_links
+		share_links: event.share_links,
+		tracker: 'Event'
 	} %}
 
 	{% include 'partials/taxonomies-list.twig' with {
