@@ -14,7 +14,13 @@ class Search
 	private $transient_active = true;
 	protected $transient_key;
 
+	protected $language_code = 'en';
+
 	public function __construct($query, $page = 1) {
+
+		if ( defined('ICL_LANGUAGE_CODE') ) {
+			$this->language_code = ICL_LANGUAGE_CODE;
+		}
 
 		// store the variables for later
 		$this->query = urlencode($query);
@@ -27,7 +33,7 @@ class Search
 		];
 
 		// set the transient key
-		$this->transient_key = 'ocp_google_cse_' . hash('sha256', implode('||', $transient_key_parts));
+		$this->transient_key = 'ocp_google_cse_' . $this->language_code . '_' . hash('sha256', implode('||', $transient_key_parts));
 
 		// fetch the results
 		$this->fetchResults();
@@ -50,12 +56,23 @@ class Search
 			// flas that the transient wasn't active
 			$this->transient_active = false;
 
+			$api_key = GOOGLE_CSE_EN_API_KEY;
+			$site_id = GOOGLE_CSE_EN_ID;
+			$language = 'lang_en';
+
+			// set different settings for the spanish site
+			if ( $this->language_code === 'es' ) {
+				$api_key = GOOGLE_CSE_ES_API_KEY;
+				$site_id = GOOGLE_CSE_ES_ID;
+				$language = 'lang_es';
+			}
+
 			// build the search query string
 			$query_string = http_build_query([
-				'key' => GOOGLE_CSE_API_KEY,
-				'cx' => GOOGLE_CSE_ID,
+				'key' => $api_key,
+				'cx' => $site_id,
 				'q' => $this->query,
-				'lr' => 'lang_en',
+				'lr' => $language,
 				'start' => (10 * ($this->page - 1)) + 1
 			]);
 
