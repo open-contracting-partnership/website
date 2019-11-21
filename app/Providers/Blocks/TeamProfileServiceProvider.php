@@ -27,7 +27,7 @@ class TeamProfileServiceProvider
 				'icon' => 'format-image',
 				'enqueue_assets' => function() {
 
-					wp_enqueue_script('block-team-profile', get_template_directory_uri() . '/dist/js/block-team-profile.js', ['manifest', 'vendor'], false, true);
+					wp_enqueue_script('block-team-profile', get_template_directory_uri() . '/dist/js/block-team-profile.js', ['manifest'], false, true);
 
 					wp_localize_script('block-team-profile', '_options', [
 						'is_admin' => is_admin()
