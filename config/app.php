@@ -37,6 +37,7 @@ return [
 		App\Providers\Blocks\ContentServiceProvider::class,
 		App\Providers\Blocks\ContentWithSidebarServiceProvider::class,
 		App\Providers\Blocks\CoverServiceProvider::class,
+		App\Providers\Blocks\DownloadCarouselServiceProvider::class,
 		App\Providers\Blocks\ImageWithLinksServiceProvider::class,
 		App\Providers\Blocks\JumpToBarServiceProvider::class,
 		App\Providers\Blocks\LogosServiceProvider::class,

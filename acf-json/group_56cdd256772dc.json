@@ -1,32 +1,11 @@
 {
     "key": "group_56cdd256772dc",
-    "title": "Advisory Board",
+    "title": "Block: Download Carousel",
     "fields": [
         {
-            "key": "field_56cdd28fc8593",
-            "label": "Introduction",
-            "name": "advisory_introduction",
-            "type": "text",
-            "instructions": "The text used within the advisory board introduction",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
-        },
-        {
             "key": "field_56cdd2be6532d",
-            "label": "Meeting notes",
-            "name": "advisory_meeting_notes",
+            "label": "Downloads",
+            "name": "downloads",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -36,11 +15,12 @@
                 "class": "",
                 "id": ""
             },
+            "gutenberg_visibility": "both",
             "collapsed": "field_56cdd2d26532e",
             "min": 0,
             "max": 0,
             "layout": "row",
-            "button_label": "Add meeting notes",
+            "button_label": "Add download",
             "sub_fields": [
                 {
                     "key": "field_56cdd2d26532e",
@@ -100,139 +80,14 @@
                     "mime_types": ""
                 }
             ]
-        },
-        {
-            "key": "field_56cddafd439ab",
-            "label": "Members",
-            "name": "advisory_members",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "field_56cddb28439ac",
-            "min": 0,
-            "max": 0,
-            "layout": "row",
-            "button_label": "Add member",
-            "sub_fields": [
-                {
-                    "key": "field_56cddb28439ac",
-                    "label": "Name",
-                    "name": "name",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
-                },
-                {
-                    "key": "field_56cddb2d439ad",
-                    "label": "Role",
-                    "name": "role",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
-                },
-                {
-                    "key": "field_56cddb35439ae",
-                    "label": "Image",
-                    "name": "image",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "thumbnail",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                },
-                {
-                    "key": "field_56cddb56439af",
-                    "label": "Bio",
-                    "name": "bio",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "visual",
-                    "toolbar": "basic",
-                    "media_upload": 0,
-                    "delay": 0
-                },
-                {
-                    "key": "field_56ea934720dc1",
-                    "label": "Disclosure file",
-                    "name": "disclosure_file",
-                    "type": "file",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "library": "all",
-                    "min_size": "",
-                    "max_size": "",
-                    "mime_types": ""
-                }
-            ]
         }
     ],
     "location": [
         [
             {
-                "param": "page",
+                "param": "block",
                 "operator": "==",
-                "value": "954"
+                "value": "acf\/ocp-download-carousel"
             }
         ]
     ],
@@ -246,5 +101,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1571663330
+    "modified": 1574325547
 }
