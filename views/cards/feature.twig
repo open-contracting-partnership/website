@@ -1,6 +1,6 @@
 <div class="card card--feature">
 
-    <div class="card__image">
+	<div class="card__image">
 
 		{{ imgix({
 			src: card.image_url,
@@ -23,18 +23,18 @@
 			sizes: '100vw'
 		}) }}
 
-        <div class="card__image-overlay">
+		<div class="card__image-overlay">
 
-            <a class="card__title-link" href="{{ card.url }}">
-                <h2 class="card__title">{{ card.title }}</h2>
-            </a>
+			<a class="card__title-link" href="{{ card.url }}">
+				<h2 class="card__title">{{ card.title }}</h2>
+			</a>
 
-            <div class="card__intro">
+			<div class="card__intro">
 				{{ card.intro | raw }}
-            </div>
+			</div>
 
-        </div>
+		</div>
 
-    </div>
+	</div>
 
 </div>
