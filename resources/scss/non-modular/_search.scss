@@ -1,0 +1,12 @@
+main.search {
+	@extend %shell-grid;
+	margin: var(--v-spacing) 0;
+}
+
+	.search__container {
+		grid-column: content;
+	}
+
+		.search__container .card {
+			margin-bottom: spacing(6);
+		}

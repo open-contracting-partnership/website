@@ -2,29 +2,46 @@
 
 {% block content %}
 
-	<main>
+	<main class="search">
 
-		<h1>{{ title }}</h1>
+		<div class="search__container">
 
-		{% if search.hasResults %}
+			<h1>{{ title }}</h1>
 
-			{% for result in search.getResults %}
+			{% if search.hasResults %}
 
-				<div>
-					<h4><a href="{{ result.link }}">{{ result.htmlTitle }}</a></h4>
-					<p>{{ result.htmlFormattedUrl }}</p>
-					<p>{{ result.htmlSnippet }}</p>
-				</div>
+				{% for result in search.getResults %}
 
-			{% endfor %}
+					<div class="card card--text">
 
-			{% if search.hasNextPage %}
-				<p><strong><a href="/?s={{ function('get_search_query') }}&page={{ page + 1 }}">Next Page &raquo;</a></strong></p>
+						<a href="{{ result.link }}" class="card__title-link">
+							<h3 class="card__title">{{ result.htmlTitle }}</h3>
+						</a>
+
+						<p class="">{{ result.htmlFormattedUrl }}</p>
+
+						{# <p>{{ result.htmlFormattedUrl }}</p> #}
+						<p>{{ result.htmlSnippet }}</p>
+
+
+					</div>
+
+				{% endfor %}
+
+				{% if search.hasNextPage %}
+
+					<a class="button button--has-icon" href="/?s={{ function('get_search_query') }}&page={{ page + 1 }}">
+						<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+						Next Page
+					</a>
+
+				{% endif %}
+
+			{% else %}
+				<p>No results found.</p>
 			{% endif %}
 
-		{% else %}
-			<p>No results found.</p>
-		{% endif %}
+		</div>
 
 	</main>
 

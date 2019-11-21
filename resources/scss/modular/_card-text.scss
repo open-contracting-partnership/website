@@ -23,6 +23,8 @@ category:
 
 .card.card--text {
 
+	font-size: 14px;
+
 	.card__title-link {
 		@extend %reverse-underline;
 	}
