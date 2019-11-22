@@ -78,7 +78,7 @@
                             "label": "Icon",
                             "name": "icon",
                             "type": "select",
-                            "instructions": "padlock : Open Padlock\r\nfist : Fist\r\nmagnifier : Magnifier",
+                            "instructions": "",
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -87,7 +87,11 @@
                                 "id": ""
                             },
                             "gutenberg_visibility": "both",
-                            "choices": [],
+                            "choices": {
+                                "padlock": "Open Padlock",
+                                "fist": "Fist",
+                                "magnifier": "Magnifier"
+                            },
                             "default_value": [],
                             "allow_null": 0,
                             "multiple": 0,
@@ -310,14 +314,14 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_5db19936258fd": {
-                    "key": "layout_5db19936258fd",
+                "layout_5dd7f2a1fb80c": {
+                    "key": "layout_5dd7f2a1fb80c",
                     "name": "image",
                     "label": "Image",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5db1993c258fe",
+                            "key": "field_5dd7f2a1fb80d",
                             "label": "image",
                             "name": "image",
                             "type": "image",
@@ -325,7 +329,7 @@
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -340,6 +344,26 @@
                             "max_height": "",
                             "max_size": "",
                             "mime_types": ""
+                        },
+                        {
+                            "key": "field_5dd7f2bbfb80e",
+                            "label": "With border?",
+                            "name": "with_border",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "gutenberg_visibility": "both",
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
                         }
                     ],
                     "min": "",
@@ -576,6 +600,34 @@
             "placeholder": ""
         },
         {
+            "key": "field_5dd7f1e8710ed",
+            "label": "Content Text Align",
+            "name": "content_text_align",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "choices": {
+                "left": "Left",
+                "center": "Center"
+            },
+            "default_value": [
+                "left"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_5dd7e8cae92ca",
             "label": "Size",
             "name": "size",
@@ -619,5 +671,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1574432277
+    "modified": 1574433537
 }
