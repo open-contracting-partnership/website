@@ -29,7 +29,7 @@ category:
 	grid-template-rows: [all-start] var(--padding) auto var(--padding) [all-end];
 
 	.block__image {
-		grid-column: wide;
+		grid-column: full;
 		grid-row: all;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -37,7 +37,7 @@ category:
 	}
 
 	.block__image-overlay {
-		grid-column: wide;
+		grid-column: full;
 		grid-row: all;
 	}
 

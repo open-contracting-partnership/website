@@ -45,7 +45,7 @@ category:
 	color: $ui-white;
 
 	.block__image {
-		grid-column: wide;
+		grid-column: full;
 		grid-row: 1;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -54,7 +54,7 @@ category:
 	}
 
 	.block__image-overlay {
-		grid-column: wide;
+		grid-column: full;
 		grid-row: 1;
 	}
 

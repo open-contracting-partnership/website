@@ -54,7 +54,7 @@ category:
 	--logo-margin: #{spacing(1)};
 	@include fluid-type(--block-pading, 375px, 1240px, spacing(4), spacing(6));
 	--padding-bottom: calc(var(--block-pading) - (var(--logo-margin) * 2));
-	
+
 	grid-template-rows: [all-start] repeat(6, auto) [all-end];
 
 	@include from(T) {
@@ -62,7 +62,7 @@ category:
 	}
 
 	.block__background {
-		grid-column: wide;
+		grid-column: full;
 		grid-row: all;
 	}
 
