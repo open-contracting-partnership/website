@@ -8,7 +8,7 @@
             "name": "title",
             "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -45,6 +45,59 @@
                     "sub_fields": [
                         {
                             "key": "field_5db19d6e2a3fb",
+                            "label": "Content",
+                            "name": "content",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "gutenberg_visibility": "both",
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 1,
+                            "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5dd7edc4c43b0": {
+                    "key": "layout_5dd7edc4c43b0",
+                    "name": "content_with_icon",
+                    "label": "Content with Icon",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5dd7edf4c43b2",
+                            "label": "Icon",
+                            "name": "icon",
+                            "type": "select",
+                            "instructions": "padlock : Open Padlock\r\nfist : Fist\r\nmagnifier : Magnifier",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "gutenberg_visibility": "both",
+                            "choices": [],
+                            "default_value": [],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_5dd7edc4c43b1",
                             "label": "Content",
                             "name": "content",
                             "type": "wysiwyg",
@@ -417,10 +470,10 @@
             "max": ""
         },
         {
-            "key": "field_5da5d8c6146a0",
-            "label": "Background Colour",
-            "name": "background_colour",
-            "type": "color_picker",
+            "key": "field_5dd7e927336d7",
+            "label": "Advanced Block Options",
+            "name": "",
+            "type": "accordion",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -429,7 +482,25 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 0,
+            "gutenberg_visibility": "both",
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_5da5d8c6146a0",
+            "label": "Background Colour",
+            "name": "background_colour",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
             "default_value": ""
         },
         {
@@ -441,11 +512,11 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 0,
+            "gutenberg_visibility": "both",
             "default_value": ""
         },
         {
@@ -453,7 +524,7 @@
             "label": "Primary Column Width",
             "name": "primary_column_width",
             "type": "select",
-            "instructions": "Select how wide the primary column should be. If enabled, the sidebar will fill the remaining space.\r\n\r\nIf the sidebar is enabled the largest possible size is medium.",
+            "instructions": "Select how wide the primary column should be. If the sidebar is enabled the largest possible size is medium.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -465,9 +536,12 @@
             "choices": {
                 "small": "Small",
                 "medium": "Medium",
-                "large": "Large"
+                "large": "Large",
+                "full: Full": "full: Full"
             },
-            "default_value": [],
+            "default_value": [
+                "full"
+            ],
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -477,8 +551,8 @@
         },
         {
             "key": "field_5dd4f6aee1851",
-            "label": "Sidebar Alignment",
-            "name": "sidebar_alignment",
+            "label": "Sidebar Vertical Alignment",
+            "name": "sidebar_vertical_alignment",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -492,6 +566,32 @@
             "choices": {
                 "bottom": "Bottom",
                 "top": "Top"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5dd7e8cae92ca",
+            "label": "Size",
+            "name": "size",
+            "type": "select",
+            "instructions": "This mainly affects the block padding.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "choices": {
+                "normal": "Normal",
+                "small": "Small"
             },
             "default_value": [],
             "allow_null": 0,
@@ -519,5 +619,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1574430316
+    "modified": 1574432277
 }
