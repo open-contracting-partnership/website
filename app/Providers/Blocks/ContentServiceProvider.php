@@ -59,7 +59,7 @@ class ContentServiceProvider
 		$context['block']['options']['size'] = get_field('size');
 		$context['block']['options']['show_sidebar'] = get_field('show_sidebar');
 
-		if ( get_field('show_sidebar') && $context['block']['options']['primary_column_width'] === 'large' ) {
+		if ( get_field('show_sidebar') && $context['block']['options']['primary_column_width'] === 'full' ) {
 			$context['block']['options']['primary_column_width'] = 'large';
 		}
 
