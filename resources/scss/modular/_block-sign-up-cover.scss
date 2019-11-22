@@ -72,6 +72,7 @@ category:
 			color: currentColor;
 			@include fluid-type(font-size, 360px, 1240px, 25px, 39px);
 			@include fluid-type(margin-bottom, 360px, 1240px, 72px, 240px);
+			text-align: center;
 		}
 
 		.block__form-container {
