@@ -65,20 +65,14 @@ const reports = new Vue({
 		if ( document.querySelectorAll('.impact-stories__featured-scroller').length ) {
 
 			var slider = tns({
-				"container": ".impact-stories__featured-scroller",
-				"mouseDrag": true,
-				"swipeAngle": false,
-				"speed": 400,
+				container: '.impact-stories__featured-scroller',
+				mouseDrag: true,
+				swipeAngle: false,
+				speed: 400,
 				controls: false
-
-				// container: '.impact-stories__featured-scroller',
-				// mouseDrag: true,
-				// controlsContainer: '.block__scroller-controls',
-				// nav: false
 			});
 
 		}
-
 
 	}
 

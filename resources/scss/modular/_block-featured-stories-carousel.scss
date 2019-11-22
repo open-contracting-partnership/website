@@ -1,0 +1,74 @@
+/*
+
+---
+name: Featured Stories Carousel
+category:
+ - Blocks
+ - Blocks/Featured Stories Carousel
+---
+
+```html
+```
+
+*/
+
+.block[data-block-type="featured-stories-carousel"] {
+
+	.block__container {
+		grid-column: content;
+		position: relative;
+		margin: var(--v-spacing) 0;
+		border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
+		overflow: hidden;
+	}
+
+	.tns-nav {
+
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		padding: spacing(1);
+		z-index: 1;
+
+		display: flex;
+		justify-content: center;
+
+		button {
+
+			background: none;
+			color: inherit;
+			border: none;
+			padding: 0;
+			font: inherit;
+			cursor: pointer;
+			outline: inherit;
+			border-radius: 0;
+			margin: 0;
+
+			&:focus {
+				outline: none;
+			}
+
+			// start
+			font-size: 18px;
+			height: 1em;
+			width: 1em;
+			border-radius: 50%;
+			border: 2px solid $ui-grey-7;
+			background-color: transparent;
+
+			&:not(:last-child) {
+				margin-right: spacing(1);
+			}
+
+			&.tns-nav-active {
+				background-color: $ui-brand;
+				border-color: $ui-brand;
+			}
+
+		}
+
+	}
+
+}

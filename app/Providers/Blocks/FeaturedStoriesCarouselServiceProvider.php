@@ -1,0 +1,63 @@
+<?php
+
+namespace App\Providers\Blocks;
+
+use App\Providers\Blocks\BaseBlock;
+use Timber\Timber;
+
+class FeaturedStoriesCarouselServiceProvider
+{
+
+	/**
+	 * Perform any additional boot required for this application
+	 */
+	public function boot()
+	{
+
+		add_action('acf/init', function() {
+
+			acf_register_block_type([
+				'name' => 'ocp/featured-stories-carousel',
+				'title' => __('Featured Stories Carousel'),
+				// 'description' => __('Add content.'),
+				'render_callback' => array($this, 'render'),
+				'category' => 'ocp-blocks',
+				'icon' => 'format-gallery',
+				'enqueue_assets' => function() {
+					wp_enqueue_script('block-featured-stories-carousel', get_template_directory_uri() . '/dist/js/block-featured-stories-carousel.js', ['manifest'], false, true);
+				},
+				'keywords' => ['featured', 'story', 'stories', 'carousel'],
+				'post_types' => ['page'],
+				'supports' => [
+					'align' => false
+				]
+			]);
+
+		});
+
+	}
+
+	public function render() {
+
+		$context = Timber::get_context();
+
+		$context['block'] = [];
+		$context['block']['featured_stories'] = get_field('featured_stories');
+
+		// match the featured stories with the correct card type
+		$context['block']['featured_stories'] = array_map(function($story) {
+
+			return [
+				'title' => $story['title'],
+				'introduction' => $story['introduction'],
+				'image_url' => $story['image']['url'],
+				'url' => $story['link']['url']
+			];
+
+		}, $context['block']['featured_stories']);
+
+		echo Timber::compile('blocks/featured-stories-carousel.twig', $context);
+
+	}
+
+}

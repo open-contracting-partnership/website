@@ -1,0 +1,15 @@
+<div class="block" data-block-type="featured-stories-carousel">
+
+	<div class="block__container">
+
+		<div class="block__carousel">
+
+			{% for card in block.featured_stories %}
+				{% include 'cards/carousel.twig' with card %}
+			{% endfor %}
+
+		</div>
+
+	</div>
+
+</div>
