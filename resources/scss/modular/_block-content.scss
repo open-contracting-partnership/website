@@ -97,6 +97,10 @@ category:
 
 			}
 
+			.sub-content > *:last-child {
+				margin-bottom: 0;
+			}
+
 			.sub-content[data-type="content-with-icon"] {
 
 				@include from(S) {
@@ -182,7 +186,7 @@ category:
 
 				grid-column: calc(var(--content-span) + 1) / all;
 
-				&[data-alignment="bottom"] {
+				&[data-vertical-alignment="bottom"] {
 					align-self: flex-end;
 				}
 
