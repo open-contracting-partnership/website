@@ -1,6 +1,6 @@
 {
     "key": "group_5da5d7bb3d2a0",
-    "title": "Block: Content with Sidebar",
+    "title": "Block: Content",
     "fields": [
         {
             "key": "field_5db08fa9738ff",
@@ -169,13 +169,41 @@
             "max": ""
         },
         {
+            "key": "field_5dd7e49e4089d",
+            "label": "Show Sidebar?",
+            "name": "show_sidebar",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5db19911258fa",
             "label": "Sidebar Content",
             "name": "sidebar_content",
             "type": "flexible_content",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5dd7e49e4089d",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -422,10 +450,10 @@
         },
         {
             "key": "field_5dce842b8a1ef",
-            "label": "Sidebar Width",
-            "name": "sidebar_width",
+            "label": "Primary Column Width",
+            "name": "primary_column_width",
             "type": "select",
-            "instructions": "",
+            "instructions": "Select how wide the primary column should be. If enabled, the sidebar will fill the remaining space.\r\n\r\nIf the sidebar is enabled the largest possible size is medium.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -479,7 +507,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/ocp-content-with-sidebar"
+                "value": "acf\/ocp-content"
             }
         ]
     ],
@@ -491,5 +519,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1574264605
+    "modified": 1574430316
 }
