@@ -1,0 +1,45 @@
+<div class="block" data-block-type="quote-carousel">
+
+	<div class="block__background" style="background-color: {{ block.background_colour }}"></div>
+
+	<div class="block__container" style="color: {{ block.text_colour }};">
+
+		{% if block.title %}
+
+			<div class="block__heading">
+				{{ block.title }}
+			</div>
+
+		{% endif %}
+
+		<div class="block__carousel_container">
+
+			<div class="block__carousel-controls">
+
+				<button class="button--naked" rel="prev">
+					<svg><use xlink:href="#icon-large-arrow"></use></svg>
+				</button>
+
+				<button class="button--naked" rel="next">
+					<svg><use xlink:href="#icon-large-arrow"></use></svg>
+				</button>
+
+			</div>
+
+			<div class="block__carousel">
+
+				{% for card in block.quotes %}
+
+					<div class="block__carousel-item">
+						{% include 'cards/quote.twig' with card  %}
+					</div>
+
+				{% endfor %}
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
