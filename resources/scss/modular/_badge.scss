@@ -1,0 +1,46 @@
+/*
+
+---
+name: Badge
+category:
+ - Components
+ - Components/Badge
+---
+
+```html
+<div class="badge">
+	<span class="badge__label">Featured</span>
+	<svg class="badge__icon"><use xlink:href="#icon-plus-circle"></use></svg>
+</div>
+```
+
+*/
+
+.badge {
+
+	--height: 24px;
+	--icon-border: 2px;
+
+	display: inline-flex;
+	align-items: center;
+	background-color: $ui-brand;
+	color: $ui-black;
+	height: var(--height);
+	border-radius: 4px calc(var(--height) / 2) calc(var(--height) / 2) 4px;
+
+}
+
+	.badge__label {
+		font-size: 18px;
+		@include font('primary', 'semibold');
+		margin: em(4, 18) .75em 0;
+		line-height: 1;
+	}
+
+	.badge__icon {
+		font-size: calc(var(--height) - (var(--icon-border) * 2)); // UPDATE
+		margin: var(--icon-border);
+		height: 1em;
+		width: 1em;
+		fill: $ui-white;
+	}
