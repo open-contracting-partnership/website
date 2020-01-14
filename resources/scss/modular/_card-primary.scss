@@ -55,16 +55,22 @@ category:
 
 .card.card--primary {
 
+	--background-color: #{$ui-grey};
+	--color: #{$ui-white};
+
 	border-radius: spacing(4) spacing(1) 0 spacing(2);
 	overflow: hidden;
-	background: $ui-grey;
-	color: $ui-white;
+	background: var(--background-color);
+	color: var(--color);
 	position: relative;
+	display: flex;
+	flex-direction: column;
 
 	.card__image {
 
 		position: relative;
 		width: 100%;
+		flex: 0 0 auto;
 
 		img {
 			display: block;
@@ -93,6 +99,9 @@ category:
 
 	.card__main {
 		padding: spacing(1.5) spacing(2.5);
+		flex: 1 1 100%;
+		display: flex;
+		flex-direction: column;
 	}
 
 		.card__title-link {
@@ -103,7 +112,7 @@ category:
 			max-width: 90%;
 
 			&::after {
-				content: '';
+				// content: '';
 				display: block;
 				position: absolute;
 				top: 0;
@@ -121,8 +130,9 @@ category:
 			}
 
 		.card__footer {
+			margin-top: auto;
 			display: flex;
-			align-items: flex-start;
+			align-items: flex-end;
 		}
 
 			.card__meta {
@@ -136,6 +146,18 @@ category:
 				margin-left: spacing(2);
 				flex: 0 0 auto;
 			}
+
+	// light scheme
+	&[data-colour-scheme="light"] {
+
+		--background-color: #{$ui-grey-7};
+		--color: #{$ui-black};
+
+		.arrow-link__icon {
+			fill: $ui-white;
+		}
+
+	}
 
 }
 

@@ -97,7 +97,25 @@ class HomeController extends Controller
 			'posts_per_page' => -1
 		]);
 
-		return PrimaryCard::convertCollection($posts);
+		// convert and filter the
+		$posts = PrimaryCard::convertCollection($posts, function($item) {
+
+			// we don't want to show a button label
+			unset($item['button_label']);
+
+			// append the date to the meta data
+			$item['meta'] = $item['date'] . '<br>' . $item['meta'];
+
+			// and we want the lighter colour scheme, we set this on the card as
+			// with vue we don't currently set this any other way
+
+			$item['colour_scheme'] = 'light';
+
+			return $item;
+
+		});
+
+		return $posts; //PrimaryCard::convertCollection($posts);
 
 	}
 

@@ -12,7 +12,12 @@ class PrimaryCard extends BaseCard
 		$data['image_url'] = get_the_post_thumbnail_url($post_id) ?: null;
 		$data['title'] = get_the_title($post_id);
 		$data['url'] = get_the_permalink($post_id);
+		$data['date'] = get_the_date('', $post_id);
 		$data['meta'] = get_the_author_meta('display_name', get_post_field('post_author', $post_id));
+
+		if ( in_array(get_post_type($post_id), ['post', 'news']) ) {
+			$data['meta'] = get_the_date('', $post_id) . '<br>' . $data['meta'];
+		}
 
 		if ( get_post_type($post_id) === 'post' ) {
 			$data['type_label'] = 'Blog';
@@ -33,6 +38,7 @@ class PrimaryCard extends BaseCard
 		return [
 			'title' => $post->post_title,
 			'url' => $post->link,
+			'date' => $post->date,
 			'meta' => $post->author ? $post->author->name : null,
 			'image_url' => $post->thumbnail ? $post->thumbnail->src : null,
 			'type_label' => get_post_type_label($post->post_type),

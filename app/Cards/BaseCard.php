@@ -19,11 +19,21 @@ class BaseCard
 
 	}
 
-	public static function convertCollection($collection) {
+	public static function convertCollection($collection, $callback = null) {
 
-		return array_map(function($post) {
+		$collection = array_map(function($post) {
 			return self::convertPost($post);
 		}, self::convertCollectionToArray($collection));
+
+		if ( is_callable($callback) ) {
+
+			foreach ( $collection as &$item ) {
+				$item = $callback($item);
+			}
+
+		}
+
+		return $collection;
 
 	}
 

@@ -56,22 +56,20 @@
 				<h2 class="card__title" v-html="card.title"></h2>
 			</a>
 
-			<!-- <div class="card__footer">
+			<div class="card__footer">
 
-				{% if card.meta %}
-					<div class="card__meta">{{ card.meta }}</div>
-				{% endif %}
+				<div class="card__meta" v-html="card.meta"></div>
 
 				<div class="card__cta">
 
-					<a class="arrow-link" href="{{ card.url }}">
+					<a class="arrow-link" :href="card.url">
 						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-						<span class="arrow-link__label">{{ card.button_label }}</span>
+						<span v-if="card.button_label" class="arrow-link__label" v-html="card.button_label"></span>
 					</a>
 
 				</div>
 
-			</div> -->
+			</div>
 
 		</div>
 

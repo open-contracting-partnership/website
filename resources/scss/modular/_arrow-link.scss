@@ -101,7 +101,6 @@ category:
 		font-size: 28px;
 		height: 1em;
 		width: 1em;
-		margin-right: spacing(1);
 		fill: $ui-brand;
 	}
 
@@ -110,6 +109,7 @@ category:
 		font-size: 14px;
 		@include font('secondary', 'medium');
 		padding-top: .2em;
+		margin-left: spacing(1);
 	}
 
 .arrow-link[data-size="large"] {
