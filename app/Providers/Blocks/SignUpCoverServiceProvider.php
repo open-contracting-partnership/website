@@ -18,7 +18,7 @@ class SignUpCoverServiceProvider
 
 			acf_register_block_type([
 				'name' => 'ocp/sign-up-cover',
-				'title' => __('Sign Up Cover'),
+				'title' => __('Sign Up'),
 				'description' => __('Add a sign-up form with an image.'),
 				'render_callback' => array($this, 'render'),
 				'category' => 'ocp-blocks',
@@ -50,10 +50,17 @@ class SignUpCoverServiceProvider
 
 		$context['block'] = [];
 		$context['block']['heading'] = get_field('heading') ?: 'Add primary title here&hellip;';
+		$context['block']['content'] = get_field('content');
+		$context['block']['orientation'] = get_field('orientation') ?: 'vertical';
 		$context['block']['image'] = get_field('image');
+		$context['block']['form_label'] = get_field('form_label');
+
 		$context['block']['overlay_color'] = get_field('overlay_colour') ?: '#000000';
 		$context['block']['background_opacity'] = get_field('background_opacity') / 100;
-		$context['block']['background_color'] = hex2rgba($context['block']['overlay_color'], $context['block']['background_opacity']);
+
+		$context['block']['background_colour'] = hex2rgba($context['block']['overlay_color'], $context['block']['background_opacity']);
+		$context['block']['text_colour'] = isContrastingColourLight($context['block']['background_colour']) ? '#FFF' : '#000';
+		$context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
 
 		echo Timber::compile('blocks/sign-up-cover.twig', $context);
 

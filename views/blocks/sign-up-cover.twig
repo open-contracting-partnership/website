@@ -1,24 +1,48 @@
-<div class="block" data-block-type="sign-up-cover">
+<div class="block" data-block-type="sign-up-cover" data-orientation="{{ block.orientation }}">
 
-	<div class="block__image" style="background-image: url('{{ block.image.url }}');"></div>
+	{% if block.image %}
+		<div class="block__image" style="background-image: url('{{ block.image.url }}');"></div>
+	{% endif %}
 
-	<div class="block__image-overlay" style="background-color: {{ block.background_color }};"></div>
+	<div class="block__image-overlay" style="background-color: {{ block.background_colour }};"></div>
 
 	<div class="block__container">
 
-		<h1 class="block__heading">{{ block.heading }}</h1>
+		<div class="block__main">
+
+			<h1 class="block__heading">{{ block.heading }}</h1>
+
+			{% if block.content %}
+
+				<div class="block__content">
+					{{ block.content | raw }}
+				</div>
+
+			{% endif %}
+
+		</div>
 
 		<div class="block__form-container">
 
 			<form class="block__form / js-mailchimp-form">
 
-				<p>Sign up to our online community.</p>
-				<input type="email" name="email" placeholder="Your email address">
+				{% if block.form_label %}
+					<p>{{ block.form_label }}</p>
+				{% endif %}
 
-				<p class="js-mailchimp-form__message">&nbsp;</p>
+				<div class="block__form-wrapper">
+
+					<input type="email" name="email" placeholder="Your email address">
+
+					<button class="block__form-submit / button--naked">
+						<svg><use xlink:href="#icon-arrow-circle"></use></svg>
+					</button>
+
+				</div>
+
+				<p class="js-mailchimp-form__message"></p>
 
 			</form>
-
 
 		</div>
 

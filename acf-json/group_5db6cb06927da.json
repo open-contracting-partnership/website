@@ -15,9 +15,48 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 0,
+            "gutenberg_visibility": "both",
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e1deab9d28ff",
+            "label": "Content",
+            "name": "content",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
             "gutenberg_visibility": "edit_screen",
             "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_5e1deb28ac935",
+            "label": "Form label",
+            "name": "form_label",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "edit_screen",
+            "default_value": "Get our newsletter",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -29,15 +68,14 @@
             "name": "image",
             "type": "image",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 0,
-            "gutenberg_visibility": "block_settings",
+            "gutenberg_visibility": "both",
             "return_format": "array",
             "preview_size": "medium",
             "library": "all",
@@ -48,6 +86,31 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_5e1deb40ac936",
+            "label": "Orientation",
+            "name": "orientation",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "choices": {
+                "vertical": "Vertical",
+                "horizontal": "Horizontal"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "vertical",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
         },
         {
             "key": "field_5db6cb06be6ed",
@@ -85,6 +148,22 @@
             "step": 10,
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_5e1decd504bbe",
+            "label": "Text Colour",
+            "name": "text_colour",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "default_value": ""
         }
     ],
     "location": [
@@ -104,5 +183,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1572260828
+    "modified": 1579019511
 }
