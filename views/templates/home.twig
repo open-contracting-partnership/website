@@ -11,7 +11,16 @@
 				<div class="home__header-featured">
 
 					{% if featured_blog %}
-						{% include 'cards/feature.twig' with featured_blog %}
+
+						{% include 'cards/feature.twig' with {
+							card: featured_blog.card,
+							options: {
+								badge: {
+									label: 'Featured'
+								}
+							}
+						} %}
+
 					{% endif %}
 
 				</div>

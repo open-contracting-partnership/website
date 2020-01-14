@@ -16,8 +16,17 @@ category:
 
 		<div class="card__image-overlay">
 
+			<div class="card__meta">
+
+				<div class="badge">
+					<span class="badge__label">Featured</span>
+					<svg class="badge__icon"><use xlink:href="#icon-plus-circle"></use></svg>
+				</div>
+
+			</div>
+
 			<a class="card__title-link" href="#">
-				<h2 class="card__title">Honduras</h2>
+				<h2 class="card__title">Kyrgyz Republic: How open contracting can support small business</h2>
 			</a>
 
 			<div class="card__intro">
@@ -64,22 +73,23 @@ category:
 			right: 0;
 			bottom: 0;
 			left: 0;
-			background:
-				linear-gradient(180deg, rgba(255, 255, 255, 0) 24.48%, #2F2F2F 100%),
-				linear-gradient(0deg, rgba(38, 38, 38, 0.4), rgba(38, 38, 38, 0.4));
-			background-blend-mode: darken, normal;
+			background-color: rgba(0, 0, 0, .4);
 			padding: var(--v-padding) var(--h-padding);
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-end;
+			
 		}
+
+			.card__meta {
+				margin-bottom: spacing(3);
+			}
 
 			.card__title-link {
 
 				display: block;
 				color: currentColor;
 				text-decoration: none;
-				text-transform: uppercase;
 
 				&::after {
 					content: '';
@@ -99,7 +109,7 @@ category:
 			}
 
 				.card__title {
-					font-size: 24px;
+					font-size: 36px;
 					margin-bottom: 10px;
 					color: currentColor;
 				}

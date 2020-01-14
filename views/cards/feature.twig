@@ -1,3 +1,9 @@
+{% if not options %}
+	{% set options = [] %}
+{% endif %}
+
+{% set options = { 'badge': null } | merge(options) %}
+
 <div class="card card--feature">
 
 	<div class="card__image">
@@ -8,7 +14,7 @@
 				auto: 'format',
 				fit: 'crop'
 			},
-			aspect_ratio: [4, 3],
+			aspect_ratio: [16, 9],
 			transforms: [{
 				w: 415
 			}, {
@@ -24,6 +30,19 @@
 		}) }}
 
 		<div class="card__image-overlay">
+
+			<div class="card__meta">
+
+				{% if options.badge.label %}
+
+					<div class="badge">
+						<span class="badge__label">{{ options.badge.label }}</span>
+						<svg class="badge__icon"><use xlink:href="#icon-plus-circle"></use></svg>
+					</div>
+
+				{% endif %}
+
+			</div>
 
 			<a class="card__title-link" href="{{ card.url }}">
 				<h2 class="card__title">{{ card.title }}</h2>
