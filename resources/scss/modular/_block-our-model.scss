@@ -57,20 +57,64 @@
 
 				width: 100%;
 
-				&[data-section="publish"] g[data-section="publish"] path.arrow {
-					fill: #6C75E1;
+				g[data-section] {
+					z-index: 2;
 				}
 
-				&[data-section="engagement"] g[data-section="engagement"] path.arrow {
-					fill: #6C75E1;
+				&[data-section="publish"] g[data-section="publish"] {
+
+					z-index: 1;
+
+					path.background {
+						fill: #E2E1E1;
+					}
+
+					path.arrow {
+						fill: #6C75E1;
+					}
+
 				}
 
-				&[data-section="measure"] g[data-section="measure"] path.arrow {
-					fill: #6C75E1;
+				&[data-section="engagement"] g[data-section="engagement"] {
+
+					z-index: 1;
+
+					path.background {
+						fill: #E2E1E1;
+					}
+
+					path.arrow {
+						fill: #6C75E1;
+					}
+
 				}
 
-				&[data-section="goals"] g[data-section="goals"] path.arrow {
-					fill: #6C75E1;
+				&[data-section="measure"] g[data-section="measure"] {
+
+					z-index: 1;
+
+					path.background {
+						fill: #E2E1E1;
+					}
+
+					path.arrow {
+						fill: #6C75E1;
+					}
+
+				}
+
+				&[data-section="goals"] g[data-section="goals"] {
+
+					z-index: 1;
+
+					path.background {
+						fill: #E2E1E1;
+					}
+
+					path.arrow {
+						fill: #6C75E1;
+					}
+
 				}
 
 				g[data-section] {
