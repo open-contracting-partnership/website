@@ -28,7 +28,7 @@
 
 			<imgix
 				v-else
-				url='/wp-content/themes/ocp-v1/resources/img/fallback.jpg'
+				url='/wp-content/themes/ocp-v1/resources/img/fallback-v2.jpg'
 				:params="{
 					auto: 'format',
 					fit: 'crop'
