@@ -1,21 +1,21 @@
 /*------------------------------------*\
-    LINKS
+	LINKS
 \*------------------------------------*/
 
 a {
 
-    text-decoration: underline;
-    word-wrap: break-word;
+	text-decoration: underline;
+	word-wrap: break-word;
 	color: currentColor;
 
-    &:hover,
-    &:focus {
-        text-decoration: none;
-    }
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
 
-    &:active {
-        text-decoration: underline;
-    }
+	&:active {
+		text-decoration: underline;
+	}
 
 }
 
@@ -56,27 +56,27 @@ h5 {
 	a {
 		text-decoration: none;
 
-        &:hover,
-        &:focus {
-          text-decoration: underline;
-        }
+		&:hover,
+		&:focus {
+		  text-decoration: underline;
+		}
 
-        &:active {
-          text-decoration: none;
-        }
+		&:active {
+		  text-decoration: none;
+		}
 	}
 }
 
 tbody tr a {
-    color: inherit;
-    text-decoration: underline;
+	color: inherit;
+	text-decoration: underline;
 
-    &:hover,
-    &:focus {
-        text-decoration: none;
-    }
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
 
-    &:active {
-        text-decoration: underline;
-    }
+	&:active {
+		text-decoration: underline;
+	}
 }
