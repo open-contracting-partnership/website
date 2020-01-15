@@ -10,7 +10,7 @@
 
 			<ul class="">
 
-				{% for item in header_primary_menu.items %}
+				{% for item in header.primary_menu.items %}
 
 					<li class="nav-main-item {{ item.classes|join(' ') }}">
 
@@ -125,7 +125,7 @@
 
 		<div class="site-header__toolbox">
 
-			{% for item in header_secondary_menu.items %}
+			{% for item in header.secondary_menu.items %}
 				<a href="{{ item.url }}">{{ item.title }}</a>
 			{% endfor %}
 

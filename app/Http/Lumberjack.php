@@ -34,15 +34,21 @@ class Lumberjack extends LumberjackCore
 			'linkedin' => $share_links->linkedin
 		);
 
-		$context['header_primary_menu'] = new \Timber\Menu('Header: Primary');
-		$context['header_secondary_menu'] = new \Timber\Menu('Header: Secondary');
-		$context['footer_menu'] = new \Timber\Menu('Footer');
+		$context['header'] = [
+			'primary_menu' => new \Timber\Menu('Header: Primary'),
+			'secondary_menu' => new \Timber\Menu('Header: Secondary')
+		];
+
+		$context['footer'] = [
+			'menu' => new \Timber\Menu('Footer')
+		];
+
 		$context['search_term'] = get_search_query();
 
 		// fetch the menu
 		$mega_menus = get_field('mega_menu', 'options');
 
-		foreach ( $context['header_primary_menu']->items as &$item ) {
+		foreach ( $context['header']['primary_menu']->items as &$item ) {
 
 			$item->mega_menu = false;
 
