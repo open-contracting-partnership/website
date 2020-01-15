@@ -5,17 +5,6 @@ namespace App\Cards;
 class ResourceCard extends BaseCard
 {
 
-	public static function buildPostById($post_id) {
-
-		return [
-			'title' => get_the_title($post_id),
-			'url' => get_the_permalink($post_id),
-			'type' => get_post_type($post_id),
-			'type_label' => get_post_type_label(get_post_type($post_id))
-		];
-
-	}
-
 	public static function convertTimberPost($post) {
 
 		return [
