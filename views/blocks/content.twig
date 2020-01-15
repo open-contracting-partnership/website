@@ -179,6 +179,19 @@
 
 					{% endif %}
 
+					{% if item.acf_fc_layout == 'arrow_links' %}
+
+						{% for link in item.links %}
+
+							<a class="arrow-link" href="{{ link.link.url }}" data-text-color="{{ block.is_dark ? 'white' : 'black' }}">
+								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+								<span class="arrow-link__label">{{ link.link.title }}</span>
+							</a>
+
+						{% endfor %}
+
+					{% endif %}
+
 				{% endfor %}
 
 			</div>
