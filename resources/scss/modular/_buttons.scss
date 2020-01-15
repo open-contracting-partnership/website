@@ -110,3 +110,29 @@ category:
 	}
 
 }
+
+.button-bordered {
+
+	--height: 23px;
+	font-size: 14px;
+	position: relative;
+	display: inline-block;
+	padding: 0;
+	text-align: left;
+	color: $ui-grey-5;
+	background-color: $ui-grey-3;
+	border: 1px solid $ui-grey-5;
+	border-radius: 2px calc(var(--height) / 2) calc(var(--height) / 2) 2px;
+	line-height: 1;
+	height: var(--height);
+	padding: calc((var(--height) - 1em) / 2) 1em;
+	padding-right: 1.4em;
+	@include font('secondary', 'medium');
+	text-decoration: none;
+
+	// sizes
+	&[data-size="small"] {
+		font-size: 11px;
+	}
+
+}

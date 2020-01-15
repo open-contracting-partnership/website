@@ -479,7 +479,7 @@ category:
 			align-items: center;
  			margin-bottom: auto;
 
-			a {
+			a:not([class]) {
 				font-size: 11px;
 				@include font('secondary', 'bold');
 				color: $ui-grey-5;
