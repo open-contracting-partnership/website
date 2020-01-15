@@ -5,6 +5,7 @@ namespace App\Http;
 use Rareloop\Lumberjack\Http\Lumberjack as LumberjackCore;
 use App\Menu\Menu;
 use ImLiam\ShareableLink;
+use Timber\URLHelper;
 
 class Lumberjack extends LumberjackCore
 {
@@ -20,19 +21,17 @@ class Lumberjack extends LumberjackCore
 		// versatile than Wordpress's wp_nav_menu. (You need never again rely on a
 		// crazy "Walker Function!")
 
-		$context['social_links'] = array(
-			'twitter' => get_field('twitter_url', 'options') ?: NULL,
-			'facebook' => get_field('facebook_url', 'options') ?: NULL,
-			'linkedin' => get_field('linkedin_url', 'options') ?: NULL
-		);
+		$this->addSocialContext($context);
+		$this->addFurnitureContext($context);
+		$this->addLanguageContext($context);
 
-		$share_links = new ShareableLink(get_permalink(), trim(wp_title('', FALSE)));
+		$context['search_term'] = get_search_query();
 
-		$context['share_links'] = array(
-			'twitter' => $share_links->twitter,
-			'facebook' => $share_links->facebook,
-			'linkedin' => $share_links->linkedin
-		);
+		return $context;
+
+	}
+
+	public function addFurnitureContext(&$context) {
 
 		$context['header'] = [
 			'primary_menu' => new \Timber\Menu('Header: Primary'),
@@ -42,8 +41,6 @@ class Lumberjack extends LumberjackCore
 		$context['footer'] = [
 			'menu' => new \Timber\Menu('Footer')
 		];
-
-		$context['search_term'] = get_search_query();
 
 		// fetch the menu
 		$mega_menus = get_field('mega_menu', 'options');
@@ -66,6 +63,38 @@ class Lumberjack extends LumberjackCore
 
 		}
 
-		return $context;
 	}
+
+	public function addSocialContext(&$context) {
+
+		$context['social_links'] = array(
+			'twitter' => get_field('twitter_url', 'options') ?: NULL,
+			'facebook' => get_field('facebook_url', 'options') ?: NULL,
+			'linkedin' => get_field('linkedin_url', 'options') ?: NULL
+		);
+
+		$share_links = new ShareableLink(get_permalink(), trim(wp_title('', FALSE)));
+
+		$context['share_links'] = array(
+			'twitter' => $share_links->twitter,
+			'facebook' => $share_links->facebook,
+			'linkedin' => $share_links->linkedin
+		);
+
+	}
+
+	public function addLanguageContext(&$context) {
+
+		$current_language = apply_filters('wpml_current_language', NULL);
+
+		$context['i18n']['alternate_languages'] = array_filter(apply_filters('wpml_active_languages', []), function($language) use ($current_language) {
+			return $language['code'] !== $current_language;
+		});
+
+		foreach ( $context['i18n']['alternate_languages'] as &$language ) {
+			$language['current_url'] = apply_filters('wpml_permalink', URLHelper::get_current_url(), $language['code']);
+		}
+
+	}
+
 }
