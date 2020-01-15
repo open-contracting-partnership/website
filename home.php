@@ -17,6 +17,7 @@ use App\PostTypes\News;
 use App\PostTypes\Event;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Post;
+use Timber\Post as TimberPost;
 use Timber\Timber;
 
 class HomeController extends Controller
@@ -87,6 +88,10 @@ class HomeController extends Controller
 
 		$context['header_latest_events'] = $this->getLatestEvents(1);
 		$context['footer_latest_events'] = $this->getLatestEvents(2);
+
+		// fetch the blog content from the other page
+		$blog_content_page = new TimberPost(6335);
+		$context['blog_content'] = $blog_content_page->content;
 
 		return new TimberResponse('templates/home.twig', $context);
 	}
