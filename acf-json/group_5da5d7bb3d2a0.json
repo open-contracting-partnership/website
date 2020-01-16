@@ -59,7 +59,7 @@
                             "gutenberg_visibility": "both",
                             "default_value": "",
                             "tabs": "all",
-                            "toolbar": "basic",
+                            "toolbar": "full",
                             "media_upload": 1,
                             "delay": 0
                         }
@@ -719,5 +719,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1579103344
+    "modified": 1579185172
 }
