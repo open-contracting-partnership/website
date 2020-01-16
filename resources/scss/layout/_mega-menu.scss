@@ -126,6 +126,10 @@ category:
 			margin-bottom: 0;
 		}
 
+			.mega-menu__heading .arrow-link__label {
+				font-size: 18px;
+			}
+
 		.mega-menu__intro {
 
 			font-size: 16px;
@@ -152,14 +156,14 @@ category:
 				font-size: 14px;
 				line-height: 1.3;
 				@include font('secondary', 'bold');
-				margin-right: spacing(3);
+				margin-right: spacing(5);
 
 				&[data-type="menu"] {
-					flex: 0 1 175px;
+					flex: 0 1 200px;
 				}
 
 				&[data-type="grouped-menu"] {
-					flex: 0 1 300px;
+					flex: 0 1 350px;
 				}
 
 				li {

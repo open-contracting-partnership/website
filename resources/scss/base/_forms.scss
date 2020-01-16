@@ -392,15 +392,14 @@ category:
 
 .search-input {
 
-	font-size: 11px;
+
+	font-size: 14px;
 	color: $ui-grey-4;
 
-	height: em(23, 11);
-	border: em(1, 11) solid currentColor;
-	border-radius: em(2, 11) em(10, 11) em(10, 11) em(2, 11);
+	height: em(23, 14);
+	border: em(1, 14) solid currentColor;
+	border-radius: em(2, 14) em(23/2, 14) em(23/2, 14) em(2, 14);
 	display: flex;
-	padding: em(2, 11);
-	// width: 100px;
 
 	.search-input__input {
 
@@ -444,6 +443,7 @@ category:
 	.search-input__button {
 
 		flex: 0 0 auto;
+		margin-right: 1px;
 
 		> svg {
 			display: block;
@@ -463,6 +463,10 @@ category:
 
 		.search-input__input {
 			font-size: .7em;
+		}
+
+		.search-input__button {
+			margin-right: 2px;
 		}
 
 	}

@@ -12,9 +12,13 @@ category:
 
 	<div class="site-header__container">
 
-		<a class="site-header__logo" href="#">
-			<svg><use xlink:href="#logo-horizontal"></use></svg>
-		</a>
+		<div class="site-header__logo">
+
+			<a class="site-header__logo-link" href="#">
+				<svg><use xlink:href="#logo-horizontal"></use></svg>
+			</a>
+
+		</div>
 
 		<nav class="site-header__navigation">
 
@@ -259,19 +263,26 @@ category:
 			grid-column: 1;
 			grid-row: 1;
 
-			> svg {
+		}
 
-				font-size: 56px;
-				height: 1em;
-				width: 2.833em;
+			.site-header__logo-link {
 
-				@include from($header-break-3) {
-					font-size: 65px;
+				display: block;
+
+				> svg {
+
+					font-size: 56px;
+					height: 1em;
+					width: 2.833em;
+
+					@include from($header-break-3) {
+						font-size: 65px;
+					}
+
 				}
 
 			}
 
-		}
 
 		.site-header__navigation {
 
@@ -345,7 +356,7 @@ category:
 
 				// generic
 
-				font-size: 15px;
+				font-size: 17px;
 				@include font('secondary', 'bold');
 				grid-column: all;
 				grid-row: 2;
@@ -377,7 +388,6 @@ category:
 						> a {
 
 							display: block;
-							font-size: 15px;
 							color: $ui-white;
 							padding: spacing(2) 0;
 							margin-right: spacing(6);
@@ -480,7 +490,7 @@ category:
  			margin-bottom: auto;
 
 			a:not([class]) {
-				font-size: 11px;
+				font-size: 14px;
 				@include font('secondary', 'bold');
 				color: $ui-grey-5;
 				@extend %reverse-underline;
@@ -491,6 +501,10 @@ category:
 			}
 
 		}
+
+			// .site-header__toolbox .button-bordered {
+			// 	font-size: 14px;
+			// }
 
 			.site-header__search {
 

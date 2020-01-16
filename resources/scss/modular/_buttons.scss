@@ -113,7 +113,7 @@ category:
 
 .button-bordered {
 
-	--height: 23px;
+	--height: #{em(23, 14)};
 	font-size: 14px;
 	position: relative;
 	display: inline-block;
@@ -127,7 +127,7 @@ category:
 	height: var(--height);
 	padding: calc((var(--height) - 1em) / 2) 1em;
 	padding-right: 1.4em;
-	@include font('secondary', 'medium');
+	@include font('secondary', 'bold');
 	text-decoration: none;
 
 	// sizes

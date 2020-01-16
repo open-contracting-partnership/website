@@ -2,9 +2,13 @@
 
 	<div class="site-header__container">
 
-		<a class="site-header__logo" href="{{ site.url }}">
-			<svg><use xlink:href="#logo-horizontal"></use></svg>
-		</a>
+		<div class="site-header__logo">
+
+			<a class="site-header__logo-link" href="{{ site.url }}">
+				<svg><use xlink:href="#logo-horizontal"></use></svg>
+			</a>
+
+		</div>
 
 		<nav class="site-header__navigation">
 
@@ -139,7 +143,7 @@
 
 			{% for language in i18n.alternate_languages %}
 
-				<a href="{{ language.current_url }}" class="button-bordered" data-size="small">
+				<a href="{{ language.current_url }}" class="button-bordered">
 					{{ language.native_name }}
 				</a>
 
