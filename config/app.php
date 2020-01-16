@@ -50,6 +50,7 @@ return [
 		App\Providers\Blocks\SignUpCoverServiceProvider::class,
 		App\Providers\Blocks\StoriesServiceProvider::class,
 		App\Providers\Blocks\TeamProfileServiceProvider::class,
+		App\Providers\Blocks\TitleWithIconServiceProvider::class,
 
 	],
 
