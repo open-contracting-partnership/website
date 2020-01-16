@@ -48,9 +48,13 @@ class SingleResourceController extends Controller
 		// for each of the taxonomies, convert the term id to a term object
 		foreach ( $context['resource']['taxonomies'] as $taxonomy => &$terms ) {
 
-			$terms = array_map(function($term) {
-				return get_term($term);
-			}, $terms);
+			if ( is_array($terms) ) {
+
+				$terms = array_map(function($term) {
+					return get_term($term);
+				}, $terms);
+
+			}
 
 		}
 
