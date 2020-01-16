@@ -1,4 +1,6 @@
-<div class="block" data-block-type="team-profile">
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div id="{{ options.id }}" class="block" data-block-type="team-profile">
 
 	<div class="block__container">
 

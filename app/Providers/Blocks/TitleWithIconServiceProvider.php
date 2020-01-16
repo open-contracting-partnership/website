@@ -48,6 +48,9 @@ class TitleWithIconServiceProvider
 		$context['block']['text_colour'] = $context['block']['is_dark'] ? '#FFF' : '#000';
 		$context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
 
+		// options
+		$context['block']['options'] = get_field('options') ?: [];
+		
 		echo Timber::compile('blocks/title-with-icon.twig', $context);
 
 	}

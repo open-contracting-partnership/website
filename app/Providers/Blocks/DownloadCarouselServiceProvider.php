@@ -45,6 +45,9 @@ class DownloadCarouselServiceProvider
 		$context['block']['title'] = get_field('title');
 		$context['block']['downloads'] = get_field('downloads') ?: [];
 
+		// options
+		$context['block']['options'] = get_field('options') ?: [];
+		
 		echo Timber::compile('blocks/download-carousel.twig', $context);
 
 	}

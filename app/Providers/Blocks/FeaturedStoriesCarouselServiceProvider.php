@@ -56,6 +56,9 @@ class FeaturedStoriesCarouselServiceProvider
 
 		}, $context['block']['featured_stories']);
 
+		// options
+		$context['block']['options'] = get_field('options') ?: [];
+		
 		echo Timber::compile('blocks/featured-stories-carousel.twig', $context);
 
 	}

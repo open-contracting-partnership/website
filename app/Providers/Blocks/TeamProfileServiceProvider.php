@@ -73,6 +73,9 @@ class TeamProfileServiceProvider
 
 		}, $context['block']['team']);
 
+		// options
+		$context['block']['options'] = get_field('options') ?: [];
+		
 		echo Timber::compile('blocks/team-profile.twig', $context);
 
 	}

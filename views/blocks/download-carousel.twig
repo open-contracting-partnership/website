@@ -1,4 +1,6 @@
-<div class="block" data-block-type="download-carousel">
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div id="{{ options.id }}" class="block" data-block-type="download-carousel">
 
 	{# <h4><?php _e('Download minutes from the Advisory Board meetings:', 'ocp'); ?></h4> #}
 

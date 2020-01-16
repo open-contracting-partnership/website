@@ -1,4 +1,6 @@
-<div class="block" data-block-type="our-model" style="color: {{ block.text_colour }}">
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div id="{{ options.id }}" class="block" data-block-type="our-model" style="color: {{ block.text_colour }}">
 
 	<div class="block__background" style="background-color: {{ block.background_colour }}"></div>
 

@@ -1,4 +1,6 @@
-<div class="block" data-block-type="featured-stories-carousel">
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div id="{{ options.id }}" class="block" data-block-type="featured-stories-carousel">
 
 	<div class="block__container">
 
