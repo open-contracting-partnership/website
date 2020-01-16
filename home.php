@@ -108,9 +108,6 @@ class HomeController extends Controller
 			// we don't want to show a button label
 			unset($item['button_label']);
 
-			// append the date to the meta data
-			$item['meta'] = $item['date'] . '<br>' . $item['meta'];
-
 			// and we want the lighter colour scheme, we set this on the card as
 			// with vue we don't currently set this any other way
 
