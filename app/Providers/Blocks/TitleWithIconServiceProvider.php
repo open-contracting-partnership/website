@@ -40,10 +40,7 @@ class TitleWithIconServiceProvider
 
 		$context['block'] = [];
 		$context['block']['title'] = get_field('title');
-
-		// content
-		$context['block']['primary_content'] = get_field('primary_content');
-		$context['block']['sidebar_content'] = get_field('sidebar_content');
+		$context['block']['icon'] = get_field('icon');
 
 		// colours
 		$context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';
@@ -51,23 +48,7 @@ class TitleWithIconServiceProvider
 		$context['block']['text_colour'] = $context['block']['is_dark'] ? '#FFF' : '#000';
 		$context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
 
-		// options
-		$context['block']['options'] = get_field('options') ?: [];
-		$context['block']['options']['sidebar_vertical_alignment'] = get_field('sidebar_vertical_alignment');
-		$context['block']['options']['content_text_align'] = get_field('content_text_align');
-		$context['block']['options']['primary_column_width'] = get_field('primary_column_width');
-		$context['block']['options']['size'] = get_field('size');
-		$context['block']['options']['show_sidebar'] = get_field('show_sidebar');
-
-		if ( get_field('show_sidebar') && $context['block']['options']['primary_column_width'] === 'full' ) {
-			$context['block']['options']['primary_column_width'] = 'large';
-		}
-
-		if ( isset($block['className']) ) {
-			$context['block']['options']['classes'] = $block['className'];
-		}
-
-		echo Timber::compile('blocks/content.twig', $context);
+		echo Timber::compile('blocks/title-with-icon.twig', $context);
 
 	}
 
