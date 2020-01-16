@@ -34,7 +34,7 @@ class Resource extends Post
 			],
 			'public' => true,
 			'has_archive' => true,
-			'rewrite' => ['resources' => 'events', 'with_front' => false],
+			'rewrite' => ['slug' => 'resources', 'with_front' => false],
 			'menu_icon' => 'dashicons-book-alt',
 			'supports' => ['title', 'editor', 'thumbnail'],
 			'show_in_rest' => true
