@@ -14,21 +14,71 @@ category:
 
 .block[data-block-type="featured-stories-carousel"] {
 
+	background-color: $ui-grey;
+
 	.block__container {
-		grid-column: content;
+		grid-column: wide;
 		position: relative;
-		margin: var(--v-spacing) 0;
-		border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
 		overflow: hidden;
+	}
+
+	.block__controls {
+
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto 0;
+		display: grid;
+		grid-template-columns: max-content auto max-content;
+		z-index: 3;
+		pointer-events: none;
+
+		@include upto(T) {
+			display: none;
+		}
+
+		button {
+			pointer-events: all;
+			padding: spacing(2);
+		}
+
+		button[disabled] {
+			opacity: .5;
+			cursor: default;
+		}
+
+		button > svg {
+			font-size: 77px;
+			height: 1em;
+			width: 0.428em;
+			fill: $ui-brand;
+		}
+
+		button[data-controls="prev"] {
+
+			grid-column: 1;
+
+			> svg {
+				transform: rotate(180deg);
+			}
+
+		}
+
+		button[data-controls="next"] {
+			grid-column: 3;
+		}
+
 	}
 
 	.tns-nav {
 
 		position: absolute;
 		right: 0;
-		bottom: 0;
+		top: 0;
 		left: 0;
-		padding: spacing(1);
+		padding: spacing(3);
 		z-index: 1;
 
 		display: flex;
@@ -56,7 +106,7 @@ category:
 			width: 1em;
 			border-radius: 50%;
 			border: 2px solid $ui-grey-7;
-			background-color: transparent;
+			background-color: rgba(0, 0, 0, .1);
 
 			&:not(:last-child) {
 				margin-right: spacing(1);

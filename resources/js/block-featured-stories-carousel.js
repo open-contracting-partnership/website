@@ -11,7 +11,7 @@ $block_featured_stories_carousel.forEach($block => {
 		mouseDrag: true,
 		swipeAngle: false,
 		speed: 400,
-		controls: false
+		controlsContainer: '.block__controls'
 	});
 
 });

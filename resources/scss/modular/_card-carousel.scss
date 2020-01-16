@@ -61,6 +61,7 @@ category:
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-end;
+			align-items: center;
 
 			@include fluid-type((padding-left, padding-right), 375px, 1240px, spacing(3), spacing(6));
 			@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(2), spacing(5));
@@ -72,6 +73,8 @@ category:
 				display: block;
 				color: currentColor;
 				text-decoration: none;
+				max-width: 600px;
+				width: 100%;
 
 				&::after {
 					content: '';
@@ -99,6 +102,8 @@ category:
 				.card__intro {
 
 					@include fluid-type(font-size, 375px, 1240px, 16px, 20px);
+					max-width: 600px;
+					width: 100%;
 
 					@include upto(T) {
 						display: none;
