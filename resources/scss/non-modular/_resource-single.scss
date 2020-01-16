@@ -78,7 +78,7 @@
 		}
 
 		@include from(T) {
-			grid-column: span 5 / -1;
+			grid-column: span 5;
 		}
 
 	}

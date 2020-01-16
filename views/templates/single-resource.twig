@@ -30,9 +30,9 @@
 
 		</div>
 
-		<div class="resource-single__thumbnail">
+		{% if resource.image_url %}
 
-			{% if resource.image_url %}
+			<div class="resource-single__thumbnail">
 
 				{{ imgix({
 					src: resource.image_url,
@@ -55,9 +55,9 @@
 					sizes: '100vw'
 				}) }}
 
-			{% endif %}
+			</div>
 
-		</div>
+		{% endif %}
 
 		<div class="resource-single__actions">
 
