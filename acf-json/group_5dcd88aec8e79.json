@@ -66,6 +66,22 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
+                },
+                {
+                    "key": "field_5e2030af3a558",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "return_format": "array"
                 }
             ]
         },
@@ -119,5 +135,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1573751443
+    "modified": 1579167932
 }
