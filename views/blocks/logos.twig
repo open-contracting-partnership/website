@@ -12,6 +12,10 @@
 
 				{% for logo in block.logos %}
 
+					{% if logo.link %}
+						<a href="{{ logo.link.url }}" title="{{ logo.link.title }}" target="{{ logo.link.target }}">
+					{% endif %}
+
 					<div class="block__logo">
 
 						{{ imgix({
@@ -36,6 +40,10 @@
 						}) }}
 
 					</div>
+
+					{% if logo.link %}
+						</a>
+					{% endif %}
 
 				{% endfor %}
 
