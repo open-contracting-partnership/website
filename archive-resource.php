@@ -58,7 +58,7 @@ class ArchiveResourceController extends Controller
 
 			$output = [];
 			$output['title'] = $resource->title;
-			$output['url'] = $resource->link;
+			$output['url'] = $resource->link();
 
 			if ( $resource->organisation ) {
 				$output['meta'] = sprintf(__('By %s', 'ocp'), $resource->organisation) . ' / ' . $resource->date('Y');
