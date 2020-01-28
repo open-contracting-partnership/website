@@ -104,21 +104,24 @@ class HomeController extends Controller
 		]);
 
 		// convert and filter the
-		$posts = PrimaryCard::convertCollection($posts, function($item) {
+		$posts = PrimaryCard::convertCollection($posts, function($new, $original) {
 
 			// we don't want to show a button label
-			unset($item['button_label']);
+			unset($new['button_label']);
 
 			// and we want the lighter colour scheme, we set this on the card as
 			// with vue we don't currently set this any other way
 
-			$item['colour_scheme'] = 'light';
+			$new['colour_scheme'] = 'light';
 
-			return $item;
+			// add issue terms to post
+			$new['issue'] = $original->issue ? $original->issue : [];
+
+			return $new;
 
 		});
 
-		return $posts; //PrimaryCard::convertCollection($posts);
+		return $posts;
 
 	}
 

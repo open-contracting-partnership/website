@@ -31,15 +31,18 @@ class BaseCard
 
 	public static function convertCollection($collection, $callback = null) {
 
-		$collection = array_map(function($post) {
-			return self::convertPost($post);
-		}, self::convertCollectionToArray($collection));
+		$collection = self::convertCollectionToArray($collection);
 
-		if ( is_callable($callback) ) {
+		foreach ( $collection as &$original ) {
 
-			foreach ( $collection as &$item ) {
-				$item = $callback($item);
+			$new = self::convertPost($original);
+
+			if ( is_callable($callback) ) {
+				$new = $callback($new, $original);
 			}
+
+			// update the original item with the new
+			$original = $new;
 
 		}
 

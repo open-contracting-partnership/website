@@ -28,7 +28,7 @@ new Vue({
 			if ( this.filter !== "" ) {
 
 				posts = _filter(posts, post => {
-					return typeof post.issue !== 'undefined' && post.issue.indexOf(this.filter) === -1;
+					return post.issue.length > 0 && post.issue.indexOf(this.filter) !== -1;
 				});
 
 			}
