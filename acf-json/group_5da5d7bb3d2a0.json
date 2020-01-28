@@ -195,7 +195,7 @@
                             "collapsed": "field_5db19dc92a3fe",
                             "min": 0,
                             "max": 0,
-                            "layout": "table",
+                            "layout": "block",
                             "button_label": "Add Link",
                             "sub_fields": [
                                 {
@@ -213,6 +213,38 @@
                                     },
                                     "gutenberg_visibility": "both",
                                     "return_format": "array"
+                                },
+                                {
+                                    "key": "field_5e3015d2a5eb7",
+                                    "label": "Background colour",
+                                    "name": "background_colour",
+                                    "type": "color_picker",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "gutenberg_visibility": "both",
+                                    "default_value": ""
+                                },
+                                {
+                                    "key": "field_5e301618a5eb9",
+                                    "label": "Text colour",
+                                    "name": "text_colour",
+                                    "type": "color_picker",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "gutenberg_visibility": "both",
+                                    "default_value": ""
                                 }
                             ]
                         }
@@ -719,5 +751,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1579185172
+    "modified": 1580209740
 }

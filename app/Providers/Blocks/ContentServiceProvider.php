@@ -45,6 +45,26 @@ class ContentServiceProvider
 		$context['block']['primary_content'] = get_field('primary_content');
 		$context['block']['sidebar_content'] = get_field('sidebar_content');
 
+		// ensure arrow button colours conform to a standard
+		foreach ( $context['block']['primary_content'] as &$content ) {
+
+			if ( $content['acf_fc_layout'] === 'arrow_buttons' ) {
+
+				foreach ( $content['links'] as &$link ) {
+
+					$link['background_colour'] = $link['background_colour'] ?: '#FAFAFA';
+					$link['is_dark'] = isContrastingColourLight($link['background_colour']);
+
+					if ( ! $link['text_colour'] ) {
+						$link['text_colour'] = $link['is_dark'] ? '#FFF' : '#000';
+					}
+
+				}
+
+			}
+
+		}
+
 		// colours
 		$context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';
 		$context['block']['is_dark'] = isContrastingColourLight($context['block']['background_colour']);
