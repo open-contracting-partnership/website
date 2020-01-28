@@ -85,9 +85,9 @@
 
 				<div class="block__link-body">
 
-					<a class="arrow-link" data-icon-color="white" data-text-color="white" href="#">
+					<a class="arrow-link" data-icon-color="white" data-text-color="white" href="{{ block.im_convinced_link.url }}">
 						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-						<span class="arrow-link__label">Tell me how</span>
+						<span class="arrow-link__label">{{ block.im_convinced_link.title }}</span>
 					</a>
 
 				</div>
@@ -103,9 +103,9 @@
 
 				<div class="block__link-body">
 
-					<a class="arrow-link" data-icon-color="white" data-text-color="white" href="#">
+					<a class="arrow-link" data-icon-color="white" data-text-color="white" href="{{ block.im_not_convinced_link.url }}">
 						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-						<span class="arrow-link__label">Show me the evidence</span>
+						<span class="arrow-link__label">{{ block.im_not_convinced_link.title }}</span>
 					</a>
 
 				</div>

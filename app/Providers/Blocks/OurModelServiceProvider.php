@@ -50,6 +50,9 @@ class OurModelServiceProvider
 		$context['block']['content_measure'] = get_field('content_measure');
 		$context['block']['content_goals'] = get_field('content_goals');
 
+		$context['block']['im_convinced_link'] = get_field('im_convinced_link');
+		$context['block']['im_not_convinced_link'] = get_field('im_not_convinced_link');
+
 		$context['block']['model_svg'] = file_get_contents(__DIR__ . '/../../../resources/img/our-model.svg');
 
 		$context['block']['background_colour'] = get_field('background_colour') ?: '#6C75E1';
