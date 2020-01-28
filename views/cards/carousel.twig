@@ -1,4 +1,6 @@
-<div class="card card--carousel">
+{% set options = { 'size': null } | merge(options) %}
+
+<div class="card card--carousel" data-size="{{ options.size }}">
 
 	<div class="card__image">
 
@@ -29,13 +31,17 @@
 				<h2 class="card__title">{{ card.title }}</h2>
 			</a>
 
-			<div class="card__intro-outer">
+			{% if card.introduction %}
 
-				<div class="card__intro">
-					<p>{{ card.introduction }}</p>
+				<div class="card__intro-outer">
+
+					<div class="card__intro">
+						<p>{{ card.introduction }}</p>
+					</div>
+
 				</div>
 
-			</div>
+			{% endif %}
 
 		</div>
 

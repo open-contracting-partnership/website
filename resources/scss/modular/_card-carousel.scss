@@ -126,4 +126,12 @@ category:
 					max-height: 100px;
 				}
 
+	&[data-size="large"] {
+
+		.card__title {
+			@include fluid-type(font-size, 375px, 1240px, 20px, 36px);
+		}
+
+	}
+
 }

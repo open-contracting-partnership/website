@@ -19,7 +19,14 @@
 		<div class="block__carousel">
 
 			{% for card in block.featured_stories %}
-				{% include 'cards/carousel.twig' with card %}
+
+				{% include 'cards/carousel.twig' with {
+					'card': card,
+					'options': {
+						'size': 'large'
+					}
+				} %}
+
 			{% endfor %}
 
 		</div>
