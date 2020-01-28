@@ -1,4 +1,4 @@
-{% set options = { 'size': null } | merge(options) %}
+{% set options = { 'size': null } | merge(options|default([])) %}
 
 <div class="card card--carousel" data-size="{{ options.size }}">
 
