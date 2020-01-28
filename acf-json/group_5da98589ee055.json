@@ -23,6 +23,22 @@
             "maxlength": ""
         },
         {
+            "key": "field_5e30274ba51ed",
+            "label": "Call to action",
+            "name": "call_to_action",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "return_format": "array"
+        },
+        {
             "key": "field_5dd527760edd2",
             "label": "Stories",
             "name": "stories",
@@ -162,5 +178,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1574251321
+    "modified": 1580214104
 }

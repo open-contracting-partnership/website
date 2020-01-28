@@ -42,6 +42,7 @@ class MoreStoriesServiceProvider
 
 		$context['block'] = [];
 		$context['block']['title'] = get_field('title');
+		$context['block']['call_to_action'] = get_field('call_to_action');
 		$context['block']['card_type'] = get_field('card_type') ?: 'default';
 		$context['block']['card_options'] = [];
 
@@ -69,7 +70,7 @@ class MoreStoriesServiceProvider
 
 		// options
 		$context['block']['options'] = get_field('options') ?: [];
-		
+
 		echo Timber::compile('blocks/more-stories.twig', $context);
 
 	}
