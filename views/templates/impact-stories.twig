@@ -101,23 +101,11 @@
 								<h2 class="card__title">{{ story.title }}</h2>
 							</a>
 
-							{# <div class="card__footer">
-
-								<div class="card__cta">
-
-									<a class="arrow-link" href="{{ story.url }}">
-										<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-										<span class="arrow-link__label">{{ card.button_label }}</span>
-									</a>
-
-								</div>
-
-							</div> #}
+							{{ story.introduction }}
 
 						</div>
 
 					</div>
-
 
 				{% endfor %}
 
