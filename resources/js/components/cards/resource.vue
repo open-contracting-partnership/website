@@ -8,7 +8,7 @@
 
 		<div class="card__footer">
 			<div class="card__icon"></div>
-			<span class="card__type">{{ card.type_label }}</span>
+			<span class="card__type" v-html="card.type_label"></span>
 		</div>
 
 	</div>
