@@ -112,8 +112,8 @@
 
 			.impact-stories__filter-heading {
 
-				font-size: 14px;
-				@include font('secondary', 'medium');
+				font-size: 18px;
+				@include font('secondary', 'bold');
 				margin-bottom: 0;
 				grid-column: all;
 
@@ -125,13 +125,13 @@
 
 			.impact-stories__filters label {
 
-				font-size: 12px;
-				@include font('secondary', 'bold');
+				font-size: 16px;
+				@include font('secondary', 'medium');
 				text-transform: none;
 				display: flex;
 				align-items: center;
 				margin-bottom: spacing(1);
-				color: $ui-grey-4;
+				color: $ui-grey-2;
 
 				input {
 
