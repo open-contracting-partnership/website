@@ -109,40 +109,38 @@ function addFieldTranslationOption($field) {
 // and handle the wordpress taxonomy and removal of ui elements
 
 $taxonomies = array(
-
-   'issue' => array(
-	   'label' => 'Issue',
-	   'post_type' => ['post', 'news', 'event', 'resource']
-   ),
-   'resource-type' => array(
-	   'label' => 'Resource Type',
-	   'post_type' => ['resource']
-   ),
-   'region' => array(
-	   'label' => 'Region',
-	   'post_type' => ['post', 'news', 'event', 'resource']
-   ),
-   'country' => array(
-	   'label' => 'Country',
-	   'post_type' => ['post', 'news', 'event', 'resource']
-   ),
-   'open-contracting' => array(
-	   'label' => 'Open Contracting',
-	   'post_type' => ['post', 'news', 'event', 'resource']
-   ),
-   'audience' => array(
-	   'label' => 'Audience',
-	   'post_type' => ['post', 'news', 'event', 'resource']
-   ),
-   'story-type' => array(
-	   'label' => 'Story Type',
-	   'post_type' => ['page']
-   ),
-   'story-content-type' => array(
-	   'label' => 'Story Content Type',
-	   'post_type' => ['page']
-   )
-
+	'issue' => array(
+		'label' => 'Issue',
+		'post_type' => ['post', 'news', 'event', 'resource']
+	),
+	'resource-type' => array(
+		'label' => 'Resource Type',
+		'post_type' => ['resource']
+	),
+		'region' => array(
+		'label' => 'Region',
+		'post_type' => ['post', 'news', 'event', 'resource']
+	),
+	'country' => array(
+		'label' => 'Country',
+		'post_type' => ['post', 'news', 'event', 'resource']
+	),
+	'open-contracting' => array(
+		'label' => 'Open Contracting',
+		'post_type' => ['post', 'news', 'event', 'resource']
+	),
+	'audience' => array(
+		'label' => 'Audience',
+		'post_type' => ['post', 'news', 'event', 'resource']
+	),
+	'story-type' => array(
+		'label' => 'Story Type',
+		'post_type' => ['page']
+	),
+	'story-content-type' => array(
+		'label' => 'Story Content Type',
+		'post_type' => ['page']
+	)
 );
 
 foreach ( $taxonomies as $taxonomy => $options ) {
