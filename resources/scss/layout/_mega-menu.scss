@@ -95,6 +95,7 @@ category:
 */
 
 .mega-menu {
+	font-size: 18px;
 	@include shell-grid;
 	background-color: rgba(#505596, .97);
 	color: $ui-white;
@@ -127,12 +128,12 @@ category:
 		}
 
 			.mega-menu__heading .arrow-link__label {
-				font-size: 18px;
+				font-size: 20px;
 			}
 
 		.mega-menu__intro {
 
-			font-size: 16px;
+			// font-size: 16px;
 			font-style: italic;
 			font-weight: 400;
 			grid-row: 2;
@@ -153,7 +154,7 @@ category:
 
 			ul.mega-menu__nav {
 
-				font-size: 14px;
+				// font-size: 14px;
 				line-height: 1.3;
 				@include font('secondary', 'bold');
 				margin-right: spacing(5);
@@ -184,6 +185,6 @@ category:
 				.mega-menu__sub-nav {
 					display: grid;
 					grid-template-columns: repeat(2, 1fr);
-					grid-column-gap: spacing(1);
+					grid-column-gap: spacing(2);
 					@include font('secondary');
 				}
