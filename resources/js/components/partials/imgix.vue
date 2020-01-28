@@ -89,7 +89,7 @@
 				}
 				catch(error) {}
 
-				return 'https://ocp.imgix.net/' + url + '?' + query;
+				return content.imgix_url + url + '?' + query;
 
 			}
 

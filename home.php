@@ -53,7 +53,8 @@ class HomeController extends Controller
 
 			wp_localize_script('latest-news', 'content', [
 				'posts' => $this->getBlogs(),
-				'select_a_filter' => str_replace(' ', '&nbsp;', __('Select a topic', 'ocp'))
+				'select_a_filter' => str_replace(' ', '&nbsp;', __('Select a topic', 'ocp')),
+				'imgix_url' => IMGIX_BASE_URL
 			]);
 
 		});
