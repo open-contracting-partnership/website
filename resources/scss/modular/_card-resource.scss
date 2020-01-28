@@ -160,17 +160,20 @@ category:
 
 	// resource type colours
 
-	&[data-post-type="annual-report"] {
+	&[data-post-type="annual-report"],
+	&[data-post-type="brochure"] {
 		--accent-colour: #{$ui-brand};
 	}
 
 	&[data-post-type="report"],
-	&[data-post-type="guide"] {
+	&[data-post-type="guide"],
+	&[data-post-type="brief"] {
 		--accent-colour: #{$ui-orange};
 	}
 
 	&[data-post-type="data-tool"],
-	&[data-post-type="training-material"] {
+	&[data-post-type="training-material"],
+	&[data-post-type="methodology"] {
 		--accent-colour: #{$ui-blue};
 	}
 
