@@ -14,7 +14,8 @@ class PrimaryCard extends BaseCard
 			'meta' => $post->author ? $post->author->name : null,
 			'image_url' => $post->thumbnail ? $post->thumbnail->src : null,
 			'type_label' => get_post_type_label($post->post_type),
-			'button_label' => __('Read', 'ocp')
+			'button_label' => __('Read', 'ocp'),
+			'post_type' => $post->post_type
 		];
 
 		if ( in_array($post->post_type, ['post', 'news']) ) {

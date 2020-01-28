@@ -1,3 +1,9 @@
+{% if card.post_type == 'resource' %}
+	{% set fallback_image = '/wp-content/themes/ocp-v1/resources/img/fallback-resource.jpg' %}
+{% else %}
+	{% set fallback_image = '/wp-content/themes/ocp-v1/resources/img/fallback-v2.jpg' %}
+{% endif %}
+
 <div class="card card--primary">
 
 	<div class="card__image">
@@ -28,7 +34,7 @@
 		{% else %}
 
 			{{ imgix({
-				src: '/wp-content/themes/ocp-v1/resources/img/fallback-v2.jpg',
+				src: fallback_image,
 				params: {
 					auto: 'format',
 					fit: 'crop'
