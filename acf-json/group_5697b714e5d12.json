@@ -59,42 +59,21 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
+                "value": "event"
             }
         ],
         [
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
+                "value": "news"
             }
         ],
         [
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
+                "value": "resource"
             }
         ]
     ],
@@ -106,5 +85,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1573040841
+    "modified": 1580221506
 }

@@ -69,34 +69,6 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "event"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "news"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
                 "value": "resource"
             }
         ]
@@ -109,5 +81,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1574072950
+    "modified": 1580221298
 }
