@@ -27,6 +27,9 @@ class Lumberjack extends LumberjackCore
 
 		$context['search_term'] = get_search_query();
 
+		// add terms url
+		$context['site']->terms_url = get_permalink(1314);
+
 		return $context;
 
 	}
