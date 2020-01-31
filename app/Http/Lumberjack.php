@@ -83,10 +83,16 @@ class Lumberjack extends LumberjackCore
 
 		$share_links = new ShareableLink(get_permalink(), trim(wp_title('', FALSE)));
 
-		$context['share_links'] = array(
+		$context['share']['links'] = array(
 			'twitter' => $share_links->twitter,
 			'facebook' => $share_links->facebook,
 			'linkedin' => $share_links->linkedin
+		);
+
+		$context['share']['i18n']['heading'] = _x(
+			'Share:',
+			'The share widget heading',
+			'ocp'
 		);
 
 	}
