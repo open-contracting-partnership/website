@@ -22,7 +22,20 @@ class SearchController extends Controller
 		$search = new Search($search_query, $page);
 
 		$context['title'] = 'Search results for \''.htmlspecialchars($search_query).'\'';
-		$context['search'] = $search;
+		$context['search']['results'] = $search;
+
+		$context['search']['i18n']['next_page_label'] = _x(
+			'Next Page',
+			'The next page label on search results',
+			'ocp'
+		);
+
+		$context['search']['i18n']['no_results_label'] = _x(
+			'No results found.',
+			'The no results found label on search results',
+			'ocp'
+		);
+
 		$context['page'] = $page;
 
 		return new TimberResponse('templates/search.twig', $context);

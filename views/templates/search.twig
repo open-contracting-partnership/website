@@ -8,9 +8,9 @@
 
 			<h1>{{ title }}</h1>
 
-			{% if search.hasResults %}
+			{% if search.results.hasResults %}
 
-				{% for result in search.getResults %}
+				{% for result in search.results.getResults %}
 
 					<div class="card card--text">
 
@@ -25,17 +25,17 @@
 
 				{% endfor %}
 
-				{% if search.hasNextPage %}
+				{% if search.results.hasNextPage %}
 
 					<a class="button button--has-icon" href="/?s={{ function('get_search_query') }}&page={{ page + 1 }}">
 						<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-						Next Page
+						{{ search.i18n.next_page_label }}
 					</a>
 
 				{% endif %}
 
 			{% else %}
-				<p>No results found.</p>
+				<p>{{ search.i18n.no_results_label }}</p>
 			{% endif %}
 
 		</div>
