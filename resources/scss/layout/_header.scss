@@ -198,9 +198,19 @@ category:
 */
 
 .site-header {
+
 	background-color: $ui-grey-3;
 	color: $ui-white;
 	@extend %shell-grid;
+
+	@include upto($header-break-2) {
+		overflow: hidden;
+	}
+
+	@media print {
+		display: none;
+	}
+
 }
 
 	.site-header__container {
@@ -211,10 +221,6 @@ category:
 		padding: spacing(2) spacing(3);
 		grid-template-columns: auto 32px;
 		z-index: 5;
-
-		@include upto($header-break-2) {
-			overflow: hidden;
-		}
 
 		@include from($header-break-2) {
 			grid-column: content;
