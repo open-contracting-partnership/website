@@ -26,23 +26,32 @@ class HomeController extends Controller
 	{
 		$context = Timber::get_context();
 
-		$context['title'] = _x(
+		$context['latest']['content']['title'] = _x(
 			'More blogs about open contracting and',
 			'Displayed within the latest news, proceeded by a separate string, "select a topic"',
 			'ocp'
 		);
 
-		$context['filter_label'] = _x(
+		$context['latest']['content']['filter_label'] = _x(
 			'Select a topic',
 			'The topic filter label within the latest news',
 			'ocp'
 		);
 
-		$context['load_more'] = _x(
+		$context['latest']['content']['load_more'] = _x(
 			'Load more',
 			'The load more posts label for the latest news',
 			'ocp'
 		);
+
+		$context['latest']['content']['featured_label'] = _x(
+			'Featured',
+			'The featured blog label',
+			'ocp'
+		);
+
+		$context['latest']['content']['news_label'] = get_post_type_object('news')->labels->name;
+		$context['latest']['content']['events_label'] = get_post_type_object('event')->labels->name;
 
 		$context['issue_terms'] = get_terms([
 			'taxonomy' => 'issue',
@@ -72,27 +81,27 @@ class HomeController extends Controller
 
 		}, 10, 3);
 
-		$context['featured_blog'] = $this->getFeaturedBlog();
+		$context['latest']['featured_blog'] = $this->getFeaturedBlog();
 
-		$context['news_archive_link'] = [
+		$context['latest']['news_archive_link'] = [
 			'url' => get_post_type_archive_link('news'),
 			'label' => __('View all news', 'ocp')
 		];
 
-		$context['events_archive_link'] = [
+		$context['latest']['events_archive_link'] = [
 			'url' => get_post_type_archive_link('event'),
 			'label' => __('View all events', 'ocp')
 		];
 
-		$context['header_latest_news'] = $this->getLatestNews(2);
-		$context['footer_latest_news'] = $this->getLatestNews(4);
+		$context['latest']['header_latest_news'] = $this->getLatestNews(2);
+		$context['latest']['footer_latest_news'] = $this->getLatestNews(4);
 
-		$context['header_latest_events'] = $this->getLatestEvents(1);
-		$context['footer_latest_events'] = $this->getLatestEvents(2);
+		$context['latest']['header_latest_events'] = $this->getLatestEvents(1);
+		$context['latest']['footer_latest_events'] = $this->getLatestEvents(2);
 
 		// fetch the blog content from the other page
 		$blog_content_page = new TimberPost(6335);
-		$context['blog_content'] = $blog_content_page->content;
+		$contex['latest']['blog_content'] = $blog_content_page->content;
 
 		return new TimberResponse('templates/home.twig', $context);
 	}

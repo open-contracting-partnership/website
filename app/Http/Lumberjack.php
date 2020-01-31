@@ -42,7 +42,12 @@ class Lumberjack extends LumberjackCore
 		];
 
 		$context['footer'] = [
-			'menu' => new \Timber\Menu('Footer')
+			'menu' => new \Timber\Menu('Footer'),
+			'i18n' => [
+				'newsletter_header' => __('Get Our Newsletter', 'ocp'),
+				'contact_header' => __('Contact', 'ocp'),
+				'connect_header' => __('Connect with us:', 'ocp')
+			]
 		];
 
 		// fetch the menu
