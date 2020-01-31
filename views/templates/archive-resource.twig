@@ -18,7 +18,7 @@
 			<h1 class="resource-archive__heading">{{ title }}</h1>
 
 			<div class="resource-archive__intro">
-				<p>We are constantly preparing new resources to help you implement open contracting more effectively and efficiently. Whether it’s guides and research developed by us and our partners, or our data tools and training materials, we have it listed.</p>
+				<p>{{ resources.i18n.introduction }}</p>
 			</div>
 
 		</header>
@@ -62,7 +62,7 @@
 				<resource v-for="(resource, index) in visibleResources" :key="index" :card="resource"></resource>
 			</template>
 
-			<p v-else class="resource-archive__no-results">No results found</p>
+			<p v-else class="resource-archive__no-results">{{ resources.i18n.no_results_label }}</p>
 
 		</div>
 

@@ -33,6 +33,18 @@ class ArchiveResourceController extends Controller
 
 		}
 
+		$context['resources']['i18n']['introduction'] = _x(
+			'We are constantly preparing new resources to help you implement open contracting more effectively and efficiently. Whether it’s guides and research developed by us and our partners, or our data tools and training materials, we have it listed.',
+			'The introduction on the resources archive',
+			'ocp'
+		);
+
+		$context['resources']['i18n']['no_results_label'] = _x(
+			'No results found',
+			'The no results found label on the resources archive',
+			'ocp'
+		);
+
 		// localise the script only *after* the scripts are queued up
 		add_action('wp_enqueue_scripts', function() {
 
