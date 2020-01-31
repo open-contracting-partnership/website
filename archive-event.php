@@ -51,6 +51,24 @@ class ArchiveEventController extends Controller
 
 		$context['archive_events'] = EventCard::convertCollection($archive_events);
 
+		$context['events']['i18n']['introduction'] = _x(
+			'Open contracting events around the world. Are you hosting an event? Let us know and we\'ll be happy to share here.',
+			'The events introduction',
+			'ocp'
+		);
+
+		$context['events']['i18n']['upcoming_events_label'] = _x(
+			'Upcoming events',
+			'The upcoming events label for the events archive',
+			'ocp'
+		);
+
+		$context['events']['i18n']['past_events_label'] = _x(
+			'View past events',
+			'The past events label for the events archive',
+			'ocp'
+		);
+
 		return new TimberResponse('templates/archive-event.twig', $context);
 	}
 }

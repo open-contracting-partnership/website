@@ -18,7 +18,7 @@
 			<h1 class="event-archive__heading">{{ title }}</h1>
 
 			<div class="event-archive__intro">
-				<p>Open contracting events around the world. Are you hosting an event? Let us know and we'll be happy to share here.</p>
+				<p>{{ events.i18n.introduction }}</p>
 			</div>
 
 		</header>
@@ -27,7 +27,7 @@
 
 			{% if upcoming_events | length %}
 
-				<h3 class="event-archive__sidebar-heading">Upcoming events</h3>
+				<h3 class="event-archive__sidebar-heading">{{ events.i18n.upcoming_events_label }}</h3>
 
 				<div class="event-archive__sidebar-events">
 
@@ -41,7 +41,7 @@
 
 			{% if archive_events | length %}
 
-				<h3 class="event-archive__sidebar-heading">View past events</h3>
+				<h3 class="event-archive__sidebar-heading">{{ events.i18n.past_events_label }}</h3>
 
 				<div class="event-archive__sidebar-events">
 
