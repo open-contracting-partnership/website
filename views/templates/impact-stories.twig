@@ -34,7 +34,7 @@
 
 				{% if story_types %}
 
-					<h3 class="impact-stories__filter-heading">Story Types</h3>
+					<h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.story_types_label }}</h3>
 
 					{% for id, name in story_types %}
 
@@ -49,7 +49,7 @@
 
 				{% if countries %}
 
-					<h3 class="impact-stories__filter-heading">Countries</h3>
+					<h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.countries_label }}</h3>
 
 					{% for id, name in countries %}
 

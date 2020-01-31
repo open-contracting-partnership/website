@@ -78,6 +78,18 @@ class PageImpactStoriesController extends Controller
 
 		}, $context['featured_stories']);
 
+		$context['impact_stories']['i18n']['story_types_label'] = _x(
+			'Story Types',
+			'The story types label on impact stories',
+			'ocp'
+		);
+
+		$context['impact_stories']['i18n']['countries_label'] = _x(
+			'Countries',
+			'The countries label on impact stories',
+			'ocp'
+		);
+
 		return new TimberResponse('templates/impact-stories.twig', $context);
 	}
 }
