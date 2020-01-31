@@ -104,10 +104,9 @@
 
 			{% if tags %}
 
-
 				<div class="article__tags">
 
-					<h6 class="article__tags-heading / uppercase">Related Tags</h6>
+					<h6 class="article__tags-heading / uppercase">{{ single.content.related_tags_heading }}</h6>
 
 					{% for tag in tags %}
 						<a class="box-link" href="{{ tag.url }}">{{ tag.name }}</a>
@@ -119,11 +118,11 @@
 
 			<div class="article__discussion">
 
-				<h4 class="article__discussion-heading">Your comments? Thoughts? What do you think?</h4>
+				<h4 class="article__discussion-heading">{{ single.i18n.discussion_heading }}</h4>
 
 				<div class="article__discussion-share">
 
-					<p>Share your thoughts on social media or join our discussion groups.</p>
+					<p>{{ single.i18n.discussion_content }}</p>
 
 					<div class="article__discussion-share-icons">
 

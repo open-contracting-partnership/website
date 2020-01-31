@@ -60,6 +60,24 @@ class SingleController extends Controller
 			$context['authors'] = __('By', 'ocp') . ' ' . $context['authors'];
 		}
 
+		$context['single']['i18n']['related_tags_heading'] = _x(
+			'Related Tags',
+			'The related tags heading on blog posts',
+			'ocp'
+		);
+
+		$context['single']['i18n']['discussion_heading'] = _x(
+			'Your comments? Thoughts? What do you think?',
+			'The discussion heading on blog posts',
+			'ocp'
+		);
+
+		$context['single']['i18n']['discussion_content'] = _x(
+			'Share your thoughts on social media or join our discussion groups.',
+			'The discussion content on blog posts',
+			'ocp'
+		);
+
 		$more_posts = Timber::get_posts([
 			'posts_per_page' => 3,
 			'post__not_in' => [$post->ID]
