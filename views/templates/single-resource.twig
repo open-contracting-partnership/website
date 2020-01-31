@@ -71,7 +71,7 @@
 						href="{{ resource.attachments[0].file }}"
 					>
 						<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-						Download resource
+						{{ resource.i18n.download_label }}
 					</a>
 
 				</p>
@@ -88,7 +88,7 @@
 						href="{{ resource.link }}"
 					>
 						<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-						View resource
+						{{ resource.i18n.view_label }}
 					</a>
 
 				</p>

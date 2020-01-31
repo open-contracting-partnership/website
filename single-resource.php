@@ -66,6 +66,18 @@ class SingleResourceController extends Controller
 			'linkedin' => $share_links->linkedin
 		);
 
+		$context['resoures']['i18n']['download_label'] = _x(
+			'Download resource',
+			'The download label for a resource',
+			'ocp'
+		);
+
+		$context['resoures']['i18n']['view_label'] = _x(
+			'View resource',
+			'The view label for a resource',
+			'ocp'
+		);
+
 		$context['back_link'] = [
 			'url' => get_post_type_archive_link('resource'),
 			'label' => __('View all resources', 'ocp')
