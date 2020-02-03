@@ -15,6 +15,7 @@ use App\Cards\PrimaryCard;
 use App\Http\Controllers\Controller;
 use App\PostTypes\News;
 use App\PostTypes\Event;
+use App\PostTypes\Resource;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Post;
 use Timber\Post as TimberPost;
@@ -52,6 +53,7 @@ class HomeController extends Controller
 
 		$context['latest']['content']['news_label'] = get_post_type_object('news')->labels->name;
 		$context['latest']['content']['events_label'] = get_post_type_object('event')->labels->name;
+		$context['latest']['content']['resources_label'] = get_post_type_object('resource')->labels->name;
 
 		$context['issue_terms'] = get_terms([
 			'taxonomy' => 'issue',
@@ -93,11 +95,18 @@ class HomeController extends Controller
 			'label' => __('View all events', 'ocp')
 		];
 
+		$context['latest']['resources_archive_link'] = [
+			'url' => get_post_type_archive_link('resource'),
+			'label' => __('View all resources', 'ocp')
+		];
+
 		$context['latest']['header_latest_news'] = $this->getLatestNews(2);
 		$context['latest']['footer_latest_news'] = $this->getLatestNews(4);
 
 		$context['latest']['header_latest_events'] = $this->getLatestEvents(1);
 		$context['latest']['footer_latest_events'] = $this->getLatestEvents(2);
+
+		$context['latest']['footer_latest_resources'] = $this->getLatestResources(2);
 
 		// fetch the blog content from the other page
 		$blog_content_page = new TimberPost(6335);
@@ -173,6 +182,14 @@ class HomeController extends Controller
 				'value' => date('Ymd'),
 				'compare' => '>='
 			]]
+		]);
+
+	}
+
+	protected function getLatestResources($limit = 2) {
+
+		return Resource::query([
+			'posts_per_page' => $limit
 		]);
 
 	}
