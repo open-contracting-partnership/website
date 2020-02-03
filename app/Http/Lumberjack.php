@@ -47,7 +47,8 @@ class Lumberjack extends LumberjackCore
 				'newsletter_header' => __('Get Our Newsletter', 'ocp'),
 				'contact_header' => __('Contact', 'ocp'),
 				'connect_header' => __('Connect with us:', 'ocp')
-			]
+			],
+			'year' => date('Y')
 		];
 
 		// fetch the menu
