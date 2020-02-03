@@ -29,7 +29,14 @@
 				{% for card in block.quotes %}
 
 					<div class="block__carousel-item">
-						{% include 'cards/quote.twig' with card  %}
+
+						{% include 'cards/quote.twig' with {
+							'card': card,
+							'options': {
+								'image_loading': 'eager'
+							}
+						} %}
+
 					</div>
 
 				{% endfor %}

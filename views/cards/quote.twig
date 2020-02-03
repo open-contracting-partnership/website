@@ -1,3 +1,5 @@
+{% set options = { 'image_loading': 'lazy' } | merge(options) %}
+
 <div class="card card--quote card--active">
 
 	<div class="card__image">
@@ -20,7 +22,8 @@
 			}, {
 				w: 2048
 			}],
-			sizes: '100vw'
+			sizes: '100vw',
+			loading: options.image_loading
 		}) }}
 
 	</div>
