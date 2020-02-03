@@ -15,7 +15,7 @@
 				{% for logo in block.logos %}
 
 					{% if logo.link %}
-						<a href="{{ logo.link.url }}" title="{{ logo.link.title }}" target="{{ logo.link.target }}">
+						<a href="{{ logo.link.url }}" title="{{ logo.link.title }}" target="{{ logo.link.target }}" aria-label="{{ logo.link.title }}">
 					{% endif %}
 
 					<div class="block__logo">
