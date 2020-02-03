@@ -40,6 +40,7 @@ class ImgixServiceProvider extends ServiceProvider
 			'alt' => $args['alt'],
 			'width' => $args['aspect_ratio'] ? $args['aspect_ratio'][0] : null,
 			'height' => $args['aspect_ratio'] ? $args['aspect_ratio'][1] : null,
+			'loading' => $args['loading']
 		];
 
 		return Timber::compile('partials/imgix.twig', $image);
@@ -52,7 +53,8 @@ class ImgixServiceProvider extends ServiceProvider
 		$args = array_merge([
 			'host' => Config::get('images.imgix_base_url'),
 			'alt' => '',
-			'aspect_ratio' => null
+			'aspect_ratio' => null,
+			'loading' => 'lazy'
 		], $args);
 
 		// ensure the src url is stripped of it's domain
