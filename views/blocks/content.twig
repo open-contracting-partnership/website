@@ -95,12 +95,12 @@
 						<div class="card card--link" data-colour-scheme="light">
 
 							<div class="card__body">
-								<a class="card__link" href="{{ item.link.link }}">{{ item.title }}</a>
+								<a class="card__link" href="{{ item.link.url }}">{{ item.title }}</a>
 							</div>
 
 							<div class="card__footer">
 
-								<a class="arrow-link" href="{{ item.link.link }}" data-text-color="black">
+								<a class="arrow-link" href="{{ item.link.url }}" data-text-color="black">
 									<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
 									<span class="arrow-link__label">{{ item.link.title }}</span>
 								</a>
@@ -164,7 +164,7 @@
 
 									{% for link in item.links %}
 
-										<a class="arrow-link" href="{{ link.link.link }}" data-text-color="black">
+										<a class="arrow-link" href="{{ link.link.url }}" data-text-color="black">
 											<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
 											<span class="arrow-link__label">{{ link.link.title }}</span>
 										</a>
