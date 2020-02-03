@@ -53,6 +53,11 @@ class OurModelServiceProvider
 		$context['block']['im_convinced_link'] = get_field('im_convinced_link');
 		$context['block']['im_not_convinced_link'] = get_field('im_not_convinced_link');
 
+		$context['block']['i18n'] = [
+			'im_convinced_heading' => _x("I'm convinced.", 'Our model block', 'ocp'),
+			'im_not_convinced_heading' => _x("I'm not convinced yet.", 'Our model block', 'ocp')
+		];
+
 		$context['block']['model_svg'] = file_get_contents(__DIR__ . '/../../../resources/img/our-model.svg');
 
 		$context['block']['background_colour'] = get_field('background_colour') ?: '#6C75E1';
