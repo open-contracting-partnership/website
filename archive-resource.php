@@ -18,18 +18,22 @@ class ArchiveResourceController extends Controller
 
 		$context['filters'] = get_field('resources_filters', 'options');
 
-		foreach ( $context['filters'] as &$filter_group ) {
+		if ( $context['filters'] ) {
 
-			$filter_group['filter'] = array_map(function($filter) {
+			foreach ( $context['filters'] as &$filter_group ) {
 
-				$term = get_term($filter['type']);
+				$filter_group['filter'] = array_map(function($filter) {
 
-				$filter['slug'] = $term->slug;
-				$filter['label'] = $term->name;
+					$term = get_term($filter['type']);
 
-				return $filter;
+					$filter['slug'] = $term->slug;
+					$filter['label'] = $term->name;
 
-			}, $filter_group['filter']);
+					return $filter;
+
+				}, $filter_group['filter']);
+
+			}
 
 		}
 
