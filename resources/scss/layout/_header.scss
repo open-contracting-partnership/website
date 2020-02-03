@@ -222,6 +222,10 @@ category:
 		grid-template-columns: auto 32px;
 		z-index: 5;
 
+		@include upto($header-break-2) {
+			grid-column-gap: spacing(2);
+		}
+
 		@include from($header-break-2) {
 			grid-column: content;
 			grid-template-columns: [all-start] repeat(2, auto) [all-end];
