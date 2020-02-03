@@ -30,8 +30,8 @@ class Event extends Post
 	{
 		return [
 			'labels' => [
-				'name' => __('Events'),
-				'singular_name' => __('Event')
+				'name' => _x('Events', 'Event custom post type (plural)', 'ocp'),
+				'singular_name' => _x('Event', 'Event custom post type (singular)', 'ocp'),
 			],
 			'public' => true,
 			'has_archive' => true,

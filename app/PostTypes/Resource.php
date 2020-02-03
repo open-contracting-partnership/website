@@ -29,8 +29,8 @@ class Resource extends Post
 	{
 		return [
 			'labels' => [
-				'name' => __('Resources'),
-				'singular_name' => __('Resource')
+				'name' => _x('Resources', 'Resources custom post type (plural)', 'ocp'),
+				'singular_name' => _x('Resource', 'Resource custom post type (singular)', 'ocp')
 			],
 			'public' => true,
 			'has_archive' => true,

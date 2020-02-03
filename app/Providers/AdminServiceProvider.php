@@ -51,8 +51,8 @@ class AdminServiceProvider extends ServiceProvider
 	public function updatePostObjectLabel() {
 		global $wp_post_types;
 		$labels = &$wp_post_types['post']->labels;
-		$labels->name = 'Blog';
-		$labels->singular_name = 'Blog';
+		$labels->name = _x('Blog', 'Blog custom post type (plural)', 'ocp');
+		$labels->singular_name = _x('Blog', 'Blog custom post type (singular)', 'ocp');
 		$labels->add_new = 'Add Blog Post';
 		$labels->add_new_item = 'Add Blog Post';
 		$labels->edit_item = 'Edit Blog Post';

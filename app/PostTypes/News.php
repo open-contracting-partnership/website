@@ -29,8 +29,8 @@ class News extends Post
 	{
 		return [
 			'labels' => [
-				'name' => __('News'),
-				'singular_name' => __('News')
+				'name' => _x('News', 'News custom post type (plural)', 'ocp'),
+				'singular_name' => _x('News', 'News custom post type (singular)', 'ocp'),
 			],
 			'public' => true,
 			'has_archive' => true,
