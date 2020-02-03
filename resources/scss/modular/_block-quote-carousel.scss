@@ -19,7 +19,7 @@
 	}
 
 		.block__heading {
-			grid-column: content;
+			grid-column: wide;
 			@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
 			margin-bottom: var(--v-spacing-half);
 		}
