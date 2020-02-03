@@ -1,150 +1,33 @@
-<?php // single-resource.php ?>
+<?php
 
-<?php get_header(); ?>
+/**
+ * The Template for displaying all single posts
+ */
 
-	<?php the_post(); ?>
+namespace App;
 
-	<?php
+use App\Http\Controllers\Controller;
+use App\PostTypes\Event;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Post;
+use Timber\Timber;
 
-		if ( $date = get_field('event_date') ) {
-			$date = strtotime($date);
-		}
+class SingleEventController extends Controller
+{
+	public function handle()
+	{
+		$context = Timber::get_context();
+		$event = new Event();
 
-		$current_date = strtotime(date('d-m-Y'));
+		$context['event'] = Event::convertTimberObject($event);
 
-	?>
+		$context['back_link'] = [
+			'url' => get_post_type_archive_link('event'),
+			'label' => __('Back to events', 'ocp')
+		];
 
-	<div class="wrapper page__wrapper">
+		return new TimberResponse('templates/single-event.twig', $context);
 
-		<article class="cf">
+	}
 
-			<div class="band band--thin">
-				<a href="/events" class="text-button button--icon"><svg><use xlink:href="#icon-arrow-left" /></svg>Back to events</a>
-			</div>
-
-			<section class="open-event">
-
-				<div class="event__title <?php echo $current_date <= $date ? '' : 'event__title--past'; ?>">
-					<svg><use xlink:href="#icon-event" /></svg>
-					<?php if ( $date ) : ?>
-						<time><?php echo date('j', $date); ?><span><?php echo date('S', $date); ?></span> <?php echo date('F Y', $date); ?></time>
-					<?php else : ?>
-						<time><span>To Be Announced</span></time>
-					<?php endif; ?>
-				</div>
-
-				<h1 class="gamma"><?php the_title(); ?></h1>
-
-				<p class="event__meta">
-
-					<?php echo sprintf(__('Organisation: %s', 'ocp'), get_field('organisation')); ?>
-
-					<?php if ( $event_location = get_field('event_location') ) : ?>
-							<span>, <?php echo $event_location; ?></span>
-					<?php endif; ?>
-
-				</p>
-
-				<hr />
-
-				<div class="post-content">
-
-					<?php the_content(); ?>
-
-					<?php if ( $link = get_field('link') ) : ?>
-						<p><a href="<?php echo $link; ?>">View more details</a></p>
-					<?php endif; ?>
-
-				</div>
-
-				<div class="band band--extra-thick">
-
-					<?php if ( $terms = get_field('region') ) : ?>
-
-						<div class="event__terms">
-
-							<span><?php _e('Location', 'ocp'); ?>:</span>
-
-							<?php foreach ( $terms as $term ) : ?>
-								<a href="/region/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
-							<?php endforeach; ?>
-
-							</ul>
-
-						</div>
-
-					<?php endif; ?>
-
-					<?php if ( $terms = get_field('issue') ) : ?>
-
-						<div class="event__terms">
-
-							<span><?php _e('Issue', 'ocp'); ?>:</span>
-
-							<?php foreach ( $terms as $term ) : ?>
-								<a href="/issue/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
-							<?php endforeach; ?>
-
-							</ul>
-
-						</div>
-
-					<?php endif; ?>
-
-					<?php if ( $terms = get_field('audience') ) : ?>
-
-						<div class="event__terms">
-
-							<span><?php _e('Audience', 'ocp'); ?>:</span>
-
-							<?php foreach ( $terms as $term ) : ?>
-								<a href="/audience/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
-							<?php endforeach; ?>
-
-							</ul>
-
-						</div>
-
-					<?php endif; ?>
-
-					<?php if ( $terms = get_field('open_contracting') ) : ?>
-
-						<div class="event__terms">
-
-							<span><?php _e('OC Framework', 'ocp'); ?>:</span>
-
-							<?php foreach ( $terms as $term ) : ?>
-								<a href="/open-contracting/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
-							<?php endforeach; ?>
-
-							</ul>
-
-						</div>
-
-					<?php endif; ?>
-
-					<?php if ( $attachments = get_field('attachments') ) : ?>
-
-						<hr>
-
-						<div class="event__terms">
-
-							<p><?php _e('Attachments', 'ocp'); ?>:</p>
-
-							<?php foreach ( $attachments as $attachment ) : ?>
-								<a href="<?php echo $attachment['file']; ?>"><?php echo $attachment['name']; ?></a>
-							<?php endforeach; ?>
-
-						</div>
-
-					<?php endif; ?>
-
-				</div>
-
-			</section>
-
-		</article>
-
-	</div>
-
-<?php get_footer(); ?>
+}

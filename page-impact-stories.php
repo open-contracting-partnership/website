@@ -1,52 +1,95 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying all pages.
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site will use a
+ * different template.
+ */
 
-	<?php the_post(); ?>
+namespace App;
 
-	<div id="impact-stories">
+use App\Http\Controllers\Controller;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Page;
+use Timber\Timber;
 
-		<div class="wrapper">
+class PageImpactStoriesController extends Controller
+{
+	public function handle()
+	{
+		$context = Timber::get_context();
+		$page = new Page();
 
-			<div class="page-title">
-				<h1><?php the_title(); ?></h1>
-				<?php the_content(); ?>
-			</div>
+		$context['title'] = $page->title;
+		$context['content'] = $page->content;
+		$context['stories'] = $page->meta('add_stories');
 
-		</div>
+		$context['countries'] = [];
+		$context['story_types'] = [];
 
-		<story-featured :story="stories[0]"></story-featured>
+		// compile the countries and story types
+		foreach ( $context['stories'] as $story ) {
 
-		<div class="wrapper">
+			foreach ( $story['country'] as $country ) {
+				$context['countries'][$country->id] = $country->name;
+			}
 
-			<div class="cf">
+			foreach ( $story['story_type'] as $story_type ) {
+				$context['story_types'][$story_type->id] = $story_type->name;
+			}
 
-				<div class="impact-stories__sidebar / cf">
+		}
 
-					<div class="impact-stories__filter / cf">
-						<h2>Story Type</h2>
-						<button v-for="type in types" @click.prevent="toggleFilter('type', type.slug)" class="button button--tag" v-bind:class="{'active': isFiltered('type', type.slug)}">{{ type.name }}</button>
-					</div>
+		// sort the countries and story types
+		asort($context['countries']);
+		asort($context['story_types']);
 
-					<div class="impact-stories__filter / cf">
-						<h2>Country</h2>
-						<button v-for="country in countries" @click.prevent="toggleFilter('country', country.slug)" class="button button--tag" v-bind:class="{'active': isFiltered('country', country.slug)}">{{ country.name }}</button>
-					</div>
+		// bring the country and story ids into their own array
+		$context['stories'] = array_map(function($story) {
 
-				</div>
+			// fetch just the id from the country and types
+			$story['country_ids'] = array_column($story['country'], 'id');
+			$story['story_type_ids'] = array_column($story['story_type'], 'id');
 
-				<section class="impact-stories__main / cf">
+			// for the sake of vue, make them a string first
+			$story['country_ids'] = array_map('strval', $story['country_ids']);
+			$story['story_type_ids'] = array_map('strval', $story['story_type_ids']);
 
-					<template v-if="hasVisibleStories">
-						<story-card v-for="(story, index) in visibleStories" :story="story" :key="index"></story-card>
-					</template>
+			return $story;
 
-					<p v-else>No stories match your filter, <a href="#" @click.prevent="resetFilter()">reset filter?</a></p>
+		}, $context['stories']);
 
-				</section>
+		// filter just the featured stories
+		$context['featured_stories'] = array_filter($context['stories'], function($story) {
+			return $story['featured'];
+		});
 
-			</div>
+		// match the featured stories with the correct card type
+		$context['featured_stories'] = array_map(function($story) {
 
-		</div> <!-- / .page__wrapper -->
+			return [
+				'title' => $story['title'],
+				'introduction' => $story['introduction'],
+				'image_url' => $story['image']['url'],
+				'url' => $story['link']
+			];
 
-	</div>
+		}, $context['featured_stories']);
 
-<?php get_footer(); ?>
+		$context['impact_stories']['i18n']['story_types_label'] = _x(
+			'Story Types',
+			'The story types label on impact stories',
+			'ocp'
+		);
+
+		$context['impact_stories']['i18n']['countries_label'] = _x(
+			'Countries',
+			'The countries label on impact stories',
+			'ocp'
+		);
+
+		return new TimberResponse('templates/impact-stories.twig', $context);
+	}
+}

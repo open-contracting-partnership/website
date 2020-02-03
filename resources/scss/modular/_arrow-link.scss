@@ -1,0 +1,179 @@
+/*
+
+---
+name: Arrow link
+category:
+ - Components
+ - Components/Arrow link
+---
+
+## Default
+
+```html
+<div class="aigis-preview__background">
+
+	<a class="arrow-link" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+</div>
+```
+
+## Sizes
+
+```html
+<a class="arrow-link" data-size="large" data-text-color="black" href="#">
+	<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+	<span class="arrow-link__label">Large</span>
+</a>
+
+<a class="arrow-link" data-size="small" data-text-color="black" href="#">
+	<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+	<span class="arrow-link__label">Small</span>
+</a>
+```
+
+## Colours
+
+```html
+<div class="aigis-preview__background">
+
+	<a class="arrow-link" data-icon-color="white" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" data-icon-color="white" data-text-color="black" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" data-text-color="black" href="#">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+</div>
+```
+
+## Direction
+
+```html
+<div class="aigis-preview__background">
+
+	<a class="arrow-link" href="#" data-direction="north">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" href="#" data-direction="south">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+	<a class="arrow-link" href="#" data-direction="west">
+		<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		<span class="arrow-link__label">Read</span>
+	</a>
+
+</div>
+```
+*/
+
+.arrow-link {
+
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: $ui-white;
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: underline;
+	}
+
+}
+
+	.arrow-link__icon {
+		flex: 0 0 1em;
+		font-size: 28px;
+		height: 1em;
+		width: 1em;
+		fill: $ui-brand;
+	}
+
+	.arrow-link__label {
+		flex: 1 1 100%;
+		font-size: 18px;
+		@include font('secondary', 'medium');
+		padding-top: .2em;
+		margin-left: spacing(1);
+	}
+
+.arrow-link[data-size="large"] {
+
+	.arrow-link__label {
+
+		font-size: 20px;
+
+		@include from(M) {
+			font-size: 24px;
+		}
+
+	}
+
+}
+
+.arrow-link[data-size="medium"] {
+
+	.arrow-link__icon {
+		font-size: 24px;
+	}
+
+	.arrow-link__label {
+		font-size: 14px;
+	}
+
+}
+
+.arrow-link[data-size="small"] {
+
+	.arrow-link__icon {
+		font-size: 24px;
+	}
+
+	.arrow-link__label {
+		font-size: 11px;
+	}
+
+}
+
+.arrow-link[data-icon-color="white"] .arrow-link__icon {
+	fill: $ui-white;
+}
+
+.arrow-link[data-icon-color="orange"] .arrow-link__icon {
+	fill: $ui-orange;
+}
+
+.arrow-link[data-icon-color="grey"] .arrow-link__icon {
+	fill: $ui-grey-7;
+}
+
+.arrow-link[data-text-color="black"] {
+	color: $ui-grey-2;
+}
+
+.arrow-link[data-direction="north"] .arrow-link__icon {
+	transform: rotate(-90deg);
+}
+
+.arrow-link[data-direction="south"] .arrow-link__icon {
+	transform: rotate(90deg);
+}
+
+.arrow-link[data-direction="west"] .arrow-link__icon {
+	transform: rotate(180deg);
+}

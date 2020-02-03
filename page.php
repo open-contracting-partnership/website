@@ -1,27 +1,32 @@
-<?php // page.php ?>
+<?php
+/**
+ * The template for displaying all pages.
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site will use a
+ * different template.
+ */
 
-<?php get_header(); ?>
+namespace App;
 
-	<?php the_post(); ?>
+use App\Http\Controllers\Controller;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Page;
+use Timber\Timber;
 
-	<div class="page--one-column">
+class PageController extends Controller
+{
+	public function handle()
+	{
+		$context = Timber::get_context();
+		$page = new Page();
 
-		<div class="page__wrapper">
+		$context['post'] = $page;
+		$context['title'] = $page->title;
+		$context['content'] = $page->content;
+		$context['hide_title'] = $page->hide_title;
 
-			<?php get_partial('page', 'title'); ?>
-
-			<article class="page-content cf">
-
-				<section>
-					<?php the_content(); ?>
-				</section>
-
-			</article>
-
-		</div> <!-- / .page__wrapper -->
-
-		<?php get_partial('page', 'strips'); ?>
-
-	</div> <!-- / .page--one-column -->
-
-<?php get_footer(); ?>
+		return new TimberResponse('templates/page.twig', $context);
+	}
+}

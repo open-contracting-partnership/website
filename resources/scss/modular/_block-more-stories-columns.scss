@@ -1,0 +1,176 @@
+/*
+
+---
+name: More Stories (Columns)
+category:
+ - Blocks
+ - Blocks/More Stories (Columns)
+---
+
+```html
+<div class="block" data-block-type="more-stories-columns">
+
+	<div class="block__background" style="background-color: #FFFFFF"></div>
+
+	<div class="block__container" style="color: #000;">
+
+		<div class="block__column">
+
+			<div class="block__column-header">
+				<h2 class="block__column-heading">Latest data tools</h2>
+				<a href="#" class="block__column-view-all">View all</a>
+			</div>
+
+			<div class="block__column-stories">
+
+				<div class="card card--resource" data-post-type="resource">
+
+					<div class="card__body">
+						<a class="card__link" href="https://open-contracting.test/resource/open-contracting-partnership-strategy-2019-2023/">Open Contracting Partnership Strategy 2019-2023</a>
+					</div>
+
+					<div class="card__footer">
+						<div class="card__icon"></div>
+						<span class="card__type">Resource</span>
+					</div>
+
+				</div>
+
+				<div class="card card--resource" data-post-type="resource">
+
+					<div class="card__body">
+						<a class="card__link" href="http://bit.ly/OC4IDS-scoping-template">OC4IDS scoping template</a>
+					</div>
+
+					<div class="card__footer">
+						<div class="card__icon"></div>
+						<span class="card__type">Resource</span>
+					</div>
+
+				</div>
+
+			</div> <!-- / .block__stories -->
+
+		</div>
+
+		<div class="block__column">
+
+			<div class="block__column-header">
+				<h2 class="block__column-heading">Latest News</h2>
+			</div>
+
+			<div class="block__column-stories">
+
+				<div class="card card--text">
+
+					<a class="card__title-link" href="https://open-contracting.test/2019/10/17/reusable-open-contracting-tools/">
+						<h3 class="card__title">Building reusable open contracting tools</h3>
+					</a>
+
+					<p class="card__meta">17 Oct 2019</p>
+
+				</div>
+
+				<div class="card card--text">
+
+					<a class="card__title-link" href="https://open-contracting.test/2019/09/23/kyrgyz-republic-how-open-contracting-can-support-small-business/">
+						<h3 class="card__title">Kyrgyz Republic: How open contracting can support small business</h3>
+					</a>
+
+					<p class="card__meta">23 Sep 2019</p>
+
+				</div>
+
+				<div class="card card--text">
+
+					<a class="card__title-link" href="https://open-contracting.test/2019/09/06/reflections-from-the-middle-of-the-world-innovation-in-open-contracting-from-latin-america/">
+						<h3 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin America</h3>
+					</a>
+
+					<p class="card__meta">6 Sep 2019</p>
+
+				</div>
+
+			</div> <!-- / .block__stories -->
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.block[data-block-type="more-stories-columns"] {
+
+	.block__background {
+		grid-column: full;
+		grid-row: 1;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.block__container {
+		position: relative;
+		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(2), spacing(6));
+		grid-column: content;
+		grid-row: 1;
+		display: grid;
+		grid-template-columns: [all-start] repeat(2, 1fr) [all-end];
+		grid-column-gap: spacing(8);
+	}
+
+		.block__column {
+
+			grid-column: all;
+
+			@include from(T) {
+
+				&:nth-child(2n+1) {
+					grid-column: 1;
+				}
+
+				&:nth-child(2n+2) {
+					grid-column: 2;
+				}
+
+			}
+
+		}
+
+			.block__column-header {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding-bottom: spacing(1);
+				border-bottom: 4px solid $ui-grey-7;
+				margin-bottom: spacing(4);
+			}
+
+				.block__column-heading {
+					font-size: 36px;
+					margin-bottom: 0;
+				}
+
+				.block__column-view-all {
+					margin-left: spacing(3);
+					@extend %reverse-underline;
+					text-transform: uppercase;
+					@include font('secondary', 'medium');
+					font-size: 14px;
+					flex: 0 0 auto;
+				}
+
+
+			.block__column-stories {}
+
+				.block__column-stories .card {
+					margin-bottom: spacing(3);
+				}
+
+				.block__column-stories .card--resource {
+					max-width: 325px;
+				}
+
+}

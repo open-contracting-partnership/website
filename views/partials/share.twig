@@ -1,0 +1,29 @@
+<div class="share">
+
+	<h3 class="share-title">{{ share.i18n.heading }}</h3>
+
+	{% if share.links.twitter %}
+
+		<a class="share-link" href="{{ share.links.twitter }}" onclick="_gaq.push(['_trackEvent', 'Social', '{{ tracker }}', 'Twitter']);">
+			<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
+		</a>
+
+	{% endif %}
+
+	{% if share.links.facebook %}
+
+		<a class="share-link" href="{{ share.links.facebook }}" onclick="_gaq.push(['_trackEvent', 'Social', '{{ tracker }}', 'Facebook']);">
+			<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
+		</a>
+
+	{% endif %}
+
+	{% if share.links.linkedin %}
+
+		<a class="share-link" href="{{ share.links.linkedin }}" onclick="_gaq.push(['_trackEvent', 'Social', '{{ tracker }}', 'Linkedin']);">
+			<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
+		</a>
+
+	{% endif %}
+
+</div>

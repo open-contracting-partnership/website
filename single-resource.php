@@ -1,133 +1,90 @@
-<?php // single-resource.php ?>
+<?php
 
-<?php get_header(); ?>
+/**
+ * The Template for displaying all single posts
+ */
 
-	<?php the_post(); ?>
+namespace App;
 
-	<div class="page__wrapper">
+use App\Http\Controllers\Controller;
+use App\PostTypes\Resource;
+use ImLiam\ShareableLink;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Post;
+use Timber\Timber;
 
-		<div class="resource-single">
+class SingleResourceController extends Controller
+{
+	public function handle()
+	{
+		$context = Timber::get_context();
+		$resource = new Resource();
 
-			<div class="resource-title resource-title--small">
-				<svg><use xlink:href="#icon-resource" /></svg>
-				<a href="/resources">View All Resources</a>
-			</div>
+		$context['resource'] = [];
 
-			<?php if ( $type = get_field('resource_type') ) : ?>
-				<span class="card__type" data-content-type="resource"><?php echo $type->name; ?></span>
-			<?php endif; ?>
+		$context['resource']['title'] = $resource->title;
+		$context['resource']['image_url'] = $resource->thumbnail ? $resource->thumbnail->src : null;
+		$context['resource']['content'] = $resource->content;
+		$context['resource']['type'] = $resource->resource_type;
 
-			<h1 class="resource-heading"><?php the_title(); ?></h1>
+		if ( $context['resource']['type'] ) {
+			$context['resource']['type'] = get_term($context['resource']['type']);
+		}
 
-			<p class="resource__meta">
+		$context['resource']['attachments'] = get_field('attachments', $resource->ID);
+		$context['resource']['link'] = get_field('link', $resource->ID);
 
-				<?php if ( $organisation = get_field('organisation') ) : ?>
-					Published <?php the_date('Y'); ?>, <?php echo sprintf(__('By %s', 'ocp'), $organisation); ?>
-				<?php else : ?>
-					Published <?php the_date('Y'); ?>
-				<?php endif; ?>
+		if ( $resource->organisation ) {
+			$context['resource']['meta'] = sprintf(__('By %s', 'ocp'), $resource->organisation) . ' / ' . $resource->date('Y');
+		} else {
+			$context['resource']['meta'] = $resource->date('Y');
+		}
 
-			</p>
 
-			<?php if ( $attachments = get_field('attachments') ) : ?>
+		// terms
+		$context['resource']['taxonomies']['issue'] = $resource->issue;
+		$context['resource']['taxonomies']['region'] = $resource->region;
 
-				<a
-					onclick="_gaq.push(['_trackEvent', 'Resources', 'Download', '<?php the_title(); ?>']);"
-					href="<?php echo $attachments[0]['file']; ?>"
-					class="button button--large button--solid-green button--icon button--icon--reverse button--icon--stroke / resource-single__button"
-				>Download resource<svg><use xlink:href="#icon-download" /></svg></a>
+		// for each of the taxonomies, convert the term id to a term object
+		foreach ( $context['resource']['taxonomies'] as $taxonomy => &$terms ) {
 
-			<?php endif; ?>
+			if ( is_array($terms) ) {
 
-			<?php if ( $link = get_field('link') ) : ?>
+				$terms = array_map(function($term) {
+					return get_term($term);
+				}, $terms);
 
-				<a
-					onclick="_gaq.push(['_trackEvent', 'Resources', 'Visit', '<?php the_title(); ?>']);"
-					href="<?php echo $link; ?>"
-					class="button button--large button--solid-green / resource-single__button"
-				>View resource</a>
+			}
 
-			<?php endif; ?>
+		}
 
-			<hr class="resource-line" data-colour="grey">
+		$share_links = new ShareableLink($resource->link, $resource->title);
 
-			<div class="resource__details">
+		$context['resource']['share_links'] = array(
+			'twitter' => $share_links->twitter,
+			'facebook' => $share_links->facebook,
+			'linkedin' => $share_links->linkedin
+		);
 
-				<?php if ( $terms = get_field('region') ) : ?>
+		$context['resoures']['i18n']['download_label'] = _x(
+			'Download resource',
+			'The download label for a resource',
+			'ocp'
+		);
 
-					<ul class="tag-list">
+		$context['resoures']['i18n']['view_label'] = _x(
+			'View resource',
+			'The view label for a resource',
+			'ocp'
+		);
 
-						<li class="tag-list__title"><?php _e('Region', 'ocp'); ?>:</li>
+		$context['back_link'] = [
+			'url' => get_post_type_archive_link('resource'),
+			'label' => __('View all resources', 'ocp')
+		];
 
-						<?php foreach ( $terms as $term ) : ?>
+		return new TimberResponse('templates/single-resource.twig', $context);
 
-							<li>
-								<a href="/region/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
-							</li>
+	}
 
-						<?php endforeach; ?>
-
-					</ul>
-
-				<?php endif; ?>
-
-				<?php if ( $terms = get_field('issue') ) : ?>
-
-					<ul class="tag-list">
-
-						<li class="tag-list__title"><?php _e('Issue', 'ocp'); ?>:</li>
-
-						<?php foreach ( $terms as $term ) : ?>
-
-							<li>
-								<a href="/issue/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
-							</li>
-
-						<?php endforeach; ?>
-
-					</ul>
-
-				<?php endif; ?>
-
-				<?php if ( $terms = get_field('open_contracting') ) : ?>
-
-					<ul class="tag-list">
-
-						<li class="tag-list__title"><?php _e('OC Framework', 'ocp'); ?>:</li>
-
-						<?php foreach ( $terms as $term ) : ?>
-
-							<li>
-								<a href="/open-contracting/<?php echo $term->slug; ?>"><?php echo $term->name; ?></a>
-							</li>
-
-						<?php endforeach; ?>
-
-					</ul>
-
-				<?php endif; ?>
-
-			</div> <!-- / .resource__details -->
-
-			<article class="post-content / band--thick">
-				<?php the_content(); ?>
-			</article>
-
-			<div class="share">
-
-				<h3 class="zeta uppercase / share-title"><?php _e('Share', 'ocp'); ?></h3>
-
-				<ul class="button__list button__social">
-					<li><a href="<?php echo share_links()->facebook; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
-					<li><a href="<?php echo share_links()->linkedin; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
-					<li><a href="<?php echo share_links()->twitter; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
-					<li><a href="<?php echo share_links()->email; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-mail" /></svg></a></li>
-				</ul>
-
-			</div>
-
-		</div> <!-- / .resource-single -->
-
-	</div>
-
-<?php get_footer(); ?>
+}

@@ -1,117 +1,57 @@
-<?php // archive.php ?>
+<?php
+/**
+ * The template for displaying Archive pages.
+ *
+ * Used to display archive-type pages if nothing more specific matches a query.
+ * For example, puts together date-based pages if no date.php file exists.
+ *
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ */
 
-<?php get_header(); ?>
+namespace App;
 
-	<div id="archive-posts" class="page__wrapper">
+use App\Cards\BasicCard;
+use App\Http\Controllers\Controller;
+use App\PostTypes\News;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Post;
+use Timber\Timber;
 
-		<?php
+class ArchiveController extends Controller
+{
+	public function handle()
+	{
+		$context = Timber::get_context();
+		$context['title'] = 'Archive';
+		$context['posts'] = BasicCard::convertCollection(Post::query());
 
-			global $wp_query;
+		if (is_day()) {
+			$context['title'] = 'Archive: ' . get_the_date('D M Y');
+		} elseif (is_month()) {
+			$context['title'] = 'Archive: ' . get_the_date('M Y');
+		} elseif (is_year()) {
+			$context['title'] = 'Archive: ' . get_the_date('Y');
+		} elseif (is_tag()) {
+			$context['title'] = 'Tag: ' . single_tag_title('', false);
+		} elseif (is_category()) {
+			$context['title'] = 'Category: ' . single_cat_title('', false);
+		} elseif (is_post_type_archive('news')) {
+			$context['title'] = _x('News', 'Archive title', 'ocp');
+			$context['posts'] = BasicCard::convertCollection(News::query());
+		}
 
-			// get a feed of blog posts, this will include news post types,
-			// as well as invluding taxonomies to filter on, e.g. issue
+		// generate the prev/next links
+		$context['next_page_url'] = get_next_posts_link() ? get_next_posts_page_link() : null;
+		$context['next_page_label'] = _x('Next page', 'Next and previous page links for archives', 'ocp');
+		$context['previous_page_url'] = get_previous_posts_link() ? get_previous_posts_page_link() : null;
+		$context['previous_page_label'] = _x('Previous page', 'Next and previous page links for archives', 'ocp');
 
-			$posts = vue_posts([
-				'query' => array_merge($wp_query->query_vars, [
-					'post_type' => ['post', 'news', 'event', 'resource'],
-					'posts_per_page' => 999
-				]),
-				'ignore' => ['content', 'excerpt', 'slug'],
-				'custom' => array(
-					'authors' => function() {
-						return get_authors(FALSE);
-					},
-					'post_type_label' => function() {
-						return get_post_type_label();
-					}
-				)
-			]);
+		// set the back link
+		$context['back_link'] = [
+			'url' => get_post_type_archive_link('post'),
+			'label' => __('Back to latest')
+		];
 
-			$terms = [];
-
-			if ( is_tag() ) {
-
-				$terms = get_terms('post_tag', [
-					'orderby' => 'count',
-					'order' => 'DESC'
-				]);
-
-				foreach ( $terms as $key => $term ) {
-					$terms[$key]->display = TRUE;
-				}
-
-			}
-
-			wp_localize_script('archive', 'content', [
-				'posts' => $posts,
-				'terms' => $terms
-			]);
-
-		?>
-
-		<div class="archive-content">
-
-			<?php if ( is_category() ) : ?>
-				<h1><?php single_cat_title(); ?></h1>
-			<?php elseif( is_tag() ) : ?>
-				<h1><?php single_tag_title(); ?></h1>
-			<?php elseif( is_tax() ) : ?>
-				<h1><?php single_cat_title(); ?></h1>
-			<?php elseif (is_author()) : ?>
-				<?php $author = get_userdata( get_query_var('author') ); ?>
-				<h1><?php echo $author->display_name;?></h1>
-			<?php else : ?>
-				<h1><?php the_post_type_label(NULL, TRUE); ?></h1>
-			<?php endif;?>
-
-			<div class="archive-content__posts">
-
-				<div v-for="post in posts" class="card card--primary">
-
-					<div class="card__content">
-
-						<div class="card__title">
-
-							<h6 class="card__heading">
-								<a class="card__link" :href="post.link" v-html="post.title"></a>
-							</h6>
-
-						</div>
-
-						<p class="card__meta card__meta--alt">
-							<span class="card__type" :data-content-type="post.post_type">{{ post.custom.post_type_label }}</span>
-							<time class="card__date">{{ post.date }}</time>
-							<span class="card__author" v-if="post.custom.authors !== ''">By <span v-html="post.custom.authors"></span></span>
-						</p>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="archive-filtering">
-
-				<?php if ( is_tag() ) : ?>
-
-					<div class="archive__sidebar archive__sidebar-tags / archive-filtering__sort / band band--thick">
-
-						<h6 class="border-top"><?php _e('Similar tags', 'ocp'); ?></h6>
-
-						<input v-model="term_search" type="search" placeholder="Search tags">
-
-						<ul class="nav nav--vertical nav--list" data-nav-active="false">
-							<li v-for="term in visibleTerms"><a :href="'/tag/' + term.slug">{{term.name}} ({{term.count}})</a></li>
-						</ul>
-
-					</div>
-
-				<?php endif; ?>
-
-			</div>
-
-		</div>
-
-	</div>
-
-<?php get_footer(); ?>
+		return new TimberResponse('templates/archive.twig', $context);
+	}
+}

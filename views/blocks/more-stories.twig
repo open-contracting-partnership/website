@@ -1,0 +1,62 @@
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div id="{{ options.id }}" class="block" data-block-type="more-stories">
+
+	<div class="block__background" style="background-color: {{ block.background_colour }}"></div>
+
+	<div class="block__container" style="color: {{ block.text_colour }};">
+
+		<div class="block__header">
+
+			{% if block.title %}
+				<h2 class="block__heading">{{ block.title }}</h2>
+			{% endif %}
+
+			{% if block.call_to_action %}
+
+				<a class="arrow-link" href="{{ block.call_to_action.url }}" style="color: inherit;">
+					<svg class="arrow-link__icon" style="fill: currentColor;"><use xlink:href="#icon-arrow-circle"></use></svg>
+					<span class="arrow-link__label">{{ block.call_to_action.title }}</span>
+				</a>
+
+			{% endif %}
+
+		</div>
+
+		<div class="block__stories">
+
+			{% if block.card_type == 'default' %}
+
+				{% for card in block.stories %}
+
+					{% include 'cards/primary.twig' with {
+						'card': card,
+						'options': {
+							'colour_scheme': block.card_options.colour_scheme
+						}
+					} %}
+
+				{% endfor %}
+
+			{% endif %}
+
+			{% if block.card_type == 'resource' %}
+
+				{% for card in block.stories %}
+
+					{% include 'cards/resource.twig' with {
+						'card': card,
+						'options': {
+							'colour_scheme': block.card_options.colour_scheme
+						}
+					} %}
+
+				{% endfor %}
+
+			{% endif %}
+
+		</div> <!-- / .block__stories -->
+
+	</div>
+
+</div>

@@ -1,0 +1,119 @@
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div id="{{ options.id }}" class="block" data-block-type="our-model" style="color: {{ block.text_colour }}">
+
+	<div class="block__background" style="background-color: {{ block.background_colour }}"></div>
+
+	<div class="block__container">
+
+		<div class="block__header">
+
+			{% if block.title %}
+				<h2 class="block__heading">{{ block.title }}</h2>
+			{% endif %}
+
+			{% if block.content %}
+
+				<div class="block__content">
+					{{ block.content | raw }}
+				</div>
+
+			{% endif %}
+
+		</div>
+
+		<div class="block__model">
+
+			<div class="block__model-diagram">
+				{{ block.model_svg | raw }}
+			</div>
+
+			<div class="block__model-content">
+
+				<div data-content="publish">
+
+					<div class="block__sub-content-header">
+						<svg data-icon="people-publish"><use xlink:href="#people-publish"></use></svg>
+					</div>
+
+					{{ block.content_publish | raw }}
+
+				</div>
+
+				<div data-content="engagement">
+
+					<div class="block__sub-content-header">
+						<svg data-icon="people-map"><use xlink:href="#people-map"></use></svg>
+					</div>
+
+					{{ block.content_engagement | raw }}
+
+				</div>
+
+				<div data-content="measure">
+
+					<div class="block__sub-content-header">
+						<svg data-icon="people-learn-and-share"><use xlink:href="#people-learn-and-share"></use></svg>
+					</div>
+
+					{{ block.content_measure | raw }}
+
+				</div>
+
+				<div data-content="goals">
+
+					<div class="block__sub-content-header">
+						<svg data-icon="people-design"><use xlink:href="#people-design"></use></svg>
+					</div>
+
+					{{ block.content_goals | raw }}
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="block__links">
+
+			<div class="block__link" data-colour="teal">
+
+				<div class="block__link-header">
+					<svg><use xlink:href="#icon-face-smile"></use></svg>
+					{{ block.i18n.im_convinced_heading }}
+				</div>
+
+				<div class="block__link-body">
+
+					<a class="arrow-link" data-icon-color="white" data-text-color="white" href="{{ block.im_convinced_link.url }}">
+						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+						<span class="arrow-link__label">{{ block.im_convinced_link.title }}</span>
+					</a>
+
+				</div>
+
+			</div>
+
+			<div class="block__link" data-colour="orange">
+
+				<div class="block__link-header">
+					<svg><use xlink:href="#icon-face-frown"></use></svg>
+					{{ block.i18n.im_not_convinced_heading }}
+				</div>
+
+				<div class="block__link-body">
+
+					<a class="arrow-link" data-icon-color="white" data-text-color="white" href="{{ block.im_not_convinced_link.url }}">
+						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+						<span class="arrow-link__label">{{ block.im_not_convinced_link.title }}</span>
+					</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

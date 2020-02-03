@@ -1,100 +1,180 @@
-[id="impact-stories"] {
+.impact-stories {
+	@extend %shell-grid;
+	margin-top: var(--v-spacing);
+}
 
-	padding-top: spacing(6);
-
-	@include mq(M) {
-		padding-top: spacing(7);
+	.impact-stories__container {
+		grid-column: content;
+		@extend %column-grid;
 	}
 
-	.page-title {
+		.impact-stories__header {
 
-		@include font-size(18);
-		width: spacing(90);
-		max-width: 100%;
-		margin-bottom: spacing(5);
-		color: color('body');
+			@include font('secondary');
+			grid-column: all;
+			margin-bottom: var(--v-spacing);
 
-		@include mq(M) {
-			margin-bottom: spacing(7);
+			@include from(T) {
+				grid-column: all / 10;
+			}
+
+			> *:last-child {
+				margin-bottom: 0;
+			}
+
 		}
 
-		h1 {
-			@extend .beta;
-			margin-bottom: spacing(2);
+		.impact-stories__featured-stories {
+
+			grid-column: all;
+			margin-bottom: var(--v-spacing);
+			border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
+			overflow: hidden;
+			position: relative;
+
+			.tns-nav {
+
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				padding: spacing(1);
+				z-index: 1;
+
+				display: flex;
+				justify-content: center;
+
+				button {
+
+					background: none;
+					color: inherit;
+					border: none;
+					padding: 0;
+					font: inherit;
+					cursor: pointer;
+					outline: inherit;
+					border-radius: 0;
+					margin: 0;
+
+					&:focus {
+						outline: none;
+					}
+
+					// start
+					font-size: 18px;
+					height: 1em;
+					width: 1em;
+					border-radius: 50%;
+					border: 2px solid $ui-grey-7;
+					background-color: transparent;
+
+					&:not(:last-child) {
+						margin-right: spacing(1);
+					}
+
+					&.tns-nav-active {
+						background-color: $ui-brand;
+						border-color: $ui-brand;
+					}
+
+				}
+
+			}
+
 		}
 
-	}
+		.impact-stories__filters {
 
-}
+			grid-column: all;
+			border: 2px solid $ui-grey-6;
+			border-radius: spacing(4) spacing(1);
+			padding: spacing(3);
+			margin-bottom: var(--v-spacing);
 
-.impact-card--featured {
+			@include from(M) {
+				grid-column: all / 9;
+			}
 
-	margin-bottom: spacing(6);
+			--columns: 2;
+			display: grid;
+			grid-template-columns: [all-start] repeat(var(--columns), 1fr) [all-end];
+			grid-gap: spacing(1);
 
-	@include mq(M) {
-		margin-bottom: spacing(10);
-	}
+			@include from(S) {
+				--columns: 3;
+			}
 
-}
+			@include from(M) {
+				--columns: 4;
+			}
 
-.impact-stories__sidebar {
-
-	margin-bottom: spacing(6);
-
-	@include mq(M) {
-		@include span(3 of 12);
-		margin-bottom: spacing(12);
-	}
-
-	h2 {
-		@extend .zeta;
-		text-transform: uppercase;
-		margin-bottom: 0;
-	}
-
-}
-
-.impact-stories__filter {
-
-	@include mq(M, 'max-width') {
-		@include col(2, 4);
-	}
-
-	@include mq(M) {
-		margin-bottom: spacing(6);
-	}
-
-	h2 {
-		margin-bottom: spacing(2);
-	}
-
-	button {
-		float: left;
-		clear: both;
-	}
-
-}
-
-.impact-stories__main {
-
-	margin-bottom: spacing(12);
-
-	@include mq(M) {
-		@include span(9 of 12 last);
-	}
-
-	.impact-card {
-
-		margin-bottom: spacing(2);
-
-		@include mq(500, L) {
-			@include col(2, 4);
 		}
 
-		@include mq(L) {
-			@include col(2, 6);
+			.impact-stories__filter-heading {
+
+				font-size: 18px;
+				@include font('secondary', 'bold');
+				margin-bottom: 0;
+				grid-column: all;
+
+				&:not(:first-child) {
+					margin-top: spacing(1);
+				}
+
+			}
+
+			.impact-stories__filters label {
+
+				font-size: 16px;
+				@include font('secondary', 'medium');
+				text-transform: none;
+				display: flex;
+				align-items: center;
+				margin-bottom: spacing(1);
+				color: $ui-grey-2;
+
+				input {
+
+					font-size: 21px;
+					flex: 0 0 auto;
+					margin: 0 spacing(1) 0 0;
+
+					height: 1em;
+					width: 1em;
+					appearance: none;
+					background-color: $ui-white;
+					border: 1px solid $ui-grey-4;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					&:checked:after {
+						content: '\00D7';
+						font-size: 1.2em;
+						margin-top: .1em;
+						color: $ui-grey-3;
+					}
+
+				}
+
+			}
+
+		.impact-stories__posts {
+
+			grid-column: all;
+			margin-bottom: var(--v-spacing-half);
+
+			--columns: 1;
+			display: grid;
+			grid-gap: spacing(4) spacing(2);
+			grid-template-columns: repeat(var(--columns), 1fr);
+
+			@include from(T) {
+				--columns: 2;
+			}
+
+			@include from(M) {
+				--columns: 3;
+			}
+
 		}
-
-	}
-
-}

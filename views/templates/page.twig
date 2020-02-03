@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<main class="page-container">
+
+		{% if not hide_title %}
+			<h1>{{ title }}</h1>
+		{% endif %}
+
+		{{ content | raw }}
+
+	</main>
+
+{% endblock %}

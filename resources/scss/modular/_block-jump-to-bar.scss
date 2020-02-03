@@ -1,0 +1,101 @@
+/*
+
+---
+name: Jump-to Bar
+category:
+ - Blocks
+ - Blocks/Jump-to Bar
+---
+
+```html
+<div class="block" data-block-type="jump-to-bar" data-position="sticky">
+
+	<div class="block__background" style="background-color: #23B2A7"></div>
+
+	<div class="block__container" style="color: #000;">
+
+		<span class="block__title">Go to</span>
+
+		<a class="block__link" href="#academics">
+			Academics &amp; researchers
+		</a>
+
+		<a class="block__link" href="#companies">
+			Companies
+		</a>
+
+		<a class="block__link" href="#journalists">
+			Journalists
+		</a>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.block[data-block-type="jump-to-bar"] {
+
+	z-index: 3;
+
+	&[data-position="sticky"] {
+
+		@include from(M) {
+			position: sticky;
+			top: 0;
+		}
+
+	}
+
+	.block__background {
+		grid-column: full;
+		grid-row: 1;
+	}
+
+	.block__container {
+
+		grid-column: content;
+		grid-row: 1;
+		padding: spacing(1) 0;
+
+		@include from(T) {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+	}
+
+		.block__title,
+		.block__link {
+
+			font-size: 18px;
+			padding: spacing(1) spacing(2);
+			text-transform: uppercase;
+			display: block;
+			border-radius: spacing(.5);
+
+			@include from(L) {
+				font-size: 20px;
+				padding: spacing(1) spacing(4);
+			}
+
+		}
+
+		.block__title {
+			padding-left: 0;
+		}
+
+		.block__link {
+
+			text-decoration: none;
+			@include font('secondary', 'bold');
+
+			&:hover,
+			&:focus {
+				background-color: rgba($ui-white, 25%);
+			}
+
+		}
+
+}

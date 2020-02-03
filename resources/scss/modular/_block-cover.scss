@@ -1,0 +1,59 @@
+/*
+
+---
+name: Cover
+category:
+ - Blocks
+ - Blocks/Cover
+---
+
+```html
+<div class="block" data-block-type="cover">
+
+	<div class="block__image" style="background-image: url('https://open-contracting.test/wp-content/uploads/2019/10/IMG_4716.jpg');"></div>
+	<div class="block__image-overlay" style="background-color: rgba(0,0,0,0.3);"></div>
+
+	<h1 class="block__heading">Open contracting is making public  spending count for everyone</h1>
+
+</div>
+```
+
+*/
+
+.block[data-block-type="cover"] {
+
+	color: $ui-white;
+
+	@include fluid-type(--padding, 360px, 1240px, spacing(2), spacing(15));
+
+	grid-template-rows: [all-start] var(--padding) auto var(--padding) [all-end];
+
+	.block__image {
+		grid-column: full;
+		grid-row: all;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 50% 50%;
+	}
+
+	.block__image-overlay {
+		grid-column: full;
+		grid-row: all;
+	}
+
+	.block__heading {
+
+		grid-column: content / -6;
+		grid-row: 2;
+		color: currentColor;
+		margin-bottom: 0;
+		align-self: center;
+		@include fluid-type(font-size, 360px, 1240px, 25px, 39px);
+
+		@include from(T) {
+			grid-column: content / -8;
+		}
+
+	}
+
+}

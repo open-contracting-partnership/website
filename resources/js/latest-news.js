@@ -1,45 +1,40 @@
 import Vue from 'vue'
 
+const _cloneDeep = require('lodash.clonedeep');
+const _filter = require('lodash.filter');
+
+import PrimaryCard from './components/cards/primary.vue';
+
 new Vue({
 
 	el: '#blog-posts',
 
-	data: {
-		// data
-		posts: content.posts,
-		// filters
-		filter: {
-			open: false,
-			selected: null,
-			options: {},
-		},
-		// limits
-		limit: 12
+	components: {
+		'primary-card': PrimaryCard
 	},
 
-	watch: {
-
-		filterSlug: function() {
-			this.filterPosts();
-		}
-
+	data: {
+		posts: content.posts,
+		filter: "",
+		limit: 12
 	},
 
 	computed: {
 
-		visiblePosts: function() {
+		visiblePosts() {
 
-			var posts = [];
+			let posts = _cloneDeep(this.posts);
 
-			this.posts.forEach(function(post) {
+			if ( this.filter !== "" ) {
 
-				if ( post.display === true ) {
-					posts.push(post);
-				}
+				posts = _filter(posts, post => {
+					return post.issue.length > 0 && post.issue.indexOf(this.filter) !== -1;
+				});
 
-			});
+			}
 
 			return posts;
+
 		},
 
 		pagedPosts: function() {
@@ -48,105 +43,19 @@ new Vue({
 
 		hasNextPage: function() {
 			return this.visiblePosts.length > this.limit;
-		},
-
-		filterSlug: function() {
-			return this.filter.selected !== null ? this.filter.selected.slug : null;
-		},
-
-		filterTitle: function() {
-
-			if ( ! this.filter.selected ) {
-				return content.select_a_filter;
-			} else {
-				return this.filter.selected.title.replace(new RegExp(' ', 'g'), '&nbsp;');
-			}
-
 		}
 
 	},
 
 	methods: {
 
-		increaseLimit: function() {
+		increaseLimit() {
 
 			if ( this.limit < this.posts.length ) {
 				this.limit += 12;
 			}
 
-		},
-
-		filterPosts: function() {
-
-			// reset all resources
-
-			this.posts.forEach(function(post, index) {
-				post.display = true;
-			});
-
-			// apply issue filter
-
-			if ( this.filter.selected !== null ) {
-
-				this.posts.forEach(function(post, index) {
-
-					if ( Object.keys(post.taxonomies['issue']).indexOf(this.filter.selected.slug) === -1 ) {
-						post.display = false;
-					}
-
-				}.bind(this));
-
-			}
-
-		},
-
-		setFilter: function(filter) {
-			this.filter.selected = filter;
-			this.filter.open = false;
-		},
-
-		resetFilter: function() {
-			this.filter.selected = null;
-			this.filter.open = false;
 		}
-
-	},
-
-	mounted() {
-		
-		var filter_options = {};
-
-		this.posts.forEach(function(post, index) {
-
-			if ( Object.keys(post.taxonomies['issue']).length ) {
-
-				for ( var key in post.taxonomies['issue'] ) {
-
-					if ( typeof filter_options[key] === 'undefined' ) {
-
-						filter_options[key] = {
-							slug: key,
-							title: post.taxonomies['issue'][key],
-							count: 1
-						};
-
-					} else {
-						filter_options[key].count++;
-					}
-
-				}
-
-			}
-
-		}.bind(this));
-
-		// triggers two way data binding within vue
-		this.filter.options = filter_options;
-
-		// add document click event to close filter
-		document.addEventListener('click', function() {
-			this.filter.open = false;
-		}.bind(this));
 
 	}
 

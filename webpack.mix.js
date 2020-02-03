@@ -1,66 +1,106 @@
-let mix = require('laravel-mix');
-var path = require('path');
-const SvgStore = require('webpack-svgstore-plugin');
-var LiveReloadPlugin = require('webpack-livereload-plugin');
+const mix = require('laravel-mix');
+require('laravel-mix-svg-sprite');
 
 // set the public path directory
-// without this an error within version orrurs
-mix.setPublicPath(path.resolve('./'));
+mix.setPublicPath('dist');
 
 // enable versioning for all compiled files
 mix.version();
 
-mix.copy('resources/fonts', 'dist/fonts');
-
-mix.sass('resources/scss/styles.scss', 'dist/css')
-	.options({
-		processCssUrls: false
-	});
+mix.copy('node_modules/mapbox-gl/dist/mapbox-gl.css', 'dist/node_modules/mapbox-gl/mapbox-gl.css');
 
 // watch for any changes in styleguide.js, only when not production
 if ( ! mix.inProduction() ) {
 
-	mix.copy('node_modules/mapbox-gl/dist/mapbox-gl.css', 'resources/node_modules/mapbox-gl/mapbox-gl.css')
-		.copy('node_modules/flag-icon-css/flags', 'resources/node_modules/flag-icon-css/flags');
+	mix.js('styleguide_assets/aigis_assets/scripts/styleguide.js', 'styleguide')
+		.webpackConfig({
+			module: {
+				rules: [
+					{
+						test: /\.js$/,
+						exclude: /node_modules/,
+						loader: 'babel-loader',
+						query: {
+							plugins: ['@babel/transform-runtime'],
+							presets: ['@babel/env']
+						}
+					},
+				]
+			}
+		});
 
 }
 
-mix.js('resources/js/main.js', 'dist/js')
+mix.svgSprite('resources/svg', 'svg/icons.svg')
+
+mix.sass('resources/scss/styles.scss', 'dist/css')
+	.sass('resources/scss/gutenberg.scss', 'dist/css')
+	.sass('styleguide_assets/aigis_assets/styles/theme.scss', 'styleguide')
+	.options({
+		processCssUrls: false
+	});
+
+mix.js('resources/js/scripts.js', 'dist/js')
+	.js('resources/js/block-download-carousel.js', 'dist/js')
+	.js('resources/js/block-featured-stories-carousel.js', 'dist/js')
+	.js('resources/js/block-our-model.js', 'dist/js')
+	.js('resources/js/block-quote-carousel.js', 'dist/js')
+	.js('resources/js/block-team-profile.js', 'dist/js')
+	.js('resources/js/card-quote.js', 'dist/js')
+	.js('resources/js/header.js', 'dist/js')
 	.js('resources/js/impact-stories.js', 'dist/js')
-	.js('resources/js/get-started.js', 'dist/js')
-	.js('resources/js/worldwide.js', 'dist/js')
 	.js('resources/js/latest-news.js', 'dist/js')
-	.js('resources/js/events.js', 'dist/js')
-	.js('resources/js/archive.js', 'dist/js')
-	.js('resources/js/resources.js', 'dist/js')
-	.js('resources/js/timeline.js', 'dist/js')
-	.js('resources/js/contracts.js', 'dist/js')
+	.js('resources/js/archive-resource.js', 'dist/js')
+	.js('resources/js/mailchimp.js', 'dist/js')
 	.js('resources/js/svg.js', 'dist/js')
-	.js('resources/js/element-queries.js', 'dist/js')
+	.js('resources/js/modules/worldwide/worldwide.js', 'dist/js')
 	.extract(['vue'])
+	.then((stats) => {
+
+		if ( ! mix.inProduction() ) {
+
+			const files = Object.keys(stats.compilation.assets);
+			const trigger_files = [
+				'/css/styles.css'
+			];
+
+			// check if any of the trigger files are in the latest compile
+			const diff = files.filter(function(n) {
+			    return trigger_files.indexOf(n) !== -1;
+			});
+
+			// and if they are, trigger the styleguide
+			if ( diff.length ) {
+
+				setTimeout(() => {
+					const Aigis = require('node-aigis');
+					const aigis = new Aigis('./styleguide_config.yml');
+					aigis.run();
+				}, 100);
+
+			}
+
+		}
+
+	})
 	.webpackConfig({
 		resolve: {
 			modules: [
 				'node_modules'
-			],
-			alias: {
-				'vue$': 'vue/dist/vue.js'
-			}
+			]
 		},
 		module: {
-			noParse: /(mapbox-gl)\.js$/,
 			rules: [
 				{
 					test: /\.scss/,
 					enforce: 'pre',
 					loader: 'import-glob-loader'
+				},
+				{
+					test: /\.js/,
+					enforce: 'pre',
+					loader: 'import-glob-loader'
 				}
 			]
-		},
-		plugins: [
-			new SvgStore({
-				prefix: ''
-			}),
-			new LiveReloadPlugin()
-		]
+		}
 	});

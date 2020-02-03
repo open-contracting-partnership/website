@@ -1,0 +1,93 @@
+/*------------------------------------*\
+	VARIABLES
+\*------------------------------------*/
+
+ //********
+// COLOURS
+
+// TODO: re-organise colour names
+$ui-white: #FFF;
+$ui-grey-3: #323232;
+$ui-grey: #4D4D53;
+$ui-grey-2: #4B4B4B;
+$ui-grey-4: #666666;
+$ui-grey-5: #C4C4C4;
+$ui-grey-6: #E2E1E1;
+$ui-grey-7: #DADADA;
+$ui-grey-8: #F6F6F6;
+$ui-grey-9: #989898;
+$ui-black: #000;
+$ui-brand: #E0E83D;
+$ui-brand-2: #EBECA8;
+
+$ui-orange: #FB6045;
+$ui-blue: #6C75E1;
+$ui-teal: #23B2A7;
+
+
+ //***************
+// SOCIAL COLOURS
+
+$social-colors: (
+	'youtube': #CC181E,
+	'twitter': #00ACEE,
+	'facebook': #3B5998,
+	'google': #DD4B39,
+	'linkedin': #007BB6,
+);
+
+
+ //**************
+// TYPE SETTINGS
+
+$base-font-size: 16;
+
+$copy: $ui-black;
+$border-radius: 4px;
+
+
+ //****************
+// LAYOUT SETTINGS
+
+$max-width: 1440;
+$space: 1.5rem; // NOTE: This is needs to be changed depending on the lineheight of the <p>
+
+$breakpoints: (
+	S: 640,
+	T: 768,
+	M: 1024,
+	L: 1440
+);
+
+$header-break-1: 640;
+$header-break-2: 768;
+$header-break-3: 1024;
+$header-break-4: 1240;
+
+
+ //******
+// FONTS
+
+$fonts: (
+	primary: (
+		family: 'gt_eesti_pro_text',
+		fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+		weights: (
+			light: 300,
+			regular: 400,
+			semibold: 600,
+			bold: 700
+		),
+		typekit: false
+	),
+	secondary: (
+		family: 'gt_eesti_pro_display',
+		fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+		weights: (
+			regular: 400,
+			medium: 500,
+			bold: 700
+		),
+		typekit: false
+	)
+);

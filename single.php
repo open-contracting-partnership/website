@@ -1,285 +1,90 @@
-<?php // single.php ?>
-
-<?php get_header(); ?>
-
-	<?php the_post(); ?>
-
-	<div class="page--one-column">
-
-		<div class="post-hero">
-
-			<?php if ( $hero = get_field('hero_image') ) : ?>
-
-				<?php
-
-					$url = imgix::source('url', $hero['url'])
-						->options([
-							'crop' => 'faces',
-							'fit' => 'crop',
-							'w' => 1440,
-							'h' => 1440 / (21 / 9),
-							'fm' => 'pjpg'
-						])
-						->url();
-
-				?>
-
-				<img src="<?php echo $url; ?>" />
-
-			<?php endif; ?>
-
-		</div>
-
-		<div class="page__wrapper">
-
-			<?php get_partial('page', 'title'); ?>
-
-			<article class="page-content cf">
-
-				<section>
-
-					<?php if ( has_post_thumbnail() ) : ?>
-						<?php the_post_thumbnail('16x9_930'); ?>
-					<?php endif; ?>
-
-					<?php the_content(); ?>
-
-					<?php
-
-						$post_tags = wp_get_post_terms(get_the_ID(), 'post_tag', array(
-							'orderby' => 'count',
-							'order' => 'DESC'
-						));
-
-					?>
-
-				</section>
-
-				<div class="post-meta / print-hidden">
-
-					<?php if ( $post_tags ) : ?>
-
-						<section class="post-meta__tags">
-
-							<h3 class="eta">Related Tags</h3>
-
-							<ul class="button__list">
-
-								<?php foreach ( $post_tags as $post_tag ) : ?>
-
-									<li>
-										<a href="<?php echo get_term_link($post_tag); ?>" class="button button--tag"><?php echo $post_tag->name; ?></a>
-									</li>
-
-								<?php endforeach; ?>
-
-							</ul>
-
-						</section>
-
-					<?php endif; ?>
-
-					<section class="post-meta__share">
-
-						<h3 class="eta"><?php _e('Share', 'ocp'); ?></h3>
-
-						<ul class="button__list button__social">
-							<li><a href="<?php echo share_links()->facebook; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
-							<li><a href="<?php echo share_links()->linkedin; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
-							<li><a href="<?php echo share_links()->twitter; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
-							<li><a href="<?php echo share_links()->email; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-mail" /></svg></a></li>
-						</ul>
-
-					</section>
-
-				</div>
-
-				<div class="print-hidden">
-
-					<?php if ( comments_open() || '0' != get_comments_number() ) : ?>
-						<?php comments_template(); ?>
-					<?php endif; ?>
-
-				</div>
-
-			</article>
-
-			<!-- yarpp posts -->
-			<?php if ( function_exists('related_posts') ) : ?>
-
-				<section class="related-posts / print-hidden">
-
-					<?php
-
-						related_posts([
-							'template' =>'yarpp-template-posts.php',
-							'limit' => 3
-						]);
-
-					?>
-
-				</section>
-
-			<?php endif; ?>
-
-		</div> <!-- / .page__wrapper -->
-
-
-	</div>
-
-<?php /*
-
-
-
-	<div class="page__wrapper">
-
-		<article class="<?php if ( has_post_thumbnail() ) : ?>post--has-thumbnail<?php endif; ?> cf">
-
-			<div class="blog__title">
-				<span class="post-type"><?php the_post_type_label(); ?></span>
-				<h1><?php the_title(); ?></h1>
-			</div>
-
-			<section class="post-content">
-
-				<div class="blog__author-meta">
-					<p class="blog__mobile-date"><?php _e('Written By', 'ocp'); ?> <?php the_authors(TRUE); ?>, <datetime><?php the_date(); ?></datetime></p>
-				</div>
-
-				<?php if ( has_post_thumbnail() ) : ?>
-					<?php the_post_thumbnail('16x9_768'); ?>
-				<?php endif; ?>
-
-				<?php the_content(); ?>
-
-				<?php if ( comments_open() || '0' != get_comments_number() ) : ?>
-					<?php comments_template(); ?>
-				<?php endif; ?>
-
-			</section>
-
-			<aside class="sidebar">
-
-				<section>
-					<h3 class="border-top"><?php _e('Written By', 'ocp'); ?></h3>
-					<div class="blog__author-meta">
-						<p><?php the_authors(TRUE); ?> <time datetime="<?php the_time(DATE_W3C); ?>"><br /><?php OCP::the_date(); ?></time></p>
-					</div>
-
-				</section>
-
-				<section>
-
-					<h3 class="border-top"><?php _e('Share', 'ocp'); ?></h3>
-
-					<ul class="button__list button__social">
-						<li><a href="<?php echo share_links()->facebook; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-facebook" /></svg></a></li>
-						<li><a href="<?php echo share_links()->linkedin; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-linkedin" /></svg></a></li>
-						<li><a href="<?php echo share_links()->twitter; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-twitter" /></svg></a></li>
-						<li><a href="<?php echo share_links()->email; ?>" target="_blank" class="button"><svg><use xlink:href="#icon-mail" /></svg></a></li>
-					</ul>
-
-				</section>
-
-				<?php if ( $open_contracting = get_field('open_contracting') ) : ?>
-
-					<?php
-
-						$query = array(
-							'post_type' => 'resource',
-							'posts_per_page' => 3,
-							'meta_query' => ['relation' => 'OR']
-						);
-
-						foreach ( $open_contracting as $term ) {
-
-							$query['meta_query'][] = array(
-								'key' => 'open_contracting',
-								'value' => '"' . $slug->term . '"',
-								'compare' => "LIKE"
-							);
-
-						}
-
-						$relevant_resources = new query_loop($query);
-
-					?>
-
-					<?php if ( $relevant_resources->have_posts() ) : ?>
-
-						<section>
-
-							<h3 class="border-top">Relevant Resources</h3>
-
-							<ul class="relevant-resources">
-
-								<?php foreach ( $relevant_resources as $relevant_resource ) : ?>
-									<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-								<?php endforeach; ?>
-
-							</ul>
-
-						</section>
-
-					<?php endif; ?>
-
-				<?php endif; ?>
-
-				<?php
-					$post_tags = wp_get_post_terms(get_the_ID(), 'post_tag', array(
-						'orderby' => 'count',
-						'order' => 'DESC'
-					));
-
-				?>
-
-				<?php if ( $post_tags ) : ?>
-
-					<section>
-
-						<h3 class="border-top">Related Tags</h3>
-
-						<ul class="button__list">
-
-							<?php foreach ( $post_tags as $post_tag ) : ?>
-
-								<li>
-									<a href="<?php echo get_term_link($post_tag); ?>" class="button button--tag"><?php echo $post_tag->name; ?></a>
-								</li>
-
-							<?php endforeach; ?>
-
-						</ul>
-
-					</section>
-
-				<?php endif; ?>
-
-			</aside>
-
-		</article>
-
-		<!-- yarpp posts -->
-		<?php if ( function_exists('related_posts') ) : ?>
-
-			<section class="related-posts">
-
-				<h2 class="epsilon">Related Posts</h2>
-
-				<?php
-
-					related_posts([
-						'template' =>'yarpp-template-posts.php',
-						'limit' => 6
-					]);
-
-				?>
-
-			</section>
-
-		<?php endif; ?>
-
-	</div> <!-- / .wrapper -->
- */ ?>
-
-<?php get_footer(); ?>
+<?php
+
+/**
+ * The Template for displaying all single posts
+ */
+
+namespace App;
+
+use App\Cards\PrimaryCard;
+use App\Http\Controllers\Controller;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Post;
+use Timber\Timber;
+
+class SingleController extends Controller
+{
+	public function handle()
+	{
+		$context = Timber::get_context();
+		$post = new Post();
+
+		$context['post'] = $post;
+		$context['title'] = $post->title;
+		$context['authors'] = get_authors($post->ID, true);
+		$context['content'] = $post->content;
+		$context['date'] = get_the_date('j M Y', $post->ID);
+		$context['featued_image'] = false;
+		$context['more_stories'] = [];
+
+		$context['tags'] = wp_get_post_terms(get_the_ID(), 'post_tag', array(
+			'orderby' => 'count',
+			'order' => 'DESC'
+		));
+
+		$context['tags'] = array_map(function($term) {
+			$term->url = get_term_link($term);
+			return $term;
+		}, $context['tags']);
+
+		$context['type'] = [
+			'type' => $post->post_type,
+			'label' => get_post_type_label($post->post_type)
+		];
+
+		$context['back_link'] = [
+			'url' => get_post_type_archive_link($post->post_type),
+			'label' => __('Back to latest')
+		];
+
+		if ( $attachment_id = get_post_thumbnail_id($post->ID) ) {
+
+			$context['featued_image'] = [
+				'url' => wp_get_attachment_url($attachment_id),
+				'caption' => wp_get_attachment_caption($attachment_id)
+			];
+
+		}
+
+		if ( $context['authors'] ) {
+			$context['authors'] = __('By', 'ocp') . ' ' . $context['authors'];
+		}
+
+		$context['single']['i18n']['related_tags_heading'] = _x(
+			'Related Tags',
+			'The related tags heading on blog posts',
+			'ocp'
+		);
+
+		$context['single']['i18n']['discussion_heading'] = _x(
+			'Your comments? Thoughts? What do you think?',
+			'The discussion heading on blog posts',
+			'ocp'
+		);
+
+		$context['single']['i18n']['discussion_content'] = _x(
+			'Share your thoughts on social media or join our discussion groups.',
+			'The discussion content on blog posts',
+			'ocp'
+		);
+
+		$more_posts = Timber::get_posts([
+			'posts_per_page' => 3,
+			'post__not_in' => [$post->ID]
+		]);
+
+		$context['more_stories'] = PrimaryCard::convertCollection($more_posts);
+
+		return new TimberResponse('templates/single.twig', $context);
+	}
+}

@@ -1,0 +1,147 @@
+/*
+
+---
+name: Quote card
+category:
+ - Cards
+ - Cards/Quote
+---
+
+```html
+<div class="card card--quote">
+
+	<div class="card__image">
+		<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=crop&w=1000&h=500" />
+	</div>
+
+	<blockquote class="card__quote">
+		<p>"We had been trying to participate directly in the school feeding program for the last 12 years. Now we can sell directly to the city"</p>
+		<footer>Luz Marina Rojas,<br>Entrepreneur, Colmbia</footer>
+	</blockquote>
+
+</div>
+```
+
+*/
+
+.card.card--quote {
+
+	font-size: 12px;
+	@include font('secondary', 'bold');
+	border-radius: spacing(4) spacing(1);
+	overflow: hidden;
+	color: $ui-white;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: 1;
+
+	@include from(600) {
+		font-size: 18px;
+	}
+
+	@include from(M) {
+		font-size: 20px;
+	}
+
+	.card__image {
+		grid-column: 1 / span 2;
+		grid-row: 1;
+		width: 100%;
+		filter: grayscale(100%);
+	}
+
+	.card__quote {
+
+		all: unset;
+		grid-column: 1 / span 2;
+		grid-row: 1;
+		border-radius: spacing(4) spacing(1);
+		background-color: rgba(#1E1E1E, 70%);
+		padding: spacing(2);
+		opacity: 0;
+		transition: opacity .3s ease;
+		z-index: 1;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+
+		@include from(M) {
+			grid-column: 2 / span 1;
+		}
+
+		p {
+			all: unset;
+			margin-bottom: spacing(1);
+		}
+
+		footer {
+			@include font('secondary');
+		}
+
+	}
+
+		.card__toggle-container {
+			grid-column: 1 / span 2;
+			grid-row: 1;
+			position: relative;
+			display: flex;
+			justify-content: flex-end;
+			align-items: flex-start;
+			padding: spacing(1);
+			z-index: 4;
+		}
+
+		.card__toggle {
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				transition: background-color .3s ease;
+				z-index: 4;
+			}
+
+			> svg {
+
+				transition: transform .3s ease, fill .3s ease;
+				font-size: 20px;
+				height: 1em;
+				width: 1em;
+				fill: $ui-white;
+
+				@include from(M) {
+					font-size: 34px;
+				}
+
+			}
+
+		}
+
+
+	&.card--active {
+
+		.card__quote {
+			opacity: 1;
+		}
+
+		.card__toggle {
+
+			> svg {
+				transform: rotate(45deg);
+				fill: $ui-brand;
+			}
+
+		}
+
+	}
+
+}
+
+.aigis-preview__background > .card--quote,
+.aigis-preview > .card--quote {
+	max-width: 600px;
+}

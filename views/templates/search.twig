@@ -1,0 +1,45 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<main class="search">
+
+		<div class="search__container">
+
+			<h1>{{ title }}</h1>
+
+			{% if search.results.hasResults %}
+
+				{% for result in search.results.getResults %}
+
+					<div class="card card--text">
+
+						<a href="{{ result.link }}" class="card__title-link">
+							<h3 class="card__title">{{ result.htmlTitle }}</h3>
+						</a>
+
+						<p>{{ result.htmlFormattedUrl }}</p>
+						<p>{{ result.htmlSnippet }}</p>
+
+					</div>
+
+				{% endfor %}
+
+				{% if search.results.hasNextPage %}
+
+					<a class="button button--has-icon" href="/?s={{ function('get_search_query') }}&page={{ page + 1 }}">
+						<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+						{{ search.i18n.next_page_label }}
+					</a>
+
+				{% endif %}
+
+			{% else %}
+				<p>{{ search.i18n.no_results_label }}</p>
+			{% endif %}
+
+		</div>
+
+	</main>
+
+{% endblock %}

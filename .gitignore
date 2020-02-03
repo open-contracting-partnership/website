@@ -1,17 +1,12 @@
+# System
 .DS_Store
-node_modules/
-.sass-cache/
-styleguide/core
-import
-tweets/settings.json
-tweets/tweets.json
-composer.phar
-composer.lock
-/vendor/
-
-# Compiled
-/dist
+vendor
+node_modules
 
 # Styleguide
 styleguide/
-/yarn-error.log
+
+# Assets
+dist/
+yarn-error.log
+/.env

@@ -1,0 +1,184 @@
+/*
+
+---
+name: Resource card
+category:
+ - Cards
+ - Cards/Resource
+---
+
+## Default
+
+```html
+<div class="card card--resource">
+
+	<div class="card__body">
+		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+	</div>
+
+	<div class="card__footer">
+		<div class="card__icon"></div>
+		<span class="card__type">Resource</span>
+	</div>
+
+</div>
+```
+
+## Highlight Colours
+
+```html
+<div class="card card--resource" data-post-type="orange">
+
+	<div class="card__body">
+		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+	</div>
+
+	<div class="card__footer">
+		<div class="card__icon"></div>
+		<span class="card__type">Resource</span>
+	</div>
+
+</div>
+
+<div class="card card--resource" data-post-type="resource">
+
+	<div class="card__body">
+		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+	</div>
+
+	<div class="card__footer">
+		<div class="card__icon"></div>
+		<span class="card__type">Resource</span>
+	</div>
+
+</div>
+```
+
+## Background Colours
+
+```html
+<div class="card card--resource" data-colour-scheme="light" data-post-type="post">
+
+	<div class="card__body">
+		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+	</div>
+
+	<div class="card__footer">
+		<div class="card__icon"></div>
+		<span class="card__type">Blog</span>
+	</div>
+
+</div>
+
+<div class="card card--resource" data-colour-scheme="light" data-post-type="resource">
+
+	<div class="card__body">
+		<a class="card__link" href="#">How we successfully pushed for more transparent public procurement rules in Spain</a>
+	</div>
+
+	<div class="card__footer">
+		<div class="card__icon"></div>
+		<span class="card__type">Resource</span>
+	</div>
+
+</div>
+```
+
+*/
+
+.card.card--resource {
+
+	--accent-colour: #{$ui-white};
+
+	background-color: $ui-grey-3;
+	color: $ui-white;
+	border-radius: spacing(4) spacing(1) spacing(4) spacing(1);
+	padding: 20px 28px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+
+	.card__body {
+		flex: 1 1 100%;
+		display: flex;
+		align-items: center;
+		padding: spacing(1) 0;
+	}
+
+		.card__link {
+			font-size: 18px;
+			@include font('secondary', 'bold');
+			text-decoration: none;
+			line-height: 1.15;
+		}
+
+	.card__footer {
+		border-top: 4px solid var(--accent-colour);
+		margin-top: spacing(1);
+		padding-top: 10px;
+		display: flex;
+		align-items: center;
+	}
+
+		.card__icon {
+			display: block;
+			font-size: 30px;
+			height: 1em;
+			width: 1em;
+			border-radius: 50%;
+			border: 8px solid var(--accent-colour);
+			flex: 0 0 auto;
+			margin-right: spacing(1);
+			box-sizing: border-box;
+		}
+
+		.card__type {
+			font-size: 14px;
+			flex: 1 1 100%;
+			text-transform: uppercase;
+			padding-top: .1em;
+		}
+
+
+	// Colour Scheme
+
+	&[data-colour-scheme="light"] {
+		background-color: #F6F6F6;
+		color: $ui-black;
+		--accent-colour: #{$ui-black};
+	}
+
+	// post type colours
+
+	&[data-post-type="post"] {
+		--accent-colour: #{$ui-orange};
+	}
+
+	&[data-post-type="resource"] {
+		--accent-colour: #{$ui-blue};
+	}
+
+	// resource type colours
+
+	&[data-post-type="annual-report"],
+	&[data-post-type="brochure"] {
+		--accent-colour: #{$ui-brand};
+	}
+
+	&[data-post-type="report"],
+	&[data-post-type="guide"],
+	&[data-post-type="brief"] {
+		--accent-colour: #{$ui-orange};
+	}
+
+	&[data-post-type="data-tool"],
+	&[data-post-type="training-material"],
+	&[data-post-type="methodology"] {
+		--accent-colour: #{$ui-blue};
+	}
+
+}
+
+.aigis-preview > .card--resource {
+	max-width: 320px;
+}

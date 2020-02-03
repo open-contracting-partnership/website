@@ -1,27 +1,19 @@
 <?php // functions/loader.php
 
 
- //********************
-// COMPOSER AUTOLOADER
+ //************
+// AUTOLOADERS
 
-require(get_theme_root() . '/' . get_template() . '/vendor/autoload.php');
+$composer_autoloader = get_theme_root() . '/' . get_template() . '/vendor/autoload.php';
+$theme_autooader = get_theme_root() . '/' . get_template() . '/classes/autoload.php';
 
+if ( file_exists($composer_autoloader) ) {
+	require $composer_autoloader;
+}
 
- //***********************
-// SENTRY ERROR REPORTING
-
-$sentryClient = new Raven_Client('https://83ad0f87126d451bb12da818e5c7e46d@sentry.io/1369375');
-
-$error_handler = new Raven_ErrorHandler($sentryClient);
-$error_handler->registerExceptionHandler();
-$error_handler->registerErrorHandler();
-$error_handler->registerShutdownFunction();
-
-
- //****************
-// THEME AUTLOADER
-
-require(get_theme_root() . '/' . get_template() . '/classes/autoload.php');
+if ( file_exists($theme_autooader) ) {
+	require $theme_autooader;
+}
 
 
  //*******************

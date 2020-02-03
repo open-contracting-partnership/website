@@ -1,52 +1,180 @@
-/*------------------------------------*\
-	TABLES
-\*------------------------------------*/
+/*
 
-.table-wrap {
-	overflow: scroll;
-	width: 100%;
-	table-layout: fixed;
-}
+---
+name: Table
+category:
+ - Base
+ - Base/Table
+---
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th>Header content 1</th>
+      <th>Header content 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Body content 1</td>
+      <td>Body content 2</td>
+    </tr>
+    <tr>
+      <td>Body content 1</td>
+      <td>Body content 2</td>
+    </tr>
+    <tr>
+      <td>Body content 1</td>
+      <td>Body content 2</td>
+    </tr>
+    <tr>
+      <td>Body content 1</td>
+      <td>Body content 2</td>
+    </tr>
+    <tr>
+      <td>Body content 1</td>
+      <td>Body content 2</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Footer content 1</td>
+      <td>Footer content 2</td>
+    </tr>
+  </tfoot>
+</table>
+```
+
+*/
 
 table {
 
-	@include font-size(13);
-	width: 100%;
+	font-size: 14px;
+	table-layout: auto;
+	border-spacing: 0;
+	border-collapse: separate;
+	margin-bottom: 0;
+	border: 0;
 	text-align: left;
-	border-collapse: collapse;
-	margin-bottom: $space;
-	table-layout: fixed;
+	overflow: hidden;
+	@include font('secondary');
 
-	@include mq(L) {
-		@include font-size(16);
+	thead {
+
+		margin-bottom: spacing(1);
+
+		tr:first-child th {
+			position: sticky;
+			top: 0;
+			z-index: 10;
+			text-align: center;
+		}
+
+		th {
+
+			cursor: pointer;
+			user-select: none;
+
+			&.sortAsc::after {
+				content: ' ▲';
+			}
+
+			&.sortDesc::after {
+				content: ' ▼';
+			}
+
+		}
+
 	}
 
-}
+	th {
 
-th,
-td {
+		font-size: 12px;
+		background-color: $ui-grey-4;
+		color: $ui-white;
+		text-transform: uppercase;
+		padding: spacing(1) spacing(2);
+		@include font('secondary', 'bold');
 
-	width: 100px;
-	text-align: left;
-	padding: spacing(2);
-	vertical-align: top;
+		&:first-child {
+			border-top-left-radius: spacing(2);
+		}
 
-	@include from(ML) {
-		padding: spacing(2) spacing(3);
+		&:last-child {
+			border-top-right-radius: spacing(2);
+		}
+
 	}
 
-}
+	tbody tr {
 
-td {
-	border-bottom: 1px solid color('lighter-grey');
-}
+		position: relative;
 
-th {
-	@include font('secondary', 'bold');
-	background-color: color('background');
-	border-color: color('background');
-	color: color('white');
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	vertical-align: middle;
+		&:not(:last-child)::after {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			bottom: 1px;
+			right: 0;
+			height: 1px;
+			background-image: repeating-linear-gradient(
+				to right,
+				transparent 0%,
+				transparent 25%,
+				$ui-grey-9 25%,
+				$ui-grey-9 75%,
+				transparent 75%,
+				transparent 100%);
+			background-position: center top;
+			background-repeat: repeat-x;
+			background-size: 10px 1px;
+		}
+
+	}
+
+	tbody td {
+		background-color: $ui-white;
+		color: $ui-black;
+	}
+
+	tbody tr:last-child {
+
+		td:first-child {
+			border-bottom-left-radius: spacing(1);
+		}
+
+		td:last-child {
+			border-bottom-right-radius: spacing(1);
+		}
+
+	}
+
+	tfoot tr {
+		background-color: $ui-white;
+	}
+
+	td {
+
+		position: relative;
+		border: none;
+		padding: spacing(2);
+
+		&:first-child::after {
+			content: '';
+			height: 1px;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: -10000px;
+
+		}
+
+	}
+
+	th, td {
+		width: auto;
+	}
+
 }

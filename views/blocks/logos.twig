@@ -1,0 +1,58 @@
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div id="{{ options.id }}" class="block" data-block-type="logos">
+
+	<div class="block__background" style="background-color: {{ block.background_colour }};"></div>
+
+	<div class="block__container" style="color: {{ block.text_colour }};">
+
+		<h2 class="block__title">{{ block.title }}</h2>
+
+		{% if block.logos %}
+
+			<div class="block__logos-container">
+
+				{% for logo in block.logos %}
+
+					{% if logo.link %}
+						<a href="{{ logo.link.url }}" title="{{ logo.link.title }}" target="{{ logo.link.target }}">
+					{% endif %}
+
+					<div class="block__logo">
+
+						{{ imgix({
+							src: logo.logo.url,
+							params: {
+								auto: 'format',
+								fit: 'crop'
+							},
+							aspect_ratio: [1, 1],
+							transforms: [{
+								w: 125
+							}, {
+								w: 175
+							}, {
+								w: 250
+							}, {
+								w: 350
+							}, {
+								w: 525
+							}],
+							sizes: '100vw'
+						}) }}
+
+					</div>
+
+					{% if logo.link %}
+						</a>
+					{% endif %}
+
+				{% endfor %}
+
+			</div>
+
+		{% endif %}
+
+	</div>
+
+</div>

@@ -1,0 +1,23 @@
+<style>
+
+	{% for field, visibility in gutenberg_fields_visibility %}
+
+		{% if visibility == 'edit_screen' %}
+
+			.acf-block-panel .acf-field[data-key="{{ field }}"] {
+				display: none;
+			}
+
+		{% endif %}
+
+		{% if visibility == 'block_settings' %}
+
+			.acf-block-body .acf-field[data-key="{{ field }}"] {
+				display: none;
+			}
+
+		{% endif %}
+
+	{% endfor %}
+
+</style>

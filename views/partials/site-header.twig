@@ -1,0 +1,180 @@
+<header class="site-header">
+
+	<div class="site-header__container">
+
+		<div class="site-header__logo">
+
+			<a class="site-header__logo-link" href="{{ site.url }}">
+				<svg><use xlink:href="#logo-horizontal"></use></svg>
+			</a>
+
+		</div>
+
+		<nav class="site-header__navigation">
+
+			<ul class="">
+
+				{% for item in header.primary_menu.items %}
+
+					<li class="nav-main-item {{ item.classes|join(' ') }}">
+
+						<a class="nav-main-link" href="{{ item.link }}">{{ item.title }}</a>
+
+						{% if item.children %}
+
+							<ul class="nav-drop">
+
+								{% for child in item.children %}
+
+									<li class="nav-drop-item">
+										<a href="{{ child.link }}">{{ child.title }}</a>
+									</li>
+
+								{% endfor %}
+
+							</ul>
+
+						{% endif %}
+
+						{% if item.mega_menu %}
+
+							<div class="site-header__mega-nav">
+
+								<nav class="mega-menu" aria-label="secondary">
+
+									<div class="mega-menu__container">
+
+										<h3 class="mega-menu__heading">
+
+											<a class="arrow-link" data-icon-color="white" href="{{ item.mega_menu.primary_link.url }}">
+												<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+												<span class="arrow-link__label">{{ item.mega_menu.primary_link.title }}</span>
+											</a>
+
+										</h3>
+
+										<div class="mega-menu__intro">
+											{{ item.mega_menu.introduction }}
+										</div>
+
+										<div class="mega-menu__nav-container">
+
+											{% for sub_menu in item.mega_menu.sub_menus %}
+
+												{% if sub_menu.acf_fc_layout == 'menu' %}
+
+													<ul class="mega-menu__nav" data-type="menu">
+
+														{% for item in sub_menu.links %}
+
+															<li>
+																<a href="{{ item.link.url }}">{{ item.link.title }}</a>
+															</li>
+
+														{% endfor %}
+
+													</ul>
+
+												{% endif %}
+
+												{% if sub_menu.acf_fc_layout == 'grouped_menu' %}
+
+													<ul class="mega-menu__nav" data-type="grouped-menu">
+
+														<li>
+
+															<span class="mega-menu__sub-nav-heading">{{ sub_menu.title }}</span>
+
+															<ul class="mega-menu__sub-nav">
+
+																{% for item in sub_menu.links %}
+
+																	<li>
+																		<a href="{{ item.link.url }}">{{ item.link.title }}</a>
+																	</li>
+
+																{% endfor %}
+
+															</ul>
+
+														</li>
+
+													</ul>
+
+												{% endif %}
+
+											{% endfor %}
+
+										</div>
+
+									</div>
+
+								</nav>
+
+							</div>
+
+						{% endif %}
+
+					</li>
+
+				{% endfor %}
+
+			</ul>
+
+			<div class="site-header__mobile-language">
+
+				{% for language in i18n.alternate_languages %}
+
+					<a href="{{ language.current_url }}">
+						{{ language.native_name }}
+					</a>
+
+				{% endfor %}
+
+			</div>
+
+		</nav>
+
+		<div class="site-header__toolbox">
+
+			{% for item in header.secondary_menu.items %}
+				<a href="{{ item.url }}">{{ item.title }}</a>
+			{% endfor %}
+
+			{% for language in i18n.alternate_languages %}
+
+				<a href="{{ language.current_url }}" class="button-bordered">
+					{{ language.native_name }}
+				</a>
+
+			{% endfor %}
+
+			<form role="search" method="get" class="search-input" data-colour="light" action="{{ site.home_url }}">
+
+				<input class="search-input__input" type="text" name="s" value="{{ search_term }}" aria-label="Search" placeholder="Search">
+
+				<button class="search-input__button / button--naked">
+					<svg><use xlink:href="#icon-search-rounded"></use></svg>
+				</button>
+
+				<input type="hidden" name="lang" value="en">
+
+			</form>
+
+		</div>
+
+		<div class="site-header__hamburger">
+
+			<svg data-icon="menu">
+				<use xlink:href="#icon-menu" />
+			</svg>
+
+			<svg data-icon="close">
+				<use xlink:href="#icon-close" />
+			</svg>
+
+		</div>
+
+	</div>
+
+</header>

@@ -1,0 +1,404 @@
+/*
+
+---
+name: Stories
+category:
+ - Blocks
+ - Blocks/Stories
+---
+
+```html
+<div class="block" data-block-type="stories">
+
+	<div class="block__background" style="background-color: #6C75E1"></div>
+
+	<div class="block__container" style="color: white;">
+
+		<div class="block__header">
+
+			<h1 class="block__heading">Delivering Impact</h1>
+
+			<a class="arrow-link" href="#">
+				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+				<span class="arrow-link__label">All our stories</span>
+			</a>
+
+			<a class="arrow-link" href="#">
+				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+				<span class="arrow-link__label">Our impact</span>
+			</a>
+
+		</div>
+
+		<div class="block__content">
+			<p>More than 50 countries and cities, from Argentina to Zambia, are pursuing open contracting reforms. It takes hard work, political will, technical skills, and sustained engagement. Explore stories from around the world that show how open contracting is changing lives — from value for money to value for many. </p>
+		</div>
+
+		<div class="block__primary-stories">
+
+			<div class="card card--feature">
+
+			    <div class="card__image">
+
+			        <img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+			        <div class="card__image-overlay">
+
+			            <a class="card__title-link" href="#">
+			                <h2 class="card__title">Honduras</h2>
+			            </a>
+
+			            <div class="card__intro">
+			                <p>How open contracting is driving more powerful controls — from spot checks to analyzing sector trends.</p>
+			            </div>
+
+			        </div>
+
+			    </div>
+
+			</div>
+
+			<div class="card card--feature">
+
+			    <div class="card__image">
+
+			        <img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+			        <div class="card__image-overlay">
+
+			            <a class="card__title-link" href="#">
+			                <h2 class="card__title">Honduras</h2>
+			            </a>
+
+			            <div class="card__intro">
+			                <p>How open contracting is driving more powerful controls — from spot checks to analyzing sector trends.</p>
+			            </div>
+
+			        </div>
+
+			    </div>
+
+			</div>
+
+		</div> <!-- / .block__primary-stories -->
+
+		<div class="block__header">
+			<h2 class="block__heading">What's New</h2>
+		</div>
+
+		<div class="block__content">
+			<p>More than 50 countries and cities, from Argentina to Zambia, are pursuing open contracting reforms. It takes hard work, political will, technical skills, and sustained engagement. Explore stories from around the world that show how open contracting is changing lives — from value for money to value for many. </p>
+		</div>
+
+		<div class="block__secondary-stories">
+
+			<div class="card card--primary">
+
+			    <div class="card__image">
+
+			        <img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+			        <div class="card__image-overlay">
+			            <div class="card__tag">Blog</div>
+			        </div>
+
+			    </div>
+
+			    <div class="card__main">
+
+			        <a class="card__title-link" href="#">
+			            <h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
+			        </a>
+
+			        <div class="card__footer">
+
+			            <div class="card__meta">
+			                Nicolas Penagos
+			            </div>
+
+			            <div class="card__cta">
+
+			                <a class="arrow-link" href="#">
+
+			                    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+			                    <span class="arrow-link__label">Read</span>
+
+			                </a>
+
+			            </div>
+
+			        </div>
+
+			    </div>
+
+			</div>
+
+			<div class="card card--primary">
+
+			    <div class="card__image">
+
+			        <img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+			        <div class="card__image-overlay">
+			            <div class="card__tag">Blog</div>
+			        </div>
+
+			    </div>
+
+			    <div class="card__main">
+
+			        <a class="card__title-link" href="#">
+			            <h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
+			        </a>
+
+			        <div class="card__footer">
+
+			            <div class="card__meta">
+			                Nicolas Penagos
+			            </div>
+
+			            <div class="card__cta">
+
+			                <a class="arrow-link" href="#">
+
+			                    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+			                    <span class="arrow-link__label">Read</span>
+
+			                </a>
+
+			            </div>
+
+			        </div>
+
+			    </div>
+
+			</div>
+
+			<div class="card card--primary">
+
+			    <div class="card__image">
+
+			        <img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+			        <div class="card__image-overlay">
+			            <div class="card__tag">Blog</div>
+			        </div>
+
+			    </div>
+
+			    <div class="card__main">
+
+			        <a class="card__title-link" href="#">
+			            <h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
+			        </a>
+
+			        <div class="card__footer">
+
+			            <div class="card__meta">
+			                Nicolas Penagos
+			            </div>
+
+			            <div class="card__cta">
+
+			                <a class="arrow-link" href="#">
+
+			                    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+
+			                    <span class="arrow-link__label">Read</span>
+
+			                </a>
+
+			            </div>
+
+			        </div>
+
+			    </div>
+
+			</div>
+
+
+		</div> <!-- / .block__secondary-stories -->
+
+	</div>
+
+</div>
+```
+
+*/
+
+.block[data-block-type="stories"] {
+
+	.block__background {
+
+		grid-column: full;
+		grid-row: 1;
+		position: relative;
+		overflow: hidden;
+
+		&::before {
+			@include fluid-type(font-size, 360px, 1344px, 145px, 500px);
+			content: '';
+			display: block;
+			border: .14em solid $ui-grey-6;
+			border-radius: 50%;
+			opacity: .1;
+			height: 1em;
+			width: 1em;
+			position: absolute;
+			top: -.55em;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+	}
+
+	.block__container {
+		position: relative;
+		grid-column: content;
+		grid-row: 1;
+		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(2), spacing(6));
+	}
+
+		.block__header {
+
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			margin-bottom: spacing(3);
+
+			@include from(T) {
+				margin-bottom: spacing(4);
+			}
+
+		}
+
+			.block__heading {
+
+				@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+				margin-right: spacing(5);
+				margin-bottom: 0;
+				margin-right: auto;
+
+				@include upto(T) {
+					flex: 0 0 100%;
+				}
+
+			}
+
+			.arrow-link{
+
+				margin-top: spacing(2);
+
+				&:not(:last-child) {
+
+					margin-right: spacing(3);
+
+					@include from(T) {
+						margin-right: spacing(5);
+					}
+
+				}
+
+			}
+
+		.block__content {
+
+			margin-bottom: spacing(4);
+
+			@include from(T) {
+				max-width: 60%;
+			}
+
+		}
+
+		.block__primary-stories {
+
+			@include upto(T) {
+
+				display: flex;
+				overflow-x: scroll;
+				scroll-snap-type: x mandatory;
+				-webkit-overflow-scrolling: touch;
+				margin: 0 spacing(-3);
+				padding: 0 spacing(3);
+				margin-bottom: spacing(3);
+
+				> .card {
+
+					scroll-snap-align: center;
+					min-width: 100%;
+					box-shadow: none;
+
+					// the ::after element is now the far side margin, so dont
+					// set this on the last child, otherwise we'll have double
+					&:not(:last-child) {
+						margin-right: spacing(3);
+					}
+
+				}
+
+				// we can't use last-child margin to create our right hand side
+				// spacing, so we need to force the issue with an after element
+				&::after {
+					content: '';
+					display: block;
+					flex: 0 0 24px;
+				}
+
+			}
+
+			@include from(T) {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-gap: spacing(3);
+				margin-bottom: spacing(5);
+			}
+
+		}
+
+		.block__secondary-stories {
+
+			@include upto(T) {
+
+				display: flex;
+				overflow-x: scroll;
+				scroll-snap-type: x mandatory;
+				-webkit-overflow-scrolling: touch;
+				margin: 0 spacing(-3);
+				padding: 0 spacing(3);
+
+				> .card {
+
+					scroll-snap-align: center;
+					min-width: 75%;
+					box-shadow: none;
+
+					// the ::after element is now the far side margin, so dont
+					// set this on the last child, otherwise we'll have double
+					&:not(:last-child) {
+						margin-right: spacing(3);
+					}
+
+				}
+
+				// we can't use last-child margin to create our right hand side
+				// spacing, so we need to force the issue with an after element
+				&::after {
+					content: '';
+					display: block;
+					flex: 0 0 24px;
+				}
+
+			}
+
+			@include from(T) {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				grid-gap: spacing(3);
+			}
+
+		}
+
+}
