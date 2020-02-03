@@ -8,7 +8,8 @@
 			src: card.image_url,
 			params: {
 				auto: 'format',
-				fit: 'crop'
+				fit: 'crop',
+				q: 20
 			},
 			aspect_ratio: [2, 1],
 			transforms: [{
@@ -18,11 +19,13 @@
 			}, {
 				w: 1024
 			}, {
-				w: 1536
+				w: 1200
+			}, {
+				w: 1340
 			}, {
 				w: 2048
 			}],
-			sizes: '100vw',
+			sizes: '(min-width: 1340px) 1340px, 100vw',
 			loading: options.image_loading
 		}) }}
 
