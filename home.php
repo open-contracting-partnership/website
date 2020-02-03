@@ -106,7 +106,7 @@ class HomeController extends Controller
 		$context['latest']['header_latest_events'] = $this->getLatestEvents(1);
 		$context['latest']['footer_latest_events'] = $this->getLatestEvents(2);
 
-		$context['latest']['footer_latest_resources'] = $this->getLatestResources(2);
+		$context['latest']['footer_latest_resources'] = $this->getLatestResources(4);
 
 		// fetch the blog content from the other page
 		$blog_content_page = new TimberPost(6335);
