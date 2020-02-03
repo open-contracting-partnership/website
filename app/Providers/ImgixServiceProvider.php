@@ -80,7 +80,7 @@ class ImgixServiceProvider extends ServiceProvider
 			$transform['h'] = ceil($transform['w'] / ($args['aspect_ratio'][0] / $args['aspect_ratio'][1]));
 		}
 
-		return $args['host'] . '/' . $args['src'] . '?' . http_build_query($transform);
+		return rtrim($args['host'], '/') . '/' . ltrim($args['src'], '/') . '?' . http_build_query($transform);
 
 	}
 
