@@ -1,0 +1,128 @@
+/*
+
+---
+name: Feature card
+category:
+ - Cards
+ - Cards/Feature
+---
+
+```html
+<div class="card card--feature">
+
+	<div class="card__image">
+
+		<img src="https://ocp.imgix.net/wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?fm=pjpg&fit=max&w=1000" />
+
+		<div class="card__image-overlay">
+
+			<div class="card__meta">
+
+				<div class="badge">
+					<span class="badge__label">Featured</span>
+					<svg class="badge__icon"><use xlink:href="#icon-plus-circle"></use></svg>
+				</div>
+
+			</div>
+
+			<a class="card__title-link" href="#">
+				<h2 class="card__title">Kyrgyz Republic: How open contracting can support small business</h2>
+			</a>
+
+			<div class="card__intro">
+				<p>How open contracting is driving more powerful controls — from spot checks to analyzing sector trends.</p>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.card.card--feature {
+
+	position: relative;
+	border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
+	overflow: hidden;
+	background: $ui-grey;
+	color: $ui-white;
+	box-shadow: 4px 4px 12px rgba(0, 0, 0, .25);
+
+	.card__image {
+
+		position: relative;
+		width: 100%;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+
+	}
+
+		.card__image-overlay {
+
+			@include fluid-type(--v-padding, 375px, 1240px, spacing(2), spacing(5));
+			@include fluid-type(--h-padding, 375px, 1240px, spacing(3), spacing(6));
+
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: rgba(0, 0, 0, .4);
+			padding: var(--v-padding) var(--h-padding);
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			
+		}
+
+			.card__meta {
+				margin-bottom: spacing(3);
+			}
+
+			.card__title-link {
+
+				display: block;
+				color: currentColor;
+				text-decoration: none;
+
+				&::after {
+					content: '';
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+				}
+
+				&:hover,
+				&:focus,
+				&:active {
+					text-decoration: underline;
+				}
+
+			}
+
+				.card__title {
+					font-size: 36px;
+					margin-bottom: 10px;
+					color: currentColor;
+				}
+
+			.card__intro {
+
+				font-size: 16px;
+				max-width: 60%;
+
+				p:last-child {
+					margin-bottom: 0;
+				}
+
+			}
+
+}

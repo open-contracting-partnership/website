@@ -1,0 +1,259 @@
+/*
+
+---
+name: Content
+category:
+ - Blocks
+ - Blocks/Content
+---
+
+```html
+<div class="block" data-block-type="content">
+
+	<div class="block__background" style="background-color: #D9E021"></div>
+
+	<div class="block__container">
+
+		<h2 class="block__heading">Our team</h2>
+
+		<div class="block__content">
+			<p>There is increasing evidence that open contracting delivers.</p>
+			<p>Academic research shows that improved openness and transparency is good for public integrity, value for money and competition. A study of more than 3.5 million government contracts across Europe determined that every additional item of information shared about a tender decreases the risk of a single bid contract. This matters because single bid contracts are both a governance risk and over 7% more expensive than the norm. Publishing five more pieces of information about each contract in Europe would add up to 3.6 billion Euros in savings.</p>
+			<p>Results from countries that are implementing open contracting show that openness combined with monitoring works. In Peru, a study from Columbia University looked at the impact of transparency and monitoring of contracts on the procurement process of infrastructure projects and found that monitoring decreased spending by 50%. Similar results have been found in Afghanistan.</p>
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.block[data-block-type="content"] {
+
+	--padding: var(--v-spacing);
+	--content-span: 8;
+
+	.block__background {
+		grid-column: full;
+		grid-row: 1;
+	}
+
+	.block__container {
+		padding: var(--padding) 0;
+		grid-column: content;
+		grid-row: 1;
+		@extend %column-grid;
+		grid-column-gap: spacing(4);
+	}
+
+		.block__content {
+
+			grid-column: all;
+
+			@include upto(M) {
+				margin-bottom: spacing(3);
+			}
+
+			@include from(M) {
+				grid-column: all / span var(--content-span);
+			}
+
+			> *:not(:last-child):not(.block__heading) {
+				margin-bottom: spacing(6);
+			}
+
+		}
+
+			.block__heading {
+				@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+			}
+
+			&.implement .block__heading {
+
+				position: relative;
+				display: flex;
+				align-items: center;
+
+				&::before {
+
+					content: '';
+					display: block;
+					font-size: 2em;
+					height: 1em;
+					width: 1em;
+					border: .25em solid $ui-teal;
+					margin-right: .25em;
+					border-radius: 50%;
+					margin-top: -0.1em;
+					opacity: .5;
+					flex: 0 0 1em;
+
+					@include from(M) {
+						font-size: 3em;
+					}
+
+				}
+
+			}
+
+			.sub-content > *:last-child {
+				margin-bottom: 0;
+			}
+
+			.sub-content[data-type="content-with-icon"] {
+
+				@include from(S) {
+					display: flex;
+				}
+
+				.sub-content__icon {
+
+					flex: 0 0 48px;
+
+					@include upto(S) {
+						margin-bottom: spacing(2);
+					}
+
+					@include from(S) {
+						margin-right: spacing(3);
+					}
+
+					@include from(T) {
+						flex-basis: 96px;
+					}
+
+					@include from(M) {
+						flex-basis: 128px;
+						margin-right: spacing(5);
+					}
+
+					> svg {
+
+						font-size: 48px;
+						height: 1em;
+						width: 1em;
+						fill: currentColor;
+
+						@include from(T) {
+							font-size: 96px;
+						}
+
+						@include from(M) {
+							font-size: 128px;
+						}
+
+					}
+
+				}
+
+				.sub-content__content {
+
+					flex: 1 1 100%;
+
+					> *:last-child {
+						margin-bottom: 0;
+					}
+
+				}
+
+			}
+
+			.block__arrow-links,
+			.block__arrow-buttons {
+
+				@include from(T) {
+					display: flex;
+					flex-wrap: wrap;
+				}
+
+				> * {
+					font-size: 16px;
+					margin-right: spacing(3);
+					margin-bottom: spacing(2);
+				}
+
+			}
+
+			.block__arrow-links .arrow-link__label {
+				color: currentColor;
+			}
+
+		.block__sidebar {
+
+			grid-column: all;
+
+			> *:not(:last-child) {
+				margin-bottom: spacing(3);
+			}
+
+			@include from(M) {
+
+				grid-column: calc(var(--content-span) + 1) / all;
+
+				&[data-vertical-alignment="bottom"] {
+					align-self: flex-end;
+				}
+
+			}
+
+		}
+
+			.block__sidebar-image--with-border {
+				border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
+				border: 3px solid $ui-white;
+				background-color: $ui-white;
+				overflow: hidden;
+			}
+
+
+	// variations
+
+	@include from(T) {
+
+
+		&[data-primary-column-width="small"] {
+			--content-span: 6;
+		}
+
+		&[data-primary-column-width="medium"] {
+			--content-span: 8;
+		}
+
+		&[data-primary-column-width="large"] {
+			--content-span: 9;
+		}
+
+		&[data-primary-column-width="full"] {
+			--content-span: 12;
+		}
+
+	}
+
+	&[data-content-text-align="center"] {
+
+		text-align: center;
+
+		.block__arrow-links,
+		.block__arrow-buttons {
+			justify-content: center;
+		}
+
+	}
+
+	&[data-size="small"] {
+
+		--padding: var(--v-spacing-half);
+		font-size: 16px;
+
+		.block__heading {
+			@include fluid-type(font-size, 360px, 1240px, 20px, 24px);
+		}
+
+		.block__container > *:not(:last-child):not(.block__heading) {
+			margin-bottom: spacing(3);
+		}
+
+	}
+
+}

@@ -1,0 +1,53 @@
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div id="{{ options.id }}" class="block" data-block-type="sign-up-cover" data-orientation="{{ block.orientation }}">
+
+	{% if block.image %}
+		<div class="block__image" style="background-image: url('{{ block.image.url }}');"></div>
+	{% endif %}
+
+	<div class="block__image-overlay" style="background-color: {{ block.background_colour }};"></div>
+
+	<div class="block__container">
+
+		<div class="block__main">
+
+			<h1 class="block__heading">{{ block.heading }}</h1>
+
+			{% if block.content %}
+
+				<div class="block__content">
+					{{ block.content | raw }}
+				</div>
+
+			{% endif %}
+
+		</div>
+
+		<div class="block__form-container">
+
+			<form class="block__form / js-mailchimp-form">
+
+				{% if block.form_label %}
+					<p>{{ block.form_label }}</p>
+				{% endif %}
+
+				<div class="block__form-wrapper">
+
+					<input type="email" name="email" placeholder="Your email address">
+
+					<button class="block__form-submit / button--naked">
+						<svg><use xlink:href="#icon-arrow-circle"></use></svg>
+					</button>
+
+				</div>
+
+				<p class="js-mailchimp-form__message"></p>
+
+			</form>
+
+		</div>
+
+	</div>
+
+</div>

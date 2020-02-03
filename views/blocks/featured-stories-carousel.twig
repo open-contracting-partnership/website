@@ -1,0 +1,37 @@
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div id="{{ options.id }}" class="block" data-block-type="featured-stories-carousel">
+
+	<div class="block__container">
+
+		<div class="block__controls">
+
+			<button class="button--naked" rel="prev">
+				<svg><use xlink:href="#icon-large-arrow"></use></svg>
+			</button>
+
+			<button class="button--naked" rel="next">
+				<svg><use xlink:href="#icon-large-arrow"></use></svg>
+			</button>
+
+		</div>
+
+		<div class="block__carousel">
+
+			{% for card in block.featured_stories %}
+
+				{% include 'cards/carousel.twig' with {
+					'card': card,
+					'options': {
+						'size': 'large',
+						'image_loading': 'eager'
+					}
+				} %}
+
+			{% endfor %}
+
+		</div>
+
+	</div>
+
+</div>

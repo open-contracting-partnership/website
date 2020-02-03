@@ -1,92 +1,16 @@
 <?php // functions/content.php
 
-/**
- * return a formatted date from an acf metafield
- * @param  string $acf_field
- * @param  string $date_format
- * @return date
- */
-function get_acf_date($acf_field, $date_format) {
-
-	$date = get_field($acf_field);
-
-	$year = substr($date, 0, 4);
-	$month = substr($date, 4, 2);
-	$day = substr($date, 6, 2);
-
-	return date($date_format, mktime(0, 0, 0, $month, $day, $year));
-
-}
-
-/**
- * convert a string into a slug
- * @param  string $string
- * @return string
- */
-function slugify($string) {
-
-	// Remove accents from characters
-	$string = iconv('UTF-8', 'ASCII//TRANSLIT', $string);
-
-	// Everything lowercase
-	$string = strtolower($string);
-
-	// Replace all non-word characters by dashes
-	$string = preg_replace("/\W/", "-", $string);
-
-	// Replace double dashes by single dashes
-	$string = preg_replace("/-+/", '-', $string);
-
-	// Trim dashes from the beginning and end of string
-	$string = trim($string, '-');
-
-	return $string;
-
-}
-
-/**
- * generate WP video embed code based on url
- * @param  string $url
- */
-function embed_video($url) {
-
-	// we won't be able to use the [embed] shortcode yet
-	// so lets call the shortcode function directly
-
-	$wp_embed = new WP_Embed();
-	echo $wp_embed->shortcode(array(), $url);
-
-}
-
-/**
- * extend WP_Query to filter by title
- * @param  string $where
- * @param  object $wp_query
- * @return string
- */
-function title_filter($where, &$wp_query) {
-
-	global $wpdb;
-
-	if ( $search_term = $wp_query->get('search_post_title') ) {
-		$where .= ' AND ' . $wpdb->posts . '.post_title LIKE \'%' . esc_sql( like_escape( $search_term ) ) . '%\'';
-	}
-
-	return $where;
-
-}
-
 
  //********
 // EXCERPT
 
-$excerpt_length = 35;
+$excerpt_length = 15;
 
 /**
  * output custom excerpt length
  * @param integer $length
  */
-function _the_excerpt($length = 35) {
+function _the_excerpt($length = 15) {
 
 	global $excerpt_length;
 
@@ -101,52 +25,17 @@ add_filter('excerpt_length', function($length) {
 	return $excerpt_length;
 }, 999);
 
-add_filter('wp_trim_excerpt', function($excerpt) {
-	return str_replace( '[...]', '...', $excerpt );
+add_filter('excerpt_more', function() {
+	return '…';
 });
 
-
- //************
-// META VALUES
-
-/**
- * returns array of post meta values
- * @param  string $key
- * @param  string $type
- * @param  string $status
- * @return array
- */
-function get_meta_values($key = '', $type, $status = 'publish') {
-
-	global $wpdb;
-
-	if ( empty($key) ) {
-		return FALSE;
-	}
-
-	$results = $wpdb->get_results(
-		$wpdb->prepare("
-			SELECT p.post_title, pm.post_id, pm.meta_value FROM {$wpdb->postmeta} pm
-			LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
-			WHERE pm.meta_key = '%s'
-			AND p.post_status = '%s'
-			AND p.post_type = '%s';
-		", $key, $status, $type
-	));
-
-	$results_array = array();
-
-	foreach ( $results as $key => $value ) {
-		$results_array[$value->post_id] = maybe_unserialize($value->meta_value);
-	}
-
-	return $results_array;
-
+function prevent_widow($text) {
+	return preg_replace('|([^\s])\s+([^\s]+)\s*$|', '$1&nbsp;$2', $text);
 }
 
 
- //*******
-// LABELS
+ //*****************
+// POST TYPE LABELS
 
 /**
  * returns the label for a given post type
@@ -156,7 +45,7 @@ function get_meta_values($key = '', $type, $status = 'publish') {
  */
 function get_post_type_label($post_type = NULL, $plural = FALSE) {
 
-	$post_type = $post_type === NULL ? get_post_type() : $post_type;
+	$post_type = $post_type ?: get_post_type();
 	$post_type_object = get_post_type_object($post_type);
 	$label = FALSE;
 
@@ -184,18 +73,46 @@ function the_post_type_label($post_type = NULL, $plural = FALSE) {
 	echo get_post_type_label($post_type, $plural);
 }
 
-function get_post_authors() {
+
+ //********************
+// ARRAY MULTI IMPLODE
+
+/**
+* impodes an array with both standard and last items glue
+* @param  string $standard_glue
+* @param  string $last_nodes_glue
+* @param  array $array
+* @return array
+*/
+function array_multi_implode($standard_glue, $last_nodes_glue, $array) {
+
+	$length = count($array);
+
+	if ( $length > 1 ) {
+		$array[$length - 2] = $array[$length - 2] . $last_nodes_glue . $array[$length - 1];
+		unset($array[$length - 1]);
+	}
+
+	return implode($standard_glue, $array);
+
+}
+
+
+ //********
+// AUTHORS
+
+function get_post_authors($post_id) {
 
 	// set the initial authors array as the normal post author...
-	$authors = array(get_author_object());
+	$authors = array(get_author_object(get_post_field('post_author', $post_id)));
 
 	// but if multiple authors have been set, completely overwrite this array
-	if ( have_rows('authors') ) {
+	if ( have_rows('authors', $post_id) ) {
 
 		$authors = array();
 
 		// loop through the rows of data
-		while ( have_rows('authors') ) {
+		while ( have_rows('authors', $post_id) ) {
 
 			the_row();
 
@@ -232,7 +149,7 @@ function get_author_object($author_id = NULL) {
 
 }
 
-function get_authors($with_links = FALSE) {
+function get_authors($post_id = null, $with_links = false) {
 
 	// we should never display an author for news posts
 	if ( get_post_type() === 'news' ) {
@@ -246,230 +163,28 @@ function get_authors($with_links = FALSE) {
 
 	$link_template = '<a href="%s">%s</a>';
 
-	$authors = get_post_authors();
+	$authors = get_post_authors($post_id);
+	$output = array();
 
 	foreach ( $authors as $key => $author ) {
 
-		if ( $with_links && isset($author->url) ) {
-			$authors[$key] = sprintf($link_template, $author->url, $author->name);
-		} else {
-			$authors[$key] = $author->name;
-		}
-
-	}
-
-	return array_multi_implode(', ', ' and ', $authors);
-
-}
-
-
-function the_authors($with_links = FALSE) {
-	echo get_authors($with_links);
-}
-
-function share_links() {
-
-	$url = urlencode(get_permalink());
-	$title = urlencode(trim(wp_title('', FALSE)));
-
-	return (object) array(
-		'twitter' => "https://twitter.com/home?status={$title} - {$url}",
-		'facebook' => "https://www.facebook.com/sharer/sharer.php?u={$url}",
-		'linkedin' => "https://www.linkedin.com/cws/share?url={$url}",
-		'email' => "mailto:?subject={$title}&amp;body=Hi,%0D%0A%0D%0AI thought you would be interested in this article on Open Contracting: {$title} – {$url}"
-	);
-
-}
-
-function get_authors_by_count($limit = -1, $post_type = ['post']) {
-
-	global $wpdb;
-
-	$all_posts_query = "SELECT ID, post_author
-		FROM {$wpdb->posts}
-		WHERE post_type IN ('post');";
-
-	$custom_authors_query = "SELECT {$wpdb->postmeta}.*
-		FROM {$wpdb->postmeta}
-		JOIN {$wpdb->posts} ON {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id
-		WHERE meta_key LIKE 'authors_%'
-		AND {$wpdb->posts}.post_type IN ('post');";
-
-
- 	$authors = array();
-	$post_authors = array();
-	$custom_post_authors = array();
-
-	// get all posts with their standard authors
-	foreach ( $wpdb->get_results($all_posts_query , OBJECT) as $author_post ) {
-		$post_authors[$author_post->ID] = $author_post->post_author;
-	}
-
-	// get all custom authors
-	foreach ( $wpdb->get_results($custom_authors_query , OBJECT) as $custom_author ) {
-
-		// if the field isn't a number, forget about it
-		if ( ! is_numeric($custom_author->meta_value) ) {
+		if ( empty($author->name) ) {
 			continue;
 		}
 
-		// pre-set an array on the first time round
-		if ( ! is_array($all_posts[$custom_author->post_id]) ) {
-			$all_posts[$custom_author->post_id] = array();
+		if ( $with_links && isset($author->url) ) {
+			$output[] = sprintf($link_template, $author->url, $author->name);
+		} else {
+			$output[] = $author->name;
 		}
-
-		// append the author to the posts
-		$all_posts[$custom_author->post_id][] = (int) $custom_author->meta_value;
 
 	}
 
-	// reset each post_authors value to be an array
-	foreach ( $post_authors as $key => $value ) {
-
-		if ( ! is_array($value) ) {
-			$post_authors[$key] = [$value];
-		}
-
- 	}
-
- 	// reverse the array, authors first with sub-array of posts
- 	foreach ( $post_authors as $post_id => $author_ids ) {
-
- 		foreach ( $author_ids as $author_id ) {
-
- 			if ( ! isset($authors[$author_id]) ) {
- 				$authors[$author_id] = array();
- 			}
-
- 			$authors[$author_id][] = $post_id;
-
- 		}
-
- 	}
-
- 	// transform the sub-array to a count
- 	foreach ( $authors as $author_id => $author_posts ) {
- 		$authors[$author_id] = count($author_posts);
- 	}
-
- 	// sort by the post count
- 	arsort($authors);
-
- 	if ( $limit > 0 ) {
- 		$authors = array_slice($authors, 0, $limit, TRUE);
- 	}
-
- 	foreach ( $authors as $author_id => $post_count ) {
-
- 		$authors[$author_id] = (object) array(
- 			'id' => $author_id,
- 			'post_count' => $post_count,
- 			'display_name' => get_the_author_meta('display_name', $author_id),
- 			'url' => get_author_posts_url($author_id)
- 		);
-
- 	}
-
- 	return $authors;
-
-}
-
-function posted_ago() {
-
-	$timestamp = get_the_time('U');
-	$diff = time() - $timestamp;
-
-	if ( $diff < 86400 ) {
-		echo date('G', $diff) . 'h ago';
-	} else if ( $diff < 432000 ) {
-		echo date('j', $diff) . ' days ago';
-	} else {
-		echo date('d/m/y', $timestamp);
-	}
-
-}
-
-function get_tweets() {
-
-	require dirname(__FILE__) . '/../tweets/tweets.php';
-
-	return display_latest_tweets('opencontracting');
+	return array_multi_implode(', ', ' and ', $output);
 
 }
 
 
- //*******************
-// TERMS (POST TYPES)
-
-add_filter('terms_clauses', function($clauses, $taxonomy, $args) {
-
-	if ( ! empty($args['post_type']) ) {
-
-		global $wpdb;
-
-		$post_types = array();
-
-		foreach($args['post_type'] as $cpt)	{
-			$post_types[] = "'".$cpt."'";
-		}
-
-		if(!empty($post_types))	{
-			$clauses['fields'] = 'DISTINCT '.str_replace('tt.*', 'tt.term_taxonomy_id, tt.term_id, tt.taxonomy, tt.description, tt.parent', $clauses['fields']).', COUNT(t.term_id) AS count';
-			$clauses['join'] .= ' INNER JOIN '.$wpdb->term_relationships.' AS r ON r.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN '.$wpdb->posts.' AS p ON p.ID = r.object_id';
-			$clauses['where'] .= ' AND p.post_status = "publish" AND p.post_type IN ('.implode(',', $post_types).')';
-			$clauses['orderby'] = 'GROUP BY t.term_id '.$clauses['orderby'];
-		}
-
-	}
-
-	return $clauses;
-
-}, 10, 3);
-
-class OCP {
-
-
-	 //*****
-	// DATE
-
-	static function the_date() {
-		echo self::get_the_date();
-	}
-
-	static function get_the_date() {
-
-		$post_type = get_post_type();
-
-		if ( $post_type === 'event' && get_field('event_date') ) {
-			return date(get_option('date_format'), strtotime(get_field('event_date')));
-		}
-
-		return get_the_time(get_option('date_format'));
-
-	}
-
-}
-
-
-function getTaxonomyCount(array $taxonomies, array $post_types) {
-
-	global $wpdb;
-
-	$taxonomies = implode("', '", $taxonomies);
-	$post_types = implode("', '", $post_types);
-
-	$results = $wpdb->get_results("
-		SELECT t.term_id, t.name, t.slug, tt.term_taxonomy_id, tt.taxonomy, count(p.ID) AS count
-		FROM {$wpdb->terms} t
-		JOIN {$wpdb->term_taxonomy} tt ON t.term_id = tt.term_id
-		JOIN {$wpdb->term_relationships} tr ON tt.term_taxonomy_id = tr.term_taxonomy_id
-		JOIN {$wpdb->posts} p ON tr.object_id = p.ID
-		WHERE tt.taxonomy IN ('{$taxonomies}')
-		AND p.post_type IN ('{$post_types}')
-		AND p.post_status = 'publish'
-		GROUP BY t.term_id
-		ORDER BY count DESC;"
-	);
-
-	return $results;
+function the_authors($post_id = null, $with_links = false) {
+	echo get_authors($post_id, $with_links);
 }

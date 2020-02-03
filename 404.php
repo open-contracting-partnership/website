@@ -1,36 +1,27 @@
-<?php // 404.php ?>
+<?php
+/**
+ * The template for displaying 404 pages (Not Found)
+ *
+ * Methods for TimberHelper can be found in the /functions sub-directory
+ *
+ * @package  WordPress
+ * @subpackage  Timber
+ * @since    Timber 0.1
+ */
 
-<?php get_header(); ?>
+namespace App;
 
-	<div class="four-oh-four__page">
+use App\Http\Controllers\Controller;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Timber\Timber;
 
-		<div class="wrapper">
-
-			<section class="four-oh-four__container">
-
-				<div class="four-oh-four__section">
-
-					<h1 class="four-oh-four__title / border-top / gamma"><?php _e('Something went wrong.', 'ocp'); ?><br><?php _e('This is probably how too many people feel when trying to access a government contract', 'ocp'); ?></h1>
-
-					<p><?php _e('Were you looking for a blog post, or a specific resource?', 'ocp'); ?><br><?php _e('We suggest you try again checking the address or using the main navigation.', 'ocp'); ?></p>
-					<p><?php _e('And please let us know if the problem persists, so that we can point you in the right direction.', 'ocp'); ?></p>
-
-					<a href="/" class="button button--white">Take me Home</a>
-
-				</div>
-
-				<div class="four-oh-four__section four-oh-four__section-img">
-					<img src="<?php bloginfo('template_directory'); ?>/resources/img/404.svg" alt="" />
-				</div>
-
-				<div class="four-oh-four__section four-oh-four__section-logo">
-					<img src="<?php bloginfo('template_directory'); ?>/resources/img/404-box.svg" alt="" />
-				</div>
-
-			</section>
-
-		</div>
-
-	</div>
-
-<?php get_footer(); ?>
+/**
+ * Class names can not start with a number so the 404 controller has a special cased name
+ */
+class Error404Controller extends Controller
+{
+	public function handle()
+	{
+		return new TimberResponse('templates/errors/404.twig', Timber::get_context(), 404);
+	}
+}

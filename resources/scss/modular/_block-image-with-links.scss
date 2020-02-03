@@ -1,0 +1,146 @@
+/*
+
+---
+name: Image with Links
+category:
+ - Blocks
+ - Blocks/Image with Links
+---
+
+```html
+<div class="block" data-block-type="image-with-links" style="color: #FFF">
+
+	<div class="block__background" style="background-color: #4d4d53"></div>
+
+	<div class="block__container">
+
+		<h2 class="block__heading">Our team</h2>
+
+		<div class="block__image">
+			<img src="https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=415&amp;h=277" srcset="https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=415&amp;h=277 415w, https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=830&amp;h=554 830w, https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=1024&amp;h=683 1024w, https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=1536&amp;h=1024 1536w, https://ocp.imgix.net//wp-content/uploads/2019/09/Mitad_del_Mundo_Quito_Ecuador_2015-07-22_DD_03-e1567799287970.jpg?auto=format&amp;fit=crop&amp;w=2048&amp;h=1366 2048w" sizes="100vw" alt="" width="3" height="2">
+		</div>
+
+		<div class="block__sidebar">
+
+			<div class="block__link">
+
+				<a class="arrow-link" href="#" data-size="large" data-text-color="black">
+					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+					<span class="arrow-link__label">Meet our team</span>
+				</a>
+
+				<p class="block__link-description">We’re a remote team. See who is doing what, where.</p>
+
+			</div>
+
+			<div class="block__link">
+
+				<a class="arrow-link" href="#" data-size="large" data-text-color="black">
+					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+					<span class="arrow-link__label">Work with us</span>
+				</a>
+
+				<p class="block__link-description">We’re a high impact, fast moving, global team. Think you have what it takes? Great: check out these opportunities to work with us.</p>
+
+			</div>
+
+			<div class="block__link">
+
+				<a class="arrow-link" href="#" data-size="large" data-text-color="black">
+					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+					<span class="arrow-link__label">Partner with us</span>
+				</a>
+
+				<p class="block__link-description">We work with a global network of partners in over 50 countries to make public contracts open, fair and efficient. Want to partner with us? Get in touch today. </p>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+```
+
+*/
+
+.block[data-block-type="image-with-links"] {
+
+	.block__background {
+		grid-column: full;
+		grid-row: 1;
+	}
+
+	.block__container {
+		grid-column: content;
+		grid-row: 1;
+		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(3), spacing(9));
+		display: grid;
+		@extend %column-grid;
+	}
+
+		.block__heading {
+			grid-row: 1;
+			grid-column: all;
+			@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+		}
+
+		.block__image {
+
+			grid-column: all;
+			align-self: center;
+
+			@include upto(T) {
+				margin-bottom: spacing(3);
+			}
+
+			@include from(T) {
+				grid-column: 1 / 7;
+				grid-row: 2;
+			}
+
+			@include from(M) {
+				grid-column: 1 / 8;
+			}
+
+			img {
+				border: 3px solid $ui-white;
+				border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
+			}
+
+		}
+
+		.block__sidebar {
+
+			grid-column: all;
+			align-self: center;
+
+			@include from(T) {
+				grid-column: -1 / -7;
+				grid-row: 2;
+			}
+
+			@include from(M) {
+				grid-column: 9 / all;
+			}
+
+		}
+
+			.block__link {
+
+				&:not(:last-child) {
+					margin-bottom: spacing(3);
+				}
+			}
+
+				.arrow-link {
+					color: $ui-white;
+					margin-bottom: spacing(1);
+				}
+
+				.block__link-description {
+					font-size: 14px;
+					margin-bottom: 0;
+				}
+
+}

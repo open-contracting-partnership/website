@@ -1,0 +1,57 @@
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div id="{{ options.id }}" class="block" data-block-type="image-with-links" style="color: {{ block.text_colour }}">
+
+	<div class="block__background" style="background-color: {{ block.background_colour }}"></div>
+
+	<div class="block__container">
+
+		<h2 class="block__heading">{{ block.title }}</h2>
+
+		<div class="block__image">
+
+			{{ imgix({
+				src: block.image.url,
+				params: {
+					auto: 'format',
+					fit: 'crop'
+				},
+				aspect_ratio: [3, 2],
+				transforms: [{
+					w: 415
+				}, {
+					w: 830
+				}, {
+					w: 1024
+				}, {
+					w: 1536
+				}, {
+					w: 2048
+				}],
+				sizes: '100vw'
+			}) }}
+
+		</div>
+
+		<div class="block__sidebar">
+
+			{% for link in block.links %}
+
+				<div class="block__link">
+
+					<a class="arrow-link" href="{{ link.link.url }}" data-size="large" data-text-color="black">
+						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+						<span class="arrow-link__label">{{ link.link.title }}</span>
+					</a>
+
+					<p>{{ link.description }}</p>
+
+				</div>
+
+			{% endfor %}
+
+		</div>
+
+	</div>
+
+</div>

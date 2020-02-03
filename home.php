@@ -1,56 +1,151 @@
-<?php // home.php ?>
+<?php
+/**
+ * The template for displaying Archive pages.
+ *
+ * Used to display archive-type pages if nothing more specific matches a query.
+ * For example, puts together date-based pages if no date.php file exists.
+ *
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ */
 
-<?php get_header(); ?>
+namespace App;
 
-	<?php
+use App\Cards\FeatureCard;
+use App\Cards\PrimaryCard;
+use App\Http\Controllers\Controller;
+use App\PostTypes\News;
+use App\PostTypes\Event;
+use App\PostTypes\Resource;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Post;
+use Timber\Post as TimberPost;
+use Timber\Timber;
 
-		// get a feed of blog posts, this will include news post types,
-		// as well as invluding taxonomies to filter on, e.g. issue
+class HomeController extends Controller
+{
+	public function handle()
+	{
+		$context = Timber::get_context();
 
-		$blog_posts = vue_posts([
-			'query' => array(
-				'post_type' => ['post'],
-				'posts_per_page' => -1
-			),
-			'ignore' => ['content', 'excerpt', 'slug'],
-			'taxonomies' => ['issue'],
-			'custom' => array(
-				'authors' => function() {
-					return get_authors();
-				},
-				'post_type' => function() {
-					return get_post_type_label();
-				},
-				'thumbnail' => function() {
+		$context['latest']['content']['title'] = _x(
+			'More blogs about open contracting and',
+			'Displayed within the latest news, proceeded by a separate string, "select a topic"',
+			'ocp'
+		);
 
-					$options = array(
-						'crop' => 'faces',
-						'fit' => 'crop',
-						'w' => 460,
-						'h' => 460 / (21 / 9),
-						'fm' => 'pjpg'
-					);
+		$context['latest']['content']['filter_label'] = _x(
+			'Select a topic',
+			'The topic filter label within the latest news',
+			'ocp'
+		);
 
-					if ( has_post_thumbnail() ) {
+		$context['latest']['content']['load_more'] = _x(
+			'Load more',
+			'The load more posts label for the latest news',
+			'ocp'
+		);
 
-						return imgix::source('featured')
-							->options($options)
-							->url();
+		$context['latest']['content']['featured_label'] = _x(
+			'Featured',
+			'The featured blog label',
+			'ocp'
+		);
 
-					} else {
+		$context['latest']['content']['news_label'] = get_post_type_object('news')->labels->name;
+		$context['latest']['content']['events_label'] = get_post_type_object('event')->labels->name;
+		$context['latest']['content']['resources_label'] = get_post_type_object('resource')->labels->name;
 
-						return imgix::source('url', get_bloginfo('template_directory') . '/resources/img/fallback.jpg')
-							->options($options)
-							->url();
-
-					}
-
-				}
-			)
+		$context['issue_terms'] = get_terms([
+			'taxonomy' => 'issue',
 		]);
 
-		// feature blog
-		$featured_blog = new query_loop([
+		// localise the script only *after* the scripts are queued up
+		add_action('wp_enqueue_scripts', function() {
+
+			wp_localize_script('latest-news', 'content', [
+				'posts' => $this->getBlogs(),
+				'select_a_filter' => str_replace(' ', '&nbsp;', __('Select a topic', 'ocp')),
+				'imgix_url' => IMGIX_BASE_URL
+			]);
+
+		});
+
+		add_filter('timber_post_get_meta', function($post_meta, $pid, $post) {
+
+			$tid = get_post_thumbnail_id($pid);
+
+			if ( $tid ) {
+				$image = new $post->ImageClass($tid);
+				$post_meta['thumbnail_url'] = $image->src;
+			}
+
+			return $post_meta;
+
+		}, 10, 3);
+
+		$context['latest']['featured_blog'] = $this->getFeaturedBlog();
+
+		$context['latest']['news_archive_link'] = [
+			'url' => get_post_type_archive_link('news'),
+			'label' => __('View all news', 'ocp')
+		];
+
+		$context['latest']['events_archive_link'] = [
+			'url' => get_post_type_archive_link('event'),
+			'label' => __('View all events', 'ocp')
+		];
+
+		$context['latest']['resources_archive_link'] = [
+			'url' => get_post_type_archive_link('resource'),
+			'label' => __('View all resources', 'ocp')
+		];
+
+		$context['latest']['header_latest_news'] = $this->getLatestNews(2);
+		$context['latest']['footer_latest_news'] = $this->getLatestNews(4);
+
+		$context['latest']['header_latest_events'] = $this->getLatestEvents(1);
+		$context['latest']['footer_latest_events'] = $this->getLatestEvents(2);
+
+		$context['latest']['footer_latest_resources'] = $this->getLatestResources(4);
+
+		// fetch the blog content from the other page
+		$blog_content_page = new TimberPost(6335);
+		$contex['latest']['blog_content'] = $blog_content_page->content;
+
+		return new TimberResponse('templates/home.twig', $context);
+	}
+
+	protected function getBlogs() {
+
+		$posts = Post::query([
+			'posts_per_page' => -1
+		]);
+
+		// convert and filter the
+		$posts = PrimaryCard::convertCollection($posts, function($new, $original) {
+
+			// we don't want to show a button label
+			unset($new['button_label']);
+
+			// and we want the lighter colour scheme, we set this on the card as
+			// with vue we don't currently set this any other way
+
+			$new['colour_scheme'] = 'light';
+
+			// add issue terms to post
+			$new['issue'] = $original->issue ? $original->issue : [];
+
+			return $new;
+
+		});
+
+		return $posts;
+
+	}
+
+	protected function getFeaturedBlog() {
+
+		$featured_blog = Post::query([
 			'post_type' => 'post',
 			'posts_per_page' => 1,
 			'meta_query' => array(
@@ -61,187 +156,42 @@
 			)
 		]);
 
-		// featured news
-		$featured_news = new query_loop([
-			'post_type' => 'news',
-			'posts_per_page' => 1
+		if ( count($featured_blog) ) {
+			return ['card' => FeatureCard::convertPost($featured_blog[0]->ID)];
+		}
+
+	}
+
+	protected function getLatestNews($limit = 2) {
+
+		return News::query([
+			'posts_per_page' => $limit
 		]);
 
-		// recent news
-		$recent_news = new query_loop([
-			'post_type' => 'news',
-			'posts_per_page' => 6
+	}
+
+	protected function getLatestEvents($limit = 1) {
+
+		return Event::query([
+			'posts_per_page' => $limit,
+			'orderby' => 'meta_value_num',
+			'order' => 'ASC',
+			'meta_key' => 'event_date',
+			'meta_query' => [[
+				'key' => 'event_date',
+				'value' => date('Ymd'),
+				'compare' => '>='
+			]]
 		]);
 
-		// featured events
-		$featured_events = new query_loop([
-			'post_type' => 'event',
-			'posts_per_page' => 1,
-			'orderby'	=> 'meta_value_num',
-			'order'	  => 'ASC',
-			'meta_key' => ' event_date',
-			'meta_query' => array(
-				array(
-					'key' => 'event_date',
-					'value' => date('Ymd'),
-					'compare' => '>='
-				),
-			)
+	}
+
+	protected function getLatestResources($limit = 2) {
+
+		return Resource::query([
+			'posts_per_page' => $limit
 		]);
 
-		// upcoming events
-		$upcoming_events = new query_loop([
-			'post_type' => 'event',
-			'posts_per_page' => 4,
-			'orderby'	=> 'meta_value_num',
-			'order'	  => 'ASC',
-			'meta_key' => ' event_date',
-			'meta_query' => array(
-				array(
-					'key' => 'event_date',
-					'value' => date('Ymd'),
-					'compare' => '>='
-				),
-			)
-		]);
+	}
 
-	?>
-
-	<div id="blog-posts" class="wrapper / blog__container">
-
-		<div class="blog__header">
-
-			<div class="blog__featured">
-
-				<?php if ( load_post($featured_blog->query->posts) ) : ?>
-					<?php get_partial('card', 'featured', ['type_label' => 'Featured Blog']); ?>
-				<?php endif; ?>
-
-			</div>
-
-			<div class="blog__featured-news">
-
-				<?php if ( load_post($featured_news->query->posts) ) : ?>
-					<?php get_partial('card', 'stripped', ['type_label' => __('Featured News', 'ocp')]); ?>
-				<?php endif; ?>
-
-				<a class="view-more" href="<?php echo get_post_type_archive_link('news'); ?>"><?php _e('View all news', 'ocp'); ?></a>
-
-			</div>
-
-			<div class="blog__featured-event">
-
-				<?php if ( load_post($featured_events->query->posts) ) : ?>
-					<?php get_partial('card', 'stripped', ['type_label' => __('Featured Event', 'ocp')]); ?>
-				<?php endif; ?>
-
-				<a class="view-more" href="<?php echo get_post_type_archive_link('event'); ?>"><?php _e('View all events', 'ocp'); ?></a>
-
-			</div>
-
-		</div>
-
-		<div class="blog-filter">
-
-			<span><?php _e("I'd like to see more blogs about <strong>Open Contracting</strong> and ", 'ocp'); ?></span>
-
-			<span class="blog-filter__options">
-
-				<span class="blog-filter__label" v-on:click.stop="filter.open = ! filter.open" v-html="filterTitle"></span>
-
-				<svg v-on:click.stop="filter.open = ! filter.open"><use xlink:href="#icon-arrow-down" v-bind="{ 'xlink:href': '#icon-arrow-down' }"></svg>
-
-				<ul class="blog-filter__list / nav" v-show="filter.open === true">
-					<li><a href="#" v-on:click.prevent.stop="resetFilter()"><?php _e('Everything', 'ocp'); ?></a></li>
-					<li v-for="tag in filter.options"><a href="#" v-on:click.prevent.stop="setFilter(tag)">{{ tag.title }}</a></li>
-				</ul>
-
-			</span>
-
-		</div>
-
-		<section class="blog__posts">
-
-			<div class="blog__post-items">
-
-				<div v-for="post in pagedPosts" class="card card--primary">
-
-					<div class="card__header">
-						<img class="card__featured-media" v-bind:src="post.custom.thumbnail" />
-					</div>
-
-					<div class="card__content">
-
-						<div class="card__title">
-
-							<h6 class="card__heading">
-								<a class="card__link" :href="post.link" v-html="post.title"></a>
-							</h6>
-
-						</div>
-
-						<p class="card__meta">
-							<time class="card__date">{{ post.date }}</time>
-							<span class="card__author" v-if="post.custom.authors"><?php _e('By', 'ocp'); ?> <span v-html="post.custom.authors"></span></span>
-						</p>
-
-					</div>
-
-				</div>
-
-			</div> <!-- / .blog__post-items -->
-
-			<p class="blog__load-more">
-				<a href="#" class="button" v-on:click.prevent="increaseLimit()" v-if="hasNextPage"><?php _e('Load more', 'ocp'); ?></a>
-			</p>
-
-		</section>
-
-		<?php get_partial('update', 'panel'); ?>
-
-		<div class="blog__news">
-
-			<div class="content-title">
-				<span class="card__type" data-content-type="news"><?php the_post_type_label('news', TRUE); ?></span>
-				<a class="content-title__link" href="<?php echo get_post_type_archive_link('news'); ?>"><?php _e('View all news', 'ocp'); ?></a>
-			</div>
-
-			<div class="blog__news-inner">
-
-				<?php foreach ( $recent_news as $news ) : ?>
-					<?php get_partial('card', 'stripped', ['type_label' => FALSE]); ?>
-				<?php endforeach; ?>
-
-			</div>
-
-		</div>
-
-		<div class="blog__events">
-
-			<div class="content-title">
-				<span class="card__type" data-content-type="event"><?php the_post_type_label('event', TRUE); ?></span>
-				<a class="content-title__link" href="<?php echo get_post_type_archive_link('event'); ?>"><?php _e('View all events', 'ocp'); ?></a>
-			</div>
-
-			<div class="blog__events-inner">
-
-				<?php foreach ( $upcoming_events as $event ) : ?>
-					<?php get_partial('card', 'event'); ?>
-				<?php endforeach; ?>
-
-			</div>
-
-		</div>
-
-	</div> <!-- / .wrapper -->
-
-	<?php
-
-		wp_localize_script('latest-news', 'content', [
-			'posts' => $blog_posts,
-			'select_a_filter' => str_replace(' ', '&nbsp;', __('select a filter', 'ocp'))
-		]);
-
-	?>
-
-<?php get_footer(); ?>
+}

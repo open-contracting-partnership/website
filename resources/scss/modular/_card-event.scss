@@ -1,0 +1,95 @@
+/*
+
+---
+name: Event card
+category:
+ - Cards
+ - Cards/Event
+---
+
+```html
+<div class="card card--event">
+
+	<div class="card__date">
+		<span class="card__date-day">29</span>
+		<span class="card__date-month">Nov</span>
+	</div>
+
+	<a class="card__title-link" href="#">
+		<h2 class="card__title">TICAD7: Tokyo International Conference on African Development</h2>
+	</a>
+
+</div>
+
+```
+
+*/
+
+.card.card--event {
+
+	position: relative;
+	border-radius: spacing(2) spacing(.5) spacing(.5) spacing(.5);
+	background-color: $ui-grey-8;
+	color: $ui-black;
+	display: flex;
+	overflow: hidden;
+
+	&[data-colour="grey"] .card__date {
+		background-color: $ui-grey-5;
+	}
+
+	.card__date {
+		color: $ui-white;
+		@include font('secondary', 'bold');
+		text-transform: uppercase;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: spacing(2) spacing(1);
+		background-color: $ui-orange;
+		flex: 0 0 spacing(8);
+		line-height: 1;
+	}
+
+		.card__date-day {
+			font-size: 35px;
+		}
+
+		.card__date-month {
+			font-size: 18px;
+		}
+
+	.card__title-link {
+
+		display: flex;
+		align-items: center;
+		color: currentColor;
+		@extend %reverse-underline;
+		flex: 1 1 100%;
+		padding: spacing(1);
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+	}
+
+		.card__title {
+			font-size: 18px;
+			@include font('secondary', 'bold');
+			margin-bottom: 0;
+			color: currentColor;
+			overflow-wrap: break-word;
+		}
+
+}
+
+.aigis-preview > .card--event {
+	max-width: 310px;
+}

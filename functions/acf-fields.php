@@ -4,55 +4,74 @@
  * Adds various sub-options pages
  */
 
-if ( TRUE ) {
+if ( function_exists('acf_add_options_page') && function_exists('acf_add_options_sub_page') ) {
 
-	if ( function_exists('acf_add_options_sub_page') ) {
-		acf_add_options_sub_page('Options');
-	}
+	// add parent
+	$parent = acf_add_options_page([
+		'page_title' => 'Options',
+		'menu_title' => 'Options',
+		'redirect' => true
+	]);
+
+	// add sub page
+	acf_add_options_sub_page([
+		'page_title' => 'Navigation',
+		'menu_title' => 'Navigation',
+		'parent_slug' => $parent['menu_slug'],
+	]);
+
+	// add sub page
+	acf_add_options_sub_page([
+		'page_title' => 'Resources',
+		'menu_title' => 'Resources',
+		'parent_slug' => $parent['menu_slug'],
+	]);
 
 }
 
+add_filter('acf/load_field/key=field_5da4546ef870e', function($field) {
 
- //****************
-// CUSTOM LOCATION
+	// Get all locations
+	$locations = get_nav_menu_locations();
 
-/*
+	// Get object id by location
+	$object = wp_get_nav_menu_object($locations['header-primary-nav']);
 
-add_filter('acf/location/rule_types', function($choices) {
+	// Get menu items by menu name
+	$menu_items = wp_get_nav_menu_items( $object->name );
 
-	$choices['Supports']['supports'] = 'Post Type Support';
+	$menu_items = array_filter($menu_items, function($menu_item) {
+		return $menu_item->menu_item_parent == 0;
+	});
 
-	return $choices;
+	$options = array();
 
-});
+	foreach ( $menu_items as $menu_item ) {
+		$options[$menu_item->ID] = $menu_item->title;
+	}
 
-add_filter('acf/location/rule_values/supports', function($choices) {
+	// reset choices
+	$field['choices'] = $options;
 
-	$choices = array_merge($choices, [
-		'title' => 'Title',
-		'editor' => 'Editor',
-		'author' => 'Author',
-		'thumbnail' => 'Thumbnail',
-		'excerpt' => 'Excerpt',
-		'trackbacks' => 'Trackbacks',
-		'custom-fields' => 'Custom Fields',
-		'comments' => 'Comments',
-		'revisions' => 'Revisions',
-		'page-attributes' => 'Page Attributes',
-		'post-formats' => 'Post Formats'
-	]);
-
-	return $choices;
+	// return the field
+	return $field;
 
 });
 
-add_filter('acf/location/rule_match/supports', function($match, $rule, $options) {
 
-	$supported = post_type_supports(get_post_type(), $rule['value']);
-	$required = $rule['operator'] === '==';
+ //*****************
+// GUTENBERG BLOCKS
 
-	return $supported === $required;
+add_filter( 'block_categories', function($categories, $post) {
 
-}, 10, 3);
+	return array_merge(
+		$categories,
+		array(
+			array(
+				'slug' => 'ocp-blocks',
+				'title' => 'OCP Blocks'
+			),
+		)
+	);
 
-*/
+}, 10, 2);

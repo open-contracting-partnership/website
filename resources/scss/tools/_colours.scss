@@ -1,0 +1,98 @@
+/*
+
+---
+name: Brand
+category:
+ - Design
+ - Design/Colours
+colours: [
+  ['Purple', 'AE4C90', 'C584B1', '8B3C73'],
+  ['Blue', '66CAE1', '97DAE9', '3BBBD9']
+ ]
+compile: true
+---
+
+```ejs
+<% for(var i=0; i < colours.length; i++) { %>
+<div class="aigis-colorpalette">
+	<div class="aigis-colorpalette__swatches" style="background-color: #<%= colours[i][1] %>;"><% if (colours[i][2]) { %>
+		<div class="aigis-colorpalette__swatches--small aigis-colorpalette__swatches--left" style="background-color: #<%= colours[i][2] %>;"></div><% } %><% if (colours[i][3]) { %>
+		<div class="aigis-colorpalette__swatches--small aigis-colorpalette__swatches--right" style="background-color: #<%= colours[i][3] %>;"></div><% } %>
+	</div>
+	<div class="aigis-colorpalette__label">
+		<div>
+			<span><%= colours[i][0] %></span>
+			<span>#<%= colours[i][1] %></span>
+		</div><% if (colours[i][2]) { %>
+		<div>
+			<span>Light <%= colours[i][0] %></span>
+			<span>#<%= colours[i][2] %></span>
+		</div><% } %><% if (colours[i][3]) { %>
+		<div>
+			<span>Dark <%= colours[i][0] %></span>
+			<span>#<%= colours[i][3] %></span>
+		</div><% } %>
+	</div>
+</div><% } %>
+```
+
+*/
+
+
+$colours: (
+	'white': #FFF,
+	'grey': #999,
+	'black': #000,
+);
+
+
+/*
+
+---
+name: Social Colours
+category:
+ - Design
+ - Design/Colours
+colours: [
+  ['Youtube', 'CC181E'],
+  ['Twitter', '00ACEE'],
+  ['Facebook', '3B5998'],
+  ['Google', 'DD4B39'],
+  ['Linkedin', '007BB6'],
+ ]
+compile: true
+---
+
+```ejs
+<% for(var i=0; i < colours.length; i++) { %>
+<div class="aigis-colorpalette">
+	<div class="aigis-colorpalette__swatches" style="background-color: #<%= colours[i][1] %>;"><% if (colours[i][2]) { %>
+		<div class="aigis-colorpalette__swatches--small aigis-colorpalette__swatches--left" style="background-color: #<%= colours[i][2] %>;"></div><% } %><% if (colours[i][3]) { %>
+		<div class="aigis-colorpalette__swatches--small aigis-colorpalette__swatches--right" style="background-color: #<%= colours[i][3] %>;"></div><% } %>
+	</div>
+	<div class="aigis-colorpalette__label">
+		<div>
+			<span><%= colours[i][0] %></span>
+			<span>#<%= colours[i][1] %></span>
+		</div><% if (colours[i][2]) { %>
+		<div>
+			<span>Light <%= colours[i][0] %></span>
+			<span>#<%= colours[i][2] %></span>
+		</div><% } %><% if (colours[i][3]) { %>
+		<div>
+			<span>Dark <%= colours[i][0] %></span>
+			<span>#<%= colours[i][3] %></span>
+		</div><% } %>
+	</div>
+</div><% } %>
+```
+
+*/
+
+$social-colors: (
+    'youtube': #CC181E,
+    'twitter': #00ACEE,
+    'facebook': #3B5998,
+    'google': #DD4B39,
+    'linkedin': #007BB6,
+);

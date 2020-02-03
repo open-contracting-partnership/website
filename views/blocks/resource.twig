@@ -1,0 +1,123 @@
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div id="{{ options.id }}" class="block" data-block-type="resource">
+
+	<div class="block__background" style="background-color: {{ block.background_colour }};"></div>
+
+	<div class="block__container" style="color: {{ block.text_colour }};">
+
+		<h2 class="block__heading">{{ block.title }}</h2>
+
+		{% if block.content %}
+
+			<div class="block__content">
+				{{ block.content | raw }}
+			</div>
+
+		{% endif %}
+
+		{% if block.sidebar_links %}
+
+			<div class="block__links">
+
+				{% for link in block.sidebar_links %}
+
+					<div class="card card--link" data-colour-scheme="transparent">
+
+						<div class="card__body">
+							<a class="card__link" href="{{ link.url }}">{{ link.title }}</a>
+						</div>
+
+						<div class="card__footer">
+
+							<a class="arrow-link" href="{{ link.url }}" data-icon-color="white" data-text-color="black">
+								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+								<span class="arrow-link__label">More</span>
+							</a>
+
+						</div>
+
+					</div>
+
+				{% endfor %}
+
+			</div>
+
+		{% endif %}
+
+		{% if block.resources_title %}
+			<h2 class="block__sub-heading">{{ block.resources_title }}</h2>
+		{% endif %}
+
+		<div class="block__resources">
+
+			{% for card in block.resources %}
+				{% include 'cards/resource.twig' with card %}
+			{% endfor %}
+
+		</div>
+
+		{% if block.contact %}
+
+			<div class="block__author">
+
+				<div class="block__author-avatar">
+
+					{{ imgix({
+						src: block.contact.avatar.url,
+						params: {
+							auto: 'format',
+							fit: 'crop'
+						},
+						aspect_ratio: [1, 1],
+						transforms: [{
+							w: 125
+						}, {
+							w: 175
+						}, {
+							w: 250
+						}, {
+							w: 350
+						}, {
+							w: 525
+						}],
+						sizes: '100vw'
+					}) }}
+
+				</div>
+
+				<div class="block__author-details">
+
+					<h4 class="block__author-heading">{{ block.contact.title }}</h4>
+
+					<p>{{ block.contact.name_bio }}</p>
+
+					<div class="block__author-social">
+
+						{% if block.contact.email_address %}
+
+							<a href="mailto:{{ block.contact.email_address }}">
+								<svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
+							</a>
+
+						{% endif %}
+
+						{% if block.contact.twitter_url %}
+
+							<a href="{{ block.contact.twitter_url }}">
+								<svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
+							</a>
+
+						{% endif %}
+
+					</div>
+
+				</div>
+
+			</div>
+
+		{% endif %}
+
+	</div>
+
+</div>

@@ -1,0 +1,44 @@
+{
+    "key": "group_5dcbeda8c8bd6",
+    "title": "Page options",
+    "fields": [
+        {
+            "key": "field_5dcbedaf7978a",
+            "label": "Hide title",
+            "name": "hide_title",
+            "type": "true_false",
+            "instructions": "When a content block is used as the page header it might be useful to hide the original title",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1573645860
+}

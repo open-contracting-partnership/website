@@ -7,6 +7,10 @@ category:
  - Base/Headings
 ---
 
+## Base Headings
+
+The class structure follows the structure discussed by Harry Roberts in his article [practical font sizing in CSS](http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/) on CSS Wizardry.
+
 ```html
 <h1 class="alpha">The fox</h1>
 <h2 class="beta">The fox</h2>
@@ -14,6 +18,29 @@ category:
 <h4 class="delta">The fox</h4>
 <h5 class="epsilon">The fox</h5>
 <h6 class="zeta">The fox</h6>
+```
+
+### Style
+
+Use the `.uppercase` class to enforce a heading to be in capitals.
+
+```html
+<h1 class="alpha / uppercase">The fox</h1>
+<h2 class="beta / uppercase">The fox</h2>
+<h3 class="gamma / uppercase">The fox</h3>
+<h4 class="delta / uppercase">The fox</h4>
+<h5 class="epsilon / uppercase">The fox</h5>
+<h6 class="zeta / uppercase">The fox</h6>
+```
+
+### Spacing
+
+Using `.drop` class applies only half the regular bottom bottom.
+
+```html
+<h1 class="drop">The fox</h1>
+<h1>The fox</h1>
+<h1>The fox</h1>
 ```
 
 */
@@ -30,190 +57,103 @@ h5,
 .epsilon,
 h6,
 .zeta {
-
-	@include font(secondary, bold);
-	margin-bottom: 1.3em;
+	@include font('secondary', 'bold');
 	line-height: 1.3;
-
-	&.has-strap {
-		margin-bottom: .625em;
-	}
-
-	&.drop,
-	.page-strip__content & {
-		margin-bottom: line-height-adjust(16px, 1.3);
-	}
-
-	&.strapline {
-		@include font(secondary);
-		color: color('grey');
-	}
-
-	article & {
-
-		margin-bottom: line-height-adjust(16px, 1.3);
-
-		&.strapline {
-			margin-bottom: line-height-adjust(32px, 1.3);
-		}
-
-	}
-
-}
-
-/*
-
----
-name: Strapline
-category:
- - Base
- - Base/Headings
----
-
-```html
-<h1 class="alpha">The fox</h1>
-<h4 class="beta strapline">The fox</h4>
-```
-
-*/
-
-h1 {
-	margin-top: 0;
-	margin-bottom: 1.3em;
-}
-
-article h1 {
-
-	margin-top: 0;
-
-	article.post--has-thumbnail & {
-		margin-bottom: 1.5em;
-	}
-
-}
-
-article h4 {
-	margin-top: 0;
-}
-
-.strap {
-	font-style: italic;
-}
-
-.giga {
-	@include font-size(40);
+	margin: 0 0 .6em 0;
+	color: currentColor;
 }
 
 h1,
 .alpha {
-	@include font-size(41);
-	margin-bottom: .65em;
 
-	@include mq(M) {
-		@include font-size(50);
+	font-size: 20px;
+
+	@include from(S) {
+		font-size: 30px;
 	}
+
+	@include from(M) {
+		font-size: 46px;
+	}
+
 }
 
 h2,
 .beta {
-	@include font-size(35);
 
-	@include mq(M) {
-		@include font-size(41);
+	font-size: 18px;
+
+	@include from(S) {
+		font-size: 24px;
 	}
+
+	@include from(M) {
+		font-size: 40px;
+	}
+
 }
 
 h3,
 .gamma {
-	@include font-size(29);
 
-	@include mq(M) {
-		@include font-size(35);
+	font-size: 15px;
+
+	@include from(S) {
+		font-size: 19px;
+	}
+
+	@include from(M) {
+		font-size: 35px;
 	}
 
 }
 
 h4,
 .delta {
-	@include font-size(24);
 
-	@include mq(M) {
-		@include font-size(30);
+	font-size: 13px;
+
+	@include from(S) {
+		font-size: 16px;
 	}
+
+	@include from(M) {
+		font-size: 22px;
+	}
+
 }
 
 h5,
 .epsilon {
-	@include font-size(20);
 
-	@include mq(M) {
-		@include font-size(24);
+	font-size: 12px;
+
+	@include from(S) {
+		font-size: 15px;
 	}
+
+	@include from(M) {
+		font-size: 20px;
+	}
+
 }
 
 h6,
 .zeta {
-	@include font-size(18);
 
-	@include mq(M) {
-		@include font-size(20);
-		line-height: 1.3;
-	}
-}
+	font-size: 12px;
 
-.eta {
-	@include font-size(16);
-	text-transform: uppercase;
-}
-
-/*
-
----
-name: Border Top
-category:
- - Base
- - Base/Headings
----
-
-```html
-<h4 class="border-top">Subscribe to our newsletter</h4>
-<h4 class="border-top border-top--dark">Subscribe to our newsletter</h4>
-<h4 class="border-top border-top--blue">Subscribe to our newsletter</h4>
-```
-
-*/
-
-.border-top {
-
-	position: relative;
-	text-transform: uppercase;
-	padding-top: 10px;
-
-	.home & {
-		border-top-color: color('background');
+	@include from(S) {
+		font-size: 12px;
 	}
 
-	&:before {
-		position: absolute;
-		content: '';
-		display: block;
-		top: 0;
-		left: 0;
-		width: spacing(13);
-		height: 2px;
-		background-color: color('brand');
+	@include from(M) {
+		font-size: 18px;
 	}
 
 }
 
-.border-top--clean {
-	border-top: 0;
-}
-
-.border-top--dark:before {
-	background-color: color('brand-dark');
-}
-
-.border-top--blue:before {
-	background-color: post-color('event');
+.heading-border {
+	border-bottom: 4px solid $ui-brand;
+	padding-bottom: .3em;
 }

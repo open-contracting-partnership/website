@@ -1,56 +1,177 @@
 /*
 
 ---
-name: Forms
+name: Form Components
 category:
- - Components
- - Components/Forms
+ - Base
+ - Base/Forms
 ---
 
+## Form Example
+
 ```html
-<form method="post">
-
-	<label>
-		<input type="checkbox">
-		Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-	</label>
-
-	<input type="text" placeholder="First Name">
-	<input type="email" placeholder="Email">
-	<input type="password" placeholder="Password">
-	<input type="search" placeholder="Search">
-	<input type="url" placeholder="URL">
-	<input type="number" placeholder="42">
-	<input type="tel" placeholder="01823 55555">
-	<input type="date">
-	<input type="month">
-	<input type="week">
-	<input type="time">
-	<input type="date">
-	<input type="datetime">
-	<input type="datetime-local">
-
-	<textarea></textarea>
-
+<form action="" method="post">
 	<fieldset>
 
-		<select>
-			<option>Option 1</option>
-			<option>Option 2</option>
-			<option>Option 3</option>
-			<option>Option 4</option>
-			<option>Option 5</option>
-		</select>
+		<legend>Title</legend>
+
+		<input type="radio" id="radio">
+		<label for="radio">Click me</label>
+
+		<label for="radio">
+			<input type="radio" id="radio">Click me
+		</label>
 
 	</fieldset>
+</form>
+```
 
-	<input type="submit" class="button" value="Sign up">
+## Text
 
+```html
+<input type="text" placeholder="text" />
+```
+
+## Text with Label
+
+```html
+<label>First Name:
+	<input type="text" placeholder="Agent" />
+</label>
+```
+
+## Email
+
+```html
+<input type="email" placeholder="email" />
+```
+
+## Search
+
+```html
+<input type="search" placeholder="search" />
+```
+
+## Radio
+
+```html
+<label><input type="radio" />Option 1</label>
+```
+
+## Checkbox
+
+```html
+<label><input type="checkbox" />Option 1</label>
+```
+
+## URL
+
+```html
+<input type="url" placeholder="url" />
+```
+
+## Number
+
+```html
+<input type="number" placeholder="42" />
+```
+
+## Tel
+
+```html
+<input type="tel" placeholder="01823" />
+```
+
+## Color
+
+```html
+<input type="color" />
+```
+
+## Range
+
+```html
+<input type="range" />
+```
+
+## Time
+
+```html
+<input type="time" />
+```
+
+## Date
+
+```html
+<input type="date" />
+```
+
+## Month
+
+```html
+<input type="month" />
+```
+
+## Week
+
+```html
+<input type="week" />
+```
+
+## Datetime
+
+```html
+<input type="datetime" />
+```
+
+## Datetime Local
+
+```html
+<input type="datetime-local" />
+```
+
+## Textarea
+
+```html
+<textarea placeholder="Text area"></textarea>
+```
+
+## Select
+
+```html
+<select>
+	<optgroup label="Group 1">
+		<option>Option 1</option>
+	</optgroup>
+	<option>Option 2</option>
+</select>
+```
+
+## Progress
+
+```html
+<progress value="70" max="100">70%</progress>
+```
+
+## Submit
+
+```html
+<input type="submit" value="submit" />
+```
+
+## Output
+
+Represents the result of a calculation or user action.
+
+```html
+<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+    <input type="range" name="b" value="50" /> +
+    <input type="number" name="a" value="10" /> =
+    <output name="result">60</output>
 </form>
 ```
 
 */
-
 
 fieldset,
 form {
@@ -61,16 +182,18 @@ form {
 
 label,
 legend {
+	font-size: 13px;
+	text-transform: uppercase;
+
 	display: block;
 	margin-bottom: 0;
-	@include font-size(13);
-	color: color('background');
+
 	cursor: pointer;
 }
 
 abbr[title="Required"] {
-	color: color('background');
-	@include font(primary, bold);
+	@include font('primary', 'bold');
+	color: $ui-black;
 }
 
 input[type="text"],
@@ -81,102 +204,336 @@ input[type="url"],
 input[type="number"],
 input[type="tel"],
 input[type="color"],
-input[type="number"],
 input[type="range"],
-input[type="date"],
 input[type="time"],
+input[type="date"],
 input[type="month"],
 input[type="week"],
 input[type="datetime"],
 input[type="datetime-local"],
 textarea {
-	@include font;
-	@include font-size(14);
-	padding: em(10);
-	width: 100%;
-	border: 1px solid color('background');
-	margin-bottom: $space / 2;
-	color: color('background');
-	background-color: transparent;
-	border-radius: 0;
+	@include font('primary', 'regular');
+	font-size: 14px;
+	color: $ui-black;
+	background-color: $ui-white;
 
-	&:hover,
+	width: 100%;
+	border: 1px solid $ui-black;
+	border-radius: $border-radius;
+	padding: .5rem 1rem;
+	margin-bottom: $space / 2;
+
 	&:focus {
 		box-shadow: none;
 		outline: none;
 	}
 
-	&.secondary {
-		@include font(secondary);
+	@include mq(M) {
+	    padding: em(16, 14) em(12, 14);
 	}
 }
 
 input[type="color"] {
-	width: auto;
+	width: 1em;
 }
 
 textarea {
-	line-height: strip-unit($space);
-	resize: vertical;
+	line-height: 1.5;
 }
 
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button {
-	display: none;
-}
+// input[type="text"].valid,
+// input[type="email"].valid {
+// }
+//
+// input[type="text"].not-valid,
+// input[type="email"].not-valid {
+// }
 
-
- //***************
-// FLEXIBLE FIELD
-
-.flex-field {
-
-	display: flex;
-
-	input {
-		flex: 1;
-		margin-right: .5em;
-	}
-
-}
-
-
- //*****
-// DARK
-
-.form--dark {
-
-	input,
-	button,
-	button:hover,
-	button:active,
-	button:focus {
-		color: color('body');
-		background: color('white');
-	}
-
-}
 
  //*******************
 // PLACEHOLDER STYLES
 
-::-webkit-input-placeholder { /* Safari, Chrome and Opera */
-	color: color('grey');
+::-webkit-input-placeholder {
+   color: $ui-grey;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-	color: color('grey');
+ 	color: $ui-grey;
 }
 
-::-moz-placeholder { /* Firefox 19+ */
-	color: color('grey');
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $ui-grey;
 }
 
-:-ms-input-placeholder { /* IE 10+ */
-	color: color('grey');
+:-ms-input-placeholder {
+   color: $ui-grey;
 }
 
-::-ms-input-placeholder { /* Edge */
-	color: color('grey');
+/*
+
+---
+name: Header Select
+category:
+ - Base
+ - Base/Forms
+---
+
+```html
+<div class="select-menu select-menu--block select-menu--alt select-menu--small">
+
+	<label class="visually-hidden">Child marriage and…</label>
+
+	<select class="">
+		<option>Spanish</option>
+		<option>English</option>
+	</select>
+
+	<div class="select-menu__arrow"></div>
+
+</div>
+```
+
+*/
+
+.select-menu {
+
+	font-size: 14px;
+	position: relative;
+	display: inline-block;
+	padding: 0;
+	text-align: left;
+	color: $ui-grey-5;
+	background-color: $ui-grey-3;
+	border: 1px solid $ui-grey-5;
+	border-radius: 2px 10px 10px 2px;
+
+	.select-menu__arrow {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto spacing(1);
+		width: 0;
+		height: 0;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		border-top: 8px solid currentColor;
+	}
+
+	select {
+
+		@include font('secondary', 'medium');
+		font-size: 1em;
+		position: relative;
+		height: 18px;
+		display: grid;
+		align-items: center;
+		padding-left: 6px;
+		padding-right: spacing(3);
+		color: currentColor;
+		width: 100%;
+		margin: em(2, 14) 0;
+		cursor: pointer;
+		background: transparent;
+		border: none;
+		border-radius: 5px;
+		box-sizing: border-box;
+		appearance: none;
+		z-index: 1;
+
+		&:focus {
+			outline: 0;
+		}
+
+	}
+
+	option {
+		@include font('secondary');
+		background: $ui-white;
+		color: $ui-black;
+	}
+
+	// sizes
+	&[data-size="small"] {
+		font-size: 11px;
+	}
+
+	// colour
+	&[data-colour-scheme="green"] {
+		border-color: $ui-grey-4;
+		background-color: $ui-brand;
+		color: $ui-grey;
+	}
+
+}
+
+/*
+
+---
+name: Search
+category:
+ - Base
+ - Base/Forms
+---
+
+```html
+<div class="search-input">
+
+	<input class="search-input__input" type="text" placeholder="Search">
+
+	<button class="search-input__button / button--naked">
+		<svg><use xlink:href="#icon-search-rounded"></use></svg>
+	</button>
+
+</div>
+```
+
+*/
+
+.search-input {
+
+
+	font-size: 14px;
+	color: $ui-grey-4;
+
+	height: em(23, 14);
+	border: em(1, 14) solid currentColor;
+	border-radius: em(2, 14) em(23/2, 14) em(23/2, 14) em(2, 14);
+	display: flex;
+
+	.search-input__input {
+
+		font-size: 1em;
+		flex: 1 1 100%;
+		@include font('secondary', 'bold');
+		border: none;
+		background: none;
+		border-radius: 0;
+		color: currentColor;
+		padding: em(2, 11) em(3, 11) 0 em(9, 11);
+		margin: 0;
+		min-width: 0;
+
+		&::-webkit-input-placeholder {
+			@include font('secondary', 'bold');
+			color: currentColor;
+			opacity: 1;
+		}
+
+		&:-moz-placeholder { /* Firefox 18- */
+			@include font('secondary', 'bold');
+			color: currentColor;
+			opacity: 1;
+		}
+
+		&::-moz-placeholder {  /* Firefox 19+ */
+			@include font('secondary', 'bold');
+			color: currentColor;
+			opacity: 1;
+		}
+
+		&:-ms-input-placeholder {
+			@include font('secondary', 'bold');
+			color: currentColor;
+			opacity: 1;
+		}
+
+	}
+
+	.search-input__button {
+
+		flex: 0 0 auto;
+		margin-right: 1px;
+
+		> svg {
+			display: block;
+			font-size: em(14, 11);
+			height: 1em;
+			width: 1em;
+			fill: currentColor;
+		}
+
+	}
+
+	// sizes
+
+	&[data-size="large"] {
+
+		font-size: 18px;
+
+		.search-input__input {
+			font-size: .7em;
+		}
+
+		.search-input__button {
+			margin-right: 2px;
+		}
+
+	}
+
+	// colours
+
+	&[data-colour="light"] {
+		color: $ui-grey-5;
+	}
+
+}
+
+/*
+
+---
+name: Input circle
+category:
+ - Base
+ - Base/Forms
+---
+
+```html
+<input type="checkbox" class="input-circle">
+```
+
+*/
+
+.input-circle {
+
+	--colour: #{$ui-grey-4};
+
+	appearance: none;
+	font-size: 21px;
+	border: 3px solid var(--colour);
+	background-color: $ui-white;
+	width: 1em;
+	height: 1em;
+	cursor: pointer;
+	user-select: none;
+	border-radius: 50%;
+	margin: 0;
+	padding: 0;
+	transition: background-color .3s ease;
+
+	&:checked,
+	&.checked {
+		background-color: var(--colour);
+	}
+
+	&[data-colour="blue"] {
+		--colour: #{$ui-blue};
+	}
+
+	&[data-colour="orange"] {
+		--colour: #{$ui-orange};
+	}
+
+	&[data-colour="teal"] {
+		--colour: #{$ui-teal};
+	}
+
+	&[data-colour="green"] {
+		--colour: #{$ui-brand};
+	}
+
+	&[data-colour="light-green"] {
+		--colour: #{$ui-brand-2};
+	}
+
 }

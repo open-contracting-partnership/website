@@ -1,5 +1,4 @@
 import ClasslistPolyfill from './class-polyfill';
-import MenuFilter from './menu-filter';
 
 class Styleguide {
 
@@ -9,7 +8,7 @@ class Styleguide {
 			previews: this.checkPreviews(),
 		};
 
-		this.modal = document.querySelector('.aigis-modal');
+		this.modal = document.querySelector('.aigis-contents__preview');
 
 		// create a template modal wrapper
 		// this will be cloned to wrap the single component preview code
@@ -34,7 +33,12 @@ class Styleguide {
 	}
 
 	closeModal() {
+
+		// fix the URL
+		history.pushState("", document.title, window.location.pathname + window.location.search);
+
 		ClasslistPolyfill.removeClass(document.body, 'aigis-modal--active');
+
 	}
 
 	checkHash() {
@@ -62,10 +66,10 @@ class Styleguide {
 
 	}
 
-	setActiveDropdown() {
+	setMainActiveClass() {
 
 		// search up through the menu to expand the current dropdown
-		let current_item = document.querySelector('[data-tree-current]');
+		let current_item = document.querySelector('.aigis-header__navigation > ul:first-child [data-tree-current]');
 
 		if ( current_item !== null ) {
 
@@ -94,39 +98,25 @@ class Styleguide {
 
 	}
 
-	initialiseMenu() {
+	setSubActiveClass() {
 
-		// save the top-level menu items
-		let menu_items = Array.from( document.querySelectorAll('li[data-path-depth="0"] > a') );
+		// search up through the menu to expand the current dropdown
+		let current_item = document.querySelector('.aigis-header__sub-navigation [data-tree-current]');
 
-		// create a span element for the menu dropdown
-		let dropdown_element = document.createElement('span');
-		ClasslistPolyfill.addClass(dropdown_element, 'menu-toggle');
-
-		// loop through each top-level menu item
-		menu_items.forEach(menu_item => {
-
-			// clone the dropdown span so it can be appended
-			let arrow = dropdown_element.cloneNode();
-
-			// add a click event to the dropdown item
-			arrow.addEventListener('click', (event) => this.toggleMenu(event), false);
-
-			// append the dropdown item
-			menu_item.appendChild(arrow);
-
-		});
+		if ( current_item !== null ) {
+			ClasslistPolyfill.addClass(current_item, 'is-active');
+		}
 
 	}
 
-	toggleMenu(event) {
+	createSubNav() {
 
-		// prevent the event bubbling to the anchor
-		event.preventDefault();
-		event.stopPropagation();
+		const current_menu = document.querySelector('.aigis-header__navigation li[data-path-depth="0"].is-active > ul');
+		const sub_nav = document.querySelector('.aigis-header__sub-navigation');
 
-		// toggle the dropdown menu state
-		ClasslistPolyfill.toggleClass(event.target.parentNode.parentNode, 'is-active');
+		if ( current_menu !== null ) {
+			sub_nav.innerHTML = current_menu.innerHTML;
+		}
 
 	}
 
@@ -187,8 +177,8 @@ class Styleguide {
 			// e.g. spaces, ampersands
 			// convert it to lowercase
 			const new_title_id = title.id
-							.replace(/\W+/g, '-')
-							.toLowerCase();
+				.replace(/\W+/g, '-')
+				.toLowerCase();
 
 			// replace the title id with the new clean version
 			title.id = new_title_id;
@@ -229,7 +219,7 @@ class Styleguide {
 		// check to see if we've loaded in with a hash link
 		this.checkHash();
 
-		document.querySelector('.aigis-modal__close').addEventListener('click', this.closeModal, false);
+		document.querySelector('.aigis-header__close').addEventListener('click', this.closeModal, false);
 
 	}
 
@@ -249,8 +239,9 @@ class Styleguide {
 
 	initialiseStyleguide() {
 
-		this.initialiseMenu();
-		this.setActiveDropdown();
+		this.setMainActiveClass();
+		this.createSubNav();
+		this.setSubActiveClass();
 		this.setupColors();
 
 		if ( this.options.previews ) {
@@ -267,10 +258,5 @@ class Styleguide {
 
 	// create a new instance of the Styleguide class
 	const app = new Styleguide();
-
-	const menu = document.querySelector('.aigis-categoryList');
-	const search_input = document.querySelector('.aigis-search');
-
-	const search = new MenuFilter(menu, search_input);
 
 })();

@@ -8,384 +8,131 @@ category:
 ---
 
 ```html
-<a href="#" class="button">Button</a>
-```
-
-*/
-
-
-/*------------------------------------*\
-    BUTTONS
-\*------------------------------------*/
-
-.button,
-button,
-input[type="submit"] {
-
-	@include font('primary', 'bold');
-	@include font-size(14);
-	display: inline-block;
-	border: 1px solid;
-	border-radius: 0;
-	padding: em(8, 14) em(22, 14);
-	text-decoration: none;
-	margin-bottom: $space / 2;
-	color: color('background');
-	background-color: transparent;
-	text-align: center;
-	vertical-align: middle;
-	cursor: pointer;
-	transition:
-		background-color .2s ease,
-		border-color .2s ease,
-		color .2s ease;
-
-	&:hover,
-	&:active,
-	&.active {
-		color: color('white');
-		background-color: color('body');
-		text-decoration: none;
-		border-color: color('body');
-	}
-
-	&:focus {
-		outline: none;
-		box-shadow: 0 0 3px 2px #71baff;
-	}
-
-}
-
-/*
-
----
-name: Text Button
-category:
- - Components
- - Components/Text Button
----
-
-```html
-<a href="#" class="text-button">Text button!</a>
-```
-
-*/
-
-.text-button {
-
-	@include font('primary');
-	@include font-size(14);
-	display: inline-block;
-	text-decoration: none;
-	color: color('background');
-	cursor: pointer;
-	transition:
-		background-color .2s ease,
-		border-color .2s ease,
-		color .2s ease;
-
-	&:hover,
-	&:active,
-	&.active,
-	&:focus {
-		text-decoration: underline;
-	}
-
-	&.button--icon svg {
-		width: .5em;
-		height: .8em;
-	}
-
-}
-
-
-/*
-
----
-name: Button Sizes
-category:
- - Components
- - Components/Buttons
----
-
-```html
-<a href="#" class="button button--large">Large</a>
-```
-
-*/
-
-.button--small {
-	padding: em(4, 14) em(15, 14);
-}
-
-.button--large {
-	@include font-size(18);
-}
-
-
-/*
-
----
-name: Variations
-category:
- - Components
- - Components/Buttons
----
-
-```html
 <p>
-	<a href="#" class="button button--block">Block</a>
+
+	<a class="button" href="#">
+		Download resource
+	</a>
+
 </p>
 
 <p>
-	<a href="#" class="button button--tag">Tag</a>
-</p>
 
-<p>
-	<a href="#" class="button button--disabled">Disabled (link)</a>
-</p>
+	<a class="button button--has-icon" href="#">
 
-<p>
-	<button disabled>Disabled (button)</button>
-</p>
+		<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+		Download resource
+	</a>
 
-<p>
-	<input type="submit" disabled value="Disabled (submit)" />
 </p>
 ```
 
 */
 
-// Full bleed
-.button--block {
-	display: block;
-}
+.button {
 
-.button--tag {
+	font-size: 14px;
 	@include font('secondary', 'medium');
-	@include font-size(12);
-	padding: em(4, 12) em(8, 12) em(1, 12);
+	color: $ui-grey;
+	background-color: $ui-brand;
+	border-radius: spacing(.5);
+	border: none;
+	padding: em(13, 14) em(24,  14) em(11, 14);
+	text-decoration: none;
 	text-transform: uppercase;
-}
-
-.button--disabled,
-button[disabled],
-input[type="submit"][disabled] {
-	cursor: default;
-	pointer-events: none;
-	background: color('grey');
-	color: color('white');
-}
-
-.button--dark {
-
-	background-color: color('body');
-	color: color('white');
-	border-color: color('body');
+	cursor: pointer;
 
 	&:hover,
-	&:active,
-	&:focus {
-		background-color: color('white');
-		color: color('body');
+	&:focus,
+	&:active {
+		background-color: darken($ui-brand, 10%);
+		text-decoration: none;
 	}
 
-}
+	&[data-colour="white"] {
 
-.button--brand {
-
-	background-color: color('brand');
-	color: color('body');
-	border-color: color('brand');
-
-	&:hover,
-	&:active,
-	&:focus {
-		background-color: color('white');
-		color: color('body');
-	}
-
-}
-
-.button-group {
-	margin-bottom: 8px;
-
-	.button:not(:last-child) {
-		margin-right: 16px;
-	}
-
-}
-
-/*
-
----
-name: List
-category:
- - Components
- - Components/Buttons
----
-
-```html
-<ul class="button__list">
-
-	<li>
-		<a class="button button--tag" href="#">Button 1</a>
-	</li>
-
-	<li>
-		<a class="button button--tag" href="#">Button 2</a>
-	</li>
-
-	<li>
-		<a class="button button--tag" href="#">Button 3</a>
-	</li>
-
-</ul>
-```
-
-*/
-
-/* ul */ .button__list {
-
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	overflow: hidden;
-
-	li {
-		float: left;
-		margin: 0 em(10) em(10) 0;
-		padding: 0;
-		list-style-type: none;
-	}
-
-	.button {
-		margin-bottom: 0;
-	}
-
-}
-
-
-/*
-
----
-name: Social
-category:
- - Components
- - Components/Buttons
----
-
-```html
-<ul class="button__list button__social">
-	<li><a target="_blank" class="button" href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use></svg></a></li>
-	<li><a target="_blank" class="button" href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-linkedin"></use></svg></a></li>
-	<li><a target="_blank" class="button" href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use></svg></a></li>
-	<li><a target="_blank" class="button" href="#"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-mail"></use></svg></a></li>
-</ul>
-```
-
-*/
-
-.button__social {
-
-	li {
-		float: left;
-		margin-bottom: 0;
-		padding: 0;
-		margin-right: spacing(1);
-	}
-
-	a {
-
-		width: 1.5rem;
-		height: 1.5rem;
-		text-align: center;
-		padding: 0;
-		fill: color('body');
+		background-color: $ui-white;
 
 		&:hover,
 		&:focus,
-		&:active,
-		&.active {
-			fill: color('white');
+		&:active {
+			background-color: darken($ui-white, 2%);
 		}
 
 	}
 
-	.site-header & a {
-		border: 0;
+}
+
+.button--has-icon {
+	display: inline-flex;
+	align-items: center;
+}
+
+	.button__icon {
+		font-size: 2em;
+		height: 1em;
+		width: 1em;
+		margin-right: spacing(2);
+		fill: $ui-white;
+		margin: em(-8, 14) spacing(2) em(-6, 14) em(-6, 14);
 	}
 
-	svg {
-		height: .8rem;
-		max-width: .8rem;
-		vertical-align: bottom;
+.button[data-icon-colour] .button__icon {
+	fill: $ui-brand;
+}
+
+.button[data-icon-direction="north"] .button__icon {
+	transform: rotate(270deg);
+}
+
+.button[data-icon-direction="south"] .button__icon {
+	transform: rotate(90deg);
+}
+
+.button[data-icon-direction="west"] .button__icon {
+	transform: rotate(180deg);
+}
+
+.button--naked {
+
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	border-radius: 0;
+	margin: 0;
+
+	&:focus {
+		outline: none;
 	}
 
 }
 
+.button-bordered {
 
-/*
+	--height: #{em(23, 14)};
+	font-size: 14px;
+	position: relative;
+	display: inline-block;
+	padding: 0;
+	text-align: left;
+	color: $ui-grey-5;
+	background-color: $ui-grey-3;
+	border: 1px solid $ui-grey-5;
+	border-radius: 2px calc(var(--height) / 2) calc(var(--height) / 2) 2px;
+	line-height: 1;
+	height: var(--height);
+	padding: calc((var(--height) - 1em) / 2) 1em;
+	padding-right: 1.4em;
+	@include font('secondary', 'bold');
+	text-decoration: none;
 
----
-name: Icons
-category:
- - Components
- - Components/Buttons
----
+	// sizes
+	&[data-size="small"] {
+		font-size: 11px;
+	}
 
-```html
-<p>
-	<a class="button button--block button--icon button--icon--reverse button--icon--stroke" href="#">Download<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-download"></use></svg></a>
-</p>
-
-<p>
-	<a class="button button--block button--large button--icon button--icon--reverse button--icon--stroke" href="#">Large Download<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-download"></use></svg></a>
-</p>
-```
-
-*/
-
-.button--icon svg {
-	width: 1.3em;
-	height: 1.3em;
-	margin-right: .5em;
-	margin-top: -3px;
-	fill: currentColor;
-}
-
-.button--icon--reverse svg {
-	margin-right: 0;
-	margin-left: .5em;
-}
-
-.button--icon--stroke {
-	stroke: currentColor;
-}
-
-
-/*
-
----
-name: Colours
-category:
- - Components
- - Components/Buttons
----
-
-```html
-<p style="background-color: #B6C505; padding: 1em;">
-	<a class="button button--white" href="#">White</a>
-</p>
-```
-
-*/
-
-.button--white {
-	color: map-get($colours, 'white');
-}
-
-.button--solid-green {
-	background-color: #23B2A7;
-	color: color('white');
 }

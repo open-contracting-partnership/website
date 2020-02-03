@@ -1,0 +1,94 @@
+.block[data-block-type="quote-carousel"] {
+
+	.block__background {
+		grid-column: full;
+		grid-row: 1;
+	}
+
+	.block__container {
+		grid-column: full;
+		grid-row: 1;
+		font-size: 17px;
+		@include font('secondary', 'medium');
+		justify-content: space-around;
+		overflow: hidden;
+		position: relative;
+		color: $ui-grey-4;
+		padding: var(--v-spacing) 0;
+		@extend %shell-grid;
+	}
+
+		.block__heading {
+			grid-column: wide;
+			@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+			margin-bottom: var(--v-spacing-half);
+		}
+
+		.block__carousel_container {
+			grid-column: full;
+			position: relative;
+		}
+
+			.block__carousel-controls {
+
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-column-gap: 632px;
+				justify-content: space-between;
+				align-content: center;
+				z-index: 3;
+				pointer-events: none;
+
+				@include upto(T) {
+					display: none;
+				}
+
+				button {
+					pointer-events: all;
+				}
+
+				button[disabled] {
+					opacity: .5;
+					cursor: default;
+				}
+
+				button > svg {
+					font-size: 77px;
+					height: 1em;
+					width: 0.428em;
+					fill: $ui-brand;
+				}
+
+				button[data-controls="prev"] > svg {
+					transform: rotate(180deg);
+				}
+
+			}
+
+			.block__carousel-item {
+
+				transition: opacity .3s ease;
+				opacity: .85;
+
+				.card.card--quote .card__toggle::before {
+					background-color: rgba(0, 0, 0, .75);
+				}
+
+			}
+
+			.block__carousel-item--active {
+
+				opacity: 1;
+
+				.card.card--quote .card__toggle::before {
+					background-color: initial;
+				}
+
+			}
+
+}

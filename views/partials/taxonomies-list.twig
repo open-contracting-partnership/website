@@ -1,0 +1,11 @@
+<div class="taxonomies-list">
+
+	{% if taxonomies.region %}
+		<p><strong>Region:</strong> {{ taxonomies.region[0].name }}</p>
+	{% endif %}
+
+	{% if taxonomies.audience %}
+		<p><strong>Audience:</strong> {{ taxonomies.audience[0].name }}</p>
+	{% endif %}
+
+</div>

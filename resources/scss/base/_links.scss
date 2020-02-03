@@ -3,9 +3,24 @@
 \*------------------------------------*/
 
 a {
-	color: color('brand-dark');
-	text-decoration: none;
+
+	text-decoration: underline;
 	word-wrap: break-word;
+	color: currentColor;
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+
+	&:active {
+		text-decoration: underline;
+	}
+
+}
+
+%reverse-underline {
+	text-decoration: none;
 
 	&:hover,
 	&:focus {
@@ -15,6 +30,21 @@ a {
 	&:active {
 		text-decoration: none;
 	}
+}
+
+@mixin reverse-underline {
+
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+
+	&:active {
+		text-decoration: none;
+	}
+
 }
 
 h1,
@@ -39,37 +69,23 @@ h5 {
 
 tbody tr a {
 	color: inherit;
-	text-decoration: none;
+	text-decoration: underline;
 
 	&:hover,
 	&:focus {
-		text-decoration: underline;
+		text-decoration: none;
 	}
 
 	&:active {
-		text-decoration: none;
+		text-decoration: underline;
 	}
-}
-
-%link-underline {
-
-	text-decoration: none;
-	border-bottom: 2px solid color('brand');
-	transition: border .3s ease;
-
-	&:hover,
-	&:active,
-	&:focus {
-		text-decoration: none;
-		border-bottom-color: color('body');
-	}
-
 }
 
 %link-block {
+	
 	color: inherit;
 	text-decoration: none;
-	border-bottom: 2px solid color('brand');
+	border-bottom: 2px solid $ui-brand;
 	padding-left: 2px;
 	margin-left: -2px;
 	padding-right: 2px;
@@ -80,25 +96,11 @@ tbody tr a {
 	&:active,
 	&:focus {
 		text-decoration: none;
-		background-color: color('brand');
-	}
-}
-
-.page-content a,
-.post-content a {
-
-	&:not(.button):not(.card__link):not(.gs-detail__resource) {
-		@extend %link-block;
+		background-color: $ui-brand;
 	}
 
 }
 
-// Remove tap highlight on iOS
-input,
-textarea,
-button,
-select,
-label,
-a {
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+.article a {
+	@extend %link-block;
 }
