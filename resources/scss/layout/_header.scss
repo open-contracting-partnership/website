@@ -366,7 +366,7 @@ category:
 
 				// generic
 
-				font-size: 20px;
+				font-size: 16px;
 				@include font('secondary', 'bold');
 				grid-column: all;
 				grid-row: 2;
@@ -482,6 +482,10 @@ category:
 
 				}
 
+			}
+
+			@include from($header-break-3) {
+				font-size: 20px;
 			}
 
 		}
