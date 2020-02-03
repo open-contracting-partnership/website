@@ -11,15 +11,15 @@ add_action('wp_enqueue_scripts', function() {
 
 	 //****************
 	// REGISTER ASSETS
-
-	// BASE
-	Assets::registerStyle('main', '/dist/css/styles.css');
-	Assets::registerScript('main', '/dist/js/scripts.js', [], true);
-	Assets::registerScript('header', '/dist/js/header.js', [], true);
-
+	
 	// EXTRACTED
 	Assets::registerScript('manifest', '/dist/js/manifest.js', [], true);
 	Assets::registerScript('vendor', '/dist/js/vendor.js', [], true);
+
+	// BASE
+	Assets::registerStyle('main', '/dist/css/styles.css');
+	Assets::registerScript('main', '/dist/js/scripts.js', ['manifest'], true);
+	Assets::registerScript('header', '/dist/js/header.js', ['manifest'], true);
 
 	// SPECIFIC
 	Assets::registerScript('page-impact-stories', '/dist/js/impact-stories.js', ['manifest', 'vendor'], TRUE);
