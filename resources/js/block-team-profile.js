@@ -33,6 +33,8 @@ const team_profile_handler = () => {
 				}
 
 				scroll_into_view = true;
+				
+				return false;
 
 			});
 
