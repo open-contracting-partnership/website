@@ -13,6 +13,7 @@ namespace App;
 
 use App\Http\Controllers\Controller;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Page;
 use Timber\Timber;
 
 /**
@@ -22,6 +23,16 @@ class Error404Controller extends Controller
 {
 	public function handle()
 	{
-		return new TimberResponse('templates/errors/404.twig', Timber::get_context(), 404);
+
+		$context = Timber::get_context();
+		$page = new Page(8300);
+
+		$context['post'] = $page;
+		$context['title'] = $page->title;
+		$context['content'] = $page->content;
+		$context['hide_title'] = $page->hide_title;
+
+		return new TimberResponse('templates/page.twig', $context, 404);
+
 	}
 }
