@@ -27,8 +27,11 @@ new Vue({
 
 			if ( this.filter !== "" ) {
 
+				// the filter is a string but the data is numerical, make them the same
+				const filter = parseInt(this.filter);
+
 				posts = _filter(posts, post => {
-					return post.issue.length > 0 && post.issue.indexOf(this.filter) !== -1;
+					return post.issue.length > 0 && post.issue.indexOf(filter) !== -1;
 				});
 
 			}

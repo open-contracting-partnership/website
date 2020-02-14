@@ -132,8 +132,14 @@ class HomeController extends Controller
 
 			$new['colour_scheme'] = 'light';
 
+			$issues = $original->terms('issue') ?: [];
+
+			$issues = array_map(function($term) {
+				return $term->id;
+			}, $issues);
+
 			// add issue terms to post
-			$new['issue'] = $original->issue ? $original->issue : [];
+			$new['issue'] = $issues;
 
 			return $new;
 

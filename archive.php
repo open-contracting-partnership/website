@@ -21,9 +21,13 @@ class ArchiveController extends Controller
 {
 	public function handle()
 	{
+
+		// urgh
+		global $wp_query;
+
 		$context = Timber::get_context();
 		$context['title'] = 'Archive';
-		$context['posts'] = BasicCard::convertCollection(Post::query());
+		$context['posts'] = BasicCard::convertCollection($wp_query->posts);
 
 		if (is_day()) {
 			$context['title'] = 'Archive: ' . get_the_date('D M Y');
