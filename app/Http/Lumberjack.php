@@ -5,7 +5,6 @@ namespace App\Http;
 use Rareloop\Lumberjack\Http\Lumberjack as LumberjackCore;
 use App\Menu\Menu;
 use ImLiam\ShareableLink;
-use Timber\URLHelper;
 
 class Lumberjack extends LumberjackCore
 {
@@ -105,10 +104,6 @@ class Lumberjack extends LumberjackCore
 		$context['i18n']['alternate_languages'] = array_filter(apply_filters('wpml_active_languages', []), function($language) use ($current_language) {
 			return $language['code'] !== $current_language;
 		});
-
-		foreach ( $context['i18n']['alternate_languages'] as &$language ) {
-			$language['current_url'] = apply_filters('wpml_permalink', URLHelper::get_current_url(), $language['code']);
-		}
 
 	}
 

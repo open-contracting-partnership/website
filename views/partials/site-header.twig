@@ -125,7 +125,7 @@
 
 				{% for language in i18n.alternate_languages %}
 
-					<a href="{{ language.current_url }}">
+					<a href="{{ language.url }}">
 						{{ language.native_name }}
 					</a>
 
@@ -143,7 +143,7 @@
 
 			{% for language in i18n.alternate_languages %}
 
-				<a href="{{ language.current_url }}" class="button-bordered">
+				<a href="{{ language.url }}" class="button-bordered">
 					{{ language.native_name }}
 				</a>
 
