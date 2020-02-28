@@ -121,6 +121,18 @@
 					cursor: pointer;
 				}
 
+				html[lang="es-ES"] & {
+
+					.text_en {
+						display: none;
+					}
+
+					.text_es {
+						display: block;
+					}
+
+				}
+
 			}
 
 			.block__model-content {
