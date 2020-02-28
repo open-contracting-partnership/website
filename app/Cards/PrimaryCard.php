@@ -11,20 +11,40 @@ class PrimaryCard extends BaseCard
 			'title' => $post->post_title,
 			'url' => $post->link,
 			'date' => $post->date,
-			'meta' => $post->author ? $post->author->name : null,
+			'meta' => [],
 			'image_url' => $post->thumbnail ? $post->thumbnail->src : null,
 			'type_label' => get_post_type_label($post->post_type),
 			'button_label' => __('Read', 'ocp'),
 			'post_type' => $post->post_type
 		];
 
+		// posts and news should have a date
 		if ( in_array($post->post_type, ['post', 'news']) ) {
-			$data['meta'] = $post->date . '<br>' . $data['meta'];
+			$data['meta'][] = $post->date;
 		}
 
-		if ( in_array($post->post_type, ['resource']) ) {
-			$data['meta'] = $post->organisation  ?: null;
+		// only posts should have an author
+		if ( $post->post_type === 'post' ) {
+
+			if ( $post->author && $post->author->name ) {
+				$data['meta'][] = $post->author->name;
+			}
+
 		}
+
+		// resources should have an organisation if available
+		if ( $post->post_type === 'resource' ) {
+
+			if ( $post->organisation ) {
+				$data['meta'][] = $post->organisation;
+			}
+
+		}
+
+		// the meta can always be a br separated string, so make it one now
+		// we do this here so to simplify data conditions above
+
+		$data['meta'] = implode('<br>', $data['meta']);
 
 		if ( $post->post_type === 'post' ) {
 			$data['type_label'] = 'Blog';
