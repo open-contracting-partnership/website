@@ -97,6 +97,14 @@ category:
 
 			}
 
+			.sub-content {
+
+				@media print {
+					overflow: hidden;
+				}
+
+			}
+
 			.sub-content > *:last-child {
 				margin-bottom: 0;
 			}

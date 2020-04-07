@@ -155,11 +155,15 @@ category:
 
 			.block__author-social {
 
-				display: flex;
 				color: $ui-white;
+
+				@media screen {
+					display: flex;
+				}
 
 				a {
 
+					display: block;
 					margin-right: spacing(3);
 
 					> svg {
@@ -168,6 +172,10 @@ category:
 						height: 1em;
 						display: block;
 						fill: currentColor;
+
+						@media print {
+							display: inline-block;
+						}
 
 						&[data-icon="mail"] {
 							width: 1.384em;

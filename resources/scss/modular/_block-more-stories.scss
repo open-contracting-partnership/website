@@ -201,6 +201,14 @@ category:
 
 		.block__stories {
 
+			> .card {
+
+				@media print {
+					margin-bottom: spacing(2);
+				}
+
+			}
+
 			@include upto(T) {
 
 				display: flex;
