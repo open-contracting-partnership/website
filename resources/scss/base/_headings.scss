@@ -68,16 +68,16 @@ h1,
 
 	font-size: 20px;
 
-	@media print {
-		font-size: 46px;
-	}
-
 	@include from(S) {
 		font-size: 30px;
 	}
 
 	@include from(M) {
 		font-size: 46px;
+	}
+
+	@media print {
+		font-size: 30px;
 	}
 
 }
@@ -87,16 +87,16 @@ h2,
 
 	font-size: 18px;
 
-	@media print {
-		font-size: 40px;
-	}
-
 	@include from(S) {
 		font-size: 24px;
 	}
 
 	@include from(M) {
 		font-size: 40px;
+	}
+
+	@media print {
+		font-size: 24px;
 	}
 
 }
@@ -106,16 +106,16 @@ h3,
 
 	font-size: 15px;
 
-	@media print {
-		font-size: 35px;
-	}
-
 	@include from(S) {
 		font-size: 19px;
 	}
 
 	@include from(M) {
 		font-size: 35px;
+	}
+
+	@media print {
+		font-size: 19px;
 	}
 
 }
@@ -125,16 +125,16 @@ h4,
 
 	font-size: 13px;
 
-	@media print {
-		font-size: 22px;
-	}
-
 	@include from(S) {
 		font-size: 16px;
 	}
 
 	@include from(M) {
 		font-size: 22px;
+	}
+
+	@media print {
+		font-size: 16px;
 	}
 
 }
@@ -144,16 +144,16 @@ h5,
 
 	font-size: 12px;
 
-	@media print {
-		font-size: 20px;
-	}
-
 	@include from(S) {
 		font-size: 15px;
 	}
 
 	@include from(M) {
 		font-size: 20px;
+	}
+
+	@media print {
+		font-size: 15px;
 	}
 
 }
@@ -163,16 +163,16 @@ h6,
 
 	font-size: 12px;
 
-	@media print {
-		font-size: 18px;
-	}
-
 	@include from(S) {
 		font-size: 12px;
 	}
 
 	@include from(M) {
 		font-size: 18px;
+	}
+
+	@media print {
+		font-size: 12px;
 	}
 
 }

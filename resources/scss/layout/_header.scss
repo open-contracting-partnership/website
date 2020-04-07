@@ -624,7 +624,15 @@ category:
 		}
 
 .site-header__print-logo {
+
 	border-bottom: 1px dashed grey;
-	padding-bottom: spacing(4);
+	padding-bottom: spacing(3);
 	margin-bottom: spacing(4);
+
+	> svg {
+		font-size: 125px;
+		height: 1em;
+		width: 1.5em;
+	}
+
 }
