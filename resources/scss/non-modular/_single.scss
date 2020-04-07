@@ -1,6 +1,6 @@
 .article__container {
-	@extend %shell-grid;
 	@include fluid-type(margin-top, 375px, 1240px, spacing(4), spacing(8));
+	@extend %screen-shell-grid;
 }
 
 	.article__header {

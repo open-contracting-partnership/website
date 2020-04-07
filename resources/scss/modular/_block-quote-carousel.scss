@@ -15,7 +15,7 @@
 		position: relative;
 		color: $ui-grey-4;
 		padding: var(--v-spacing) 0;
-		@extend %shell-grid;
+		@extend %screen-shell-grid;
 	}
 
 		.block__heading {

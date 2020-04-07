@@ -201,7 +201,7 @@ category:
 
 	background-color: $ui-grey-3;
 	color: $ui-white;
-	@extend %shell-grid;
+	@extend %screen-shell-grid;
 
 	@include upto($header-break-2) {
 		overflow: hidden;

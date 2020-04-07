@@ -113,7 +113,7 @@ $footer-break-3: 1240;
 
 	background-color: $ui-grey-3;
 	color: $ui-white;
-	@extend %shell-grid;
+	@extend %screen-shell-grid;
 
 	@media print {
 		border-top: 1px solid black;
