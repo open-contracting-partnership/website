@@ -40,7 +40,7 @@
 
 		</div>
 
-		<div class="block__list">
+		<div class="screen-only / block__list">
 
 			{% for person in block.team %}
 
@@ -113,8 +113,8 @@
 
 						</div>
 
-						<button class="block__profile-mobile-toggle / button--naked" data-action="show">Show bio</button>
-						<button class="block__profile-mobile-toggle / button--naked" data-action="hide">Hide bio</button>
+						<button class="screen-only / block__profile-mobile-toggle / button--naked" data-action="show">Show bio</button>
+						<button class="screen-only / block__profile-mobile-toggle / button--naked" data-action="hide">Hide bio</button>
 
 					</div>
 
@@ -124,7 +124,7 @@
 
 						{% if person.posts | length %}
 
-							<div class="block__profile-posts">
+							<div class="screen-only / block__profile-posts">
 
 								<h4 class="heading-border">Latest blogs</h4>
 

@@ -1155,8 +1155,10 @@ Karolis earned his bachelor’s degree in international law from the University 
 
 					.block__profile-social {
 
-						display: flex;
-						flex-wrap: wrap;
+						@media screen {
+							display: flex;
+							flex-wrap: wrap;
+						}
 
 						@include upto(T) {
 							display: none;
@@ -1174,6 +1176,10 @@ Karolis earned his bachelor’s degree in international law from the University 
 							font-size: 26px;
 							fill: $ui-grey-4;
 							height: 1em;
+
+							@media print {
+								display: inline-block;
+							}
 
 							&[data-icon="twitter"] {
 								width: 1.09em;
