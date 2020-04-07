@@ -1,6 +1,11 @@
 .article__container {
-	@include fluid-type(margin-top, 375px, 1240px, spacing(4), spacing(8));
+
 	@extend %screen-shell-grid;
+
+	@media screen {
+		@include fluid-type(margin-top, 375px, 1240px, spacing(4), spacing(8));
+	}
+
 }
 
 	.article__header {
