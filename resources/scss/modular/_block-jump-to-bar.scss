@@ -39,6 +39,10 @@ category:
 
 	z-index: 3;
 
+	@media print {
+		display: none;
+	}
+
 	&[data-position="sticky"] {
 
 		@include from(M) {

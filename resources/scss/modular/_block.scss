@@ -21,7 +21,11 @@
 			[full-end];
 
 	} @else {
-		@extend %shell-grid;
+		@extend %screen-shell-grid;
+	}
+
+	@media print {
+		margin-bottom: spacing(6);
 	}
 
 }

@@ -58,11 +58,16 @@ category:
 	}
 
 	.block__container {
+
 		grid-row: 1;
 		grid-column: content;
 		@include fluid-type(--padding, 375px, 1240px, spacing(2), spacing(6));
-		padding: var(--padding) 0;
 		@extend %column-grid;
+
+		@media screen {
+			padding: var(--padding) 0;
+		}
+
 	}
 
 		.block__main {

@@ -57,28 +57,38 @@ category:
 		width: 100%;
 
 		img {
+
 			display: block;
 			width: 100%;
+
+			@media print {
+				margin-bottom: spacing(3);
+			}
+
 		}
 
 	}
 
 		.card__image-overlay {
 
-			@include fluid-type(--v-padding, 375px, 1240px, spacing(2), spacing(5));
-			@include fluid-type(--h-padding, 375px, 1240px, spacing(3), spacing(6));
+			@media screen {
 
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			background-color: rgba(0, 0, 0, .4);
-			padding: var(--v-padding) var(--h-padding);
-			display: flex;
-			flex-direction: column;
-			justify-content: flex-end;
-			
+				@include fluid-type(--v-padding, 375px, 1240px, spacing(2), spacing(5));
+				@include fluid-type(--h-padding, 375px, 1240px, spacing(3), spacing(6));
+
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: rgba(0, 0, 0, .4);
+				padding: var(--v-padding) var(--h-padding);
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+
+			}
+
 		}
 
 			.card__meta {
@@ -91,13 +101,17 @@ category:
 				color: currentColor;
 				text-decoration: none;
 
-				&::after {
-					content: '';
-					position: absolute;
-					top: 0;
-					right: 0;
-					bottom: 0;
-					left: 0;
+				@media screen {
+
+					&::after {
+						content: '';
+						position: absolute;
+						top: 0;
+						right: 0;
+						bottom: 0;
+						left: 0;
+					}
+
 				}
 
 				&:hover,

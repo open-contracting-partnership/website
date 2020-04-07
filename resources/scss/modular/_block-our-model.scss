@@ -9,10 +9,13 @@
 
 	.block__container {
 
-		padding: var(--padding) 0;
 		grid-column: content;
 		grid-row: 1;
 		@extend %column-grid;
+
+		@media screen {
+			padding: var(--padding) 0;
+		}
 
 	}
 
@@ -142,30 +145,37 @@
 				color: $ui-black;
 				background-color: $ui-grey-6;
 				border-radius: spacing(4) spacing(1);
-				padding: spacing(15) spacing(4) spacing(4);
+
+				@media screen {
+					padding: spacing(15) spacing(4) spacing(4);
+				}
 
 				strong {
 					font-size: 20px;
 				}
 
-				&:not([data-section]) > [data-content]:not(:first-child) {
-					display: none;
-				}
+				@media screen {
 
-				&[data-section="publish"] > :not([data-content="publish"]) {
-					display: none;
-				}
+					&:not([data-section]) > [data-content]:not(:first-child) {
+						display: none;
+					}
 
-				&[data-section="engagement"] > :not([data-content="engagement"]) {
-					display: none;
-				}
+					&[data-section="publish"] > :not([data-content="publish"]) {
+						display: none;
+					}
 
-				&[data-section="measure"] > :not([data-content="measure"]) {
-					display: none;
-				}
+					&[data-section="engagement"] > :not([data-content="engagement"]) {
+						display: none;
+					}
 
-				&[data-section="goals"] > :not([data-content="goals"]) {
-					display: none;
+					&[data-section="measure"] > :not([data-content="measure"]) {
+						display: none;
+					}
+
+					&[data-section="goals"] > :not([data-content="goals"]) {
+						display: none;
+					}
+
 				}
 
 			}
@@ -174,10 +184,13 @@
 
 					--icon-height: 100px;
 
-					margin-top: calc(-1 * var(--icon-height));
-					display: flex;
-					align-items: center;
-					justify-content: center;
+					@media screen {
+						margin-top: calc(-1 * var(--icon-height));
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+
 					margin-bottom: spacing(3);
 
 					@include from(T) {
@@ -233,6 +246,16 @@
 			border-radius: spacing(3);
 			overflow: hidden;
 
+			@media print {
+
+				border-width: 4px;
+
+				&:not(:last-child) {
+					margin-bottom: spacing(2);
+				}
+
+			}
+
 			&[data-colour="orange"] {
 				--highlight-colour: #{$ui-orange};
 			}
@@ -257,11 +280,17 @@
 				align-items: center;
 
 				> svg {
+
+					@media print {
+						display: none;
+					}
+
 					font-size: 38px;
 					height: 1em;
 					width: 1em;
 					flex: 0 0 1em;
 					margin-right: spacing(2);
+
 				}
 
 			}

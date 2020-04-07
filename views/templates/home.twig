@@ -45,7 +45,7 @@
 
 						{% endfor %}
 
-						<div class="align-contents-right">
+						<div class="screen-only / align-contents-right">
 
 							<a class="arrow-link" data-icon-color="grey" data-text-color="black" data-size="medium" href="{{ latest.news_archive_link.url }}">
 								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
@@ -74,7 +74,7 @@
 
 						{% endfor %}
 
-						<div class="align-contents-right">
+						<div class="screen-only / align-contents-right">
 
 							<a class="arrow-link" data-icon-color="grey" data-text-color="black" data-size="medium" href="{{ latest.events_archive_link.url }}">
 								<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
@@ -89,7 +89,7 @@
 
 			</div>
 
-			<div class="home__title">
+			<div class="screen-only / home__title">
 
 				<h1 class="home__heading / gamma">{{ latest.content.title }}</h1>
 
@@ -117,7 +117,7 @@
 				<primary-card v-for="post in pagedPosts" v-bind:key="post.id" :card="post" data-colour-scheme="light" />
 			</section>
 
-			<div class="home__load-more / align-contents-center">
+			<div class="screen-only / home__load-more / align-contents-center">
 
 				<button class="button button--has-icon" v-on:click.prevent="increaseLimit()" v-if="hasNextPage">
 					<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
@@ -134,7 +134,7 @@
 
 						<h2 class="gamma">{{ latest.content.news_label }}</h2>
 
-						<a class="arrow-link" data-text-color="black" data-size="medium" href="{{ latest.news_archive_link.url }}">
+						<a class="screen-only / arrow-link" data-text-color="black" data-size="medium" href="{{ latest.news_archive_link.url }}">
 							<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
 							<span class="arrow-link__label / uppercase">{{ latest.news_archive_link.label }}</span>
 						</a>
@@ -171,7 +171,7 @@
 
 						<h2 class="gamma">{{ latest.content.events_label }}</h2>
 
-						<a class="arrow-link" data-text-color="black" data-size="medium" href="{{ latest.events_archive_link.url }}">
+						<a class="screen-only / arrow-link" data-text-color="black" data-size="medium" href="{{ latest.events_archive_link.url }}">
 							<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
 							<span class="arrow-link__label / uppercase">{{ latest.events_archive_link.label }}</span>
 						</a>
@@ -208,7 +208,7 @@
 
 						<h2 class="gamma">{{ latest.content.resources_label }}</h2>
 
-						<a class="arrow-link" data-text-color="black" data-size="medium" href="{{ latest.resources_archive_link.url }}">
+						<a class="screen-only / arrow-link" data-text-color="black" data-size="medium" href="{{ latest.resources_archive_link.url }}">
 							<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
 							<span class="arrow-link__label / uppercase">{{ latest.resources_archive_link.label }}</span>
 						</a>

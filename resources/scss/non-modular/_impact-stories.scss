@@ -1,5 +1,5 @@
 .impact-stories {
-	@extend %shell-grid;
+	@extend %screen-shell-grid;
 	margin-top: var(--v-spacing);
 }
 
@@ -81,6 +81,10 @@
 
 			}
 
+		}
+
+		.impact-stories__print-featured-stories {
+			margin-bottom: var(--v-spacing);
 		}
 
 		.impact-stories__filters {

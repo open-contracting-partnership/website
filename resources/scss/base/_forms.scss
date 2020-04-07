@@ -511,9 +511,19 @@ category:
 	padding: 0;
 	transition: background-color .3s ease;
 
+	color-adjust: exact !important;
+	-webkit-print-color-adjust: exact !important;
+	print-color-adjust: exact !important;
+
 	&:checked,
 	&.checked {
+
 		background-color: var(--colour);
+
+		@media print {
+			background-color: var(--colour) !important;
+		}
+
 	}
 
 	&[data-colour="blue"] {

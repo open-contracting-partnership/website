@@ -279,12 +279,22 @@ category:
 			grid-column: all;
 			grid-row: 5;
 
-			display: grid;
-			grid-template-rows: repeat(2, 1fr);
-			grid-template-columns: repeat(3, 90%);
-			grid-gap: spacing(3);
-			grid-auto-flow: column;
-			@include fluid-type(margin-bottom, 375px, 1240px, spacing(4), spacing(6));
+			@media screen {
+				display: grid;
+				grid-template-rows: repeat(2, 1fr);
+				grid-template-columns: repeat(3, 90%);
+				grid-gap: spacing(3);
+				grid-auto-flow: column;
+				@include fluid-type(margin-bottom, 375px, 1240px, spacing(4), spacing(6));
+			}
+
+			@media print {
+
+				> .card {
+					margin-bottom: spacing(2);
+				}
+
+			}
 
 			@include upto(T) {
 
@@ -386,8 +396,11 @@ category:
 
 			.block__author-social {
 
-				display: flex;
 				color: $ui-white;
+
+				@media screen {
+					display: flex;
+				}
 
 				a {
 
@@ -399,6 +412,10 @@ category:
 						height: 1em;
 						display: block;
 						fill: currentColor;
+
+						@media print {
+							display: inline-block;
+						}
 
 						&[data-icon="mail"] {
 							width: 1.384em;

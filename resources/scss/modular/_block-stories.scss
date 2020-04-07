@@ -315,6 +315,14 @@ category:
 
 		.block__primary-stories {
 
+			@media print {
+
+				> .card:not(:last-child) {
+					margin-bottom: spacing(4);
+				}
+
+			}
+
 			@include upto(T) {
 
 				display: flex;

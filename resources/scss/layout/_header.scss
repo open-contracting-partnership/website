@@ -201,7 +201,7 @@ category:
 
 	background-color: $ui-grey-3;
 	color: $ui-white;
-	@extend %shell-grid;
+	@extend %screen-shell-grid;
 
 	@include upto($header-break-2) {
 		overflow: hidden;
@@ -622,3 +622,17 @@ category:
 			}
 
 		}
+
+.site-header__print-logo {
+
+	border-bottom: 1px dashed grey;
+	padding-bottom: spacing(3);
+	margin-bottom: spacing(4);
+
+	> svg {
+		font-size: 125px;
+		height: 1em;
+		width: 1.5em;
+	}
+
+}

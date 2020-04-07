@@ -8,7 +8,7 @@
 
 			{% if back_link %}
 
-				<a class="arrow-link" href="{{ back_link.url }}" data-size="small" data-direction="west" data-icon-color="grey" data-text-color="black">
+				<a class="screen-only / arrow-link" href="{{ back_link.url }}" data-size="small" data-direction="west" data-icon-color="grey" data-text-color="black">
 					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
 					<span class="arrow-link__label / uppercase">{{ back_link.label }}</span>
 				</a>
@@ -31,7 +31,7 @@
 
 		{% endif %}
 
-		<div class="archive__pagination">
+		<div class="screen-only / archive__pagination">
 
 			{% if previous_page_url %}
 

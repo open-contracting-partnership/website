@@ -10,18 +10,27 @@ body {
 }
 
 %container {
+
 	width: 100%;
-	max-width: calc(var(--container-width) + (var(--container-padding) * 2));
-	padding: 0 var(--container-padding);
-	margin: 0 auto;
+
+	@media screen {
+		max-width: calc(var(--container-width) + (var(--container-padding) * 2));
+		padding: 0 var(--container-padding);
+		margin: 0 auto;
+	}
+
 }
 
 %container-reset {
 
-	margin: 0 calc(0px - var(--container-padding));
+	@media screen {
 
-	@include from(1360) {
-		margin: 0 calc(-1 * ((100vw - 1200px) / 2));
+		margin: 0 calc(0px - var(--container-padding));
+
+		@include from(1360) {
+			margin: 0 calc(-1 * ((100vw - 1200px) / 2));
+		}
+
 	}
 
 }
@@ -39,38 +48,25 @@ body {
 }
 
 %column-grid {
-	display: grid;
-	grid-column-gap: spacing(2);
-	grid-template-columns: [all-start] repeat(12, 1fr) [all-end];
+
+	@media screen {
+		display: grid;
+		grid-column-gap: spacing(2);
+		grid-template-columns: [all-start] repeat(12, 1fr) [all-end];
+	}
+
 }
 
-@mixin shell-grid() {
+@mixin screen-shell-grid() {
 
-	display: grid;
-	grid-template-columns:
-		[full-start]
-			minmax(0, auto)
-			[wide-start]
-				0
-				[intermediate-start]
-					spacing(3)
-					[content-start]
-						repeat(12, minmax(0, 100px))
-					[content-end]
-					spacing(3)
-				[intermediate-end]
-				0
-			[wide-end]
-			minmax(0, auto)
-		[full-end];
+	@media screen {
 
-	@include from(M) {
-
+		display: grid;
 		grid-template-columns:
 			[full-start]
 				minmax(0, auto)
 				[wide-start]
-					minmax(0, spacing(6))
+					0
 					[intermediate-start]
 						spacing(3)
 						[content-start]
@@ -78,17 +74,38 @@ body {
 						[content-end]
 						spacing(3)
 					[intermediate-end]
-					minmax(0, spacing(6))
+					0
 				[wide-end]
 				minmax(0, auto)
 			[full-end];
+
+		@include from(M) {
+
+			grid-template-columns:
+				[full-start]
+					minmax(0, auto)
+					[wide-start]
+						minmax(0, spacing(6))
+						[intermediate-start]
+							spacing(3)
+							[content-start]
+								repeat(12, minmax(0, 100px))
+							[content-end]
+							spacing(3)
+						[intermediate-end]
+						minmax(0, spacing(6))
+					[wide-end]
+					minmax(0, auto)
+				[full-end];
+
+		}
 
 	}
 
 }
 
-%shell-grid {
-	@include shell-grid();
+%screen-shell-grid {
+	@include screen-shell-grid();
 }
 
 /*
@@ -110,7 +127,7 @@ category:
 */
 
 .shell-grid-example {
-	@extend %shell-grid;
+	@extend %screen-shell-grid;
 }
 
 	.shell-grid-example__full {

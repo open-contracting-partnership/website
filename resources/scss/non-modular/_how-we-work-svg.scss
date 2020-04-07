@@ -2,6 +2,10 @@
 
 	display: grid;
 
+	@media print {
+		display: none;
+	}
+
 	object {
 
 		width: 100%;

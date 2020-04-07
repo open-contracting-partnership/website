@@ -24,14 +24,14 @@ blockquote {
 	margin: 0 0 1em;
 	border-left: 5px solid $ui-black;
 
-    p {
-        @include font;
-        margin-bottom: $space / 2;
-    }
+	p {
+		@include font;
+		margin-bottom: $space / 2;
+	}
 
-    footer {
-        display: block;
-    }
+	footer {
+		display: block;
+	}
 }
 
 

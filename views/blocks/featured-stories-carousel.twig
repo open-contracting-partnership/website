@@ -2,9 +2,17 @@
 
 <div id="{{ options.id }}" class="block" data-block-type="featured-stories-carousel">
 
-	<div class="block__container">
+	<div class="print-only">
 
-		<div class="block__controls">
+		{% for card in block.featured_stories %}
+			{% include 'cards/primary.twig' with card %}
+		{% endfor %}
+
+	</div>
+
+	<div class="screen-only / block__container">
+
+		<div class=" block__controls">
 
 			<button class="button--naked" rel="prev" aria-label="Previous">
 				<svg><use xlink:href="#icon-large-arrow"></use></svg>
