@@ -10,7 +10,20 @@
 			<h2 class="block__heading">{{ block.title }}</h2>
 		{% endif %}
 
-		<div class="block__carousel_container">
+		<div class="print-only">
+
+			{% for card in block.quotes %}
+
+				<blockquote>
+					<p>{{ card.quotation }}</p>
+					<footer>{{ card.name }},<br>{{ card.bio }}</footer>
+				</blockquote>
+
+			{% endfor %}
+
+		</div>
+
+		<div class="screen-only / block__carousel_container">
 
 			<div class="block__carousel-controls">
 

@@ -114,11 +114,11 @@ category:
 
 		font-size: 18px;
 		@include font('secondary', 'medium');
-		padding-top: .2em;
-		margin-left: spacing(1);
 
 		@media screen {
 			flex: 1 1 100%;
+			padding-top: .2em;
+			margin-left: spacing(1);
 		}
 
 	}
