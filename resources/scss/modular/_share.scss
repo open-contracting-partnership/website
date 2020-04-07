@@ -8,6 +8,10 @@
 	border-bottom: 4px solid $ui-grey-7;
 	margin-bottom: spacing(2);
 
+	@media print {
+		display: none;
+	}
+
 	> :not(:last-child) {
 		margin-right: spacing(3);
 	}

@@ -37,10 +37,13 @@ category:
 	background-color: $ui-brand;
 	border-radius: spacing(.5);
 	border: none;
-	padding: em(13, 14) em(24,  14) em(11, 14);
 	text-decoration: none;
 	text-transform: uppercase;
 	cursor: pointer;
+
+	@media screen {
+		padding: em(13, 14) em(24,  14) em(11, 14);
+	}
 
 	&:hover,
 	&:focus,
@@ -69,12 +72,18 @@ category:
 }
 
 	.button__icon {
+
 		font-size: 2em;
 		height: 1em;
 		width: 1em;
 		margin-right: spacing(2);
 		fill: $ui-white;
 		margin: em(-8, 14) spacing(2) em(-6, 14) em(-6, 14);
+
+		@media print {
+			display: none;
+		}
+
 	}
 
 .button[data-icon-colour] .button__icon {

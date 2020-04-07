@@ -58,6 +58,10 @@
 		grid-column: all;
 		margin-bottom: var(--v-spacing);
 
+		@media print {
+			max-width: 50%;
+		}
+
 		@include from(T) {
 			grid-column: span 6;
 		}
