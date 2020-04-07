@@ -1,48 +1,62 @@
-# Open Contracting Partnership
+# Open Contracting Partnership - WordPress Theme
 
-The WordPress theme for the Open Contracting Partnership website
+[![buddy pipeline](https://app.buddy.works/the-idea-bureau/website/pipelines/pipeline/247819/badge.svg?token=0a1174bd02e3c4104f3e3a4f22a48140acb7af40544b9684abde1d7d8d8d8cd9 "buddy pipeline")](https://app.buddy.works/the-idea-bureau/website/pipelines/pipeline/247819)
 
-Version 3.0.6
+**Website**: https://www.open-contracting.org/
 
-## Setup
+**Version**: 3.0.6
+
+---
+
+## Project guidelines
+
+- [Git-Flow](https://nvie.com/posts/a-successful-git-branching-model/) to be used for git branching
+- [PHP PSR-12](https://www.php-fig.org/psr/psr-12/) coding standards
+- `.editorconfig` rules used to maintain coding styles
+
+## Project dependencies
+
+- [Composer](https://getcomposer.org/download/)
+- [Laravel Mix](https://github.com/JeffreyWay/laravel-mix/tree/master/docs#summary)
+- [Yarn](https://classic.yarnpkg.com/en/docs/install/) (or npm)
+
+## Installation and usage
+
+### Front-end
+
+Start by installing all yarn dependencies:
 
 ```
-$ npm install
+yarn install
 ```
 
-## Assets
+Laravel Mix provides various commands in order to compile front-end assets:
 
-The assets directory is used to contain front-end files such as CSS (Sass), JavaScript, images, fonts etc.
+```
+yarn run watch   # watch all files and compile
+yarn run hot     # watch all files, compile with live reload
+yarn run dev     # compile without minify
+yarn run prod    # compile with minify
+```
 
-Gulp is used to process Sass, JavaScript and image files.
+#### SVG sprites
 
-- [Install node](http://nodejs.org/download/)
-- [Install gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
-- [Install sass](http://sass-lang.com/install)
-- [Install sass globbing](https://github.com/chriseppstein/sass-globbing)
-- Run the following commands within this directory:
-  - `npm install`
-  - `gulp`
+SVG files within the `/resources/svg` directory will be combined into a single SVG sprite, and can be referenced using the following snippet where a filename of `icon-twitter.svg` is referenced as:
 
-Gulp will watch the files within the assets directory and compile as necessary.
+```
+<svg><use xlink:href="#icon-twitter"></use></svg>
+```
 
-## Browser Sync and Live Reload
+SVGs used like this can be interacted with JavaScript and styled with CSS.
 
-[BrowserSync](http://www.browsersync.io/) has been included with the gulp build, simply change the proxy url in the gulpfile.js and run:
--   `gulp bs`
+### Back-end
 
-Currently there is no support for Live Reload
+Composer is used for back-end libraries, use the following command to install dependancies.
 
-## Style Guide Structure
+```
+composer install
+```
 
-The styleguide template structure loosely follows that of Brad Frost's [Pattern Lab](http://patternlab.io/about.html), in that we use the following template levels:
+### Lock files
 
-- **Atoms**
-- **Molecules**
-- **Organisms**
-- **Templates**
-- **Pages**
-
-An explanation of this model can be found on the [Pattern Lab](http://patternlab.io/about.html) website.
-
-In the styleguide the **pages** templates are important as these are exposed without the styleguide interface when accessed via the root URL.
+Both yarn and composer lock files are to be committed.
