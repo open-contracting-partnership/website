@@ -23,10 +23,14 @@ body {
 
 %container-reset {
 
-	margin: 0 calc(0px - var(--container-padding));
+	@media screen {
 
-	@include from(1360) {
-		margin: 0 calc(-1 * ((100vw - 1200px) / 2));
+		margin: 0 calc(0px - var(--container-padding));
+
+		@include from(1360) {
+			margin: 0 calc(-1 * ((100vw - 1200px) / 2));
+		}
+
 	}
 
 }

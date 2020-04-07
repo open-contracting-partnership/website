@@ -98,6 +98,10 @@ category:
 	flex-direction: column;
 	justify-content: flex-end;
 
+	@media print {
+		border: 3px solid $ui-grey-7;
+	}
+
 	.card__body {
 		flex: 1 1 100%;
 		display: flex;

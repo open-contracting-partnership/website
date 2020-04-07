@@ -105,11 +105,16 @@ category:
 	}
 
 	.arrow-link__label {
-		flex: 1 1 100%;
+
 		font-size: 18px;
 		@include font('secondary', 'medium');
 		padding-top: .2em;
 		margin-left: spacing(1);
+
+		@media screen {
+			flex: 1 1 100%;
+		}
+
 	}
 
 .arrow-link[data-size="large"] {
