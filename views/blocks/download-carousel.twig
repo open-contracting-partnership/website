@@ -2,9 +2,23 @@
 
 <div id="{{ options.id }}" class="block" data-block-type="download-carousel">
 
-	{# <h4><?php _e('Download minutes from the Advisory Board meetings:', 'ocp'); ?></h4> #}
+	<div class="print-only">
 
-	<div class="block__container">
+		<ul>
+
+			{% for download in block.downloads %}
+
+				<li>
+					<a href="{{ download.file }}">{{ download.date }} - {{ download.title | raw }}</a>
+				</li>
+
+			{% endfor %}
+
+		</ul>
+
+	</div>
+
+	<div class="screen-only / block__container">
 
 		<div class="block__carousel-controls">
 
