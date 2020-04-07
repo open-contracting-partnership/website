@@ -44,7 +44,11 @@ category:
 		grid-column: content;
 		grid-row: 1;
 		@extend %column-grid;
-		grid-column-gap: spacing(4);
+		grid-column-gap: spacing(2);
+
+		@include from(S) {
+			grid-column-gap: spacing(2);
+		}
 
 		@media screen {
 			padding: var(--padding) 0;
