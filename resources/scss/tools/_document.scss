@@ -47,6 +47,20 @@ $body-selector: if($is-gutenberg, '&', 'body');
 
 }
 
+
+@if ( $is-gutenberg == false ) {
+
+	@media print {
+
+		body {
+			padding: spacing(3);
+		}
+
+	}
+
+}
+
+
  //**********
 // SELECTION
 

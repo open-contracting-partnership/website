@@ -1,10 +1,19 @@
-
 .block[data-block-type="title-with-icon"] {
 
+	@media print {
+		display: block;
+	}
+
 	.block__background {
+
 		padding: spacing(4) 0;
 		grid-column: full;
 		grid-row: 1;
+
+		@media print {
+			display: none;
+		}
+
 	}
 
 	.block__image-container {
@@ -21,6 +30,10 @@
 			grid-column: wide / 5;
 		}
 
+		@media print {
+			display: none;
+		}
+
 	}
 
 		.block__image {
@@ -29,11 +42,17 @@
 		}
 
 	.block__container {
+
 		grid-column: content;
 		grid-row: 1;
 		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(3), spacing(9));
 		display: grid;
 		@extend %column-grid;
+
+		@media print {
+			display: block;
+		}
+
 	}
 
 		.block__heading {

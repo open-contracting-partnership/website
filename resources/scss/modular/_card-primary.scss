@@ -66,11 +66,20 @@ category:
 	display: flex;
 	flex-direction: column;
 
+	@media print {
+		flex-direction: row;
+		margin-bottom: spacing(2);
+	}
+
 	.card__image {
 
 		position: relative;
 		width: 100%;
 		flex: 0 0 auto;
+
+		@media print {
+			flex: 0 0 25%;
+		}
 
 		img {
 			display: block;
@@ -80,6 +89,7 @@ category:
 	}
 
 		.card__image-overlay {
+
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -88,6 +98,11 @@ category:
 			background: linear-gradient(180deg, #2F2F2F 0%, rgba(255, 255, 255, 0) 100%);
 			background-blend-mode: darken;
 			padding: spacing(2) spacing(3);
+
+			@media print {
+				display: none;
+			}
+
 		}
 
 			.card__tag {
@@ -111,14 +126,18 @@ category:
 			text-decoration: none;
 			max-width: 90%;
 
-			&::after {
-				content: '';
-				display: block;
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
+			@media screen {
+
+				&::after {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+				}
+
 			}
 
 		}
@@ -130,9 +149,17 @@ category:
 			}
 
 		.card__footer {
-			margin-top: auto;
-			display: flex;
-			align-items: flex-end;
+
+			@media screen {
+				margin-top: auto;
+				display: flex;
+				align-items: flex-end;
+			}
+
+			@media print {
+				margin-top: spacing(2);
+			}
+
 		}
 
 			.card__meta {
@@ -143,8 +170,14 @@ category:
 			}
 
 			.card__cta {
+
 				margin-left: spacing(2);
 				flex: 0 0 auto;
+
+				@media print {
+					display: none;
+				}
+
 			}
 
 	// light scheme
@@ -158,6 +191,7 @@ category:
 		}
 
 	}
+
 
 }
 
