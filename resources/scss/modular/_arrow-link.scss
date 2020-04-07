@@ -97,11 +97,17 @@ category:
 }
 
 	.arrow-link__icon {
+
 		flex: 0 0 1em;
 		font-size: 28px;
 		height: 1em;
 		width: 1em;
 		fill: $ui-brand;
+
+		@media print {
+			display: none;
+		}
+
 	}
 
 	.arrow-link__label {

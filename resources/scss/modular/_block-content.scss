@@ -206,6 +206,13 @@ category:
 				overflow: hidden;
 			}
 
+			.block__sidebar .card--link {
+
+				@media print {
+					max-width: 33%;
+				}
+
+			}
 
 	// variations
 
