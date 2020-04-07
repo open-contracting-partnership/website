@@ -10,3 +10,4 @@ styleguide/
 dist/
 yarn-error.log
 /.env
+/functions/local.php
