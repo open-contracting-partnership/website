@@ -58,8 +58,16 @@
 		page-break-inside: avoid;
 	}
 
-	 // Printing Tables:
-	 // http://css-discuss.incutio.com/wiki/Printing_Tables
+	// Printing Tables:
+	// http://css-discuss.incutio.com/wiki/Printing_Tables
+
+	table {
+		max-width: 100%;
+	}
+
+	table a::after {
+		word-break: break-all;
+	}
 
 	thead {
 		display: table-header-group;
