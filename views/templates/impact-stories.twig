@@ -16,7 +16,15 @@
 
 			{% if featured_stories %}
 
-				<div class="impact-stories__featured-stories">
+				<div class="print-only / impact-stories__print-featured-stories">
+
+					{% for card in featured_stories %}
+						{% include 'cards/primary.twig' with card %}
+					{% endfor %}
+
+				</div>
+
+				<div class="screen-only / impact-stories__featured-stories">
 
 					<div class="impact-stories__featured-scroller">
 

@@ -36,11 +36,11 @@
 	}
 
 	a[href]::after {
-		content: ' (' attr(href) ')';
+		content: '\00a0(' attr(href) ')';
 	}
 
 	abbr[title]::after {
-		content: ' (' attr(title) ')';
+		content: '\00a0(' attr(title) ')';
 	}
 
 	// Don't show links that are fragment identifiers,

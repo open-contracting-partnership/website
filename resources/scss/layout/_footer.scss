@@ -116,8 +116,9 @@ $footer-break-3: 1240;
 	@extend %screen-shell-grid;
 
 	@media print {
-		border-top: 1px solid black;
+		border-top: 1px dashed grey;
 		padding-top: spacing(4);
+		margin-top: spacing(4);
 	}
 
 }

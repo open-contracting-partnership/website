@@ -6,6 +6,7 @@
 	}
 
 	.block__container {
+
 		grid-column: full;
 		grid-row: 1;
 		font-size: 17px;
@@ -14,14 +15,23 @@
 		overflow: hidden;
 		position: relative;
 		color: $ui-grey-4;
-		padding: var(--v-spacing) 0;
 		@extend %screen-shell-grid;
+
+		@media screen {
+			padding: var(--v-spacing) 0;
+		}
+
 	}
 
 		.block__heading {
+
 			grid-column: wide;
-			@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
-			margin-bottom: var(--v-spacing-half);
+
+			@media screen {
+				@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+				margin-bottom: var(--v-spacing-half);
+			}
+
 		}
 
 		.block__carousel_container {

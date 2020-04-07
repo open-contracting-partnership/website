@@ -59,9 +59,12 @@
 
 			grid-row: 1;
 			grid-column: 3 / 12;
-			@include fluid-type(font-size, 360px, 1240px, 26px, 44px);
-			margin-bottom: 0;
 			align-self: center;
+
+			@media screen {
+				@include fluid-type(font-size, 360px, 1240px, 26px, 44px);
+				margin-bottom: 0;
+			}
 
 			@include from(T) {
 				grid-column: 2 / 12;

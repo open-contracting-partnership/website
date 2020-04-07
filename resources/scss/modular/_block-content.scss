@@ -40,11 +40,16 @@ category:
 	}
 
 	.block__container {
-		padding: var(--padding) 0;
+
 		grid-column: content;
 		grid-row: 1;
 		@extend %column-grid;
 		grid-column-gap: spacing(4);
+
+		@media screen {
+			padding: var(--padding) 0;
+		}
+
 	}
 
 		.block__content {
@@ -66,7 +71,11 @@ category:
 		}
 
 			.block__heading {
-				@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+
+				@media screen {
+					@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+				}
+
 			}
 
 			&.implement .block__heading {

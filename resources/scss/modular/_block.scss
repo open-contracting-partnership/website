@@ -24,4 +24,8 @@
 		@extend %screen-shell-grid;
 	}
 
+	@media print {
+		margin-bottom: spacing(6);
+	}
+
 }

@@ -9,10 +9,13 @@
 
 	.block__container {
 
-		padding: var(--padding) 0;
 		grid-column: content;
 		grid-row: 1;
 		@extend %column-grid;
+
+		@media screen {
+			padding: var(--padding) 0;
+		}
 
 	}
 

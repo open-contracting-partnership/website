@@ -187,16 +187,28 @@ category:
 	}
 
 		.block__header {
-			display: flex;
-			flex-wrap: wrap;
-			align-items: center;
-			@include fluid-type(margin-bottom, 375px, 1240px, 19px, 32px);
+
+			@media screen {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				@include fluid-type(margin-bottom, 375px, 1240px, 19px, 32px);
+			}
+
+			@media print {
+				margin-bottom: spacing(2);
+			}
+
 		}
 
 			.block__heading {
-				@include fluid-type(font-size, 375px, 1240px, 22px, 36px);
-				margin-bottom: 0;
-				margin-right: auto;
+
+				@media screen {
+					@include fluid-type(font-size, 375px, 1240px, 22px, 36px);
+					margin-bottom: 0;
+					margin-right: auto;
+				}
+
 			}
 
 		.block__stories {

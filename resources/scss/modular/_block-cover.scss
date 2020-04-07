@@ -46,9 +46,12 @@ category:
 		grid-column: content / -6;
 		grid-row: 2;
 		color: currentColor;
-		margin-bottom: 0;
 		align-self: center;
-		@include fluid-type(font-size, 360px, 1240px, 25px, 39px);
+
+		@media screen {
+			@include fluid-type(font-size, 360px, 1240px, 25px, 39px);
+			margin-bottom: 0;
+		}
 
 		@include from(T) {
 			grid-column: content / -8;

@@ -81,23 +81,32 @@ category:
 	}
 
 		.block__title {
-			font-size: 24px;
+
 			grid-column: all;
-			text-align: center;
 			margin-bottom: spacing(4);
+
+			@media screen {
+				font-size: 24px;
+				text-align: center;
+			}
+
 		}
 
 		.block__logos-container {
 
 			grid-column: all;
+			display: flex;
+			flex-wrap: wrap;
 
 			@media screen {
-				display: flex;
-				flex-wrap: wrap;
 				justify-content: center;
 			}
 
 		}
+
+			.block__logos-container a::after {
+				content: '';
+			}
 
 			.block__logo {
 
