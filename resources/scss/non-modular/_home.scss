@@ -21,6 +21,10 @@ main.home {
 			grid-column: 1 / 9;
 		}
 
+		@media print {
+			margin-bottom: spacing(4);
+		}
+
 	}
 
 	.home__header-extra {
@@ -31,6 +35,10 @@ main.home {
 
 		@include from(M) {
 			grid-column: 9 / 13;
+		}
+
+		@media print {
+			margin-bottom: spacing(4);
 		}
 
 	}
