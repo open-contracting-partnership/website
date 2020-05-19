@@ -32,6 +32,7 @@ return [
 		App\Providers\AdminServiceProvider::class,
 		App\Providers\ImgixServiceProvider::class,
 		App\Providers\MailChimpServiceProvider::class,
+		App\Providers\SEOServiceProvider::class,
 
 		// Block Providers
 		App\Providers\Blocks\ContentServiceProvider::class,
