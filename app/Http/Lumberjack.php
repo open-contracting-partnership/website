@@ -98,13 +98,7 @@ class Lumberjack extends LumberjackCore
 	}
 
 	public function addLanguageContext(&$context) {
-
-		$current_language = apply_filters('wpml_current_language', NULL);
-
-		$context['i18n']['alternate_languages'] = array_filter(apply_filters('wpml_active_languages', []), function($language) use ($current_language) {
-			return $language['code'] !== $current_language;
-		});
-
+		$context['i18n']['alternate_languages'] = apply_filters('wpml_active_languages', []);
 	}
 
 }
