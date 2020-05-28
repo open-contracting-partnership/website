@@ -123,13 +123,25 @@
 
 			<div class="site-header__mobile-language">
 
-				{% for language in i18n.alternate_languages %}
+				<ul class="">
 
-					<a href="{{ language.url }}">
-						{{ language.native_name }}
-					</a>
+					{% for language in i18n.alternate_languages %}
 
-				{% endfor %}
+						{% if not language.active %}
+
+							<li>
+
+								<a href="{{ language.url }}">
+									{{ language.native_name }}
+								</a>
+
+							</li>
+
+						{% endif %}
+
+					{% endfor %}
+
+				</ul>
 
 			</div>
 
@@ -141,13 +153,25 @@
 				<a href="{{ item.url }}">{{ item.title }}</a>
 			{% endfor %}
 
-			{% for language in i18n.alternate_languages %}
+			{% if i18n.alternate_languages %}
 
-				<a href="{{ language.url }}" class="button-bordered">
-					{{ language.native_name }}
-				</a>
+				<div class="select-menu select-menu--block select-menu--alt select-menu--small">
 
-			{% endfor %}
+					<label class="visually-hidden">Language</label>
+
+					<select onchange="if (this.value) window.location.href = this.value" class="">
+
+						{% for language in i18n.alternate_languages %}
+							<option value="{{ language.url }}" {{ (language.active) ? 'selected' : '' }} >{{ language.native_name }}</option>
+						{% endfor %}
+
+					</select>
+
+					<div class="select-menu__arrow"></div>
+
+				</div>
+
+			{% endif %}
 
 			<form role="search" method="get" class="search-input" data-colour="light" action="{{ site.home_url }}">
 
