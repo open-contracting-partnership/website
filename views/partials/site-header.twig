@@ -123,13 +123,25 @@
 
 			<div class="site-header__mobile-language">
 
-				{% for language in i18n.alternate_languages %}
+				<ul class="">
 
-					<a href="{{ language.url }}">
-						{{ language.native_name }}
-					</a>
+					{% for language in i18n.alternate_languages %}
 
-				{% endfor %}
+						{% if not language.active %}
+
+							<li>
+
+								<a href="{{ language.url }}">
+									{{ language.native_name }}
+								</a>
+
+							</li>
+
+						{% endif %}
+
+					{% endfor %}
+
+				</ul>
 
 			</div>
 
