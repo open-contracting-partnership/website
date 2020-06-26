@@ -58,7 +58,7 @@ class SingleResourceController extends Controller
 
 		}
 
-		$share_links = new ShareableLink($resource->link, $resource->title);
+		$share_links = new ShareableLink($resource->link(), $resource->title);
 
 		$context['resource']['share_links'] = array(
 			'twitter' => $share_links->twitter,
