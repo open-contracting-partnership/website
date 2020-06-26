@@ -65,11 +65,7 @@
 
 				<p>
 
-					<a
-						onclick="_gaq.push(['_trackEvent', 'Resources', 'Download', '{{ resource.title }}']);"
-						class="button button--has-icon"
-						href="{{ resource.attachments[0].file }}"
-					>
+					<a class="js-resource-download / button button--has-icon" href="{{ resource.attachments[0].file }}">
 						<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
 						{{ resource.i18n.download_label }}
 					</a>
@@ -82,11 +78,7 @@
 
 				<p>
 
-					<a
-						onclick="_gaq.push(['_trackEvent', 'Resources', 'Visit', '{{ resource.title }}']);"
-						class="button button--has-icon"
-						href="{{ resource.link }}"
-					>
+					<a class="js-resource-link / button button--has-icon" href="{{ resource.link }}">
 						<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
 						{{ resource.i18n.view_label }}
 					</a>
