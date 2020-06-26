@@ -78,7 +78,10 @@ class Lumberjack extends LumberjackCore
 		$context['social_links'] = array(
 			'twitter' => get_field('twitter_url', 'options') ?: NULL,
 			'facebook' => get_field('facebook_url', 'options') ?: NULL,
-			'linkedin' => get_field('linkedin_url', 'options') ?: NULL
+			'linkedin' => get_field('linkedin_url', 'options') ?: NULL,
+			'github' => get_field('github_url', 'options') ?: NULL,
+			'soundcloud' => get_field('soundcloud_url', 'options') ?: NULL,
+			'youtube' => get_field('youtube_url', 'options') ?: NULL
 		);
 
 		$share_links = new ShareableLink(get_permalink(), trim(wp_title('', FALSE)));
