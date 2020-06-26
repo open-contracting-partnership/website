@@ -9,7 +9,7 @@ class TextCard extends BaseCard
 
 		return [
 			'title' => $post->post_title,
-			'url' => $post->link,
+			'url' => $post->link(),
 			'meta' => $post->date('j M Y')
 		];
 

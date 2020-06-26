@@ -11,7 +11,7 @@ class CarouselCard
 			'title' => $post->post_title,
 			'introduction' => $post->excerpt,
 			'image' => $post->thumbnail->src,
-			'url' => $post->link
+			'url' => $post->link()
 		];
 
 	}

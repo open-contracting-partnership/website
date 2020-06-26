@@ -25,6 +25,20 @@ new Vue({
 		filter: null
 	},
 
+	watch: {
+
+		filter() {
+
+			if ( this.filter ) {
+				window.location.hash = this.filter;
+			} else {
+				window.location.hash = '';
+			}
+
+		}
+
+	},
+
 	computed: {
 
 		visibleResources: function () {
@@ -77,6 +91,14 @@ new Vue({
 				this.filter = event.target.value;
 			}
 
+		}
+
+	},
+
+	mounted() {
+
+		if ( window.location.hash ) {
+			this.filter = window.location.hash.substr(1);
 		}
 
 	}

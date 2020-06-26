@@ -9,7 +9,7 @@ class PrimaryCard extends BaseCard
 
 		$data = [
 			'title' => $post->post_title,
-			'url' => $post->link,
+			'url' => $post->link(),
 			'date' => $post->date,
 			'meta' => [],
 			'image_url' => $post->thumbnail ? $post->thumbnail->src : null,
