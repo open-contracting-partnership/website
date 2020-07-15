@@ -1,0 +1,10 @@
+{% set options = { 'id': null, 'classes': null } | merge(block.options) %}
+
+<div
+	id="{{ options.id }}"
+	class="block {{ options.classes }}"
+	style="color: {{ block.text_colour }}; background-color: {{ block.background_colour }};"
+	data-block-type="blog-highlight"
+>
+	{{ block.content | raw }}
+</div>
