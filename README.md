@@ -4,7 +4,7 @@
 
 **Website**: https://www.open-contracting.org/
 
-**Version**: 3.1.5
+**Version**: 3.1.6
 
 ---
 
