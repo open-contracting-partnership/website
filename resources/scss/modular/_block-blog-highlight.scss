@@ -1,0 +1,11 @@
+.block[data-block-type="blog-highlight"] {
+
+	display: block;
+	padding: var(--v-spacing-half);
+	border-radius: 4px;
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+
+}
