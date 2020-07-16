@@ -50,6 +50,7 @@ return [
 		App\Providers\Blocks\QuoteCarouselServiceProvider::class,
 		App\Providers\Blocks\ResourceServiceProvider::class,
 		App\Providers\Blocks\SignUpCoverServiceProvider::class,
+		App\Providers\Blocks\StagesServiceProvider::class,
 		App\Providers\Blocks\StoriesServiceProvider::class,
 		App\Providers\Blocks\TeamProfileServiceProvider::class,
 		App\Providers\Blocks\TitleWithIconServiceProvider::class,
