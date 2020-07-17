@@ -12,7 +12,6 @@ namespace App;
 
 use App\Cards\BasicCard;
 use App\Http\Controllers\Controller;
-use App\PostTypes\News;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Post;
 use Timber\Timber;
@@ -41,7 +40,6 @@ class ArchiveController extends Controller
 			$context['title'] = 'Category: ' . single_cat_title('', false);
 		} elseif (is_post_type_archive('news')) {
 			$context['title'] = _x('News', 'Archive title', 'ocp');
-			$context['posts'] = BasicCard::convertCollection(News::query());
 		}
 
 		// generate the prev/next links

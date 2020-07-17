@@ -1,0 +1,144 @@
+.block[data-block-type="stages"] {
+
+	.block__background {
+
+		grid-column: full;
+		grid-row: 1;
+		position: relative;
+		overflow: hidden;
+
+		// &::before {
+		// 	@include fluid-type(font-size, 360px, 1344px, 145px, 500px);
+		// 	content: '';
+		// 	display: block;
+		// 	border: .14em solid $ui-grey-6;
+		// 	border-radius: 50%;
+		// 	opacity: .1;
+		// 	height: 1em;
+		// 	width: 1em;
+		// 	position: absolute;
+		// 	top: -.55em;
+		// 	left: 50%;
+		// 	transform: translateX(-50%);
+		// }
+
+	}
+
+	.block__container {
+		position: relative;
+		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(2), spacing(6));
+		grid-column: content;
+		grid-row: 1;
+		@extend %column-grid;
+	}
+
+		.block__header {
+
+			@media screen {
+
+				grid-column: all;
+				@include fluid-type(margin-bottom, 375px, 1240px, 19px, 48px);
+
+				@include from(T) {
+					grid-column: all / 10;
+				}
+
+			}
+
+			@media print {
+				margin-bottom: spacing(2);
+			}
+
+		}
+
+			.block__heading {
+
+				@media screen {
+					@include fluid-type(font-size, 375px, 1240px, 22px, 36px);
+				}
+
+			}
+
+			.block__stages-container {
+				grid-column: all;
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+
+			.block__stage {
+
+				--columns: 2;
+				--icon-background: #{$ui-white};
+				--icon-fill: var(--block-colour);
+
+				font-size: 16px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				width: calc(100% / var(--columns));
+				text-align: center;
+				padding: 0 spacing(1.5);
+				margin-bottom: spacing(3);
+				text-decoration: none;
+
+				@include from(500) {
+					--columns: 3;
+				}
+
+				@include from(T) {
+					font-size: 18px;
+					--columns: 4;
+				}
+
+				@include from(M) {
+					--columns: 6;
+				}
+
+				&.block__stage--active,
+				&:hover,
+				&:focus,
+				&:active {
+					--icon-background: var(--active-colour);
+					--icon-fill: #{$ui-white};
+				}
+
+			}
+
+				.block__stage-icon {
+
+					--size: 72px;
+
+					display: block;
+					height: var(--size);
+					width: var(--size);
+					border-radius: 50%;
+					background-color: var(--icon-background);
+					margin-bottom: spacing(2);
+					box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.13);
+					transition: background-color .3s ease;
+
+					@include from(T) {
+						--size: 96px;
+						margin-bottom: spacing(3);
+					}
+
+				}
+
+					.block__stage-icon-image {
+						background-color: var(--icon-fill);
+						height: 100%;
+						width: 100%;
+						transition: background-color .3s ease;
+					}
+
+				.block__stage-title {
+					margin-bottom: spacing(1);
+					line-height: 1.4;
+				}
+
+				.block__stage-read-more {
+					text-decoration: underline;
+					font-weight: 600;
+				}
+}

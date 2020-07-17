@@ -3,6 +3,7 @@
         "rareloop/lumberjack-core": "^4.3",
         "drewm/mailchimp-api": "^2.5",
         "vlucas/phpdotenv": "^3.6",
-        "imliam/shareable-link": "^1.0.0"
+        "imliam/shareable-link": "^1.0.0",
+        "ozdemirburak/iris": "^2.1"
     }
 }
