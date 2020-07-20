@@ -25,7 +25,7 @@
 					<a class="block__stage {{ stage.is_active ? 'block__stage--active' : '' }}" href="{{ stage.link.url }}">
 
 						<div class="block__stage-icon">
-							<div class="block__stage-icon-image" style="mask-image: url({{ stage.icon.url }});"></div>
+							<div class="block__stage-icon-image" style="mask-image: url({{ stage.icon.url }}); -webkit-mask-image: url({{ stage.icon.url }});"></div>
 						</div>
 
 						<strong class="block__stage-title">{{ stage.link.title }}</strong>
