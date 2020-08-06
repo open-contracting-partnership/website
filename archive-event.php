@@ -13,6 +13,12 @@ class ArchiveEventController extends Controller
 {
 	public function handle()
 	{
+		// allow past events to be shown in the archive template
+		if ( isset($_GET['view_past_events']) ) {
+			require('archive.php');
+			return (new \App\ArchiveController)->handle();
+		}
+
 		$context = Timber::get_context();
 		$context['title'] = get_post_type_label('event', true);
 		$context['latest_event'] = null;
@@ -38,7 +44,7 @@ class ArchiveEventController extends Controller
 
 		$archive_events = Event::query([
 			'post_type' => 'event',
-			'posts_per_page' => 3,
+			'posts_per_page' => 5,
 			'meta_key' => 'event_date',
 			'orderby' => 'meta_value_num',
 			'order' => 'DESC',
@@ -66,6 +72,12 @@ class ArchiveEventController extends Controller
 		$context['events']['i18n']['past_events_label'] = _x(
 			'View past events',
 			'The past events label for the events archive',
+			'ocp'
+		);
+
+		$context['events']['i18n']['view_past_events_label'] = _x(
+			'View all past events',
+			'The view all past events label for the events archive',
 			'ocp'
 		);
 
