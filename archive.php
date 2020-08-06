@@ -15,6 +15,7 @@ use App\Http\Controllers\Controller;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Post;
 use Timber\Timber;
+use Timber\User as TimberUser;
 
 class ArchiveController extends Controller
 {
@@ -40,6 +41,9 @@ class ArchiveController extends Controller
 			$context['title'] = 'Category: ' . single_cat_title('', false);
 		} elseif (is_post_type_archive('news')) {
 			$context['title'] = _x('News', 'Archive title', 'ocp');
+		} elseif (is_author()) {
+			$author = new TimberUser($wp_query->query_vars['author']);
+			$context['title'] = 'Author Archives: ' . $author->name();
 		}
 
 		// generate the prev/next links
