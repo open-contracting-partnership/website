@@ -50,7 +50,7 @@ class MailChimpServiceProvider extends ServiceProvider
 		$MailChimp = new MailChimp($mailchimp_api_key);
 
 		// make a request to add the email to the list
-		$result = $MailChimp->post('lists/31f795cd0a/members', [
+		$result = $MailChimp->post('lists/fc9ec0e34b/members', [
 			'email_address' => $request->get_param('email'),
 			'status' => 'subscribed'
 		]);
