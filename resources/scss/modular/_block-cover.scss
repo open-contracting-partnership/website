@@ -22,11 +22,12 @@ category:
 
 .block[data-block-type="cover"] {
 
-	color: $ui-white;
+	color: var(--colour, #{$ui-white});
 
 	@include fluid-type(--padding, 360px, 1240px, spacing(2), spacing(15));
 
 	grid-template-rows: [all-start] var(--padding) auto var(--padding) [all-end];
+
 
 	.block__image {
 		grid-column: full;
@@ -41,20 +42,29 @@ category:
 		grid-row: all;
 	}
 
-	.block__heading {
+	.block__content {
 
-		grid-column: content / -6;
+		grid-column: content / 10;
 		grid-row: 2;
 		color: currentColor;
 		align-self: center;
 
-		@media screen {
-			@include fluid-type(font-size, 360px, 1240px, 25px, 39px);
-			margin-bottom: 0;
+		@include from(T) {
+			// grid-column: content / -8;
 		}
 
-		@include from(T) {
-			grid-column: content / -8;
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+
+			@media screen {
+				@include fluid-type(font-size, 360px, 1240px, 25px, 39px);
+				margin-bottom: spacing(2);
+			}
+
 		}
 
 	}

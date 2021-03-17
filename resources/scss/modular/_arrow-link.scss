@@ -86,7 +86,8 @@ category:
 	display: flex;
 	align-items: center;
 	text-decoration: none;
-	color: $ui-white;
+
+	color: var(--colour, #{$ui-white});
 
 	&:hover,
 	&:focus,
@@ -102,7 +103,7 @@ category:
 		font-size: 28px;
 		height: 1em;
 		width: 1em;
-		fill: $ui-brand;
+		fill: var(--colour, #{$ui-brand});
 
 		@media print {
 			display: none;

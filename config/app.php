@@ -35,6 +35,7 @@ return [
 		App\Providers\SEOServiceProvider::class,
 
 		// Block Providers
+		App\Providers\Blocks\ArrowLinkProvider::class,
 		App\Providers\Blocks\BlogHighlightServiceProvider::class,
 		App\Providers\Blocks\ContentServiceProvider::class,
 		App\Providers\Blocks\CoverServiceProvider::class,

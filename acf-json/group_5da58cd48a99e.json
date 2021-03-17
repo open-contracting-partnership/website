@@ -48,6 +48,22 @@
             "mime_types": ""
         },
         {
+            "key": "field_60521d629b0be",
+            "label": "Text Colour",
+            "name": "text_colour",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "default_value": ""
+        },
+        {
             "key": "field_5da58d14afa72",
             "label": "Overlay Colour",
             "name": "overlay_colour",
@@ -100,7 +116,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1573813033
+    "modified": 1615994229
 }
