@@ -1,0 +1,24 @@
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div
+	id="{{ options.id }}"
+	class="block"
+	data-block-type="card"
+	style="
+		{% if block.text_colour %}
+			--colour: {{ block.text_colour }}
+		{% endif %}
+	">
+
+	{% if block.lead %}
+
+		<div class="block__lead">
+			<div class="block__circle-icon"></div>
+			{{ block.lead }}
+		</div>
+
+	{% endif %}
+
+	<a href="{{ block.link.url }}">{{ block.link.title }}</a>
+
+</div>

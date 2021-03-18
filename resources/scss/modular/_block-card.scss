@@ -1,0 +1,46 @@
+.block[data-block-type="card"] {
+
+	--highlight: #5946CB;
+
+	display: block;
+
+	background-color: white;
+	border: 3px solid var(--highlight);
+	border-radius: 32px 8px;
+	padding: spacing(3.5);
+	font-size: 20px;
+	font-weight: bold;
+	color: black;
+
+	a {
+		text-decoration: none;
+	}
+
+	.block__lead {
+		display: flex;
+		align-items: center;
+		text-transform: uppercase;
+		font-size: em(15, 20);
+		color: var(--highlight);
+		font-weight: normal;
+		margin-bottom: spacing(1);
+	}
+
+		.block__circle-icon {
+			flex: 0 0 1em;
+			display: block;
+			font-size: 24px;
+			height: 1em;
+			width: 1em;
+			border-radius: 50%;
+			border: em(6, 24) solid var(--highlight);
+			flex: 0 0 auto;
+			margin-right: spacing(1);
+			box-sizing: border-box;
+		}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+
+}
