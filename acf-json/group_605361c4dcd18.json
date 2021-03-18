@@ -1,0 +1,50 @@
+{
+    "key": "group_605361c4dcd18",
+    "title": "Resource Location",
+    "fields": [
+        {
+            "key": "field_605361c506190",
+            "label": "Resource Location",
+            "name": "resource_location",
+            "type": "select",
+            "instructions": "Choose the location for this resource",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "choices": {
+                "resources": "Resources",
+                "learning": "Learning"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 1,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "resource"
+            }
+        ]
+    ],
+    "menu_order": 3,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1616077441
+}
