@@ -59,12 +59,13 @@ class SignUpCoverServiceProvider
 		$context['block']['background_opacity'] = get_field('background_opacity') / 100;
 
 		$context['block']['background_colour'] = hex2rgba($context['block']['overlay_color'], $context['block']['background_opacity']);
-		$context['block']['text_colour'] = isContrastingColourLight($context['block']['background_colour']) ? '#FFF' : '#000';
+		// $context['block']['text_colour'] = isContrastingColourLight($context['block']['background_colour']) ? '#FFF' : '#000';
+		$context['block']['text_colour'] = '#FFF';
 		$context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
 
 		// options
 		$context['block']['options'] = get_field('options') ?: [];
-		
+
 		echo Timber::compile('blocks/sign-up-cover.twig', $context);
 
 	}
