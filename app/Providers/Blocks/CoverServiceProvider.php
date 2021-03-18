@@ -48,7 +48,7 @@ class CoverServiceProvider
 		// content
 		$context['block']['heading'] = get_field('heading') ?: 'Add primary title here&hellip;';
 		$context['block']['image'] = get_field('image');
-		$context['block']['text_colour'] = get_field('textd_colour');
+		$context['block']['text_colour'] = get_field('text_colour');
 		$context['block']['overlay_color'] = get_field('overlay_colour') ?: '#000000';
 		$context['block']['background_opacity'] = get_field('background_opacity') / 100;
 		$context['block']['background_color'] = hex2rgba($context['block']['overlay_color'], $context['block']['background_opacity']);
