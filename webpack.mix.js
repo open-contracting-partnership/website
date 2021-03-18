@@ -1,4 +1,6 @@
 const mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss');
+
 require('laravel-mix-svg-sprite');
 
 // set the public path directory
@@ -37,7 +39,8 @@ mix.sass('resources/scss/styles.scss', 'dist/css')
 	.sass('resources/scss/gutenberg.scss', 'dist/css')
 	.sass('styleguide_assets/aigis_assets/styles/theme.scss', 'styleguide')
 	.options({
-		processCssUrls: false
+		processCssUrls: false,
+        postCss: [tailwindcss('./tailwind.config.js')],
 	});
 
 mix.js('resources/js/scripts.js', 'dist/js')

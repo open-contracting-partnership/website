@@ -15,6 +15,7 @@ partial in the specified directory .
 $is-gutenberg: true;
 
 @import 'tools/fonts';
+@import 'tailwindcss/utilities';
 
 body [data-block] .acf-block-preview,
 body [data-block] [class^="wp-block-"] {
