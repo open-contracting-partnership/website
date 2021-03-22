@@ -1,5 +1,6 @@
 .block[data-block-type="grid-section"] {
 
+	font-size: 16px;
 	color: var(--colour, #{$ui-white});
 
 	@include fluid-type(--padding, 360px, 1240px, spacing(2), spacing(15));
@@ -58,7 +59,7 @@
 			h6 {
 
 				@media screen {
-					@include fluid-type(font-size, 360px, 1240px, 25px, 39px);
+					@include fluid-type(font-size, 360px, 1240px, 19px, 32px);
 					margin-bottom: spacing(2);
 				}
 
@@ -74,6 +75,11 @@
 
 			> * {
 				grid-column: all;
+			}
+
+			> [data-grid-placement="small"],
+			> [data-grid-placement="medium"] {
+				grid-column: span 1;
 			}
 
 		}

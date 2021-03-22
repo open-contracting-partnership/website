@@ -37,6 +37,33 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
+                },
+                {
+                    "key": "field_605856108cf3d",
+                    "label": "Grid Placement",
+                    "name": "grid_placement",
+                    "type": "select",
+                    "instructions": "Specify how wide to make this card when it appears in a grid. Not all settings will have an effect, depending on how the parent  grid decides how to display them.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "choices": {
+                        "small": "Small",
+                        "medium": "Medium",
+                        "large": "Large"
+                    },
+                    "default_value": false,
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
                 }
             ]
         }
@@ -56,7 +83,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1574247284
+    "modified": 1616401996
 }

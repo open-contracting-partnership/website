@@ -43,10 +43,22 @@ class CardServiceProvider
 		// content
 		$context['block']['lead'] = get_field('lead');
 		$context['block']['link'] = get_field('link');
+		$context['block']['buttons'] = get_field('buttons');
 
 		if ($is_preview) {
+
 			$context['block']['link']['url'] = '#';
 			$context['block']['link']['target'] = '';
+
+			$context['block']['buttons'] = array_map(function($button) {
+
+				$button['link']['url'] = '#';
+				$button['link']['target'] = '';
+
+				return $button;
+
+			}, $context['block']['buttons']);
+
 		}
 
 		// colours
