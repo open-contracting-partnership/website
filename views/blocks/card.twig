@@ -6,9 +6,9 @@
 	data-block-type="card"
 	data-grid-placement="{{ options.grid_placement }}"
 	style="
-		{% if block.text_colour %}
-			--colour: {{ block.text_colour }}
-		{% endif %}
+		--custom-highlight: {{ block.highlight_colour }};
+		--custom-background: {{ block.background_colour }};
+		--custom-colour: {{ block.text_colour }};
 	"
 >
 

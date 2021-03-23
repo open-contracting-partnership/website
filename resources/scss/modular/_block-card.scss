@@ -1,6 +1,9 @@
 .block[data-block-type="card"] {
 
-	--highlight: #5946CB;
+	// attempt to use custom variables, otherwise fallback on the defaults
+	--highlight: var(--custom-highlight, #{$ui-black});
+	--background: var(--custom-background, #{$ui-white});
+	--colour: var(--custom-colour, #{$ui-black});
 
 	display: flex;
 	flex-direction: column;
@@ -28,7 +31,7 @@
 			align-items: center;
 			text-transform: uppercase;
 			font-size: em(15, 20);
-			color: var(--highlight);
+			color: var(--colour);
 			font-weight: normal;
 			margin-bottom: spacing(1);
 		}
