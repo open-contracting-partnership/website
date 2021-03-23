@@ -1,6 +1,6 @@
 {
     "key": "group_5da4531e9b3e7",
-    "title": "Mega Menu",
+    "title": "Options: Mega Menu",
     "fields": [
         {
             "key": "field_5da45451f870d",
@@ -37,10 +37,11 @@
                     },
                     "wpml_cf_preferences": 0,
                     "choices": {
+                        "6261": "What is open contracting",
+                        "5787": "Impact",
+                        "6321": "Implement",
+                        "5786": "Data",
                         "925": "About",
-                        "922": "Why open contracting",
-                        "3290": "Implement",
-                        "1199": "Data Standard",
                         "924": "Latest"
                     },
                     "default_value": [],
@@ -108,6 +109,26 @@
                             "label": "Menu",
                             "display": "block",
                             "sub_fields": [
+                                {
+                                    "key": "field_605a084fc108d",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "gutenberg_visibility": "both",
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
                                 {
                                     "key": "field_5da45afcd6916",
                                     "label": "Links",
@@ -241,7 +262,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1571759695
+    "modified": 1616513122
 }
