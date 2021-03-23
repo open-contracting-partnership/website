@@ -159,7 +159,8 @@ category:
 				@include font('secondary', 'medium');
 				margin-right: spacing(5);
 
-				&[data-type="menu"] {
+				&[data-type="menu"],
+				&[data-type="grouped-menu-single"] {
 					flex: 0 1 200px;
 				}
 
@@ -182,9 +183,14 @@ category:
 					margin-bottom: spacing(2);
 				}
 
-				.mega-menu__sub-nav {
+				[data-type="grouped-menu"] .mega-menu__sub-nav {
 					display: grid;
 					grid-template-columns: repeat(2, 1fr);
 					grid-column-gap: spacing(2);
+					@include font('secondary');
+				}
+
+				[data-type="grouped-menu-single"] .mega-menu__sub-nav {
+					display: grid;
 					@include font('secondary');
 				}
