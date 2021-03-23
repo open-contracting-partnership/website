@@ -36,6 +36,7 @@ return [
 
 		// Block Providers
 		App\Providers\Blocks\ArrowLinkProvider::class,
+		App\Providers\Blocks\BackBarServiceProvider::class,
 		App\Providers\Blocks\BlogHighlightServiceProvider::class,
 		App\Providers\Blocks\CardEmbedServiceProvider::class,
 		App\Providers\Blocks\CardServiceProvider::class,
