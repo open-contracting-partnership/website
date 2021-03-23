@@ -62,6 +62,7 @@ class CardServiceProvider
 		}
 
 		// colours
+		$context['block']['highlight_colour'] = get_field('highlight_colour') ?: '#000000';
 		$context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';
 		$context['block']['is_dark'] = isContrastingColourLight($context['block']['background_colour']);
 		$context['block']['text_colour'] = $context['block']['is_dark'] ? '#FFF' : '#000';

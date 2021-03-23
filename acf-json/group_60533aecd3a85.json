@@ -75,6 +75,81 @@
                     "return_format": "array"
                 }
             ]
+        },
+        {
+            "key": "field_6058550889289",
+            "label": "Grid Placement",
+            "name": "grid_placement",
+            "type": "select",
+            "instructions": "Specify how wide to make this card when it appears in a grid. Not all settings will have an effect, depending on how the parent  grid decides how to display them.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "choices": {
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6059a367cc59e",
+            "label": "Highlight Colour",
+            "name": "highlight_colour",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "default_value": ""
+        },
+        {
+            "key": "field_6059a646cc59f",
+            "label": "Background Colour",
+            "name": "background_colour",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "default_value": ""
+        },
+        {
+            "key": "field_6059a64ecc5a0",
+            "label": "Text Colour",
+            "name": "text_colour",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "default_value": ""
         }
     ],
     "location": [
@@ -96,5 +171,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1616071222
+    "modified": 1616488037
 }
