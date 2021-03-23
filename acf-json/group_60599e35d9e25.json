@@ -1,0 +1,47 @@
+{
+    "key": "group_60599e35d9e25",
+    "title": "Learning Resource Category",
+    "fields": [
+        {
+            "key": "field_60599e3608f1a",
+            "label": "Learning Resource Category",
+            "name": "learning_resource_category",
+            "type": "taxonomy",
+            "instructions": "Choose the learning category for this resource",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "taxonomy": "learning-resource-category",
+            "field_type": "select",
+            "allow_null": 0,
+            "add_term": 1,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "object",
+            "multiple": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "resource"
+            }
+        ]
+    ],
+    "menu_order": 3,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1616486252
+}
