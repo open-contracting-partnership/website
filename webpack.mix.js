@@ -44,6 +44,7 @@ mix.sass('resources/scss/styles.scss', 'dist/css')
 	});
 
 mix.js('resources/js/scripts.js', 'dist/js')
+	.js('resources/js/element-queries.js', 'dist/js')
 	.js('resources/js/block-download-carousel.js', 'dist/js')
 	.js('resources/js/block-featured-stories-carousel.js', 'dist/js')
 	.js('resources/js/block-our-model.js', 'dist/js')
