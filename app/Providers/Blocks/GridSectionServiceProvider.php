@@ -51,6 +51,7 @@ class GridSectionServiceProvider
 			'core/paragraph',
 			'acf/ocp-grid-section',
 			'acf/ocp-card',
+			'acf/ocp-card-embed',
 			'acf/ocp-card-with-icon',
 			'acf/ocp-arrow-link'
 		]));

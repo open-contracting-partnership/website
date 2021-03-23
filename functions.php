@@ -24,11 +24,6 @@ require_once('functions/loader.php');
 // Set global params in the Timber context
 add_filter('timber/context', [$lumberjack, 'addToContext']);
 
-add_action( 'wp_print_styles', 'wps_deregister_styles', 100 );
-function wps_deregister_styles() {
-	wp_dequeue_style( 'wp-block-library' );
-}
-
 function hex2rgba($color, $opacity = false) {
 
 	$default = 'rgb(0,0,0)';

@@ -1,0 +1,36 @@
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div
+	id="{{ options.id }}"
+	class="block"
+	data-block-type="card-embed"
+	data-grid-placement="{{ options.grid_placement }}"
+>
+
+	<div class="block__main">
+		<InnerBlocks allowedBlocks="{{ block.allowed_inner_blocks }}" />
+	</div>
+
+	{% if block.buttons %}
+
+		<div class="block__footer">
+
+			<div class="block__buttons">
+
+				{% for button in block.buttons %}
+
+					{% if loop.index0 == 0 %}
+						<a href="{{ button.link.url }}" target="{{ button.link.target }}" class="button" data-colour="dark" data-size="slim">{{ button.link.title }}</a>
+					{% else %}
+						<a href="{{ button.link.url }}" target="{{ button.link.target }}" class="button" data-colour="light" data-size="slim">{{ button.link.title }}</a>
+					{% endif %}
+
+				{% endfor %}
+
+			</div>
+
+		</div>
+
+	{% endif %}
+
+</div>
