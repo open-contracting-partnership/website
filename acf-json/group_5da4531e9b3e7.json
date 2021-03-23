@@ -290,7 +290,7 @@
                     },
                     "button_label": "Add Sub Menu",
                     "min": "",
-                    "max": 2
+                    "max": 3
                 }
             ]
         }
@@ -312,5 +312,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1616513598
+    "modified": 1616514225
 }
