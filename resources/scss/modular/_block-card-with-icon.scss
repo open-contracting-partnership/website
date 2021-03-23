@@ -1,16 +1,22 @@
 .block[data-block-type="card-with-icon"] {
 
-	--highlight: #5946CB;
+	--icon-width: 75px;
 
+	position: relative;
 	display: flex;
 	flex-direction: column;
-	position: relative;
-
 	border-radius: spacing(1);
-	padding: spacing(5);
+	padding: spacing(3);
 
-	&:not([data-icon=""]) {
-		padding-right: calc(150px + 24px + 12px);
+	@include el_from(400) {
+
+		--icon-width: 150px;
+		padding: spacing(5);
+
+		&:not([data-icon=""]) {
+			padding-right: calc(var(--icon-width) + 24px + 12px);
+		}
+
 	}
 
 	.block__main {
@@ -23,11 +29,18 @@
 			margin-bottom: 0;
 		}
 
+	.block__footer {
+		margin-top: spacing(3);
+
+		@include from(T) {
+			margin-top: spacing(5);
+		}
+	}
 
 	.block__icon {
 		display: block;
-		height: 150px;
-		width: 155px;
+		height: var(--icon-width);
+		width: calc(var(--icon-width) * 1.0333);
 		position: absolute;
 		bottom: 0;
 		right: spacing(1.5);
