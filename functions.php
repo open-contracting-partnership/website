@@ -117,6 +117,10 @@ $taxonomies = array(
 		'label' => 'Resource Type',
 		'post_type' => ['resource']
 	),
+	'learning-resource-category' => array(
+		'label' => 'Learning Resource Category',
+		'post_type' => ['resource']
+	),
 	'region' => array(
 		'label' => 'Region',
 		'post_type' => ['post', 'news', 'event', 'resource']
