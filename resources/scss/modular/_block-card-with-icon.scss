@@ -1,0 +1,44 @@
+.block[data-block-type="card-with-icon"] {
+
+	--highlight: #5946CB;
+
+	display: flex;
+	flex-direction: column;
+	position: relative;
+
+	border-radius: spacing(1);
+	padding: spacing(5);
+	padding-right: calc(150px + 24px + 12px);
+
+	.block__main {
+		@apply space-y-2;
+		margin-bottom: auto;
+	}
+
+		.block__heading {
+			@include fluid-type(font-size, 360px, 1240px, 20px, 32px);
+			margin-bottom: 0;
+		}
+
+
+	.block__icon {
+		display: block;
+		height: 150px;
+		width: 155px;
+		position: absolute;
+		bottom: 0;
+		right: spacing(1.5);
+	}
+
+	.block__link::after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 2;
+	}
+
+}

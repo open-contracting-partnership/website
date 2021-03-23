@@ -31,9 +31,10 @@ category:
 
 .button {
 
-	--border-colour: #{$ui-brand};
-	--background: #{$ui-brand};
-	--colour: #{$ui-grey};
+	// attempt to use custom variables, otherwise fallback on the defaults
+	--border-colour: var(--custom-background, #{$ui-brand});
+	--background: var(--custom-background, #{$ui-brand});
+	--colour: var(--custom-colour, #{$ui-grey});
 
 	font-size: 14px;
 	@include font('secondary', 'medium');

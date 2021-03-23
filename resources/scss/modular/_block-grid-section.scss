@@ -4,11 +4,11 @@
 	color: var(--colour, #{$ui-white});
 
 	@include fluid-type(--padding, 360px, 1240px, spacing(2), spacing(15));
-
+	@include fluid-type(--font-size, 360px, 1240px, 19px, 32px);
 
 	.block__background {
 
-		padding: spacing(4) 0;
+		// padding: spacing(4) 0;
 		grid-column: full;
 		grid-row: 1;
 
@@ -21,7 +21,7 @@
 	.block__container {
 		grid-column: content;
 		grid-row: 1;
-		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(3), spacing(9));
+		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(3), spacing(12));
 		display: grid;
 		@extend %column-grid;
 	}
@@ -59,7 +59,7 @@
 			h6 {
 
 				@media screen {
-					@include fluid-type(font-size, 360px, 1240px, 19px, 32px);
+					font-size: var(--font-size);
 					margin-bottom: spacing(2);
 				}
 
@@ -71,7 +71,7 @@
 
 			display: grid;
 			grid-template-columns: [all-start] repeat(2, 1fr) [all-end];
-			grid-gap: spacing(2);
+			grid-gap: spacing(3);
 
 			> * {
 				grid-column: all;
@@ -82,7 +82,29 @@
 				grid-column: span 1;
 			}
 
+			> .block[data-block-type="grid-section"]:not(:first-child) {
+				margin-top: spacing(3);
+			}
+
+			> .block[data-block-type="grid-section"]:not(:last-child) {
+				margin-bottom: spacing(3);
+			}
+
 		}
 
+
+	.block[data-block-type="grid-section"] {
+
+		border-radius: spacing(1);
+		overflow: hidden;
+
+		@include fluid-type(--font-size, 360px, 1240px, 18px, 26px);
+
+		.block__container {
+			grid-column: full;
+			@include fluid-type((padding), 375px, 1240px, spacing(2), spacing(5));
+		}
+
+	}
 
 }

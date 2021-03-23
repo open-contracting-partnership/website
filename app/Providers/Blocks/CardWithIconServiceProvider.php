@@ -5,7 +5,7 @@ namespace App\Providers\Blocks;
 use App\Providers\Blocks\BaseBlock;
 use Timber\Timber;
 
-class GridSectionServiceProvider
+class CardWithIconServiceProvider
 {
 
 	/**
@@ -17,17 +17,16 @@ class GridSectionServiceProvider
 		add_action('acf/init', function() {
 
 			acf_register_block_type([
-				'name' => 'ocp/grid-section',
-				'title' => __('Grid Section'),
-				'description' => __('Grid section includes a heading, strapline and a grid of contents.'),
+				'name' => 'ocp/card-with-icon',
+				'title' => __('Card (with Icon)'),
+				// 'description' => __('Grid section includes a heading, strapline and a grid of contents.'),
 				'render_callback' => array($this, 'render'),
 				'category' => 'ocp-blocks',
 				'icon' => 'grid-view',
-				'keywords' => ['grid', 'section'],
+				'keywords' => ['icon', 'card'],
 				'post_types' => ['page'],
 				'supports' => [
 					'align' => false,
-					'jsx' => true,
 				]
 			]);
 
@@ -42,18 +41,15 @@ class GridSectionServiceProvider
 		$context['block'] = [];
 
 		// content
-		$context['block']['heading'] = get_field('heading') ?: 'Add primary title here&hellip;';
+		$context['block']['heading'] = get_field('heading');
 		$context['block']['strapline'] = get_field('strapline');
-		$context['block']['layout'] = get_field('layout');
+		$context['block']['icon'] = get_field('icon');
+		$context['block']['link'] = get_field('link');
 
-		$context['block']['allowed_inner_blocks'] = esc_attr(wp_json_encode([
-			'core/heading',
-			'core/paragraph',
-			'acf/ocp-grid-section',
-			'acf/ocp-card',
-			'acf/ocp-card-with-icon',
-			'acf/ocp-arrow-link'
-		]));
+		if ($is_preview) {
+			$context['block']['link']['url'] = '#';
+			$context['block']['link']['target'] = '';
+		}
 
 		// colours
 		$context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';
@@ -64,7 +60,7 @@ class GridSectionServiceProvider
 		// options
 		$context['block']['options'] = get_field('options') ?: [];
 
-		echo Timber::compile('blocks/grid-section.twig', $context);
+		echo Timber::compile('blocks/card-with-icon.twig', $context);
 
 	}
 
