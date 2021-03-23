@@ -70,16 +70,19 @@
 		.block__grid {
 
 			display: grid;
-			grid-template-columns: [all-start] repeat(2, 1fr) [all-end];
+			grid-template-columns: [all-start] repeat(12, 1fr) [all-end];
 			grid-gap: spacing(3);
 
 			> * {
 				grid-column: all;
 			}
 
-			> [data-grid-placement="small"],
+			> [data-grid-placement="small"] {
+				grid-column: span 4;
+			}
+
 			> [data-grid-placement="medium"] {
-				grid-column: span 1;
+				grid-column: span 6;
 			}
 
 			> .block[data-block-type="grid-section"]:not(:first-child) {
