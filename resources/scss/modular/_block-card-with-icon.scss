@@ -8,7 +8,10 @@
 
 	border-radius: spacing(1);
 	padding: spacing(5);
-	padding-right: calc(150px + 24px + 12px);
+
+	&:not([data-icon=""]) {
+		padding-right: calc(150px + 24px + 12px);
+	}
 
 	.block__main {
 		@apply space-y-2;
