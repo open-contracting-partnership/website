@@ -28,82 +28,111 @@
 			<button class="button--naked" data-tab="learning-library" @click="switchTab" :data-active="tab === 'learning-library'">Learning Library</button>
 		</div>
 
-		<div class="resource-archive__search /  search-input" data-size="large">
+		<div class="resource-archive__controls / grid grid-cols-2 gap-4">
 
-			<input class="search-input__input / uppercase" v-model="search" type="text" aria-label="Search" placeholder="Search">
+			<div>
 
-			<button class="search-input__button / button--naked">
-				<svg><use xlink:href="#icon-search-rounded"></use></svg>
-			</button>
+				<div class="resource-archive__search /  search-input max-w-xs" data-size="large">
 
-		</div>
+					<input class="search-input__input / uppercase" v-model="search" type="text" aria-label="Search" placeholder="Search">
 
-		<div class="resource-archive__filters" v-if="tab === 'resource-library'">
+					<button class="search-input__button / button--naked">
+						<svg><use xlink:href="#icon-search-rounded"></use></svg>
+					</button>
 
-			{% for filter in resource_library_filters %}
+				</div>
 
-				<div class="resource-archive__filter">
+				<div class="resource-archive__filters" v-if="tab === 'resource-library'">
 
-					<h3 class="resource-archive__filter-heading">{{ filter.title }}</h3>
+					{% for filter in resource_library_filters %}
 
-					{% for field in filter.filter %}
+						<div class="resource-archive__filter">
 
-						<label class="resource-archive__filter-field">
+							<h3 class="resource-archive__filter-heading">{{ filter.title }}</h3>
 
-							<input
-								type="radio"
-								name="{{ field.taxonomy }}"
-								data-taxonomy="{{ field.taxonomy }}"
-								value="{{ field.slug }}"
-								:checked="isChecked('{{ field.taxonomy }}', '{{ field.slug }}')"
-								class="input-circle"
-								data-colour="{{ field.colour }}"
-								@click="toggleFilter"
-							>
+							{% for field in filter.filter %}
 
-							{{ field.label }}
+								<label class="resource-archive__filter-field">
 
-						</label>
+									<input
+										type="radio"
+										name="{{ field.taxonomy }}"
+										data-taxonomy="{{ field.taxonomy }}"
+										value="{{ field.slug }}"
+										:checked="isChecked('{{ field.taxonomy }}', '{{ field.slug }}')"
+										class="input-circle"
+										data-colour="{{ field.colour }}"
+										@click="toggleFilter"
+									>
+
+									{{ field.label }}
+
+								</label>
+
+							{% endfor %}
+
+						</div>
 
 					{% endfor %}
 
 				</div>
 
-			{% endfor %}
+				<div class="resource-archive__filters" v-if="tab === 'learning-library'">
 
-		</div>
+					{% for filter in learning_library_filters %}
 
-		<div class="resource-archive__filters" v-if="tab === 'learning-library'">
+						<div class="resource-archive__filter">
 
-			{% for filter in learning_library_filters %}
+							<h3 class="resource-archive__filter-heading">{{ filter.title }}</h3>
 
-				<div class="resource-archive__filter">
+							{% for field in filter.filter %}
 
-					<h3 class="resource-archive__filter-heading">{{ filter.title }}</h3>
+								<label class="resource-archive__filter-field">
 
-					{% for field in filter.filter %}
+									<input
+										type="radio"
+										name="{{ field.taxonomy }}"
+										data-taxonomy="{{ field.taxonomy }}"
+										value="{{ field.slug }}"
+										:checked="isChecked('{{ field.taxonomy }}', '{{ field.slug }}')"
+										class="input-circle"
+										data-colour="{{ field.colour }}"
+										@click="toggleFilter"
+									>
+									{{ field.label }}
 
-						<label class="resource-archive__filter-field">
+								</label>
 
-							<input
-								type="radio"
-								name="{{ field.taxonomy }}"
-								data-taxonomy="{{ field.taxonomy }}"
-								value="{{ field.slug }}"
-								:checked="isChecked('{{ field.taxonomy }}', '{{ field.slug }}')"
-								class="input-circle"
-								data-colour="{{ field.colour }}"
-								@click="toggleFilter"
-							>
-							{{ field.label }}
+							{% endfor %}
 
-						</label>
+						</div>
 
 					{% endfor %}
 
 				</div>
 
-			{% endfor %}
+			</div>
+
+			<div class="[tw: justify-self-end ]">
+
+				<div v-if="tab === 'learning-library'" class="card card--resource [tw: max-w-xs ]" data-post-type="resource" style="max-width: 13rem; background-color: #DEDAF5; color: #000;">
+
+					<div class="card__body">
+						<a class="card__link" href="/learn">We’ve recently added new Learning resources to this library</a>
+					</div>
+
+					<div class="card__footer">
+
+						<a class="arrow-link" href="/learn" style="color: #000;">
+							<svg class="arrow-link__icon" style="fill: #5946CB;"><use xlink:href="#icon-arrow-circle"></use></svg>
+							<span class="arrow-link__label">Explore Learning</span>
+						</a>
+
+					</div>
+
+				</div>
+
+			</div>
 
 		</div>
 
