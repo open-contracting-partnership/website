@@ -20,21 +20,28 @@ new Vue({
 		// data
 		resources: content.resources,
 
+		// switch
+		tab: 'resource-library',
+
 		// search and filters
 		search: '',
-		filter: null
+		filter: {}
+
 	},
 
 	watch: {
 
-		filter() {
+		filter: {
+			deep: true,
+			handler() {
 
-			if ( this.filter ) {
-				window.location.hash = this.filter;
-			} else {
-				window.location.hash = '';
+				let params = this.filter;
+
+				params.tab = this.tab;
+
+				const url = window.location.pathname + '?' + new URLSearchParams(params).toString();
+				history.replaceState(null, '', url);
 			}
-
 		}
 
 	},
@@ -61,11 +68,33 @@ new Vue({
 
 				}
 
+				if (this.tab === 'resource-library') {
+
+					if (resource.location.length !== 0 && resource.location.indexOf('resource') === -1) {
+						display = false;
+					}
+
+				} else {
+
+					if (resource.location.indexOf('learning') === -1) {
+						display = false;
+					}
+
+				}
+
 				// apply resource type filter
+				if ( this.filter['resource-type'] ) {
 
-				if ( this.filter ) {
+					if ( resource.type !== this.filter['resource-type'] ) {
+						display = false;
+					}
 
-					if ( resource.type !== this.filter ) {
+				}
+
+				// apply learning resource category filter
+				if ( this.filter['learning-resource-category'] ) {
+
+					if ( resource.learning_resource_category !== this.filter['learning-resource-category'] ) {
 						display = false;
 					}
 
@@ -85,20 +114,56 @@ new Vue({
 
 		toggleFilter(event) {
 
-			if ( this.filter === event.target.value ) {
-				this.filter = null;
+			const value = event.target.value;
+			const taxonomy = event.target.dataset.taxonomy;
+
+			if (this.filter[taxonomy] === undefined) {
+				this.$set(this.filter, taxonomy, value);
+			} else if (this.filter[taxonomy] !== value) {
+				this.$set(this.filter, taxonomy, value);
 			} else {
-				this.filter = event.target.value;
+				this.$delete(this.filter, taxonomy)
 			}
 
+		},
+
+		isChecked(taxonomy, slug) {
+			return this.filter[taxonomy] === slug;
+		},
+
+		switchTab(event) {
+			this.tab = event.target.dataset.tab;
+			this.resetFilters();
+		},
+
+		resetFilters() {
+			this.search = '';
+			this.filter = {};
 		}
 
 	},
 
 	mounted() {
 
-		if ( window.location.hash ) {
-			this.filter = window.location.hash.substr(1);
+		const query_string = window.location.search.split('?')[1];
+		const params = new URLSearchParams(query_string);
+
+		if (params.has('tab')) {
+
+			if (params.get('tab') === 'resource-library') {
+				this.tab = 'resource-library';
+			} else if (params.get('tab') === 'learning-library') {
+				this.tab = 'learning-library';
+			}
+
+		}
+
+		if (params.has('learning-resource-category')) {
+			this.$set(this.filter, 'learning-resource-category', params.get('learning-resource-category'));
+		}
+
+		if (params.has('resource-type')) {
+			this.$set(this.filter, 'resource-type', params.get('resource-type'));
 		}
 
 	}

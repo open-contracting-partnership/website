@@ -23,6 +23,11 @@
 
 		</header>
 
+		<div class="resource-archive__switcher">
+			<button class="button--naked" data-tab="resource-library" @click="switchTab" :data-active="tab === 'resource-library'">Resource Library</button>
+			<button class="button--naked" data-tab="learning-library" @click="switchTab" :data-active="tab === 'learning-library'">Learning Library</button>
+		</div>
+
 		<div class="resource-archive__search /  search-input" data-size="large">
 
 			<input class="search-input__input / uppercase" v-model="search" type="text" aria-label="Search" placeholder="Search">
@@ -33,9 +38,9 @@
 
 		</div>
 
-		<div class="resource-archive__filters">
+		<div class="resource-archive__filters" v-if="tab === 'resource-library'">
 
-			{% for filter in filters %}
+			{% for filter in resource_library_filters %}
 
 				<div class="resource-archive__filter">
 
@@ -44,8 +49,54 @@
 					{% for field in filter.filter %}
 
 						<label class="resource-archive__filter-field">
-							<input type="radio" name="filter" value="{{ field.slug }}" @click="toggleFilter" :checked="filter === '{{ field.slug }}'" class="input-circle" data-colour="{{ field.colour }}">
+
+							<input
+								type="radio"
+								name="{{ field.taxonomy }}"
+								data-taxonomy="{{ field.taxonomy }}"
+								value="{{ field.slug }}"
+								:checked="isChecked('{{ field.taxonomy }}', '{{ field.slug }}')"
+								class="input-circle"
+								data-colour="{{ field.colour }}"
+								@click="toggleFilter"
+							>
+
 							{{ field.label }}
+
+						</label>
+
+					{% endfor %}
+
+				</div>
+
+			{% endfor %}
+
+		</div>
+
+		<div class="resource-archive__filters" v-if="tab === 'learning-library'">
+
+			{% for filter in learning_library_filters %}
+
+				<div class="resource-archive__filter">
+
+					<h3 class="resource-archive__filter-heading">{{ filter.title }}</h3>
+
+					{% for field in filter.filter %}
+
+						<label class="resource-archive__filter-field">
+
+							<input
+								type="radio"
+								name="{{ field.taxonomy }}"
+								data-taxonomy="{{ field.taxonomy }}"
+								value="{{ field.slug }}"
+								:checked="isChecked('{{ field.taxonomy }}', '{{ field.slug }}')"
+								class="input-circle"
+								data-colour="{{ field.colour }}"
+								@click="toggleFilter"
+							>
+							{{ field.label }}
+
 						</label>
 
 					{% endfor %}
