@@ -23,6 +23,7 @@
 		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(3), spacing(12));
 		display: grid;
 		@extend %column-grid;
+		column-gap: spacing(4);
 		align-items: start;
 	}
 
