@@ -12,17 +12,19 @@
 	border: 3px solid var(--highlight);
 	border-radius: 32px 8px;
 	padding: spacing(3.5);
-	font-size: 20px;
-	font-weight: bold;
+	font-size: 18px;
 	color: black;
 	overflow: hidden;
 
 	@include el_from(500) {
 
+		--icon-size: 135px;
+
 		background: white;
+		padding-right: calc(var(--icon-size) + #{spacing(6)});
 
 		&::before {
-			font-size: 135px;
+			font-size: var(--icon-size);
 			content: '';
 			display: block;
 			border: .19em solid var(--highlight);
@@ -43,6 +45,8 @@
 	}
 
 		.block__heading {
+			font-size: 20px;
+			font-weight: bold;
 			display: block;
 			text-decoration: none;
 		}

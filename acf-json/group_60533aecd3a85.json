@@ -39,6 +39,26 @@
             "return_format": "array"
         },
         {
+            "key": "field_6061d577e56a6",
+            "label": "Description",
+            "name": "description",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_60533bab07a17",
             "label": "Buttons",
             "name": "buttons",
@@ -171,5 +191,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1616488037
+    "modified": 1617024394
 }

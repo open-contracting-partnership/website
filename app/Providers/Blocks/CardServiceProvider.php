@@ -42,6 +42,7 @@ class CardServiceProvider
 
 		// content
 		$context['block']['lead'] = get_field('lead');
+		$context['block']['description'] = get_field('description');
 		$context['block']['link'] = get_field('link');
 		$context['block']['buttons'] = get_field('buttons');
 

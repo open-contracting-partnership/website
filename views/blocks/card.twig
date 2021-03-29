@@ -25,6 +25,10 @@
 
 		<a class="block__heading" href="{{ block.link.url }}">{{ block.link.title }}</a>
 
+		{% if block.description %}
+			<p>{{ block.description }}</p>
+		{% endif %}
+
 	</div>
 
 	{% if block.buttons %}
