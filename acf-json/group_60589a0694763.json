@@ -76,7 +76,8 @@
                 "bulb": "Bulb",
                 "magnifier": "Magnifier",
                 "upward-lines": "Upward lines",
-                "document": "Document"
+                "document": "Document",
+                "email": "Email"
             },
             "default_value": false,
             "allow_null": 1,
@@ -138,5 +139,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1616491219
+    "modified": 1617028101
 }

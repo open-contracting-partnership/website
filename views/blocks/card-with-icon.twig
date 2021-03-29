@@ -32,6 +32,8 @@
 
 	{% endif %}
 
-	<svg class="block__icon"><use xlink:href="#card-icon-{{ block.icon }}"></use></svg>
+	<svg class="block__icon" fill="{{ block.text_colour }}">
+		<use xlink:href="#card-icon-{{ block.icon }}"></use>
+	</svg>
 
 </div>
