@@ -42,9 +42,13 @@ class GridSectionServiceProvider
 		$context['block'] = [];
 
 		// content
-		$context['block']['heading'] = get_field('heading') ?: 'Add primary title here&hellip;';
+		$context['block']['heading'] = get_field('heading');
 		$context['block']['strapline'] = get_field('strapline');
 		$context['block']['layout'] = get_field('layout');
+
+		if ($is_preview && ! $context['block']['heading']) {
+			$context['block']['heading'] = 'Add primary title here&hellip;';
+		}
 
 		$context['block']['allowed_inner_blocks'] = esc_attr(wp_json_encode([
 			'core/heading',
