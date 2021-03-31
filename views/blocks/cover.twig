@@ -1,10 +1,26 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
-<div id="{{ options.id }}" class="block" data-block-type="cover">
+<div
+	id="{{ options.id }}"
+	class="block"
+	data-block-type="cover"
+	style="
+		{% if block.text_colour %}
+			--colour: {{ block.text_colour }}
+		{% endif %}
+	">
 
 	<div class="block__image" style="background-image: url('{{ block.image.url }}');"></div>
 	<div class="block__image-overlay" style="background-color: {{ block.background_color }};"></div>
 
-	<h2 class="block__heading">{{ block.heading }}</h2>
+	<div class="[app: block__content ][tw: space-y-3 ]">
+
+		{% if block.is_legacy %}
+			<h2 class="block__heading">{{ block.heading }}</h2>
+		{% endif %}
+
+		<InnerBlocks />
+
+	</div>
 
 </div>

@@ -1,9 +1,9 @@
 {
-    "key": "group_5da58cd48a99e",
-    "title": "Block: Cover",
+    "key": "group_605328d6ddfd5",
+    "title": "Block: Grid Section",
     "fields": [
         {
-            "key": "field_5da58cd49e14c",
+            "key": "field_605328d74b410",
             "label": "Heading",
             "name": "heading",
             "type": "text",
@@ -23,12 +23,12 @@
             "maxlength": ""
         },
         {
-            "key": "field_5da58cedafa71",
-            "label": "Image",
-            "name": "image",
-            "type": "image",
+            "key": "field_605328e1c9b5f",
+            "label": "Strapline",
+            "name": "strapline",
+            "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -36,19 +36,40 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
-            "key": "field_60521d629b0be",
+            "key": "field_60532945207dc",
+            "label": "Layout",
+            "name": "layout",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "choices": {
+                "side-by-side": "Side by side",
+                "linear": "Linear"
+            },
+            "default_value": "side-by-side",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_605328d74b430",
             "label": "Text Colour",
             "name": "text_colour",
             "type": "color_picker",
@@ -64,9 +85,9 @@
             "default_value": ""
         },
         {
-            "key": "field_5da58d14afa72",
-            "label": "Overlay Colour",
-            "name": "overlay_colour",
+            "key": "field_605328d74b438",
+            "label": "Background Colour",
+            "name": "background_colour",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -76,29 +97,8 @@
                 "class": "",
                 "id": ""
             },
-            "wpml_cf_preferences": 0,
+            "gutenberg_visibility": "both",
             "default_value": "#000000"
-        },
-        {
-            "key": "field_5da58d21afa73",
-            "label": "Background Opacity",
-            "name": "background_opacity",
-            "type": "range",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "wpml_cf_preferences": 0,
-            "default_value": 50,
-            "min": "",
-            "max": "",
-            "step": 10,
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -106,7 +106,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/ocp-cover"
+                "value": "acf\/ocp-grid-section"
             }
         ]
     ],
@@ -118,5 +118,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1615994229
+    "modified": 1616062841
 }

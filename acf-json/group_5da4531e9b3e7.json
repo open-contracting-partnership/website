@@ -1,6 +1,6 @@
 {
     "key": "group_5da4531e9b3e7",
-    "title": "Mega Menu",
+    "title": "Options: Mega Menu",
     "fields": [
         {
             "key": "field_5da45451f870d",
@@ -37,10 +37,11 @@
                     },
                     "wpml_cf_preferences": 0,
                     "choices": {
+                        "6261": "What is open contracting",
+                        "5787": "Impact",
+                        "6321": "Implement",
+                        "5786": "Data",
                         "925": "About",
-                        "922": "Why open contracting",
-                        "3290": "Implement",
-                        "1199": "Data Standard",
                         "924": "Latest"
                     },
                     "default_value": [],
@@ -100,7 +101,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "wpml_cf_preferences": 0,
+                    "gutenberg_visibility": "both",
                     "layouts": {
                         "layout_5da45a1b93338": {
                             "key": "layout_5da45a1b93338",
@@ -153,7 +154,7 @@
                         "layout_5da45b9b1b1c0": {
                             "key": "layout_5da45b9b1b1c0",
                             "name": "grouped_menu",
-                            "label": "Grouped Menu",
+                            "label": "Grouped Menu (Wide)",
                             "display": "block",
                             "sub_fields": [
                                 {
@@ -217,11 +218,79 @@
                             ],
                             "min": "",
                             "max": ""
+                        },
+                        "layout_605a0a353efae": {
+                            "key": "layout_605a0a353efae",
+                            "name": "grouped_menu_single",
+                            "label": "Grouped Menu (Single)",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_605a0a353efaf",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "gutenberg_visibility": "both",
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_605a0a353efb0",
+                                    "label": "Links",
+                                    "name": "links",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "gutenberg_visibility": "both",
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "table",
+                                    "button_label": "Add Link",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_605a0a353efb1",
+                                            "label": "Link",
+                                            "name": "link",
+                                            "type": "link",
+                                            "instructions": "",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "gutenberg_visibility": "both",
+                                            "return_format": "array"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
                         }
                     },
                     "button_label": "Add Sub Menu",
                     "min": "",
-                    "max": 2
+                    "max": 3
                 }
             ]
         }
@@ -241,7 +310,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1571759695
+    "modified": 1616514225
 }

@@ -31,37 +31,36 @@ category:
 
 .button {
 
+	// attempt to use custom variables, otherwise fallback on the defaults
+	--border-colour: var(--custom-background, #{$ui-brand});
+	--background: var(--custom-background, #{$ui-brand});
+	--colour: var(--custom-colour, #{$ui-grey});
+
 	font-size: 14px;
 	@include font('secondary', 'medium');
-	color: $ui-grey;
-	background-color: $ui-brand;
+
+	color: var(--colour);
+	background-color: var(--background);
+
 	border-radius: spacing(.5);
-	border: none;
+	border: 2px solid var(--border-colour);
 	text-decoration: none;
 	text-transform: uppercase;
 	cursor: pointer;
+	transition:
+		background-color .3s ease,
+		border-color .3s ease;
 
 	@media screen {
-		padding: em(13, 14) em(24,  14) em(11, 14);
+		padding: 0.75em 1.65em 0.65em;
 	}
 
 	&:hover,
 	&:focus,
 	&:active {
-		background-color: darken($ui-brand, 10%);
+		--border-colour: #{darken($ui-brand, 10%)};
+		--background: #{darken($ui-brand, 10%)};
 		text-decoration: none;
-	}
-
-	&[data-colour="white"] {
-
-		background-color: $ui-white;
-
-		&:hover,
-		&:focus,
-		&:active {
-			background-color: darken($ui-white, 2%);
-		}
-
 	}
 
 }
@@ -120,28 +119,80 @@ category:
 
 }
 
-.button-bordered {
+// .button-bordered {
 
-	--height: #{em(23, 14)};
-	font-size: 14px;
-	position: relative;
-	display: inline-block;
-	padding: 0;
-	text-align: left;
-	color: $ui-grey-5;
-	background-color: $ui-grey-3;
-	border: 1px solid $ui-grey-5;
-	border-radius: 2px calc(var(--height) / 2) calc(var(--height) / 2) 2px;
-	line-height: 1;
-	height: var(--height);
-	padding: calc((var(--height) - 1em) / 2) 1em;
-	padding-right: 1.4em;
-	@include font('secondary', 'bold');
-	text-decoration: none;
+// 	--height: #{em(23, 14)};
+// 	font-size: 14px;
+// 	position: relative;
+// 	display: inline-block;
+// 	padding: 0;
+// 	text-align: left;
+// 	color: $ui-grey-5;
+// 	background-color: $ui-grey-3;
+// 	border: 1px solid $ui-grey-5;
+// 	border-radius: 2px calc(var(--height) / 2) calc(var(--height) / 2) 2px;
+// 	line-height: 1;
+// 	height: var(--height);
+// 	padding: calc((var(--height) - 1em) / 2) 1em;
+// 	padding-right: 1.4em;
+// 	@include font('secondary', 'bold');
+// 	text-decoration: none;
 
-	// sizes
-	&[data-size="small"] {
-		font-size: 11px;
+// 	// sizes
+// 	&[data-size="small"] {
+// 		font-size: 11px;
+// 	}
+
+// }
+
+.button[data-size="slim"] {
+	padding: 0.45em 1em 0.2em;
+}
+
+ //********
+// COLOURS
+
+.button[data-colour="white"] {
+
+	--border-colour: #{$ui-white};
+	--background: #{$ui-white};
+
+	&:hover,
+	&:focus,
+	&:active {
+		--border-colour: darken($ui-white, 2%);
+		--background: darken($ui-white, 2%);
+	}
+
+}
+
+.button[data-colour="dark"] {
+
+	--border-colour: #{$ui-grey};
+	--background: #{$ui-grey};
+	--colour: #{$ui-white};
+
+	&:hover,
+	&:focus,
+	&:active {
+		--background: #{$ui-white};
+		--colour: #{$ui-grey};
+	}
+
+}
+
+.button[data-colour="light"] {
+
+	--border-colour: #{$ui-grey};
+	--background: #{$ui-white};
+	--colour: #{$ui-grey};
+
+	&:hover,
+	&:focus,
+	&:active {
+		--border-colour: #{$ui-grey};
+		--background: #{$ui-grey};
+		--colour: #{$ui-white};
 	}
 
 }

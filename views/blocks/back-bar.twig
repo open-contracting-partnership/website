@@ -1,0 +1,21 @@
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div
+	id="{{ options.id }}"
+	class="block"
+	data-block-type="back-bar"
+	style="
+		--custom-background: {{ block.background_colour }};
+		--custom-colour: {{ block.text_colour }};
+	">
+
+	<div class="block__main">
+
+		<a class="arrow-link" href="{{ block.link.url }}" target="{{ block.link.target }}" data-size="medium-plus">
+			<svg class="arrow-link__icon [tw: transform rotate-180 ]"><use xlink:href="#icon-arrow-circle"></use></svg>
+			<span class="arrow-link__label [tw: uppercase ]">{{ block.link.title }}</span>
+		</a>
+
+	</div>
+
+</div>

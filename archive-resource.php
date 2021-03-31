@@ -16,17 +16,40 @@ class ArchiveResourceController extends Controller
 		$context = Timber::get_context();
 		$context['title'] = _x('Search our resources', 'Resources archive title', 'ocp');
 
-		$context['filters'] = get_field('resources_filters', 'options');
+		$context['resource_library_filters'] = get_field('resources_filters', 'options');
 
-		if ( $context['filters'] ) {
+		if ( $context['resource_library_filters'] ) {
 
-			foreach ( $context['filters'] as &$filter_group ) {
+			foreach ( $context['resource_library_filters'] as &$filter_group ) {
 
 				$filter_group['filter'] = array_map(function($filter) {
 
 					$term = get_term($filter['type']);
 
 					$filter['slug'] = $term->slug;
+					$filter['taxonomy'] = $term->taxonomy;
+					$filter['label'] = $term->name;
+
+					return $filter;
+
+				}, $filter_group['filter']);
+
+			}
+
+		}
+
+		$context['learning_library_filters'] = get_field('learning_library_filters', 'options');
+
+		if ( $context['learning_library_filters'] ) {
+
+			foreach ( $context['learning_library_filters'] as &$filter_group ) {
+
+				$filter_group['filter'] = array_map(function($filter) {
+
+					$term = get_term($filter['type']);
+
+					$filter['slug'] = $term->slug;
+					$filter['taxonomy'] = $term->taxonomy;
 					$filter['label'] = $term->name;
 
 					return $filter;
@@ -48,6 +71,8 @@ class ArchiveResourceController extends Controller
 			'The no results found label on the resources archive',
 			'ocp'
 		);
+
+		// dd($this->getAllResources());
 
 		// localise the script only *after* the scripts are queued up
 		add_action('wp_enqueue_scripts', function() {
@@ -85,12 +110,26 @@ class ArchiveResourceController extends Controller
 			$output['type'] = null;
 			$output['type_label'] = null;
 
+			$output['location'] = $resource->resource_location ?? [];
+
+			$output['learning_resource_category'] = null;
+			$output['learning_resource_category_label'] = null;
+
 			if ( $resource->resource_type ) {
 
 				$term = get_term($resource->resource_type);
 
 				$output['type'] = $term->slug;
 				$output['type_label'] = $term->name;
+
+			}
+
+			if ( $resource->learning_resource_category ) {
+
+				$term = get_term($resource->learning_resource_category);
+
+				$output['learning_resource_category'] = $term->slug;
+				$output['learning_resource_category_label'] = $term->name;
 
 			}
 

@@ -35,11 +35,17 @@ return [
 		App\Providers\SEOServiceProvider::class,
 
 		// Block Providers
+		App\Providers\Blocks\ArrowLinkProvider::class,
+		App\Providers\Blocks\BackBarServiceProvider::class,
 		App\Providers\Blocks\BlogHighlightServiceProvider::class,
+		App\Providers\Blocks\CardEmbedServiceProvider::class,
+		App\Providers\Blocks\CardServiceProvider::class,
+		App\Providers\Blocks\CardWithIconServiceProvider::class,
 		App\Providers\Blocks\ContentServiceProvider::class,
 		App\Providers\Blocks\CoverServiceProvider::class,
 		App\Providers\Blocks\DownloadCarouselServiceProvider::class,
 		App\Providers\Blocks\FeaturedStoriesCarouselServiceProvider::class,
+		App\Providers\Blocks\GridSectionServiceProvider::class,
 		App\Providers\Blocks\ImageWithLinksServiceProvider::class,
 		App\Providers\Blocks\JumpToBarServiceProvider::class,
 		App\Providers\Blocks\LogosServiceProvider::class,

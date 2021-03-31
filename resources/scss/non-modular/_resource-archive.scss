@@ -28,6 +28,71 @@
 			margin-bottom: 0;
 		}
 
+	.resource-archive__switcher {
+
+		grid-column: all;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		margin-bottom: var(--v-spacing);
+
+		button {
+
+			position: relative;
+			font-size: 18px;
+			font-weight: bold;
+			padding: spacing(2.5) spacing(2.5) spacing(1.75);
+			display: grid;
+			place-items: center;
+			background-color: var(--background);
+			color: var(--colour);
+
+			&[data-active="true"]::after {
+				--size: 20px;
+				content: '';
+				display: block;
+				position: absolute;
+				top: calc(100% - (var(--size) / 2));
+				left: 50%;
+				transform: translateX(-50%);
+				width: var(--size);
+				height: var(--size);
+				transform: rotate(45deg);
+				background-color: var(--background);
+				border-radius: 0 0 3px 0;
+			}
+
+
+			&[data-tab="resource-library"] {
+
+				--background: #C4E7E5;
+				--colour: #{$ui-teal};
+
+				&[data-active="true"] {
+					--background: #{$ui-teal};
+					--colour: #{$ui-white};
+				}
+
+			}
+
+			&[data-tab="learning-library"] {
+
+				--background: #DDDAF4;
+				--colour: #{$ui-blue};
+
+				&[data-active="true"] {
+					--background: #{$ui-blue};
+					--colour: #{$ui-white};
+				}
+
+			}
+
+		}
+
+	}
+
+	.resource-archive__controls {
+		grid-column: all;
+	}
 
 	.resource-archive__search {
 

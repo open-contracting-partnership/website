@@ -103,6 +103,32 @@
 
 												{% endif %}
 
+												{% if sub_menu.acf_fc_layout == 'grouped_menu_single' %}
+
+													<ul class="mega-menu__nav" data-type="grouped-menu-single">
+
+														<li>
+
+															<span class="mega-menu__sub-nav-heading">{{ sub_menu.title }}</span>
+
+															<ul class="mega-menu__sub-nav">
+
+																{% for item in sub_menu.links %}
+
+																	<li>
+																		<a href="{{ item.link.url }}">{{ item.link.title }}</a>
+																	</li>
+
+																{% endfor %}
+
+															</ul>
+
+														</li>
+
+													</ul>
+
+												{% endif %}
+
 											{% endfor %}
 
 										</div>

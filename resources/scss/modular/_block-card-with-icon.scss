@@ -1,0 +1,61 @@
+.block[data-block-type="card-with-icon"] {
+
+	--icon-width: 75px;
+
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	border-radius: spacing(1);
+	padding: spacing(3);
+
+	@include el_from(400) {
+
+		--icon-width: 150px;
+		padding: spacing(5);
+
+		&:not([data-icon=""]) {
+			padding-right: calc(var(--icon-width) + 24px + 12px);
+		}
+
+	}
+
+	.block__main {
+		@apply space-y-2;
+		margin-bottom: auto;
+	}
+
+		.block__heading {
+			@include fluid-type(font-size, 360px, 1240px, 20px, 32px);
+			margin-bottom: 0;
+		}
+
+	.block__footer {
+		margin-top: spacing(3);
+
+		@include from(T) {
+			margin-top: spacing(5);
+		}
+	}
+
+	.block__icon {
+		display: block;
+		height: var(--icon-width);
+		width: calc(var(--icon-width) * 1.0333);
+		position: absolute;
+		bottom: 0;
+		right: spacing(1.5);
+		opacity: .5;
+	}
+
+	.block__link::after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 2;
+	}
+
+}

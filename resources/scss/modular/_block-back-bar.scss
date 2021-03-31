@@ -1,0 +1,15 @@
+.block[data-block-type="back-bar"] {
+
+	// attempt to use custom variables, otherwise fallback on the defaults
+	--background: var(--custom-background, #{$ui-white});
+	--colour: var(--custom-colour, #{$ui-black});
+
+	background-color: var(--background);
+	color: var(--colour);
+
+	.block__main {
+		grid-column: content;
+		@apply py-3;
+	}
+
+}

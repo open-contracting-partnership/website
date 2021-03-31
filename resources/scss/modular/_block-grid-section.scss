@@ -1,0 +1,135 @@
+.block[data-block-type="grid-section"] {
+
+	font-size: 16px;
+	color: var(--colour, #{$ui-white});
+
+	@include fluid-type(--padding, 360px, 1240px, spacing(2), spacing(15));
+	@include fluid-type(--font-size, 360px, 1240px, 19px, 32px);
+
+	.block__background {
+
+		grid-column: full;
+		grid-row: 1;
+
+		@media print {
+			display: none;
+		}
+
+	}
+
+	.block__container {
+		grid-column: content;
+		grid-row: 1;
+		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(3), spacing(12));
+		display: grid;
+		@extend %column-grid;
+		column-gap: spacing(4);
+		align-items: start;
+	}
+
+		&[data-grid-layout="side-by-side"] {
+
+			.block__content,
+			.block__grid {
+				grid-column: all;
+			}
+
+			@include from(T) {
+
+				.block__content {
+					grid-column: span 4;
+				}
+
+				.block__grid {
+					grid-column: span 8;
+				}
+
+			}
+
+		}
+
+		&[data-grid-layout="linear"] {
+
+			.block__content,
+			.block__grid {
+				grid-column: all;
+			}
+
+		}
+
+		.block__content {
+
+			margin-bottom: spacing(2);
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+
+				@media screen {
+					font-size: var(--font-size);
+					margin-bottom: spacing(2);
+				}
+
+			}
+
+			> *:last-child {
+				margin-bottom: 0;
+			}
+
+		}
+
+		.block__grid {
+
+			display: grid;
+			grid-template-columns: [all-start] repeat(12, 1fr) [all-end];
+			grid-gap: spacing(3);
+
+			> * {
+				grid-column: all;
+			}
+
+			> [data-grid-placement="small"] {
+
+				@include from(T) {
+					grid-column: span 4;
+				}
+
+			}
+
+			> [data-grid-placement="medium"] {
+
+				@include from(T) {
+					grid-column: span 6;
+				}
+
+			}
+
+			> .block[data-block-type="grid-section"]:not(:first-child) {
+				margin-top: spacing(3);
+			}
+
+			> .block[data-block-type="grid-section"]:not(:last-child) {
+				margin-bottom: spacing(3);
+			}
+
+		}
+
+
+	.block[data-block-type="grid-section"] {
+
+		border-radius: spacing(1);
+		overflow: hidden;
+
+		@include fluid-type(--font-size, 360px, 1240px, 18px, 26px);
+
+		.block__container {
+			grid-column: full;
+			@include fluid-type((padding), 375px, 1240px, spacing(2), spacing(5));
+		}
+
+	}
+
+}
