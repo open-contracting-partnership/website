@@ -29,7 +29,7 @@ if ( function_exists('acf_add_options_page') && function_exists('acf_add_options
 
 }
 
-add_filter('acf/load_field/key=field_5da4546ef870e', function($field) {
+add_filter('acf/load_field/key=field_60646cab36b7e', function($field) {
 
 	// Get all locations
 	$locations = get_nav_menu_locations();
