@@ -46,6 +46,7 @@ return [
 		App\Providers\Blocks\DownloadCarouselServiceProvider::class,
 		App\Providers\Blocks\FeaturedStoriesCarouselServiceProvider::class,
 		App\Providers\Blocks\GridSectionServiceProvider::class,
+		App\Providers\Blocks\HeroIconServiceProvider::class,
 		App\Providers\Blocks\ImageWithLinksServiceProvider::class,
 		App\Providers\Blocks\JumpToBarServiceProvider::class,
 		App\Providers\Blocks\LogosServiceProvider::class,

@@ -1,0 +1,97 @@
+.block[data-block-type="hero-icon"] {
+
+	@include fluid-type(--padding, 360px, 1240px, spacing(2), spacing(15));
+
+    color: var(--colour, #{$ui-white});
+	grid-template-rows: [all-start] var(--padding) auto auto [all-end];
+
+    @include from(T) {
+        grid-template-rows: [all-start] var(--padding) auto var(--padding) [all-end];
+    }
+
+	.block__background {
+
+		grid-column: full;
+        grid-row: 1 / 4;
+		position: relative;
+		overflow: hidden;
+        z-index: -1;
+
+        @include from(T) {
+            grid-row: 1 / 5;
+        }
+
+	}
+
+	.block__content {
+
+		grid-column: content;
+		grid-row: 2;
+		color: currentColor;
+		align-self: center;
+
+		@include from(T) {
+            font-size: 20px;
+			grid-column: content / 11;
+		}
+
+		@include from(1200) {
+			grid-column: content / 9;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+
+			@media screen {
+				@include fluid-type(font-size, 360px, 1240px, 28px, 52px);
+				margin-bottom: spacing(2);
+			}
+
+		}
+
+	}
+
+    .block__icon-container {
+        grid-column: content;
+        grid-row: 3;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+		@include from(T) {
+            grid-row: 2;
+            grid-column: 12 / content;
+		}
+
+		@include from(1200) {
+            grid-column: 11 / content;
+		}
+
+    }
+
+        .block__icon {
+
+            --height: 138px;
+            --width: 144px;
+
+            opacity: .75;
+            height: var(--height);
+            width: var(--width);
+
+            @include from(T) {
+                height: calc(var(--height) * 1.4);
+                width: calc(var(--width) * 1.4);
+            }
+
+            @include from(1200) {
+                height: calc(var(--height) * 2.2);
+                width: calc(var(--width) * 2.2);
+            }
+
+        }
+
+}
