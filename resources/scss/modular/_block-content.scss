@@ -42,20 +42,20 @@ category:
 		position: relative;
 		overflow: hidden;
 
-		&::before {
-			@include fluid-type(font-size, 360px, 1344px, 145px, 500px);
-			content: '';
-			display: block;
-			border: .14em solid $ui-grey-6;
-			border-radius: 50%;
-			opacity: .1;
-			height: 1em;
-			width: 1em;
-			position: absolute;
-			bottom: -.55em;
-			left: 50%;
-			transform: translateX(-50%);
-		}
+		// &::before {
+		// 	@include fluid-type(font-size, 360px, 1344px, 145px, 500px);
+		// 	content: '';
+		// 	display: block;
+		// 	border: .14em solid $ui-grey-6;
+		// 	border-radius: 50%;
+		// 	opacity: .1;
+		// 	height: 1em;
+		// 	width: 1em;
+		// 	position: absolute;
+		// 	bottom: -.55em;
+		// 	left: 50%;
+		// 	transform: translateX(-50%);
+		// }
 
 	}
 
