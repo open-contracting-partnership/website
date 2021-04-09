@@ -42,10 +42,23 @@ class BackBarServiceProvider
 
 		// content
 		$context['block']['link'] = get_field('link');
+		$context['block']['jump_links'] = get_field('jump_links');
+		$context['block']['is_sticky'] = get_field('is_sticky');
+
 
 		if ($is_preview) {
 			$context['block']['link']['url'] = '#';
 			$context['block']['link']['target'] = '';
+
+            $context['block']['jump_links'] = array_map(function($button) {
+
+				$button['link']['url'] = '#';
+				$button['link']['target'] = '';
+
+				return $button;
+
+			}, $context['block']['jump_links']);
+
 		}
 
 		// colours

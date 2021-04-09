@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_6059bd79220e0",
-            "label": "Link",
+            "label": "Back Link",
             "name": "link",
             "type": "link",
             "instructions": "",
@@ -17,6 +17,64 @@
             },
             "gutenberg_visibility": "both",
             "return_format": "array"
+        },
+        {
+            "key": "field_6070637e331da",
+            "label": "Jump Links",
+            "name": "jump_links",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_60706395331db",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "field_6070636a331d8",
+            "label": "Is Sticky?",
+            "name": "is_sticky",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_6059bd7922101",
@@ -70,5 +128,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1616493966
+    "modified": 1617978272
 }

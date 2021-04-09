@@ -7,9 +7,46 @@
 	background-color: var(--background);
 	color: var(--colour);
 
+    &[data-is-sticky="true"] {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+    }
+
 	.block__main {
+
 		grid-column: content;
+        display: flex;
+        align-items: center;
 		@apply py-3;
+
+
 	}
+
+        .block__jump-links {
+
+            @include upto(T) {
+                display: none;
+            }
+
+            font-size: 16px;
+            margin-left: auto;
+            @apply space-x-6;
+            text-transform: uppercase;
+            @include font('primary', 'semibold');
+
+            a {
+
+                text-decoration: none;
+
+                &:active,
+                &:hover {
+                    text-decoration: underline;
+                }
+
+            }
+
+        }
+
 
 }
