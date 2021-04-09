@@ -5,7 +5,7 @@ namespace App\Providers\Blocks;
 use App\Providers\Blocks\BaseBlock;
 use Timber\Timber;
 
-class BackBarServiceProvider
+class HeroIconServiceProvider
 {
 
 	/**
@@ -17,16 +17,16 @@ class BackBarServiceProvider
 		add_action('acf/init', function() {
 
 			acf_register_block_type([
-				'name' => 'ocp/back-bar',
-				'title' => __('Back Bar'),
-				'description' => __('Add a back bar to child pages.'),
+				'name' => 'ocp/hero-icon',
+				'title' => __('Hero Icon'),
 				'render_callback' => array($this, 'render'),
 				'category' => 'ocp-blocks',
 				'icon' => 'format-image',
-				'keywords' => ['back', 'bar'],
+				'keywords' => ['hero', 'icon'],
 				'post_types' => ['page'],
 				'supports' => [
 					'align' => false,
+                    'jsx' => true,
 				]
 			]);
 
@@ -40,26 +40,7 @@ class BackBarServiceProvider
 
 		$context['block'] = [];
 
-		// content
-		$context['block']['link'] = get_field('link');
-		$context['block']['jump_links'] = get_field('jump_links');
-		$context['block']['is_sticky'] = get_field('is_sticky');
-
-
-		if ($is_preview) {
-			$context['block']['link']['url'] = '#';
-			$context['block']['link']['target'] = '';
-
-            $context['block']['jump_links'] = array_map(function($button) {
-
-				$button['link']['url'] = '#';
-				$button['link']['target'] = '';
-
-				return $button;
-
-			}, $context['block']['jump_links']);
-
-		}
+        $context['block']['icon'] = get_field('icon');
 
 		// colours
 		$context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';
@@ -70,7 +51,7 @@ class BackBarServiceProvider
 		// options
 		$context['block']['options'] = get_field('options') ?: [];
 
-		echo Timber::compile('blocks/back-bar.twig', $context);
+		echo Timber::compile('blocks/hero-icon.twig', $context);
 
 	}
 
