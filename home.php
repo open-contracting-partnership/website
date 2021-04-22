@@ -118,6 +118,7 @@ class HomeController extends Controller
 	protected function getBlogs() {
 
 		$posts = Post::query([
+            'ignore_sticky_posts' => true,
 			'posts_per_page' => -1
 		]);
 

@@ -152,6 +152,20 @@ category:
 		--accent-colour: #{$ui-black};
 	}
 
+	// post colours
+
+    &[data-colour="orange"] {
+		--accent-colour: #{$ui-orange};
+    }
+
+    &[data-colour="green"] {
+		--accent-colour: #{$ui-brand};
+    }
+
+    &[data-colour="blue"] {
+		--accent-colour: #{$ui-blue};
+    }
+
 	// post type colours
 
 	&[data-post-type="post"] {

@@ -119,7 +119,11 @@ function get_post_authors($post_id) {
 			switch ( get_row_layout() ) {
 
 				case 'wordpress_user':
-					$authors[] = get_author_object(get_sub_field('user')['ID']);
+
+                    if (get_sub_field('user')) {
+    					$authors[] = get_author_object(get_sub_field('user')['ID']);
+                    }
+
 					break;
 
 				case 'custom_user':
