@@ -1,6 +1,6 @@
 {
     "key": "group_60814c19059c2",
-    "title": "Term: Resource Type Colour",
+    "title": "Term: Resource Taxonomy Colour",
     "fields": [
         {
             "key": "field_60814c43f6ffc",
@@ -37,6 +37,13 @@
                 "operator": "==",
                 "value": "resource-type"
             }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "learning-resource-category"
+            }
         ]
     ],
     "menu_order": 0,
@@ -47,5 +54,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1619086487
+    "modified": 1619097150
 }
