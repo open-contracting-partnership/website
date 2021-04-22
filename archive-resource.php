@@ -29,6 +29,7 @@ class ArchiveResourceController extends Controller
 					$filter['slug'] = $term->slug;
 					$filter['taxonomy'] = $term->taxonomy;
 					$filter['label'] = $term->name;
+					$filter['colour'] = get_field('colour', $term);
 
 					return $filter;
 
@@ -51,6 +52,7 @@ class ArchiveResourceController extends Controller
 					$filter['slug'] = $term->slug;
 					$filter['taxonomy'] = $term->taxonomy;
 					$filter['label'] = $term->name;
+					$filter['colour'] = get_field('colour', $term);
 
 					return $filter;
 
@@ -71,8 +73,6 @@ class ArchiveResourceController extends Controller
 			'The no results found label on the resources archive',
 			'ocp'
 		);
-
-		// dd($this->getAllResources());
 
 		// localise the script only *after* the scripts are queued up
 		add_action('wp_enqueue_scripts', function() {
@@ -121,6 +121,7 @@ class ArchiveResourceController extends Controller
 
 				$output['type'] = $term->slug;
 				$output['type_label'] = $term->name;
+                $output['colour'] = get_field('colour', $term);
 
 			}
 

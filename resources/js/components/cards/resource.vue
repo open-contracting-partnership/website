@@ -1,6 +1,6 @@
 <template>
 
-	<div class="card card--resource" data-colour-scheme="light" :data-post-type="card.type">
+	<div class="card card--resource" data-colour-scheme="light" :data-colour="card.colour">
 
 		<div class="card__body">
 			<a class="card__link" :href="card.url" v-html="card.title"></a>
