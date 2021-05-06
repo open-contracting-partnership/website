@@ -48,7 +48,7 @@
 		"tailwindcss": "^2.0.4",
 		"tiny-slider": "^2.9.2",
 		"topojson-client": "^3.0.1",
-		"underscore": "^1.8.3",
+		"underscore": "^1.12.1",
 		"vue": "^2.6.10",
 		"vue-resource": "^1.5.1",
 		"vue-router": "^3.1.3",
