@@ -55,6 +55,7 @@ return [
 		App\Providers\Blocks\OurModelServiceProvider::class,
 		App\Providers\Blocks\PersonServiceProvider::class,
 		App\Providers\Blocks\QuoteCarouselServiceProvider::class,
+		App\Providers\Blocks\QuoteServiceProvider::class,
 		App\Providers\Blocks\ResourceServiceProvider::class,
 		App\Providers\Blocks\SignUpCoverServiceProvider::class,
 		App\Providers\Blocks\StagesServiceProvider::class,

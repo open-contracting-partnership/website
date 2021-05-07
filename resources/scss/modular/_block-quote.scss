@@ -1,0 +1,55 @@
+.block[data-block-type="quote"] {
+
+    --accent: #{$ui-brand};
+
+    .block__content {
+	    padding: var(--v-spacing-half) 0;
+        grid-column: full;
+    }
+
+    .block__icon {
+        --height: 65px;
+        height: var(--height);
+        width: calc(var(--height) * 1.076923077);
+        fill: var(--accent);
+        margin-bottom: spacing(3);
+    }
+
+    blockquote {
+
+        border: none;
+        padding: 0;
+        margin-bottom: spacing(2);
+
+        p {
+            display: inline;
+            @include font('secondary', 'bold');
+            background: var(--accent);
+            font-size: 24px;
+            padding: 0.7rem 0.7rem 0.3rem;
+            line-height: 2.025;
+            border-radius: 4px;
+            margin: 0;
+            box-decoration-break: clone;
+        }
+
+    }
+
+    figcaption {
+        margin-left: spacing(1);
+    }
+
+    .block__citation {
+        display: block;
+        font-size: 16px;
+        @include font('secondary', 'bold');
+    }
+
+    .block__strapline {
+        display: block;
+        font-size: 14px;
+        @include font('secondary', 'regular');
+        color: $ui-grey-9;
+    }
+
+}
