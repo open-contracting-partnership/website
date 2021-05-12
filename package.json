@@ -42,7 +42,7 @@
 		"mapbox-gl": "^1.5.0",
 		"modern-css-reset": "^1.0.2",
 		"node-aigis": "^1.4.1",
-		"postcss": "^8.2.8",
+		"postcss": "^8.2.10",
 		"sass": "^1.17.0",
 		"sass-loader": "7.*",
 		"tailwindcss": "^2.0.4",
