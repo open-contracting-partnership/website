@@ -114,7 +114,17 @@ category:
 			@include font('secondary', 'bold');
 			text-decoration: none;
 			line-height: 1.15;
-		}
+            margin-bottom: spacing(2);
+        }
+
+        .card__meta {
+            font-size: 16px;
+            margin-bottom: spacing(2);
+        }
+
+        .card__body > :last-child {
+            margin-bottom: 0;
+        }
 
 	.card__footer {
 		border-top: 4px solid var(--accent-colour);
