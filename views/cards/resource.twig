@@ -7,7 +7,13 @@
 <div class="card card--resource" data-post-type="{{ card.type }}" data-colour-scheme="{{ options.colour_scheme }}">
 
 	<div class="card__body">
+
 		<a class="card__link" href="{{ card.url }}">{{ card.title }}</a>
+
+        {% if card.meta %}
+            <p class="card__meta">{{ card.meta }}</p>
+        {% endif %}
+
 	</div>
 
 	<div class="card__footer">
