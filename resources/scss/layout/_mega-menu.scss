@@ -157,7 +157,8 @@ category:
 			font-size: 14px;
 			font-style: italic;
 			font-weight: 400;
-			grid-row: 1 / span 2;
+			// grid-row: 1 / span 2;
+			grid-row: 2;
 			line-height: 153.5%;
 			padding-right: 60px;
 
@@ -186,18 +187,18 @@ category:
 				}
 
 				&[data-type="grouped-menu"] {
-					flex: 0 1 350px;
+					flex: 0 1 420px;
 				}
 
 				li {
-					margin-bottom: 14px;
+					margin-bottom: 16px;
 				}
 
 				a {
 					@extend %reverse-underline;
-					font-size: 14px;
+					font-size: 16px;
 					font-weight: normal;
-					line-height: 1.5;
+					line-height: 1.2;
 				}
 
 			}
