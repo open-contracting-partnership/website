@@ -10,7 +10,7 @@
 
 				<a class="arrow-link" href="{{ back_link.url }}" data-size="small" data-direction="west" data-icon-color="grey" data-text-color="black">
 					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-					<span class="arrow-link__label / uppercase">{{ back_link.label }}</span>
+					<span class="uppercase arrow-link__label /">{{ back_link.label }}</span>
 				</a>
 
 			{% endif %}
@@ -101,7 +101,86 @@
 		<div class="resource-single__content">
 			{{ resource.content | raw }}
 		</div>
+	</main>
 
+	{# // #}
+
+	<main class="page-container">
+		<div class="single-resource">
+			<div class="screen-only / single-resource__header">
+				{% if back_link %}
+					<a class="arrow-link" href="{{ back_link.url }}" data-size="small" data-direction="west" data-icon-color="grey" data-text-color="black">
+						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+						<span class="uppercase arrow-link__label /">{{ back_link.label }}</span>
+					</a>
+				{% endif %}
+
+				<h1 class="resource-single__title">{{ resource.title }}</h1>
+			</div>
+
+			<div class="single-resource__meta">
+				<div class="type-label" data-colour="green">
+					<div class="type-label__icon"></div>
+					<span class="type-label__name">{{ resource.type.name }}</span>
+				</div>
+
+				<span>{{ resource.meta }}</span>
+			</div>
+	
+			<div class="single-resource__columns">
+				<div class="single-resource__card">
+					<div class="resource-card">
+						<span class="resource-card__tag">Guide</span>
+
+						<div class="resource-card__details">
+							<p class="resource-card__creator"><span>By: </span>Open Contracting Partnership, Transparency International Global Health Programme</p>
+							<p class="resource-card__published"><span>Published: </span>2021</p>
+						</div>
+
+						{% if resource.link %}
+							<a 
+								href="{{ resource.link }}" 
+								class="button js-resource-link"
+							>{{ resource.i18n.view_label }}</a>
+						{% endif %}
+
+						{% if resource.attachments | length %}
+							<a 
+								href="{{ resource.attachments[0].file }}" 
+								class="button js-resource-download"
+							>{{ resource.i18n.download_label }}</a>
+						{% endif %}
+
+						{% include 'partials/share.twig' with {
+							share_links: resource.share_links,
+							tracker: 'Resource Single'
+						} %}
+					</div>
+				</div>
+
+				<div class="single-resource__content">
+				
+					{{ resource.content | raw }}
+
+				</div>
+			
+				<div class="single-resource__preview">
+					<div class="resource-preview">
+
+						{% if resource.image_url %}
+
+						{% else %}
+
+						{% endif %}
+
+						<h4 class="resource-preview__title">Open Contracting for the COVID-19 Vaccine</h4>
+						<p class="resource-preview__intro">By Open Contracting Partnership, Transparency International Global Health Programme</p>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
 	</main>
 
 {% endblock %}
