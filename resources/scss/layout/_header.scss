@@ -299,7 +299,7 @@ category:
 			// mobile
 			@include upto($header-break-2) {
 
-				font-size: 18px;
+				font-size: 15px;
 				@include font('secondary', 'bold');
 				background-color: $ui-grey-3;
 				z-index: 1;
@@ -366,7 +366,7 @@ category:
 
 				// generic
 
-				font-size: 16px;
+				font-size: 15px;
 				@include font('secondary', 'bold');
 				grid-column: all;
 				grid-row: 2;
@@ -484,10 +484,6 @@ category:
 
 			}
 
-			@include from($header-break-3) {
-				font-size: 20px;
-			}
-
 		}
 
 		.site-header__toolbox {
@@ -504,7 +500,8 @@ category:
  			margin-bottom: auto;
 
 			a:not([class]) {
-				font-size: 14px;
+				// font-size: 14px;
+				font-size: 11px;
 				@include font('secondary', 'bold');
 				color: $ui-grey-5;
 				@extend %reverse-underline;
@@ -512,6 +509,44 @@ category:
 
 			> *:not(:last-child) {
 				margin-right: spacing(2);
+			}
+
+			.select-menu {
+
+				border-radius: 0;
+				color: $ui-grey-5;
+				font-size: 11px;
+				font-weight: 700;
+
+				select {
+					font-weight: 700;
+				}
+
+			}
+
+			.search-input {
+
+				border-radius: 0;
+
+				.search-input__input {
+					font-size: 11px;
+				}
+
+				.search-input__button {
+
+					align-items: center;
+					display: flex;
+					justify-content: center;
+					width: 18px;
+
+					> svg {
+						color: $ui-white;
+						height: 13px;
+						width: 13px;
+					}
+					
+				}
+
 			}
 
 		}

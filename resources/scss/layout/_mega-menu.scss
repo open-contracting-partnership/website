@@ -97,7 +97,7 @@ category:
 .mega-menu {
 	font-size: 16px;
 	@include screen-shell-grid;
-	background-color: rgba(#505596, .97);
+	background-color: #505596;
 	color: $ui-white;
 	z-index: 3;
 }
@@ -122,9 +122,29 @@ category:
 	}
 
 		.mega-menu__heading {
+
 			grid-row: 1;
 			grid-column: 2 / -1;
 			margin-bottom: 0;
+
+			.arrow-link {
+				
+				font-size: 20px;
+				line-height: 27px;
+
+				.arrow-link__label {
+					font-weight: 700;
+					padding-right: 12px;
+				}
+
+				.arrow-link__icon {
+					flex: 0 0 auto;
+					height: 21px;
+					width: 21px;
+				}
+
+			}
+			
 		}
 
 			.mega-menu__heading .arrow-link__label {
@@ -133,12 +153,13 @@ category:
 
 		.mega-menu__intro {
 
-			// font-size: 16px;
+			color: $ui-grey-7;
+			font-size: 14px;
 			font-style: italic;
 			font-weight: 400;
-			grid-row: 2;
-			color: $ui-grey-7;
-			padding-right: spacing(8);
+			grid-row: 1 / span 2;
+			line-height: 153.5%;
+			padding-right: 60px;
 
 			p:last-child {
 				margin-bottom: 0;
@@ -169,18 +190,24 @@ category:
 				}
 
 				li {
-					margin-bottom: spacing(1);
+					margin-bottom: 14px;
 				}
 
 				a {
 					@extend %reverse-underline;
+					font-size: 14px;
+					font-weight: normal;
+					line-height: 1.5;
 				}
 
 			}
 
 				.mega-menu__sub-nav-heading {
+					color: rgba($ui-white, .7);
 					display: block;
-					margin-bottom: spacing(2);
+					font-size: 18px;
+					line-height: 27px;
+					margin-bottom: 7px;
 				}
 
 				[data-type="grouped-menu"] .mega-menu__sub-nav {
