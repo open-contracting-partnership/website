@@ -61,6 +61,7 @@
 						class="
 							resource-preview
 							{% if resource.colour %} resource-preview--{{ resource.colour }}{% endif %}
+							{% if resource.type.slug == "data-tool" %} resource-preview--data{% endif %}
 							{% if resource.image_url %} resource-preview--thumb{% endif %}
 						"
 					>
