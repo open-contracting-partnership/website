@@ -103,6 +103,26 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_6152f03f9a2e6",
+            "label": "Overlay",
+            "name": "overlay",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "message": "Display image overlay?",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -120,7 +140,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 0,
+    "active": false,
     "description": "",
-    "modified": 1571838858
+    "modified": 1632825448
 }
