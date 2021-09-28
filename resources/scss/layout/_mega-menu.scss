@@ -105,7 +105,8 @@ category:
 	.mega-menu__container {
 
 		grid-column: content;
-		padding: spacing(4) 0 spacing(8);
+		// padding: spacing(4) 0 spacing(8);
+		padding: spacing(4) 0 spacing(2) 0;
 
 		display: grid;
 		grid-template-columns: 1fr 2fr; //repeat(3, 1fr);
@@ -154,12 +155,11 @@ category:
 		.mega-menu__intro {
 
 			color: $ui-grey-7;
-			font-size: 14px;
+			font-size: 16px;
 			font-style: italic;
 			font-weight: 400;
-			// grid-row: 1 / span 2;
 			grid-row: 2;
-			line-height: 153.5%;
+			line-height: 1.2;
 			padding-right: 60px;
 
 			p:last-child {
