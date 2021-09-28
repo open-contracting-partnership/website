@@ -25,6 +25,14 @@
     margin-bottom: 79px;
 }
 
+.single-resource__card {
+
+    > .resource-preview {
+        display: none;
+    }
+
+}
+
 .single-resource__content {
     grid-column: 2 / span 2;
     margin-bottom: 24px;
@@ -37,13 +45,27 @@
         grid-template-rows: repeat(2, auto);
     }
 
+    .single-resource__card {
+
+        > .resource-preview {
+            display: block;
+        }
+
+    }
+
     .single-resource__content {
         grid-column: 2;
     }
 
     .single-resource__preview {
+
         grid-column: 2;
         grid-row: 2;
+
+        > .resource-preview {
+            display: none;
+        }
+
     }
 
 }
@@ -52,6 +74,22 @@
 
     .single-resource__columns {
         display: block;
+    }
+
+    .single-resource__card {
+
+        > .resource-preview {
+            display: none;
+        }
+
+    }
+
+    .single-resource__preview {
+
+        > .resource-preview {
+            display: block;
+        }
+
     }
 
 }

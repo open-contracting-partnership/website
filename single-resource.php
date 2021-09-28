@@ -20,8 +20,6 @@ class SingleResourceController extends Controller
 		$context = Timber::get_context();
 		$resource = new Resource();
 
-		// dd($resource);
-
 		$context['resource'] = [];
 
 		$context['resource']['title'] = $resource->title;

@@ -17,37 +17,11 @@
 	
 			<div class="single-resource__columns">
 				<div class="single-resource__card">
-					<div class="resource-card{% if resource.colour %} resource-card--{{ resource.colour }}{% endif %}">
-						<span class="resource-card__tag">Guide</span>
+					
+					{% include 'partials/resource-card.twig' %}
 
-						<div class="resource-card__details">
-							{% if resource.organisation %}
-								<p class="resource-card__creator"><span>By: </span>{{ resource.organisation }}</p>
-							{% endif %}
-							{% if resource.published %}
-								<p class="resource-card__published"><span>Published: </span>{{ resource.published }}</p>
-							{% endif %}
-						</div>
+					{% include 'partials/resource-preview.twig' %}
 
-						{% if resource.link %}
-							<a 
-								href="{{ resource.link }}" 
-								class="button js-resource-link"
-							>{{ resource.i18n.view_label }}</a>
-						{% endif %}
-
-						{% if resource.attachments | length %}
-							<a 
-								href="{{ resource.attachments[0].file }}" 
-								class="button js-resource-download"
-							>{{ resource.i18n.download_label }}</a>
-						{% endif %}
-
-						{% include 'partials/share.twig' with {
-							share_links: resource.share_links,
-							tracker: 'Resource Single'
-						} %}
-					</div>
 				</div>
 
 				<div class="single-resource__content">
@@ -57,49 +31,9 @@
 				</div>
 			
 				<div class="single-resource__preview">
-					<div 
-						class="
-							resource-preview
-							{% if resource.colour %} resource-preview--{{ resource.colour }}{% endif %}
-							{% if resource.type.slug == "data-tool" %} resource-preview--data{% endif %}
-							{% if resource.image_url %} resource-preview--thumb{% endif %}
-						"
-					>
-						<div class="resource-preview__content">
-							<h4 class="resource-preview__title">{{ resource.title }}</h4>
 
-							{% if resource.image_url is not defined %}
-								{% if resource.organisation %}
-									<p class="resource-preview__intro">By {{ resource.organisation }}</p>
-								{% endif %}
-							{% endif %}
-						</div>
-						
-						{% if resource.image_url %}
-							<div class="resource-preview__thumb">
-								{{ imgix({
-									src: resource.image_url,
-									params: {
-										auto: 'format',
-										fit: 'crop'
-									},
-									aspect_ratio: [210, 297],
-									transforms: [{
-										w: 415
-									}, {
-										w: 830
-									}, {
-										w: 1024
-									}, {
-										w: 1536
-									}, {
-										w: 2048
-									}],
-									sizes: '100vw'
-								}) }}
-							</div>							
-						{% endif %}
-					</div>
+					{% include 'partials/resource-preview.twig' %}
+					
 				</div>
 			</div>
 		</div>

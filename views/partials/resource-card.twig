@@ -1,0 +1,31 @@
+<div class="resource-card{% if resource.colour %} resource-card--{{ resource.colour }}{% endif %}">
+    <span class="resource-card__tag">Guide</span>
+
+    <div class="resource-card__details">
+        {% if resource.organisation %}
+            <p class="resource-card__creator"><span>By: </span>{{ resource.organisation }}</p>
+        {% endif %}
+        {% if resource.published %}
+            <p class="resource-card__published"><span>Published: </span>{{ resource.published }}</p>
+        {% endif %}
+    </div>
+
+    {% if resource.link %}
+        <a 
+            href="{{ resource.link }}" 
+            class="button js-resource-link"
+        >{{ resource.i18n.view_label }}</a>
+    {% endif %}
+
+    {% if resource.attachments | length %}
+        <a 
+            href="{{ resource.attachments[0].file }}" 
+            class="button js-resource-download"
+        >{{ resource.i18n.download_label }}</a>
+    {% endif %}
+
+    {% include 'partials/share.twig' with {
+        share_links: resource.share_links,
+        tracker: 'Resource Single'
+    } %}
+</div>

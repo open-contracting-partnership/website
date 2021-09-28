@@ -40,12 +40,7 @@
 }
 
 .resource-preview__thumb {
-    height: 100%;
-    left: 0;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    z-index: 0;
+    display: block;
 }
 
 .resource-preview--blue {
@@ -53,7 +48,14 @@
 }
 
 .resource-preview--green {
+
     background-color: $ui-brand;
+
+    .resource-preview__title,
+    .resource-preview__intro {
+        color: $ui-grey-3;
+    }
+
 }
 
 .resource-preview--orange {
@@ -63,13 +65,10 @@
 .resource-preview--thumb {
 
     background-image: none;
+    padding-top: 0;
 
     .resource-preview__content {
-        background-color: rgba($ui-black, .4);
-    }
-
-    .resource-preview__title {
-        text-shadow: 1px 1px 12px rgba($ui-black, .5);
+        display: none;
     }
 
     &.resource-preview--data {
