@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
+    min-width: 266px;
     padding: 32px 24px;
 
     > .button {
@@ -95,7 +96,28 @@
     margin-bottom: 24px;
 }
 
-.resource-card--guide {
+.resource-card--blue {
+
+    .resource-card__tag::before {
+        border-color: $ui-blue;
+    }
+
+    > .button {
+
+        background-color: $ui-blue;
+        border-color: $ui-blue;
+        
+        &:focus,
+        &:hover {
+            background-color: lighten($ui-blue, 8%);
+            border-color: lighten($ui-blue, 8%);
+        }
+
+    }
+
+}
+
+.resource-card--green {
 
     .resource-card__tag::before {
         border-color: $ui-brand;
@@ -117,7 +139,7 @@
 
 }
 
-.resource-card--report {
+.resource-card--orange {
 
     .resource-card__tag::before {
         border-color: $ui-orange;
@@ -132,27 +154,6 @@
         &:hover {
             background-color: lighten($ui-orange, 8%);
             border-color: lighten($ui-orange, 8%);
-        }
-
-    }
-
-}
-
-.resource-card--tool {
-
-    .resource-card__tag::before {
-        border-color: $ui-blue;
-    }
-
-    > .button {
-
-        background-color: $ui-blue;
-        border-color: $ui-blue;
-        
-        &:focus,
-        &:hover {
-            background-color: lighten($ui-blue, 8%);
-            border-color: lighten($ui-blue, 8%);
         }
 
     }
