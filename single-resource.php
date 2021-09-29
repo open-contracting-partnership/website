@@ -29,17 +29,20 @@ class SingleResourceController extends Controller
 
 		if ( $context['resource']['type'] ) {
 			$context['resource']['type'] = get_term($context['resource']['type']);
+			$context['resource']['colour'] = get_field('colour', $context['resource']['type']);
 		}
 
 		$context['resource']['attachments'] = get_field('attachments', $resource->ID);
 		$context['resource']['link'] = get_field('link', $resource->ID);
 
 		if ( $resource->organisation ) {
+			$context['resource']['organisation'] = $resource->organisation;
 			$context['resource']['meta'] = sprintf(__('By %s', 'ocp'), $resource->organisation) . ' / ' . $resource->date('Y');
 		} else {
 			$context['resource']['meta'] = $resource->date('Y');
 		}
 
+		$context['resource']['published'] = $resource->date('Y');
 
 		// terms
 		$context['resource']['taxonomies']['issue'] = $resource->issue;
