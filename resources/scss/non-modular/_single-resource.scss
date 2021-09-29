@@ -38,7 +38,7 @@
     margin-bottom: 24px;
 }
 
-@include upto(M) {
+@include upto(1106) {
 
     .single-resource__columns {
         grid-template-columns: 300px auto;
