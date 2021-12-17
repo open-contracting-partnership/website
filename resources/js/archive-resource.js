@@ -70,7 +70,7 @@ new Vue({
 
                 if (this.tab === 'resource-library') {
 
-                    if (resource.location.length !== 0 && resource.location.indexOf('resources') === -1) {
+                    if (resource.location.indexOf('resources') === -1) {
                         display = false;
                     }
 
