@@ -61,7 +61,8 @@ class StoriesServiceProvider
 						'image_url' => $story['image']['url'],
 						'title' => $story['title'],
 						'url' => $story['url'],
-						'button_label' => $story['button_label'] ?: __('Read', 'ocp')
+						'button_label' => $story['button_label'] ?: __('Read', 'ocp'),
+						'overlay' => $story['overlay'],
 					];
 
 				}

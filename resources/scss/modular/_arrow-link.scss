@@ -201,3 +201,16 @@ category:
 .arrow-link[data-direction="west"] .arrow-link__icon {
 	transform: rotate(180deg);
 }
+
+.arrow-link--reverse {
+
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+
+	.arrow-link__label {
+		flex: 0 0 auto;
+		margin: 0;
+		padding-right: 8px;
+	}
+
+}

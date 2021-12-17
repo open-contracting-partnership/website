@@ -87,7 +87,13 @@ category:
 				flex-direction: column;
 				justify-content: flex-end;
 
+				&--transparent {
+					background-color: transparent;
+				}
+
 			}
+
+			
 
 		}
 

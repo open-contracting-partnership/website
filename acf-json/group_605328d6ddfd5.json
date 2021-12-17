@@ -69,6 +69,33 @@
             "placeholder": ""
         },
         {
+            "key": "field_61bc6d79a66fd",
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "choices": {
+                "Small": "Small",
+                "Medium": "Medium",
+                "Large": "Large"
+            },
+            "default_value": "Medium",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 1,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
             "key": "field_605328d74b430",
             "label": "Text Colour",
             "name": "text_colour",
@@ -118,5 +145,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1616062841
+    "modified": 1639738850
 }

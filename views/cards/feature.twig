@@ -29,7 +29,7 @@
 			sizes: '100vw'
 		}) }}
 
-		<div class="card__image-overlay">
+		<div class="card__image-overlay{% if card.overlay == false %} card__image-overlay--transparent{% endif %}">
 
 			<div class="screen-only / card__meta">
 
