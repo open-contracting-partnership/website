@@ -6,6 +6,18 @@
 	@include fluid-type(--padding, 360px, 1240px, spacing(2), spacing(15));
 	@include fluid-type(--font-size, 360px, 1240px, 19px, 32px);
 
+	&[data-grid-spacing="small"] {
+		.block__grid {
+			grid-gap: spacing(2);
+		}
+	}
+
+	&[data-grid-spacing="large"] {
+		.block__grid {
+			grid-gap: spacing(4);
+		}
+	}
+
 	.block__background {
 
 		grid-column: full;

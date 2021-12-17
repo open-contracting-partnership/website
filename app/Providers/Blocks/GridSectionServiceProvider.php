@@ -45,6 +45,7 @@ class GridSectionServiceProvider
 		$context['block']['heading'] = get_field('heading');
 		$context['block']['strapline'] = get_field('strapline');
 		$context['block']['layout'] = get_field('layout');
+		$context['block']['spacing'] = get_field('spacing');
 
 		if ($is_preview && ! $context['block']['heading']) {
 			$context['block']['heading'] = 'Add primary title here&hellip;';
