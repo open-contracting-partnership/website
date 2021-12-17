@@ -16,7 +16,7 @@ class SearchController extends Controller
 	public function handle()
 	{
 		$context = Timber::get_context();
-		$search_query = get_search_query();
+		$search_query = trim(get_search_query());
 
 		$page = get_query_var('page', 1);
 		$search = new Search($search_query, $page);
