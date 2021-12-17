@@ -1,25 +1,21 @@
 <section class="event">
-
 	<div class="event__date">
 		<svg><use xlink:href="#icon-event"></use></svg>
 		<span>{{ event.date }}</span>
 	</div>
 
 	<h1 class="event__title">{{ event.title }}</h1>
-
-	<p class="event__meta / uppercase">Organisation: {{ event.organisation }}. {% if event.location %}Location: {{ event.location }}{% endif %}</p>
+	<p class="uppercase event__meta /">Organisation: {{ event.organisation }}. {% if event.location %}Location: {{ event.location }}{% endif %}</p>
 
 	<div class="event__content">
 		{{ event.content | raw }}
 	</div>
 
 	{% if event.link %}
-
 		<a class="arrow-link" data-icon-color="orange" data-text-color="black" href="{{ event.link }}">
 			<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-			<span class="arrow-link__label / uppercase">More details</span>
+			<span class="uppercase arrow-link__label /">{{ event.link_text ?? "More details" }}</span>
 		</a>
-
 	{% endif %}
 
 	{% include 'partials/share.twig' with {
@@ -30,5 +26,4 @@
 	{% include 'partials/taxonomies-list.twig' with {
 		taxonomies: event.taxonomies
 	} %}
-
 </section>
