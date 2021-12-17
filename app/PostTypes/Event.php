@@ -50,6 +50,7 @@ class Event extends Post
 		$context['date'] = date('j M Y', strtotime($event->event_date));
 		$context['location'] = $event->event_location;
 		$context['link'] = $event->link;
+		$context['link_text'] = $event->link_text;
 		$context['content'] = $event->content;
 		$context['organisation'] = $event->organisation;
 
