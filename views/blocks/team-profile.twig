@@ -94,27 +94,27 @@
 						<h3 class="block__profile-role">{{ person.role }}</h3>
 
 						<div class="block__profile-social">
-
 							{% if person.email_address %}
-
 								<a href="mailto:{{ person.email_address }}" title="Email {{ person.name }}">
 									<svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
 								</a>
-
 							{% endif %}
 
 							{% if person.twitter_name %}
-
-								<a href="https://twitter.com/{{ person.twitter_name}}" title="Follow {{ person.name }} on Twitter">
+								<a href="https://twitter.com/{{ person.twitter_name }}" title="Follow {{ person.name }} on Twitter">
 									<svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
 								</a>
-
 							{% endif %}
 
+							{% if person.linkedin_url %}
+								<a href="{{ person.linkedin_url }}" title="Connect with {{ person.name }} on Linkedin" target="_blank">
+									<svg data-icon="linkedin"><use xlink:href="#social-linkedin"></use></svg>
+								</a>
+							{% endif %}
 						</div>
 
-						<button class="screen-only / block__profile-mobile-toggle / button--naked" data-action="show">Show bio</button>
-						<button class="screen-only / block__profile-mobile-toggle / button--naked" data-action="hide">Hide bio</button>
+						<button class="screen-only / block__profile-mobile-toggle button--naked" data-action="show">Show bio</button>
+						<button class="screen-only / block__profile-mobile-toggle button--naked" data-action="hide">Hide bio</button>
 
 					</div>
 
