@@ -9,163 +9,163 @@ import Resource from './components/cards/resource.vue'
 
 new Vue({
 
-	el: '#resource-archive',
+    el: '#resource-archive',
 
-	components: {
-		Resource
-	},
+    components: {
+        Resource
+    },
 
-	data: {
+    data: {
 
-		// data
-		resources: content.resources,
+        // data
+        resources: content.resources,
 
-		// switch
-		tab: 'resource-library',
+        // switch
+        tab: 'resource-library',
 
-		// search and filters
-		search: '',
-		filter: {}
+        // search and filters
+        search: '',
+        filter: {}
 
-	},
+    },
 
-	watch: {
+    watch: {
 
-		filter: {
-			deep: true,
-			handler() {
+        filter: {
+            deep: true,
+            handler() {
 
-				let params = this.filter;
+                let params = this.filter;
 
-				params.tab = this.tab;
+                params.tab = this.tab;
 
-				const url = window.location.pathname + '?' + new URLSearchParams(params).toString();
-				history.replaceState(null, '', url);
-			}
-		}
+                const url = window.location.pathname + '?' + new URLSearchParams(params).toString();
+                history.replaceState(null, '', url);
+            }
+        }
 
-	},
+    },
 
-	computed: {
+    computed: {
 
-		visibleResources: function () {
+        visibleResources: function () {
 
-			let resources = _cloneDeep(this.resources);
+            let resources = _cloneDeep(this.resources);
 
-			resources = _filter(resources, resource => {
+            resources = _filter(resources, resource => {
 
-				let display = true;
+                let display = true;
 
-				// apply search
+                // apply search
 
-				if ( this.search !== "" ) {
+                if (this.search !== "") {
 
-					var re = new RegExp(this.search, "gi");
+                    var re = new RegExp(this.search, "gi");
 
-					if ( resource.title.match(re) === null ) {
-						display = false;
-					}
+                    if (resource.title.match(re) === null) {
+                        display = false;
+                    }
 
-				}
+                }
 
-				if (this.tab === 'resource-library') {
+                if (this.tab === 'resource-library') {
 
-					if (resource.location.length !== 0 && resource.location.indexOf('resources') === -1) {
-						display = false;
-					}
+                    if (resource.location.length !== 0 && resource.location.indexOf('resources') === -1) {
+                        display = false;
+                    }
 
-				} else {
+                } else {
 
-					if (resource.location.indexOf('learning') === -1) {
-						display = false;
-					}
+                    if (resource.location.indexOf('learning') === -1) {
+                        display = false;
+                    }
 
-				}
+                }
 
-				// apply resource type filter
-				if ( this.filter['resource-type'] ) {
+                // apply resource type filter
+                if (this.filter['resource-type']) {
 
-					if ( resource.type !== this.filter['resource-type'] ) {
-						display = false;
-					}
+                    if (resource.type !== this.filter['resource-type']) {
+                        display = false;
+                    }
 
-				}
+                }
 
-				// apply learning resource category filter
-				if ( this.filter['learning-resource-category'] ) {
+                // apply learning resource category filter
+                if (this.filter['learning-resource-category']) {
 
-					if ( resource.learning_resource_category !== this.filter['learning-resource-category'] ) {
-						display = false;
-					}
+                    if (resource.learning_resource_category !== this.filter['learning-resource-category']) {
+                        display = false;
+                    }
 
-				}
+                }
 
-				return display;
+                return display;
 
-			});
+            });
 
-			return resources;
+            return resources;
 
-		}
+        }
 
-	},
+    },
 
-	methods: {
+    methods: {
 
-		toggleFilter(event) {
+        toggleFilter(event) {
 
-			const value = event.target.value;
-			const taxonomy = event.target.dataset.taxonomy;
+            const value = event.target.value;
+            const taxonomy = event.target.dataset.taxonomy;
 
-			if (this.filter[taxonomy] === undefined) {
-				this.$set(this.filter, taxonomy, value);
-			} else if (this.filter[taxonomy] !== value) {
-				this.$set(this.filter, taxonomy, value);
-			} else {
-				this.$delete(this.filter, taxonomy)
-			}
+            if (this.filter[taxonomy] === undefined) {
+                this.$set(this.filter, taxonomy, value);
+            } else if (this.filter[taxonomy] !== value) {
+                this.$set(this.filter, taxonomy, value);
+            } else {
+                this.$delete(this.filter, taxonomy)
+            }
 
-		},
+        },
 
-		isChecked(taxonomy, slug) {
-			return this.filter[taxonomy] === slug;
-		},
+        isChecked(taxonomy, slug) {
+            return this.filter[taxonomy] === slug;
+        },
 
-		switchTab(event) {
-			this.tab = event.target.dataset.tab;
-			this.resetFilters();
-		},
+        switchTab(event) {
+            this.tab = event.target.dataset.tab;
+            this.resetFilters();
+        },
 
-		resetFilters() {
-			this.search = '';
-			this.filter = {};
-		}
+        resetFilters() {
+            this.search = '';
+            this.filter = {};
+        }
 
-	},
+    },
 
-	mounted() {
+    mounted() {
 
-		const query_string = window.location.search.split('?')[1];
-		const params = new URLSearchParams(query_string);
+        const query_string = window.location.search.split('?')[1];
+        const params = new URLSearchParams(query_string);
 
-		if (params.has('tab')) {
+        if (params.has('tab')) {
 
-			if (params.get('tab') === 'resource-library') {
-				this.tab = 'resource-library';
-			} else if (params.get('tab') === 'learning-library') {
-				this.tab = 'learning-library';
-			}
+            if (params.get('tab') === 'resource-library') {
+                this.tab = 'resource-library';
+            } else if (params.get('tab') === 'learning-library') {
+                this.tab = 'learning-library';
+            }
 
-		}
+        }
 
-		if (params.has('learning-resource-category')) {
-			this.$set(this.filter, 'learning-resource-category', params.get('learning-resource-category'));
-		}
+        if (params.has('learning-resource-category')) {
+            this.$set(this.filter, 'learning-resource-category', params.get('learning-resource-category'));
+        }
 
-		if (params.has('resource-type')) {
-			this.$set(this.filter, 'resource-type', params.get('resource-type'));
-		}
+        if (params.has('resource-type')) {
+            this.$set(this.filter, 'resource-type', params.get('resource-type'));
+        }
 
-	}
+    }
 
 });
