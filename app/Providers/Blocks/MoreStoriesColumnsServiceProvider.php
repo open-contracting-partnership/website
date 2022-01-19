@@ -10,86 +10,73 @@ use Timber\Timber;
 class MoreStoriesColumnsServiceProvider
 {
 
-	/**
-	 * Perform any additional boot required for this application
-	 */
-	public function boot()
-	{
+    /**
+     * Perform any additional boot required for this application
+     */
+    public function boot()
+    {
 
-		add_action('acf/init', function() {
+        add_action('acf/init', function () {
 
-			acf_register_block_type([
-				'name' => 'ocp/more-stories-columns',
-				'title' => __('More Stories (Columns)'),
-				'description' => __('Display more stories'),
-				'render_callback' => array($this, 'render'),
-				'category' => 'ocp-blocks',
-				'icon' => 'welcome-widgets-menus',
-				'keywords' => ['story', 'stories', 'more'],
-				'post_types' => ['page'],
-				'supports' => [
-					'align' => false
-				]
-			]);
+            acf_register_block_type([
+                'name' => 'ocp/more-stories-columns',
+                'title' => __('More Stories (Columns)'),
+                'description' => __('Display more stories'),
+                'render_callback' => array($this, 'render'),
+                'category' => 'ocp-blocks',
+                'icon' => 'welcome-widgets-menus',
+                'keywords' => ['story', 'stories', 'more'],
+                'post_types' => ['page'],
+                'supports' => [
+                    'align' => false
+                ]
+            ]);
+        });
+    }
 
-		});
+    public function render()
+    {
 
-	}
+        $context = Timber::get_context();
 
-	public function render() {
+        $context['block'] = [];
+        $context['block']['columns'] = get_field('columns');
 
-		$context = Timber::get_context();
+        foreach ($context['block']['columns'] as &$column) {
+            if ($column['acf_fc_layout'] === 'resource') {
+                $posts = $column['manual_posts'] ?: [];
 
-		$context['block'] = [];
-		$context['block']['columns'] = get_field('columns');
+                if ($column['automatic_posts']) {
+                    $posts = Timber::get_posts([
+                        'post_type' => $column['automatic_post_type'],
+                        'posts_per_page' => 2
+                    ]);
+                }
 
-		foreach ( $context['block']['columns'] as &$column ) {
+                $column['posts'] = ResourceCard::convertCollection($posts);
+            }
 
-			if ( $column['acf_fc_layout'] === 'resource' ) {
+            if ($column['acf_fc_layout'] === 'default') {
+                $posts = $column['manual_posts'] ?: [];
 
-				$posts = $column['manual_posts'] ?: [];
+                if ($column['automatic_posts']) {
+                    $posts = Timber::get_posts([
+                        'post_type' => $column['automatic_post_type'],
+                        'posts_per_page' => 3
+                    ]);
+                }
 
-				if ( $column['automatic_posts'] ) {
+                $column['posts'] = TextCard::convertCollection($posts);
+            }
+        }
 
-					$posts = Timber::get_posts([
-						'post_type' => $column['automatic_post_type'],
-						'posts_per_page' => 2
-					]);
+        $context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';
+        $context['block']['text_colour'] = isContrastingColourLight($context['block']['background_colour']) ? '#FFF' : '#000';
+        $context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
 
-				}
-
-				$column['posts'] = ResourceCard::convertCollection($posts);
-
-			}
-
-			if ( $column['acf_fc_layout'] === 'default' ) {
-
-				$posts = $column['manual_posts'] ?: [];
-
-				if ( $column['automatic_posts'] ) {
-
-					$posts = Timber::get_posts([
-						'post_type' => $column['automatic_post_type'],
-						'posts_per_page' => 3
-					]);
-
-				}
-
-				$column['posts'] = TextCard::convertCollection($posts);
-
-			}
-
-		}
-
-		$context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';
-		$context['block']['text_colour'] = isContrastingColourLight($context['block']['background_colour']) ? '#FFF' : '#000';
-		$context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
-
-		// options
-		$context['block']['options'] = get_field('options') ?: [];
-		
-		echo Timber::compile('blocks/more-stories-columns.twig', $context);
-
-	}
-
+        // options
+        $context['block']['options'] = get_field('options') ?: [];
+        
+        echo Timber::compile('blocks/more-stories-columns.twig', $context);
+    }
 }
