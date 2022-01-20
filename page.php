@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all pages.
  *
@@ -17,16 +18,16 @@ use Timber\Timber;
 
 class PageController extends Controller
 {
-	public function handle()
-	{
-		$context = Timber::get_context();
-		$page = new Page();
+    public function handle()
+    {
+        $context = Timber::get_context();
+        $page = new Page();
 
-		$context['post'] = $page;
-		$context['title'] = $page->title;
-		$context['content'] = $page->content;
-		$context['hide_title'] = $page->hide_title;
+        $context['post'] = $page;
+        $context['title'] = $page->title;
+        $context['content'] = $page->content;
+        $context['hide_title'] = $page->hide_title;
 
-		return new TimberResponse('templates/page.twig', $context);
-	}
+        return new TimberResponse('templates/page.twig', $context);
+    }
 }

@@ -41,12 +41,13 @@ class LogosServiceProvider
         $context['block']['logos'] = get_field('logos');
 
         $context['block']['background_colour'] = get_field('background_colour') ?: '#6C75E1';
-        $context['block']['text_colour'] = isContrastingColourLight($context['block']['background_colour']) ? '#FFF' : '#000';
+        $context['block']['text_colour'] =
+            isContrastingColourLight($context['block']['background_colour']) ? '#FFF' : '#000';
         $context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
 
         // options
         $context['block']['options'] = get_field('options') ?: [];
-        
+
         echo Timber::compile('blocks/logos.twig', $context);
     }
 }

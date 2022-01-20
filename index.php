@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The main template file
  * This is the most generic template file in a WordPress theme
@@ -16,11 +17,11 @@ use Timber\Timber;
 
 class IndexController extends Controller
 {
-	public function handle()
-	{
-		$context = Timber::get_context();
-		$context['posts'] = Post::all();
+    public function handle()
+    {
+        $context = Timber::get_context();
+        $context['posts'] = Post::all();
 
-		return new TimberResponse('templates/posts.twig', $context);
-	}
+        return new TimberResponse('templates/posts.twig', $context);
+    }
 }

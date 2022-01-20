@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying 404 pages (Not Found)
  *
@@ -21,18 +22,17 @@ use Timber\Timber;
  */
 class Error404Controller extends Controller
 {
-	public function handle()
-	{
+    public function handle()
+    {
 
-		$context = Timber::get_context();
-		$page = new Page(8300);
+        $context = Timber::get_context();
+        $page = new Page(8300);
 
-		$context['post'] = $page;
-		$context['title'] = $page->title;
-		$context['content'] = $page->content;
-		$context['hide_title'] = $page->hide_title;
+        $context['post'] = $page;
+        $context['title'] = $page->title;
+        $context['content'] = $page->content;
+        $context['hide_title'] = $page->hide_title;
 
-		return new TimberResponse('templates/page.twig', $context, 404);
-
-	}
+        return new TimberResponse('templates/page.twig', $context, 404);
+    }
 }

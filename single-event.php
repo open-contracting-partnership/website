@@ -14,20 +14,18 @@ use Timber\Timber;
 
 class SingleEventController extends Controller
 {
-	public function handle()
-	{
-		$context = Timber::get_context();
-		$event = new Event();
+    public function handle()
+    {
+        $context = Timber::get_context();
+        $event = new Event();
 
-		$context['event'] = Event::convertTimberObject($event);
+        $context['event'] = Event::convertTimberObject($event);
 
-		$context['back_link'] = [
-			'url' => get_post_type_archive_link('event'),
-			'label' => __('Back to events', 'ocp')
-		];
+        $context['back_link'] = [
+            'url' => get_post_type_archive_link('event'),
+            'label' => __('Back to events', 'ocp')
+        ];
 
-		return new TimberResponse('templates/single-event.twig', $context);
-
-	}
-
+        return new TimberResponse('templates/single-event.twig', $context);
+    }
 }

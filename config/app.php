@@ -75,8 +75,10 @@ return [
     /**
      * Logs enabled, path and level
      *
-     * When path is `false` the default Apache/Nginx error logs are used. By setting path to a string, no logs will be sent
-     * to the default and instead a file will be created. To disable all logging output set `enabled` to `false`.
+     * When path is `false` the default Apache/Nginx error logs are used. By
+     * setting path to a string, no logs will be sent to the default and instead
+     * a file will be created. To disable all logging output set `enabled`
+     * to `false`.
      */
     'logs' => [
         'enabled' => true,

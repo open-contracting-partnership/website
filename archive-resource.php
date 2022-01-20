@@ -11,135 +11,117 @@ use Timber\Timber;
 
 class ArchiveResourceController extends Controller
 {
-	public function handle()
-	{
-		$context = Timber::get_context();
-		$context['title'] = _x('Search our resources', 'Resources archive title', 'ocp');
+    public function handle()
+    {
+        $context = Timber::get_context();
+        $context['title'] = _x('Search our resources', 'Resources archive title', 'ocp');
 
-		$context['resource_library_filters'] = get_field('resources_filters', 'options');
+        $context['resource_library_filters'] = get_field('resources_filters', 'options');
 
-		if ( $context['resource_library_filters'] ) {
+        if ($context['resource_library_filters']) {
+            foreach ($context['resource_library_filters'] as &$filter_group) {
+                $filter_group['filter'] = array_map(function ($filter) {
 
-			foreach ( $context['resource_library_filters'] as &$filter_group ) {
+                    $term = get_term($filter['type']);
 
-				$filter_group['filter'] = array_map(function($filter) {
+                    $filter['slug'] = $term->slug;
+                    $filter['taxonomy'] = $term->taxonomy;
+                    $filter['label'] = $term->name;
+                    $filter['colour'] = get_field('colour', $term);
 
-					$term = get_term($filter['type']);
+                    return $filter;
+                }, $filter_group['filter']);
+            }
+        }
 
-					$filter['slug'] = $term->slug;
-					$filter['taxonomy'] = $term->taxonomy;
-					$filter['label'] = $term->name;
-					$filter['colour'] = get_field('colour', $term);
+        $context['learning_library_filters'] = get_field('learning_library_filters', 'options');
 
-					return $filter;
+        if ($context['learning_library_filters']) {
+            foreach ($context['learning_library_filters'] as &$filter_group) {
+                $filter_group['filter'] = array_map(function ($filter) {
 
-				}, $filter_group['filter']);
+                    $term = get_term($filter['type']);
 
-			}
+                    $filter['slug'] = $term->slug;
+                    $filter['taxonomy'] = $term->taxonomy;
+                    $filter['label'] = $term->name;
+                    $filter['colour'] = get_field('colour', $term);
 
-		}
+                    return $filter;
+                }, $filter_group['filter']);
+            }
+        }
 
-		$context['learning_library_filters'] = get_field('learning_library_filters', 'options');
+        $context['resources']['i18n']['introduction'] = _x(
+            'We are constantly preparing new resources to help you implement open contracting more effectively and efficiently. Whether it’s guides and research developed by us and our partners, or our data tools and training materials, we have it listed.',
+            'The introduction on the resources archive',
+            'ocp'
+        );
 
-		if ( $context['learning_library_filters'] ) {
+        $context['resources']['i18n']['no_results_label'] = _x(
+            'No results found',
+            'The no results found label on the resources archive',
+            'ocp'
+        );
 
-			foreach ( $context['learning_library_filters'] as &$filter_group ) {
+        // localise the script only *after* the scripts are queued up
+        add_action('wp_enqueue_scripts', function () {
 
-				$filter_group['filter'] = array_map(function($filter) {
+            wp_localize_script('archive-resource', 'content', [
+                'resources' => $this->getAllResources(),
+                'select_a_filter' => str_replace(' ', '&nbsp;', __('Select a topic', 'ocp'))
+            ]);
+        });
 
-					$term = get_term($filter['type']);
+        return new TimberResponse('templates/archive-resource.twig', $context);
+    }
 
-					$filter['slug'] = $term->slug;
-					$filter['taxonomy'] = $term->taxonomy;
-					$filter['label'] = $term->name;
-					$filter['colour'] = get_field('colour', $term);
+    private function getAllResources()
+    {
 
-					return $filter;
+        $resources_output = [];
 
-				}, $filter_group['filter']);
+        $resources = Resource::query([
+            'posts_per_page' => -1
+        ]);
 
-			}
+        foreach ($resources as $resource) {
+            $output = [];
+            $output['title'] = $resource->title;
+            $output['url'] = $resource->link();
 
-		}
+            if ($resource->organisation) {
+                $output['meta'] = sprintf(__('By %s', 'ocp'), $resource->organisation) . ' / ' . $resource->date('Y');
+            } else {
+                $output['meta'] = $resource->date('Y');
+            }
 
-		$context['resources']['i18n']['introduction'] = _x(
-			'We are constantly preparing new resources to help you implement open contracting more effectively and efficiently. Whether it’s guides and research developed by us and our partners, or our data tools and training materials, we have it listed.',
-			'The introduction on the resources archive',
-			'ocp'
-		);
+            $output['type'] = null;
+            $output['type_label'] = null;
 
-		$context['resources']['i18n']['no_results_label'] = _x(
-			'No results found',
-			'The no results found label on the resources archive',
-			'ocp'
-		);
+            $output['location'] = $resource->resource_location ?? [];
 
-		// localise the script only *after* the scripts are queued up
-		add_action('wp_enqueue_scripts', function() {
+            $output['learning_resource_category'] = null;
+            $output['learning_resource_category_label'] = null;
 
-			wp_localize_script('archive-resource', 'content', [
-				'resources' => $this->getAllResources(),
-				'select_a_filter' => str_replace(' ', '&nbsp;', __('Select a topic', 'ocp'))
-			]);
+            if ($resource->resource_type) {
+                $term = get_term($resource->resource_type);
 
-		});
-
-		return new TimberResponse('templates/archive-resource.twig', $context);
-	}
-
-	private function getAllResources() {
-
-		$resources_output = [];
-
-		$resources = Resource::query([
-			'posts_per_page' => -1
-		]);
-
-		foreach ( $resources as $resource ) {
-
-			$output = [];
-			$output['title'] = $resource->title;
-			$output['url'] = $resource->link();
-
-			if ( $resource->organisation ) {
-				$output['meta'] = sprintf(__('By %s', 'ocp'), $resource->organisation) . ' / ' . $resource->date('Y');
-			} else {
-				$output['meta'] = $resource->date('Y');
-			}
-
-			$output['type'] = null;
-			$output['type_label'] = null;
-
-			$output['location'] = $resource->resource_location ?? [];
-
-			$output['learning_resource_category'] = null;
-			$output['learning_resource_category_label'] = null;
-
-			if ( $resource->resource_type ) {
-
-				$term = get_term($resource->resource_type);
-
-				$output['type'] = $term->slug;
-				$output['type_label'] = $term->name;
+                $output['type'] = $term->slug;
+                $output['type_label'] = $term->name;
                 $output['colour'] = get_field('colour', $term);
+            }
 
-			}
+            if ($resource->learning_resource_category) {
+                $term = get_term($resource->learning_resource_category);
 
-			if ( $resource->learning_resource_category ) {
+                $output['learning_resource_category'] = $term->slug;
+                $output['learning_resource_category_label'] = $term->name;
+            }
 
-				$term = get_term($resource->learning_resource_category);
+            $resources_output[] = $output;
+        }
 
-				$output['learning_resource_category'] = $term->slug;
-				$output['learning_resource_category_label'] = $term->name;
-
-			}
-
-			$resources_output[] = $output;
-
-		}
-
-		return $resources_output;
-
-	}
-
+        return $resources_output;
+    }
 }

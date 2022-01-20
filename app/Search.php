@@ -34,7 +34,11 @@ class Search
         ];
 
         // set the transient key
-        $this->transient_key = 'ocp_google_cse_' . $this->language_code . '_' . hash('sha256', implode('||', $transient_key_parts));
+        $this->transient_key = sprintf(
+            'ocp_google_cse_%s_%s',
+            $this->language_code,
+            hash('sha256', implode('||', $transient_key_parts))
+        );
 
         // fetch the results
         $this->fetchResults();
