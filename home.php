@@ -13,9 +13,10 @@ namespace App;
 use App\Cards\FeatureCard;
 use App\Cards\PrimaryCard;
 use App\Http\Controllers\Controller;
-use App\PostTypes\News;
 use App\PostTypes\Event;
+use App\PostTypes\News;
 use App\PostTypes\Resource;
+use Rareloop\Lumberjack\Facades\Config;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Post;
 use Timber\Post as TimberPost;
@@ -65,7 +66,7 @@ class HomeController extends Controller
 			wp_localize_script('latest-news', 'content', [
 				'posts' => $this->getBlogs(),
 				'select_a_filter' => str_replace(' ', '&nbsp;', __('Select a topic', 'ocp')),
-				'imgix_url' => IMGIX_BASE_URL
+				'imgix_host_transforms' => Config::get('images.imgix_host_transforms')
 			]);
 
 		});

@@ -20,7 +20,6 @@ class ImgixServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         add_filter('timber/twig', function (\Twig_Environment $twig) {
             $twig->addFunction(new \Twig\TwigFunction('imgix', [$this, 'render']));
             return $twig;
@@ -29,7 +28,6 @@ class ImgixServiceProvider extends ServiceProvider
 
     public function render($args)
     {
-
         $this->prepareParams($args);
 
         $image = [
@@ -50,19 +48,15 @@ class ImgixServiceProvider extends ServiceProvider
 
         // make sure the host is set within the params
         $args = array_merge([
-            'host' => Config::get('images.imgix_base_url'),
+            'host_transforms' => Config::get('images.imgix_host_transforms'),
             'alt' => '',
             'aspect_ratio' => null,
             'loading' => 'lazy'
         ], $args);
-
-        // ensure the src url is stripped of it's domain
-        $args['src'] = parse_url($args['src'])['path'];
     }
 
     private function buildSources($args)
     {
-
         $srcset = array_map(function ($transform) use ($args) {
             return $this->buildURL($args, $transform) . ' ' . $transform['w'] . 'w';
         }, $args['transforms']);
@@ -72,7 +66,6 @@ class ImgixServiceProvider extends ServiceProvider
 
     private function buildURL($args, $transform)
     {
-
         $transform = array_merge($args['params'], $transform);
 
         unset($transform['host']);
@@ -81,6 +74,12 @@ class ImgixServiceProvider extends ServiceProvider
             $transform['h'] = ceil($transform['w'] / ($args['aspect_ratio'][0] / $args['aspect_ratio'][1]));
         }
 
-        return rtrim($args['host'], '/') . '/' . ltrim($args['src'], '/') . '?' . http_build_query($transform);
+        $args['src'] = str_replace(
+            array_keys($args['host_transforms']),
+            array_values($args['host_transforms']),
+            $args['src']
+        );
+
+        return $args['src'] . '?' . http_build_query($transform);
     }
 }
