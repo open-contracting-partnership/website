@@ -8,70 +8,67 @@ use Timber\Timber;
 class GridSectionServiceProvider
 {
 
-	/**
-	 * Perform any additional boot required for this application
-	 */
-	public function boot()
-	{
+    /**
+     * Perform any additional boot required for this application
+     */
+    public function boot()
+    {
 
-		add_action('acf/init', function() {
+        add_action('acf/init', function () {
 
-			acf_register_block_type([
-				'name' => 'ocp/grid-section',
-				'title' => __('Grid Section'),
-				'description' => __('Grid section includes a heading, strapline and a grid of contents.'),
-				'render_callback' => array($this, 'render'),
-				'category' => 'ocp-blocks',
-				'icon' => 'grid-view',
-				'keywords' => ['grid', 'section'],
-				'post_types' => ['page'],
-				'supports' => [
-					'align' => false,
-					'jsx' => true,
-				]
-			]);
+            acf_register_block_type([
+                'name' => 'ocp/grid-section',
+                'title' => __('Grid Section'),
+                'description' => __('Grid section includes a heading, strapline and a grid of contents.'),
+                'render_callback' => array($this, 'render'),
+                'category' => 'ocp-blocks',
+                'icon' => 'grid-view',
+                'keywords' => ['grid', 'section'],
+                'post_types' => ['page'],
+                'supports' => [
+                    'align' => false,
+                    'jsx' => true,
+                ]
+            ]);
+        });
+    }
 
-		});
+    public function render($block, $content = '', $is_preview = false, $post_id = 0)
+    {
 
-	}
+        $context = Timber::get_context();
 
-	public function render($block, $content = '', $is_preview = false, $post_id = 0) {
+        $context['block'] = [];
 
-		$context = Timber::get_context();
+        // content
+        $context['block']['heading'] = get_field('heading');
+        $context['block']['strapline'] = get_field('strapline');
+        $context['block']['layout'] = get_field('layout');
+        $context['block']['spacing'] = get_field('spacing');
 
-		$context['block'] = [];
+        if ($is_preview && ! $context['block']['heading']) {
+            $context['block']['heading'] = 'Add primary title here&hellip;';
+        }
 
-		// content
-		$context['block']['heading'] = get_field('heading');
-		$context['block']['strapline'] = get_field('strapline');
-		$context['block']['layout'] = get_field('layout');
-		$context['block']['spacing'] = get_field('spacing');
+        $context['block']['allowed_inner_blocks'] = esc_attr(wp_json_encode([
+            'core/heading',
+            'core/paragraph',
+            'acf/ocp-grid-section',
+            'acf/ocp-card',
+            'acf/ocp-card-embed',
+            'acf/ocp-card-with-icon',
+            'acf/ocp-arrow-link'
+        ]));
 
-		if ($is_preview && ! $context['block']['heading']) {
-			$context['block']['heading'] = 'Add primary title here&hellip;';
-		}
+        // colours
+        $context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';
+        $context['block']['is_dark'] = isContrastingColourLight($context['block']['background_colour']);
+        $context['block']['text_colour'] = $context['block']['is_dark'] ? '#FFF' : '#000';
+        $context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
 
-		$context['block']['allowed_inner_blocks'] = esc_attr(wp_json_encode([
-			'core/heading',
-			'core/paragraph',
-			'acf/ocp-grid-section',
-			'acf/ocp-card',
-			'acf/ocp-card-embed',
-			'acf/ocp-card-with-icon',
-			'acf/ocp-arrow-link'
-		]));
+        // options
+        $context['block']['options'] = get_field('options') ?: [];
 
-		// colours
-		$context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';
-		$context['block']['is_dark'] = isContrastingColourLight($context['block']['background_colour']);
-		$context['block']['text_colour'] = $context['block']['is_dark'] ? '#FFF' : '#000';
-		$context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
-
-		// options
-		$context['block']['options'] = get_field('options') ?: [];
-
-		echo Timber::compile('blocks/grid-section.twig', $context);
-
-	}
-
+        echo Timber::compile('blocks/grid-section.twig', $context);
+    }
 }

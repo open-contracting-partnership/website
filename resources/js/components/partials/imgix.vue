@@ -16,6 +16,8 @@
 
 <script>
 
+    import _ from 'lodash';
+
 	export default {
 
 		props: {
@@ -67,7 +69,6 @@
 		methods: {
 
 			buildURL(transform) {
-
 				transform = Object.assign({}, this.params, transform);
 
 				delete transform['host'];
@@ -83,14 +84,11 @@
 
 				let url = this.url;
 
-				try {
-					const url_parts = new URL(url);
-					url = url_parts.pathname;
-				}
-				catch(error) {}
+                _.each(content.imgix_host_transforms, (transform, source) => {
+                    url = url.replace(source, transform);
+                });
 
-				return content.imgix_url + url + '?' + query;
-
+				return url + '?' + query;
 			}
 
 		}

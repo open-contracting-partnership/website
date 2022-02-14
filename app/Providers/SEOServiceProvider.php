@@ -7,35 +7,30 @@ use Rareloop\Lumberjack\Providers\ServiceProvider;
 
 class SEOServiceProvider extends ServiceProvider
 {
-	/**
-	 * Register any app specific items into the container
-	 */
-	public function register()
-	{
+    /**
+     * Register any app specific items into the container
+     */
+    public function register()
+    {
+    }
 
-	}
+    /**
+     * Perform any additional boot required for this application
+     */
+    public function boot()
+    {
 
-	/**
-	 * Perform any additional boot required for this application
-	 */
-	public function boot()
-	{
+        // overwrite the yoast og image to use imgix as the domain
+        add_filter('wpseo_opengraph_image', function ($image_url) {
+            $imgix_host_transforms = Config::get('images.imgix_host_transforms');
 
-		// overwrite the yoast og image to use imgix as the domain
-		add_filter('wpseo_opengraph_image', function($image_url) {
+            $image_url = str_replace(
+                array_keys($imgix_host_transforms),
+                array_values($imgix_host_transforms),
+                $image_url
+            );
 
-			$imgix_url = Config::get('images.imgix_base_url');
-
-			// don't continue if we don't have an imgix url set
-			if ( ! $imgix_url ) {
-				return $image_url;
-			}
-
-			$image_parts = parse_url($image_url);
-
-			return trim($imgix_url, '/') . $image_parts['path'];
-
-		});
-
-	}
+            return $image_url;
+        });
+    }
 }
