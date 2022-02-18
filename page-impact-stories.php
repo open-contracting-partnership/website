@@ -36,8 +36,10 @@ class PageImpactStoriesController extends Controller
                 $context['countries'][$country->id] = $country->name;
             }
 
-            foreach ($story['story_type'] as $story_type) {
-                $context['story_types'][$story_type->id] = $story_type->name;
+            if ($story['story_type']) {
+                foreach ($story['story_type'] as $story_type) {
+                    $context['story_types'][$story_type->id] = $story_type->name;
+                }
             }
         }
 
