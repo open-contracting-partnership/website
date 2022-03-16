@@ -19,10 +19,6 @@ class ArchiveEventController extends Controller
             return (new \App\ArchiveController())->handle();
         }
 
-        $context = Timber::get_context();
-        $context['title'] = get_post_type_label('event', true);
-        $context['latest_event'] = null;
-
         $upcoming_events = Event::query([
             'post_type' => 'event',
             'posts_per_page' => -1,
@@ -35,12 +31,6 @@ class ArchiveEventController extends Controller
                 'compare' => '>=',
             ]]
         ]);
-
-        if (isset($upcoming_events[0])) {
-            $context['latest_event'] = Event::convertTimberObject($upcoming_events[0]);
-        }
-
-        $context['upcoming_events'] = EventCard::convertCollection($upcoming_events);
 
         $archive_events = Event::query([
             'post_type' => 'event',
@@ -55,6 +45,15 @@ class ArchiveEventController extends Controller
             ]]
         ]);
 
+        $context = Timber::get_context();
+        $context['title'] = get_post_type_label('event', true);
+        $context['latest_event'] = null;
+
+        if (isset($upcoming_events[0])) {
+            $context['latest_event'] = Event::convertTimberObject($upcoming_events[0]);
+        }
+
+        $context['upcoming_events'] = EventCard::convertCollection($upcoming_events);
         $context['archive_events'] = EventCard::convertCollection($archive_events);
 
         $context['events']['i18n']['introduction'] = _x(
