@@ -2,10 +2,15 @@
     class="translation-menu"
     :class="open ? 'is-open' : ''"
     x-data="{ open: false, currentTranslation: $persist('English') }"
+    @click.away="open = false"
 >
     <span class="translation-menu__trigger" @click="open = !open" x-text="currentTranslation"></span>
 
-    <div class="translation-menu__actual" x-show="open" x-transition>
+    <div
+        class="translation-menu__actual"
+        x-show="open"
+        x-transition
+    >
         {% if i18n.alternate_languages %}
             <div class="translation-menu__group">
                 <span class="translation-menu__title">Full site translations</span>
