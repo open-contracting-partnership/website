@@ -149,25 +149,7 @@
 
 			<div class="site-header__mobile-language">
 
-				<ul class="">
-
-					{% for language in i18n.alternate_languages %}
-
-						{% if not language.active %}
-
-							<li>
-
-								<a href="{{ language.url }}">
-									{{ language.native_name }}
-								</a>
-
-							</li>
-
-						{% endif %}
-
-					{% endfor %}
-
-				</ul>
+				{% include "partials/translation-menu.twig" %}
 
 			</div>
 
