@@ -1,0 +1,39 @@
+<nav class="header-mobile-nav">
+    <ul class="header-mobile-nav__items">
+        {% for item in header.primary_menu.items %}
+            <li
+                class="header-mobile-nav__item"
+                :class="open ? 'is-open' : ''"
+                x-data="{ open: false }"
+            >
+                <div class="header-mobile-nav__parent">
+                    <a href="{{ item.link }}">{{ item.title }}</a>
+
+                    <span
+                        class="header-mobile-nav__toggle"
+                        @click="open = !open"
+                    >
+                        <svg><use xlink:href="#icon-chevron"></use></svg>
+                    </span>
+                </div>
+
+                {% if item.children %}
+                    <div
+                        class="header-mobile-nav__children"
+                        x-show="open"
+                    >
+                        {% for child in item.children %}
+                            <a href="{{ child.link }}">{{ child.title }}</a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </li>
+        {% endfor %}
+
+        <li class="header-mobile-nav__translation">
+
+            {% include "partials/translation-menu.twig" %}
+
+        </li>
+    </ul>
+</nav>

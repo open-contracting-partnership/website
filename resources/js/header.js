@@ -13,6 +13,12 @@ document.body.addEventListener('click', event => {
 		return;
 	}
 
+	// target navigation, return to prevent continuing
+	if ( event.target && event.target.closest('.header-mobile-nav') ) {
+		event.stopPropagation();
+		return;
+	}
+
 	document.body.classList.remove('mobile-menu-active');
 
 });
