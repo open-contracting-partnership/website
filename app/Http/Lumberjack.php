@@ -37,7 +37,8 @@ class Lumberjack extends LumberjackCore
 
         $context['header'] = [
             'primary_menu' => new \Timber\Menu('Header: Primary'),
-            'secondary_menu' => new \Timber\Menu('Header: Secondary')
+            'secondary_menu' => new \Timber\Menu('Header: Secondary'),
+            'translations_menu' => new \Timber\Menu('Header: Translations'),
         ];
 
         $context['footer'] = [

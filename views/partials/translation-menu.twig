@@ -24,11 +24,17 @@
             </div>
         {% endif %}
 
-        <div class="translation-menu__group">
-            <span class="translation-menu__title">Summary translations</span>
-            <a href="#" class="translation-menu__item">Portuguese</a>
-            <a href="#" class="translation-menu__item">Bahasa Indonesia</a>
-            <a href="#" class="translation-menu__item">French</a>
-        </div>
+        {% if header.translations_menu.items|length > 0 %}
+            <div class="translation-menu__group">
+                <span class="translation-menu__title">Summary translations</span>
+                {% for item in header.translations_menu.items %}
+                    <a
+                        href="{{ item.url }}"
+                        target="{{ item.target }}"
+                        class="translation-menu__item{{ item.current ? ' is-active' : '' }}"
+                    >{{ item.name }}</a>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 </div>
