@@ -56,9 +56,73 @@
 
 		}
 
+            .block__model-diagram {
+                --en-display: block;
+                --es-display: none;
+                --ru-display: none;
+                --id-display: none;
+
+                &[data-language-override=""] {
+                    html[lang="es-ES"] & {
+                        --en-display: none;
+                        --es-display: block;
+                        --ru-display: none;
+                        --id-display: none;
+                    }
+
+                    html[lang="ru-RU"] & {
+                        --en-display: none;
+                        --es-display: none;
+                        --ru-display: block;
+                        --id-display: none;
+                    }
+                }
+
+                &[data-language-override="es"] {
+                    --en-display: none;
+                    --es-display: block;
+                    --ru-display: none;
+                    --id-display: none;
+                }
+
+                &[data-language-override="ru"] {
+                    --en-display: none;
+                    --es-display: none;
+                    --ru-display: block;
+                    --id-display: none;
+                }
+
+                &[data-language-override="id"] {
+                    --en-display: none;
+                    --es-display: none;
+                    --ru-display: none;
+                    --id-display: block;
+                }
+            }
+
 			.block__model-diagram > svg {
 
 				width: 100%;
+
+                .text {
+                    fill: #000;
+                }
+
+                [data-language="en"] {
+                    display: var(--en-display);
+                }
+
+                [data-language="es"] {
+                    display: var(--es-display);
+                }
+
+                [data-language="ru"] {
+                    display: var(--ru-display);
+                }
+
+                [data-language="id"] {
+                    display: var(--id-display);
+                }
 
 				g[data-section] {
 					z-index: 2;
@@ -123,19 +187,6 @@
 				g[data-section] {
 					cursor: pointer;
 				}
-
-				html[lang="es-ES"] & {
-
-					.text_en {
-						display: none;
-					}
-
-					.text_es {
-						display: block;
-					}
-
-				}
-
 			}
 
 			.block__model-content {

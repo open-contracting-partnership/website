@@ -168,7 +168,9 @@
                 "id": ""
             },
             "wpml_cf_preferences": 0,
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5dd56fb0b26a6",
@@ -184,7 +186,37 @@
                 "id": ""
             },
             "wpml_cf_preferences": 0,
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
+        },
+        {
+            "key": "field_62e7f3b192450",
+            "label": "Language Override",
+            "name": "language_override",
+            "type": "select",
+            "instructions": "Specify a language to show the diagram in, this overrides the site language",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "choices": {
+                "en": "English",
+                "es": "Spanish",
+                "ru": "Russian",
+                "id": "Indonesian"
+            },
+            "default_value": false,
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -202,7 +234,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1574269070
+    "show_in_rest": 0,
+    "modified": 1659368601
 }

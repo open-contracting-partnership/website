@@ -24,7 +24,10 @@
 
 		<div class="block__model">
 
-			<div class="screen-only / block__model-diagram">
+			<div
+                class="screen-only / block__model-diagram"
+                data-language-override="{{ block.language_override }}"
+            >
 				{{ block.model_svg | raw }}
 			</div>
 
