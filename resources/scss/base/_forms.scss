@@ -173,6 +173,8 @@ Represents the result of a calculation or user action.
 
 */
 
+@use "sass:math";
+
 fieldset,
 form {
 	border: 0;
@@ -221,7 +223,7 @@ textarea {
 	border: 1px solid $ui-black;
 	border-radius: $border-radius;
 	padding: .5rem 1rem;
-	margin-bottom: $space / 2;
+	margin-bottom: math.div($space, 2);
 
 	&:focus {
 		box-shadow: none;
@@ -397,8 +399,8 @@ category:
 	color: $ui-grey-4;
 
 	height: em(23, 14);
-	border: em(1, 14) solid currentColor;
-	border-radius: em(2, 14) em(23/2, 14) em(23/2, 14) em(2, 14);
+	border: 1px solid currentColor;
+	border-radius: 2px 999px 999px 2px;
 	display: flex;
 
 	.search-input__input {
