@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /*------------------------------------*\
     GLOBAL MIXINS
 \*------------------------------------*/
@@ -35,7 +37,7 @@
 		// replace all spaces with dashes
 		$typekit-font: str_replace(to-lower-case($font), ' ', '-');
 
-		font-family: "#{$typekit-font}-" + str-slice($style, 0, 1) + ($weight / 100), $font, $fallback;
+		font-family: "#{$typekit-font}-" + str-slice($style, 0, 1) + math.div($weight, 100), $font, $fallback;
 	} @else {
 		font-family: $font, $fallback;
 	}
@@ -43,11 +45,11 @@
 
 
 @function em($value, $size: $base-font-size) {
-	@return $value / $size + em;
+	@return math.div($value, $size) + em;
 }
 
 @function rem($value) {
-	@return $value / $base-font-size + em;
+	@return math.div($value, $base-font-size) + em;
 }
 
 
@@ -246,7 +248,7 @@
 		display: block;
 		content: '';
 		width: 100%;
-		padding-top: ($height / $width) * 100%;
+		padding-top: math.div($height, $width) * 100%;
 	}
 
 	> .content {
@@ -283,10 +285,8 @@
 		}
 
 	}
-
 }
 
-
 @function strip-unit($value) {
-	@return $value / ($value * 0 + 1);
+	@return math.div($value, ($value * 0 + 1));
 }

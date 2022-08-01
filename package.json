@@ -40,7 +40,7 @@
 		"lodash.filter": "^4.6.0",
 		"lodash.intersection": "^4.4.0",
 		"mapbox-gl": "^1.5.0",
-		"modern-css-reset": "^1.0.2",
+		"modern-css-reset": "1.0.2",
 		"node-aigis": "^1.4.1",
 		"postcss": "^8.2.8",
 		"sass": "^1.17.0",

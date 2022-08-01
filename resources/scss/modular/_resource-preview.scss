@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .resource-preview {
     background-color: $ui-grey-3;
     background-image: url("../../resources/svg/resource-standard-icon.svg");
@@ -8,7 +10,7 @@
     margin-bottom: 24px;
     min-width: 266px;
     overflow: hidden;
-    padding-top: (378 / 266) * 100%;
+    padding-top: math.div(378, 266) * 100%;
     position: relative;
 }
 

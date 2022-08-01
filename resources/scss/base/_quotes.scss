@@ -18,6 +18,8 @@ The Block Quotation Element indicates that the enclosed text is an extended quot
 
 */
 
+@use "sass:math";
+
 blockquote {
 	font-size: 20px;
 	padding: .5em 1em;
@@ -26,7 +28,7 @@ blockquote {
 
 	p {
 		@include font;
-		margin-bottom: $space / 2;
+		margin-bottom: math.div($space, 2);
 	}
 
 	footer {
