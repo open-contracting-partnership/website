@@ -59,6 +59,8 @@ class OurModelServiceProvider
 
         $context['block']['model_svg'] = file_get_contents(__DIR__ . '/../../../resources/img/our-model.svg');
 
+        $context['block']['language_override'] = get_field('language_override');
+
         $context['block']['background_colour'] = get_field('background_colour') ?: '#6C75E1';
         $context['block']['is_dark'] = isContrastingColourLight($context['block']['background_colour']);
         $context['block']['text_colour'] = $context['block']['is_dark'] ? '#FFF' : '#000';
