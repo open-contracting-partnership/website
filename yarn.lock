@@ -5705,10 +5705,12 @@ mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@^0.5.5, mkdirp@~0.5.0, mkdirp@~0.5.1:
   dependencies:
     minimist "^1.2.6"
 
-modern-css-reset@^1.0.2:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/modern-css-reset/-/modern-css-reset-1.4.0.tgz#5bee4d11eeca2ff19b882c6e8f1769773e792d04"
-  integrity sha512-0crZmSFmrxkI7159rvQWjpDhy0u4+Awg/iOycJdlVn0RSeft/a+6BrQHR3IqvmdK25sqt0o6Z5Ap7cWgUee2rw==
+modern-css-reset@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/modern-css-reset/-/modern-css-reset-1.0.2.tgz#2326fbae785fde3ce92c4497118b350cddd5f65e"
+  integrity sha512-1PZcAivwlT/jjOaurLAVLEre0P46yC5wV9KVFCVJVd2J2IWa+JO9ybo86OVlscs0uEYgIrGCyaiKhNckEiQqYw==
+  dependencies:
+    uglifycss "0.0.29"
 
 modern-normalize@^1.1.0:
   version "1.1.0"
@@ -8406,6 +8408,11 @@ uglify-to-browserify@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
   integrity sha512-vb2s1lYx2xBtUgy+ta+b2J/GLVUR+wmpINwHePmPRhOsIVCG2wDzKJ0n14GslH1BifsqVzSOwQhRaCAsZ/nI4Q==
+
+uglifycss@0.0.29:
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/uglifycss/-/uglifycss-0.0.29.tgz#abe49531155d146e75dd2fdf933d371bc1180054"
+  integrity sha512-J2SQ2QLjiknNGbNdScaNZsXgmMGI0kYNrXaDlr4obnPW9ni1jljb1NeEVWAiTgZ8z+EBWP2ozfT9vpy03rjlMQ==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
