@@ -25,7 +25,8 @@ class MailChimpServiceProvider extends ServiceProvider
 
             register_rest_route('ocp/v1', '/mailchimp/add-subscriber', array(
                 'methods' => 'POST',
-                'callback' => [$this, 'addSubscriber']
+                'callback' => [$this, 'addSubscriber'],
+                'permission_callback' => '__return_true'
             ));
         });
     }
