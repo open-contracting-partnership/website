@@ -25,6 +25,13 @@ if (function_exists('acf_add_options_page') && function_exists('acf_add_options_
         'menu_title' => 'Resources',
         'parent_slug' => $parent['menu_slug'],
     ]);
+
+    // add sub page
+    acf_add_options_sub_page([
+        'page_title' => 'News and Blogs',
+        'menu_title' => 'News and Blogs',
+        'parent_slug' => $parent['menu_slug'],
+    ]);
 }
 
 add_filter('acf/load_field/key=field_60646cab36b7e', function ($field) {
@@ -59,7 +66,7 @@ add_filter('acf/load_field/key=field_60646cab36b7e', function ($field) {
  //*****************
 // GUTENBERG BLOCKS
 
-add_filter('block_categories', function ($categories, $post) {
+add_filter('block_categories_all', function ($categories, $post) {
 
     return array_merge(
         $categories,

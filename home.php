@@ -151,17 +151,16 @@ class HomeController extends Controller
 
     protected function getFeaturedBlog()
     {
-
-        $featured_blog = Post::query([
+        $query = [
             'post_type' => 'post',
-            'posts_per_page' => 1,
-            'meta_query' => array(
-                array(
-                    'key' => 'featured',
-                    'value' => true
-                )
-            )
-        ]);
+            'posts_per_page' => 1
+        ];
+
+        if ($postID = get_field('featured_news_article', 'options')) {
+            $query['p'] = $postID;
+        }
+
+        $featured_blog = Post::query($query);
 
         if (count($featured_blog)) {
             return ['card' => FeatureCard::convertPost($featured_blog[0]->ID)];
