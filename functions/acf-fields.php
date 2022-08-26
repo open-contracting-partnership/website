@@ -59,7 +59,7 @@ add_filter('acf/load_field/key=field_60646cab36b7e', function ($field) {
  //*****************
 // GUTENBERG BLOCKS
 
-add_filter('block_categories', function ($categories, $post) {
+add_filter('block_categories_all', function ($categories, $post) {
 
     return array_merge(
         $categories,
