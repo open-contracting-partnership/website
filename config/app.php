@@ -35,6 +35,8 @@ return [
         App\Providers\SEOServiceProvider::class,
 
         // Block Providers
+        App\Providers\Blocks\AccordionItemServiceProvider::class,
+        App\Providers\Blocks\AccordionServiceProvider::class,
         App\Providers\Blocks\ArrowLinkProvider::class,
         App\Providers\Blocks\BackBarServiceProvider::class,
         App\Providers\Blocks\BlogHighlightServiceProvider::class,
