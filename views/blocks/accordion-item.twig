@@ -8,8 +8,8 @@
         <h3 class="accordion-item__heading">{{ block.heading }}</h3>
 
         {% if block.preview == false %}
-            <svg x-show="open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="#fff" d="M24 12a12 12 0 1 1-24 0 12 12 0 0 1 24 0ZM6.8 15.95h2.32l2.78-4.6 2.68 4.6h2.61l-5.3-8.89-5.09 8.89Z"/></svg>
-            <svg x-show="! open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="#fff" d="M24 12a12 12 0 1 0-24 0 12 12 0 0 0 24 0ZM6.8 8.05h2.32l2.78 4.6 2.68-4.6h2.61l-5.3 8.89L6.8 8.05Z"/></svg>
+            <svg x-show="open" class="accordion-item__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 1-24 0 12 12 0 0 1 24 0ZM6.8 15.95h2.32l2.78-4.6 2.68 4.6h2.61l-5.3-8.89-5.09 8.89Z"/></svg>
+            <svg x-show="! open" class="accordion-item__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-24 0 12 12 0 0 0 24 0ZM6.8 8.05h2.32l2.78 4.6 2.68-4.6h2.61l-5.3 8.89L6.8 8.05Z"/></svg>
         {% endif %}
     </button>
 

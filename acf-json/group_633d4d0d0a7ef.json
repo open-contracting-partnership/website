@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_633d4d0d1788c",
-            "label": "Colour",
+            "label": "Colour Scheme",
             "name": "colour",
             "type": "select",
             "instructions": "",
@@ -17,10 +17,12 @@
             },
             "gutenberg_visibility": "both",
             "choices": {
-                "brand": "Brand",
-                "orange": "Orange"
+                "green": "Green",
+                "orange": "Orange",
+                "blue": "Blue",
+                "white": "White"
             },
-            "default_value": "brand",
+            "default_value": "green",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -47,5 +49,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1664961881
+    "modified": 1665015172
 }
