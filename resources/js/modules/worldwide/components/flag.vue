@@ -1,6 +1,6 @@
 <template>
 
-	<span class="flag-icon" :style="'background-image: url(https://lipis.github.io/flag-icon-css/flags/4x3/' + code  + '.svg)'"></span>
+	<span class="flag-icon" :style="'background-image: url(https://flagicons.lipis.dev/flags/4x3/' + code  + '.svg)'"></span>
 
 </template>
 

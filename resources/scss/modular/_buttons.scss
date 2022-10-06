@@ -102,21 +102,7 @@ category:
 }
 
 .button--naked {
-
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-	border-radius: 0;
-	margin: 0;
-
-	&:focus {
-		outline: none;
-	}
-
+    @extend %button-naked;
 }
 
 // .button-bordered {

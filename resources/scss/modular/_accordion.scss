@@ -1,0 +1,70 @@
+.accordion {
+    --accent-colour: #{$ui-orange};
+    --contrast-colour: #{$ui-white};
+
+    margin-block: var(--v-spacing-half);
+
+    &[data-colour-scheme="orange"] {
+        --accent-colour: #{$ui-orange};
+        --contrast-colour: #{$ui-white};
+    }
+
+    &[data-colour-scheme="green"] {
+        --accent-colour: #{$ui-brand};
+        --contrast-colour: #{$ui-black};
+    }
+
+    &[data-colour-scheme="blue"] {
+        --accent-colour: #{$ui-blue};
+        --contrast-colour: #{$ui-white};
+    }
+
+    &[data-colour-scheme="white"] {
+        --accent-colour: #{$ui-white};
+        --contrast-colour: #{$ui-black};
+    }
+}
+
+.accordion-item__header {
+    @extend %button-naked;
+    color: var(--contrast-colour);
+    background-color: var(--accent-colour);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    width: 100%;
+    gap: spacing(3);
+    padding: spacing(2.5) spacing(3);
+    margin-bottom: spacing(1.5);
+}
+
+    .accordion-item__icon {
+        --size: #{spacing(3)};
+        flex: 0 0 auto;
+        display: block;
+        height: var(--size);
+        width: var(--size);
+        fill: var(--contrast-colour);
+
+        @include from(sm) {
+            --size: #{spacing(4)};
+        }
+    }
+
+    .accordion-item__heading {
+        margin-right: auto;
+        font-size: 24px;
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+.accordion-item__content {
+
+    padding-inline: spacing(3);
+    padding-top: spacing(1);
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
