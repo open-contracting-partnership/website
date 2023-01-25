@@ -3,9 +3,6 @@
 vendor
 node_modules
 
-# Styleguide
-styleguide/
-
 # Assets
 dist/
 yarn-error.log

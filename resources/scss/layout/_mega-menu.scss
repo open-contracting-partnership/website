@@ -1,99 +1,3 @@
-/*
-
----
-name: Mega Menu
-category:
- - Layout
- - Layout/Mega Menu
----
-
-```html
-<nav class="mega-menu" aria-label="secondary">
-
-	<div class="mega-menu__container">
-
-		<h3 class="mega-menu__heading">
-
-			<a class="arrow-link" data-icon-color="white" href="#">
-				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-				<span class="arrow-link__label">Learn more about who we are</span>
-			</a>
-
-		</h3>
-
-		<div class="mega-menu__intro">
-			<p>We transform public contracting so that it is fair and efficient. Learn about who we are, our vision, mission, strategy and values.</p>
-		</div>
-
-		<div class="mega-menu__nav-container">
-
-			<ul class="mega-menu__nav" data-type="menu">
-
-				<li>
-					<a href="#">Team</a>
-				</li>
-
-				<li>
-					<a href="#">Advisory Board</a>
-				</li>
-
-				<li>
-					<a href="#">Governance</a>
-				</li>
-
-				<li>
-					<a href="#">Financing</a>
-				</li>
-
-			</ul>
-
-			<ul class="mega-menu__nav" data-type="grouped-menu">
-
-				<li>
-
-					<span class="mega-menu__sub-nav-heading">Topics</span>
-
-					<ul class="mega-menu__sub-nav">
-
-						<li>
-							<a href="#">Beneficial Ownership</a>
-						</li>
-
-						<li>
-							<a href="#">Gender</a>
-						</li>
-
-						<li>
-							<a href="#">Education</a>
-						</li>
-
-						<li>
-							<a href="#">Health</a>
-						</li>
-
-						<li>
-							<a href="#">Extractives</a>
-						</li>
-
-						<li>
-							<a href="#">Infrastructure</a>
-						</li>
-
-					</ul>
-
-				</li>
-
-			</ul>
-
-		</div>
-
-	</div>
-
-</nav>
-```
-
-*/
-
 .mega-menu {
 	font-size: 16px;
 	@include screen-shell-grid;
@@ -129,7 +33,7 @@ category:
 			margin-bottom: 0;
 
 			.arrow-link {
-				
+
 				font-size: 20px;
 				line-height: 27px;
 
@@ -145,7 +49,7 @@ category:
 				}
 
 			}
-			
+
 		}
 
 			.mega-menu__heading .arrow-link__label {

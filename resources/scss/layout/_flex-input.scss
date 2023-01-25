@@ -1,25 +1,3 @@
-/*
-
----
-name: Flex Input
-category:
- - Layout
- - Layout/Flex Input
----
-
-## Default Styling
-
-This allows you to have a button in the same row as its input field.
-
-```html
-<form class="flex-input">
-	<input type="text" placeholder="text" />
-	<button>Submit</button>
-</form>
-```
-
-*/
-
 .flex-input {
 	display: flex;
 

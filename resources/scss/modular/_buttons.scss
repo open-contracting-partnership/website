@@ -1,34 +1,3 @@
-/*
-
----
-name: Buttons
-category:
- - Components
- - Components/Buttons
----
-
-```html
-<p>
-
-	<a class="button" href="#">
-		Download resource
-	</a>
-
-</p>
-
-<p>
-
-	<a class="button button--has-icon" href="#">
-
-		<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-		Download resource
-	</a>
-
-</p>
-```
-
-*/
-
 .button {
 
 	// attempt to use custom variables, otherwise fallback on the defaults

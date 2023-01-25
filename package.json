@@ -20,9 +20,7 @@
 		"watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
 		"hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
 		"prod": "yarn run production",
-		"production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-		"build-styleguide": "node_modules/.bin/aigis run -c ./styleguide_config.yml",
-		"deploy-styleguide": "node_modules/.bin/aigis run -c ./styleguide_config.yml && node_modules/gh-pages/bin/gh-pages.js -d styleguide"
+		"production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
 	},
 	"devDependencies": {
 		"@babel/plugin-transform-runtime": "^7.2.0",
@@ -42,7 +40,6 @@
 		"lodash.intersection": "^4.4.0",
 		"mapbox-gl": "^1.5.0",
 		"modern-css-reset": "1.0.2",
-		"node-aigis": "^1.4.1",
 		"postcss": "^8.2.8",
 		"sass": "^1.17.0",
 		"sass-loader": "7.*",
