@@ -119,8 +119,10 @@ category:
         }
 
         .card__meta {
-            font-size: 16px;
-            margin-bottom: spacing(2);
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 12px;
+            margin-bottom: 0;
         }
 
         .card__body > :last-child {
@@ -128,9 +130,9 @@ category:
         }
 
 	.card__footer {
-		border-top: 4px solid var(--accent-colour);
-		margin-top: spacing(1);
-		padding-top: 10px;
+		// border-top: 4px solid var(--accent-colour);
+		// margin-top: spacing(1);
+		// padding-top: 10px;
 		display: flex;
 		align-items: center;
 	}
@@ -152,7 +154,27 @@ category:
 			flex: 1 1 100%;
 			text-transform: uppercase;
 			padding-top: .1em;
+            color: var(--accent-colour);
 		}
+
+        .card__mast {
+            display: flex;
+            align-items: center;
+            margin-bottom: spacing(1.5);
+        }
+
+        .card__tag {
+            font-size: 14px;
+            font-weight: 500;
+            padding: 0.3em 0.6em 0.2em;
+            background-color: var(--accent-colour);
+            color: $ui-white;
+            margin-left: auto;
+        }
+
+    &[data-has-border="true"] {
+        border: 2px solid var(--accent-colour);
+    }
 
 
 	// Colour Scheme

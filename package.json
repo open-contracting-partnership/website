@@ -36,6 +36,7 @@
 		"import-glob-loader": "^1.1.0",
 		"laravel-mix": "^5.0.0",
 		"laravel-mix-svg-sprite": "^1.0.0",
+		"lodash": "^4.17.21",
 		"lodash.clonedeep": "^4.5.0",
 		"lodash.filter": "^4.6.0",
 		"lodash.intersection": "^4.4.0",

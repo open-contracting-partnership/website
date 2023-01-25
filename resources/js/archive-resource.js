@@ -1,4 +1,4 @@
-import _ from 'underscore'
+import _ from 'lodash'
 import Vue from 'vue'
 
 const _cloneDeep = require('lodash.clonedeep');
@@ -47,67 +47,51 @@ new Vue({
     },
 
     computed: {
-
         visibleResources: function () {
-
             let resources = _cloneDeep(this.resources);
 
-            resources = _filter(resources, resource => {
+            return _.chain(resources)
+                .orderBy(['is_featured', 'date'], ['desc', 'desc'])
+                .filter(resource => {
+                    let display = true;
 
-                let display = true;
+                    // apply search
+                    if (this.search !== "") {
+                        var re = new RegExp(this.search, "gi");
 
-                // apply search
-
-                if (this.search !== "") {
-
-                    var re = new RegExp(this.search, "gi");
-
-                    if (resource.title.match(re) === null) {
-                        display = false;
+                        if (resource.title.match(re) === null) {
+                            display = false;
+                        }
                     }
 
-                }
-
-                if (this.tab === 'resource-library') {
-
-                    if (resource.location.indexOf('resources') === -1) {
-                        display = false;
+                    if (this.tab === 'resource-library') {
+                        if (resource.location.indexOf('resources') === -1) {
+                            display = false;
+                        }
+                    } else {
+                        if (resource.location.indexOf('learning') === -1) {
+                            display = false;
+                        }
                     }
 
-                } else {
-
-                    if (resource.location.indexOf('learning') === -1) {
-                        display = false;
+                    // apply resource type filter
+                    if (this.filter['resource-type']) {
+                        if (resource.type !== this.filter['resource-type']) {
+                            display = false;
+                        }
                     }
 
-                }
-
-                // apply resource type filter
-                if (this.filter['resource-type']) {
-
-                    if (resource.type !== this.filter['resource-type']) {
-                        display = false;
+                    // apply learning resource category filter
+                    if (this.filter['learning-resource-category']) {
+                        if (resource.learning_resource_category !== this.filter['learning-resource-category']) {
+                            display = false;
+                        }
                     }
 
-                }
-
-                // apply learning resource category filter
-                if (this.filter['learning-resource-category']) {
-
-                    if (resource.learning_resource_category !== this.filter['learning-resource-category']) {
-                        display = false;
-                    }
-
-                }
-
-                return display;
-
-            });
-
-            return resources;
-
+                    return display;
+                })
+                .value();
         }
-
     },
 
     methods: {
