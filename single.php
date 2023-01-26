@@ -76,10 +76,20 @@ class SingleController extends Controller
             'ocp'
         );
 
-        $more_posts = Timber::get_posts([
-            'posts_per_page' => 3,
-            'post__not_in' => [$post->ID]
-        ]);
+        $context['single']['i18n']['related_stories'] = __('Related Stories', 'ocp');
+
+        if ($post->meta('related_stories')) {
+            $more_posts = Timber::get_posts([
+                'post_type' => 'any',
+                'posts_per_page' => 3,
+                'post__in' => $post->meta('related_stories')
+            ]);
+        } else {
+            $more_posts = Timber::get_posts([
+                'posts_per_page' => 3,
+                'post__not_in' => [$post->ID]
+            ]);
+        }
 
         $context['more_stories'] = PrimaryCard::convertCollection($more_posts);
 

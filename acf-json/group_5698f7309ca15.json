@@ -1,11 +1,12 @@
 {
     "key": "group_5698f7309ca15",
-    "title": "Authors",
+    "title": "Blogs",
     "fields": [
         {
             "key": "field_5698f78764376",
             "label": "Authors",
             "name": "authors",
+            "aria-label": "",
             "type": "flexible_content",
             "instructions": "Add the author(s) for this post, select whether to choose a WordPress user or a custom (free-form) user.",
             "required": 0,
@@ -29,6 +30,7 @@
                             "key": "field_56a60adf6e25f",
                             "label": "User",
                             "name": "user",
+                            "aria-label": "",
                             "type": "user",
                             "instructions": "",
                             "required": 1,
@@ -57,6 +59,7 @@
                             "key": "field_56a60aee6e260",
                             "label": "User",
                             "name": "user",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 1,
@@ -79,30 +82,41 @@
                     "max": ""
                 }
             ]
+        },
+        {
+            "key": "field_63d2451d8204f",
+            "label": "Related stories",
+            "name": "related_stories",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "post_type": [
+                "post",
+                "page",
+                "event",
+                "news",
+                "resource"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type"
+            ],
+            "return_format": "id",
+            "min": "",
+            "max": "",
+            "elements": ""
         }
     ],
     "location": [
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
-            }
-        ],
         [
             {
                 "param": "post_type",
@@ -117,7 +131,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1571663332
+    "show_in_rest": 0,
+    "modified": 1674724694
 }

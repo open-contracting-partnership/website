@@ -54,28 +54,6 @@
 			{{ content|raw }}
 		</article>
 
-		<div class="screen-only / article__share-container">
-			<div class="article__share">
-				{% if share.links.twitter %}
-					<a href="{{ share.links.twitter }}" onclick="_gaq.push(['_trackEvent', 'Social', 'Single Sidebar', 'Twitter']);">
-						<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
-					</a>
-				{% endif %}
-
-				{% if share.links.facebook %}
-					<a href="{{ share.links.facebook }}" onclick="_gaq.push(['_trackEvent', 'Social', 'Single Sidebar', 'Facebook']);">
-						<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
-					</a>
-				{% endif %}
-
-				{% if share.links.linkedin %}
-					<a href="{{ share.links.linkedin }}" onclick="_gaq.push(['_trackEvent', 'Social', 'Single Sidebar', 'Linkedin']);">
-						<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
-					</a>
-				{% endif %}
-			</div>
-		</div>
-
 		<footer class="article__footer">
 			{% if tags %}
 				<div class="article__tags">
@@ -116,4 +94,17 @@
 			</div>
 		</footer>
 	</section>
+
+    {% if more_stories %}
+        {% include 'blocks/more-stories.twig' with {
+            block: {
+                title: single.i18n.related_stories,
+                card_type: 'default',
+                stories: more_stories,
+                options: [],
+                background_colour: '#DADADA',
+                text_colour: '#000',
+            }
+        } %}
+    {% endif %}
 {% endblock %}
