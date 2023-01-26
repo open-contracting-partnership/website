@@ -1,32 +1,3 @@
-/*
-
----
-name: Type label
-category:
- - Components
- - Components/Type label
----
-
-```html
-<div class="type-label">
-	<div class="type-label__icon"></div>
-	<span class="type-label__name">Resource</span>
-</div>
-
-<div class="type-label" data-post-type="resource">
-	<div class="type-label__icon"></div>
-	<span class="type-label__name">Resource</span>
-</div>
-
-<div class="type-label" data-post-type="post">
-	<div class="type-label__icon"></div>
-	<span class="type-label__name">Blog</span>
-</div>
-
-```
-
-*/
-
 .type-label {
 
 	display: flex;

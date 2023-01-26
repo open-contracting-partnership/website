@@ -1,30 +1,3 @@
-/*
-
----
-name: Event card
-category:
- - Cards
- - Cards/Event
----
-
-```html
-<div class="card card--event">
-
-	<div class="card__date">
-		<span class="card__date-day">29</span>
-		<span class="card__date-month">Nov</span>
-	</div>
-
-	<a class="card__title-link" href="#">
-		<h2 class="card__title">TICAD7: Tokyo International Conference on African Development</h2>
-	</a>
-
-</div>
-
-```
-
-*/
-
 .card.card--event {
 
 	position: relative;
@@ -88,8 +61,4 @@ category:
 			overflow-wrap: break-word;
 		}
 
-}
-
-.aigis-preview > .card--event {
-	max-width: 310px;
 }

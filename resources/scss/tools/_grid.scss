@@ -108,24 +108,6 @@ body {
 	@include screen-shell-grid();
 }
 
-/*
-
----
-name: Shell Grid
-category:
- - Layout
- - Layout/Grid
----
-
-```html
-<div class="shell-grid-example">
-	<div class="shell-grid-example__full"></div>
-	<div class="shell-grid-example__wide"></div>
-</div>
-```
-
-*/
-
 .shell-grid-example {
 	@extend %screen-shell-grid;
 }

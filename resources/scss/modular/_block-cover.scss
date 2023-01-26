@@ -1,25 +1,3 @@
-/*
-
----
-name: Cover
-category:
- - Blocks
- - Blocks/Cover
----
-
-```html
-<div class="block" data-block-type="cover">
-
-	<div class="block__image" style="background-image: url('https://open-contracting.test/wp-content/uploads/2019/10/IMG_4716.jpg');"></div>
-	<div class="block__image-overlay" style="background-color: rgba(0,0,0,0.3);"></div>
-
-	<h1 class="block__heading">Open contracting is making public  spending count for everyone</h1>
-
-</div>
-```
-
-*/
-
 .block[data-block-type="cover"] {
 
 	color: var(--colour, #{$ui-white});

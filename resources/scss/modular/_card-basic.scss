@@ -1,38 +1,3 @@
-/*
-
----
-name: Basic card
-category:
- - Cards
- - Cards/Basic
----
-
-```html
-<div class="card card--basic">
-
-	<div class="card__main">
-
-		<a class="card__title-link" href="#">
-			<h2 class="card__title">Reflections from the middle of the world: innovation in open contracting from Latin&nbsp;America</h2>
-		</a>
-
-	</div>
-
-	<div class="card__footer">
-
-		<span class="type-tag">News</span>
-
-		<span class="card__meta">
-			23 Sep 2019
-		</span>
-
-	</div>
-
-</div>
-```
-
-*/
-
 .card.card--basic {
 
 	border-radius: spacing(3) spacing(.5) spacing(.5) spacing(.5);
@@ -72,8 +37,4 @@ category:
 				margin-right: spacing(1);
 			}
 
-}
-
-.aigis-preview > .card--basic {
-	max-width: 310px;
 }

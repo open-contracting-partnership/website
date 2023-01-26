@@ -87,6 +87,7 @@ class ArchiveResourceController extends Controller
 
         foreach ($resources as $resource) {
             $output = [];
+            $output['date'] = $resource->date('c');
             $output['title'] = $resource->title;
             $output['url'] = $resource->link();
 
@@ -100,6 +101,8 @@ class ArchiveResourceController extends Controller
             $output['type_label'] = null;
 
             $output['location'] = $resource->resource_location ?? [];
+
+            $output['is_featured'] = $resource->meta('resource_is_featured') ?? false;
 
             $output['learning_resource_category'] = null;
             $output['learning_resource_category_label'] = null;
