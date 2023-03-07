@@ -66,7 +66,39 @@ function hex2rgba($color, $opacity = false)
 }
 
 
+function humanDateRanges($start, $end)
+{
+    $startTime = strtotime($start);
+    $endTime = strtotime($end);
+    $divider = '-';
 
+    if (date('Y', $startTime) != date('Y', $endTime)) {
+        // diff years
+        $start = date('F j, Y', $startTime);
+        $end = date('F j, Y', $endTime);
+    } else {
+        // same years
+        $start = date('jS F', $startTime);
+        $end = date('jS F Y', $endTime);
+
+        // same months
+        if (date('m', $startTime) == date('m', $endTime)) {
+            $start = date('jS', $startTime);
+
+            // same days
+            if (date('d', $startTime) == date('d', $endTime)) {
+                return date('jS F Y', $startTime);
+            }
+        }
+    }
+
+    return sprintf(
+        '%s %s %s',
+        $start,
+        $divider,
+        $end
+    );
+}
 
 function action_function_name($field)
 {

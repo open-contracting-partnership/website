@@ -44,11 +44,10 @@ class Event extends Post
 
     public static function convertTimberObject($event)
     {
-
         $context = array();
 
         $context['title'] = $event->title;
-        $context['date'] = date('j M Y', strtotime($event->event_date));
+        $context['date'] = $event->formattedDate();
         $context['location'] = $event->event_location;
         $context['link'] = $event->link;
         $context['link_text'] = $event->link_text;
@@ -82,5 +81,10 @@ class Event extends Post
         );
 
         return $context;
+    }
+
+    public function formattedDate()
+    {
+        return humanDateRanges($this->event_date, $this->event_end_date ?: $this->event_date);
     }
 }
