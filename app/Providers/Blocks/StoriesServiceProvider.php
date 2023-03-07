@@ -2,22 +2,19 @@
 
 namespace App\Providers\Blocks;
 
-use App\Providers\Blocks\BaseBlock;
 use App\Cards\FeatureCard;
 use App\Cards\PrimaryCard;
+use App\Providers\Blocks\BaseBlock;
 use Timber\Timber;
 
 class StoriesServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/stories',
                 'title' => __('Stories'),
@@ -36,7 +33,6 @@ class StoriesServiceProvider
 
     public function render()
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];
@@ -94,7 +90,7 @@ class StoriesServiceProvider
 
         // options
         $context['block']['options'] = get_field('options') ?: [];
-        
+
         echo Timber::compile('blocks/stories.twig', $context);
     }
 }

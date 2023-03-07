@@ -6,15 +6,12 @@ use Timber\Timber;
 
 class PersonServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/person',
                 'title' => __('Person'),
@@ -33,7 +30,6 @@ class PersonServiceProvider
 
     public function render()
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];
@@ -52,7 +48,7 @@ class PersonServiceProvider
 
         // options
         $context['block']['options'] = get_field('options') ?: [];
-        
+
         echo Timber::compile('blocks/person.twig', $context);
     }
 }

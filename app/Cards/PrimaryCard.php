@@ -6,10 +6,8 @@ use App\PostTypes\Event;
 
 class PrimaryCard extends BaseCard
 {
-
     public static function convertTimberPost($post)
     {
-
         $data = [
             'title' => $post->post_title,
             'url' => $post->link(),

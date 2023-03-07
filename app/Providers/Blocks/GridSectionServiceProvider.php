@@ -7,15 +7,12 @@ use Timber\Timber;
 
 class GridSectionServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/grid-section',
                 'title' => __('Grid Section'),
@@ -35,7 +32,6 @@ class GridSectionServiceProvider
 
     public function render($block, $content = '', $is_preview = false, $post_id = 0)
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];

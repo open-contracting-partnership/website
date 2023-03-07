@@ -4,10 +4,8 @@ namespace App;
 
 class Assets
 {
-
     public static function getFileVersion($src, $fallback_version = false)
     {
-
         // set the path to the mix manifest
         $mix_manifest_path = get_template_directory() . '/dist/mix-manifest.json';
 
@@ -42,7 +40,6 @@ class Assets
 
     public static function registerScript($handle, $path, $deps = array(), $in_footer = false)
     {
-
         $version = self::getFileVersion($path);
         $is_url = !! filter_var($path, FILTER_VALIDATE_URL);
 
@@ -62,7 +59,6 @@ class Assets
 
     public static function registerStyle($handle, $path, $deps = array())
     {
-
         $version = self::getFileVersion($path);
 
         wp_register_style(

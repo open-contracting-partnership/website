@@ -7,15 +7,12 @@ use Timber\Timber;
 
 class TitleWithIconServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/title-with-icon',
                 'title' => __('Title with Icon'),
@@ -34,7 +31,6 @@ class TitleWithIconServiceProvider
 
     public function render()
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];
@@ -49,7 +45,7 @@ class TitleWithIconServiceProvider
 
         // options
         $context['block']['options'] = get_field('options') ?: [];
-        
+
         echo Timber::compile('blocks/title-with-icon.twig', $context);
     }
 }

@@ -6,7 +6,6 @@ use Timber\Post;
 
 class BaseCard
 {
-
     /**
      * convert the incoming post object to one formatted specifically for the
      * card that extends this class
@@ -15,7 +14,6 @@ class BaseCard
      */
     public static function convertPost($post)
     {
-
         // idealy we'd like to only convert one data type, if the incoming data
         // is an ID or WP_Post object, convert it to a Timber\Post so we can
         // focus all of the converting in just on area
@@ -31,7 +29,6 @@ class BaseCard
 
     public static function convertCollection($collection, $callback = null)
     {
-
         $collection = self::convertCollectionToArray($collection);
 
         foreach ($collection as &$original) {
@@ -50,7 +47,6 @@ class BaseCard
 
     public static function convertCollectionToArray($collection)
     {
-
         if (is_array($collection)) {
             return $collection;
         }

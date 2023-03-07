@@ -7,15 +7,12 @@ use Timber\Timber;
 
 class SignUpCoverServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/sign-up-cover',
                 'title' => __('Sign Up'),
@@ -43,7 +40,6 @@ class SignUpCoverServiceProvider
 
     public function render()
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];

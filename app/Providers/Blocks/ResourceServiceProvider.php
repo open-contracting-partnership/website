@@ -8,15 +8,12 @@ use Timber\Timber;
 
 class ResourceServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/resource',
                 'title' => __('Resource'),
@@ -35,7 +32,6 @@ class ResourceServiceProvider
 
     public function render()
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];
@@ -66,7 +62,7 @@ class ResourceServiceProvider
 
         // options
         $context['block']['options'] = get_field('options') ?: [];
-        
+
         echo Timber::compile('blocks/resource.twig', $context);
     }
 }

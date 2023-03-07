@@ -4,7 +4,6 @@ namespace App\Cards;
 
 class ResourceCard extends BaseCard
 {
-
     public static function convertTimberPost($post)
     {
         $meta = null;
