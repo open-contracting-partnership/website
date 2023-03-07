@@ -6,15 +6,12 @@ use Timber\Timber;
 
 class LogosServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/logos',
                 'title' => __('Logos'),
@@ -33,7 +30,6 @@ class LogosServiceProvider
 
     public function render()
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];

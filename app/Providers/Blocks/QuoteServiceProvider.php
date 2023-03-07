@@ -2,21 +2,16 @@
 
 namespace App\Providers\Blocks;
 
-use App\Cards\ResourceCard;
-use App\Providers\Blocks\BaseBlock;
 use Timber\Timber;
 
 class QuoteServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/quote',
                 'title' => __('Quote (OCP)'),
@@ -35,7 +30,6 @@ class QuoteServiceProvider
 
     public function render($block, $content = '', $is_preview = false, $post_id = 0)
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];

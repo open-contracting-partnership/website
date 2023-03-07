@@ -2,20 +2,16 @@
 
 namespace App\Providers\Blocks;
 
-use App\Providers\Blocks\BaseBlock;
 use Timber\Timber;
 
 class ContentServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/content',
                 'title' => __('Content'),
@@ -34,7 +30,6 @@ class ContentServiceProvider
 
     public function render()
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];

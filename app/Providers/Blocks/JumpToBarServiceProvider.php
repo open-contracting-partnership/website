@@ -6,15 +6,12 @@ use Timber\Timber;
 
 class JumpToBarServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/jump-to-bar',
                 'title' => __('Jump-to Bar'),
@@ -33,7 +30,6 @@ class JumpToBarServiceProvider
 
     public function render()
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];
@@ -48,7 +44,7 @@ class JumpToBarServiceProvider
 
         // options
         $context['block']['options'] = get_field('options') ?: [];
-        
+
         echo Timber::compile('blocks/jump-to-bar.twig', $context);
     }
 }

@@ -2,20 +2,16 @@
 
 namespace App\Providers\Blocks;
 
-use App\Providers\Blocks\BaseBlock;
 use Timber\Timber;
 
 class FeaturedStoriesCarouselServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/featured-stories-carousel',
                 'title' => __('Featured Stories Carousel'),
@@ -43,7 +39,6 @@ class FeaturedStoriesCarouselServiceProvider
 
     public function render()
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];

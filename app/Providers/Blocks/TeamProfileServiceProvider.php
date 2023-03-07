@@ -3,21 +3,17 @@
 namespace App\Providers\Blocks;
 
 use App\Cards\TextCard;
-use App\Providers\Blocks\BaseBlock;
 use Rareloop\Lumberjack\Post;
 use Timber\Timber;
 
 class TeamProfileServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/team-profile',
                 'title' => __('Team Profile'),
@@ -44,7 +40,6 @@ class TeamProfileServiceProvider
 
     public function render()
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];
@@ -70,7 +65,7 @@ class TeamProfileServiceProvider
 
         // options
         $context['block']['options'] = get_field('options') ?: [];
-        
+
         echo Timber::compile('blocks/team-profile.twig', $context);
     }
 }

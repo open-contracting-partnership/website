@@ -2,12 +2,12 @@
 
 namespace App\Cards;
 
+use App\PostTypes\Event;
+
 class PrimaryCard extends BaseCard
 {
-
     public static function convertTimberPost($post)
     {
-
         $data = [
             'title' => $post->post_title,
             'url' => $post->link(),
@@ -38,8 +38,8 @@ class PrimaryCard extends BaseCard
             }
         }
 
-        if ($post->event_date) {
-            $data['meta'][] = \DateTime::createFromFormat('Ymd', $post->event_date)->format('j M Y');
+        if ($post->post_type === 'event') {
+            $data['meta'][] = (new Event($post->id))->formattedDate();
         }
 
         // the meta can always be a br separated string, so make it one now

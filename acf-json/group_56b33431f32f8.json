@@ -4,17 +4,40 @@
     "fields": [
         {
             "key": "field_56b33437a3b94",
-            "label": "Date",
+            "label": "Start Date",
             "name": "event_date",
+            "aria-label": "",
             "type": "date_picker",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
+            "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 1,
+            "display_format": "d\/m\/Y",
+            "return_format": "d-m-Y",
+            "first_day": 0
+        },
+        {
+            "key": "field_640221cdb41c1",
+            "label": "End Date",
+            "name": "event_end_date",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "For single day events, set the end date the same as the start date",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 1,
             "display_format": "d\/m\/Y",
             "return_format": "d-m-Y",
             "first_day": 0
@@ -23,6 +46,7 @@
             "key": "field_56d6eb6b56fdf",
             "label": "Location",
             "name": "event_location",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -56,7 +80,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1573051418
+    "show_in_rest": 0,
+    "modified": 1677862220
 }

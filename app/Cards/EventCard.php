@@ -4,10 +4,8 @@ namespace App\Cards;
 
 class EventCard extends BaseCard
 {
-
     public static function convertTimberPost($post)
     {
-
         return [
             'title' => $post->post_title,
             'url' => $post->link(),

@@ -9,15 +9,12 @@ use Timber\Timber;
 
 class MoreStoriesColumnsServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/more-stories-columns',
                 'title' => __('More Stories (Columns)'),
@@ -36,7 +33,6 @@ class MoreStoriesColumnsServiceProvider
 
     public function render()
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];
@@ -76,7 +72,7 @@ class MoreStoriesColumnsServiceProvider
 
         // options
         $context['block']['options'] = get_field('options') ?: [];
-        
+
         echo Timber::compile('blocks/more-stories-columns.twig', $context);
     }
 }

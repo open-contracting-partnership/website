@@ -2,21 +2,17 @@
 
 namespace App\Providers\Blocks;
 
-use App\Providers\Blocks\BaseBlock;
-use Timber\Timber;
 use OzdemirBurak\Iris\Color\Hex;
+use Timber\Timber;
 
 class StagesServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/Stages',
                 'title' => __('Stages'),
@@ -35,7 +31,6 @@ class StagesServiceProvider
 
     public function render()
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];

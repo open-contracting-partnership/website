@@ -2,20 +2,16 @@
 
 namespace App\Providers\Blocks;
 
-use App\Providers\Blocks\BaseBlock;
 use Timber\Timber;
 
 class QuoteCarouselServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/quote-carousel',
                 'title' => __('Quote Carousel'),
@@ -38,7 +34,6 @@ class QuoteCarouselServiceProvider
 
     public function render()
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];
@@ -51,7 +46,7 @@ class QuoteCarouselServiceProvider
 
         // options
         $context['block']['options'] = get_field('options') ?: [];
-        
+
         echo Timber::compile('blocks/quote-carousel.twig', $context);
     }
 }

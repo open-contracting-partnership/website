@@ -2,22 +2,18 @@
 
 namespace App\Providers\Blocks;
 
-use App\Providers\Blocks\BaseBlock;
 use App\Cards\PrimaryCard;
 use App\Cards\ResourceCard;
 use Timber\Timber;
 
 class MoreStoriesServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/more-stories',
                 'title' => __('More Stories'),
@@ -36,7 +32,6 @@ class MoreStoriesServiceProvider
 
     public function render()
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];

@@ -57,57 +57,42 @@
 			<h4 class="site-footer__social-header">{{ footer.i18n.connect_header }}</h4>
 
 			<div class="site-footer__social-links">
-
 				{% if social_links.twitter %}
-
-					<a href="{{ social_links.twitter }}">
+					<a href="{{ social_links.twitter }}" title="Connect on Twitter">
 						<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
 					</a>
-
 				{% endif %}
 
 				{% if social_links.github %}
-
-					<a href="{{ social_links.github }}">
+					<a href="{{ social_links.github }}" title="Connect on Github">
 						<svg data-platform="github"><use xlink:href="#social-github"></use></svg>
 					</a>
-
 				{% endif %}
 
 				{% if social_links.facebook %}
-
-					<a href="{{ social_links.facebook }}">
+					<a href="{{ social_links.facebook }}" title="Connect on Facebook">
 						<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
 					</a>
-
 				{% endif %}
 
 				{% if social_links.soundcloud %}
-
-					<a href="{{ social_links.soundcloud }}">
+					<a href="{{ social_links.soundcloud }}" title="Connect on Soundcloud">
 						<svg data-platform="soundcloud"><use xlink:href="#social-soundcloud"></use></svg>
 					</a>
-
 				{% endif %}
 
 				{% if social_links.linkedin %}
-
-					<a href="{{ social_links.linkedin }}">
+					<a href="{{ social_links.linkedin }}" title="Connect on LinkedIn">
 						<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
 					</a>
-
 				{% endif %}
 
 				{% if social_links.youtube %}
-
-					<a href="{{ social_links.youtube }}">
+					<a href="{{ social_links.youtube }}" title="Connect on YouTube">
 						<svg data-platform="youtube"><use xlink:href="#social-youtube"></use></svg>
 					</a>
-
 				{% endif %}
-
 			</div>
-
 		</div>
 
 		<div class="site-footer__license">

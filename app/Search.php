@@ -4,7 +4,6 @@ namespace App;
 
 class Search
 {
-
     private $query;
     private $page;
     private $results = [];
@@ -18,7 +17,6 @@ class Search
 
     public function __construct($query, $page = 1)
     {
-
         if (defined('ICL_LANGUAGE_CODE')) {
             $this->language_code = ICL_LANGUAGE_CODE;
         }
@@ -46,7 +44,6 @@ class Search
 
     public static function initHooks()
     {
-
         add_filter('query_vars', function ($query_vars) {
             $query_vars[] = 'page';
             return $query_vars;
@@ -55,7 +52,6 @@ class Search
 
     private function fetchResults()
     {
-
         if (false === ( $response = get_transient($this->transient_key) )) {
             // flas that the transient wasn't active
             $this->transient_active = false;

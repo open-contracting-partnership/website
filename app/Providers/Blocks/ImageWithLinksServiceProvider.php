@@ -2,20 +2,16 @@
 
 namespace App\Providers\Blocks;
 
-use App\Providers\Blocks\BaseBlock;
 use Timber\Timber;
 
 class ImageWithLinksServiceProvider
 {
-
     /**
      * Perform any additional boot required for this application
      */
     public function boot()
     {
-
         add_action('acf/init', function () {
-
             acf_register_block_type([
                 'name' => 'ocp/image-with-links',
                 'title' => __('Image with Links'),
@@ -34,7 +30,6 @@ class ImageWithLinksServiceProvider
 
     public function render()
     {
-
         $context = Timber::get_context();
 
         $context['block'] = [];
@@ -49,7 +44,7 @@ class ImageWithLinksServiceProvider
 
         // options
         $context['block']['options'] = get_field('options') ?: [];
-        
+
         echo Timber::compile('blocks/image-with-links.twig', $context);
     }
 }
