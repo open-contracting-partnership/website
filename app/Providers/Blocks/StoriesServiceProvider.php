@@ -4,7 +4,6 @@ namespace App\Providers\Blocks;
 
 use App\Cards\FeatureCard;
 use App\Cards\PrimaryCard;
-use App\Providers\Blocks\BaseBlock;
 use Timber\Timber;
 
 class StoriesServiceProvider

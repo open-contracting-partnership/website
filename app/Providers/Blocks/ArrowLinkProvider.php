@@ -2,8 +2,6 @@
 
 namespace App\Providers\Blocks;
 
-use App\Cards\ResourceCard;
-use App\Providers\Blocks\BaseBlock;
 use Timber\Timber;
 
 class ArrowLinkProvider

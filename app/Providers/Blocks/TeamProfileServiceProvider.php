@@ -3,7 +3,6 @@
 namespace App\Providers\Blocks;
 
 use App\Cards\TextCard;
-use App\Providers\Blocks\BaseBlock;
 use Rareloop\Lumberjack\Post;
 use Timber\Timber;
 

@@ -2,7 +2,6 @@
 
 namespace App\Providers\Blocks;
 
-use App\Providers\Blocks\BaseBlock;
 use Timber\Timber;
 
 class BackBarServiceProvider

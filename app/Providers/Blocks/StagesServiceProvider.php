@@ -2,7 +2,6 @@
 
 namespace App\Providers\Blocks;
 
-use App\Providers\Blocks\BaseBlock;
 use OzdemirBurak\Iris\Color\Hex;
 use Timber\Timber;
 
