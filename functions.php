@@ -78,16 +78,16 @@ function humanDateRanges($start, $end)
         $end = date('F j, Y', $endTime);
     } else {
         // same years
-        $start = date('jS F', $startTime);
-        $end = date('jS F Y', $endTime);
+        $start = date('j F', $startTime);
+        $end = date('j F Y', $endTime);
 
         // same months
         if (date('m', $startTime) == date('m', $endTime)) {
-            $start = date('jS', $startTime);
+            $start = date('j', $startTime);
 
             // same days
             if (date('d', $startTime) == date('d', $endTime)) {
-                return date('jS F Y', $startTime);
+                return date('j F Y', $startTime);
             }
         }
     }
