@@ -6,6 +6,7 @@
             "key": "field_5dcd84f72f6d3",
             "label": "Contact",
             "name": "contact",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 1,
@@ -16,16 +17,19 @@
                 "id": ""
             },
             "gutenberg_visibility": "edit_screen",
-            "collapsed": "",
-            "min": 1,
-            "max": 1,
             "layout": "block",
+            "pagination": 0,
+            "min": 1,
+            "max": 0,
+            "collapsed": "",
             "button_label": "Add Contact",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5dcd84f73197a",
                     "label": "Avatar",
                     "name": "avatar",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -35,9 +39,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "wpml_cf_preferences": 0,
+                    "gutenberg_visibility": "both",
                     "return_format": "array",
-                    "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
                     "min_height": "",
@@ -45,12 +48,15 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_5dcd84f72f6d3"
                 },
                 {
                     "key": "field_5dcd84f731980",
                     "label": "Title",
                     "name": "title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -65,12 +71,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5dcd84f72f6d3"
                 },
                 {
                     "key": "field_5dcd84f731985",
                     "label": "Name",
                     "name": "name",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -85,12 +93,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5dcd84f72f6d3"
                 },
                 {
                     "key": "field_5dcd84f731989",
                     "label": "Role",
                     "name": "role",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -105,12 +115,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5dcd84f72f6d3"
                 },
                 {
                     "key": "field_5dcd84f73198d",
                     "label": "Email Address",
                     "name": "email_address",
+                    "aria-label": "",
                     "type": "email",
                     "instructions": "",
                     "required": 0,
@@ -124,12 +136,14 @@
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
-                    "append": ""
+                    "append": "",
+                    "parent_repeater": "field_5dcd84f72f6d3"
                 },
                 {
                     "key": "field_5dcd84f731992",
                     "label": "Twitter URL",
                     "name": "twitter_url",
+                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -141,7 +155,8 @@
                     },
                     "wpml_cf_preferences": 0,
                     "default_value": "",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_5dcd84f72f6d3"
                 }
             ]
         },
@@ -149,6 +164,7 @@
             "key": "field_5dcd84f73e8e5",
             "label": "Background Colour",
             "name": "background_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -159,12 +175,15 @@
                 "id": ""
             },
             "default_value": "",
-            "wpml_cf_preferences": 0
+            "wpml_cf_preferences": 0,
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5dcd84f7419ea",
             "label": "Text Colour",
             "name": "text_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -175,7 +194,9 @@
                 "id": ""
             },
             "default_value": "",
-            "wpml_cf_preferences": 0
+            "wpml_cf_preferences": 0,
+            "enable_opacity": false,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -193,7 +214,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1573750036
+    "show_in_rest": 0,
+    "modified": 1681853266
 }

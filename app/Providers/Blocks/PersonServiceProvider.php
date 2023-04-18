@@ -14,7 +14,7 @@ class PersonServiceProvider
         add_action('acf/init', function () {
             acf_register_block_type([
                 'name' => 'ocp/person',
-                'title' => __('Person'),
+                'title' => __('People Profile'),
                 'description' => __('Display a person with their contact details'),
                 'render_callback' => array($this, 'render'),
                 'category' => 'ocp-blocks',
@@ -33,14 +33,15 @@ class PersonServiceProvider
         $context = Timber::get_context();
 
         $context['block'] = [];
-        $context['block']['contact'] = get_field('contact') ? get_field('contact')[0] : [];
+        $context['block']['contacts'] = collect(get_field('contact'))
+            ->map(function ($contact) {
+                $contact['name_bio'] = implode(', <br/>', [
+                    $contact['name'],
+                    $contact['role']
+                ]);
 
-        if ($context['block']['contact']) {
-            $context['block']['contact']['name_bio'] = implode(', <br/>', [
-                $context['block']['contact']['name'],
-                $context['block']['contact']['role']
-            ]);
-        }
+                return $contact;
+            });
 
         $context['block']['background_colour'] = get_field('background_colour') ?: '#6C75E1';
         $context['block']['text_colour'] = isContrastingColourLight($context['block']['background_colour']) ? '#FFF' : '#000';
