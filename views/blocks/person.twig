@@ -6,14 +6,14 @@
 
 	<div class="block__container" style="color: {{ block.text_colour }};">
 
-		{% if block.contact %}
+        {% for contact in block.contacts %}
 
 			<div class="block__author">
 
 				<div class="block__author-avatar">
 
 					{{ imgix({
-						src: block.contact.avatar.url,
+						src: contact.avatar.url,
 						params: {
 							auto: 'format',
 							fit: 'crop'
@@ -37,23 +37,23 @@
 
 				<div class="block__author-details">
 
-					<h4 class="block__author-heading">{{ block.contact.title }}</h4>
+					<h4 class="block__author-heading">{{ contact.title }}</h4>
 
-					<p>{{ block.contact.name_bio }}</p>
+					<p>{{ contact.name_bio }}</p>
 
 					<div class="block__author-social">
 
-						{% if block.contact.email_address %}
+						{% if contact.email_address %}
 
-							<a href="mailto:{{ block.contact.email_address }}">
+							<a href="mailto:{{ contact.email_address }}">
 								<svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
 							</a>
 
 						{% endif %}
 
-						{% if block.contact.twitter_url %}
+						{% if contact.twitter_url %}
 
-							<a href="{{ block.contact.twitter_url }}">
+							<a href="{{ contact.twitter_url }}">
 								<svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
 							</a>
 
@@ -65,7 +65,7 @@
 
 			</div>
 
-		{% endif %}
+		{% endfor %}
 
 	</div>
 

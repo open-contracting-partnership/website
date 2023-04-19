@@ -33,13 +33,16 @@
 		display: grid;
 		@extend %column-grid;
 		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(4), spacing(6));
+        row-gap: spacing(4);
 	}
 
 		.block__author {
-			grid-column: all;
-			grid-row: 6;
+			grid-column: span 12;
 			display: flex;
 
+            @include from(M) {
+                grid-column: span 6;
+            }
 		}
 
 			.block__author-avatar {

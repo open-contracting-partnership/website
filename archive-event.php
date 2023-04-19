@@ -26,7 +26,7 @@ class ArchiveEventController extends Controller
             'orderby' => 'meta_value_num',
             'order' => 'ASC',
             'meta_query' => [[
-                'key' => 'event_date',
+                'key' => 'event_end_date',
                 'value' => date('Ymd'),
                 'compare' => '>=',
             ]]
@@ -39,7 +39,7 @@ class ArchiveEventController extends Controller
             'orderby' => 'meta_value_num',
             'order' => 'DESC',
             'meta_query' => [[
-                'key' => 'event_date',
+                'key' => 'event_end_date',
                 'value' => date('Ymd'),
                 'compare' => '<',
             ]]
