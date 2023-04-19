@@ -40,7 +40,7 @@
 			grid-column: span 12;
 			display: flex;
 
-            @include from(T) {
+            @include from(M) {
                 grid-column: span 6;
             }
 		}
