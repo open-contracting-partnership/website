@@ -1,0 +1,85 @@
+.card.card--half-image {
+    --border-width: 0px;
+    --border-colour: var(--background-colour);
+
+    --border-radius: #{spacing(5)} #{spacing(1)};
+
+    position: relative;
+	border-radius: var(--border-radius);
+	background-color: var(--background-colour);
+	color: var(--text-colour);
+	display: flex;
+    overflow: hidden;
+
+	.card__body {
+        --padding: #{spacing(3)};
+
+        border-bottom-left-radius: var(--border-radius-small);
+        border-top-left-radius: var(--border-radius-large);
+        border: var(--border-width) solid red;
+        border-right-width: 0;
+        padding: calc(var(--padding) - var(--border-width));
+
+        @include from(T) {
+            --padding: #{spacing(4)};
+        }
+	}
+
+        .card__heading {
+            font-size: 24px;
+            text-transform: uppercase;
+            margin-bottom: .2em;
+
+            // this could/should be a container query
+            @include from(T) {
+                font-size: 36px;
+            }
+        }
+
+            .card__link {
+                --border-colour: transparent;
+
+                &:hover {
+                    --border-colour: var(--hover-colour);
+                }
+
+                &::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    inset: 0;
+                    // background-color: red;
+                    border: 3px solid var(--border-colour);
+                    border-radius: var(--border-radius);
+                    transition: border-color .3s ease;
+                }
+            }
+
+        .card__strapline {
+            font-size: 14px;
+            margin-bottom: 0;
+
+            // this could/should be a container query
+            @include from(T) {
+                font-size: 16px;
+            }
+        }
+
+    .card__image {
+        width: 40%;
+        flex-shrink: 0;
+
+        border-top-right-radius: var(--border-radius-small);
+        border-bottom-right-radius: var(--border-radius-large);
+        border: var(--border-width) solid red;
+        border-left-width: 0;
+
+
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            object-position: left center;
+        }
+    }
+}

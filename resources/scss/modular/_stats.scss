@@ -10,8 +10,8 @@ $font-size: 80px;
 
     .stats__shape {
         position: absolute;
-        top: 0;
-        inset-inline: 0;
+        inset-inline: -1px;
+        top: -1px;
     }
 
     .stats__header {
