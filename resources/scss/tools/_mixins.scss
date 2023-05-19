@@ -43,9 +43,8 @@
 	}
 }
 
-
 @function em($value, $size: $base-font-size) {
-	@return math.div($value, $size) + em;
+	@return math.div(strip-unit($value), strip-unit($size)) + em;
 }
 
 @function rem($value) {

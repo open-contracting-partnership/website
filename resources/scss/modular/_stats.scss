@@ -1,0 +1,163 @@
+$font-size: 80px;
+
+.stats {
+    @extend %container-reset;
+    @extend %screen-shell-grid;
+    position: relative;
+    background-color: $ui-grey-8;
+    @include fluid-type((padding-bottom), 375px, 1240px, spacing(5), spacing(7));
+}
+
+    .stats__shape {
+        position: absolute;
+        top: 0;
+        inset-inline: 0;
+    }
+
+    .stats__header {
+        position: relative;
+        grid-column: content;
+        // font-size: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: .75em;
+        margin-top: 2em;
+        color: $ui-grey-3;
+
+        @include from(T) {
+            // font-size: 51px;
+        }
+
+        @include fluid-type((font-size), 375px, 1440px, 30px, 51px);
+
+        svg {
+            --size: 40px;
+
+            position: absolute;
+            display: block;
+            height: var(--size);
+            width: var(--size);
+
+            @include from(T) {
+                --size: 50px;
+            }
+
+            &:nth-child(1) {
+                bottom: 0;
+                left: 1.5%;
+                transform: rotate(-10deg);
+
+                @include upto(T) {
+                    display: none;
+                }
+            }
+
+            &:nth-child(2) {
+                bottom: 53%;
+                left: 21%;
+                transform: rotate(20deg);
+
+                @include upto(T) {
+                    display: none;
+                }
+            }
+
+            &:nth-child(3) {
+                @include upto(T) {
+                    bottom: 72%;
+                    right: 2%;
+                    transform: rotate(20deg);
+                }
+
+                @include from(T) {
+                    bottom: 55%;
+                    right: 25%;
+                    transform: rotate(20deg);
+                }
+            }
+
+            &:nth-child(4) {
+                @include upto(T) {
+                    bottom: 7%;
+                    left: 1.5%;
+                    transform: rotate(-25deg);
+                }
+
+                @include from(T) {
+                    bottom: 4.4%;
+                    right: 7.6%;
+                    transform: rotate(-20deg);
+                }
+            }
+        }
+    }
+
+    .stats__heading {
+        font-size: 2.66em;
+        @include font('secondary', 'bold');
+        margin-bottom: -0.123em;
+        line-height: 1;
+    }
+
+    .stats__strapline {
+        font-size: 1em;
+        @include font('secondary', 'medium');
+        margin-bottom: 0;
+        line-height: 1;
+    }
+
+.stats__grid {
+    --grid-columns: 1;
+    --grid-row-height: auto;
+    --grid-gap: #{spacing(2)};
+
+    font-size: $font-size;
+
+    @include between(T, L) {
+        @include fluid-type((font-size), 375px, 1440px, 50px, $font-size);
+    }
+
+    grid-column: content;
+    display: grid;
+    gap: var(--grid-gap);
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    grid-auto-rows: minmax(var(--grid-row-height), auto);
+
+    @include from(T) {
+        --grid-columns: 3;
+        --grid-row-height: em(250, $font-size);
+        --grid-gap: #{em(spacing(4), $font-size)};
+    }
+}
+
+.stat {
+    background-color: var(--background-colour);
+    border-radius: spacing(1);
+    color: $ui-white;
+    @include font('secondary', 'bold');
+
+    padding-top: em(spacing(4), $font-size);
+    padding-inline: em(spacing(3), $font-size);
+    padding-bottom: em(spacing(3), $font-size);
+
+    @include from(T) {
+        padding-top: em(spacing(6.5), $font-size);
+        padding-inline: em(spacing(5), $font-size);
+        padding-bottom: em(spacing(5), $font-size);
+
+        grid-column: var(--column-start) / span var(--column-span);
+        grid-row: var(--row-start) / span var(--row-span);
+    }
+}
+
+    .stat__heading {
+        display: block;
+        font-size: 1em;
+        line-height: 1;
+    }
+
+    .stat__strapline {
+        font-size: em(24, $font-size);
+        margin-bottom: 0;
+        line-height: 1.1;
+    }

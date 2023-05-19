@@ -60,6 +60,7 @@ return [
         App\Providers\Blocks\QuoteServiceProvider::class,
         App\Providers\Blocks\ResourceServiceProvider::class,
         App\Providers\Blocks\SignUpCoverServiceProvider::class,
+        App\Providers\Blocks\StatsServiceProvider::class,
         App\Providers\Blocks\StagesServiceProvider::class,
         App\Providers\Blocks\StoriesServiceProvider::class,
         App\Providers\Blocks\TeamProfileServiceProvider::class,
