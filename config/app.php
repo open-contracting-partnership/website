@@ -44,6 +44,7 @@ return [
         App\Providers\Blocks\CardEmbedServiceProvider::class,
         App\Providers\Blocks\CardServiceProvider::class,
         App\Providers\Blocks\CardWithIconServiceProvider::class,
+        App\Providers\Blocks\ContentPanelServiceProvider::class,
         App\Providers\Blocks\ContentServiceProvider::class,
         App\Providers\Blocks\ContentWithIconServiceProvider::class,
         App\Providers\Blocks\CoverServiceProvider::class,
