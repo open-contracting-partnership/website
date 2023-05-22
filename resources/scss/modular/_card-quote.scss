@@ -1,5 +1,6 @@
 .card.card--quote {
 
+    position: relative;
 	font-size: 12px;
 	@include font('secondary', 'bold');
 	border-radius: spacing(4) spacing(1);
@@ -23,6 +24,12 @@
 		width: 100%;
 		filter: grayscale(100%);
 	}
+
+    .card__link {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+    }
 
 	.card__quote {
 

@@ -16,7 +16,20 @@
 
 				<blockquote>
 					<p>{{ card.quotation }}</p>
-					<footer>{{ card.name }},<br>{{ card.bio }}</footer>
+
+					<footer>
+                        {% if card.name is not empty %}
+                            {{ card.name }}
+                        {% endif %}
+
+                        {% if card.name is not empty and card.bio is not empty %}
+                            <br>
+                        {% endif %}
+
+                        {% if card.bio is not empty %}
+                            {{ card.bio }}
+                        {% endif %}
+                    </footer>
 				</blockquote>
 
 			{% endfor %}

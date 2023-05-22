@@ -41,6 +41,27 @@
             "return_format": "array"
         },
         {
+            "key": "field_646b442bd88c2",
+            "label": "Manually enter content?",
+            "name": "manually_enter_content",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Stories can either be selected from a list of website content, or entered manually for more control",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_5dd527760edd2",
             "label": "Stories",
             "name": "stories",
@@ -48,7 +69,15 @@
             "type": "relationship",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_646b442bd88c2",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -62,10 +91,133 @@
                 "post_type",
                 "taxonomy"
             ],
-            "elements": "",
+            "return_format": "object",
             "min": "",
             "max": "",
-            "return_format": "object"
+            "elements": ""
+        },
+        {
+            "key": "field_646b4475d88c3",
+            "label": "Stories",
+            "name": "manual_stories",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_646b442bd88c2",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Story",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_646b44b2d88c4",
+                    "label": "Image",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_646b4475d88c3"
+                },
+                {
+                    "key": "field_646b44c2d88c5",
+                    "label": "Heading",
+                    "name": "heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_646b4475d88c3"
+                },
+                {
+                    "key": "field_646b44c7d88c6",
+                    "label": "Strapline",
+                    "name": "strapline",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_646b4475d88c3"
+                },
+                {
+                    "key": "field_646b44d1d88c7",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_646b4475d88c3"
+                }
+            ]
         },
         {
             "key": "field_5dd25beecafb7",
@@ -216,5 +368,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684746077
+    "modified": 1684751656
 }

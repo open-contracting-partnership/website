@@ -32,15 +32,33 @@
 
 	<blockquote class="card__quote">
 		<p>{{ card.quotation }}</p>
-		<footer>{{ card.name }},<br>{{ card.bio }}</footer>
+		<footer>
+            {% if card.name is not empty %}
+                {{ card.name }}
+            {% endif %}
+
+            {% if card.name is not empty and card.bio is not empty %}
+                <br>
+            {% endif %}
+
+            {% if card.bio is not empty %}
+                {{ card.bio }}
+            {% endif %}
+        </footer>
 	</blockquote>
 
-	<div class="card__toggle-container">
+    {% if card.link is not empty %}
+        <a href="{{ card.link }}" class="card__link" title="Visit link"></a>
+    {% endif %}
 
-		<button class="card__toggle / button--naked" aria-label="Toggle quote">
-			<svg class=""><use xlink:href="#icon-plus-circle"></use></svg>
-		</button>
+    {% if card.link is empty %}
+        <div class="card__toggle-container">
 
-	</div>
+            <button class="card__toggle / button--naked" aria-label="Toggle quote">
+                <svg class=""><use xlink:href="#icon-plus-circle"></use></svg>
+            </button>
+
+        </div>
+    {% endif %}
 
 </div>

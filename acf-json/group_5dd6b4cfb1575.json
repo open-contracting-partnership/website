@@ -136,6 +136,25 @@
                     "append": "",
                     "maxlength": "",
                     "parent_repeater": "field_5dd6b4cfdde5a"
+                },
+                {
+                    "key": "field_646b4006b34c2",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_5dd6b4cfdde5a"
                 }
             ],
             "rows_per_page": 20
@@ -225,5 +244,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684746666
+    "modified": 1684750367
 }
