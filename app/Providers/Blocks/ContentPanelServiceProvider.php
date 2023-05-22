@@ -49,7 +49,7 @@ class ContentPanelServiceProvider
 
         $context['block']['background_colour'] = get_field('background_colour') ?: '#6C75E1';
         $context['block']['text_colour'] = get_field('text_colour') ?: '#FFFFFF';
-        $context['block']['text_align'] = $block['alignText'] ?? 'left';
+        $context['block']['text_align'] = $block['align_text'] ?? 'left';
         $context['block']['options'] = get_field('options') ?: [];
 
         echo Timber::compile('blocks/content-panel.twig', $context);
