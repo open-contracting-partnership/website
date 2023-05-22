@@ -31,25 +31,28 @@
 	</div>
 
 	<blockquote class="card__quote">
-		<p>{{ card.quotation }}</p>
-		<footer>
-            {% if card.name is not empty %}
-                {{ card.name }}
-            {% endif %}
+        {% if card.link is not empty %}
+            <a href="{{ card.link }}" class="card__link">{{ card.quotation }}</a>
+        {% else %}
+            <p>{{ card.quotation }}</p>
+        {% endif %}
 
-            {% if card.name is not empty and card.bio is not empty %}
-                <br>
-            {% endif %}
+        {% if card.name is not empty or card.bio is not empty %}
+            <footer>
+                {% if card.name is not empty %}
+                    {{ card.name }}
+                {% endif %}
 
-            {% if card.bio is not empty %}
-                {{ card.bio }}
-            {% endif %}
-        </footer>
+                {% if card.name is not empty and card.bio is not empty %}
+                    <br>
+                {% endif %}
+
+                {% if card.bio is not empty %}
+                    {{ card.bio }}
+                {% endif %}
+            </footer>
+        {% endif %}
 	</blockquote>
-
-    {% if card.link is not empty %}
-        <a href="{{ card.link }}" class="card__link" title="Visit link"></a>
-    {% endif %}
 
     {% if card.link is empty %}
         <div class="card__toggle-container">

@@ -26,9 +26,16 @@
 	}
 
     .card__link {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
     }
 
 	.card__quote {
@@ -51,12 +58,12 @@
 			grid-column: 2 / span 1;
 		}
 
-		p {
+		p, a {
 			all: unset;
-			margin-bottom: spacing(1);
 		}
 
 		footer {
+			margin-top: spacing(1);
 			@include font('secondary');
 		}
 
