@@ -9,7 +9,8 @@
 
     <div class="our-reporting-grid__grid">
         {% for card in block.cards %}
-            <div
+            <a
+                href="{{ card.link }}"
                 class="our-reporting-card"
                 style="
                     --background-colour: {{ card.background_colour }};
@@ -22,10 +23,10 @@
                 "
             >
                 <span class="our-reporting-card__heading">{{ card.heading }}</span>
-                <p class="our-reporting-card__strapline">{{ card.strapline }}</span>
+                <p class="our-reporting-card__strapline">{{ card.strapline }}</p>
 
                 <svg class="our-reporting-card__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-            </div>
+            </a>
         {% endfor %}
     </div>
 

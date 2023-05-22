@@ -52,10 +52,15 @@ $font-size: 80px;
     background-color: var(--background-colour);
     color: var(--text-colour);
     border-radius: spacing(5) spacing(1);
+    text-decoration: none;
     @include font('secondary', 'bold');
 
     padding: var(--padding);
     padding-bottom: calc(var(--padding) + var(--icon-spacing));
+
+    &:hover .our-reporting-card__heading {
+        text-decoration: underline;
+    }
 
     @include from(T) {
         --padding: #{spacing(5)};

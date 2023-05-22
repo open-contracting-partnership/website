@@ -26,6 +26,8 @@
 	}
 
     .card__link {
+        text-decoration: none;
+
         &:hover {
             text-decoration: underline;
         }
@@ -58,7 +60,7 @@
 			grid-column: 2 / span 1;
 		}
 
-		p, a {
+		p {
 			all: unset;
 		}
 
