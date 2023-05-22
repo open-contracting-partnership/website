@@ -112,9 +112,9 @@ $font-size: 80px;
     --grid-row-height: auto;
     --grid-gap: #{spacing(2)};
 
-    font-size: $font-size;
+    font-size: 64px;
 
-    @include between(T, L) {
+    @include from(T) {
         @include fluid-type((font-size), 375px, 1440px, 50px, $font-size);
     }
 
@@ -137,14 +137,12 @@ $font-size: 80px;
     color: $ui-white;
     @include font('secondary', 'bold');
 
-    padding-top: em(spacing(4), $font-size);
+    padding-block: em(spacing(4), $font-size);
     padding-inline: em(spacing(3), $font-size);
-    padding-bottom: em(spacing(3), $font-size);
 
     @include from(T) {
-        padding-top: em(spacing(6.5), $font-size);
+        padding-block: em(spacing(6.5), $font-size);
         padding-inline: em(spacing(5), $font-size);
-        padding-bottom: em(spacing(5), $font-size);
 
         grid-column: var(--column-start) / span var(--column-span);
         grid-row: var(--row-start) / span var(--row-span);
@@ -158,7 +156,7 @@ $font-size: 80px;
     }
 
     .stat__strapline {
-        font-size: em(24, $font-size);
+        font-size: em(22, $font-size);
         margin-bottom: 0;
         line-height: 1.1;
     }
