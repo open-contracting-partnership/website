@@ -26,9 +26,16 @@
                     --row-start: {{ stat.row_position.start }};
                     --row-span: {{ stat.row_position.height }};
                 "
+                data-icon-position="{{ stat.icon.position }}"
             >
-                <span class="stat__heading">{{ stat.stat }}</span>
-                <p class="stat__strapline">{{ stat.label }}</span>
+                <div class="stat__main">
+                    <span class="stat__heading">{{ stat.stat }}</span>
+                    <p class="stat__strapline">{{ stat.label }}</span>
+                </div>
+
+                {% if stat.icon.icon is not empty %}
+                    <img class="stat__icon" src="{{ stat.icon.icon.url }}">
+                {% endif %}
             </div>
         {% endfor %}
     </div>

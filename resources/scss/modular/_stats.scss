@@ -139,6 +139,11 @@ $font-size: 80px;
 
     padding-block: em(spacing(4), $font-size);
     padding-inline: em(spacing(3), $font-size);
+    display: flex;
+
+    &[data-icon-position="bottom"] {
+        flex-direction: column;
+    }
 
     @include from(T) {
         padding-block: em(spacing(6.5), $font-size);
@@ -148,6 +153,31 @@ $font-size: 80px;
         grid-row: var(--row-start) / span var(--row-span);
     }
 }
+    .stat__icon {
+        // margin-left: spacing();
+        width: auto;
+
+        @include upto(T) {
+            display: none;
+        }
+
+        .stat[data-icon-position="bottom"] & {
+            width: 50%;
+            margin-top: spacing(3);
+            align-self: flex-end;
+        }
+
+        .stat[data-icon-position="right"] & {
+            width: 28%;
+            align-self: center;
+            margin-left: spacing(4);
+            margin-right: spacing(3);
+        }
+    }
+
+    .stat__main {
+        margin-bottom: auto;
+    }
 
     .stat__heading {
         display: block;
