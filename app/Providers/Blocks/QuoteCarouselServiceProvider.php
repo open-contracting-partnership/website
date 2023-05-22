@@ -44,6 +44,7 @@ class QuoteCarouselServiceProvider
         $context['block']['text_colour'] = isContrastingColourLight($context['block']['background_colour']) ? '#FFF' : '#000';
         $context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
         $context['block']['header_alignment'] = get_field('header_alignment') ?: 'justified';
+        $context['block']['image_style'] = get_field('image_style') ?: 'grayscale';
 
         // options
         $context['block']['options'] = get_field('options') ?: [];

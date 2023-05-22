@@ -9,7 +9,8 @@
 
     <div class="our-reporting-grid__grid">
         {% for card in block.cards %}
-            <div
+            <a
+                href="{{ card.link }}"
                 class="our-reporting-card"
                 style="
                     --background-colour: {{ card.background_colour }};
@@ -20,12 +21,19 @@
                     --row-start: {{ card.row_position.start }};
                     --row-span: {{ card.row_position.height }};
                 "
+                data-icon-position="{{ card.icon.position }}"
             >
-                <span class="our-reporting-card__heading">{{ card.heading }}</span>
-                <p class="our-reporting-card__strapline">{{ card.strapline }}</span>
+                <div class="our-reporting-card__main">
+                    <span class="our-reporting-card__heading">{{ card.heading }}</span>
+                    <p class="our-reporting-card__strapline">{{ card.strapline }}</p>
+                </div>
+
+                {% if card.icon.icon is not empty %}
+                    <img class="our-reporting-card__image" src="{{ card.icon.icon.url }}">
+                {% endif %}
 
                 <svg class="our-reporting-card__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-            </div>
+            </a>
         {% endfor %}
     </div>
 
