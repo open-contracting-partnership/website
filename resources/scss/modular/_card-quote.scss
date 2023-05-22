@@ -22,7 +22,10 @@
 		grid-column: 1 / span 2;
 		grid-row: 1;
 		width: 100%;
-		filter: grayscale(100%);
+
+        &[data-image-style="grayscale"] {
+            filter: grayscale(100%);
+        }
 	}
 
     .card__link {
