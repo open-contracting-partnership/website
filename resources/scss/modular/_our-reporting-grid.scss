@@ -1,0 +1,116 @@
+$font-size: 80px;
+
+.our-reporting-grid {
+    @extend %container-reset;
+    @extend %screen-shell-grid;
+    position: relative;
+    background-color: $ui-teal;
+    color: $ui-white;
+    @include fluid-type((padding-top), 375px, 1240px, spacing(5), spacing(7));
+    overflow-x: hidden;
+}
+
+    .our-reporting-grid__header {
+        position: relative;
+        grid-column: content;
+        text-align: center;
+        margin-bottom: spacing(3);
+    }
+
+    .our-reporting-grid__heading {
+        @include fluid-type((font-size), 390px, 1440px, 33px, 48px);
+        @include font('secondary', 'bold');
+        margin-bottom: 0.2em;
+    }
+
+    .our-reporting-grid__strapline {
+        @include fluid-type((font-size), 390px, 1440px, 18px, 20px);
+        @include font('primary', 'light');
+        margin-bottom: 0;
+    }
+
+.our-reporting-grid__grid {
+    --grid-columns: 1;
+    --grid-gap: #{spacing(2)};
+
+    grid-column: content;
+    display: grid;
+    gap: var(--grid-gap);
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+
+    @include from(M) {
+        --grid-columns: 2;
+        --grid-gap: #{spacing(4)};
+    }
+}
+
+.our-reporting-card {
+    --padding: #{spacing(3)};
+    --icon-spacing: 28px;
+
+    position: relative;
+    background-color: var(--background-colour);
+    color: var(--text-colour);
+    border-radius: spacing(5) spacing(1);
+    @include font('secondary', 'bold');
+
+    padding: var(--padding);
+    padding-bottom: calc(var(--padding) + var(--icon-spacing));
+
+    @include from(T) {
+        --padding: #{spacing(5)};
+        --icon-spacing: #{spacing(4)};
+
+        grid-column: var(--column-start) / span var(--column-span);
+        grid-row: var(--row-start) / span var(--row-span);
+    }
+}
+
+    .our-reporting-card__heading {
+        display: block;
+        font-size: 24px;
+        color: var(--accent-colour);
+        text-transform: uppercase;
+
+        @include from(T) {
+            font-size: 32px;
+        }
+    }
+
+    .our-reporting-card__strapline {
+        font-size: 18px;
+        margin-bottom: 0;
+
+        @include from(T) {
+            font-size: 24px;
+        }
+    }
+
+    .our-reporting-card__icon {
+        --size: 32px;
+        --offset: 16px;
+
+        position: absolute;
+        right: var(--offset);
+        bottom: var(--offset);
+        display: block;
+        width: var(--size);
+        height: var(--size);
+        fill: var(--accent-colour);
+
+        @include from(T) {
+            --size: 56px;
+        }
+    }
+
+.our-reporting-grid__banner-image {
+    grid-column: intermediate;
+
+    @include from(M) {
+        grid-column: full;
+    }
+
+    img {
+        width: 100%;
+    }
+}

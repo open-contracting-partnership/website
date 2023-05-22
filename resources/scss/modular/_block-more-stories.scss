@@ -35,9 +35,18 @@
 
 			@media screen {
 				display: flex;
-				flex-wrap: wrap;
-				align-items: center;
+                flex-wrap: wrap;
 				@include fluid-type(margin-bottom, 375px, 1240px, 19px, 32px);
+
+                &[data-alignment="justified"] {
+                    align-items: center;
+                    justify-content: space-between;
+                    text-align: center;
+                }
+
+                &[data-alignment="centered"] {
+                    flex-direction: column;
+                }
 			}
 
 			@media print {
@@ -51,7 +60,7 @@
 				@media screen {
 					@include fluid-type(font-size, 375px, 1240px, 22px, 36px);
 					margin-bottom: 0;
-					margin-right: auto;
+                    text-align: var(--heading-text-align, center);
 				}
 
 			}

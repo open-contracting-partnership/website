@@ -6,7 +6,7 @@
 
 	<div class="block__container" style="color: {{ block.text_colour }};">
 
-		<div class="block__header">
+		<div class="block__header" data-alignment="{{ block.header_alignment }}">
 
 			{% if block.title %}
 				<h2 class="block__heading">{{ block.title }}</h2>

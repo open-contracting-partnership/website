@@ -30,6 +30,14 @@
 			@media screen {
 				@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
 				margin-bottom: var(--v-spacing-half);
+
+                &[data-alignment="justified"] {
+                    text-align: left;
+                }
+
+                &[data-alignment="centered"] {
+                    text-align: center;
+                }
 			}
 
 		}

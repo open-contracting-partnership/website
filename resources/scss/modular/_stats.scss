@@ -6,6 +6,7 @@ $font-size: 80px;
     position: relative;
     background-color: $ui-grey-8;
     @include fluid-type((padding-bottom), 375px, 1240px, spacing(5), spacing(7));
+    overflow-x: hidden;
 }
 
     .stats__shape {

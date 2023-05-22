@@ -1,0 +1,84 @@
+{
+    "key": "group_6469358d0fd60",
+    "title": "Block: Content With Icon",
+    "fields": [
+        {
+            "key": "field_6469358d1b703",
+            "label": "Background Colour",
+            "name": "background_colour",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "default_value": "#FFFFFF",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_646935d0e31fc",
+            "label": "Text Colour",
+            "name": "text_colour",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "default_value": "#323232",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_646935d7e31fd",
+            "label": "Accent Colour",
+            "name": "accent_colour",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "default_value": "#E0E83D",
+            "enable_opacity": 0,
+            "return_format": "string"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/ocp-content-with-icon"
+            }
+        ]
+    ],
+    "menu_order": -1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1684616780
+}

@@ -1,0 +1,16 @@
+<a
+    href="{{ block.link.url }}"
+    target="{{ block.link.target }}"
+    class="button button--has-icon"
+    style="
+        --border-colour: {{ block.border_colour }};
+        --background: {{ block.background_colour }};
+        --colour: {{ block.text_colour }};
+    "
+>
+    {% if block.has_icon %}
+        <svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+    {% endif %}
+
+    {{ block.link.title }}
+</a>

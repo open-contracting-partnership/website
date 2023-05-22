@@ -6,6 +6,7 @@
             "key": "field_5da9858a142c0",
             "label": "Title",
             "name": "title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -26,6 +27,7 @@
             "key": "field_5e30274ba51ed",
             "label": "Call to action",
             "name": "call_to_action",
+            "aria-label": "",
             "type": "link",
             "instructions": "",
             "required": 0,
@@ -42,6 +44,7 @@
             "key": "field_5dd527760edd2",
             "label": "Stories",
             "name": "stories",
+            "aria-label": "",
             "type": "relationship",
             "instructions": "",
             "required": 0,
@@ -68,6 +71,7 @@
             "key": "field_5dd25beecafb7",
             "label": "Card Type",
             "name": "card_type",
+            "aria-label": "",
             "type": "select",
             "instructions": "Select which card type to use when outputting the stories",
             "required": 1,
@@ -96,6 +100,7 @@
             "key": "field_5dd50cc5b4e30",
             "label": "Colour Scheme",
             "name": "colour_scheme",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -132,6 +137,7 @@
             "key": "field_5da9858a7e655",
             "label": "Background Colour",
             "name": "background_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -142,12 +148,15 @@
                 "id": ""
             },
             "wpml_cf_preferences": 0,
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5da9858a80a80",
             "label": "Text Colour",
             "name": "text_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -158,7 +167,35 @@
                 "id": ""
             },
             "wpml_cf_preferences": 0,
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
+        },
+        {
+            "key": "field_646b2ef3f8ee1",
+            "label": "Header Alignment",
+            "name": "header_alignment",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "choices": {
+                "justified": "Justified",
+                "centered": "Centered"
+            },
+            "default_value": "justified",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "horizontal",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -176,7 +213,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1580214104
+    "show_in_rest": 0,
+    "modified": 1684746077
 }

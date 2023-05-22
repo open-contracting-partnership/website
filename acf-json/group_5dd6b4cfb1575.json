@@ -6,6 +6,7 @@
             "key": "field_5dd6ba52cce3c",
             "label": "Title",
             "name": "title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -26,6 +27,7 @@
             "key": "field_5dd6b4cfdde5a",
             "label": "Quotes",
             "name": "quotes",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -46,6 +48,7 @@
                     "key": "field_5dd6b4f326435",
                     "label": "Image",
                     "name": "image",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "The image should be 2:1 ratio, and the face should predominantly be on the left side of the image.",
                     "required": 1,
@@ -65,12 +68,14 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_5dd6b4cfdde5a"
                 },
                 {
                     "key": "field_5dd6b4cfe4f1d",
                     "label": "Quotation",
                     "name": "quotation",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -85,12 +90,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5dd6b4cfdde5a"
                 },
                 {
                     "key": "field_5dd6b4cfe4f23",
                     "label": "Name",
                     "name": "name",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -105,12 +112,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5dd6b4cfdde5a"
                 },
                 {
                     "key": "field_5dd6b4cfe4f27",
                     "label": "Bio",
                     "name": "bio",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "e.g. Entrepreneur, Colombia",
                     "required": 0,
@@ -125,14 +134,17 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5dd6b4cfdde5a"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_5dd6ba40cce3a",
             "label": "Background Colour",
             "name": "background_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -143,12 +155,15 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5dd6ba49cce3b",
             "label": "Text Colour",
             "name": "text_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -159,7 +174,35 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
+        },
+        {
+            "key": "field_646b318b51e40",
+            "label": "Header Alignment",
+            "name": "header_alignment",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "choices": {
+                "justified": "Justified",
+                "centered": "Centered"
+            },
+            "default_value": "justified",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "horizontal",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -179,7 +222,8 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1574353502
+    "show_in_rest": 0,
+    "modified": 1684746666
 }
