@@ -37,7 +37,17 @@
                 </div>
 
                 {% if stat.icon.icon is not empty %}
-                    <img class="stat__icon" src="{{ stat.icon.icon.url }}">
+                    {{ imgix({
+                        class: 'stat__icon',
+                        src: stat.icon.icon.url,
+                        aspect_ratio: [
+                            stat.icon.icon.width,
+                            stat.icon.icon.height
+                        ],
+                        params: {
+                            auto: 'format'
+                        }
+                    }) }}
                 {% endif %}
             </div>
         {% endfor %}

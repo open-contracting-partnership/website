@@ -31,9 +31,10 @@ class ImgixServiceProvider extends ServiceProvider
         $this->prepareParams($args);
 
         $image = [
-            'src' => $this->buildURL($args, $args['transforms'][0]),
+            'src' => $this->buildURL($args),
+            'class' => $args['class'] ?? '',
             'srcset' => $this->buildSources($args),
-            'sizes' => $args['sizes'],
+            'sizes' => $args['sizes'] ?? '',
             'alt' => $args['alt'],
             'width' => $args['aspect_ratio'] ? $args['aspect_ratio'][0] : null,
             'height' => $args['aspect_ratio'] ? $args['aspect_ratio'][1] : null,
@@ -59,18 +60,31 @@ class ImgixServiceProvider extends ServiceProvider
     {
         $srcset = array_map(function ($transform) use ($args) {
             return $this->buildURL($args, $transform) . ' ' . $transform['w'] . 'w';
-        }, $args['transforms']);
+        }, $args['transforms'] ?? []);
 
         return implode(', ', $srcset);
     }
 
-    private function buildURL($args, $transform)
+    private function buildURL($args, $transform = null)
     {
-        $transform = array_merge($args['params'], $transform);
+        if ($transform === null && isset($args['transforms'][0])) {
+            $transform = $args['transforms'][0];
+        }
+
+        if ($transform) {
+            $transform = array_merge($args['params'], $transform);
+        } else {
+            $transform = $args['params'];
+        }
 
         unset($transform['host']);
 
-        if (isset($args['aspect_ratio']) && $args['aspect_ratio'] && $transform['w']) {
+        if (
+            isset($args['aspect_ratio'])
+            && $args['aspect_ratio']
+            && isset($transform['w'])
+            && $transform['w']
+        ) {
             $transform['h'] = ceil($transform['w'] / ($args['aspect_ratio'][0] / $args['aspect_ratio'][1]));
         }
 
