@@ -1,0 +1,39 @@
+$font-size: 80px;
+
+.content-with-icon {
+    position: relative;
+
+    background-color: var(--background-colour);
+    color: var(--text-colour);
+	@include fluid-type((padding-top), 375px, 1240px, spacing(2), spacing(6));
+    padding-bottom: spacing(6);
+
+    strong {
+        color: var(--accent-colour);
+    }
+}
+
+.content-with-icon__content {
+    grid-column: content;
+
+    @include from(M) {
+        grid-column: content / -7;
+    }
+}
+
+.content-with-icon__icon {
+    overflow-x: hidden;
+
+    svg {
+        width: 200%;
+        max-width: 644px;
+    }
+
+    @include upto(M) {
+        display: none;
+    }
+
+    @include from(M) {
+        grid-column: -6 / full;
+    }
+}

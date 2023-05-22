@@ -1,0 +1,16 @@
+<div class="our-work-grid">
+    <svg class="our-work-grid__shape" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1441 107">
+        <path fill="{{ block.previous_block_colour }}" fill-rule="evenodd" d="M1440.68.32H.68V106.5s372-98.74 720-98.74 720 98.74 720 98.74V.32Z" clip-rule="evenodd"/>
+    </svg>
+
+    <div class="our-work-grid__header">
+        <h2 class="our-work-grid__heading">{{ block.heading }}</h2>
+        <p class="our-work-grid__strapline">{{ block.strapline }}</p>
+    </div>
+
+    <div class="our-work-grid__grid">
+        {% for card in block.cards %}
+            {% include 'cards/half-image.twig' with card %}
+        {% endfor %}
+    </div>
+</div>

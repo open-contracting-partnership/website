@@ -6,6 +6,7 @@
             "key": "field_605212130a9bb",
             "label": "Link",
             "name": "link",
+            "aria-label": "",
             "type": "link",
             "instructions": "",
             "required": 1,
@@ -38,5 +39,6 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1615991373
+    "show_in_rest": false,
+    "modified": 1684620862
 }

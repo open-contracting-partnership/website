@@ -1,0 +1,89 @@
+$font-size: 80px;
+
+.our-work-grid {
+    @extend %container-reset;
+    @extend %screen-shell-grid;
+    position: relative;
+    background-color: $ui-grey-8;
+    @include fluid-type((padding-bottom), 375px, 1240px, spacing(5), spacing(7));
+    overflow-x: hidden;
+}
+
+    .our-work-grid__shape {
+        position: absolute;
+        inset-inline: -1px;
+        top: -1px;
+    }
+
+    .our-work-grid__header {
+        position: relative;
+        grid-column: content;
+        text-align: center;
+        margin-top: spacing(7);
+        margin-bottom: spacing(3);
+        color: $ui-grey-3;
+
+        @include from(T) {
+            margin-top: spacing(13);
+            margin-bottom: spacing(5);
+        }
+    }
+
+    .our-work-grid__heading {
+        @include fluid-type((font-size), 390px, 1440px, 33px, 48px);
+        @include font('secondary', 'bold');
+        margin-bottom: 0.2em;
+    }
+
+    .our-work-grid__strapline {
+        @include fluid-type((font-size), 390px, 1440px, 18px, 20px);
+        @include font('primary', 'light');
+        margin-bottom: 0;
+    }
+
+.our-work-grid__grid {
+    --grid-columns: 1;
+    --grid-gap: #{spacing(2)};
+
+    grid-column: content;
+    display: grid;
+    gap: var(--grid-gap);
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+
+    @include from(M) {
+        --grid-columns: 2;
+        --grid-gap: #{spacing(4)};
+    }
+}
+
+.stat {
+    background-color: var(--background-colour);
+    border-radius: spacing(1);
+    color: $ui-white;
+    @include font('secondary', 'bold');
+
+    padding-top: em(spacing(4), $font-size);
+    padding-inline: em(spacing(3), $font-size);
+    padding-bottom: em(spacing(3), $font-size);
+
+    @include from(T) {
+        padding-top: em(spacing(6.5), $font-size);
+        padding-inline: em(spacing(5), $font-size);
+        padding-bottom: em(spacing(5), $font-size);
+
+        grid-column: var(--column-start) / span var(--column-span);
+        grid-row: var(--row-start) / span var(--row-span);
+    }
+}
+
+    .stat__heading {
+        display: block;
+        font-size: 1em;
+        line-height: 1;
+    }
+
+    .stat__strapline {
+        font-size: em(24, $font-size);
+        margin-bottom: 0;
+        line-height: 1.1;
+    }

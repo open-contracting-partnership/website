@@ -1,0 +1,35 @@
+<div class="block / our-reporting-grid">
+    <div class="our-reporting-grid__header">
+        <h2 class="our-reporting-grid__heading">{{ block.heading }}</h2>
+
+        {% if block.strapline %}
+            <p class="our-reporting-grid__strapline">{{ block.strapline }}</p>
+        {% endif %}
+    </div>
+
+    <div class="our-reporting-grid__grid">
+        {% for card in block.cards %}
+            <div
+                class="our-reporting-card"
+                style="
+                    --background-colour: {{ card.background_colour }};
+                    --text-colour: {{ card.text_colour }};
+                    --accent-colour: {{ card.accent_colour }};
+                    --column-start: {{ card.column_position.start }};
+                    --column-span: {{ card.column_position.width }};
+                    --row-start: {{ card.row_position.start }};
+                    --row-span: {{ card.row_position.height }};
+                "
+            >
+                <span class="our-reporting-card__heading">{{ card.heading }}</span>
+                <p class="our-reporting-card__strapline">{{ card.strapline }}</span>
+
+                <svg class="our-reporting-card__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="our-reporting-grid__banner-image">
+        <img src="{{ block.banner_image.url }}" />
+    </div>
+</div>

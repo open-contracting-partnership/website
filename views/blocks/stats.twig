@@ -1,0 +1,35 @@
+<div class="block / stats">
+    <svg class="stats__shape" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1441 107">
+        <path fill="{{ block.previous_block_colour }}" fill-rule="evenodd" d="M1440.68.32H.68V106.5s372-98.74 720-98.74 720 98.74 720 98.74V.32Z" clip-rule="evenodd"/>
+    </svg>
+
+    <div class="stats__header">
+        <h2 class="stats__heading">{{ block.heading }}</h2>
+        <p class="stats__strapline">{{ block.strapline }}</p>
+
+        <div>
+            <svg fill="#B9C504"><use xlink:href="#icon-plus-heavy"></use></svg>
+            <svg fill="#23B2A7"><use xlink:href="#icon-plus-heavy"></use></svg>
+            <svg fill="#FB6045"><use xlink:href="#icon-plus-heavy"></use></svg>
+            <svg fill="#6C75E1"><use xlink:href="#icon-plus-heavy"></use></svg>
+        </div>
+    </div>
+
+    <div class="stats__grid">
+        {% for stat in block.stats %}
+            <div
+                class="stat"
+                style="
+                    --background-colour: {{ stat.background_colour }};
+                    --column-start: {{ stat.column_position.start }};
+                    --column-span: {{ stat.column_position.width }};
+                    --row-start: {{ stat.row_position.start }};
+                    --row-span: {{ stat.row_position.height }};
+                "
+            >
+                <span class="stat__heading">{{ stat.stat }}</span>
+                <p class="stat__strapline">{{ stat.label }}</span>
+            </div>
+        {% endfor %}
+    </div>
+</div>
