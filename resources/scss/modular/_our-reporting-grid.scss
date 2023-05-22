@@ -71,9 +71,10 @@ $font-size: 80px;
         font-size: 24px;
         color: var(--accent-colour);
         text-transform: uppercase;
+        margin-bottom: .2em;
 
         @include from(T) {
-            font-size: 32px;
+            font-size: 28px;
         }
     }
 
@@ -82,7 +83,7 @@ $font-size: 80px;
         margin-bottom: 0;
 
         @include from(T) {
-            font-size: 24px;
+            font-size: 20px;
         }
     }
 

@@ -45,7 +45,7 @@
 		height: 1em;
 		width: 1em;
 		margin-right: spacing(2);
-		fill: $ui-white;
+		fill: currentColor;
 		margin: em(-8, 14) spacing(2) em(-6, 14) em(-6, 14);
 
 		@media print {

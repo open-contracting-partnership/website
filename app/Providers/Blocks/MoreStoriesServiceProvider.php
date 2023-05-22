@@ -66,7 +66,7 @@ class MoreStoriesServiceProvider
                         'introduction' => $story['strapline'],
                         'url' => $story['link'],
                         'image_url' => $story['image']['url'],
-                        'button_label' => 'Find out more'
+                        'button_label' => 'FIND OUT MORE'
                     ];
                 })
                 ->toArray();
