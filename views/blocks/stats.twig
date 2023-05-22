@@ -29,7 +29,10 @@
                 data-icon-position="{{ stat.icon.position }}"
             >
                 <div class="stat__main">
-                    <span class="stat__heading">{{ stat.stat }}</span>
+                    <p class="stat__heading">
+                        {{ stat.stat_prefix }}<span class="stat__value" data-value="{{ stat.stat_value }}">0</span>
+                    </p>
+
                     <p class="stat__strapline">{{ stat.label }}</span>
                 </div>
 
