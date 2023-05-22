@@ -57,6 +57,11 @@ $font-size: 80px;
 
     padding: var(--padding);
     padding-bottom: calc(var(--padding) + var(--icon-spacing));
+    display: flex;
+
+    &[data-icon-position="bottom"] {
+        flex-direction: column;
+    }
 
     &:hover .our-reporting-card__heading {
         text-decoration: underline;
@@ -71,24 +76,50 @@ $font-size: 80px;
     }
 }
 
-    .our-reporting-card__heading {
-        display: block;
-        font-size: 24px;
-        color: var(--accent-colour);
-        text-transform: uppercase;
-        margin-bottom: .2em;
-
-        @include from(T) {
-            font-size: 28px;
-        }
+    .our-reporting-card__main {
+        margin-bottom: auto;
     }
 
-    .our-reporting-card__strapline {
-        font-size: 18px;
-        margin-bottom: 0;
+        .our-reporting-card__heading {
+            display: block;
+            font-size: 24px;
+            color: var(--accent-colour);
+            text-transform: uppercase;
+            margin-bottom: .2em;
 
-        @include from(T) {
-            font-size: 20px;
+            @include from(T) {
+                font-size: 28px;
+            }
+        }
+
+        .our-reporting-card__strapline {
+            font-size: 18px;
+            margin-bottom: 0;
+
+            @include from(T) {
+                font-size: 20px;
+            }
+        }
+
+    .our-reporting-card__image {
+        width: auto;
+
+        @include upto(T) {
+            display: none;
+        }
+
+        .our-reporting-card[data-icon-position="bottom"] & {
+            width: 75%;
+            margin-top: spacing(3);
+            align-self: center;
+            margin-bottom: calc((var(--padding) + var(--icon-spacing)) * -1);
+        }
+
+        .our-reporting-card[data-icon-position="right"] & {
+            width: 28%;
+            align-self: center;
+            margin-left: spacing(4);
+            margin-right: spacing(3);
         }
     }
 
