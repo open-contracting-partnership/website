@@ -22,6 +22,9 @@ class ReportHeaderServiceProvider
                 'supports' => [
                     'align' => false,
                 ],
+                'enqueue_assets' => function () {
+                    wp_enqueue_script('block-report-header', get_template_directory_uri() . '/dist/js/block-report-header.js', ['manifest'], false, true);
+                },
             ]);
         });
     }
