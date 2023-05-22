@@ -23,6 +23,19 @@
     </div>
 
     <div class="card__image">
-        <img src="{{ card.image.url }}">
+        {{ imgix({
+            src: card.image.url,
+            params: {
+                auto: 'format'
+            },
+            transforms: [{
+                w: 128
+            }, {
+                w: 256
+            }, {
+                w: 512
+            }],
+            sizes: '36vw, (min-width: 1025px) 17vw, (min-width: 1350px) 234px',
+        }) }}
     </div>
 </div>

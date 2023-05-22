@@ -29,7 +29,17 @@
                 </div>
 
                 {% if card.icon.icon is not empty %}
-                    <img class="our-reporting-card__image" src="{{ card.icon.icon.url }}">
+                    {{ imgix({
+                        class: 'our-reporting-card__image',
+                        src: card.icon.icon.url,
+                        aspect_ratio: [
+                            card.icon.icon.width,
+                            card.icon.icon.height
+                        ],
+                        params: {
+                            auto: 'format'
+                        }
+                    }) }}
                 {% endif %}
 
                 <svg class="our-reporting-card__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
@@ -38,6 +48,35 @@
     </div>
 
     <div class="our-reporting-grid__banner-image">
-        <img src="{{ block.banner_image.url }}" />
+        {{ imgix({
+			src: block.banner_image.url,
+			params: {
+				auto: 'format',
+				fit: 'crop'
+			},
+            aspect_ratio: [
+                block.banner_image.width,
+                block.banner_image.height
+            ],
+			transforms: [{
+				w: 300
+			}, {
+				w: 500
+			}, {
+				w: 600
+			}, {
+				w: 1000
+			}, {
+				w: 1200
+			}, {
+				w: 1800
+			}, {
+				w: 2400
+			}, {
+				w: 2800
+			}],
+			sizes: '100vw',
+			loading: 'lazy'
+		}) }}
     </div>
 </div>
