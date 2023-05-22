@@ -68,16 +68,38 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_6464cdab26fcc",
-                    "label": "Stat",
-                    "name": "stat",
+                    "key": "field_646b7abbd355e",
+                    "label": "Stat Prefix",
+                    "name": "stat_prefix",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6464cd9726fcb"
+                },
+                {
+                    "key": "field_6464cdab26fcc",
+                    "label": "Stat Value",
+                    "name": "stat_value",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -377,5 +399,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684759741
+    "modified": 1684765384
 }
