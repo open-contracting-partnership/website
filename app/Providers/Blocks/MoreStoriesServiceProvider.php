@@ -46,14 +46,30 @@ class MoreStoriesServiceProvider
 
         $context['block']['stories'] = [];
 
-        if ($stories = get_field('stories')) {
-            if ($context['block']['card_type'] === 'default') {
-                $context['block']['stories'] = PrimaryCard::convertCollection($stories);
-            }
+        $manualStories = get_field('manually_enter_content') ?: false;
 
-            if ($context['block']['card_type'] === 'resource') {
-                $context['block']['stories'] = ResourceCard::convertCollection($stories);
+        if (! $manualStories) {
+            if ($stories = get_field('stories')) {
+                if ($context['block']['card_type'] === 'default') {
+                    $context['block']['stories'] = PrimaryCard::convertCollection($stories);
+                }
+
+                if ($context['block']['card_type'] === 'resource') {
+                    $context['block']['stories'] = ResourceCard::convertCollection($stories);
+                }
             }
+        } else {
+            $context['block']['stories'] = collect(get_field('manual_stories'))
+                ->map(function ($story) {
+                    return [
+                        'title' => $story['heading'],
+                        'introduction' => $story['strapline'],
+                        'url' => $story['link'],
+                        'image_url' => $story['image']['url'],
+                        'button_label' => 'Find out more'
+                    ];
+                })
+                ->toArray();
         }
 
         $context['block']['background_colour'] = get_field('background_colour') ?: '#DADADA';

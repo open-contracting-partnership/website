@@ -93,6 +93,11 @@
 				color: currentColor;
 			}
 
+        .card__introduction {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
 		.card__footer {
 
 			@media screen {
@@ -112,11 +117,12 @@
 				font-size: 14px;
 				text-transform: uppercase;
 				flex: 1 1 100%;
+                margin-right: spacing(2);
 			}
 
 			.card__cta {
 
-				margin-left: spacing(2);
+				margin-left: auto;
 				flex: 0 0 auto;
 
 				@media print {
