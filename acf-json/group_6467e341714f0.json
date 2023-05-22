@@ -139,6 +139,25 @@
                     "parent_repeater": "field_6467e341811e7"
                 },
                 {
+                    "key": "field_646b73de410cd",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_6467e341811e7"
+                },
+                {
                     "key": "field_6467e342305cf",
                     "label": "Background Colour",
                     "name": "background_colour",
@@ -240,5 +259,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684537497
+    "modified": 1684763630
 }
