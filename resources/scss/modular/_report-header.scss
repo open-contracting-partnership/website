@@ -64,6 +64,14 @@ $font-size: 80px;
         width: .9em;
         fill: var(--text-colour);
 
+        &:hover path:last-child {
+            transform: translateY(.22em);
+        }
+
+        path:last-child {
+            transition: transform .3s ease;
+        }
+
         @include from(T) {
             width: .5em;
         }
