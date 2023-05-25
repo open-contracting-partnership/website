@@ -1,4 +1,4 @@
-$font-size: 80px;
+$font-size: 64px;
 
 .stats {
     @extend %container-reset;
@@ -112,10 +112,10 @@ $font-size: 80px;
     --grid-row-height: auto;
     --grid-gap: #{spacing(2)};
 
-    font-size: 64px;
+    font-size: 48px;
 
     @include from(T) {
-        @include fluid-type((font-size), 375px, 1440px, 50px, $font-size);
+        @include fluid-type((font-size), 768px, 1440px, 40px, 64px);
     }
 
     grid-column: content;
