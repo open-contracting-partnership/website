@@ -48,4 +48,4 @@ class StatObserver {
     }
 }
 
-new StatObserver('.stat__value', { threshold: 1 });
+new StatObserver('.stat__value');
