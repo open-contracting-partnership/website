@@ -33,6 +33,7 @@ class PersonServiceProvider
         $context = Timber::get_context();
 
         $context['block'] = [];
+        $context['block']['heading'] = get_field('heading');
         $context['block']['contacts'] = collect(get_field('contact'))
             ->map(function ($contact) {
                 $contact['name_bio'] = implode(', <br/>', [

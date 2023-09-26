@@ -3,6 +3,27 @@
     "title": "Block: Person",
     "fields": [
         {
+            "key": "field_6512d41becaa8",
+            "label": "Heading",
+            "name": "heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_5dcd84f72f6d3",
             "label": "Contact",
             "name": "contact",
@@ -217,5 +238,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681853266
+    "modified": 1695732774
 }
