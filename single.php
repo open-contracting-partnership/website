@@ -78,20 +78,41 @@ class SingleController extends Controller
 
         $context['single']['i18n']['related_stories'] = __('Related Stories', 'ocp');
 
-        if ($post->meta('related_stories')) {
-            $more_posts = Timber::get_posts([
+        $moreStories = collect([]);
+        $moreStoriesCount = 3;
+        $manualStoryIDs = $post->meta('related_stories') ?: [];
+
+        // start by optionally getting any manually specified stories
+        if ($manualStoryIDs) {
+            $moreStories = $moreStories->concat(Timber::get_posts([
                 'post_type' => 'any',
-                'posts_per_page' => 3,
-                'post__in' => $post->meta('related_stories')
-            ]);
-        } else {
-            $more_posts = Timber::get_posts([
-                'posts_per_page' => 3,
-                'post__not_in' => [$post->ID]
-            ]);
+                'posts_per_page' => $moreStoriesCount,
+                'post__in' => $manualStoryIDs
+            ]));
         }
 
-        $context['more_stories'] = PrimaryCard::convertCollection($more_posts);
+        // if we don't have enough manually specified stories, get some automated ones
+        if (count($moreStories) < $moreStoriesCount) {
+            $automatedStoriesQuery = [
+                'post_type' => 'post',
+                'posts_per_page' => $moreStoriesCount - count($moreStories),
+                'post__not_in' => $manualStoryIDs
+            ];
+
+            // if we have an issue, filter by that too
+            if ($issue = $post->meta('automated_related_stories_filter')) {
+                $automatedStoriesQuery['tax_query'] = [
+                    [
+                        'taxonomy' => 'issue',
+                        'terms' => $issue
+                    ]
+                ];
+            }
+
+            $moreStories = $moreStories->concat(Timber::get_posts($automatedStoriesQuery));
+        }
+
+        $context['more_stories'] = PrimaryCard::convertCollection($moreStories);
 
         return new TimberResponse('templates/single.twig', $context);
     }

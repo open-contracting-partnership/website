@@ -36,6 +36,15 @@
         row-gap: spacing(6);
 	}
 
+        .block__heading {
+            grid-column: span 12;
+            margin-bottom: 0;
+
+            @media screen {
+				@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+			}
+        }
+
 		.block__author {
 			grid-column: span 12;
 			display: flex;
