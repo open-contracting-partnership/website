@@ -3,6 +3,24 @@
     "title": "Blogs",
     "fields": [
         {
+            "key": "field_6512b33b4d766",
+            "label": "Authors",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_5698f78764376",
             "label": "Authors",
             "name": "authors",
@@ -84,8 +102,50 @@
             ]
         },
         {
+            "key": "field_6512b3444d767",
+            "label": "Related Stories",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6512b3ef4d768",
+            "label": "Automated related stories filter",
+            "name": "automated_related_stories_filter",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "taxonomy": "issue",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "select",
+            "allow_null": 0,
+            "multiple": 0
+        },
+        {
             "key": "field_63d2451d8204f",
-            "label": "Related stories",
+            "label": "Manual related stories",
             "name": "related_stories",
             "aria-label": "",
             "type": "relationship",
@@ -105,6 +165,7 @@
                 "news",
                 "resource"
             ],
+            "post_status": "",
             "taxonomy": "",
             "filters": [
                 "search",
@@ -134,5 +195,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1674724694
+    "modified": 1695724558
 }
