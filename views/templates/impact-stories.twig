@@ -14,30 +14,6 @@
 
 			</div>
 
-			{% if featured_stories %}
-
-				<div class="print-only / impact-stories__print-featured-stories">
-
-					{% for card in featured_stories %}
-						{% include 'cards/primary.twig' with card %}
-					{% endfor %}
-
-				</div>
-
-				<div class="screen-only / impact-stories__featured-stories">
-
-					<div class="impact-stories__featured-scroller">
-
-						{% for card in featured_stories %}
-							{% include 'cards/carousel.twig' with card %}
-						{% endfor %}
-
-					</div>
-
-				</div>
-
-			{% endif %}
-
 			<div class="impact-stories__filters">
 
 				{% if story_types %}
