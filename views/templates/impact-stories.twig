@@ -1,61 +1,42 @@
 {% extends "base.twig" %}
 
 {% block content %}
-
 	<div id="impact-stories" class="impact-stories">
-
 		<div class="impact-stories__container">
-
 			<div class="impact-stories__header">
-
 				<h1>{{ title }}</h1>
 
 				{{ content | raw }}
-
 			</div>
 
 			<div class="impact-stories__filters">
-
 				{% if story_types %}
-
 					<h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.story_types_label }}</h3>
 
 					{% for id, name in story_types %}
-
 						<label>
 							<input type="checkbox" v-model="filters.type" value="{{ id }}">
 							{{ name }}
 						</label>
-
 					{% endfor %}
-
 				{% endif %}
 
 				{% if countries %}
-
 					<h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.countries_label }}</h3>
 
 					{% for id, name in countries %}
-
 						<label>
 							<input type="checkbox" v-model="filters.country" value="{{ id }}">
 							{{ name }}
 						</label>
-
 					{% endfor %}
-
 				{% endif %}
-
 			</div>
 
 			<div class="impact-stories__posts">
-
 				{% for key, story in stories %}
-
 					<div ref="story-{{ key }}" data-country-ids="{{ story.country_ids|json_encode|escape }}" data-story-type-ids="{{ story.story_type_ids|json_encode|escape }}" class="card card--primary" data-colour-scheme="light">
-
 						<div class="card__image">
-
 							{{ imgix({
 								src: story.image.url,
 								params: {
@@ -76,27 +57,18 @@
 								}],
 								sizes: '100vw'
 							}) }}
-
 						</div>
 
 						<div class="card__main">
-
 							<a class="card__title-link" href="{{ story.link }}">
 								<h2 class="card__title">{{ story.title }}</h2>
 							</a>
 
 							{{ story.introduction }}
-
 						</div>
-
 					</div>
-
 				{% endfor %}
-
 			</div>
-
 		</div>
-
 	</div>
-
 {% endblock %}
