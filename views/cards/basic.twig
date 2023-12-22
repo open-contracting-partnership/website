@@ -1,21 +1,19 @@
 <div class="card card--basic">
-
 	<div class="card__main">
-
 		<a class="card__title-link" href="{{ card.url }}">
 			<h2 class="card__title">{{ card.title }}</h2>
 		</a>
 
+        {% if card.show_excerpt %}
+            <p class="card__excerpt">{{ card.excerpt }}</p>
+        {% endif %}
 	</div>
 
 	<div class="card__footer">
-
 		<span class="type-tag" data-post-type="{{ card.type }}">{{ card.type_label }}</span>
 
 		<span class="card__meta">
 			{{ card.meta }}
 		</span>
-
 	</div>
-
 </div>

@@ -6,11 +6,10 @@
 
 namespace App;
 
+use App\Cards\BasicCard;
 use App\Http\Controllers\Controller;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
-use Rareloop\Lumberjack\Post;
 use Timber\Timber;
-use App\Search;
 
 class SearchController extends Controller
 {
@@ -19,11 +18,7 @@ class SearchController extends Controller
         $context = Timber::get_context();
         $search_query = trim(get_search_query());
 
-        $page = get_query_var('page', 1);
-        $search = new Search($search_query, $page);
-
         $context['title'] = 'Search results for \'' . htmlspecialchars($search_query) . '\'';
-        $context['search']['results'] = $search;
 
         $context['search']['i18n']['next_page_label'] = _x(
             'Next Page',
@@ -37,7 +32,18 @@ class SearchController extends Controller
             'ocp'
         );
 
-        $context['page'] = $page;
+        global $wp_query;
+
+        $context['search']['results'] = BasicCard::convertCollection(
+            $wp_query->posts,
+            function ($post) {
+                $post['show_excerpt'] = true;
+
+                return $post;
+            }
+        );
+
+        $context['search']['pagination'] = Timber::get_pagination();
 
         return new TimberResponse('templates/search.twig', $context);
     }
