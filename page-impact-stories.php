@@ -40,14 +40,27 @@ class PageImpactStoriesController extends Controller
                 $story['story_type'] = [];
             }
 
+            $story['issues'] = [];
+
             foreach ($story['story_type'] as $story_type) {
                 $context['story_types'][$story_type->id] = $story_type->name;
+            }
+
+            $postID = url_to_postid($story['link']);
+
+            if ($postID !== 0) {
+                $story['issues'] = wp_get_object_terms($postID, 'issue');
+
+                foreach ($story['issues'] as $storyIssue) {
+                    $context['issues'][$storyIssue->term_id] = $storyIssue->name;
+                }
             }
         }
 
         // sort the countries and story types
         asort($context['countries']);
         asort($context['story_types']);
+        asort($context['issues']);
 
         // bring the country and story ids into their own array
         $context['stories'] = array_map(function ($story) {
@@ -55,29 +68,15 @@ class PageImpactStoriesController extends Controller
             // fetch just the id from the country and types
             $story['country_ids'] = array_column($story['country'], 'id');
             $story['story_type_ids'] = array_column($story['story_type'], 'id');
+            $story['issue_ids'] = array_column($story['issues'], 'term_id');
 
             // for the sake of vue, make them a string first
             $story['country_ids'] = array_map('strval', $story['country_ids']);
             $story['story_type_ids'] = array_map('strval', $story['story_type_ids']);
+            $story['issue_ids'] = array_map('strval', $story['issue_ids']);
 
             return $story;
         }, $context['stories']);
-
-        // filter just the featured stories
-        $context['featured_stories'] = array_filter($context['stories'], function ($story) {
-            return $story['featured'];
-        });
-
-        // match the featured stories with the correct card type
-        $context['featured_stories'] = array_map(function ($story) {
-
-            return [
-                'title' => $story['title'],
-                'introduction' => $story['introduction'],
-                'image_url' => $story['image']['url'],
-                'url' => $story['link']
-            ];
-        }, $context['featured_stories']);
 
         $context['impact_stories']['i18n']['story_types_label'] = _x(
             'Story Types',
@@ -88,6 +87,12 @@ class PageImpactStoriesController extends Controller
         $context['impact_stories']['i18n']['countries_label'] = _x(
             'Countries',
             'The countries label on impact stories',
+            'ocp'
+        );
+
+        $context['impact_stories']['i18n']['issues_label'] = _x(
+            'Issues',
+            'The issues label on impact stories',
             'ocp'
         );
 

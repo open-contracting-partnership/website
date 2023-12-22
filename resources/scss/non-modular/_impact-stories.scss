@@ -25,16 +25,11 @@
 		}
 
 		.impact-stories__filters {
-
 			grid-column: all;
 			border: 2px solid $ui-grey-6;
 			border-radius: spacing(4) spacing(1);
 			padding: spacing(3);
 			margin-bottom: var(--v-spacing);
-
-			@include from(M) {
-				grid-column: all / 9;
-			}
 
 			--columns: 2;
 			display: grid;
@@ -47,6 +42,10 @@
 
 			@include from(M) {
 				--columns: 4;
+			}
+
+			@include from(L) {
+				--columns: 5;
 			}
 
 		}

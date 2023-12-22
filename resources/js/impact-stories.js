@@ -9,7 +9,8 @@ const reports = new Vue({
 	data: {
 		filters: {
 			type: [],
-			country: []
+			country: [],
+			issue: [],
 		}
 	},
 
@@ -28,6 +29,7 @@ const reports = new Vue({
 				const $story = this.$refs[key];
 				const country_ids = JSON.parse($story.getAttribute('data-country-ids'));
 				const story_type_ids = JSON.parse($story.getAttribute('data-story-type-ids'));
+				const issue_ids = JSON.parse($story.getAttribute('data-issue-ids'));
 
 				//  remove any existing display styles
 				$story.style.display = null;
@@ -40,6 +42,12 @@ const reports = new Vue({
 
 				if (this.filters.country.length) {
 					if (_intersection(country_ids, this.filters.country).length === 0) {
+						$story.style.display = 'none';
+					}
+				}
+
+				if (this.filters.issue.length) {
+					if (_intersection(issue_ids, this.filters.issue).length === 0) {
 						$story.style.display = 'none';
 					}
 				}

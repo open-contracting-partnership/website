@@ -10,12 +10,12 @@
 			</div>
 
 			<div class="impact-stories__filters">
-				{% if story_types %}
-					<h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.story_types_label }}</h3>
+				{% if issues %}
+					<h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.issues_label }}</h3>
 
-					{% for id, name in story_types %}
+					{% for id, name in issues %}
 						<label>
-							<input type="checkbox" v-model="filters.type" value="{{ id }}">
+							<input type="checkbox" v-model="filters.issue" value="{{ id }}">
 							{{ name }}
 						</label>
 					{% endfor %}
@@ -31,11 +31,29 @@
 						</label>
 					{% endfor %}
 				{% endif %}
+
+				{% if story_types %}
+					<h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.story_types_label }}</h3>
+
+					{% for id, name in story_types %}
+						<label>
+							<input type="checkbox" v-model="filters.type" value="{{ id }}">
+							{{ name }}
+						</label>
+					{% endfor %}
+				{% endif %}
 			</div>
 
 			<div class="impact-stories__posts">
 				{% for key, story in stories %}
-					<div ref="story-{{ key }}" data-country-ids="{{ story.country_ids|json_encode|escape }}" data-story-type-ids="{{ story.story_type_ids|json_encode|escape }}" class="card card--primary" data-colour-scheme="light">
+					<div
+                        ref="story-{{ key }}"
+                        data-country-ids="{{ story.country_ids|json_encode|escape }}"
+                        data-story-type-ids="{{ story.story_type_ids|json_encode|escape }}"
+                        data-issue-ids="{{ story.issue_ids|json_encode|escape }}"
+                        class="card card--primary"
+                        data-colour-scheme="light"
+                    >
 						<div class="card__image">
 							{{ imgix({
 								src: story.image.url,
