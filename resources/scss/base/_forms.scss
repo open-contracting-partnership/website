@@ -257,6 +257,39 @@ textarea {
 
 }
 
+.select-dropdown {
+    position: relative;
+
+    &__input {
+        appearance: none;
+        display: inline-block;
+        width: 100%;
+        padding: 0.4em 0.9em;
+        border: 1px solid $ui-grey-4;
+        background: #fff;
+        color: $ui-black;
+        font-size: 12px;
+        @include font('secondary', 'medium');
+    }
+
+    &__icon {
+        --size: 16px;
+
+        position: absolute;
+        right: spacing(1.5);
+        top: 50%;
+        transform: translateY(-50%);
+        width: var(--size);
+        height: var(--size);
+        fill: get-color("denim-blue");
+        pointer-events: none;
+
+        svg {
+            display: block;
+        }
+    }
+}
+
 .input-circle {
 
 	--colour: #{$ui-grey-4};

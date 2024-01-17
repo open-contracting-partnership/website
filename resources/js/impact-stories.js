@@ -24,6 +24,23 @@ const reports = new Vue({
 	},
 
 	methods: {
+        isFilterSet(type, id) {
+            return this.filters[type].includes(id.toString());
+        },
+
+        addFilter(event, type, id) {
+            event.target.value = '';
+            this.filters[type].push(id);
+        },
+
+        removeFilter(type, id) {
+            const index = this.filters[type].indexOf(id.toString());
+
+            if (index > -1) {
+                this.filters[type].splice(index, 1);
+            }
+        },
+
 		filter() {
 			Object.keys(this.$refs).forEach(key => {
 				const $story = this.$refs[key];
