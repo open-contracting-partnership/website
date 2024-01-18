@@ -7,6 +7,8 @@ const reports = new Vue({
 	el: '#impact-stories',
 
 	data: {
+        results_count: null,
+
 		filters: {
 			type: [],
 			country: [],
@@ -24,6 +26,15 @@ const reports = new Vue({
 	},
 
 	methods: {
+        updateResultsCount() {
+            this.$nextTick(function() {
+                this.results_count = [...document.querySelectorAll('.impact-stories__posts > .card')]
+                    .map(element => element.style.display)
+                    .filter(display => display !== 'none')
+                    .length;
+            });
+        },
+
         isFilterSet(type, id) {
             return this.filters[type].includes(id.toString());
         },
@@ -69,6 +80,12 @@ const reports = new Vue({
 					}
 				}
 			});
+
+            this.updateResultsCount();
 		}
 	},
+
+    mounted() {
+        this.updateResultsCount();
+    }
 });

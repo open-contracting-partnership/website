@@ -102,7 +102,7 @@
 				{% endif %}
 			</div>
 
-			<div class="impact-stories__posts">
+			<div v-show="results_count > 0" class="impact-stories__posts">
 				{% for key, story in stories %}
 					<div
                         ref="story-{{ key }}"
@@ -145,6 +145,10 @@
 					</div>
 				{% endfor %}
 			</div>
+
+            <div v-if="results_count === 0" class="impact-stories__no-results">
+                <p>{{ impact_stories.i18n.no_results_label }}</p>
+            </div>
 		</div>
 	</div>
 {% endblock %}

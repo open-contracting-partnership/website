@@ -96,6 +96,12 @@ class PageImpactStoriesController extends Controller
             'ocp'
         );
 
+        $context['impact_stories']['i18n']['no_results_label'] = _x(
+            'There are no results that match your search.',
+            'The no results label on impact stories',
+            'ocp'
+        );
+
         return new TimberResponse('templates/impact-stories.twig', $context);
     }
 }

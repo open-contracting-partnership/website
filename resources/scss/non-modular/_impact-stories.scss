@@ -131,3 +131,16 @@
 			}
 
 		}
+
+        .impact-stories__no-results {
+			grid-column: all;
+			margin-bottom: var(--v-spacing);
+            background-color: $ui-grey-6;
+            padding: spacing(4);
+            text-align: center;
+            border-radius: spacing(1);
+
+            > :last-child {
+                margin-bottom: 0;
+            }
+        }
