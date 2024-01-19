@@ -26,20 +26,15 @@
 
 		.impact-stories__filters {
 			--columns: 1;
-            --accent-colour: #{$ui-grey-4};
 
 			grid-column: all;
-			border: 2px solid var(--accent-colour);
+			border: 2px solid $ui-grey-6;
 			border-radius: spacing(4) spacing(1);
 			padding: spacing(3);
 			margin-bottom: var(--v-spacing);
 			display: grid;
 			grid-template-columns: repeat(var(--columns), 1fr);
 			grid-gap: spacing(3);
-
-            &:hover {
-                --accent-colour: #{$ui-black};
-            }
 
 			@include from(S) {
 				--columns: 2;
@@ -61,12 +56,18 @@
 			}
 
 			.impact-stories__filters label {
+                --accent-colour: #{$ui-grey-4};
+
 				font-size: 14px;
 				@include font('secondary', 'medium');
 				text-transform: none;
 				display: flex;
 				align-items: center;
 				color: $ui-black;
+
+                &:hover {
+                    --accent-colour: #{$ui-black};
+                }
 
 				input {
 					font-size: 21px;
@@ -78,6 +79,7 @@
 					appearance: none;
 					background-color: $ui-white;
 					border: 1px solid var(--accent-colour);
+                    transform: border-color 0.3s ease;
 					display: flex;
 					align-items: center;
 					justify-content: center;
@@ -87,6 +89,7 @@
 						font-size: 1.2em;
 						margin-top: .1em;
 						color: var(--accent-colour);
+                        transform: color 0.3s ease;
 					}
 				}
 			}
