@@ -26,9 +26,10 @@
 
 		.impact-stories__filters {
 			--columns: 1;
+            --accent-colour: #{$ui-grey-4};
 
 			grid-column: all;
-			border: 2px solid $ui-grey-6;
+			border: 2px solid var(--accent-colour);
 			border-radius: spacing(4) spacing(1);
 			padding: spacing(3);
 			margin-bottom: var(--v-spacing);
@@ -36,11 +37,15 @@
 			grid-template-columns: repeat(var(--columns), 1fr);
 			grid-gap: spacing(3);
 
+            &:hover {
+                --accent-colour: #{$ui-black};
+            }
+
 			@include from(S) {
 				--columns: 2;
 			}
 
-			@include from(M) {
+			@include from(1260) {
 				--columns: 3;
 
                 padding: spacing(5);
@@ -48,25 +53,22 @@
 		}
 
 			.impact-stories__filter-heading {
-				font-size: 14px;
+				font-size: 16px;
 				@include font('secondary', 'medium');
 				margin-bottom: 0;
 				grid-column: all;
                 margin-bottom: spacing(1);
 			}
 
-
 			.impact-stories__filters label {
-				font-size: 12px;
+				font-size: 14px;
 				@include font('secondary', 'medium');
 				text-transform: none;
 				display: flex;
 				align-items: center;
-				// margin-bottom: spacing(1);
-				color: $ui-grey-2;
+				color: $ui-black;
 
 				input {
-
 					font-size: 21px;
 					flex: 0 0 auto;
 					margin: 0 spacing(1) 0 0;
@@ -75,7 +77,7 @@
 					width: 1em;
 					appearance: none;
 					background-color: $ui-white;
-					border: 1px solid $ui-grey-4;
+					border: 1px solid var(--accent-colour);
 					display: flex;
 					align-items: center;
 					justify-content: center;
@@ -84,11 +86,9 @@
 						content: '\00D7';
 						font-size: 1.2em;
 						margin-top: .1em;
-						color: $ui-grey-3;
+						color: var(--accent-colour);
 					}
-
 				}
-
 			}
 
         .impact-stories__filter-tags {
@@ -106,18 +106,34 @@
             font-weight: bold;
         }
 
+        .impact-stories__filter-story-types {
+            @include between(S, 1260) {
+                grid-column: span 2;
+            }
+        }
+
         .impact-stories__filter-checkboxes {
             display: flex;
-            flex-wrap: wrap;
             gap: spacing(1);
+
+            @include upto(S) {
+                flex-direction: column;
+            }
+
+            @include from(M) {
+                flex-wrap: wrap;
+            }
+
+            @include from(1260) {
+                height: 38.4px;
+            }
         }
 
 		.impact-stories__posts {
+			--columns: 1;
 
 			grid-column: all;
 			margin-bottom: var(--v-spacing-half);
-
-			--columns: 1;
 			display: grid;
 			grid-gap: spacing(4) spacing(2);
 			grid-template-columns: repeat(var(--columns), 1fr);

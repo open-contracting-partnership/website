@@ -24,13 +24,13 @@
                                 {% for id, name in issues %}
                                     <option
                                         value="{{ id }}"
-                                        :disabled="isFilterSet('issue', {{ id }})"
+                                        v-show="! isFilterSet('issue', {{ id }})"
                                     >{{ name }}</option>
                                 {% endfor %}
                             </select>
 
                             <div class="select-dropdown__icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="#666" d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0ZM4.5 5.4h1.6l1.8 3 1.8-3h1.8l-3.6 5.9-3.4-6Z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="#inherit" d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0ZM4.5 5.4h1.6l1.8 3 1.8-3h1.8l-3.6 5.9-3.4-6Z"/></svg>
                             </div>
                         </div>
 
@@ -62,13 +62,13 @@
                                 {% for id, name in countries %}
                                     <option
                                         value="{{ id }}"
-                                        :disabled="isFilterSet('country', {{ id }})"
+                                        v-show="! isFilterSet('country', {{ id }})"
                                     >{{ name }}</option>
                                 {% endfor %}
                             </select>
 
                             <div class="select-dropdown__icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="#666" d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0ZM4.5 5.4h1.6l1.8 3 1.8-3h1.8l-3.6 5.9-3.4-6Z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="#inherit" d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0ZM4.5 5.4h1.6l1.8 3 1.8-3h1.8l-3.6 5.9-3.4-6Z"/></svg>
                             </div>
                         </div>
 
@@ -87,7 +87,7 @@
 				{% endif %}
 
 				{% if story_types %}
-					<div>
+					<div class="impact-stories__filter-story-types">
                         <h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.story_types_label }}</h3>
 
                         <div class="impact-stories__filter-checkboxes">

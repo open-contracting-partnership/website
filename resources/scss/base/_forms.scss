@@ -258,17 +258,24 @@ textarea {
 }
 
 .select-dropdown {
+    --accent-colour: #{$ui-grey-4};
+
     position: relative;
+
+    &:hover {
+        --accent-colour: #{$ui-black};
+    }
 
     &__input {
         appearance: none;
         display: inline-block;
         width: 100%;
-        padding: 0.4em 0.9em;
-        border: 1px solid $ui-grey-4;
+        padding: 0.6em 0.9em 0.5em;
+        border: 1px solid var(--accent-colour);
+        transition: border-color 0.3s ease;
         background: #fff;
         color: $ui-black;
-        font-size: 12px;
+        font-size: 14px;
         @include font('secondary', 'medium');
     }
 
@@ -281,7 +288,8 @@ textarea {
         transform: translateY(-50%);
         width: var(--size);
         height: var(--size);
-        fill: get-color("denim-blue");
+        fill: var(--accent-colour);
+        transition: fill 0.3s ease;
         pointer-events: none;
 
         svg {
