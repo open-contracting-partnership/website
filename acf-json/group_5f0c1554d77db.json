@@ -6,6 +6,7 @@
             "key": "field_5f0c155516a80",
             "label": "Title",
             "name": "title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -26,6 +27,7 @@
             "key": "field_5f0c265984854",
             "label": "Introduction",
             "name": "introduction",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -46,6 +48,7 @@
             "key": "field_5f0d651db379e",
             "label": "Stages",
             "name": "stages",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -66,6 +69,7 @@
                     "key": "field_5f0d6563b379f",
                     "label": "Icon",
                     "name": "icon",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 1,
@@ -85,12 +89,14 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_5f0d651db379e"
                 },
                 {
                     "key": "field_5f0d656eb37a0",
                     "label": "Link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 1,
@@ -101,14 +107,17 @@
                         "id": ""
                     },
                     "gutenberg_visibility": "both",
-                    "return_format": "array"
+                    "return_format": "array",
+                    "parent_repeater": "field_5f0d651db379e"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_5f0c155525c32",
             "label": "Background Colour",
             "name": "background_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -119,12 +128,15 @@
                 "id": ""
             },
             "default_value": "",
-            "wpml_cf_preferences": 0
+            "wpml_cf_preferences": 0,
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5f0c15552881f",
             "label": "Text Colour",
             "name": "text_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -135,7 +147,9 @@
                 "id": ""
             },
             "default_value": "",
-            "wpml_cf_preferences": 0
+            "wpml_cf_preferences": 0,
+            "enable_opacity": false,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -155,5 +169,8 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1594932737
+    "show_in_rest": false,
+    "modified": 1695737526,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5f0c1554d77db.json",
+    "acfml_field_group_mode": "advanced"
 }

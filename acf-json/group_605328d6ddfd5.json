@@ -6,6 +6,7 @@
             "key": "field_605328d74b410",
             "label": "Heading",
             "name": "heading",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -26,6 +27,7 @@
             "key": "field_605328e1c9b5f",
             "label": "Strapline",
             "name": "strapline",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -46,6 +48,7 @@
             "key": "field_60532945207dc",
             "label": "Layout",
             "name": "layout",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -72,6 +75,7 @@
             "key": "field_61bc6d79a66fd",
             "label": "Spacing",
             "name": "spacing",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -99,6 +103,7 @@
             "key": "field_605328d74b430",
             "label": "Text Colour",
             "name": "text_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -109,12 +114,15 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_605328d74b438",
             "label": "Background Colour",
             "name": "background_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -125,7 +133,9 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "default_value": "#000000"
+            "default_value": "#000000",
+            "enable_opacity": false,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -145,5 +155,8 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1639738850
+    "show_in_rest": false,
+    "modified": 1695737519,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_605328d6ddfd5.json",
+    "acfml_field_group_mode": "advanced"
 }

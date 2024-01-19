@@ -6,6 +6,7 @@
             "key": "field_633d4d0d1788c",
             "label": "Colour Scheme",
             "name": "colour",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 1,
@@ -49,5 +50,7 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1665015172
+    "modified": 1695737515,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_633d4d0d0a7ef.json",
+    "acfml_field_group_mode": "advanced"
 }

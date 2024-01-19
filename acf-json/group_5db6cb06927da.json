@@ -6,6 +6,7 @@
             "key": "field_5db6cb06be6cb",
             "label": "Heading",
             "name": "heading",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -26,6 +27,7 @@
             "key": "field_5e1deab9d28ff",
             "label": "Content",
             "name": "content",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -46,6 +48,7 @@
             "key": "field_5e1deb28ac935",
             "label": "Form label",
             "name": "form_label",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -66,6 +69,7 @@
             "key": "field_5db6cb06be6db",
             "label": "Image",
             "name": "image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -91,6 +95,7 @@
             "key": "field_5e1deb40ac936",
             "label": "Orientation",
             "name": "orientation",
+            "aria-label": "",
             "type": "radio",
             "instructions": "",
             "required": 0,
@@ -116,6 +121,7 @@
             "key": "field_5db6cb06be6ed",
             "label": "Overlay Colour",
             "name": "overlay_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -126,12 +132,15 @@
                 "id": ""
             },
             "wpml_cf_preferences": 0,
-            "default_value": "#000000"
+            "default_value": "#000000",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5db6cb06be71e",
             "label": "Background Opacity",
             "name": "background_opacity",
+            "aria-label": "",
             "type": "range",
             "instructions": "",
             "required": 0,
@@ -153,6 +162,7 @@
             "key": "field_5e1decd504bbe",
             "label": "Text Colour",
             "name": "text_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -163,7 +173,9 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -183,5 +195,8 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1579019511
+    "show_in_rest": false,
+    "modified": 1695737526,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5db6cb06927da.json",
+    "acfml_field_group_mode": "advanced"
 }

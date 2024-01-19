@@ -6,6 +6,7 @@
             "key": "field_5da88034b28ec",
             "label": "Title",
             "name": "title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -26,6 +27,7 @@
             "key": "field_5da88047b28ed",
             "label": "Content",
             "name": "content",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 1,
@@ -46,6 +48,7 @@
             "key": "field_5da8806bb28ef",
             "label": "Sidebar Links",
             "name": "sidebar_links",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 1,
@@ -66,6 +69,7 @@
                     "key": "field_5da8807eb28f0",
                     "label": "Link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 1,
@@ -76,14 +80,17 @@
                         "id": ""
                     },
                     "return_format": "array",
-                    "wpml_cf_preferences": 0
+                    "wpml_cf_preferences": 0,
+                    "parent_repeater": "field_5da8806bb28ef"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_5da8808eb28f1",
             "label": "Resources Title",
             "name": "resources_title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -104,6 +111,7 @@
             "key": "field_5da88096b28f2",
             "label": "Resources",
             "name": "resources",
+            "aria-label": "",
             "type": "relationship",
             "instructions": "",
             "required": 0,
@@ -123,12 +131,14 @@
             "elements": "",
             "min": "",
             "max": 6,
-            "return_format": "object"
+            "return_format": "object",
+            "bidirectional_target": []
         },
         {
             "key": "field_5da880cab28f3",
             "label": "Contact",
             "name": "contact",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -149,6 +159,7 @@
                     "key": "field_5da88175b28f9",
                     "label": "Avatar",
                     "name": "avatar",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -168,12 +179,14 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_5da880cab28f3"
                 },
                 {
                     "key": "field_5da880f5b28f4",
                     "label": "Title",
                     "name": "title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -188,12 +201,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5da880cab28f3"
                 },
                 {
                     "key": "field_5da88126b28f5",
                     "label": "Name",
                     "name": "name",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -208,12 +223,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5da880cab28f3"
                 },
                 {
                     "key": "field_5da8812cb28f6",
                     "label": "Role",
                     "name": "role",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -228,12 +245,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5da880cab28f3"
                 },
                 {
                     "key": "field_5da8813cb28f7",
                     "label": "Email Address",
                     "name": "email_address",
+                    "aria-label": "",
                     "type": "email",
                     "instructions": "",
                     "required": 0,
@@ -247,12 +266,14 @@
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
-                    "append": ""
+                    "append": "",
+                    "parent_repeater": "field_5da880cab28f3"
                 },
                 {
                     "key": "field_5da88149b28f8",
                     "label": "Twitter URL",
                     "name": "twitter_url",
+                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -264,14 +285,17 @@
                     },
                     "wpml_cf_preferences": 0,
                     "default_value": "",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_5da880cab28f3"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_5da97e10d65bf",
             "label": "Background Colour",
             "name": "background_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -282,12 +306,15 @@
                 "id": ""
             },
             "default_value": "",
-            "wpml_cf_preferences": 0
+            "wpml_cf_preferences": 0,
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5da97e1cd65c0",
             "label": "Text Colour",
             "name": "text_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -298,7 +325,9 @@
                 "id": ""
             },
             "default_value": "",
-            "wpml_cf_preferences": 0
+            "wpml_cf_preferences": 0,
+            "enable_opacity": false,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -318,5 +347,8 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571853070
+    "show_in_rest": false,
+    "modified": 1695737525,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5da87fce49680.json",
+    "acfml_field_group_mode": "advanced"
 }

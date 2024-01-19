@@ -6,6 +6,7 @@
             "key": "field_56cc32b5754be",
             "label": "Team Members",
             "name": "team_members",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -26,6 +27,7 @@
                     "key": "field_56cc32c8754bf",
                     "label": "Name",
                     "name": "name",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -40,12 +42,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_56cc32b5754be"
                 },
                 {
                     "key": "field_56cc32ce754c0",
                     "label": "Role",
                     "name": "role",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -60,12 +64,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_56cc32b5754be"
                 },
                 {
                     "key": "field_56cc32d5754c1",
                     "label": "Bio",
                     "name": "bio",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 1,
@@ -79,12 +85,14 @@
                     "tabs": "visual",
                     "toolbar": "basic",
                     "media_upload": 0,
-                    "delay": 0
+                    "delay": 0,
+                    "parent_repeater": "field_56cc32b5754be"
                 },
                 {
                     "key": "field_56cc32e7754c2",
                     "label": "Image",
                     "name": "image",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -103,12 +111,14 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_56cc32b5754be"
                 },
                 {
                     "key": "field_56e84557cf0f8",
                     "label": "Twitter Name",
                     "name": "twitter_name",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -123,12 +133,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_56cc32b5754be"
                 },
                 {
                     "key": "field_61bc90a77123d",
                     "label": "Linkedin URL",
                     "name": "linkedin_url",
+                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -140,12 +152,14 @@
                     },
                     "gutenberg_visibility": "both",
                     "default_value": "",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_56cc32b5754be"
                 },
                 {
                     "key": "field_5dcc16e7a8eec",
                     "label": "Email Address",
                     "name": "email_address",
+                    "aria-label": "",
                     "type": "email",
                     "instructions": "",
                     "required": 0,
@@ -159,12 +173,14 @@
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
-                    "append": ""
+                    "append": "",
+                    "parent_repeater": "field_56cc32b5754be"
                 },
                 {
                     "key": "field_5dcc17282a860",
                     "label": "WordPress Author",
                     "name": "wordpress_author",
+                    "aria-label": "",
                     "type": "user",
                     "instructions": "Associate this person with their WordPress user to show their blog posts",
                     "required": 0,
@@ -178,9 +194,12 @@
                     "role": "",
                     "allow_null": 0,
                     "multiple": 0,
-                    "return_format": "id"
+                    "return_format": "id",
+                    "bidirectional_target": [],
+                    "parent_repeater": "field_56cc32b5754be"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         }
     ],
     "location": [
@@ -202,5 +221,8 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1639747801
+    "show_in_rest": false,
+    "modified": 1695737528,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_56cc328b8b300.json",
+    "acfml_field_group_mode": "advanced"
 }

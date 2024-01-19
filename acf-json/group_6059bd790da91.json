@@ -6,6 +6,7 @@
             "key": "field_6059bd79220e0",
             "label": "Back Link",
             "name": "link",
+            "aria-label": "",
             "type": "link",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_6070637e331da",
             "label": "Jump Links",
             "name": "jump_links",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -36,12 +38,13 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Row",
             "sub_fields": [
                 {
                     "key": "field_60706395331db",
                     "label": "Link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 1,
@@ -52,14 +55,17 @@
                         "id": ""
                     },
                     "gutenberg_visibility": "both",
-                    "return_format": "array"
+                    "return_format": "array",
+                    "parent_repeater": "field_6070637e331da"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_6070636a331d8",
             "label": "Is Sticky?",
             "name": "is_sticky",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -80,6 +86,7 @@
             "key": "field_6059bd7922101",
             "label": "Background Colour",
             "name": "background_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -90,12 +97,15 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_6059bd7922106",
             "label": "Text Colour",
             "name": "text_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -106,7 +116,9 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -128,5 +140,8 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1617978272
+    "show_in_rest": false,
+    "modified": 1695737504,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_6059bd790da91.json",
+    "acfml_field_group_mode": "advanced"
 }

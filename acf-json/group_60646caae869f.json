@@ -6,6 +6,7 @@
             "key": "field_60646cab2f8e8",
             "label": "Mega Menu",
             "name": "mega_menu",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -26,6 +27,7 @@
                     "key": "field_60646cab36b7e",
                     "label": "Parent",
                     "name": "parent",
+                    "aria-label": "",
                     "type": "select",
                     "instructions": "",
                     "required": 1,
@@ -41,9 +43,8 @@
                         "5787": "Impact",
                         "6321": "Implement",
                         "5786": "Data",
-                        "12450": "Learn",
-                        "925": "About",
-                        "924": "Latest"
+                        "925": "About us",
+                        "924": "News & community"
                     },
                     "default_value": false,
                     "allow_null": 0,
@@ -51,12 +52,14 @@
                     "ui": 1,
                     "ajax": 0,
                     "return_format": "value",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_60646cab2f8e8"
                 },
                 {
                     "key": "field_60646cab36b84",
                     "label": "Primary Link",
                     "name": "primary_link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
@@ -67,12 +70,14 @@
                         "id": ""
                     },
                     "return_format": "array",
-                    "wpml_cf_preferences": 0
+                    "wpml_cf_preferences": 0,
+                    "parent_repeater": "field_60646cab2f8e8"
                 },
                 {
                     "key": "field_60646cab36b88",
                     "label": "Introduction",
                     "name": "introduction",
+                    "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -87,12 +92,14 @@
                     "placeholder": "",
                     "maxlength": "",
                     "rows": 4,
-                    "new_lines": "wpautop"
+                    "new_lines": "wpautop",
+                    "parent_repeater": "field_60646cab2f8e8"
                 },
                 {
                     "key": "field_60646cab36b8c",
                     "label": "Sub-menus",
                     "name": "sub_menus",
+                    "aria-label": "",
                     "type": "flexible_content",
                     "instructions": "",
                     "required": 0,
@@ -114,6 +121,7 @@
                                     "key": "field_60646cab48095",
                                     "label": "Links",
                                     "name": "links",
+                                    "aria-label": "",
                                     "type": "repeater",
                                     "instructions": "",
                                     "required": 1,
@@ -134,6 +142,7 @@
                                             "key": "field_60646cab4b9db",
                                             "label": "Link",
                                             "name": "link",
+                                            "aria-label": "",
                                             "type": "link",
                                             "instructions": "",
                                             "required": 1,
@@ -144,9 +153,11 @@
                                                 "id": ""
                                             },
                                             "return_format": "array",
-                                            "wpml_cf_preferences": 0
+                                            "wpml_cf_preferences": 0,
+                                            "parent_repeater": "field_60646cab48095"
                                         }
-                                    ]
+                                    ],
+                                    "rows_per_page": 20
                                 }
                             ],
                             "min": "",
@@ -162,6 +173,7 @@
                                     "key": "field_60646cab4809b",
                                     "label": "Title",
                                     "name": "title",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 1,
@@ -182,6 +194,7 @@
                                     "key": "field_60646cab4809f",
                                     "label": "Links",
                                     "name": "links",
+                                    "aria-label": "",
                                     "type": "repeater",
                                     "instructions": "",
                                     "required": 1,
@@ -202,6 +215,7 @@
                                             "key": "field_60646cab57ae0",
                                             "label": "Link",
                                             "name": "link",
+                                            "aria-label": "",
                                             "type": "link",
                                             "instructions": "",
                                             "required": 1,
@@ -212,9 +226,11 @@
                                                 "id": ""
                                             },
                                             "wpml_cf_preferences": 0,
-                                            "return_format": "array"
+                                            "return_format": "array",
+                                            "parent_repeater": "field_60646cab4809f"
                                         }
-                                    ]
+                                    ],
+                                    "rows_per_page": 20
                                 }
                             ],
                             "min": "",
@@ -230,6 +246,7 @@
                                     "key": "field_60646cab480a3",
                                     "label": "Title",
                                     "name": "title",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 1,
@@ -250,6 +267,7 @@
                                     "key": "field_60646cab480a7",
                                     "label": "Links",
                                     "name": "links",
+                                    "aria-label": "",
                                     "type": "repeater",
                                     "instructions": "",
                                     "required": 1,
@@ -270,6 +288,7 @@
                                             "key": "field_60646cab62fb3",
                                             "label": "Link",
                                             "name": "link",
+                                            "aria-label": "",
                                             "type": "link",
                                             "instructions": "",
                                             "required": 1,
@@ -280,9 +299,11 @@
                                                 "id": ""
                                             },
                                             "gutenberg_visibility": "both",
-                                            "return_format": "array"
+                                            "return_format": "array",
+                                            "parent_repeater": "field_60646cab480a7"
                                         }
-                                    ]
+                                    ],
+                                    "rows_per_page": 20
                                 }
                             ],
                             "min": "",
@@ -291,9 +312,11 @@
                     },
                     "button_label": "Add Sub Menu",
                     "min": "",
-                    "max": 3
+                    "max": 3,
+                    "parent_repeater": "field_60646cab2f8e8"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         }
     ],
     "location": [
@@ -313,5 +336,8 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1617194196
+    "show_in_rest": false,
+    "modified": 1695737533,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_60646caae869f.json",
+    "acfml_field_group_mode": "advanced"
 }

@@ -26,6 +26,7 @@ class PageImpactStoriesController extends Controller
         $context['title'] = $page->title;
         $context['content'] = $page->content;
         $context['stories'] = $page->meta('add_stories');
+        $context['stories'] = get_field('add_stories', get_the_ID());
 
         $context['countries'] = [];
         $context['story_types'] = [];
@@ -33,7 +34,7 @@ class PageImpactStoriesController extends Controller
         // compile the countries and story types
         foreach ($context['stories'] as &$story) {
             foreach ($story['country'] as $country) {
-                $context['countries'][$country->id] = $country->name;
+                $context['countries'][$country->term_id] = $country->name;
             }
 
             if (! \is_array($story['story_type'])) {
@@ -43,7 +44,7 @@ class PageImpactStoriesController extends Controller
             $story['issues'] = [];
 
             foreach ($story['story_type'] as $story_type) {
-                $context['story_types'][$story_type->id] = $story_type->name;
+                $context['story_types'][$story_type->term_id] = $story_type->name;
             }
 
             $postID = url_to_postid($story['link']);

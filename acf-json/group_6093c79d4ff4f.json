@@ -6,6 +6,7 @@
             "key": "field_6093c79d65e5f",
             "label": "Quote",
             "name": "quote",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -26,6 +27,7 @@
             "key": "field_6093c81bf23ce",
             "label": "Citation",
             "name": "citation",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -46,6 +48,7 @@
             "key": "field_6093c829f23cf",
             "label": "Strapline",
             "name": "strapline",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -82,5 +85,8 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1620297874
+    "show_in_rest": false,
+    "modified": 1695737511,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_6093c79d4ff4f.json",
+    "acfml_field_group_mode": "advanced"
 }

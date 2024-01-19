@@ -169,6 +169,7 @@
                     },
                     "gutenberg_visibility": "both",
                     "layout": "block",
+                    "parent_repeater": "field_6464cd9726fcb",
                     "sub_fields": [
                         {
                             "key": "field_6464ce3126fd0",
@@ -216,8 +217,7 @@
                             "prepend": "",
                             "append": ""
                         }
-                    ],
-                    "parent_repeater": "field_6464cd9726fcb"
+                    ]
                 },
                 {
                     "key": "field_6464cf0efd5bf",
@@ -235,6 +235,7 @@
                     },
                     "gutenberg_visibility": "both",
                     "layout": "block",
+                    "parent_repeater": "field_6464cd9726fcb",
                     "sub_fields": [
                         {
                             "key": "field_6464cf0efd5c0",
@@ -282,8 +283,7 @@
                             "prepend": "",
                             "append": ""
                         }
-                    ],
-                    "parent_repeater": "field_6464cd9726fcb"
+                    ]
                 },
                 {
                     "key": "field_646b64548b06d",
@@ -301,6 +301,7 @@
                     },
                     "gutenberg_visibility": "both",
                     "layout": "block",
+                    "parent_repeater": "field_6464cd9726fcb",
                     "sub_fields": [
                         {
                             "key": "field_646b64548b06e",
@@ -354,8 +355,7 @@
                             "layout": "horizontal",
                             "save_other_choice": 0
                         }
-                    ],
-                    "parent_repeater": "field_6464cd9726fcb"
+                    ]
                 }
             ]
         },
@@ -399,5 +399,7 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684765384
+    "modified": 1695737514,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_6464cd838cb26.json",
+    "acfml_field_group_mode": "advanced"
 }

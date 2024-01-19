@@ -43,6 +43,7 @@
             "max": 0,
             "layout": "block",
             "button_label": "Add Quote",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5dd6b4f326435",
@@ -156,8 +157,7 @@
                     "placeholder": "",
                     "parent_repeater": "field_5dd6b4cfdde5a"
                 }
-            ],
-            "rows_per_page": 20
+            ]
         },
         {
             "key": "field_5dd6ba40cce3a",
@@ -270,5 +270,7 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684762521
+    "modified": 1695737512,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5dd6b4cfb1575.json",
+    "acfml_field_group_mode": "advanced"
 }

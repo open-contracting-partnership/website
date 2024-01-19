@@ -6,6 +6,7 @@
             "key": "field_5e203fa4ebe97",
             "label": "Title",
             "name": "title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -26,6 +27,7 @@
             "key": "field_5e203fa4ebe9c",
             "label": "Icon",
             "name": "icon",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 1,
@@ -51,6 +53,7 @@
             "key": "field_5e203fa502759",
             "label": "Background Colour",
             "name": "background_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -61,12 +64,15 @@
                 "id": ""
             },
             "wpml_cf_preferences": 0,
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5e203fa504068",
             "label": "Text Colour",
             "name": "text_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -77,7 +83,9 @@
                 "id": ""
             },
             "wpml_cf_preferences": 0,
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -97,5 +105,8 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1579171793
+    "show_in_rest": false,
+    "modified": 1695737529,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5e203fa4d14b1.json",
+    "acfml_field_group_mode": "advanced"
 }

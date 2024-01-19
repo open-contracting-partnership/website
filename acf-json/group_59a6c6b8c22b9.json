@@ -16,13 +16,16 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_59a6c7493afa1",
+            "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
+            "layout": "block",
+            "pagination": 0,
             "min": 0,
             "max": 0,
-            "layout": "block",
+            "collapsed": "field_59a6c7493afa1",
             "button_label": "Add Story",
             "rows_per_page": 20,
-            "wpml_cf_preferences": 1,
             "sub_fields": [
                 {
                     "key": "field_59a6c7493afa1",
@@ -40,7 +43,7 @@
                     },
                     "gutenberg_visibility": "both",
                     "relevanssi_exclude": 0,
-                    "wpml_cf_preferences": 2,
+                    "wpml_cf_preferences": 0,
                     "default_value": "",
                     "maxlength": "",
                     "placeholder": "",
@@ -62,13 +65,15 @@
                         "class": "",
                         "id": ""
                     },
+                    "gutenberg_visibility": "both",
+                    "relevanssi_exclude": 0,
+                    "wpml_cf_preferences": 0,
                     "default_value": "",
+                    "maxlength": 140,
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": 140,
-                    "parent_repeater": "field_59a6c6db3a77b",
-                    "wpml_cf_preferences": 2
+                    "parent_repeater": "field_59a6c6db3a77b"
                 },
                 {
                     "key": "field_59a6c7743afa3",
@@ -84,10 +89,12 @@
                         "class": "",
                         "id": ""
                     },
+                    "gutenberg_visibility": "both",
+                    "relevanssi_exclude": 0,
+                    "wpml_cf_preferences": 0,
                     "default_value": "",
                     "placeholder": "",
-                    "parent_repeater": "field_59a6c6db3a77b",
-                    "wpml_cf_preferences": 1
+                    "parent_repeater": "field_59a6c6db3a77b"
                 },
                 {
                     "key": "field_59a6c7843afa4",
@@ -103,13 +110,15 @@
                         "class": "",
                         "id": ""
                     },
+                    "gutenberg_visibility": "both",
+                    "relevanssi_exclude": 0,
+                    "wpml_cf_preferences": 0,
                     "default_value": "Read on Medium",
+                    "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
-                    "parent_repeater": "field_59a6c6db3a77b",
-                    "wpml_cf_preferences": 2
+                    "parent_repeater": "field_59a6c6db3a77b"
                 },
                 {
                     "key": "field_59a6c7a13afa5",
@@ -125,8 +134,10 @@
                         "class": "",
                         "id": ""
                     },
+                    "gutenberg_visibility": "both",
+                    "relevanssi_exclude": 0,
+                    "wpml_cf_preferences": 0,
                     "return_format": "array",
-                    "preview_size": "thumbnail",
                     "library": "all",
                     "min_width": "",
                     "min_height": "",
@@ -135,8 +146,8 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "",
-                    "parent_repeater": "field_59a6c6db3a77b",
-                    "wpml_cf_preferences": 1
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_59a6c6db3a77b"
                 },
                 {
                     "key": "field_59a6cdde7bda3",
@@ -152,17 +163,20 @@
                         "class": "",
                         "id": ""
                     },
+                    "gutenberg_visibility": "both",
+                    "relevanssi_exclude": 0,
+                    "wpml_cf_preferences": 0,
                     "taxonomy": "country",
-                    "field_type": "multi_select",
-                    "allow_null": 0,
                     "add_term": 1,
                     "save_terms": 0,
                     "load_terms": 0,
                     "return_format": "object",
+                    "field_type": "multi_select",
+                    "allow_null": 0,
+                    "bidirectional": 0,
                     "multiple": 0,
                     "bidirectional_target": [],
-                    "parent_repeater": "field_59a6c6db3a77b",
-                    "wpml_cf_preferences": 1
+                    "parent_repeater": "field_59a6c6db3a77b"
                 },
                 {
                     "key": "field_59a6cda67bda1",
@@ -178,17 +192,20 @@
                         "class": "",
                         "id": ""
                     },
+                    "gutenberg_visibility": "both",
+                    "relevanssi_exclude": 0,
+                    "wpml_cf_preferences": 0,
                     "taxonomy": "story-type",
-                    "field_type": "multi_select",
-                    "allow_null": 0,
                     "add_term": 1,
                     "save_terms": 0,
                     "load_terms": 0,
                     "return_format": "object",
+                    "field_type": "multi_select",
+                    "allow_null": 0,
+                    "bidirectional": 0,
                     "multiple": 0,
                     "bidirectional_target": [],
-                    "parent_repeater": "field_59a6c6db3a77b",
-                    "wpml_cf_preferences": 1
+                    "parent_repeater": "field_59a6c6db3a77b"
                 },
                 {
                     "key": "field_59a6cdc47bda2",
@@ -204,17 +221,20 @@
                         "class": "",
                         "id": ""
                     },
+                    "gutenberg_visibility": "both",
+                    "relevanssi_exclude": 0,
+                    "wpml_cf_preferences": 0,
                     "taxonomy": "story-content-type",
-                    "field_type": "select",
-                    "allow_null": 0,
                     "add_term": 1,
                     "save_terms": 0,
                     "load_terms": 0,
                     "return_format": "object",
+                    "field_type": "select",
+                    "allow_null": 0,
+                    "bidirectional": 0,
                     "multiple": 0,
                     "bidirectional_target": [],
-                    "parent_repeater": "field_59a6c6db3a77b",
-                    "wpml_cf_preferences": 1
+                    "parent_repeater": "field_59a6c6db3a77b"
                 }
             ]
         }
@@ -224,7 +244,7 @@
             {
                 "param": "page",
                 "operator": "==",
-                "value": "3032"
+                "value": "7538"
             }
         ]
     ],
@@ -237,6 +257,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "acfml_field_group_mode": "translation",
-    "modified": 1703252974
+    "acfml_field_group_mode": "advanced",
+    "modified": 1705673630
 }

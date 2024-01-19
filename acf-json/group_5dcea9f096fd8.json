@@ -6,6 +6,7 @@
             "key": "field_5dceaa50a0999",
             "label": "Columns",
             "name": "columns",
+            "aria-label": "",
             "type": "flexible_content",
             "instructions": "Each column type can represent a different post type, for example a resource will dislpay differently to a blog post.",
             "required": 0,
@@ -27,6 +28,7 @@
                             "key": "field_5dcead5fbb84c",
                             "label": "Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 1,
@@ -47,6 +49,7 @@
                             "key": "field_5dcead76bb84d",
                             "label": "View all link",
                             "name": "view_all_link",
+                            "aria-label": "",
                             "type": "link",
                             "instructions": "",
                             "required": 0,
@@ -63,6 +66,7 @@
                             "key": "field_5dceabc268ec7",
                             "label": "Automatic posts?",
                             "name": "automatic_posts",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -83,6 +87,7 @@
                             "key": "field_5dceabd168ec8",
                             "label": "Automatic post type",
                             "name": "automatic_post_type",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -118,6 +123,7 @@
                             "key": "field_5dceac3f68ec9",
                             "label": "Manual posts",
                             "name": "manual_posts",
+                            "aria-label": "",
                             "type": "relationship",
                             "instructions": "",
                             "required": 0,
@@ -146,7 +152,8 @@
                             "elements": "",
                             "min": "",
                             "max": "",
-                            "return_format": "object"
+                            "return_format": "object",
+                            "bidirectional_target": []
                         }
                     ],
                     "min": "",
@@ -162,6 +169,7 @@
                             "key": "field_5dcead8dbb84f",
                             "label": "Title",
                             "name": "title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 1,
@@ -182,6 +190,7 @@
                             "key": "field_5dcead8dbb850",
                             "label": "View all link",
                             "name": "view_all_link",
+                            "aria-label": "",
                             "type": "link",
                             "instructions": "",
                             "required": 0,
@@ -198,6 +207,7 @@
                             "key": "field_5dcead8dbb851",
                             "label": "Automatic posts?",
                             "name": "automatic_posts",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -218,6 +228,7 @@
                             "key": "field_5dcead8dbb852",
                             "label": "Automatic post type",
                             "name": "automatic_post_type",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -253,6 +264,7 @@
                             "key": "field_5dcead8dbb853",
                             "label": "Manual posts",
                             "name": "manual_posts",
+                            "aria-label": "",
                             "type": "relationship",
                             "instructions": "",
                             "required": 0,
@@ -281,7 +293,8 @@
                             "elements": "",
                             "min": "",
                             "max": "",
-                            "return_format": "object"
+                            "return_format": "object",
+                            "bidirectional_target": []
                         }
                     ],
                     "min": "",
@@ -296,6 +309,7 @@
             "key": "field_5dcea9f0c5057",
             "label": "Background Colour",
             "name": "background_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -306,12 +320,15 @@
                 "id": ""
             },
             "wpml_cf_preferences": 0,
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5dcea9f0c71c0",
             "label": "Text Colour",
             "name": "text_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -322,7 +339,9 @@
                 "id": ""
             },
             "wpml_cf_preferences": 0,
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -342,5 +361,8 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1573829280
+    "show_in_rest": false,
+    "modified": 1695737523,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5dcea9f096fd8.json",
+    "acfml_field_group_mode": "advanced"
 }
