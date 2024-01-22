@@ -67,8 +67,8 @@ class PageImpactStoriesController extends Controller
         $context['stories'] = array_map(function ($story) {
 
             // fetch just the id from the country and types
-            $story['country_ids'] = array_column($story['country'], 'id');
-            $story['story_type_ids'] = array_column($story['story_type'], 'id');
+            $story['country_ids'] = array_column($story['country'], 'term_id');
+            $story['story_type_ids'] = array_column($story['story_type'], 'term_id');
             $story['issue_ids'] = array_column($story['issues'], 'term_id');
 
             // for the sake of vue, make them a string first

@@ -244,7 +244,7 @@
             {
                 "param": "page",
                 "operator": "==",
-                "value": "7538"
+                "value": "3032"
             }
         ]
     ],
@@ -257,6 +257,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "acfml_field_group_mode": "advanced",
-    "modified": 1705673630
+    "modified": 1705921425
 }
