@@ -6,6 +6,7 @@
             "key": "field_5697b21c354a6",
             "label": "Resource Type",
             "name": "resource_type",
+            "aria-label": "",
             "type": "taxonomy",
             "instructions": "Choose the type for this resource",
             "required": 0,
@@ -22,7 +23,8 @@
             "save_terms": 1,
             "load_terms": 1,
             "return_format": "object",
-            "multiple": 0
+            "multiple": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -42,5 +44,8 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1574072873
+    "show_in_rest": false,
+    "modified": 1695737541,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5697b20b8017c.json",
+    "acfml_field_group_mode": "advanced"
 }

@@ -6,6 +6,7 @@
             "key": "field_605361c506190",
             "label": "Resource Location",
             "name": "resource_location",
+            "aria-label": "",
             "type": "select",
             "instructions": "Choose the location for this resource",
             "required": 0,
@@ -46,5 +47,8 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1616077441
+    "show_in_rest": false,
+    "modified": 1695737540,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_605361c4dcd18.json",
+    "acfml_field_group_mode": "advanced"
 }

@@ -6,6 +6,7 @@
             "key": "field_569920e822862",
             "label": "Link",
             "name": "link",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -55,5 +56,8 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1574072956
+    "show_in_rest": false,
+    "modified": 1695737544,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_569920e381d6a.json",
+    "acfml_field_group_mode": "advanced"
 }

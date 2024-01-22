@@ -6,6 +6,7 @@
             "key": "field_5698e7c819016",
             "label": "Open Contracting",
             "name": "open_contracting",
+            "aria-label": "",
             "type": "taxonomy",
             "instructions": "",
             "required": 0,
@@ -22,7 +23,8 @@
             "save_terms": 1,
             "load_terms": 1,
             "return_format": "object",
-            "multiple": 0
+            "multiple": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -63,5 +65,8 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1580221783
+    "show_in_rest": false,
+    "modified": 1695737542,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5698e7c36b9d3.json",
+    "acfml_field_group_mode": "advanced"
 }

@@ -6,6 +6,7 @@
             "key": "field_5da58cd49e14c",
             "label": "Heading",
             "name": "heading",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -26,6 +27,7 @@
             "key": "field_5da58cedafa71",
             "label": "Image",
             "name": "image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 1,
@@ -51,6 +53,7 @@
             "key": "field_60521d629b0be",
             "label": "Text Colour",
             "name": "text_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -61,12 +64,15 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5da58d14afa72",
             "label": "Overlay Colour",
             "name": "overlay_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -77,12 +83,15 @@
                 "id": ""
             },
             "wpml_cf_preferences": 0,
-            "default_value": "#000000"
+            "default_value": "#000000",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5da58d21afa73",
             "label": "Background Opacity",
             "name": "background_opacity",
+            "aria-label": "",
             "type": "range",
             "instructions": "",
             "required": 0,
@@ -118,5 +127,8 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1615994229
+    "show_in_rest": false,
+    "modified": 1695737519,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5da58cd48a99e.json",
+    "acfml_field_group_mode": "advanced"
 }

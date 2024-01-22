@@ -6,6 +6,7 @@
             "key": "field_5dcbedaf7978a",
             "label": "Hide title",
             "name": "hide_title",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "When a content block is used as the page header it might be useful to hide the original title",
             "required": 0,
@@ -40,5 +41,8 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1573645860
+    "show_in_rest": false,
+    "modified": 1695737534,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5dcbeda8c8bd6.json",
+    "acfml_field_group_mode": "advanced"
 }

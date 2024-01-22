@@ -6,6 +6,7 @@
             "key": "field_5698e6a019034",
             "label": "Issue",
             "name": "issue",
+            "aria-label": "",
             "type": "taxonomy",
             "instructions": "",
             "required": 0,
@@ -22,7 +23,8 @@
             "save_terms": 1,
             "load_terms": 1,
             "return_format": "object",
-            "multiple": 0
+            "multiple": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -63,5 +65,8 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1580221748
+    "show_in_rest": false,
+    "modified": 1695737539,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5698e6980a3af.json",
+    "acfml_field_group_mode": "advanced"
 }

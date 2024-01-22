@@ -1,85 +1,118 @@
 {% extends "base.twig" %}
 
 {% block content %}
-
 	<div id="impact-stories" class="impact-stories">
-
 		<div class="impact-stories__container">
-
 			<div class="impact-stories__header">
-
 				<h1>{{ title }}</h1>
 
 				{{ content | raw }}
-
 			</div>
 
-			{% if featured_stories %}
-
-				<div class="print-only / impact-stories__print-featured-stories">
-
-					{% for card in featured_stories %}
-						{% include 'cards/primary.twig' with card %}
-					{% endfor %}
-
-				</div>
-
-				<div class="screen-only / impact-stories__featured-stories">
-
-					<div class="impact-stories__featured-scroller">
-
-						{% for card in featured_stories %}
-							{% include 'cards/carousel.twig' with card %}
-						{% endfor %}
-
-					</div>
-
-				</div>
-
-			{% endif %}
-
 			<div class="impact-stories__filters">
+				{% if issues %}
+					<div>
+                        <h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.issues_label }}</h3>
 
-				{% if story_types %}
+                        <div class="select-dropdown">
+                            <select
+                                class="impact-stories__filter-select / select-dropdown__input"
+                                @change="addFilter($event, 'issue', $event.target.value)"
+                            >
+                                <option value="">Select issues</option>
 
-					<h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.story_types_label }}</h3>
+                                {% for id, name in issues %}
+                                    <option
+                                        value="{{ id }}"
+                                        v-show="! isFilterSet('issue', {{ id }})"
+                                    >{{ name }}</option>
+                                {% endfor %}
+                            </select>
 
-					{% for id, name in story_types %}
+                            <div class="select-dropdown__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="#inherit" d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0ZM4.5 5.4h1.6l1.8 3 1.8-3h1.8l-3.6 5.9-3.4-6Z"/></svg>
+                            </div>
+                        </div>
 
-						<label>
-							<input type="checkbox" v-model="filters.type" value="{{ id }}">
-							{{ name }}
-						</label>
-
-					{% endfor %}
-
+                        <div v-if="filters.issue.length" class="impact-stories__filter-tags">
+                            {% for id, name in issues %}
+                                <button
+                                    v-if="isFilterSet('issue', {{ id }})"
+                                    class="button--naked / impact-stories__filter-tag"
+                                    @click="removeFilter('issue', {{ id }})"
+                                >
+                                    {{ name }} x
+                                </button>
+                            {% endfor %}
+                        </div>
+                    </div>
 				{% endif %}
 
 				{% if countries %}
+					<div>
+                        <h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.countries_label }}</h3>
 
-					<h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.countries_label }}</h3>
+                        <div class="select-dropdown">
+                            <select
+                                class="impact-stories__filter-select / select-dropdown__input"
+                                @change="addFilter($event, 'country', $event.target.value)"
+                            >
+                                <option value="">Select countries</option>
 
-					{% for id, name in countries %}
+                                {% for id, name in countries %}
+                                    <option
+                                        value="{{ id }}"
+                                        v-show="! isFilterSet('country', {{ id }})"
+                                    >{{ name }}</option>
+                                {% endfor %}
+                            </select>
 
-						<label>
-							<input type="checkbox" v-model="filters.country" value="{{ id }}">
-							{{ name }}
-						</label>
+                            <div class="select-dropdown__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="#inherit" d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0ZM4.5 5.4h1.6l1.8 3 1.8-3h1.8l-3.6 5.9-3.4-6Z"/></svg>
+                            </div>
+                        </div>
 
-					{% endfor %}
-
+                        <div v-if="filters.country.length" class="impact-stories__filter-tags">
+                            {% for id, name in countries %}
+                                <button
+                                    v-if="isFilterSet('country', {{ id }})"
+                                    class="button--naked / impact-stories__filter-tag"
+                                    @click="removeFilter('country', {{ id }})"
+                                >
+                                    {{ name }} x
+                                </button>
+                            {% endfor %}
+                        </div>
+                    </div>
 				{% endif %}
 
+				{% if story_types %}
+					<div class="impact-stories__filter-story-types">
+                        <h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.story_types_label }}</h3>
+
+                        <div class="impact-stories__filter-checkboxes">
+                            {% for id, name in story_types %}
+                                <label>
+                                    <input type="checkbox" v-model="filters.type" value="{{ id }}">
+                                    {{ name }}
+                                </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+				{% endif %}
 			</div>
 
-			<div class="impact-stories__posts">
-
+			<div v-show="results_count > 0" class="impact-stories__posts">
 				{% for key, story in stories %}
-
-					<div ref="story-{{ key }}" data-country-ids="{{ story.country_ids|json_encode|escape }}" data-story-type-ids="{{ story.story_type_ids|json_encode|escape }}" class="card card--primary" data-colour-scheme="light">
-
+					<div
+                        ref="story-{{ key }}"
+                        data-country-ids="{{ story.country_ids|json_encode|escape }}"
+                        data-story-type-ids="{{ story.story_type_ids|json_encode|escape }}"
+                        data-issue-ids="{{ story.issue_ids|json_encode|escape }}"
+                        class="card card--primary"
+                        data-colour-scheme="light"
+                    >
 						<div class="card__image">
-
 							{{ imgix({
 								src: story.image.url,
 								params: {
@@ -100,27 +133,22 @@
 								}],
 								sizes: '100vw'
 							}) }}
-
 						</div>
 
 						<div class="card__main">
-
 							<a class="card__title-link" href="{{ story.link }}">
 								<h2 class="card__title">{{ story.title }}</h2>
 							</a>
 
 							{{ story.introduction }}
-
 						</div>
-
 					</div>
-
 				{% endfor %}
-
 			</div>
 
+            <div v-if="results_count === 0" class="impact-stories__no-results">
+                <p>{{ impact_stories.i18n.no_results_label }}</p>
+            </div>
 		</div>
-
 	</div>
-
 {% endblock %}

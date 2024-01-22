@@ -6,6 +6,7 @@
             "key": "field_60533aece968e",
             "label": "Lead",
             "name": "lead",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -26,6 +27,7 @@
             "key": "field_60533b2f07a16",
             "label": "Link",
             "name": "link",
+            "aria-label": "",
             "type": "link",
             "instructions": "",
             "required": 1,
@@ -42,6 +44,7 @@
             "key": "field_6061d577e56a6",
             "label": "Description",
             "name": "description",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -62,6 +65,7 @@
             "key": "field_60533bab07a17",
             "label": "Buttons",
             "name": "buttons",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -76,12 +80,13 @@
             "min": 0,
             "max": 0,
             "layout": "block",
-            "button_label": "",
+            "button_label": "Add Row",
             "sub_fields": [
                 {
                     "key": "field_60533bbd07a18",
                     "label": "Link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 1,
@@ -92,14 +97,17 @@
                         "id": ""
                     },
                     "gutenberg_visibility": "both",
-                    "return_format": "array"
+                    "return_format": "array",
+                    "parent_repeater": "field_60533bab07a17"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_6058550889289",
             "label": "Grid Placement",
             "name": "grid_placement",
+            "aria-label": "",
             "type": "select",
             "instructions": "Specify how wide to make this card when it appears in a grid. Not all settings will have an effect, depending on how the parent  grid decides how to display them.",
             "required": 0,
@@ -127,6 +135,7 @@
             "key": "field_6059a367cc59e",
             "label": "Highlight Colour",
             "name": "highlight_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -137,12 +146,15 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_6059a646cc59f",
             "label": "Background Colour",
             "name": "background_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -153,12 +165,15 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_6059a64ecc5a0",
             "label": "Text Colour",
             "name": "text_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -169,7 +184,9 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -191,5 +208,8 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1617024394
+    "show_in_rest": false,
+    "modified": 1695737506,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_60533aecd3a85.json",
+    "acfml_field_group_mode": "advanced"
 }

@@ -6,6 +6,7 @@
             "key": "field_63a3229a3533c",
             "label": "Is resource featured?",
             "name": "resource_is_featured",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -41,5 +42,7 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1674642493
+    "modified": 1695737540,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_63a3229a22664.json",
+    "acfml_field_group_mode": "advanced"
 }

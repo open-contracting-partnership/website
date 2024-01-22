@@ -238,5 +238,7 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695732774
+    "modified": 1695737524,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5dcd84f707cf7.json",
+    "acfml_field_group_mode": "advanced"
 }

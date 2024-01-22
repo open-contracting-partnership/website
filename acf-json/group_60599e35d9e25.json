@@ -6,6 +6,7 @@
             "key": "field_60599e3608f1a",
             "label": "Learning Resource Category",
             "name": "learning_resource_category",
+            "aria-label": "",
             "type": "taxonomy",
             "instructions": "Choose the learning category for this resource",
             "required": 0,
@@ -23,7 +24,8 @@
             "save_terms": 1,
             "load_terms": 1,
             "return_format": "object",
-            "multiple": 0
+            "multiple": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -43,5 +45,8 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1616486252
+    "show_in_rest": false,
+    "modified": 1695737539,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_60599e35d9e25.json",
+    "acfml_field_group_mode": "advanced"
 }

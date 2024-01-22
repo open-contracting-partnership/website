@@ -61,7 +61,8 @@
                             "role": "",
                             "allow_null": 0,
                             "multiple": 0,
-                            "return_format": "array"
+                            "return_format": "array",
+                            "bidirectional_target": []
                         }
                     ],
                     "min": "",
@@ -141,7 +142,8 @@
             "return_format": "id",
             "field_type": "select",
             "allow_null": 0,
-            "multiple": 0
+            "multiple": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_63d2451d8204f",
@@ -174,7 +176,8 @@
             "return_format": "id",
             "min": "",
             "max": "",
-            "elements": ""
+            "elements": "",
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -195,5 +198,7 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695724558
+    "modified": 1695737529,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5698f7309ca15.json",
+    "acfml_field_group_mode": "advanced"
 }

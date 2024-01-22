@@ -94,7 +94,8 @@
             "return_format": "object",
             "min": "",
             "max": "",
-            "elements": ""
+            "elements": "",
+            "bidirectional_target": []
         },
         {
             "key": "field_646b4475d88c3",
@@ -368,5 +369,7 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684751656
+    "modified": 1695737522,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5da98589ee055.json",
+    "acfml_field_group_mode": "advanced"
 }

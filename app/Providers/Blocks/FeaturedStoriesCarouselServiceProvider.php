@@ -42,7 +42,7 @@ class FeaturedStoriesCarouselServiceProvider
         $context = Timber::get_context();
 
         $context['block'] = [];
-        $context['block']['featured_stories'] = get_field('featured_stories');
+        $context['block']['featured_stories'] = get_field('featured_stories') ?: [];
 
         // match the featured stories with the correct card type
         $context['block']['featured_stories'] = array_map(function ($story) {

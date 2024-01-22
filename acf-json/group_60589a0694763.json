@@ -6,6 +6,7 @@
             "key": "field_60589a06a570b",
             "label": "Heading",
             "name": "heading",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -26,6 +27,7 @@
             "key": "field_60589a6806ac5",
             "label": "Strapline",
             "name": "strapline",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -46,6 +48,7 @@
             "key": "field_60589a06a5711",
             "label": "Link",
             "name": "link",
+            "aria-label": "",
             "type": "link",
             "instructions": "",
             "required": 0,
@@ -62,6 +65,7 @@
             "key": "field_60589a9b06ac6",
             "label": "Icon",
             "name": "icon",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -91,6 +95,7 @@
             "key": "field_60589d197880c",
             "label": "Background Colour",
             "name": "background_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -101,12 +106,15 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_60589d1f7880d",
             "label": "Text Colour",
             "name": "text_colour",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -117,7 +125,9 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -139,5 +149,8 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1617028101
+    "show_in_rest": false,
+    "modified": 1695737506,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_60589a0694763.json",
+    "acfml_field_group_mode": "advanced"
 }

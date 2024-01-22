@@ -6,6 +6,7 @@
             "key": "field_5699139acc0aa",
             "label": "Audience",
             "name": "audience",
+            "aria-label": "",
             "type": "taxonomy",
             "instructions": "",
             "required": 0,
@@ -22,7 +23,8 @@
             "save_terms": 1,
             "load_terms": 1,
             "return_format": "object",
-            "multiple": 0
+            "multiple": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -63,5 +65,8 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1580221462
+    "show_in_rest": false,
+    "modified": 1695737515,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_56991395b518d.json",
+    "acfml_field_group_mode": "advanced"
 }

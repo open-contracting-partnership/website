@@ -6,6 +6,7 @@
             "key": "field_5dd510a43f993",
             "label": "Options",
             "name": "options",
+            "aria-label": "",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
                     "key": "field_5dd510bb3f994",
                     "label": "ID",
                     "name": "id",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "Give the block an ID so it can be targeted",
                     "required": 0,
@@ -42,6 +44,7 @@
                     "key": "field_605856108cf3d",
                     "label": "Grid Placement",
                     "name": "grid_placement",
+                    "aria-label": "",
                     "type": "select",
                     "instructions": "Specify how wide to make this card when it appears in a grid. Not all settings will have an effect, depending on how the parent  grid decides how to display them.",
                     "required": 0,
@@ -85,5 +88,8 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1616401996
+    "show_in_rest": false,
+    "modified": 1695737545,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5dd5100f6ec42.json",
+    "acfml_field_group_mode": "advanced"
 }

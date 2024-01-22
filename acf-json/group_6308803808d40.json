@@ -6,6 +6,7 @@
             "key": "field_6308804d99438",
             "label": "Featured News Article",
             "name": "featured_news_article",
+            "aria-label": "",
             "type": "post_object",
             "instructions": "Specifically for the \"Latest News\" section",
             "required": 0,
@@ -23,7 +24,8 @@
             "allow_null": 0,
             "multiple": 0,
             "return_format": "id",
-            "ui": 1
+            "ui": 1,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -44,5 +46,7 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1661501559
+    "modified": 1695737531,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_6308803808d40.json",
+    "acfml_field_group_mode": "advanced"
 }

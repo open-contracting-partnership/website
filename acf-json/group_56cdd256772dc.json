@@ -6,6 +6,7 @@
             "key": "field_56cdd2be6532d",
             "label": "Downloads",
             "name": "downloads",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -26,6 +27,7 @@
                     "key": "field_56cdd2d26532e",
                     "label": "Title",
                     "name": "title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -41,12 +43,14 @@
                     "append": "",
                     "maxlength": "",
                     "readonly": 0,
-                    "disabled": 0
+                    "disabled": 0,
+                    "parent_repeater": "field_56cdd2be6532d"
                 },
                 {
                     "key": "field_56cdd2d96532f",
                     "label": "Date",
                     "name": "date",
+                    "aria-label": "",
                     "type": "date_picker",
                     "instructions": "",
                     "required": 1,
@@ -58,12 +62,14 @@
                     },
                     "display_format": "d\/m\/Y",
                     "return_format": "M y",
-                    "first_day": 1
+                    "first_day": 1,
+                    "parent_repeater": "field_56cdd2be6532d"
                 },
                 {
                     "key": "field_56cdd2f265330",
                     "label": "File",
                     "name": "file",
+                    "aria-label": "",
                     "type": "file",
                     "instructions": "",
                     "required": 1,
@@ -77,9 +83,11 @@
                     "library": "all",
                     "min_size": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_56cdd2be6532d"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         }
     ],
     "location": [
@@ -101,5 +109,8 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1574325547
+    "show_in_rest": false,
+    "modified": 1695737509,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_56cdd256772dc.json",
+    "acfml_field_group_mode": "advanced"
 }

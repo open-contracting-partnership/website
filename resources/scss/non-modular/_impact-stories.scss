@@ -24,121 +24,52 @@
 
 		}
 
-		.impact-stories__featured-stories {
-
-			grid-column: all;
-			margin-bottom: var(--v-spacing);
-			border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
-			overflow: hidden;
-			position: relative;
-
-			.tns-nav {
-
-				position: absolute;
-				right: 0;
-				bottom: 0;
-				left: 0;
-				padding: spacing(1);
-				z-index: 1;
-
-				display: flex;
-				justify-content: center;
-
-				button {
-
-					background: none;
-					color: inherit;
-					border: none;
-					padding: 0;
-					font: inherit;
-					cursor: pointer;
-					outline: inherit;
-					border-radius: 0;
-					margin: 0;
-
-					&:focus {
-						outline: none;
-					}
-
-					// start
-					font-size: 18px;
-					height: 1em;
-					width: 1em;
-					border-radius: 50%;
-					border: 2px solid $ui-grey-7;
-					background-color: transparent;
-
-					&:not(:last-child) {
-						margin-right: spacing(1);
-					}
-
-					&.tns-nav-active {
-						background-color: $ui-brand;
-						border-color: $ui-brand;
-					}
-
-				}
-
-			}
-
-		}
-
-		.impact-stories__print-featured-stories {
-			margin-bottom: var(--v-spacing);
-		}
-
 		.impact-stories__filters {
+			--columns: 1;
 
 			grid-column: all;
 			border: 2px solid $ui-grey-6;
 			border-radius: spacing(4) spacing(1);
 			padding: spacing(3);
 			margin-bottom: var(--v-spacing);
-
-			@include from(M) {
-				grid-column: all / 9;
-			}
-
-			--columns: 2;
 			display: grid;
-			grid-template-columns: [all-start] repeat(var(--columns), 1fr) [all-end];
-			grid-gap: spacing(1);
+			grid-template-columns: repeat(var(--columns), 1fr);
+			grid-gap: spacing(3);
 
 			@include from(S) {
+				--columns: 2;
+			}
+
+			@include from(1260) {
 				--columns: 3;
-			}
 
-			@include from(M) {
-				--columns: 4;
+                padding: spacing(5);
 			}
-
 		}
 
 			.impact-stories__filter-heading {
-
-				font-size: 18px;
-				@include font('secondary', 'bold');
+				font-size: 16px;
+				@include font('secondary', 'medium');
 				margin-bottom: 0;
 				grid-column: all;
-
-				&:not(:first-child) {
-					margin-top: spacing(1);
-				}
-
+                margin-bottom: spacing(1);
 			}
 
 			.impact-stories__filters label {
+                --accent-colour: #{$ui-grey-4};
 
-				font-size: 16px;
+				font-size: 14px;
 				@include font('secondary', 'medium');
 				text-transform: none;
 				display: flex;
 				align-items: center;
-				margin-bottom: spacing(1);
-				color: $ui-grey-2;
+				color: $ui-black;
+
+                &:hover {
+                    --accent-colour: #{$ui-black};
+                }
 
 				input {
-
 					font-size: 21px;
 					flex: 0 0 auto;
 					margin: 0 spacing(1) 0 0;
@@ -147,7 +78,8 @@
 					width: 1em;
 					appearance: none;
 					background-color: $ui-white;
-					border: 1px solid $ui-grey-4;
+					border: 1px solid var(--accent-colour);
+                    transform: border-color 0.3s ease;
 					display: flex;
 					align-items: center;
 					justify-content: center;
@@ -156,19 +88,55 @@
 						content: '\00D7';
 						font-size: 1.2em;
 						margin-top: .1em;
-						color: $ui-grey-3;
+						color: var(--accent-colour);
+                        transform: color 0.3s ease;
 					}
-
 				}
-
 			}
 
+        .impact-stories__filter-tags {
+            margin-top: spacing(1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: spacing(1);
+        }
+
+        .impact-stories__filter-tag {
+            background-color: $ui-brand;
+            color: $ui-black;
+            font-size: 14px;
+            padding: 0.25em 0.65em;
+            font-weight: bold;
+        }
+
+        .impact-stories__filter-story-types {
+            @include between(S, 1260) {
+                grid-column: span 2;
+            }
+        }
+
+        .impact-stories__filter-checkboxes {
+            display: flex;
+            gap: spacing(1);
+
+            @include upto(S) {
+                flex-direction: column;
+            }
+
+            @include from(M) {
+                flex-wrap: wrap;
+            }
+
+            @include from(1260) {
+                height: 38.4px;
+            }
+        }
+
 		.impact-stories__posts {
+			--columns: 1;
 
 			grid-column: all;
 			margin-bottom: var(--v-spacing-half);
-
-			--columns: 1;
 			display: grid;
 			grid-gap: spacing(4) spacing(2);
 			grid-template-columns: repeat(var(--columns), 1fr);
@@ -182,3 +150,16 @@
 			}
 
 		}
+
+        .impact-stories__no-results {
+			grid-column: all;
+			margin-bottom: var(--v-spacing);
+            background-color: $ui-grey-6;
+            padding: spacing(4);
+            text-align: center;
+            border-radius: spacing(1);
+
+            > :last-child {
+                margin-bottom: 0;
+            }
+        }

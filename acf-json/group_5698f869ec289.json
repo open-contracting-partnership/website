@@ -6,6 +6,7 @@
             "key": "field_5698f86f74557",
             "label": "Organisation",
             "name": "organisation",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -69,5 +70,8 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1579097369
+    "show_in_rest": false,
+    "modified": 1695737538,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5698f869ec289.json",
+    "acfml_field_group_mode": "advanced"
 }

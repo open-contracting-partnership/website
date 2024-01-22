@@ -6,6 +6,7 @@
             "key": "field_5697b724ac009",
             "label": "Region",
             "name": "region",
+            "aria-label": "",
             "type": "taxonomy",
             "instructions": "",
             "required": 0,
@@ -22,12 +23,14 @@
             "save_terms": 1,
             "load_terms": 1,
             "return_format": "object",
-            "multiple": 0
+            "multiple": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_5697b77dac00a",
             "label": "Country",
             "name": "country",
+            "aria-label": "",
             "type": "taxonomy",
             "instructions": "",
             "required": 0,
@@ -44,7 +47,8 @@
             "save_terms": 1,
             "load_terms": 1,
             "return_format": "object",
-            "multiple": 0
+            "multiple": 0,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -85,5 +89,8 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1580221506
+    "show_in_rest": false,
+    "modified": 1695737542,
+    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5697b714e5d12.json",
+    "acfml_field_group_mode": "advanced"
 }
