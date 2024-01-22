@@ -22,6 +22,7 @@
             "max": 0,
             "layout": "row",
             "button_label": "Add download",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_56cdd2d26532e",
@@ -86,8 +87,7 @@
                     "mime_types": "",
                     "parent_repeater": "field_56cdd2be6532d"
                 }
-            ],
-            "rows_per_page": 20
+            ]
         }
     ],
     "location": [
@@ -110,7 +110,7 @@
     "active": 1,
     "description": "",
     "show_in_rest": false,
-    "modified": 1695737509,
+    "modified": 1705932771,
     "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_56cdd256772dc.json",
     "acfml_field_group_mode": "advanced"
 }
