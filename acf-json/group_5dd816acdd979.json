@@ -22,6 +22,7 @@
             "max": 0,
             "layout": "block",
             "button_label": "Add Story",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5dd816ad11882",
@@ -113,8 +114,7 @@
                     "return_format": "array",
                     "parent_repeater": "field_5dd816ad0eee7"
                 }
-            ],
-            "rows_per_page": 20
+            ]
         }
     ],
     "location": [
@@ -137,7 +137,7 @@
     "active": 1,
     "description": "",
     "show_in_rest": false,
-    "modified": 1695737509,
+    "modified": 1705932771,
     "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5dd816acdd979.json",
     "acfml_field_group_mode": "advanced"
 }

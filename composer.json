@@ -8,5 +8,10 @@
 	},
 	"require-dev": {
 		"spatie/ray": "^1.33"
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true
+		}
 	}
 }

@@ -30,6 +30,7 @@ class PageImpactStoriesController extends Controller
 
         $context['countries'] = [];
         $context['story_types'] = [];
+        $context['issues'] = [];
 
         // compile the countries and story types
         foreach ($context['stories'] as &$story) {
