@@ -34,12 +34,11 @@ class PageImpactStoriesController extends Controller
 
         // compile the countries and story types
         foreach ($context['stories'] as &$story) {
+            $story['country'] = $story['country'] ?: [];
+            $story['story_type'] = $story['story_type'] ?: [];
+
             foreach ($story['country'] as $country) {
                 $context['countries'][$country->term_id] = $country->name;
-            }
-
-            if (! \is_array($story['story_type'])) {
-                $story['story_type'] = [];
             }
 
             $story['issues'] = [];
