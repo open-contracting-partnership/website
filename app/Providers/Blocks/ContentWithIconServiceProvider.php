@@ -34,6 +34,7 @@ class ContentWithIconServiceProvider
         $context['block']['background_colour'] = get_field('background_colour');
         $context['block']['text_colour'] = get_field('text_colour');
         $context['block']['accent_colour'] = get_field('accent_colour');
+        $context['block']['icon'] = get_field('icon');
         $context['block']['preview'] = $is_preview;
 
         echo Timber::compile('blocks/content-with-icon.twig', $context);
