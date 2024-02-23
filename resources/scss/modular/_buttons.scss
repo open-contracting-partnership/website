@@ -24,6 +24,10 @@
 		padding: 0.75em 1.65em 0.65em;
 	}
 
+    &[data-size="large"] {
+        font-size: 18px;
+    }
+
 	&:hover,
 	&:focus,
 	&:active {
@@ -35,18 +39,22 @@
 }
 
 .button--has-icon {
+    position: relative;
 	display: inline-flex;
 	align-items: center;
+    padding-left: 3.7em;
 }
 
 	.button__icon {
 
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0.45em;
 		font-size: 2em;
 		height: 1em;
 		width: 1em;
-		margin-right: spacing(2);
 		fill: currentColor;
-		margin: em(-8, 14) spacing(2) em(-6, 14) em(-6, 14);
 
 		@media print {
 			display: none;

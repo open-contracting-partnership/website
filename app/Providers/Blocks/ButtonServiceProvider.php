@@ -38,6 +38,7 @@ class ButtonServiceProvider
         $context['block']['background_colour'] = get_field('background_colour');
         $context['block']['border_colour'] = get_field('border_colour');
         $context['block']['text_colour'] = get_field('text_colour');
+        $context['block']['size'] = get_field('size') ?? 'normal';
 
         if ($is_preview) {
             $context['block']['link']['url'] = '#';
