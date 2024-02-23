@@ -14,7 +14,11 @@
 >
     <div class="card__body">
         <h3 class="card__heading">
-            <a class="card__link" href="{{ card.link }}">{{ card.title }}</a>
+            {% if card.link is not empty %}
+                <a class="card__link" href="{{ card.link }}">{{ card.title }}</a>
+            {% else %}
+                {{ card.title }}
+            {% endif %}
         </h3>
 
         {% if card.strapline %}
@@ -22,20 +26,22 @@
         {% endif %}
     </div>
 
-    <div class="card__image">
-        {{ imgix({
-            src: card.image.url,
-            params: {
-                auto: 'format'
-            },
-            transforms: [{
-                w: 128
-            }, {
-                w: 256
-            }, {
-                w: 512
-            }],
-            sizes: '36vw, (min-width: 1025px) 17vw, (min-width: 1350px) 234px',
-        }) }}
-    </div>
+    {% if card.image is not empty %}
+        <div class="card__image">
+            {{ imgix({
+                src: card.image.url,
+                params: {
+                    auto: 'format'
+                },
+                transforms: [{
+                    w: 128
+                }, {
+                    w: 256
+                }, {
+                    w: 512
+                }],
+                sizes: '36vw, (min-width: 1025px) 17vw, (min-width: 1350px) 234px',
+            }) }}
+        </div>
+    {% endif %}
 </div>
