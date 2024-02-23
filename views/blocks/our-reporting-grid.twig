@@ -49,36 +49,38 @@
         {% endfor %}
     </div>
 
-    <div class="our-reporting-grid__banner-image">
-        {{ imgix({
-			src: block.banner_image.url,
-			params: {
-				auto: 'format',
-				fit: 'crop'
-			},
-            aspect_ratio: [
-                block.banner_image.width,
-                block.banner_image.height
-            ],
-			transforms: [{
-				w: 300
-			}, {
-				w: 500
-			}, {
-				w: 600
-			}, {
-				w: 1000
-			}, {
-				w: 1200
-			}, {
-				w: 1800
-			}, {
-				w: 2400
-			}, {
-				w: 2800
-			}],
-			sizes: '100vw',
-			loading: 'lazy'
-		}) }}
-    </div>
+    {% if block.banner_image %}
+        <div class="our-reporting-grid__banner-image">
+            {{ imgix({
+                src: block.banner_image.url,
+                params: {
+                    auto: 'format',
+                    fit: 'crop'
+                },
+                aspect_ratio: [
+                    block.banner_image.width,
+                    block.banner_image.height
+                ],
+                transforms: [{
+                    w: 300
+                }, {
+                    w: 500
+                }, {
+                    w: 600
+                }, {
+                    w: 1000
+                }, {
+                    w: 1200
+                }, {
+                    w: 1800
+                }, {
+                    w: 2400
+                }, {
+                    w: 2800
+                }],
+                sizes: '100vw',
+                loading: 'lazy'
+            }) }}
+        </div>
+    {% endif %}
 </div>
