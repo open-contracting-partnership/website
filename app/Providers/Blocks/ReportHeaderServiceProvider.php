@@ -38,6 +38,9 @@ class ReportHeaderServiceProvider
         $context['block']['background_image'] = get_field('background_image');
         $context['block']['background_colour'] = get_field('background_colour');
         $context['block']['text_colour'] = get_field('text_colour');
+        $context['block']['header_top'] = get_field('header_top') ?? 7.6;
+        $context['block']['heading_size'] = get_field('heading_size') ?? 1;
+        $context['block']['strapline_size'] = get_field('strapline_size') ?? 1;
         $context['block']['preview'] = $is_preview;
 
         echo Timber::compile('blocks/report-header.twig', $context);

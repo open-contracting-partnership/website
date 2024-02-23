@@ -7,7 +7,7 @@
             "label": "Heading",
             "name": "heading",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,18 +17,20 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
             "default_value": "",
             "maxlength": "",
+            "rows": 2,
             "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "new_lines": "br"
         },
         {
             "key": "field_6469e4e407a64",
             "label": "Strapline",
             "name": "strapline",
             "aria-label": "",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -38,11 +40,13 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
             "default_value": "",
             "maxlength": "",
+            "rows": 2,
             "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "new_lines": "br"
         },
         {
             "key": "field_6469e4c77d84a",
@@ -107,6 +111,78 @@
             "max_size": "",
             "mime_types": "",
             "preview_size": "medium"
+        },
+        {
+            "key": "field_65d8a589630ed",
+            "label": "Header top",
+            "name": "header_top",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
+            "default_value": "7.3",
+            "min": 0,
+            "max": 25,
+            "step": ".1",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65d8a36c09ea4",
+            "label": "Heading size",
+            "name": "heading_size",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
+            "default_value": 1,
+            "min": 0,
+            "max": 2,
+            "step": ".1",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65d8a50ad229c",
+            "label": "Strapline size",
+            "name": "strapline_size",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
+            "default_value": 1,
+            "min": 0,
+            "max": 2,
+            "step": ".1",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -129,7 +205,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695737513,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_6469e4c76d4d6.json",
-    "acfml_field_group_mode": "advanced"
+    "acfml_field_group_mode": "advanced",
+    "modified": 1708699308
 }

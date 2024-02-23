@@ -3,12 +3,13 @@
     style="
         --background-colour: {{ block.background_colour }};
         --text-colour: {{ block.text_colour }};
+        --header-top: {{ block.header_top }};
     "
 >
     <div class="report-header__header">
         <h1 class="report-header__heading">
-            <span>{{ block.heading }}</span>
-            <span>{{ block.strapline }}</span>
+            <span style="--size-adjustment: {{ block.heading_size }};">{{ block.heading }}</span>
+            <span style="--size-adjustment: {{ block.strapline_size }};">{{ block.strapline }}</span>
         </h1>
 
         <button class="report-header__jump-to-content / button--naked" aria-label="Jump to content">
