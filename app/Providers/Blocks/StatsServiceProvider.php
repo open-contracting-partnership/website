@@ -35,6 +35,7 @@ class StatsServiceProvider
         $context['block']['strapline'] = get_field('strapline');
         $context['block']['previous_block_colour'] = get_field('previous_block_colour');
         $context['block']['stats'] = get_field('stats');
+        $context['block']['show_plus_icons'] = get_field('show_plus_icons') ?? true;
         $context['block']['preview'] = $is_preview;
 
         echo Timber::compile('blocks/stats.twig', $context);

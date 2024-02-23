@@ -24,7 +24,8 @@ $font-size: 80px;
 .content-with-icon__icon {
     overflow-x: hidden;
 
-    svg {
+    svg,
+    img {
         width: 200%;
         max-width: 644px;
     }

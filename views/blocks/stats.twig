@@ -7,12 +7,14 @@
         <h2 class="stats__heading">{{ block.heading }}</h2>
         <p class="stats__strapline">{{ block.strapline }}</p>
 
-        <div>
-            <svg fill="#B9C504"><use xlink:href="#icon-plus-heavy"></use></svg>
-            <svg fill="#23B2A7"><use xlink:href="#icon-plus-heavy"></use></svg>
-            <svg fill="#FB6045"><use xlink:href="#icon-plus-heavy"></use></svg>
-            <svg fill="#6C75E1"><use xlink:href="#icon-plus-heavy"></use></svg>
-        </div>
+        {% if block.show_plus_icons %}
+            <div>
+                <svg fill="#B9C504"><use xlink:href="#icon-plus-heavy"></use></svg>
+                <svg fill="#23B2A7"><use xlink:href="#icon-plus-heavy"></use></svg>
+                <svg fill="#FB6045"><use xlink:href="#icon-plus-heavy"></use></svg>
+                <svg fill="#6C75E1"><use xlink:href="#icon-plus-heavy"></use></svg>
+            </div>
+        {% endif %}
     </div>
 
     <div class="stats__grid">
