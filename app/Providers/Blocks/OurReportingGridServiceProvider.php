@@ -33,7 +33,12 @@ class OurReportingGridServiceProvider
         $context['block']['heading'] = get_field('heading');
         $context['block']['strapline'] = get_field('strapline');
         $context['block']['previous_block_colour'] = get_field('previous_block_colour');
-        $context['block']['cards'] = get_field('cards');
+        $context['block']['cards'] = collect(get_field('cards'))->map(function ($card) {
+            $card['type'] = ! empty($card['url']) ? 'a' : 'div';
+
+            return $card;
+        });
+
         $context['block']['banner_image'] = get_field('banner_image');
         $context['block']['preview'] = $is_preview;
 

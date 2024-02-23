@@ -9,7 +9,7 @@
 
     <div class="our-reporting-grid__grid">
         {% for card in block.cards %}
-            <a
+            <{{ card.type }}
                 href="{{ card.url }}"
                 class="our-reporting-card"
                 style="
@@ -42,8 +42,10 @@
                     }) }}
                 {% endif %}
 
-                <svg class="our-reporting-card__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-            </a>
+                {% if card.url is not empty %}
+                    <svg class="our-reporting-card__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                {% endif %}
+            </{{ card.type }}>
         {% endfor %}
     </div>
 

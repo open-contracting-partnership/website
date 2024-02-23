@@ -56,15 +56,19 @@ $font-size: 80px;
     @include font('secondary', 'bold');
 
     padding: var(--padding);
-    padding-bottom: calc(var(--padding) + var(--icon-spacing));
     display: flex;
 
     &[data-icon-position="bottom"] {
         flex-direction: column;
     }
 
-    &:hover .our-reporting-card__heading {
-        text-decoration: underline;
+    // has a link
+    &:not([href=""]) {
+        padding-bottom: calc(var(--padding) + var(--icon-spacing));
+
+        &:hover .our-reporting-card__heading {
+            text-decoration: underline;
+        }
     }
 
     @include from(T) {
