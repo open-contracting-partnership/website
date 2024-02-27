@@ -21,7 +21,6 @@ class QuoteCarouselServiceProvider
                 'icon' => 'format-quote',
                 'enqueue_assets' => function () {
                     wp_enqueue_script('block-quote-carousel', get_template_directory_uri() . '/dist/js/block-quote-carousel.js', ['manifest'], false, true);
-                    wp_enqueue_script('card-quote', get_template_directory_uri() . '/dist/js/card-quote.js', ['manifest'], false, true);
                 },
                 'keywords' => ['quote', 'carousel'],
                 'post_types' => ['page'],
