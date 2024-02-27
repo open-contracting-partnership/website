@@ -1,29 +1,21 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
 <div id="{{ options.id }}" class="block" data-block-type="stages" style="--block-colour: {{ block.background_colour }}; --active-colour: {{ block.active_colour }}">
-
 	<div class="block__background" style="background-color: {{ block.background_colour }}"></div>
 
 	<div class="block__container" style="color: {{ block.text_colour }};">
-
 		<div class="block__header">
-
 			{% if block.title %}
 				<h2 class="block__heading">{{ block.title }}</h2>
 			{% endif %}
 
 			{{ block.introduction | raw }}
-
 		</div>
 
 		{% if block.stages %}
-
 			<div class="block__stages-container">
-
 				{% for stage in block.stages %}
-
 					<a class="block__stage {{ stage.is_active ? 'block__stage--active' : '' }}" href="{{ stage.link.url }}">
-
 						<div class="block__stage-icon">
 							<div class="block__stage-icon-image" style="mask-image: url({{ stage.icon.url }}); -webkit-mask-image: url({{ stage.icon.url }});"></div>
 						</div>
@@ -31,15 +23,9 @@
 						<strong class="block__stage-title">{{ stage.link.title }}</strong>
 
 						<span class="block__stage-read-more">Find out more</span>
-
 					</a>
-
 				{% endfor %}
-
-			</div> <!-- / .block__stages-container -->
-
+			</div>
 		{% endif %}
-
 	</div>
-
 </div>
