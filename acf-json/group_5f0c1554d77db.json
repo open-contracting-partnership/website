@@ -64,6 +64,7 @@
             "max": 0,
             "layout": "block",
             "button_label": "Add Stage",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5f0d6563b379f",
@@ -80,8 +81,9 @@
                         "id": ""
                     },
                     "gutenberg_visibility": "both",
+                    "relevanssi_exclude": 0,
+                    "wpml_cf_preferences": 0,
                     "return_format": "array",
-                    "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
                     "min_height": "",
@@ -90,6 +92,7 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "",
+                    "preview_size": "thumbnail",
                     "parent_repeater": "field_5f0d651db379e"
                 },
                 {
@@ -110,8 +113,7 @@
                     "return_format": "array",
                     "parent_repeater": "field_5f0d651db379e"
                 }
-            ],
-            "rows_per_page": 20
+            ]
         },
         {
             "key": "field_5f0c155525c32",
@@ -150,6 +152,35 @@
             "wpml_cf_preferences": 0,
             "enable_opacity": false,
             "return_format": "string"
+        },
+        {
+            "key": "field_65ddcb8604ff9",
+            "label": "Image type",
+            "name": "image_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Normal images can be used here, as well as SVGs in \"masked\" mode, which means the vector image will be filled with the accent colour you specify for this block.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
+            "choices": {
+                "image": "Image",
+                "mask": "Mask"
+            },
+            "default_value": "image",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -167,10 +198,9 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1695737526,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5f0c1554d77db.json",
-    "acfml_field_group_mode": "advanced"
+    "show_in_rest": 0,
+    "acfml_field_group_mode": "advanced",
+    "modified": 1709035060
 }
