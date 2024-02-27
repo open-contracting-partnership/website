@@ -37,6 +37,7 @@ class StagesServiceProvider
         $context['block']['title'] = get_field('title');
         $context['block']['introduction'] = get_field('introduction');
         $context['block']['stages'] = get_field('stages');
+        $context['block']['image_type'] = get_field('image_type') ?? 'image';
 
         $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 

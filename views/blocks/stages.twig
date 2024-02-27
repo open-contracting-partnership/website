@@ -17,7 +17,12 @@
 				{% for stage in block.stages %}
 					<a class="block__stage {{ stage.is_active ? 'block__stage--active' : '' }}" href="{{ stage.link.url }}">
 						<div class="block__stage-icon">
-							<div class="block__stage-icon-image" style="mask-image: url({{ stage.icon.url }}); -webkit-mask-image: url({{ stage.icon.url }});"></div>
+                            {% if block.image_type == 'image' %}
+                                <img class="block__stage-icon-image" src="{{ stage.icon.url }}" alt="{{ stage.link.title }}">
+                            {% else %}
+                                <div class="block__stage-icon-image" style="mask-image: url({{ stage.icon.url }}); -webkit-mask-image: url({{ stage.icon.url }});"></div>
+                            {% endif %}
+							{# <div class="block__stage-icon-image" style="mask-image: url({{ stage.icon.url }}); -webkit-mask-image: url({{ stage.icon.url }});"></div> #}
 						</div>
 
 						<strong class="block__stage-title">{{ stage.link.title }}</strong>
