@@ -381,8 +381,11 @@
                                 "id": ""
                             },
                             "gutenberg_visibility": "both",
+                            "relevanssi_exclude": 0,
+                            "wpml_cf_preferences": 0,
                             "choices": {
                                 "bottom": "Bottom",
+                                "bottom-inner": "Bottom Inner",
                                 "right": "Right"
                             },
                             "default_value": "right",
@@ -443,7 +446,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1705932771,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_6469c5e35b44c.json",
-    "acfml_field_group_mode": "advanced"
+    "acfml_field_group_mode": "advanced",
+    "modified": 1709302754
 }

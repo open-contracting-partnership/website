@@ -58,7 +58,8 @@ $font-size: 80px;
     padding: var(--padding);
     display: flex;
 
-    &[data-icon-position="bottom"] {
+    &[data-icon-position="bottom"],
+    &[data-icon-position="bottom-inner"] {
         flex-direction: column;
     }
 
@@ -112,10 +113,14 @@ $font-size: 80px;
             display: none;
         }
 
-        .our-reporting-card[data-icon-position="bottom"] & {
+        .our-reporting-card[data-icon-position="bottom"] &,
+        .our-reporting-card[data-icon-position="bottom-inner"] & {
             width: 75%;
             margin-top: spacing(3);
             align-self: center;
+        }
+
+        .our-reporting-card[data-icon-position="bottom"] & {
             margin-bottom: calc((var(--padding) + var(--icon-spacing)) * -1);
         }
 
