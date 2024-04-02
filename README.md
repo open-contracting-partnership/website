@@ -1,45 +1,59 @@
 # Open Contracting Partnership - WordPress Theme
 
-[![buddy pipeline](https://app.buddy.works/the-idea-bureau/website/pipelines/pipeline/247819/badge.svg?token=0a1174bd02e3c4104f3e3a4f22a48140acb7af40544b9684abde1d7d8d8d8cd9 "buddy pipeline")](https://app.buddy.works/the-idea-bureau/website/pipelines/pipeline/247819)
-
-**Website**: https://www.open-contracting.org/
-
 **Version**: 3.11.4
+
+| Environment | Status |
+| :-- | :-- |
+| [Production](https://www.open-contracting.org) | [![buddy pipeline](https://app.buddy.works/the-idea-bureau/website/pipelines/pipeline/247819/badge.svg?token=231a92d6d37280c9e8d3da6807a26e182bd2e613ef32061d150ac2619f979a3f "buddy pipeline")](https://app.buddy.works/the-idea-bureau/website/pipelines/pipeline/247819) |
+| Staging | [![buddy pipeline](https://app.buddy.works/the-idea-bureau/website/pipelines/pipeline/247818/badge.svg?token=231a92d6d37280c9e8d3da6807a26e182bd2e613ef32061d150ac2619f979a3f "buddy pipeline")](https://app.buddy.works/the-idea-bureau/website/pipelines/pipeline/247818) |
 
 ---
 
+## Versioning
+
+We use the [Semantic Versioning 2.0.0](https://semver.org/) version scheme, when bumping versions the following files must be updated:
+
+- README.md
+- style.css
+
 ## Project guidelines
 
+- Local URL is `open-contracting.test`
+- Theme directory name is `ocp-website`
 - [Git-Flow](https://nvie.com/posts/a-successful-git-branching-model/) to be used for git branching
 - [PHP PSR-12](https://www.php-fig.org/psr/psr-12/) coding standards
 - `.editorconfig` rules used to maintain coding styles
 
 ## Project dependencies
 
+- PHP 7.4
 - [Composer](https://getcomposer.org/download/)
 - [Laravel Mix](https://github.com/JeffreyWay/laravel-mix/tree/master/docs#summary)
-- [Yarn](https://classic.yarnpkg.com/en/docs/install/) (or npm)
+- [NPM](https://nodejs.org/en/download)
 
-## Installation and usage
+## Setup
+
+### Back-end
+
+Install all PHP dependencies with composer:
+
+```bash
+composer install
+```
+### Database
+
+Use WP Migrate to pull the latest database from the production environment. Initially you can [export the database](https://www.open-contracting.org/wp-admin/tools.php?page=wp-migrate-db-pro&adbc-ignore-notice=0#migrate/1) only and import locally, and then run WP Mirgate to properly download the database, media and plugins.
 
 ### Front-end
 
-Start by installing all yarn dependencies:
+Start by installing all npm dependencies and then run the watch command to compile assets.
 
-```
-yarn install
-```
-
-Laravel Mix provides various commands in order to compile front-end assets:
-
-```
-yarn run watch   # watch all files and compile
-yarn run hot     # watch all files, compile with live reload
-yarn run dev     # compile without minify
-yarn run prod    # compile with minify
+```bash
+npm install
+npm run watch
 ```
 
-#### SVG sprites
+### SVG sprites
 
 SVG files within the `/resources/svg` directory will be combined into a single SVG sprite, and can be referenced using the following snippet where a filename of `icon-twitter.svg` is referenced as:
 
@@ -48,15 +62,3 @@ SVG files within the `/resources/svg` directory will be combined into a single S
 ```
 
 SVGs used like this can be interacted with JavaScript and styled with CSS.
-
-### Back-end
-
-Composer is used for back-end libraries, use the following command to install dependancies.
-
-```
-composer install
-```
-
-### Lock files
-
-Both yarn and composer lock files are to be committed.
