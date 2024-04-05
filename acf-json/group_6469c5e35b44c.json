@@ -94,7 +94,7 @@
                     "label": "Content Type",
                     "name": "content_type",
                     "aria-label": "",
-                    "type": "true_false",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -106,11 +106,16 @@
                     "gutenberg_visibility": "both",
                     "relevanssi_exclude": 0,
                     "wpml_cf_preferences": 0,
-                    "message": "",
-                    "default_value": 0,
-                    "ui_on_text": "Strapline (Bold)",
-                    "ui_off_text": "Excerpt",
-                    "ui": 1,
+                    "choices": {
+                        "card-strapline": "Strapline (Bold)",
+                        "card-excerpt": "Excerpt"
+                    },
+                    "default_value": "card-strapline",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "layout": "vertical",
+                    "save_other_choice": 0,
                     "parent_repeater": "field_6469c5e3696cf"
                 },
                 {
@@ -126,7 +131,7 @@
                             {
                                 "field": "field_661004250bd94",
                                 "operator": "==",
-                                "value": "1"
+                                "value": "card-strapline"
                             }
                         ]
                     ],
@@ -157,8 +162,8 @@
                         [
                             {
                                 "field": "field_661004250bd94",
-                                "operator": "!=",
-                                "value": "1"
+                                "operator": "==",
+                                "value": "card-excerpt"
                             }
                         ]
                     ],
@@ -513,5 +518,5 @@
     "description": "",
     "show_in_rest": 0,
     "acfml_field_group_mode": "advanced",
-    "modified": 1712325852
+    "modified": 1712331630
 }

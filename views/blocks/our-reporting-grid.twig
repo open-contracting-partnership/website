@@ -25,9 +25,9 @@
             >
                 <div class="our-reporting-card__main">
                     <span class="our-reporting-card__heading">{{ card.heading }}</span>
-                    {% if card.content_type == true %}
+                    {% if card.content_type == strapline %}
                         <p class="our-reporting-card__strapline">{{ card.strapline }}</p>
-                    {% else %}
+                    {% elseif card.content_type == excerpt %}
                         <p class="our-reporting-card__excerpt">{{card.excerpt}}</p>
                     {% endif %}
                 </div>
