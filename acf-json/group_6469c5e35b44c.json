@@ -90,11 +90,11 @@
                     "parent_repeater": "field_6469c5e3696cf"
                 },
                 {
-                    "key": "field_6469c5e3f045f",
-                    "label": "Strapline",
-                    "name": "strapline",
+                    "key": "field_661004250bd94",
+                    "label": "Content Type",
+                    "name": "content_type",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "true_false",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -104,6 +104,72 @@
                         "id": ""
                     },
                     "gutenberg_visibility": "both",
+                    "relevanssi_exclude": 0,
+                    "wpml_cf_preferences": 0,
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "Strapline (Bold)",
+                    "ui_off_text": "Excerpt",
+                    "ui": 1,
+                    "parent_repeater": "field_6469c5e3696cf"
+                },
+                {
+                    "key": "field_6469c5e3f045f",
+                    "label": "Strapline",
+                    "name": "strapline",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_661004250bd94",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "relevanssi_exclude": 0,
+                    "wpml_cf_preferences": 0,
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_6469c5e3696cf"
+                },
+                {
+                    "key": "field_6610019af9de6",
+                    "label": "Excerpt",
+                    "name": "excerpt",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_661004250bd94",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "relevanssi_exclude": 0,
+                    "wpml_cf_preferences": 0,
                     "default_value": "",
                     "maxlength": "",
                     "placeholder": "",
@@ -447,5 +513,5 @@
     "description": "",
     "show_in_rest": 0,
     "acfml_field_group_mode": "advanced",
-    "modified": 1709302754
+    "modified": 1712325852
 }

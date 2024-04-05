@@ -97,13 +97,17 @@ $font-size: 80px;
             }
         }
 
-        .our-reporting-card__strapline {
+        .our-reporting-card__strapline .our-reporting-card__excerpt {
             font-size: 18px;
             margin-bottom: 0;
 
             @include from(T) {
                 font-size: 20px;
             }
+        }
+
+        .our-reporting-card__excerpt {
+            font-weight: 300;
         }
 
     .our-reporting-card__image {
