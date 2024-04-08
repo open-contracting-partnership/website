@@ -32,8 +32,8 @@ class OurReportingGridServiceProvider
 
         $context['block']['heading'] = get_field('heading');
         $context['block']['content_type'] = get_field('content_type') ?? 'card-strapline';
-        $context['block']['strapline'] = get_field('card_strapline');
-        $context['block']['excerpt'] = get_field('card_excerpt');
+        $context['block']['strapline'] = get_field('strapline');
+        $context['block']['excerpt'] = get_field('excerpt');
         $context['block']['previous_block_colour'] = get_field('previous_block_colour');
         $context['block']['cards'] = collect(get_field('cards'))->map(function ($card) {
             $card['type'] = ! empty($card['url']) ? 'a' : 'div';
