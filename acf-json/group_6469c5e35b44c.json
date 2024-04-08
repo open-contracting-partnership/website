@@ -121,7 +121,7 @@
                 {
                     "key": "field_6469c5e3f045f",
                     "label": "Strapline",
-                    "name": "card_strapline",
+                    "name": "strapline",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -153,7 +153,7 @@
                 {
                     "key": "field_6610019af9de6",
                     "label": "Excerpt",
-                    "name": "card_excerpt",
+                    "name": "excerpt",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -518,5 +518,5 @@
     "description": "",
     "show_in_rest": 0,
     "acfml_field_group_mode": "advanced",
-    "modified": 1712336635
+    "modified": 1712585421
 }
