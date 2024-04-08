@@ -24,8 +24,15 @@
                 data-icon-position="{{ card.icon.position }}"
             >
                 <div class="our-reporting-card__main">
+
                     <span class="our-reporting-card__heading">{{ card.heading }}</span>
-                    <p class="our-reporting-card__strapline">{{ card.strapline }}</p>
+
+                    {% if card.content_type == 'card-strapline' %}
+                        <p class="our-reporting-card__strapline">{{ card.strapline }}</p>
+                    {% elseif card.content_type == 'card-excerpt' %}
+                        <p class="our-reporting-card__excerpt">{{ card.excerpt }}</p>
+                    {% endif %}
+
                 </div>
 
                 {% if card.icon.icon is not empty %}

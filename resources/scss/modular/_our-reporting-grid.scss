@@ -83,6 +83,11 @@ $font-size: 80px;
 
     .our-reporting-card__main {
         margin-bottom: auto;
+        font-weight: 400;
+    }
+
+    .our-reporting-card__main:last-child {
+        margin-bottom: 0;
     }
 
         .our-reporting-card__heading {
@@ -91,19 +96,23 @@ $font-size: 80px;
             color: var(--accent-colour);
             text-transform: uppercase;
             margin-bottom: .2em;
+            font-weight: 700;
 
             @include from(T) {
                 font-size: 28px;
             }
         }
 
-        .our-reporting-card__strapline {
+        .our-reporting-card__strapline,
+        .our-reporting-card__excerpt {
             font-size: 18px;
-            margin-bottom: 0;
-
             @include from(T) {
                 font-size: 20px;
             }
+        }
+
+        .our-reporting-card__strapline {
+            font-weight: 700;
         }
 
     .our-reporting-card__image {

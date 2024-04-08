@@ -34,10 +34,14 @@ if (function_exists('acf_add_options_page') && function_exists('acf_add_options_
     ]);
 }
 
+// populate the ACF mega menu "parent" field with real menu items
 add_filter('acf/load_field/key=field_60646cab36b7e', function ($field) {
-
     // Get all locations
     $locations = get_nav_menu_locations();
+
+    if (! isset($locations['header-primary-nav'])) {
+        return $field;
+    }
 
     // Get object id by location
     $object = wp_get_nav_menu_object($locations['header-primary-nav']);
