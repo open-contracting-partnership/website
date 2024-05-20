@@ -36,7 +36,6 @@ $font-size: 80px;
     grid-column: content;
     display: grid;
     gap: var(--grid-gap);
-    grid-template-columns: repeat(var(--grid-columns), 1fr);
 
     @include from(M) {
         --grid-columns: 2;
