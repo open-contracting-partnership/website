@@ -94,11 +94,18 @@ $font-size: 64px;
     }
 
     .stats__heading {
-        font-size: 2.66em;
         @include font('secondary', 'bold');
         margin-bottom: -0.123em;
         line-height: 1;
+
+        &.large {
+            font-size: 2.66em;
+        }
+        &.small {
+            font-size: 1.66em;
+        }
     }
+
 
     .stats__strapline {
         font-size: 1em;

@@ -32,6 +32,7 @@ class StatsServiceProvider
         $context = Timber::get_context();
 
         $context['block']['heading'] = get_field('heading');
+        $context['block']['heading_size'] = get_field('heading_size');
         $context['block']['strapline'] = get_field('strapline');
         $context['block']['previous_block_colour'] = get_field('previous_block_colour');
         $context['block']['stats'] = get_field('stats');

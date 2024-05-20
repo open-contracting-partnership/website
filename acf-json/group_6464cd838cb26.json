@@ -24,6 +24,35 @@
             "append": ""
         },
         {
+            "key": "field_664b34f73abe9",
+            "label": "Heading Size",
+            "name": "heading_size",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
+            "choices": {
+                "large": "Large",
+                "small": "Small"
+            },
+            "default_value": "large",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_6464d71709a4d",
             "label": "Strapline",
             "name": "strapline",
@@ -423,5 +452,5 @@
     "description": "",
     "show_in_rest": 0,
     "acfml_field_group_mode": "advanced",
-    "modified": 1708694362
+    "modified": 1716205451
 }
