@@ -23,12 +23,14 @@ class PageWorldwideController extends Controller
         $context = Timber::get_context();
         $page = new Page();
 
+        $context['content'] = $page->content;
+
         // localise the script only *after* the scripts are queued up
         add_action('wp_enqueue_scripts', function () use ($page) {
 
             wp_localize_script('page-worldwide', 'content', [
-                'title' => $page->title,
-                'content' => str_replace(["\n", "\r"], '', apply_filters('the_content', $page->content)),
+                'title' => $page->meta('heading'),
+                'content' => $page->meta('introduction'),
                 'table_view' => __('Table view', 'ocp'),
                 'map_view' => __('Map view', 'ocp'),
                 'map' => array(
