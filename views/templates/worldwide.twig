@@ -1,9 +1,11 @@
 {% extends "base.twig" %}
 
 {% block content %}
+	<main class="page-container">
+		{{ content | raw }}
+	</main>
 
 	<div id="worldwide">
 		<router-view></router-view>
 	</div>
-
 {% endblock %}

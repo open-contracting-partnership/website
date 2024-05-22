@@ -175,7 +175,7 @@ textarea {
 	color: $ui-grey-4;
 
 	height: em(23, 14);
-	border: 1px solid currentColor;
+	border: 0.5px solid currentColor;
 	border-radius: 2px 999px 999px 2px;
 	display: flex;
 
@@ -188,7 +188,7 @@ textarea {
 		background: none;
 		border-radius: 0;
 		color: currentColor;
-		padding: em(2, 11) em(3, 11) 0 em(9, 11);
+		padding: 4px 34px 4px 7px;
 		margin: 0;
 		min-width: 0;
 

@@ -1,11 +1,11 @@
 {
     "key": "group_57f370d835425",
-    "title": "Worldwide Introduction",
+    "title": "Worldwide Map",
     "fields": [
         {
-            "key": "field_57f3714dd024e",
-            "label": "Introduction Text",
-            "name": "introduction",
+            "key": "field_664b742157629",
+            "label": "Heading",
+            "name": "heading",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -16,13 +16,35 @@
                 "class": "",
                 "id": ""
             },
+            "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 0,
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "append": ""
+        },
+        {
+            "key": "field_57f3714dd024e",
+            "label": "Introduction",
+            "name": "introduction",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 0,
+            "default_value": "",
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
         }
     ],
     "location": [
@@ -40,10 +62,9 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1695737537,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_57f370d835425.json",
-    "acfml_field_group_mode": "advanced"
+    "show_in_rest": 0,
+    "acfml_field_group_mode": "advanced",
+    "modified": 1716220994
 }

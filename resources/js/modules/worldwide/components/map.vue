@@ -402,7 +402,7 @@
 		position: relative;
 		min-height: calc(100vh - 88px);
 
-		@include from(T) {
+		@include from(M) {
 			grid-template-rows: [all-start] minmax(min-content, max-content) auto [all-end];
 			grid-template-columns: [all-start] 460px auto 570px [all-end];
 			// reduce the min-height by the header height, and then an amount to all the footer to show through
@@ -420,7 +420,7 @@
 		flex: 0 0 auto;
 		margin-bottom: 0;
 
-		@include from(T) {
+		@include from(M) {
 			display: none;
 		}
 
@@ -432,14 +432,14 @@
 		grid-column: all;
 		z-index: 4;
 
-		@include from(T) {
+		@include from(M) {
 			grid-row: all;
 			grid-column: 1;
 		}
 
 		&:not(.open) {
 
-			@include upto(T) {
+			@include upto(M) {
 				display: none;
 			}
 
@@ -449,13 +449,13 @@
 
 		.map-zoom {
 
-			@include upto(T) {
+			@include upto(M) {
 				position: absolute;
 				bottom: spacing(10);
 				right: spacing(2);
 			}
 
-			@include from(T) {
+			@include from(M) {
 				margin-left: spacing(2);
 			}
 
@@ -490,7 +490,7 @@
 		grid-column: all;
 		z-index: 5;
 
-		@include from(T) {
+		@include from(M) {
 			grid-row: 2;
 			grid-column: 3;
 			padding: spacing(5) spacing(6) spacing(5);
@@ -512,7 +512,7 @@
 		justify-content: center;
 		z-index: 3;
 
-		@include from(T) {
+		@include from(M) {
 			grid-row: 1;
 			grid-column: 2 / 4;
 			justify-content: flex-end;
@@ -527,7 +527,7 @@
 		grid-column: all;
 		z-index: 2;
 
-		@include from(T) {
+		@include from(M) {
 			display: none;
 		}
 
@@ -550,7 +550,7 @@
 		grid-column: all;
 		z-index: 1;
 
-		@include from(T) {
+		@include from(M) {
 			grid-row: all;
 		}
 
@@ -562,7 +562,7 @@
 		grid-column: all;
 		z-index: 6;
 
-		@include from(T) {
+		@include from(M) {
 			grid-row: all;
 			grid-column: 2 / all;
 		}

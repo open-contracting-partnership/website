@@ -245,10 +245,6 @@
 				margin-bottom: spacing(3);
 				width: 100%;
 
-				@include from(T) {
-					// display: flex;
-				}
-
 				a {
 					color: inherit;
 				}

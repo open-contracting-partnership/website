@@ -219,7 +219,7 @@
 		padding: spacing(2) spacing(1);
 		text-align: left;
 
-		@include from(T) {
+		@include from(M) {
 			padding: spacing(3) spacing(2);
 		}
 
@@ -271,7 +271,7 @@
 		.country-table__country a {
 			flex: 1 1 100%;
 		}
-		
+
 
 	.country-table__agency {
 
