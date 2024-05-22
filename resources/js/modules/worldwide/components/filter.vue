@@ -129,7 +129,7 @@
 		padding: spacing(2);
 		height: 100%;
 
-		@include from(T) {
+		@include from(M) {
 			min-width: 384px;
 		}
 
@@ -149,7 +149,7 @@
 			border: none;
 			background: none;
 
-			@include from(T) {
+			@include from(M) {
 				display: none;
 			}
 
@@ -174,7 +174,7 @@
 
 			font-size: 24px;
 
-			@include from(T) {
+			@include from(M) {
 				font-size: 42px;
 				margin-bottom: spacing(3);
 			}
@@ -187,7 +187,7 @@
 			@include font('secondary');
 			margin-bottom: spacing(2);
 
-			@include from(T) {
+			@include from(M) {
 				margin-bottom: spacing(4);
 			}
 
@@ -256,7 +256,7 @@
 		align-items: center;
 		margin-bottom: spacing(4);
 
-		@include upto(T) {
+		@include upto(M) {
 			display: none;
 		}
 

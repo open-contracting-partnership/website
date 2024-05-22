@@ -189,7 +189,7 @@
 		display: flex;
 		flex-wrap: wrap;
 
-		@include from(T) {
+		@include from(M) {
 			border-radius: 0 17px 17px 0;
 		}
 
@@ -208,7 +208,7 @@
 			flex-basis: calc(100% - 33px);
 			padding: spacing(.5) spacing(1);
 
-			@include from(T) {
+			@include from(M) {
 				flex-basis: 100%;
 			}
 
@@ -260,7 +260,7 @@
 			border-left: 1px solid $ui-grey-3;
 			cursor: pointer;
 
-			@include from(T) {
+			@include from(M) {
 				display: none;
 			}
 
