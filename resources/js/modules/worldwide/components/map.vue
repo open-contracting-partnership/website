@@ -404,7 +404,7 @@
 
 		@include from(M) {
 			grid-template-rows: [all-start] minmax(min-content, max-content) auto [all-end];
-			grid-template-columns: [all-start] 460px auto 570px [all-end];
+			grid-template-columns: [all-start] 450px auto 570px [all-end];
 			// reduce the min-height by the header height, and then an amount to all the footer to show through
 			min-height: calc((100vh - 162.5px) - 50px);
 		}
