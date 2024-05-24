@@ -8,7 +8,7 @@
             "name": "heading",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Note: This heading field is only used when the cover includes no child blocks.",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -17,11 +17,13 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_5da58cedafa71",
@@ -127,8 +129,7 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1695737519,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5da58cd48a99e.json",
-    "acfml_field_group_mode": "advanced"
+    "show_in_rest": 0,
+    "acfml_field_group_mode": "advanced",
+    "modified": 1716540695
 }
