@@ -37,9 +37,8 @@ class CardEmbedServiceProvider
 
         $context['block']['buttons'] = get_field('buttons');
 
-        if ($is_preview) {
+        if ($is_preview && $context['block']['buttons']) {
             $context['block']['buttons'] = array_map(function ($button) {
-
                 $button['link']['url'] = '#';
                 $button['link']['target'] = '';
 

@@ -20,6 +20,21 @@ class SearchController extends Controller
 
         $context['title'] = 'Search results for \'' . htmlspecialchars($search_query) . '\'';
 
+        $context['search']['order_by'] = $_GET['orderby'] ?? 'relevance';
+
+        $context['search']['sort_links'] = [
+            'recent' => sprintf(
+                '%s?s=%s&orderby=post_date&order=desc',
+                get_bloginfo('url'),
+                get_search_query(),
+            ),
+            'relevance' => sprintf(
+                '%s?s=%s&orderby=relevance',
+                get_bloginfo('url'),
+                get_search_query(),
+            ),
+        ];
+
         $context['search']['i18n']['next_page_label'] = _x(
             'Next Page',
             'The next page label on search results',

@@ -40,7 +40,7 @@ class CardWithIconServiceProvider
         $context['block']['icon'] = get_field('icon');
         $context['block']['link'] = get_field('link');
 
-        if ($is_preview) {
+        if ($is_preview && $context['block']['link']) {
             $context['block']['link']['url'] = '#';
             $context['block']['link']['target'] = '';
         }
