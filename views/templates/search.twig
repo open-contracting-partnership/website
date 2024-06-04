@@ -7,11 +7,11 @@
 
             <p>
                 {% if search.order_by != 'relevance' %}
-                    <a href="{{ search.sort_links.relevance }}">Sort by relevance</a>
+                    <a href="{{ search.sort_links.relevance }}" data-instant>Sort by relevance</a>
                 {% endif %}
 
                 {% if search.order_by != 'post_date' %}
-                    <a href="{{ search.sort_links.recent }}">Sort by most recent</a>
+                    <a href="{{ search.sort_links.recent }}" data-instant>Sort by most recent</a>
                 {% endif %}
             </p>
 
