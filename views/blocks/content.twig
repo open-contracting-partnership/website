@@ -118,6 +118,9 @@
 						{% endif %}
 
 						<div class="block__sidebar-image {{ item.class }}">
+                            {% if item.link %}
+                                <a href="{{ item.link }}">
+                            {% endif %}
 
 							{{ imgix({
 								src: item.image.url,
@@ -138,6 +141,9 @@
 								sizes: '(min-width: 1340px) 600px, (min-width: 1024px) 50vw, 100vw'
 							}) }}
 
+                            {% if item.link %}
+                                </a>
+                            {% endif %}
 						</div>
 
 					{% endif %}
