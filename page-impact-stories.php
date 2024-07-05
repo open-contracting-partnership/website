@@ -23,7 +23,7 @@ class PageImpactStoriesController extends Controller
         $context = Timber::get_context();
         $page = new Page();
 
-        $context['title'] = $page->title;
+        $context['title'] = $page->title();
         $context['content'] = $page->content;
         $context['stories'] = $page->meta('add_stories');
         $context['stories'] = get_field('add_stories', get_the_ID());
