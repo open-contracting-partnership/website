@@ -91,16 +91,19 @@
                                 "id": ""
                             },
                             "gutenberg_visibility": "both",
+                            "relevanssi_exclude": 0,
+                            "wpml_cf_preferences": 0,
                             "choices": {
                                 "padlock": "Open Padlock",
                                 "fist": "Fist",
-                                "magnifier": "Magnifier"
+                                "magnifier": "Magnifier",
+                                "person": "Person"
                             },
-                            "default_value": [],
-                            "allow_null": 0,
-                            "multiple": 0,
-                            "ui": 0,
+                            "default_value": false,
                             "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
                             "ajax": 0,
                             "placeholder": ""
                         },
@@ -155,6 +158,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Link",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5db19dc92a3fe",
@@ -174,8 +178,7 @@
                                     "return_format": "array",
                                     "parent_repeater": "field_5db19d6e2a3fd"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -207,6 +210,7 @@
                             "max": 0,
                             "layout": "block",
                             "button_label": "Add Link",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5dd55f05a5a69",
@@ -266,8 +270,7 @@
                                     "return_format": "string",
                                     "parent_repeater": "field_5dd55f05a5a68"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -496,6 +499,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Link",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5dd4f73b49b21",
@@ -515,8 +519,7 @@
                                     "return_format": "array",
                                     "parent_repeater": "field_5dd4f72e49b20"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         },
                         {
                             "key": "field_5dd4f74a49b22",
@@ -540,9 +543,7 @@
                                 "orange": "Orange",
                                 "white": "White"
                             },
-                            "default_value": [
-                                "grey"
-                            ],
+                            "default_value": "grey",
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
@@ -580,6 +581,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Link",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5e1f345c9849d",
@@ -599,8 +601,7 @@
                                     "return_format": "array",
                                     "parent_repeater": "field_5e1f34409849c"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -689,9 +690,7 @@
                 "large": "Large",
                 "full": "Full"
             },
-            "default_value": [
-                "full"
-            ],
+            "default_value": "full",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -718,7 +717,7 @@
                 "bottom": "Bottom",
                 "top": "Top"
             },
-            "default_value": [],
+            "default_value": false,
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -745,9 +744,7 @@
                 "left": "Left",
                 "center": "Center"
             },
-            "default_value": [
-                "left"
-            ],
+            "default_value": "left",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -774,7 +771,7 @@
                 "normal": "Normal",
                 "small": "Small"
             },
-            "default_value": [],
+            "default_value": false,
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -798,10 +795,9 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1695737517,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5da5d7bb3d2a0.json",
-    "acfml_field_group_mode": "advanced"
+    "show_in_rest": 0,
+    "acfml_field_group_mode": "advanced",
+    "modified": 1720190251
 }
