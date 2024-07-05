@@ -5,15 +5,19 @@
 		<div class="search__container">
 			<h1>{{ title }}</h1>
 
-            <p>
-                {% if search.order_by != 'relevance' %}
-                    <a href="{{ search.sort_links.relevance }}" data-instant>Sort by relevance</a>
-                {% endif %}
+            <div class="switcher">
+                <a
+                    href="{{ search.sort_links.relevance }}"
+                    data-active="{{ search.order_by == 'relevance' ? 'true' : 'false' }}"
+                    data-instant
+                >By relevance</a>
 
-                {% if search.order_by != 'post_date' %}
-                    <a href="{{ search.sort_links.recent }}" data-instant>Sort by most recent</a>
-                {% endif %}
-            </p>
+                <a
+                    href="{{ search.sort_links.recent }}"
+                    data-active="{{ search.order_by == 'post_date' ? 'true' : 'false' }}"
+                    data-instant
+                >By most recent</a>
+            </div>
 
             {% if search.results %}
                 {% for card in search.results %}

@@ -1,0 +1,37 @@
+.switcher {
+    --border: 2px;
+
+    font-size: 14px;
+    display: inline-flex;
+    background-color: $ui-grey-3;
+    border: var(--border) solid $ui-grey-3;
+    border-radius: spacing(.5);
+    border-top-left-radius: spacing(2);
+    overflow: hidden;
+    margin-bottom: spacing(3);
+    gap: var(--border);
+
+    @include from(S) {
+        --border: 3px;
+
+        font-size: 16px;
+    }
+}
+
+    .switcher a {
+        color: $ui-white;
+        text-decoration: none;
+        padding: .55em 1em .35em;
+        font-weight: 700;
+
+        @include from(S) {
+            padding: .65em 2em .45em;
+        }
+
+        &[data-active="true"],
+        &:hover,
+        &:focus {
+            background-color: $ui-brand;
+            color: $ui-grey-3;
+        }
+    }
