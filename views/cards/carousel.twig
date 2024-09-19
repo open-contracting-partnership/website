@@ -1,9 +1,7 @@
 {% set options = { 'size': null, 'image_loading': 'lazy' } | merge(options|default([])) %}
 
 <div class="card card--carousel" data-size="{{ options.size }}">
-
 	<div class="card__image">
-
 		{{ imgix({
 			src: card.image_url,
 			params: {
@@ -28,26 +26,20 @@
 			loading: options.image_loading
 		}) }}
 
-		<div class="card__image-overlay">
+		{% if options.show_overlay != false %}
+			<div class="card__image-overlay">
+				<a class="card__title-link" href="{{ card.url }}">
+					<h2 class="card__title">{{ card.title }}</h2>
+				</a>
 
-			<a class="card__title-link" href="{{ card.url }}">
-				<h2 class="card__title">{{ card.title }}</h2>
-			</a>
-
-			{% if card.introduction %}
-
-				<div class="card__intro-outer">
-
-					<div class="card__intro">
-						<p>{{ card.introduction }}</p>
+				{% if card.introduction %}
+					<div class="card__intro-outer">
+						<div class="card__intro">
+							<p>{{ card.introduction }}</p>
+						</div>
 					</div>
-
-				</div>
-
-			{% endif %}
-
-		</div>
-
+				{% endif %}
+			</div>
+		{% endif %}
 	</div>
-
 </div>
