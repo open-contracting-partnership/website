@@ -29,7 +29,7 @@ class FeaturedStoriesCarouselServiceProvider
                     );
                 },
                 'keywords' => ['featured', 'story', 'stories', 'carousel'],
-                'post_types' => ['page'],
+                'post_types' => ['page', 'post'],
                 'supports' => [
                     'align' => false
                 ]
