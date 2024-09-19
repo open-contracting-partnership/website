@@ -48,15 +48,16 @@ class FeaturedStoriesCarouselServiceProvider
         $context['block']['featured_stories'] = array_map(function ($story) {
 
             return [
-                'title' => $story['title'],
+                'title' => $story['link']['title'] ?? null,
                 'introduction' => $story['introduction'],
                 'image_url' => $story['image']['url'],
-                'url' => $story['link']['url']
+                'url' => $story['link']['url'] ?? null
             ];
         }, $context['block']['featured_stories']);
 
         // options
         $context['block']['options'] = get_field('options') ?: [];
+        $context['block']['options']['show_overlay'] = get_field('show_overlay') ?? true;
 
         echo Timber::compile('blocks/featured-stories-carousel.twig', $context);
     }

@@ -3,8 +3,30 @@
     "title": "Block: Featured Stories Carousel",
     "fields": [
         {
+            "key": "field_66ec4afcbe56e",
+            "label": "Show Overlay?",
+            "name": "show_overlay",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 0,
+            "message": "",
+            "default_value": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_5dd816ad0eee7",
-            "label": "Featured Stories",
+            "label": "Carousel Items",
             "name": "featured_stories",
             "aria-label": "",
             "type": "repeater",
@@ -17,19 +39,21 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "collapsed": "field_5dd816ad11882",
+            "wpml_cf_preferences": 0,
+            "layout": "block",
+            "pagination": 0,
             "min": 0,
             "max": 0,
-            "layout": "block",
+            "collapsed": "",
             "button_label": "Add Story",
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_5dd816ad11882",
-                    "label": "Title",
-                    "name": "title",
+                    "key": "field_5dd816e06a954",
+                    "label": "Image",
+                    "name": "image",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "image",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
@@ -38,13 +62,45 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0,
+                    "gutenberg_visibility": "both",
+                    "wpml_cf_preferences": 0,
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_5dd816ad0eee7"
+                },
+                {
+                    "key": "field_5dd816e66a955",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_66ec4afcbe56e",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "wpml_cf_preferences": 0,
+                    "return_format": "array",
                     "parent_repeater": "field_5dd816ad0eee7"
                 },
                 {
@@ -55,63 +111,27 @@
                     "type": "text",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_66ec4afcbe56e",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
                     "gutenberg_visibility": "both",
+                    "wpml_cf_preferences": 0,
                     "default_value": "",
+                    "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
-                    "parent_repeater": "field_5dd816ad0eee7"
-                },
-                {
-                    "key": "field_5dd816e06a954",
-                    "label": "Image",
-                    "name": "image",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "gutenberg_visibility": "both",
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "parent_repeater": "field_5dd816ad0eee7"
-                },
-                {
-                    "key": "field_5dd816e66a955",
-                    "label": "Link",
-                    "name": "link",
-                    "aria-label": "",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "gutenberg_visibility": "both",
-                    "return_format": "array",
                     "parent_repeater": "field_5dd816ad0eee7"
                 }
             ]
@@ -134,10 +154,9 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "active": 1,
+    "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1705932771,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5dd816acdd979.json",
-    "acfml_field_group_mode": "advanced"
+    "show_in_rest": 0,
+    "acfml_field_group_mode": "advanced",
+    "modified": 1726763211
 }
