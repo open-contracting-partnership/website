@@ -1,0 +1,17 @@
+<div class="key-issues" style="background-color: {{ block.background_colour }}; color: {{ block.text_colour }};" data-block-type="key-issues">
+    <div class="block__background" style="background-color: {{ block.background_colour }}"></div>
+    <div class="key-issues__container">
+    <h2 class="key-issues__title">{{ block.title }}</h2>
+    <div class="key-issues__subtitle">{{ block.introduction }}</div>
+    <div class="key-issues__grid">
+        {% for issue in block.key_issues %}
+            <div class="key-issues__card">
+                <div class="key-issues__card-icon">
+                <img src="{{ issue.icon.url }}" alt="{{ issue.issue_name }}">
+                </div>
+                <h3 class="key-issues__card-title">{{ issue.issue_name }}</h3>
+            </div>
+        {% endfor %}
+    </div>
+  </div>
+</div>
