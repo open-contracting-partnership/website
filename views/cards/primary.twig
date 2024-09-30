@@ -56,17 +56,13 @@
 
 		{% endif %}
 
-		{% if card.type_label %}
-
-			<div class="card__image-overlay">
-				<div class="card__tag">{{ card.type_label }}</div>
-			</div>
-
-		{% endif %}
-
 	</div>
 
 	<div class="card__main">
+
+		{% if card.type_label %}
+			<div class="card__tag">{{ card.type_label }}</div>
+		{% endif %}
 
 		<a class="card__title-link" href="{{ card.url }}">
 			<h2 class="card__title">{{ card.title }}</h2>
@@ -74,20 +70,13 @@
 
         <p class="card__introduction">{{ card.introduction }}</p>
 
+		<p class="">Topics: <a href="#">{{ card.type_label }}</a></p>
+
 		<div class="card__footer">
 
 			{% if card.meta %}
 				<div class="card__meta">{{ card.meta }}</div>
 			{% endif %}
-
-			<div class="card__cta">
-
-				<a class="arrow-link" href="{{ card.url }}">
-					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-					<span class="arrow-link__label">{{ card.button_label | upper }}</span>
-				</a>
-
-			</div>
 
 		</div>
 

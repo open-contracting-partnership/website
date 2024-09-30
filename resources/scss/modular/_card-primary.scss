@@ -1,12 +1,14 @@
 .card.card--primary {
 
-	--background-color: #{$ui-grey};
+	--background-color: #{$ui-white};
 	--color: #{$ui-white};
 
-	border-radius: spacing(4) spacing(1) 0 spacing(2);
+	border-radius: spacing(4) 5px;
+	padding: spacing(2);
+	border: 1px solid $ui-grey-7;
 	overflow: hidden;
 	background: var(--background-color);
-	color: var(--color);
+	color: $ui-grey-3;
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -17,48 +19,35 @@
 	}
 
 	.card__image {
-
-		position: relative;
-		width: 100%;
-		flex: 0 0 auto;
+		margin-bottom: 12px;
 
 		@media print {
 			flex: 0 0 25%;
 		}
 
 		img {
+			border-radius: spacing(4) 5px;
+			object-fit: cover;
 			display: block;
 			width: 100%;
 		}
 
 	}
 
-		.card__image-overlay {
-
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			background: linear-gradient(180deg, #2F2F2F 0%, rgba(255, 255, 255, 0) 100%);
-			background-blend-mode: darken;
-			padding: spacing(2) spacing(3);
-
-			@media print {
-				display: none;
-			}
-
-		}
-
 			.card__tag {
-				font-size: 18px;
-				color: $ui-brand;
+				font-size: 12px;
+				width: fit-content;
+				padding: 4px 12px;
+				// color: $ui-brand;
+				color: $ui-grey;
+				border: 1px solid $ui-grey;
+				border-radius: 42px;
 				text-transform: uppercase;
-				@include font('secondary', 'bold');
+				@include font('secondary');
+				margin-bottom: 8px;
 			}
 
 	.card__main {
-		padding: spacing(1.5) spacing(2.5);
 		flex: 1 1 100%;
 		display: flex;
 		flex-direction: column;

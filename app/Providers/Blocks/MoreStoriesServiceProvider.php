@@ -36,6 +36,7 @@ class MoreStoriesServiceProvider
 
         $context['block'] = [];
         $context['block']['title'] = get_field('title');
+        $context['block']['subheading'] = get_field('subheading');
         $context['block']['call_to_action'] = get_field('call_to_action');
         $context['block']['card_type'] = get_field('card_type') ?: 'default';
         $context['block']['card_options'] = [];

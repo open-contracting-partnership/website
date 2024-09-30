@@ -11,14 +11,8 @@
 			{% if block.title %}
 				<h2 class="block__heading">{{ block.title }}</h2>
 			{% endif %}
-
-			{% if block.call_to_action %}
-
-				<a class="arrow-link" href="{{ block.call_to_action.url }}" style="color: inherit;">
-					<svg class="arrow-link__icon" style="fill: currentColor;"><use xlink:href="#icon-arrow-circle"></use></svg>
-					<span class="arrow-link__label">{{ block.call_to_action.title }}</span>
-				</a>
-
+			{% if block.subheading %}
+				<p class="block__subheading">{{ block.subheading }}</p>
 			{% endif %}
 
 		</div>
@@ -56,6 +50,15 @@
 			{% endif %}
 
 		</div> <!-- / .block__stories -->
+
+		{% if block.call_to_action %}
+
+			<a class="arrow-link" href="{{ block.call_to_action.url }}" style="color: inherit;">
+				<svg class="arrow-link__icon" style="fill: currentColor;"><use xlink:href="#icon-arrow-circle"></use></svg>
+				<span class="arrow-link__label">{{ block.call_to_action.title }}</span>
+			</a>
+
+		{% endif %}
 
 	</div>
 

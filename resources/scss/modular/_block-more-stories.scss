@@ -65,6 +65,12 @@
 
 			}
 
+			.block__subheading {
+				font-size: 20px;
+				text-align: var(--heading-text-align, center);
+
+			}
+
 		.block__stories {
 
 			> .card {
