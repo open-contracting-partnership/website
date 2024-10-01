@@ -7,7 +7,7 @@
 
 	.block__container {
 
-		grid-column: full;
+		grid-column: content;
 		grid-row: 1;
 		font-size: 17px;
 		@include font('secondary', 'medium');
@@ -49,22 +49,20 @@
 
 			.block__carousel-controls {
 
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				grid-column-gap: 632px;
-				justify-content: space-between;
-				align-content: center;
+				// position: absolute;
+				// top: 0;
+				// right: 0;
+				// bottom: 0;
+				// left: 0;
+				// display: grid;
+				// grid-template-columns: repeat(2, 1fr);
+				// grid-column-gap: 20px;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 16px;
+				justify-content: center;
 				z-index: 3;
 				pointer-events: none;
-
-				@include upto(T) {
-					display: none;
-				}
 
 				button {
 					pointer-events: all;
@@ -78,7 +76,6 @@
 				button > svg {
 					font-size: 77px;
 					height: 1em;
-					width: 0.428em;
 					fill: $ui-brand;
 				}
 
