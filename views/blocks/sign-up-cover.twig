@@ -28,15 +28,23 @@
 
 			<form class="screen-only / block__form / js-mailchimp-form">
 
+				<div class="block__form-regions">
+					{% for newsletter in block.newsletters %}
+						<div class="form-region">
+							{{newsletter.newsletter_region}}
+						</div>
+					{% endfor %}
+				</div>
+
 				{% if block.form_label %}
 					<p>{{ block.form_label }}</p>
 				{% endif %}
 
 				<div class="block__form-wrapper">
 
-					<input type="email" name="email" placeholder="Your email address" aria-label="Email">
+					<input type="email" name="email" placeholder="Enter your email address" aria-label="Email">
 
-					<button class="block__form-submit / button--naked" aria-label="Submit">
+					<button class="block__form-submit / button--naked" aria-label="Submit">SUBSCRIBE
 						<svg><use xlink:href="#icon-arrow-circle"></use></svg>
 					</button>
 

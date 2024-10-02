@@ -17,11 +17,12 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 0,
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_5e1deab9d28ff",
@@ -45,6 +46,55 @@
             "delay": 0
         },
         {
+            "key": "field_66fd2cedd81d3",
+            "label": "Newsletters",
+            "name": "newsletters",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 0,
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_66fd2d00d81d4",
+                    "label": "Newsletter Region",
+                    "name": "newsletter_region",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "wpml_cf_preferences": 0,
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_66fd2cedd81d3"
+                }
+            ]
+        },
+        {
             "key": "field_5e1deb28ac935",
             "label": "Form label",
             "name": "form_label",
@@ -64,32 +114,6 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
-        },
-        {
-            "key": "field_5db6cb06be6db",
-            "label": "Image",
-            "name": "image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "gutenberg_visibility": "both",
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
         },
         {
             "key": "field_5e1deb40ac936",
@@ -119,7 +143,7 @@
         },
         {
             "key": "field_5db6cb06be6ed",
-            "label": "Overlay Colour",
+            "label": "Colour",
             "name": "overlay_colour",
             "aria-label": "",
             "type": "color_picker",
@@ -131,32 +155,11 @@
                 "class": "",
                 "id": ""
             },
+            "gutenberg_visibility": "both",
             "wpml_cf_preferences": 0,
             "default_value": "#000000",
-            "enable_opacity": false,
+            "enable_opacity": 0,
             "return_format": "string"
-        },
-        {
-            "key": "field_5db6cb06be71e",
-            "label": "Background Opacity",
-            "name": "background_opacity",
-            "aria-label": "",
-            "type": "range",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "wpml_cf_preferences": 0,
-            "default_value": 50,
-            "min": "",
-            "max": "",
-            "step": 10,
-            "prepend": "",
-            "append": ""
         },
         {
             "key": "field_5e1decd504bbe",
@@ -193,10 +196,9 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1695737526,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5db6cb06927da.json",
-    "acfml_field_group_mode": "advanced"
+    "show_in_rest": 0,
+    "acfml_field_group_mode": "advanced",
+    "modified": 1727872407
 }
