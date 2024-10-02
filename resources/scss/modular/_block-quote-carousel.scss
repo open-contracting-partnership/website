@@ -45,6 +45,12 @@
 		.block__carousel_container {
 			grid-column: full;
 			position: relative;
+			height: 100%;
+		}
+
+		.block__carousel {
+			display: flex;
+    		align-items: stretch;
 		}
 
 			.block__carousel-controls {
@@ -88,11 +94,18 @@
 			.block__carousel-item {
 
 				transition: opacity .3s ease;
-				opacity: .85;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				min-height: 100%;
 
 				.card.card--quote .card__toggle::before {
 					background-color: rgba(0, 0, 0, .75);
 				}
+
+				.card-container {
+					display: flex;
+				};
 
 			}
 
@@ -104,6 +117,16 @@
 					background-color: initial;
 				}
 
+			}
+
+			.card__quote {
+				p {
+					font-size: 20px !important;
+				}
+
+				footer {
+					font-size: 18px;
+				}
 			}
 
 }
