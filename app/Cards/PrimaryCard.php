@@ -8,6 +8,15 @@ class PrimaryCard extends BaseCard
 {
     public static function convertTimberPost($post)
     {
+
+        $tags = collect($post->tags())
+            ->map(function ($tag) {
+                return [
+                    'name' => $tag->title(),
+                    'link' => $tag->link()
+                ];
+            });
+
         $data = [
             'title' => $post->post_title,
             'url' => $post->link(),
@@ -16,19 +25,20 @@ class PrimaryCard extends BaseCard
             'image_url' => $post->thumbnail ? $post->thumbnail->src : null,
             'type_label' => get_post_type_label($post->post_type),
             'button_label' => __('Read', 'ocp'),
-            'post_type' => $post->post_type
+            'post_type' => $post->post_type,
+            'tags' => $tags,
         ];
-
-        // posts and news should have a date
-        if (in_array($post->post_type, ['post', 'news'])) {
-            $data['meta'][] = $post->date;
-        }
 
         // only posts should have an author
         if ($post->post_type === 'post') {
             if ($post->author && $post->author->name) {
                 $data['meta'][] = $post->author->name;
             }
+        }
+
+        // posts and news should have a date
+        if (in_array($post->post_type, ['post', 'news'])) {
+            $data['meta'][] = $post->date;
         }
 
         // resources should have an organisation if available

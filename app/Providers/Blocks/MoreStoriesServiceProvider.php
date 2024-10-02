@@ -39,6 +39,7 @@ class MoreStoriesServiceProvider
         $context['block']['subheading'] = get_field('subheading');
         $context['block']['call_to_action'] = get_field('call_to_action');
         $context['block']['card_type'] = get_field('card_type') ?: 'default';
+        $context['block']['has_featured'] = get_field('has_featured') ? 'true' : 'false';
         $context['block']['card_options'] = [];
 
         if ($context['block']['card_type'] === 'resource') {

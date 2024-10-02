@@ -4,7 +4,7 @@
 	{% set fallback_image = '/wp-content/themes/ocp-v1/resources/img/fallback-v2.jpg' %}
 {% endif %}
 
-<div class="card card--primary">
+<div class="card card--primary" data-has-featured="{{ block.has_featured }}">
 
 	<div class="card__image">
 
@@ -59,9 +59,12 @@
 	</div>
 
 	<div class="card__main">
-
 		{% if card.type_label %}
 			<div class="card__tag">{{ card.type_label }}</div>
+		{% endif %}
+
+		{% if block.has_featured %}
+			<div class="card__tag-featured">Featured</div>
 		{% endif %}
 
 		<a class="card__title-link" href="{{ card.url }}">
@@ -70,7 +73,11 @@
 
         <p class="card__introduction">{{ card.introduction }}</p>
 
-		<p class="">Topics: <a href="#">{{ card.type_label }}</a></p>
+		<p class="card__topics">Topics:
+			{% for tag in card.tags %}
+				<a href="{{ tag.link }}">{{ tag.name }}{% if not loop.last %}, {% endif %}</a>
+			{% endfor %}
+		</p>
 
 		<div class="card__footer">
 

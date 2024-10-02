@@ -84,6 +84,28 @@
             "ui": 1
         },
         {
+            "key": "field_66fbde18a5082",
+            "label": "Has featured?",
+            "name": "has_featured",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "If selected, the first item in the stories list will be featured. Items can be dragged to reorder.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 0,
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_5dd527760edd2",
             "label": "Stories",
             "name": "stories",
@@ -106,7 +128,9 @@
                 "id": ""
             },
             "gutenberg_visibility": "edit_screen",
+            "wpml_cf_preferences": 0,
             "post_type": "",
+            "post_status": "",
             "taxonomy": "",
             "filters": [
                 "search",
@@ -117,7 +141,36 @@
             "min": "",
             "max": "",
             "elements": "",
+            "bidirectional": 0,
             "bidirectional_target": []
+        },
+        {
+            "key": "field_66fbf0b7049c3",
+            "label": "Stories",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_646b442bd88c2",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "block_settings",
+            "wpml_cf_preferences": 0,
+            "message": "To change selected stories, please click on the block in the editor and then click the pencil to use edit mode. Click and drag to reorder items.",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_646b4475d88c3",
@@ -239,6 +292,29 @@
                     "default_value": "",
                     "placeholder": "",
                     "parent_repeater": "field_646b4475d88c3"
+                },
+                {
+                    "key": "field_66fbe672189df",
+                    "label": "Is featured?",
+                    "name": "is_featured",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "wpml_cf_preferences": 0,
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "parent_repeater": "field_646b4475d88c3"
                 }
             ]
         },
@@ -250,22 +326,31 @@
             "type": "select",
             "instructions": "Select which card type to use when outputting the stories",
             "required": 1,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_66fbde18a5082",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
             "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 0,
             "choices": {
                 "default": "Default",
                 "resource": "Resource"
             },
             "default_value": "default",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
             "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
             "ajax": 0,
             "placeholder": ""
         },
@@ -388,5 +473,5 @@
     "description": "",
     "show_in_rest": 0,
     "acfml_field_group_mode": "advanced",
-    "modified": 1727691720
+    "modified": 1727863874
 }
