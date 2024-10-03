@@ -2,6 +2,7 @@
 
 namespace App\Providers\Blocks;
 
+use App\Cards\PrimaryCard;
 use Timber\Timber;
 
 class SignUpCoverServiceProvider
@@ -49,6 +50,9 @@ class SignUpCoverServiceProvider
         $context['block']['form_label'] = get_field('form_label');
         $context['block']['newsletters'] = get_field('newsletters');
 
+        $context['block']['thank_you_heading'] = get_field('thank_you_heading') ?: 'Add heading here&hellip;';
+        $context['block']['thank_you_subheading'] = get_field('thank_you_subheading') ?: 'Add subheading here&hellip;';
+
         $context['block']['background_colour'] = get_field('overlay_colour') ?: '#000000';
         // $context['block']['background_opacity'] = get_field('background_opacity') / 100;
 
@@ -59,6 +63,12 @@ class SignUpCoverServiceProvider
 
         // options
         $context['block']['options'] = get_field('options') ?: [];
+
+        $related = get_field('related_stories');
+
+        if ($related) {
+            $context['block']['related'] = PrimaryCard::convertCollection($related);
+        }
 
         echo Timber::compile('blocks/sign-up-cover.twig', $context);
     }

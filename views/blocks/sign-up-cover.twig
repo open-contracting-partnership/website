@@ -1,5 +1,4 @@
 {% set options = { 'id': null } | merge(block.options) %}
-
 <div id="{{ options.id }}" class="block" data-block-type="sign-up-cover" data-orientation="{{ block.orientation }}">
 
 	{% if block.image %}
@@ -7,32 +6,22 @@
 	{% endif %}
 
 	<div class="block__image-overlay" style="background-color: {{ block.background_colour }};"></div>
-
-	<div class="block__container">
-
+	<div class="block__container" style="color: {{ block.text_colour}};">
 		<div class="block__main">
-
 			<h1 class="block__heading">{{ block.heading }}</h1>
 
 			{% if block.content %}
-
 				<div class="block__content">
 					{{ block.content | raw }}
 				</div>
-
 			{% endif %}
-
 		</div>
 
 		<div class="block__form-container">
-
 			<form class="screen-only / block__form / js-mailchimp-form">
-
 				<div class="block__form-regions">
 					{% for newsletter in block.newsletters %}
-						<div class="form-region">
-							{{newsletter.newsletter_region}}
-						</div>
+						<div class="form-region" data-is-active="true">{{ newsletter.newsletter_region }}</div>
 					{% endfor %}
 				</div>
 
@@ -41,21 +30,37 @@
 				{% endif %}
 
 				<div class="block__form-wrapper">
-
 					<input type="email" name="email" placeholder="Enter your email address" aria-label="Email">
-
-					<button class="block__form-submit / button--naked" aria-label="Submit">SUBSCRIBE
-						<svg><use xlink:href="#icon-arrow-circle"></use></svg>
+					<button class="block__form-submit / button--naked" style="color: {{ block.background_colour }};" aria-label="Submit">SUBSCRIBE
+						<svg style="fill: {{ block.background_colour }};"><use xlink:href="#icon-arrow-circle"></use></svg>
 					</button>
-
 				</div>
 
 				<p class="js-mailchimp-form__message"></p>
-
 			</form>
-
 		</div>
-
 	</div>
-
 </div>
+
+
+	<div class="subscribe-thank-you" style="background-color: {{ block.background_colour }}; color: {{ block.text_colour}};" data-block-type="sign-up-cover">
+		<div class="subscribe-thank-you__background" style="background-color: {{ block.background_colour }}"></div>
+
+		<h2 class="subscribe-thank-you__heading">{{ block.thank_you_heading }}</h2>
+
+		{% if block.thank_you_subheading %}
+			<p class="subscribe-thank-you__content">{{ block.thank_you_subheading }}</p>
+		{% endif %}
+
+		<div class="subscribe-thank-you__stories">
+				{% for card in block.related %}
+					{% include 'cards/primary.twig' with {
+						'card': card,
+						'options': {
+							'colour_scheme': block.card_options.colour_scheme
+						}
+					} %}
+				{% endfor %}
+	</div>
+</div>
+
