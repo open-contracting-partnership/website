@@ -65,10 +65,17 @@
 
 			}
 
+			.block__subheading {
+				font-size: 20px;
+				text-align: var(--heading-text-align, center);
+
+			}
+
 		.block__stories {
 
-			> .card {
+			margin-bottom: 16px;
 
+			> .card {
 				@media print {
 					margin-bottom: spacing(2);
 				}
@@ -78,22 +85,25 @@
 			@include upto(T) {
 
 				display: flex;
-				overflow-x: scroll;
+				flex-wrap: wrap;
 				scroll-snap-type: x mandatory;
 				-webkit-overflow-scrolling: touch;
 				margin: 0 spacing(-3);
 				padding: 0 spacing(3);
+				gap: 24px;
+				justify-content: center;
 
 				> .card {
 
 					scroll-snap-align: center;
-					flex: 0 0 85%;
 					box-shadow: none;
 
 					// the ::after element is now the far side margin, so dont
 					// set this on the last child, otherwise we'll have double
-					&:not(:last-child) {
-						margin-right: spacing(3);
+					@include from(T) {
+						&:not(:last-child) {
+							margin-right: spacing(3);
+						}
 					}
 
 				}
@@ -110,7 +120,7 @@
 
 			@include from(T) {
 				display: grid;
-				grid-template-columns: repeat(3, 1fr);
+				grid-template-columns: repeat(auto-fill, minmax(384px, 1fr));
 				grid-gap: spacing(3);
 			}
 

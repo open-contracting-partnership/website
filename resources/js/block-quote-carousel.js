@@ -14,15 +14,14 @@ $block_quote_carousel.forEach($block => {
 		nextButton: $next_button,
 		nav: false,
 		speed: 400,
-		fixedWidth: 300,
-		center: true,
+		items: 1,
 		gutter: 16,
 		responsive: {
-			600: {
-				fixedWidth: 500,
-			},
 			768: {
-				fixedWidth: 600,
+				items: 1,
+			},
+			992: {
+				items: 2,
 			}
 		}
 	});

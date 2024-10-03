@@ -1,0 +1,62 @@
+.key-issues {
+    text-align: center;
+    padding-block: 80px;
+    position: relative;
+
+        .block__background {
+            position: absolute;
+            top: 0;
+            left: calc(-1 * (100vw - 100%)/2);
+            width: 100vw;
+            height: 100%;
+            z-index: -1;
+        }
+
+    .key-issues__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .key-issues__title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .key-issues__subtitle p {
+      margin-bottom: 56px;
+    }
+
+    .key-issues__grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+      }
+
+    .key-issues__card {
+    background-color: white;
+    border-radius: 15px 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    height: 142px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .key-issues__card-icon img {
+    width: 81px;
+    height: 81px;
+    border-radius: 50%;
+    margin-block: 10px;
+    }
+
+    .key-issues__card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    }
+  }

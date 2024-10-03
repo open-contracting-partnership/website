@@ -1,0 +1,64 @@
+<div
+    class="block / homepage-hero"
+    style="
+        --background-colour: {{ block.background_colour }};
+        --text-colour: {{ block.text_colour }};
+    "
+>
+    <div class="homepage-hero__header">
+        <h1 class="homepage-hero__content">
+            <span class="homepage-hero__heading">{{ block.heading }}</span>
+        </h1>
+
+        <p class="homepage-hero__content__strapline">{{ block.strapline }}</p>
+        <p class="homepage-hero__content__text">{{ block.content }}</p>
+
+        <button class="homepage-hero__jump-to-content / button--naked" aria-label="Jump to content">
+            <svg class="homepage-hero__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 47">
+                <path d="M16 46.7a16 16 0 0 0 16-16V17a16 16 0 0 0-32 0V30.7a16 16 0 0 0 16 16ZM2.29 17a13.71 13.71 0 0 1 27.42 0V30.7a13.71 13.71 0 0 1-27.42 0V17Z"/>
+                <path d="M14.86 23.27h.1l.23.24a1.14 1.14 0 0 0 1.62 0l.23-.24h.1v-.1l6.53-6.51-1.62-1.63-4.9 4.92V7.85h-2.3v12.1l-4.9-4.92-1.62 1.63 6.53 6.51v.1Z"/>
+            </svg>
+        </button>
+
+        <div class="block__arrow-buttons">
+            <a class="button button--has-icon" href="{{ block.cta.url }}" style="--custom-background: #ffffff; --custom-colour: #23b2a7;">
+                <svg class="button__icon" style="fill: #23b2a7;"><use xlink:href="#icon-arrow-circle"></use></svg>
+                {{ block.cta.title }}
+            </a>
+        </div>
+
+    </div>
+
+    <div class="homepage-hero__image">
+        {{ imgix({
+			src: block.background_image.url,
+			params: {
+				auto: 'format',
+				fit: 'crop',
+			},
+            aspect_ratio: [
+                block.background_image.width,
+                block.background_image.height
+            ],
+			transforms: [{
+				w: 300
+			}, {
+				w: 500
+			}, {
+				w: 600
+			}, {
+				w: 100
+			}, {
+				w: 1200
+			}, {
+				w: 1800
+			}, {
+				w: 2400
+			}, {
+				w: 2800
+			}],
+			sizes: '100vw',
+			loading: 'eager'
+		}) }}
+    </div>
+</div>

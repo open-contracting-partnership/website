@@ -7,7 +7,7 @@
 
 	.block__container {
 
-		grid-column: full;
+		grid-column: content;
 		grid-row: 1;
 		font-size: 17px;
 		@include font('secondary', 'medium');
@@ -45,26 +45,30 @@
 		.block__carousel_container {
 			grid-column: full;
 			position: relative;
+			height: 100%;
+		}
+
+		.block__carousel {
+			display: flex;
+    		align-items: stretch;
 		}
 
 			.block__carousel-controls {
 
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				grid-column-gap: 632px;
-				justify-content: space-between;
-				align-content: center;
+				// position: absolute;
+				// top: 0;
+				// right: 0;
+				// bottom: 0;
+				// left: 0;
+				// display: grid;
+				// grid-template-columns: repeat(2, 1fr);
+				// grid-column-gap: 20px;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 16px;
+				justify-content: center;
 				z-index: 3;
 				pointer-events: none;
-
-				@include upto(T) {
-					display: none;
-				}
 
 				button {
 					pointer-events: all;
@@ -78,7 +82,6 @@
 				button > svg {
 					font-size: 77px;
 					height: 1em;
-					width: 0.428em;
 					fill: $ui-brand;
 				}
 
@@ -91,11 +94,18 @@
 			.block__carousel-item {
 
 				transition: opacity .3s ease;
-				opacity: .85;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				min-height: 100%;
 
 				.card.card--quote .card__toggle::before {
 					background-color: rgba(0, 0, 0, .75);
 				}
+
+				.card-container {
+					display: flex;
+				};
 
 			}
 
@@ -107,6 +117,16 @@
 					background-color: initial;
 				}
 
+			}
+
+			.card__quote {
+				p {
+					font-size: 20px !important;
+				}
+
+				footer {
+					font-size: 18px;
+				}
 			}
 
 }

@@ -1,56 +1,60 @@
 {% set options = { 'image_loading': 'lazy' } | merge(options) %}
 
-<div class="card card--quote card--active">
+<div class="card-container" style="contain: layout inline-size;">
 
-	<div class="card__image" data-image-style="{{ options.image_style }}">
+	<div class="card card--quote card--active">
 
-		{{ imgix({
-			src: card.image.url,
-			params: {
-				auto: 'format',
-				fit: 'crop'
-			},
-			aspect_ratio: [2, 1],
-			transforms: [{
-				w: 300
-			}, {
-				w: 500
-			}, {
-				w: 600
-			}, {
-				w: 100
-			}, {
-				w: 1200
-			}, {
-				w: 1800
-			}],
-			sizes: '(min-width: 768px) 600px, (min-width: 600px) 500px, 300px',
-			loading: options.image_loading
-		}) }}
+		<div class="card__image" data-image-style="{{ options.image_style }}">
 
+			{{ imgix({
+				src: card.image.url,
+				params: {
+					auto: 'format',
+					fit: 'crop',
+					crop: 'faces'
+				},
+				aspect_ratio: [2, 1],
+				transforms: [{
+					w: 300
+				}, {
+					w: 500
+				}, {
+					w: 600
+				}, {
+					w: 100
+				}, {
+					w: 1200
+				}, {
+					w: 1800
+				}],
+				sizes: '(min-width: 768px) 600px, (min-width: 600px) 500px, 300px',
+				loading: options.image_loading
+			}) }}
+
+		</div>
+
+		<blockquote class="card__quote">
+			{% if card.link is not empty %}
+				<a href="{{ card.link }}" class="card__link">{{ card.quotation }}</a>
+			{% else %}
+				<p>{{ card.quotation }}</p>
+			{% endif %}
+
+			{% if card.name is not empty or card.bio is not empty %}
+				<footer>
+					{% if card.name is not empty %}
+						{{ card.name }}
+					{% endif %}
+
+					{% if card.name is not empty and card.bio is not empty %}
+						<br>
+					{% endif %}
+
+					{% if card.bio is not empty %}
+						{{ card.bio }}
+					{% endif %}
+				</footer>
+			{% endif %}
+		</blockquote>
 	</div>
-
-	<blockquote class="card__quote">
-        {% if card.link is not empty %}
-            <a href="{{ card.link }}" class="card__link">{{ card.quotation }}</a>
-        {% else %}
-            <p>{{ card.quotation }}</p>
-        {% endif %}
-
-        {% if card.name is not empty or card.bio is not empty %}
-            <footer>
-                {% if card.name is not empty %}
-                    {{ card.name }}
-                {% endif %}
-
-                {% if card.name is not empty and card.bio is not empty %}
-                    <br>
-                {% endif %}
-
-                {% if card.bio is not empty %}
-                    {{ card.bio }}
-                {% endif %}
-            </footer>
-        {% endif %}
-	</blockquote>
 </div>

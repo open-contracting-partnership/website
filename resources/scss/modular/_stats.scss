@@ -20,7 +20,6 @@ $font-size: 64px;
         grid-column: content;
         // font-size: 30px;
         text-align: center;
-        text-transform: uppercase;
         margin-bottom: .75em;
         margin-top: 2em;
         color: $ui-grey-3;
@@ -95,22 +94,22 @@ $font-size: 64px;
 
     .stats__heading {
         @include font('secondary', 'bold');
-        margin-bottom: -0.123em;
         line-height: 1;
 
-        &.large {
-            font-size: 2.66em;
-        }
         &.small {
-            font-size: 1.66em;
+            font-size: 46px;
+        }
+
+        &.large {
+            font-size: 66px;
         }
     }
 
 
     .stats__strapline {
-        font-size: 1em;
+        font-size: 20px;
         @include font('secondary', 'medium');
-        margin-bottom: 0;
+        margin-bottom: 50px;
         line-height: 1;
     }
 
@@ -140,6 +139,7 @@ $font-size: 64px;
 
 .stat {
     background-color: var(--background-colour);
+    position: relative;
     border-radius: spacing(1);
     color: $ui-white;
     @include font('secondary', 'bold');
@@ -152,8 +152,12 @@ $font-size: 64px;
         flex-direction: column;
     }
 
+    &[data-icon-position="bottom-right-corner"] {
+        padding-bottom: 100px;
+    }
+
     @include from(T) {
-        padding-block: em(spacing(6.5), $font-size);
+        // padding-block: em(spacing(6.5), $font-size);
         padding-inline: em(spacing(5), $font-size);
 
         grid-column: var(--column-start) / span var(--column-span);
@@ -179,6 +183,13 @@ $font-size: 64px;
             margin-left: spacing(4);
             margin-right: spacing(3);
         }
+
+        .stat[data-icon-position="bottom-right-corner"] & {
+            width: 153px;
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+        }
     }
 
     .stat__main {
@@ -187,13 +198,21 @@ $font-size: 64px;
 
     .stat__heading {
         display: block;
-        font-size: 1em;
         line-height: 1;
-        margin-bottom: 0;
+        margin-bottom: 24px;
+        word-break: break-all;
+
+        &.small {
+            font-size: 64px;
+        }
+
+        &.large {
+            font-size: 80px;
+        }
     }
 
     .stat__strapline {
-        font-size: em(22, $font-size);
+        font-size: 20px;
         margin-bottom: 0;
         line-height: 1.1;
     }
