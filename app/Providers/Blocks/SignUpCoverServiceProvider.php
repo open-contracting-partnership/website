@@ -51,7 +51,7 @@ class SignUpCoverServiceProvider
         $context['block']['newsletters'] = get_field('newsletters');
 
         $context['block']['thank_you_heading'] = get_field('thank_you_heading') ?: 'Add heading here&hellip;';
-        $context['block']['thank_you_subheading'] = get_field('thank_you_subheading') ?: 'Add subheading here&hellip;';
+        $context['block']['thank_you_subheading'] = get_field('thank_you_subheading');
 
         $context['block']['background_colour'] = get_field('overlay_colour') ?: '#000000';
         // $context['block']['background_opacity'] = get_field('background_opacity') / 100;
