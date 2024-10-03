@@ -6,7 +6,6 @@
 	}
 
 	.block__container {
-
 		grid-row: 1;
 		grid-column: content;
 		@include fluid-type(--padding, 375px, 1240px, spacing(2), spacing(6));
@@ -15,17 +14,14 @@
 		@media screen {
 			padding: 80px 0;
 		}
-
 	}
 
 		.block__main {
-
 			grid-column: all;
 
 			@include from(M) {
 				grid-column: 2 / 12;
 			}
-
 		}
 
 			.block__heading {
@@ -55,7 +51,6 @@
 					background-color: $ui-white;
 					color: $ui-grey;
 				}
-
 			}
 
 		.block__form-container {
@@ -108,9 +103,7 @@
 						opacity: 1;
 						font-style: italic;
 					}
-
 				}
-
 			}
 
 			.block__form-wrapper {
@@ -145,41 +138,32 @@
 				button {
 					padding: 7px 12px;
 				}
-
 			}
 
 			.js-mailchimp-form__message {
-
 				margin-top: spacing(1);
 
 				&:empty {
 					display: none;
 				}
-
 			}
 
-
 	&[data-orientation="vertical"] {
-
 		.block__main {
 			@include fluid-type(margin-bottom, 360px, 1240px, 72px, 200px);
 			text-align: center;
 		}
-
 	}
 
 	&[data-orientation="horizontal"] {
-
 		@include upto(M) {
 
 			.block__main {
 				text-align: center;
 			}
-
 		}
 
 		@include from(M) {
-
 			.block__main {
 				grid-column: 1 / 7;
 			}
@@ -188,9 +172,7 @@
 				grid-column-start: span 5;
 				align-self: center;
 			}
-
 		}
-
 	}
 }
 
@@ -224,7 +206,6 @@
 			@include fluid-type(margin-top, 360px, 1240px, spacing(2), spacing(4));
 		}
 		.subscribe-thank-you__stories {
-
 			margin-bottom: 16px;
 
 			> .card {
@@ -234,7 +215,6 @@
 			}
 
 			@include upto(T) {
-
 				display: flex;
 				flex-wrap: wrap;
 				scroll-snap-type: x mandatory;
@@ -245,7 +225,6 @@
 				justify-content: center;
 
 				> .card {
-
 					scroll-snap-align: center;
 					box-shadow: none;
 
