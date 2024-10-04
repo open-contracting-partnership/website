@@ -45,10 +45,20 @@ class SignUpCoverServiceProvider
         $context['block'] = [];
         $context['block']['heading'] = get_field('heading') ?: 'Add primary title here&hellip;';
         $context['block']['content'] = get_field('content');
-        $context['block']['orientation'] = get_field('orientation') ?: 'vertical';
-        $context['block']['image'] = get_field('image');
         $context['block']['form_label'] = get_field('form_label');
-        $context['block']['newsletters'] = get_field('newsletters');
+
+        // list our the region id/labels from the mailchimp tags, the worldwide
+        // NOTE: mailchimp requires the tag value to be an exact string as it
+        // appears in mailchimp, hence the *almost* exact key/values, but it is
+        // important they remain distinct
+
+        $context['block']['regions'] = [
+            'Africa Community' => 'Africa',
+            'Asia Pacific' => 'Asia Pacific',
+            'Europe' => 'Europe',
+            'LatAm' => 'Latin America',
+            'US outreach' => 'US',
+        ];
 
         $context['block']['thank_you_heading'] = get_field('thank_you_heading') ?: 'Add heading here&hellip;';
         $context['block']['thank_you_subheading'] = get_field('thank_you_subheading');
