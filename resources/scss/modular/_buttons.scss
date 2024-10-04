@@ -159,3 +159,19 @@
 	}
 
 }
+
+.button[data-colour="blue"] {
+
+	--border-colour: #{$ui-white};
+	--background: #{$ui-white};
+	--colour: #{$ui-blue};
+
+	&:hover,
+	&:focus,
+	&:active {
+		--border-colour: #{$ui-white};
+		--background: #{$ui-white};
+		--colour: #{$ui-blue};
+	}
+
+}
