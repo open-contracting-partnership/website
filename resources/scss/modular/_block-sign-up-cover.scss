@@ -191,11 +191,13 @@
         }
 
         .sign-up__thank-you__heading {
+            margin-bottom: 8px;
             color: currentColor;
             @include fluid-type(font-size, 360px, 1240px, 25px, 39px);
         }
 
         .sign-up__thank-you__subheading {
+            margin-bottom: 32px;
             color: currentColor;
             @include fluid-type(margin-top, 360px, 1240px, spacing(2), spacing(4));
         }
