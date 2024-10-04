@@ -1,0 +1,76 @@
+.where-we-work {
+    position: relative;
+    background-color: $ui-teal;
+    padding-block: 80px;
+    text-align: center;
+
+    @include from(L) {
+        text-align: left;
+    }
+
+    .where-we-work__map-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        @include from(L) {
+            flex-direction: row;
+        }
+
+        .where-we-work__map {
+            display: none;
+
+            @include from(L) {
+                display: block;
+            }
+        }
+    }
+
+    .where-we-work__background {
+        background-color: $ui-teal;
+        position: absolute;
+        top: 0;
+        left: calc(-1*(100vw - 100%) / 2);
+        width: 100vw;
+        height: 100%;
+        z-index: -1;
+    }
+
+    .where-we-work__title {
+        color: $ui-white;
+    }
+
+    .where-we-work__cta-list {
+        display: flex;
+        flex-direction: column;
+        width: max-content;
+        gap: 12px;
+    }
+
+    .button {
+        font-weight: 700;
+        min-width: 419px;
+    }
+
+    .button--has-icon {
+
+        padding: 16px;
+        justify-content: space-between;
+    }
+    .where-we-work__button-icon {
+        font-size: 2em;
+        height: 1em;
+        width: 1em;
+        fill: currentColor;
+    }
+
+    .where-we-work__cta-list:hover .where-we-work__region-button:not(:hover) {
+        opacity: 0.5;
+    }
+
+    .where-we-work__region-button {
+        opacity: 1;
+        transition: opacity 0.5s ease;
+    }
+}
