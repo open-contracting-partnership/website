@@ -96,77 +96,50 @@ textarea {
    color: $ui-grey;
 }
 
-.select-menu {
+.filter-menu {
+	padding: 17px;
+	margin-bottom: 48px;
+	background-color: $ui-grey-8;
+	border-radius: 22px 6px;
 
-	font-size: 14px;
-	position: relative;
-	display: inline-block;
-	padding: 0;
-	text-align: left;
-	color: $ui-grey-5;
-	background-color: $ui-grey-3;
-	border: 1px solid $ui-grey-5;
-	border-radius: 2px 10px 10px 2px;
+	.filter-header {
+		display: flex;
+		justify-content: space-between;
 
-	.select-menu__arrow {
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		margin: auto spacing(1);
-		width: 0;
-		height: 0;
-		border-left: 4px solid transparent;
-		border-right: 4px solid transparent;
-		border-top: 8px solid currentColor;
+		p {
+			font-weight: 500;
+		}
 	}
 
-	select {
+	.filter-container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	  }
 
-		@include font('secondary', 'medium');
-		font-size: 1em;
-		position: relative;
-		height: 18px;
-		display: grid;
-		align-items: center;
-		padding-left: 6px;
-		padding-right: spacing(3);
-		color: currentColor;
-		width: 100%;
-		margin: em(2, 14) 0;
+	  .filter-item {
+		padding: 4px 12px;
+		border-radius: 20px;
+		background-color: $ui-white;
+		color: $ui-black;
+		border: 1px solid $ui-grey-3;
 		cursor: pointer;
-		background: transparent;
-		border: none;
-		border-radius: 5px;
-		box-sizing: border-box;
-		appearance: none;
-		z-index: 1;
+		transition: background-color 0.3s ease;
+		font-size: 14px;
+		font-weight: 500;
 
-		&:focus {
-			outline: 0;
+		&:hover {
+		  background-color: $ui-brand;
+		  border-color: $ui-brand;
 		}
 
+		&.active {
+		  background-color: $ui-brand;
+		  color: $ui-white;
+		}
 	}
-
-	option {
-		@include font('secondary');
-		background: $ui-white;
-		color: $ui-black;
-	}
-
-	// sizes
-	&[data-size="small"] {
-		font-size: 11px;
-	}
-
-	// colour
-	&[data-colour-scheme="green"] {
-		border-color: $ui-grey-4;
-		background-color: $ui-brand;
-		color: $ui-grey;
-	}
-
 }
+
 
 .search-input {
 
