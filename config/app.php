@@ -68,6 +68,7 @@ return [
         App\Providers\Blocks\HomepageHeroServiceProvider::class,
         App\Providers\Blocks\ResourceServiceProvider::class,
         App\Providers\Blocks\SignUpCoverServiceProvider::class,
+        App\Providers\Blocks\SimpleHeaderServiceProvider::class,
         App\Providers\Blocks\StagesServiceProvider::class,
         App\Providers\Blocks\StatsServiceProvider::class,
         App\Providers\Blocks\StoriesServiceProvider::class,

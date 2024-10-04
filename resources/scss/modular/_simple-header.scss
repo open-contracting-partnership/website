@@ -1,0 +1,16 @@
+.simple-header {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin-block: 16px;
+
+    .simple-header__container {
+        grid-column: span 8;
+        max-width: 100%;
+    }
+
+    .simple-header__content {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: $ui-black;
+    }
+}
