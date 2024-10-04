@@ -46,55 +46,6 @@
             "delay": 0
         },
         {
-            "key": "field_66fd2cedd81d3",
-            "label": "Newsletters",
-            "name": "newsletters",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "gutenberg_visibility": "both",
-            "wpml_cf_preferences": 0,
-            "layout": "table",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "",
-            "button_label": "Add Row",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_66fd2d00d81d4",
-                    "label": "Newsletter Region",
-                    "name": "newsletter_region",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "gutenberg_visibility": "both",
-                    "wpml_cf_preferences": 0,
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_66fd2cedd81d3"
-                }
-            ]
-        },
-        {
             "key": "field_5e1deb28ac935",
             "label": "Form label",
             "name": "form_label",
@@ -114,32 +65,6 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
-        },
-        {
-            "key": "field_5e1deb40ac936",
-            "label": "Orientation",
-            "name": "orientation",
-            "aria-label": "",
-            "type": "radio",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "gutenberg_visibility": "both",
-            "choices": {
-                "vertical": "Vertical",
-                "horizontal": "Horizontal"
-            },
-            "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "vertical",
-            "layout": "vertical",
-            "return_format": "value",
-            "save_other_choice": 0
         },
         {
             "key": "field_5db6cb06be6ed",
@@ -297,5 +222,5 @@
     "description": "",
     "show_in_rest": 0,
     "acfml_field_group_mode": "advanced",
-    "modified": 1727954894
+    "modified": 1728046822
 }

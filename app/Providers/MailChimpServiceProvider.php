@@ -33,7 +33,6 @@ class MailChimpServiceProvider extends ServiceProvider
 
     public static function addSubscriber($request)
     {
-
         if (! $request->get_param('email')) {
             return new \WP_Error('email_required', 'Email address is required', ['status' => 400]);
         }
@@ -51,6 +50,7 @@ class MailChimpServiceProvider extends ServiceProvider
         // make a request to add the email to the list
         $result = $MailChimp->post('lists/fc9ec0e34b/members', [
             'email_address' => $request->get_param('email'),
+            'tags' => $request->get_param('regions') ?? [],
             'status' => 'subscribed'
         ]);
 

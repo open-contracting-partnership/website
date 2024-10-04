@@ -73,18 +73,22 @@
 
 		display: flex;
 		flex-direction: column;
-		justify-content: flex-end;
 
 		@include from(M) {
 			grid-column: 2 / span 1;
 		}
+
+        a,
+        p {
+			margin-bottom: spacing(1);
+        }
 
 		p {
 			all: unset;
 		}
 
 		footer {
-			margin-top: spacing(1);
+            margin-top: auto;
 			@include font('secondary');
 		}
 		// @container (min-width: 400px) {
