@@ -11,7 +11,6 @@
 
 namespace App;
 
-use App\Cards\FeatureCard;
 use App\Cards\PrimaryCard;
 use App\Http\Controllers\Controller;
 use App\PostTypes\Event;
@@ -29,17 +28,8 @@ class HomeController extends Controller
     {
         $context = Timber::get_context();
 
-        $context['latest']['content']['title'] = _x(
-            'More blogs about open contracting and',
-            'Displayed within the latest news, proceeded by a separate string, "select a topic"',
-            'ocp'
-        );
-
-        $context['latest']['content']['filter_label'] = _x(
-            'Select a topic',
-            'The topic filter label within the latest news',
-            'ocp'
-        );
+        $context['block']['heading'] = get_field('heading', 'options');
+        $context['block']['content'] = get_field('content', 'options');
 
         $context['latest']['content']['load_more'] = _x(
             'Load more',
@@ -47,15 +37,8 @@ class HomeController extends Controller
             'ocp'
         );
 
-        $context['latest']['content']['featured_label'] = _x(
-            'Featured',
-            'The featured blog label',
-            'ocp'
-        );
-
         $context['latest']['content']['news_label'] = get_post_type_object('news')->labels->name;
         $context['latest']['content']['events_label'] = get_post_type_object('event')->labels->name;
-        $context['latest']['content']['resources_label'] = get_post_type_object('resource')->labels->name;
 
         $context['issue_terms'] = get_terms([
             'taxonomy' => 'issue',
@@ -83,8 +66,6 @@ class HomeController extends Controller
             return $post_meta;
         }, 10, 3);
 
-        $context['latest']['featured_blog'] = $this->getFeaturedBlog();
-
         $context['latest']['news_archive_link'] = [
             'url' => get_post_type_archive_link('news'),
             'label' => __('View all news', 'ocp')
@@ -95,18 +76,8 @@ class HomeController extends Controller
             'label' => __('View all events', 'ocp')
         ];
 
-        $context['latest']['resources_archive_link'] = [
-            'url' => get_post_type_archive_link('resource'),
-            'label' => __('View all resources', 'ocp')
-        ];
-
-        $context['latest']['header_latest_news'] = $this->getLatestNews(2);
         $context['latest']['footer_latest_news'] = $this->getLatestNews(4);
-
-        $context['latest']['header_latest_events'] = $this->getLatestEvents(1);
         $context['latest']['footer_latest_events'] = $this->getLatestEvents(2);
-
-        $context['latest']['footer_latest_resources'] = $this->getLatestResources(4);
 
         // fetch the blog content from the other page
         $blog_content_page = new TimberPost(6335);
@@ -149,23 +120,7 @@ class HomeController extends Controller
         return $posts;
     }
 
-    protected function getFeaturedBlog()
-    {
-        $query = [
-            'post_type' => 'post',
-            'posts_per_page' => 1
-        ];
 
-        if ($postID = get_field('featured_news_article', 'options')) {
-            $query['p'] = $postID;
-        }
-
-        $featured_blog = Post::query($query);
-
-        if (count($featured_blog)) {
-            return ['card' => FeatureCard::convertPost($featured_blog[0]->ID)];
-        }
-    }
 
     protected function getLatestNews($limit = 2)
     {
@@ -188,14 +143,6 @@ class HomeController extends Controller
                 'value' => date('Ymd'),
                 'compare' => '>='
             ]]
-        ]);
-    }
-
-    protected function getLatestResources($limit = 2)
-    {
-
-        return Resource::query([
-            'posts_per_page' => $limit
         ]);
     }
 }

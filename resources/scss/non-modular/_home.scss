@@ -66,12 +66,6 @@ main.home {
 
 	margin-bottom: var(--v-spacing);
 
-	@include from(T) {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-	}
-
 	.home__heading {
 
 		@include fluid-type(font-size, 375px, 1240px, 24px, 36px);
