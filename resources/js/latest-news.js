@@ -3,15 +3,9 @@ import Vue from 'vue'
 const _cloneDeep = require('lodash.clonedeep');
 const _filter = require('lodash.filter');
 
-import PrimaryCard from './components/cards/primary.vue';
-
 new Vue({
 
 	el: '#blog-posts',
-
-	components: {
-		'primary-card': PrimaryCard
-	},
 
 	data: {
 		posts: content.posts,
