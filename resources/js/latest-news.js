@@ -4,7 +4,6 @@ const _cloneDeep = require('lodash.clonedeep');
 const _filter = require('lodash.filter');
 
 new Vue({
-
 	el: '#blog-posts',
 
 	data: {
@@ -14,24 +13,19 @@ new Vue({
 	},
 
 	computed: {
-
 		visiblePosts() {
-
 			let posts = _cloneDeep(this.posts);
 
-			if ( this.filter !== "" ) {
-
+			if (this.filter !== "") {
 				// the filter is a string but the data is numerical, make them the same
 				const filter = parseInt(this.filter);
 
 				posts = _filter(posts, post => {
 					return post.issue.length > 0 && post.issue.indexOf(filter) !== -1;
 				});
-
 			}
 
 			return posts;
-
 		},
 
 		pagedPosts: function() {
@@ -41,19 +35,13 @@ new Vue({
 		hasNextPage: function() {
 			return this.visiblePosts.length > this.limit;
 		}
-
 	},
 
 	methods: {
-
 		increaseLimit() {
-
-			if ( this.limit < this.posts.length ) {
+			if (this.limit < this.posts.length) {
 				this.limit += 12;
 			}
-
 		}
-
 	}
-
 });

@@ -8,7 +8,11 @@
             {% include 'partials/filters.twig' %}
 
             <section class="home__posts">
-                <primary-card v-for="post in pagedPosts" v-bind:key="post.id" :card="post" data-colour-scheme="light" />
+                <div
+                    v-for="post in pagedPosts"
+                    v-bind:key="post.id"
+                    v-html="post.card"
+                ></div>
             </section>
 
             <div class="screen-only / home__load-more / align-contents-center">
