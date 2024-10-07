@@ -6,7 +6,6 @@
 .card.card--quote {
 	background-color: $ui-grey;
     position: relative;
-	font-size: 12px;
 	@include font('secondary', 'bold');
 	border-radius: spacing(2) 5px ;
 	overflow: hidden;
