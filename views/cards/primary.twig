@@ -73,11 +73,13 @@
 
         <p class="card__introduction">{{ card.introduction }}</p>
 
-		<p class="card__topics">Topics:
-			{% for tag in card.tags %}
-				<a href="{{ tag.link }}">{{ tag.name }}{% if not loop.last %}, {% endif %}</a>
-			{% endfor %}
-		</p>
+		{% if card.tags | length > 0 %}
+			<p class="card__topics">Topics:
+				{% for tag in card.tags %}
+					<a href="{{ tag.link }}">{{ tag.name }}{% if not loop.last %}, {% endif %}</a>
+				{% endfor %}
+			</p>
+		{% endif %}
 
 		<div class="card__footer">
 
