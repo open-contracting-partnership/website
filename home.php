@@ -68,7 +68,7 @@ class HomeController extends Controller
 
         $context['latest']['news_archive_link'] = [
             'url' => get_post_type_archive_link('news'),
-            'label' => __('View all news', 'ocp')
+            'label' => __('View all announcements', 'ocp')
         ];
 
         $context['latest']['events_archive_link'] = [
