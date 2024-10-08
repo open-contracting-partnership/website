@@ -57,7 +57,7 @@ class SignUpCoverServiceProvider
             'Asia Pacific' => 'Asia Pacific',
             'Europe' => 'Europe',
             'LatAm' => 'Latin America',
-            'US outreach' => 'US',
+            'US outreach' => 'U.S',
         ];
 
         $context['block']['thank_you_heading'] = get_field('thank_you_heading') ?: 'Add heading here&hellip;';
