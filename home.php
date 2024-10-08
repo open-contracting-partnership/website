@@ -15,7 +15,6 @@ use App\Cards\PrimaryCard;
 use App\Http\Controllers\Controller;
 use App\PostTypes\Event;
 use App\PostTypes\News;
-use App\PostTypes\Resource;
 use Rareloop\Lumberjack\Facades\Config;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Post;
@@ -46,7 +45,6 @@ class HomeController extends Controller
 
         // localise the script only *after* the scripts are queued up
         add_action('wp_enqueue_scripts', function () {
-
             wp_localize_script('latest-news', 'content', [
                 'posts' => $this->getBlogs(),
                 'select_a_filter' => str_replace(' ', '&nbsp;', __('Select a topic', 'ocp')),
@@ -55,7 +53,6 @@ class HomeController extends Controller
         });
 
         add_filter('timber_post_get_meta', function ($post_meta, $pid, $post) {
-
             $tid = get_post_thumbnail_id($pid);
 
             if ($tid) {
@@ -81,22 +78,20 @@ class HomeController extends Controller
 
         // fetch the blog content from the other page
         $blog_content_page = new TimberPost(6335);
-        $contex['latest']['blog_content'] = $blog_content_page->content;
+        $context['latest']['blog_content'] = $blog_content_page->content;
 
+        // dd($context['latest']);
         return new TimberResponse('templates/home.twig', $context);
     }
 
     protected function getBlogs()
     {
-
         $posts = Post::query([
-            'ignore_sticky_posts' => true,
             'posts_per_page' => -1
         ]);
 
         // convert and filter the
         $posts = PrimaryCard::convertCollection($posts, function ($new, $original) {
-
             // we don't want to show a button label
             unset($new['button_label']);
 
@@ -117,14 +112,20 @@ class HomeController extends Controller
             return $new;
         });
 
+        $posts = collect($posts)
+            ->map(function ($post) {
+                $post['card'] = Timber::compile('cards/primary.twig', [
+                    'card' => $post
+                ]);
+
+                return $post;
+            });
+
         return $posts;
     }
 
-
-
     protected function getLatestNews($limit = 2)
     {
-
         return News::query([
             'posts_per_page' => $limit
         ]);
@@ -132,7 +133,6 @@ class HomeController extends Controller
 
     protected function getLatestEvents($limit = 1)
     {
-
         return Event::query([
             'posts_per_page' => $limit,
             'orderby' => 'meta_value_num',

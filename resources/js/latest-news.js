@@ -3,63 +3,45 @@ import Vue from 'vue'
 const _cloneDeep = require('lodash.clonedeep');
 const _filter = require('lodash.filter');
 
-import PrimaryCard from './components/cards/primary.vue';
-
 new Vue({
+    el: '#blog-posts',
 
-	el: '#blog-posts',
+    data: {
+        posts: content.posts,
+        filter: "",
+        limit: 12
+    },
 
-	components: {
-		'primary-card': PrimaryCard
-	},
+    computed: {
+        visiblePosts() {
+            let posts = _cloneDeep(this.posts);
 
-	data: {
-		posts: content.posts,
-		filter: "",
-		limit: 12
-	},
+            if (this.filter !== "") {
+                // the filter is a string but the data is numerical, make them the same
+                const filter = parseInt(this.filter);
 
-	computed: {
+                posts = _filter(posts, post => {
+                    return post.issue.length > 0 && post.issue.indexOf(filter) !== -1;
+                });
+            }
 
-		visiblePosts() {
+            return posts;
+        },
 
-			let posts = _cloneDeep(this.posts);
+        pagedPosts: function() {
+            return this.visiblePosts.slice(0, this.limit);
+        },
 
-			if ( this.filter !== "" ) {
+        hasNextPage: function() {
+            return this.visiblePosts.length > this.limit;
+        }
+    },
 
-				// the filter is a string but the data is numerical, make them the same
-				const filter = parseInt(this.filter);
-
-				posts = _filter(posts, post => {
-					return post.issue.length > 0 && post.issue.indexOf(filter) !== -1;
-				});
-
-			}
-
-			return posts;
-
-		},
-
-		pagedPosts: function() {
-			return this.visiblePosts.slice(0, this.limit);
-		},
-
-		hasNextPage: function() {
-			return this.visiblePosts.length > this.limit;
-		}
-
-	},
-
-	methods: {
-
-		increaseLimit() {
-
-			if ( this.limit < this.posts.length ) {
-				this.limit += 12;
-			}
-
-		}
-
-	}
-
+    methods: {
+        increaseLimit() {
+            if (this.limit < this.posts.length) {
+                this.limit += 12;
+            }
+        }
+    }
 });

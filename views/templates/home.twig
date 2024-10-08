@@ -1,145 +1,105 @@
 {% extends "base.twig" %}
 
 {% block content %}
+    <main class="home" id="blog-posts">
+        <div class="home__container">
+            {% include 'blocks/simple-header.twig' %}
 
-	<main class="home" id="blog-posts">
+            {% include 'partials/filters.twig' %}
 
-		<div class="home__container">
+            <section class="home__posts">
+                <div
+                    v-for="post in pagedPosts"
+                    v-bind:key="post.id"
+                    v-html="post.card"
+                ></div>
+            </section>
 
-			{% include 'blocks/simple-header.twig' %}
+            <div class="screen-only / home__load-more / align-contents-center">
+                <button class="button button--has-icon" v-on:click.prevent="increaseLimit()" v-if="hasNextPage">
+                    <svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                    {{ latest.content.load_more }}
+                </button>
+            </div>
 
-			{% include 'partials/filters.twig' %}
+            {% if latest.footer_latest_news %}
+                <div class="home__section">
+                    <div class="home__section-header">
+                        <h2 class="gamma">{{ latest.content.news_label }}</h2>
 
-			<section class="home__posts">
-				<primary-card v-for="post in pagedPosts" v-bind:key="post.id" :card="post" data-colour-scheme="light" />
-			</section>
+                        <a class="screen-only / arrow-link" data-text-color="black" data-size="medium" href="{{ latest.news_archive_link.url }}">
+                            <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                            <span class="arrow-link__label / uppercase">{{ latest.news_archive_link.label }}</span>
+                        </a>
+                    </div>
 
-			<div class="screen-only / home__load-more / align-contents-center">
+                    <div class="home__section-post">
+                        {% for post in latest.footer_latest_news %}
+                            <div class="card card--text">
+                                <a class="card__title-link" href="{{ post.link() }}">
+                                    <h3 class="card__title">{{ post.post_title}}</h3>
+                                </a>
 
-				<button class="button button--has-icon" v-on:click.prevent="increaseLimit()" v-if="hasNextPage">
-					<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-					{{ latest.content.load_more }}
-				</button>
+                                <p class="card__meta">{{ post.date('j M Y') }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
 
-			</div>
+            {% if latest.footer_latest_events %}
+                <div class="home__section">
+                    <div class="home__section-header">
+                        <h2 class="gamma">{{ latest.content.events_label }}</h2>
 
-			{% if latest.footer_latest_news %}
+                        <a class="screen-only / arrow-link" data-text-color="black" data-size="medium" href="{{ latest.events_archive_link.url }}">
+                            <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                            <span class="arrow-link__label / uppercase">{{ latest.events_archive_link.label }}</span>
+                        </a>
+                    </div>
 
-				<div class="home__section">
+                    <div class="home__section-post">
+                        {% for post in latest.footer_latest_events %}
+                            <div class="card card--text">
+                                <a class="card__title-link" href="{{ post.link() }}">
+                                    <h3 class="card__title">{{ post.post_title}}</h3>
+                                </a>
 
-					<div class="home__section-header">
+                                <p class="card__meta">{{ post.event_date|date('j M Y') }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
 
-						<h2 class="gamma">{{ latest.content.news_label }}</h2>
+            {% if latest.footer_latest_resources %}
+                <div class="home__section">
+                    <div class="home__section-header">
+                        <h2 class="gamma">{{ latest.content.resources_label }}</h2>
 
-						<a class="screen-only / arrow-link" data-text-color="black" data-size="medium" href="{{ latest.news_archive_link.url }}">
-							<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-							<span class="arrow-link__label / uppercase">{{ latest.news_archive_link.label }}</span>
-						</a>
+                        <a class="screen-only / arrow-link" data-text-color="black" data-size="medium" href="{{ latest.resources_archive_link.url }}">
+                            <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                            <span class="arrow-link__label / uppercase">{{ latest.resources_archive_link.label }}</span>
+                        </a>
+                    </div>
 
-					</div>
+                    <div class="home__section-post">
+                        {% for post in latest.footer_latest_resources %}
+                            <div class="card card--text">
+                                <a class="card__title-link" href="{{ post.link() }}">
+                                    <h3 class="card__title">{{ post.post_title}}</h3>
+                                </a>
 
-					<div class="home__section-post">
+                                <p class="card__meta">{{ post.date('j M Y') }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        </div> <!-- / .home__container -->
+    </main>
 
-						{% for post in latest.footer_latest_news %}
-
-							<div class="card card--text">
-
-								<a class="card__title-link" href="{{ post.link() }}">
-									<h3 class="card__title">{{ post.post_title}}</h3>
-								</a>
-
-								<p class="card__meta">{{ post.date('j M Y') }}</p>
-
-							</div>
-
-						{% endfor %}
-
-					</div>
-
-				</div>
-
-			{% endif %}
-
-			{% if latest.footer_latest_events %}
-
-				<div class="home__section">
-
-					<div class="home__section-header">
-
-						<h2 class="gamma">{{ latest.content.events_label }}</h2>
-
-						<a class="screen-only / arrow-link" data-text-color="black" data-size="medium" href="{{ latest.events_archive_link.url }}">
-							<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-							<span class="arrow-link__label / uppercase">{{ latest.events_archive_link.label }}</span>
-						</a>
-
-					</div>
-
-					<div class="home__section-post">
-
-						{% for post in latest.footer_latest_events %}
-
-							<div class="card card--text">
-
-								<a class="card__title-link" href="{{ post.link() }}">
-									<h3 class="card__title">{{ post.post_title}}</h3>
-								</a>
-
-								<p class="card__meta">{{ post.event_date|date('j M Y') }}</p>
-
-							</div>
-
-						{% endfor %}
-
-					</div>
-
-				</div>
-
-			{% endif %}
-
-			{% if latest.footer_latest_resources %}
-
-				<div class="home__section">
-
-					<div class="home__section-header">
-
-						<h2 class="gamma">{{ latest.content.resources_label }}</h2>
-
-						<a class="screen-only / arrow-link" data-text-color="black" data-size="medium" href="{{ latest.resources_archive_link.url }}">
-							<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-							<span class="arrow-link__label / uppercase">{{ latest.resources_archive_link.label }}</span>
-						</a>
-
-					</div>
-
-					<div class="home__section-post">
-
-						{% for post in latest.footer_latest_resources %}
-
-							<div class="card card--text">
-
-								<a class="card__title-link" href="{{ post.link() }}">
-									<h3 class="card__title">{{ post.post_title}}</h3>
-								</a>
-
-								<p class="card__meta">{{ post.date('j M Y') }}</p>
-
-							</div>
-
-						{% endfor %}
-
-					</div>
-
-				</div>
-
-			{% endif %}
-
-		</div> <!-- / .home__container -->
-
-	</main>
-
-	<div class="page-container">
-		{{ latest.blog_content | raw }}
-	</div>
-
+    <div class="page-container">
+        {{ latest.blog_content | raw }}
+    </div>
 {% endblock %}
