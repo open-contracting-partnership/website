@@ -5,10 +5,23 @@
         <div class="home__container">
             {% include 'blocks/simple-header.twig' %}
 
-            {% include 'partials/filters.twig' %}
+            <div class="filter-menu">
+                <div class="filter-header">
+                    <p class="filter-text">Filter by multiple topics:</p>
+                    <a href="#" class="reset-link">Reset all filters</a>
+                </div>
+
+                <div class="filter-container">
+                    {% for issue in issue_terms %}
+                        <div class="filter-item" data-term="{{ issue.term_id }}">
+                            {{ issue.name }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
 
             <section class="home__posts">
-                <div
+                <div class="card__container"
                     v-for="post in pagedPosts"
                     v-bind:key="post.id"
                     v-html="post.card"
