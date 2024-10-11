@@ -4,78 +4,49 @@
 
 	<main id="resource-archive" class="page-container / resource-archive">
 
-		<header class="resource-archive__header">
+		{% include 'blocks/simple-header.twig' %}
 
-			{% if back_link %}
-
-				<a class="arrow-link" href="{{ back_link.url }}" data-size="small" data-direction="west" data-icon-color="grey" data-text-color="black">
-					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-					<span class="arrow-link__label / uppercase">{{ back_link.label }}</span>
-				</a>
-
-			{% endif %}
-
-			<h1 class="resource-archive__heading">{{ title }}</h1>
-
-			<div class="resource-archive__intro">
-				<p>{{ resources.i18n.introduction }}</p>
-			</div>
-
-		</header>
-
-		<div class="resource-archive__switcher">
-			<button class="button--naked" data-tab="resource-library" @click="switchTab" :data-active="tab === 'resource-library'">Resource Library</button>
-			<button class="button--naked" data-tab="learning-library" @click="switchTab" :data-active="tab === 'learning-library'">Learning Library</button>
-		</div>
-
-		<div class="resource-archive__controls / grid grid-cols-2 gap-4">
+		<div class="resource-archive__controls">
 
 			<div>
 
-				<div class="resource-archive__search /  search-input max-w-xs" data-size="large">
+				<div class="filter-menu">
 
-					<input class="search-input__input / uppercase" v-model="search" type="text" aria-label="Search" placeholder="Search">
+					<div class="resource-archive__search /  search-input" data-size="large">
+						<input class="search-input__input / uppercase" v-model="search" type="text" aria-label="Search" placeholder="Search">
 
-					<button class="search-input__button / button--naked">
-						<svg><use xlink:href="#icon-search-rounded"></use></svg>
-					</button>
-
-				</div>
-
-				<div class="resource-archive__filters" v-if="tab === 'resource-library'">
+						<button class="search-input__button / button--naked">
+							<svg><use xlink:href="#icon-search-rounded"></use></svg>
+						</button>
+					</div>
 
 					{% for filter in resource_library_filters %}
-
-						<div class="resource-archive__filter">
-
-							<h3 class="resource-archive__filter-heading">{{ filter.title }}</h3>
-
-							{% for field in filter.filter %}
-
-								<label class="resource-archive__filter-field">
-
-									<input
-										type="radio"
-										name="{{ field.taxonomy }}"
-										data-taxonomy="{{ field.taxonomy }}"
-										value="{{ field.slug }}"
-										:checked="isChecked('{{ field.taxonomy }}', '{{ field.slug }}')"
-										class="input-circle"
-										data-colour="{{ field.colour }}"
-										@click="toggleFilter"
-									>
-
-									{{ field.label }}
-
-								</label>
-
-							{% endfor %}
-
+						<div class="filter-header">
+							<p class="filter-text">{{ filter.title }}</p>
 						</div>
 
+						<div class="filters-container">
+							{% for field in filter.filter %}
+								<div class="filter-container">
+									<label class="filter-item">
+										<input
+											type="checkbox"
+											name="regions"
+											class="filter-item__input"
+											value="{{ field.slug }}"
+											v-model="filters"
+										>
+
+										<span class="filter-item__control" style="--hover-colour: #000000 " >{{ field.label }}</span>
+									</label>
+								</div>
+							{% endfor %}
+						</div>
 					{% endfor %}
 
+					<a href="#" class="reset-link">Reset all filters</a>
 				</div>
+
 
 				<div class="resource-archive__filters" v-if="tab === 'learning-library'">
 
@@ -113,38 +84,25 @@
 
 			</div>
 
-			<div class="[tw: justify-self-end ]">
+			{# {% include 'partials/resource-card.twig'  %} #}
 
-				<div v-if="tab === 'learning-library'" class="card card--resource [tw: max-w-xs ]" data-post-type="resource" style="max-width: 13rem; background-color: #DEDAF5; color: #000;">
+			<div class="resource-archive__results">
 
-					<div class="card__body">
-						<a class="card__link" href="/learn">We’ve recently added new Learning resources to this library</a>
-					</div>
+				<template v-if="visibleResources.length">
+					<div class="card__container"
+						v-for="resource in visibleResources"
+						v-bind:key="resource.id"
+						v-html="resource.card"
+					></div>
+					{# <resource v-for="(resource, index) in visibleResources" :key="index" :card="resource"></resource> #}
+				</template>
 
-					<div class="card__footer">
-
-						<a class="arrow-link" href="/learn" style="color: #000;">
-							<svg class="arrow-link__icon" style="fill: #5946CB;"><use xlink:href="#icon-arrow-circle"></use></svg>
-							<span class="arrow-link__label">Explore Learning</span>
-						</a>
-
-					</div>
-
-				</div>
+				<p v-else class="resource-archive__no-results">{{ resources.i18n.no_results_label }}</p>
 
 			</div>
 
 		</div>
 
-		<div class="resource-archive__results">
-
-			<template v-if="visibleResources.length">
-				<resource v-for="(resource, index) in visibleResources" :key="index" :card="resource"></resource>
-			</template>
-
-			<p v-else class="resource-archive__no-results">{{ resources.i18n.no_results_label }}</p>
-
-		</div>
 
 	</main>
 

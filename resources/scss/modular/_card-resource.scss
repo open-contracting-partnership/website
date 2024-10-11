@@ -1,3 +1,7 @@
+.card__container {
+	display: flex;
+}
+
 .card.card--resource {
 
 	--accent-colour: #{$ui-white};
@@ -7,9 +11,9 @@
 	border-radius: spacing(4) spacing(1) spacing(4) spacing(1);
 	padding: 20px 28px;
 	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-
+	flex-direction: row;
+	flex-grow: 1;
+	gap: spacing(2);
 	@media print {
 		border: 3px solid $ui-grey-7;
 	}
@@ -20,6 +24,14 @@
         flex-direction: column;
 		justify-content: center;
 		padding: spacing(1) 0;
+	}
+
+	.card__image-container {
+		flex: 0 0 108px;
+		img {
+            max-width: 100%;
+            height: auto;
+        }
 	}
 
 		.card__link {
@@ -63,6 +75,7 @@
 
 		.card__type {
 			font-size: 14px;
+			font-weight: 500;
 			flex: 1 1 100%;
 			text-transform: uppercase;
 			padding-top: .1em;
@@ -84,7 +97,7 @@
             margin-left: auto;
         }
 
-    &[data-has-border="true"] {
+    &[data-has-border="1"] {
         border: 2px solid var(--accent-colour);
     }
 

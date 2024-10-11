@@ -1,5 +1,5 @@
 .resource-archive {
-	@extend %column-grid;
+	// @extend %column-grid;
 	margin-bottom: var(--v-spacing);
 }
 
@@ -91,20 +91,20 @@
 	}
 
 	.resource-archive__controls {
-		grid-column: all;
+		position: relative;
 	}
 
 	.resource-archive__search {
-
+		max-width: 518px;
 		grid-column: all;
-		margin-bottom: spacing(3);
+		margin-bottom: spacing(2);
+		background-color: $ui-white;
 
-		@include from(T) {
-			grid-column: all / span 6;
-		}
 
-		@include from(M) {
-			grid-column: all / span 4;
+		@include from(L) {
+			position: absolute;
+			top: spacing(2);
+			right: spacing(2);
 		}
 
 	}
@@ -159,12 +159,43 @@
 		grid-template-columns: repeat(var(--columns), 1fr);
 		grid-gap: spacing(3);
 
-		@include from(S) {
+		@include from(T) {
 			--columns: 2;
 		}
 
-		@include from(T) {
+		@include from(L) {
 			--columns: 3;
 		}
 
+	}
+
+	.resource-archive {
+
+		.filter-menu {
+			gap: spacing(1);
+			display: flex;
+			flex-direction: column;
+		}
+
+		.filter-text {
+			margin-bottom: 0;
+		}
+
+		.filters-container {
+			display: flex;
+			flex-wrap: wrap;
+			gap: spacing(1);
+			margin-bottom: spacing(1);
+
+		}
+
+		.search-input__input {
+			padding: 4px 120px 4px 12px;
+			font-size: spacing(1.5);
+
+			@include from(L) {
+				padding: 4px 120px 4px 12px;
+
+			}
+		}
 	}
