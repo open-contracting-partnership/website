@@ -27,6 +27,7 @@ class PrimaryCard extends BaseCard
             'button_label' => __('Read', 'ocp'),
             'post_type' => $post->post_type,
             'tags' => $tags,
+            'issues' => get_field('issue'),
         ];
 
         // only posts should have an author
