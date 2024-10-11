@@ -9,7 +9,6 @@
 
 		grid-column: content;
 		grid-row: 1;
-		font-size: 17px;
 		@include font('secondary', 'medium');
 		justify-content: space-around;
 		overflow: hidden;
@@ -123,6 +122,7 @@
 			.card__quote {
 				p {
 					font-size: 20px;
+					font-weight: 500;
 				}
 
 				footer {
@@ -130,4 +130,8 @@
 				}
 			}
 
+}
+
+.tns-item {
+	font-size: unset !important;
 }

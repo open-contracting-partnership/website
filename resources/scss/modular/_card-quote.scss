@@ -82,10 +82,6 @@
 			margin-bottom: spacing(1);
         }
 
-		p {
-			all: unset;
-		}
-
 		footer {
             margin-top: auto;
 			@include font('secondary');
