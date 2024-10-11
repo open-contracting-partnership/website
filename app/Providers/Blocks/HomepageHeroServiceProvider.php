@@ -23,7 +23,7 @@ class HomepageHeroServiceProvider
                     'align' => false,
                 ],
                 'enqueue_assets' => function () {
-                    wp_enqueue_script('block-homepage-hero', get_template_directory_uri() . '/dist/js/block-homepage-hero.js', ['manifest'], false, true);
+                    wp_enqueue_script('block-report-header', get_template_directory_uri() . '/dist/js/block-report-header.js', ['manifest'], false, true);
                 },
             ]);
         });
