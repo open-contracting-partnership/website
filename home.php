@@ -27,8 +27,8 @@ class HomeController extends Controller
     {
         $context = Timber::get_context();
 
-        $context['block']['heading'] = get_field('heading', 'options');
-        $context['block']['content'] = get_field('content', 'options');
+        $context['block']['heading'] = get_field('announcements_heading', 'options');
+        $context['block']['content'] = get_field('announcements_content', 'options');
 
         $context['latest']['content']['load_more'] = _x(
             'Load more',
