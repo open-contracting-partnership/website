@@ -13,7 +13,7 @@
 
                 <div class="filter-container">
                     {% for issue in issue_terms %}
-                        <div class="filter-item" data-term="{{ issue.term_id }}">
+                        <div class="filter-item" data-term="{{ issue.name }}">
                             {{ issue.name }}
                         </div>
                     {% endfor %}
