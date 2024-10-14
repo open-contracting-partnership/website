@@ -17,6 +17,10 @@ class ArchiveResourceController extends Controller
         $context['title'] = _x('Search our resources', 'Resources archive title', 'ocp');
 
         $context['resource_library_filters'] = get_field('resources_filters', 'options');
+        $context['block']['heading'] = get_field('resources_heading', 'options');
+        $context['block']['content'] = get_field('resources_content', 'options');
+
+        $context['resources_output'] = $this->getAllResources();
 
         if ($context['resource_library_filters']) {
             foreach ($context['resource_library_filters'] as &$filter_group) {
@@ -90,6 +94,7 @@ class ArchiveResourceController extends Controller
             $output['date'] = $resource->date('c');
             $output['title'] = $resource->title;
             $output['url'] = $resource->link();
+            $output['image'] = get_the_post_thumbnail();
 
             if ($resource->organisation) {
                 $output['meta'] = sprintf(__('By %s', 'ocp'), $resource->organisation) . ' / ' . $resource->date('Y');
@@ -125,6 +130,21 @@ class ArchiveResourceController extends Controller
             $resources_output[] = $output;
         }
 
+        // return $resources_output;
+
+        $resources_output = collect($resources_output)
+            ->map(function ($resource) {
+                $resource['card'] = Timber::compile('cards/resource.twig', [
+                    'card' => $resource,
+                    'options' => [
+                        'colour_scheme' => 'light'
+                    ]
+                ]);
+                return $resource;
+            })
+            ->toArray();
+
         return $resources_output;
     }
+
 }

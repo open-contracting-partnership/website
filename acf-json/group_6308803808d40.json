@@ -5,7 +5,7 @@
         {
             "key": "field_66ffd673d3d93",
             "label": "Heading",
-            "name": "heading",
+            "name": "announcements_heading",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -27,7 +27,7 @@
         {
             "key": "field_66ffd68cd3d94",
             "label": "Content",
-            "name": "content",
+            "name": "announcements_content",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -66,5 +66,5 @@
     "description": "",
     "show_in_rest": 0,
     "acfml_field_group_mode": "advanced",
-    "modified": 1728043276
+    "modified": 1728556299
 }

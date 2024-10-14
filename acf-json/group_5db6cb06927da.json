@@ -71,7 +71,7 @@
             "label": "Colour",
             "name": "overlay_colour",
             "aria-label": "",
-            "type": "color_picker",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -82,9 +82,19 @@
             },
             "gutenberg_visibility": "both",
             "wpml_cf_preferences": 0,
-            "default_value": "#000000",
-            "enable_opacity": 0,
-            "return_format": "string"
+            "choices": {
+                "#FB6045": "Orange",
+                "#6C75E1": "Blue",
+                "#23B2A7": "Teal",
+                "#E0E83D": "Brand Green"
+            },
+            "default_value": "#6C75E1",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_5e1decd504bbe",
@@ -222,5 +232,5 @@
     "description": "",
     "show_in_rest": 0,
     "acfml_field_group_mode": "advanced",
-    "modified": 1728046822
+    "modified": 1728303206
 }

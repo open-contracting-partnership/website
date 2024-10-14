@@ -27,8 +27,8 @@ class HomeController extends Controller
     {
         $context = Timber::get_context();
 
-        $context['block']['heading'] = get_field('heading', 'options');
-        $context['block']['content'] = get_field('content', 'options');
+        $context['block']['heading'] = get_field('announcements_heading', 'options');
+        $context['block']['content'] = get_field('announcements_content', 'options');
 
         $context['latest']['content']['load_more'] = _x(
             'Load more',
@@ -65,7 +65,7 @@ class HomeController extends Controller
 
         $context['latest']['news_archive_link'] = [
             'url' => get_post_type_archive_link('news'),
-            'label' => __('View all news', 'ocp')
+            'label' => __('View all announcements', 'ocp')
         ];
 
         $context['latest']['events_archive_link'] = [

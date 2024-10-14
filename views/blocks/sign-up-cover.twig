@@ -3,7 +3,7 @@
 <div
     id="{{ options.id }}"
     class="sign-up / screen-only"
-    data-mailchimp-success="true"
+    data-mailchimp-success="false"
     style="
         --background-color: {{ block.background_colour }};
         --color: {{ block.text_colour}};
@@ -32,7 +32,7 @@
                                 value="{{ regionKey }}"
                             >
 
-                            <span class="region-selector__control">{{ regionLabel }}</span>
+                            <span class="region-selector__control" style="--hover-colour: {{ block.background_colour }}" >{{ regionLabel }}</span>
                         </label>
                     {% endfor %}
                 </div>

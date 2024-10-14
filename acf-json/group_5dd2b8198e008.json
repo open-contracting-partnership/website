@@ -21,6 +21,50 @@
             "endpoint": 0
         },
         {
+            "key": "field_6707b0bb7b661",
+            "label": "Resources Heading",
+            "name": "resources_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 0,
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6707b0c67b662",
+            "label": "Resources Content",
+            "name": "resources_content",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 0,
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_5dd2b82798981",
             "label": "Resources Filters",
             "name": "resources_filters",
@@ -40,6 +84,7 @@
             "max": 0,
             "layout": "block",
             "button_label": "Add Filter Row",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5dd2b83f98982",
@@ -83,6 +128,8 @@
                     "max": 0,
                     "layout": "table",
                     "button_label": "Add Row",
+                    "rows_per_page": 20,
+                    "parent_repeater": "field_5dd2b82798981",
                     "sub_fields": [
                         {
                             "key": "field_5dd2b8c2efa3b",
@@ -110,12 +157,9 @@
                             "bidirectional_target": [],
                             "parent_repeater": "field_5dd2b84698983"
                         }
-                    ],
-                    "rows_per_page": 20,
-                    "parent_repeater": "field_5dd2b82798981"
+                    ]
                 }
-            ],
-            "rows_per_page": 20
+            ]
         },
         {
             "key": "field_605b14b4f81af",
@@ -198,6 +242,7 @@
                             "max": 0,
                             "layout": "",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_605b148af81ac",
@@ -225,8 +270,7 @@
                                     "bidirectional_target": [],
                                     "parent_repeater": "field_605b148af81ab"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -279,6 +323,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_605b157b37bfb",
@@ -306,8 +351,7 @@
                                     "bidirectional_target": [],
                                     "parent_repeater": "field_605b157b37bfa"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -336,8 +380,7 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1695737534,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5dd2b8198e008.json",
-    "acfml_field_group_mode": "advanced"
+    "show_in_rest": 0,
+    "acfml_field_group_mode": "advanced",
+    "modified": 1728557309
 }
