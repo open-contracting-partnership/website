@@ -49,6 +49,7 @@ mix
     .js('resources/js/block-report-header.js', 'dist/js')
     .js('resources/js/block-stats.js', 'dist/js')
     .js('resources/js/block-team-profile.js', 'dist/js')
+    .js('resources/js/block-where-we-work.js', 'dist/js')
     .js('resources/js/element-queries.js', 'dist/js')
     .js('resources/js/header.js', 'dist/js')
     .js('resources/js/impact-stories.js', 'dist/js')
