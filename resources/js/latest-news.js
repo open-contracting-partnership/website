@@ -40,6 +40,10 @@ new Vue({
             if (this.limit < this.posts.length) {
                 this.limit += 12;
             }
+        },
+
+        reset() {
+            this.filters = [];
         }
     }
 });

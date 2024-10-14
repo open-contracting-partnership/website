@@ -111,6 +111,7 @@ textarea {
 	.filter-header {
 		display: flex;
 		justify-content: space-between;
+        align-items: flex-start;
 
 		p {
 			font-weight: 500;
@@ -151,6 +152,11 @@ textarea {
 			border-color: $ui-brand;
 			background-color: $ui-brand;
 		}
+
+    .filter__reset-link {
+        font-size: 14px;
+        text-decoration: underline;
+    }
 
 .search-input {
 	font-size: 14px;
