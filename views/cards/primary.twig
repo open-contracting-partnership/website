@@ -4,18 +4,9 @@
 	{% set fallback_image = '/wp-content/themes/ocp-v1/resources/img/fallback-v2.jpg' %}
 {% endif %}
 
-<div class="card card--primary"
-	data-has-featured="{{ block.has_featured }}"
-	data-terms='[
-		{% for issue in card.issues %}
-			"{{ issue.name }}"
-		{% endfor %}
-	]'>
-
+<div class="card card--primary" data-has-featured="{{ block.has_featured }}">
 	<div class="card__image">
-
 		{% if card.image_url %}
-
 			{{ imgix({
 				src: card.image_url,
 				params: {
@@ -38,7 +29,6 @@
 			}) }}
 
 		{% else %}
-
 			{{ imgix({
 				src: fallback_image,
 				params: {
@@ -59,9 +49,7 @@
 				}],
 				sizes: '100vw'
 			}) }}
-
 		{% endif %}
-
 	</div>
 
 	<div class="card__main">
@@ -88,13 +76,9 @@
 		{% endif %}
 
 		<div class="card__footer">
-
 			{% if card.meta %}
 				<div class="card__meta">{{ card.meta }}</div>
 			{% endif %}
-
 		</div>
-
 	</div>
-
 </div>
