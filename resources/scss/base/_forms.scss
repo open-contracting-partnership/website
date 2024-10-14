@@ -122,73 +122,37 @@ textarea {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 10px;
-	  }
+    }
 
-	  .filter-item__input {
+	    .filter-item__input {
 		    @extend .visually-hidden;
 		}
 
-	  .filter-item__control {
-		padding: 4px 12px 2px 12px;
-		border-radius: 20px;
-		background-color: $ui-white;
-		color: $ui-black;
-		border: 1px solid $ui-grey-3;
-		cursor: pointer;
-		transition: background-color 0.3s ease;
-		font-size: 14px;
-		font-weight: 500;
-		@include font('secondary', 'medium');
+        .filter-item__control {
+            padding: 4px 12px 2px 12px;
+            border-radius: 20px;
+            background-color: $ui-white;
+            color: $ui-black;
+            border: 1px solid $ui-grey-3;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: initial;
+            @include font('secondary', 'medium');
 
-		&:hover {
-		  background-color: $ui-brand;
-		  border-color: $ui-brand;
-		}
-
-		&.active {
-		  background-color: $ui-brand;
-		  color: $ui-white;
-		}
-	}
+            &:hover {
+                background-color: $ui-brand;
+                border-color: $ui-brand;
+            }
+        }
 
 		.filter-item__input:checked ~ .filter-item__control {
 			border-color: $ui-brand;
 			background-color: $ui-brand;
 		}
 
-// .region-selector {
-//     text-transform: none;
-// }
-
-// .region-selector__input {
-//     @extend .visually-hidden;
-// }
-
-// .region-selector__control {
-//     font-size: 20px;
-//     @include font('secondary', 'medium');
-//     display: block;
-//     background-color: transparent;
-//     border: 2px solid $ui-white;
-//     border-radius: 999px;
-//     padding: spacing(1) spacing(1.5
-//     );
-//     user-select: none;
-
-//     &:hover {
-//         background-color: $ui-white;
-//         color: var(--hover-colour);
-//     }
-// }
-
-// .region-selector__input:checked ~ .region-selector__control {
-//     background-color: $ui-white;
-//     color: $ui-grey;
-// }
-
 .search-input {
-
-
 	font-size: 14px;
 	color: $ui-grey-4;
 
