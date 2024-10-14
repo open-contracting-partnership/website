@@ -10,8 +10,8 @@ $pattern = '/<path class="Vector([_0-9]+)?" d="M([0-9\.?]+) ([0-9\.?]+)C([0-9\.?
 function callback ($matches) {
     $radius = 2.75;
 
-    $x = floatval($matches[2]) - $radius;
-    $y = $matches[3];
+    $x = floatval($matches[2]);
+    $y = $matches[3] - $radius;
 
     $y = round($y, 1);
     $x = round($x, 1);
