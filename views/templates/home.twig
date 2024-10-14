@@ -13,8 +13,18 @@
 
                 <div class="filter-container">
                     {% for issue in issue_terms %}
-                        <div class="filter-item" data-term="{{ issue.name }}">
-                            {{ issue.name }}
+                        <div class="filter-container">
+                            <label class="filter-item">
+                                <input
+                                    type="checkbox"
+                                    name="regions"
+                                    class="filter-item__input"
+                                    value="{{ issue.name }}"
+                                    v-model="filters"
+                                >
+
+                                <span class="filter-item__control" style="--hover-colour: #000000" >{{ issue.name }}</span>
+                            </label>
                         </div>
                     {% endfor %}
                 </div>
