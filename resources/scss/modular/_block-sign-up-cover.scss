@@ -203,7 +203,6 @@
             @include fluid-type(margin-top, 360px, 1240px, spacing(2), spacing(4));
         }
         .sign-up__thank-you__stories {
-            margin-bottom: 16px;
 
             > .card {
                 @media print {
