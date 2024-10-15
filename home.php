@@ -1,14 +1,5 @@
 <?php
 
-/**
- * The template for displaying Archive pages.
- *
- * Used to display archive-type pages if nothing more specific matches a query.
- * For example, puts together date-based pages if no date.php file exists.
- *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- */
-
 namespace App;
 
 use App\Cards\PrimaryCard;
@@ -90,33 +81,21 @@ class HomeController extends Controller
             'posts_per_page' => -1
         ]);
 
-        // convert and filter the
         $posts = PrimaryCard::convertCollection($posts, function ($new, $original) {
-            // we don't want to show a button label
-            unset($new['button_label']);
-
-            // and we want the lighter colour scheme, we set this on the card as
-            // with vue we don't currently set this any other way
-
-            $new['colour_scheme'] = 'light';
-
-            $issues = $original->terms('issue') ?: [];
-
-            $issues = array_map(function ($term) {
-                return $term->id;
-            }, $issues);
-
-            // add issue terms to post
-            $new['issue'] = $issues;
+            $new['issues'] = collect($original->terms('issue') ?: [])
+                ->pluck('slug');
 
             return $new;
         });
 
         $posts = collect($posts)
             ->map(function ($post) {
-                $post['card'] = Timber::compile('cards/primary.twig', [
-                    'card' => $post
-                ]);
+                return [
+                    'card' => Timber::compile('cards/primary.twig', [
+                        'card' => $post
+                    ]),
+                    'issues' => $post['issues']
+                ];
 
                 return $post;
             });

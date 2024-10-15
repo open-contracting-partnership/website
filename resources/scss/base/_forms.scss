@@ -111,6 +111,7 @@ textarea {
 	.filter-header {
 		display: flex;
 		justify-content: space-between;
+        align-items: flex-start;
 
 		p {
 			font-weight: 500;
@@ -122,91 +123,45 @@ textarea {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 10px;
-	  }
+    }
 
-	  .filter-item {
-		text-transform: none;
-	  }
-
-	  .filter-item__input {
+	    .filter-item__input {
 		    @extend .visually-hidden;
 		}
 
-	  .filter-item__control {
-		padding: 4px 12px 2px 12px;
-		border-radius: 20px;
-		color: $ui-black;
-		border: 1px solid $ui-grey-3;
-		cursor: pointer;
-		transition: background-color 0.3s ease;
-		font-size: 14px;
-		font-weight: 500;
-		@include font('secondary', 'medium');
+        .filter-item__control {
+            padding: 4px 12px 2px 12px;
+            border-radius: 20px;
+            background-color: $ui-white;
+            color: $ui-black;
+            border: 1px solid $ui-grey-3;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: initial;
+            user-select: none;
+            @include font('secondary', 'medium');
 
-		&[data-colour="green"] {
-			border-color: $ui-brand;
-
-			&:hover {
-				background-color: $ui-brand;
-			}
-		}
-
-		&[data-colour="orange"] {
-			border-color: $ui-orange;
-			color: $ui-orange;
-
-			&:hover {
-				background-color: $ui-orange;
-				color: $ui-white;
-			}
-		}
-
-		&[data-colour="blue"] {
-			border-color: $ui-blue;
-			color: $ui-blue;
-
-			&:hover {
-				background-color: $ui-blue;
-				color: $ui-white;
-			}
-		}
-		&[data-colour="black"] {
-			border-color: $ui-black;
-			color: $ui-black;
-
-			&:hover {
-				background-color: $ui-black;
-				color: $ui-white;
-			}
-		}
-	}
+            &:hover {
+                background-color: $ui-brand;
+                border-color: $ui-brand;
+            }
+        }
 
 		.filter-item__input:checked ~ .filter-item__control {
-
-			&[data-colour="green"] {
-				background-color: $ui-brand;
-			}
-
-			&[data-colour="orange"] {
-				background-color: $ui-orange;
-				color: $ui-white;
-			}
-
-			&[data-colour="blue"] {
-				background-color: $ui-blue;
-				color: $ui-white;
-			}
-
-			&[data-colour="black"] {
-				background-color: $ui-black;
-				color: $ui-white;
-			}
+			border-color: $ui-brand;
+			background-color: $ui-brand;
 		}
 
+    .filter__reset-link {
+        font-size: 14px;
+        text-decoration: underline;
+        width: max-content;
+        font-weight: 500;
+    }
 
 .search-input {
-
-
 	font-size: 14px;
 	color: $ui-grey-4;
 

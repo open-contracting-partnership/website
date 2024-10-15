@@ -2,13 +2,14 @@ import Vue from 'vue'
 
 const _cloneDeep = require('lodash.clonedeep');
 const _filter = require('lodash.filter');
+const _intersection = require('lodash.intersection');
 
 new Vue({
     el: '#blog-posts',
 
     data: {
         posts: content.posts,
-        filter: "",
+        filters: [],
         limit: 12
     },
 
@@ -16,12 +17,9 @@ new Vue({
         visiblePosts() {
             let posts = _cloneDeep(this.posts);
 
-            if (this.filter !== "") {
-                // the filter is a string but the data is numerical, make them the same
-                const filter = parseInt(this.filter);
-
+            if (this.filters.length) {
                 posts = _filter(posts, post => {
-                    return post.issue.length > 0 && post.issue.indexOf(filter) !== -1;
+                    return _intersection(post.issues, this.filters).length > 0;
                 });
             }
 
@@ -42,6 +40,10 @@ new Vue({
             if (this.limit < this.posts.length) {
                 this.limit += 12;
             }
+        },
+
+        reset() {
+            this.filters = [];
         }
     }
 });

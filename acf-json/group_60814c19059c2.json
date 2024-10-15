@@ -17,18 +17,16 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "wpml_cf_preferences": 0,
             "choices": {
                 "orange": "Orange",
                 "green": "Green",
-                "blue": "Blue",
-                "black": "Black"
+                "blue": "Blue"
             },
             "default_value": false,
-            "return_format": "value",
-            "multiple": 0,
             "allow_null": 1,
+            "multiple": 0,
             "ui": 0,
+            "return_format": "value",
             "ajax": 0,
             "placeholder": ""
         }
@@ -39,13 +37,6 @@
                 "param": "taxonomy",
                 "operator": "==",
                 "value": "resource-type"
-            }
-        ],
-        [
-            {
-                "param": "taxonomy",
-                "operator": "==",
-                "value": "learning-resource-category"
             }
         ]
     ],
@@ -58,6 +49,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "acfml_field_group_mode": "advanced",
-    "modified": 1728909377
+    "modified": 1728988616
 }

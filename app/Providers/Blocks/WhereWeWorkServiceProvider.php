@@ -20,6 +20,9 @@ class WhereWeWorkServiceProvider
                 'supports' => [
                     'align' => false,
                 ],
+                'enqueue_assets' => function () {
+                    wp_enqueue_script('block-where-we-work', get_template_directory_uri() . '/dist/js/block-where-we-work.js', ['manifest'], false, true);
+                },
             ]);
         });
     }
@@ -29,7 +32,12 @@ class WhereWeWorkServiceProvider
         $context = Timber::get_context();
 
         $context['block']['heading'] = get_field('heading');
-        $context['block']['regions'] = get_field('regions');
+        $context['block']['regions'] = collect(get_field('regions') ?? [])
+            ->map(function ($region) {
+                $region['slug'] = basename($region['link']['url']);
+
+                return $region;
+            });
 
         echo Timber::compile('blocks/where-we-work.twig', $context);
     }
