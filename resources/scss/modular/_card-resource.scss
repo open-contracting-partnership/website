@@ -9,11 +9,14 @@
 	background-color: $ui-grey-3;
 	color: $ui-white;
 	border-radius: spacing(4) spacing(1) spacing(4) spacing(1);
+	border: 2px solid $ui-grey-6;
 	padding: 20px 28px;
 	display: flex;
 	flex-direction: row;
 	flex-grow: 1;
 	gap: spacing(2);
+	@include font('secondary');
+
 	@media print {
 		border: 3px solid $ui-grey-7;
 	}
@@ -42,10 +45,10 @@
             margin-bottom: spacing(2);
         }
 
-        .card__meta {
-            text-transform: uppercase;
-            font-weight: 500;
-            font-size: 12px;
+        .card__excerpt {
+            font-size: 14px;
+			font-weight: 300;
+			color: $ui-grey;
             margin-bottom: 0;
         }
 
@@ -124,6 +127,10 @@
 		--accent-colour: #{$ui-blue};
     }
 
+    &[data-colour="black"] {
+		--accent-colour: #{$ui-blue};
+    }
+
 	// post type colours
 
 	&[data-post-type="post"] {
@@ -136,9 +143,13 @@
 
 	// resource type colours
 
-	&[data-post-type="annual-report"],
-	&[data-post-type="brochure"] {
+	&[data-post-type="annual-report"] {
 		--accent-colour: #{$ui-brand};
+	}
+
+
+	&[data-post-type="brochure"] {
+		--accent-colour: #{$ui-black};
 	}
 
 	&[data-post-type="report"],
