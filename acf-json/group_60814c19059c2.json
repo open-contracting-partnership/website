@@ -17,16 +17,18 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 0,
             "choices": {
                 "orange": "Orange",
                 "green": "Green",
-                "blue": "Blue"
+                "blue": "Blue",
+                "black": "Black"
             },
             "default_value": false,
-            "allow_null": 1,
-            "multiple": 0,
-            "ui": 0,
             "return_format": "value",
+            "multiple": 0,
+            "allow_null": 1,
+            "ui": 0,
             "ajax": 0,
             "placeholder": ""
         }
@@ -49,5 +51,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728988616
+    "acfml_field_group_mode": "advanced",
+    "modified": 1728990730
 }
