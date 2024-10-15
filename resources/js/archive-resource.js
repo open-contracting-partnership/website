@@ -62,7 +62,7 @@ new Vue({
     },
 
     methods: {
-        resetFilters() {
+        reset() {
             this.search = '';
             this.filters = [];
         }

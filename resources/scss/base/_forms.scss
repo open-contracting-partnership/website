@@ -157,6 +157,8 @@ textarea {
     .filter__reset-link {
         font-size: 14px;
         text-decoration: underline;
+        width: max-content;
+        font-weight: 500;
     }
 
 .search-input {
