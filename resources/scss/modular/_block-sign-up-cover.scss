@@ -42,12 +42,13 @@
 
             .sign-up__heading {
                 color: currentColor;
+                margin-bottom: spacing(2);
                 @include fluid-type(font-size, 360px, 1240px, 25px, 39px);
             }
 
             .sign-up__content {
                 color: currentColor;
-                @include fluid-type(margin-top, 360px, 1240px, spacing(2), spacing(4));
+                margin-bottom: 0;
             }
             .sign-up__form-regions {
                 display: flex;
