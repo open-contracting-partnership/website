@@ -2,6 +2,7 @@
     text-align: center;
     padding-block: 80px;
     position: relative;
+    @include font('secondary');
 
         .block__background {
             position: absolute;
@@ -19,11 +20,11 @@
     }
 
     .key-issues__title {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: spacing(1);
     }
 
     .key-issues__subtitle p {
+      font-size: 20px;
       margin-bottom: 56px;
     }
 
@@ -35,8 +36,9 @@
       }
 
     .key-issues__card {
+    gap: spacing(1);
     background-color: white;
-    border-radius: 15px 5px;
+    border-radius: 20px 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 220px;
     height: 142px;
@@ -50,10 +52,11 @@
     width: 81px;
     height: 81px;
     border-radius: 50%;
-    margin-block: 10px;
+    // margin-block: 10px;
     }
 
     .key-issues__card-title {
+    margin: 0;
     font-size: 20px;
     font-weight: bold;
     color: #333;
