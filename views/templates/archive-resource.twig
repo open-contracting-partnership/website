@@ -1,17 +1,12 @@
 {% extends "base.twig" %}
 
 {% block content %}
-
 	<main id="resource-archive" class="page-container / resource-archive">
-
 		{% include 'blocks/simple-header.twig' %}
 
 		<div class="resource-archive__controls">
-
 			<div>
-
 				<div class="filter-menu">
-
 					<div class="resource-archive__search /  search-input" data-size="large">
 						<input class="search-input__input / uppercase" v-model="search" type="text" aria-label="Search" placeholder="Search">
 
@@ -37,7 +32,7 @@
 											v-model="filters"
 										>
 
-										<span class="filter-item__control" style="--hover-colour: #000000 " >{{ field.label }}</span>
+										<span class="filter-item__control" style="--hover-colour: #000000;" >{{ field.label }}</span>
 									</label>
 								</div>
 							{% endfor %}
@@ -46,64 +41,19 @@
 
 					<a href="#" class="reset-link">Reset all filters</a>
 				</div>
-
-
-				<div class="resource-archive__filters" v-if="tab === 'learning-library'">
-
-					{% for filter in learning_library_filters %}
-
-						<div class="resource-archive__filter">
-
-							<h3 class="resource-archive__filter-heading">{{ filter.title }}</h3>
-
-							{% for field in filter.filter %}
-
-								<label class="resource-archive__filter-field">
-
-									<input
-										type="radio"
-										name="{{ field.taxonomy }}"
-										data-taxonomy="{{ field.taxonomy }}"
-										value="{{ field.slug }}"
-										:checked="isChecked('{{ field.taxonomy }}', '{{ field.slug }}')"
-										class="input-circle"
-										data-colour="{{ field.colour }}"
-										@click="toggleFilter"
-									>
-									{{ field.label }}
-
-								</label>
-
-							{% endfor %}
-
-						</div>
-
-					{% endfor %}
-
-				</div>
-
 			</div>
 
-			{# {% include 'partials/resource-card.twig'  %} #}
-
 			<div class="resource-archive__results">
-
 				<template v-if="visibleResources.length">
 					<div class="card__container"
 						v-for="resource in visibleResources"
 						v-bind:key="resource.id"
 						v-html="resource.card"
 					></div>
-					{# <resource v-for="(resource, index) in visibleResources" :key="index" :card="resource"></resource> #}
 				</template>
 
 				<p v-else class="resource-archive__no-results">{{ resources.i18n.no_results_label }}</p>
-
 			</div>
-
 		</div>
-
-
 	</main>
-
 {% endblock %}

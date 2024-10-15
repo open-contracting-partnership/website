@@ -4,18 +4,15 @@ import Vue from 'vue'
 const _cloneDeep = require('lodash.clonedeep');
 
 new Vue({
-
     el: '#resource-archive',
 
     data: {
-
         // data
         resources: content.resources,
 
         // search and filters
         search: '',
         filters: []
-
     },
 
     // watch: {
@@ -65,24 +62,18 @@ new Vue({
     },
 
     methods: {
-
         resetFilters() {
             this.search = '';
             this.filters = [];
         }
-
     },
 
     mounted() {
-
         const query_string = window.location.search.split('?')[1];
         const params = new URLSearchParams(query_string);
 
         if (params.has('resource-type')) {
             this.filters.push(params.get('resource-type'));
-            // this.$set(this.filter, 'resource-type', params.get('resource-type'));
         }
-
     }
-
 });
