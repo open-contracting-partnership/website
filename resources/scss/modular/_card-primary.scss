@@ -3,7 +3,7 @@
 	--background-color: #{$ui-white};
 	--color: #{$ui-white};
 
-	border-radius: spacing(4) 5px;
+	border-radius: 21px 5px;
 	padding: spacing(2);
 	border: 1px solid $ui-grey-7;
 	overflow: hidden;
@@ -26,7 +26,7 @@
 		}
 
 		img {
-			border-radius: spacing(4) 5px;
+			border-radius: 21px 5px;
 			object-fit: cover;
 			display: block;
 			width: 100%;
@@ -37,7 +37,7 @@
 			.card__tag {
 				font-size: 12px;
 				width: fit-content;
-				padding: 4px 12px;
+				padding: 2px 12px;
 				// color: $ui-brand;
 				color: $ui-grey;
 				border: 1px solid $ui-grey;
@@ -140,9 +140,11 @@
 .card.card--primary[data-has-featured="true"]:first-child {
 	grid-column: 1 / span 2;
 	flex-direction: row;
+	gap: spacing(2);
+	border: 1px solid $ui-grey-4;
 
 	.card__image {
-		flex: 1 1 50%;
+		flex: 1 1 45%;
 		height: 100%;
 	}
 
@@ -153,8 +155,7 @@
 	}
 
 	.card__main {
-		flex: 1 1 50%;
-		padding: 16px;
+		flex: 1 1 55%;
 	}
 
 	.card__tag-featured {
@@ -177,6 +178,10 @@
 
 	@include upto(T) {
 		flex-direction: column;
+	}
+
+	.card__title {
+		font-size: 35px;
 	}
 }
 
