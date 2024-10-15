@@ -121,6 +121,7 @@
 
 			.card__quote {
 				p {
+					@include font('secondary');
 					font-size: 20px;
 					font-weight: 500;
 				}
