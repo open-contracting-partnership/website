@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Cards\ResourceCard;
 use App\Http\Controllers\Controller;
 use App\PostTypes\Resource;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
@@ -61,55 +62,23 @@ class ArchiveResourceController extends Controller
 
     private function getAllResources()
     {
-
-        $resources_output = [];
-
         $resources = Resource::query([
             'posts_per_page' => -1
         ]);
 
-        foreach ($resources as $resource) {
-            $output = [];
-            $output['date'] = $resource->date('c');
-            $output['title'] = $resource->title;
-            $output['url'] = $resource->link();
-            $output['image'] = get_the_post_thumbnail();
-            $output['excerpt'] = wp_trim_words($resource->post_content, 15);
-
-            if ($resource->organisation) {
-                $output['meta'] = sprintf(__('By %s', 'ocp'), $resource->organisation) . ' / ' . $resource->date('Y');
-            } else {
-                $output['meta'] = $resource->date('Y');
-            }
-
-            $output['type'] = null;
-            $output['type_label'] = null;
-            $output['is_featured'] = $resource->meta('resource_is_featured') ?? false;
-
-            if ($resource->resource_type) {
-                $term = get_term($resource->resource_type);
-
-                $output['type'] = $term->slug;
-                $output['type_label'] = $term->name;
-                $output['colour'] = get_field('colour', $term);
-            }
-
-            $resources_output[] = $output;
-        }
-
-        $resources_output = collect($resources_output)
-            ->map(function ($resource) {
-                $resource['card'] = Timber::compile('cards/resource.twig', [
-                    'card' => $resource,
+        $resources = ResourceCard::convertCollection($resources, function ($new, $original) {
+            return [
+                'date' => $new['date'],
+                'is_featured' => $new['is_featured'],
+                'card' => Timber::compile('cards/resource.twig', [
+                    'card' => $new,
                     'options' => [
                         'colour_scheme' => 'light'
                     ]
-                ]);
-                return $resource;
-            })
-            ->toArray();
+                ])
+            ];
+        });
 
-        return $resources_output;
+        return $resources;
     }
-
 }

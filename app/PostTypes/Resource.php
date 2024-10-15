@@ -3,6 +3,7 @@
 namespace App\PostTypes;
 
 use Rareloop\Lumberjack\Post;
+use Timber\Term;
 
 class Resource extends Post
 {
@@ -39,5 +40,29 @@ class Resource extends Post
             'supports' => ['title', 'editor', 'thumbnail'],
             'show_in_rest' => true
         ];
+    }
+
+    public function image()
+    {
+        return $this->thumbnail ? $this->thumbnail->src : null;
+    }
+
+    public function type()
+    {
+        return $this->meta('resource_type');
+    }
+
+    public function colour()
+    {
+        $colour = 'black';
+
+        // it doesn't matter if the type is truthy, it must be an instance of
+        // Timber\Term to have a colour
+
+        if ($this->type instanceof Term && isset($this->type->colour)) {
+            $colour = $this->type->colour;
+        }
+
+        return $colour;
     }
 }
