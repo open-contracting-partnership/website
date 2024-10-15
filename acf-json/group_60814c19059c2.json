@@ -38,13 +38,6 @@
                 "operator": "==",
                 "value": "resource-type"
             }
-        ],
-        [
-            {
-                "param": "taxonomy",
-                "operator": "==",
-                "value": "learning-resource-category"
-            }
         ]
     ],
     "menu_order": 0,
@@ -55,8 +48,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1695737536,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_60814c19059c2.json",
-    "acfml_field_group_mode": "advanced"
+    "show_in_rest": 0,
+    "modified": 1728988616
 }

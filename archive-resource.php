@@ -2,11 +2,9 @@
 
 namespace App;
 
-use App\Cards\EventCard;
 use App\Http\Controllers\Controller;
 use App\PostTypes\Resource;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
-use Rareloop\Lumberjack\Post;
 use Timber\Timber;
 
 class ArchiveResourceController extends Controller
@@ -38,24 +36,6 @@ class ArchiveResourceController extends Controller
             }
         }
 
-        $context['learning_library_filters'] = get_field('learning_library_filters', 'options');
-
-        if ($context['learning_library_filters']) {
-            foreach ($context['learning_library_filters'] as &$filter_group) {
-                $filter_group['filter'] = array_map(function ($filter) {
-
-                    $term = get_term($filter['type']);
-
-                    $filter['slug'] = $term->slug;
-                    $filter['taxonomy'] = $term->taxonomy;
-                    $filter['label'] = $term->name;
-                    $filter['colour'] = get_field('colour', $term);
-
-                    return $filter;
-                }, $filter_group['filter']);
-            }
-        }
-
         $context['resources']['i18n']['introduction'] = _x(
             'We are constantly preparing new resources to help you implement open contracting more effectively and efficiently. Whether it’s guides and research developed by us and our partners, or our data tools and training materials, we have it listed.',
             'The introduction on the resources archive',
@@ -70,7 +50,6 @@ class ArchiveResourceController extends Controller
 
         // localise the script only *after* the scripts are queued up
         add_action('wp_enqueue_scripts', function () {
-
             wp_localize_script('archive-resource', 'content', [
                 'resources' => $this->getAllResources(),
                 'select_a_filter' => str_replace(' ', '&nbsp;', __('Select a topic', 'ocp'))
@@ -104,13 +83,7 @@ class ArchiveResourceController extends Controller
 
             $output['type'] = null;
             $output['type_label'] = null;
-
-            $output['location'] = $resource->resource_location ?? [];
-
             $output['is_featured'] = $resource->meta('resource_is_featured') ?? false;
-
-            $output['learning_resource_category'] = null;
-            $output['learning_resource_category_label'] = null;
 
             if ($resource->resource_type) {
                 $term = get_term($resource->resource_type);
@@ -120,17 +93,8 @@ class ArchiveResourceController extends Controller
                 $output['colour'] = get_field('colour', $term);
             }
 
-            if ($resource->learning_resource_category) {
-                $term = get_term($resource->learning_resource_category);
-
-                $output['learning_resource_category'] = $term->slug;
-                $output['learning_resource_category_label'] = $term->name;
-            }
-
             $resources_output[] = $output;
         }
-
-        // return $resources_output;
 
         $resources_output = collect($resources_output)
             ->map(function ($resource) {
