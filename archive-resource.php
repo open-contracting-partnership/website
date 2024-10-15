@@ -68,8 +68,12 @@ class ArchiveResourceController extends Controller
 
         $resources = ResourceCard::convertCollection($resources, function ($new, $original) {
             return [
+                'title' => $new['title'],
                 'date' => $new['date'],
                 'is_featured' => $new['is_featured'],
+                'type' => $new['type'],
+
+                // new card output
                 'card' => Timber::compile('cards/resource.twig', [
                     'card' => $new,
                     'options' => [
