@@ -147,6 +147,44 @@ textarea {
                 background-color: $ui-brand;
                 border-color: $ui-brand;
             }
+
+			&[data-colour="green"] {
+				border-color: $ui-brand;
+
+				&:hover {
+					background-color: $ui-brand;
+				}
+			}
+
+			&[data-colour="orange"] {
+				border-color: $ui-orange;
+				color: $ui-orange;
+
+				&:hover {
+					background-color: $ui-orange;
+					color: $ui-white;
+				}
+			}
+
+			&[data-colour="blue"] {
+				border-color: $ui-blue;
+				color: $ui-blue;
+
+				&:hover {
+					background-color: $ui-blue;
+					color: $ui-white;
+				}
+			}
+
+			&[data-colour="black"] {
+				border-color: $ui-black;
+				color: $ui-black;
+
+				&:hover {
+					background-color: $ui-black;
+					color: $ui-white;
+				}
+			}
         }
 
 		.filter-item__input:checked ~ .filter-item__control {
