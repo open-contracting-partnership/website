@@ -95,6 +95,7 @@ class ArchiveResourceController extends Controller
             $output['title'] = $resource->title;
             $output['url'] = $resource->link();
             $output['image'] = get_the_post_thumbnail();
+            $output['excerpt'] = wp_trim_words($resource->post_content, 15);
 
             if ($resource->organisation) {
                 $output['meta'] = sprintf(__('By %s', 'ocp'), $resource->organisation) . ' / ' . $resource->date('Y');

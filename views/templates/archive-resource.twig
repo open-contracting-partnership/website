@@ -35,16 +35,17 @@
 											class="filter-item__input"
 											value="{{ field.slug }}"
 											v-model="filters"
+											data-colour="{{ field.colour }}"
 										>
 
-										<span class="filter-item__control" style="--hover-colour: #000000 " >{{ field.label }}</span>
+										<span class="filter-item__control" data-colour="{{ field.colour }}" >{{ field.label }}</span>
 									</label>
 								</div>
 							{% endfor %}
 						</div>
 					{% endfor %}
 
-					<a href="#" class="reset-link">Reset all filters</a>
+					<a href="#" class="reset-link" @click.prevent="resetFilters">Reset all filters</a>
 				</div>
 
 
