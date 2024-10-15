@@ -30,6 +30,10 @@
 			object-fit: cover;
 			display: block;
 			width: 100%;
+
+			@include from(L) {
+				height: 170px;
+			}
 		}
 
 	}
