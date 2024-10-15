@@ -4,7 +4,8 @@
 		"drewm/mailchimp-api": "^2.5",
 		"vlucas/phpdotenv": "^3.6",
 		"imliam/shareable-link": "^1.0.0",
-		"ozdemirburak/iris": "^2.1"
+		"ozdemirburak/iris": "^2.1",
+		"imgix/imgix-php": "^3.3"
 	},
 	"require-dev": {
 		"spatie/ray": "^1.33"
