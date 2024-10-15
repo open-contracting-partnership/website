@@ -124,6 +124,10 @@ textarea {
 		gap: 10px;
 	  }
 
+	  .filter-item {
+		text-transform: none;
+	  }
+
 	  .filter-item__input {
 		    @extend .visually-hidden;
 		}
@@ -131,7 +135,6 @@ textarea {
 	  .filter-item__control {
 		padding: 4px 12px 2px 12px;
 		border-radius: 20px;
-		background-color: $ui-white;
 		color: $ui-black;
 		border: 1px solid $ui-grey-3;
 		cursor: pointer;
@@ -140,51 +143,66 @@ textarea {
 		font-weight: 500;
 		@include font('secondary', 'medium');
 
-		&:hover {
-		  background-color: $ui-brand;
-		  border-color: $ui-brand;
+		&[data-colour="green"] {
+			border-color: $ui-brand;
+
+			&:hover {
+				background-color: $ui-brand;
+			}
 		}
 
-		&.active {
-		  background-color: $ui-brand;
-		  color: $ui-white;
+		&[data-colour="orange"] {
+			border-color: $ui-orange;
+			color: $ui-orange;
+
+			&:hover {
+				background-color: $ui-orange;
+				color: $ui-white;
+			}
+		}
+
+		&[data-colour="blue"] {
+			border-color: $ui-blue;
+			color: $ui-blue;
+
+			&:hover {
+				background-color: $ui-blue;
+				color: $ui-white;
+			}
+		}
+		&[data-colour="black"] {
+			border-color: $ui-black;
+			color: $ui-black;
+
+			&:hover {
+				background-color: $ui-black;
+				color: $ui-white;
+			}
 		}
 	}
 
 		.filter-item__input:checked ~ .filter-item__control {
-			border-color: $ui-brand;
-			background-color: $ui-brand;
+
+			&[data-colour="green"] {
+				background-color: $ui-brand;
+			}
+
+			&[data-colour="orange"] {
+				background-color: $ui-orange;
+				color: $ui-white;
+			}
+
+			&[data-colour="blue"] {
+				background-color: $ui-blue;
+				color: $ui-white;
+			}
+
+			&[data-colour="black"] {
+				background-color: $ui-black;
+				color: $ui-white;
+			}
 		}
 
-// .region-selector {
-//     text-transform: none;
-// }
-
-// .region-selector__input {
-//     @extend .visually-hidden;
-// }
-
-// .region-selector__control {
-//     font-size: 20px;
-//     @include font('secondary', 'medium');
-//     display: block;
-//     background-color: transparent;
-//     border: 2px solid $ui-white;
-//     border-radius: 999px;
-//     padding: spacing(1) spacing(1.5
-//     );
-//     user-select: none;
-
-//     &:hover {
-//         background-color: $ui-white;
-//         color: var(--hover-colour);
-//     }
-// }
-
-// .region-selector__input:checked ~ .region-selector__control {
-//     background-color: $ui-white;
-//     color: $ui-grey;
-// }
 
 .search-input {
 
