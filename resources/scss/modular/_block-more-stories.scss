@@ -1,38 +1,21 @@
-.block[data-block-type="more-stories"] {
+.more-stories {
+}
 
-	.block__background {
-
+	.more-stories__background {
 		grid-column: full;
 		grid-row: 1;
 		position: relative;
 		overflow: hidden;
-
-		// &::before {
-		// 	@include fluid-type(font-size, 360px, 1344px, 145px, 500px);
-		// 	content: '';
-		// 	display: block;
-		// 	border: .14em solid $ui-grey-6;
-		// 	border-radius: 50%;
-		// 	opacity: .1;
-		// 	height: 1em;
-		// 	width: 1em;
-		// 	position: absolute;
-		// 	top: -.55em;
-		// 	left: 50%;
-		// 	transform: translateX(-50%);
-		// }
-
 	}
 
-	.block__container {
+	.more-stories__container {
 		position: relative;
 		padding-block: spacing(10);
 		grid-column: content;
 		grid-row: 1;
 	}
 
-		.block__header {
-
+		.more-stories__header {
 			@media screen {
 				display: flex;
                 flex-wrap: wrap;
@@ -51,38 +34,32 @@
 			@media print {
 				margin-bottom: spacing(2);
 			}
-
 		}
 
-			.block__heading {
-
+			.more-stories__heading {
 				@media screen {
 					margin-bottom: 0;
                     text-align: var(--heading-text-align, center);
 				}
-
 			}
 
-			.block__subheading {
+			.more-stories__subheading {
 				margin-bottom: 32px;
 				font-size: 20px;
 				text-align: var(--heading-text-align, center);
 
 			}
 
-		.block__stories {
-
+		.more-stories__cards {
 			margin-bottom: 16px;
 
-			> .card {
+			> * {
 				@media print {
 					margin-bottom: spacing(2);
 				}
-
 			}
 
 			@include upto(T) {
-
 				display: flex;
 				flex-wrap: wrap;
 				scroll-snap-type: x mandatory;
@@ -92,8 +69,7 @@
 				gap: 24px;
 				justify-content: center;
 
-				> .card {
-
+				> * {
 					scroll-snap-align: center;
 					box-shadow: none;
 
@@ -104,25 +80,28 @@
 							margin-right: spacing(3);
 						}
 					}
-
 				}
-
-				// we can't use last-child margin to create our right hand side
-				// spacing, so we need to force the issue with an after element
-				&::after {
-					content: '';
-					display: block;
-					flex: 0 0 24px;
-				}
-
 			}
 
 			@include from(T) {
+                --columns: 1;
+
 				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(384px, 1fr));
+				grid-template-columns: repeat(var(--columns), 1fr);
 				grid-gap: spacing(3);
+
+                @include from(S) {
+                    --columns: 2;
+                }
+
+                @include from(M) {
+                    --columns: 3;
+                }
+
+                [data-is-featured="true"] {
+                    @include from(M) {
+                        grid-column: 1 / span 2;
+                    }
+                }
 			}
-
 		}
-
-}

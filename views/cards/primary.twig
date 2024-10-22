@@ -4,8 +4,11 @@
 	{% set fallback_image = '/wp-content/themes/ocp-v1/resources/img/fallback-v2.jpg' %}
 {% endif %}
 
-<div class="card card--primary" data-has-featured="{{ block.has_featured }}">
-	<div class="card__image">
+<div
+    class="card-primary"
+    data-is-featured="{{ card.is_featured ? 'true' : 'false' }}"
+>
+	<div class="card-primary__image">
 		{% if card.image_url %}
 			{{ imgix({
 				src: card.image_url,
@@ -52,32 +55,36 @@
 		{% endif %}
 	</div>
 
-	<div class="card__main">
+	<div class="card-primary__main">
 		{% if card.type_label %}
-			<div class="card__tag">{{ card.type_label }}</div>
+			<div class="card-primary__tag" data-tag="{{ card.type_key }}">{{ card.type_label }}</div>
 		{% endif %}
 
-		{% if block.has_featured %}
-			<div class="card__tag-featured">Featured</div>
-		{% endif %}
-
-		<a class="card__title-link" href="{{ card.url }}">
-			<h2 class="card__title">{{ card.title }}</h2>
+		<a class="card-primary__title" href="{{ card.url }}">
+			{{ card.title }}
 		</a>
 
-        <p class="card__introduction">{{ card.introduction }}</p>
+        <p class="card-primary__introduction">{{ card.introduction }}</p>
 
 		{% if card.tags | length > 0 %}
-			<p class="card__topics">Topics:
+			<p class="card-primary__topics">Topics:
 				{% for tag in card.tags %}
 					<a href="{{ tag.link }}">{{ tag.name }}{% if not loop.last %}, {% endif %}</a>
 				{% endfor %}
 			</p>
 		{% endif %}
 
-		<div class="card__footer">
+		<div class="card-primary__footer">
 			{% if card.meta %}
-				<div class="card__meta">{{ card.meta }}</div>
+				<div class="card-primary__meta">
+                    {% if card.meta.primary %}
+                        <span class="card-primary__meta-primary">{{ card.meta.primary }}</span>
+                    {% endif %}
+
+                    {% if card.meta.secondary %}
+                        <span class="card-primary__meta-secondary">{{ card.meta.secondary }}</span>
+                    {% endif %}
+                </div>
 			{% endif %}
 		</div>
 	</div>

@@ -39,7 +39,7 @@ class MoreStoriesServiceProvider
         $context['block']['subheading'] = get_field('subheading');
         $context['block']['call_to_action'] = get_field('call_to_action');
         $context['block']['card_type'] = get_field('card_type') ?: 'default';
-        $context['block']['has_featured'] = get_field('has_featured') ? 'true' : 'false';
+        $context['block']['has_featured'] = get_field('has_featured');
         $context['block']['card_options'] = [];
 
         if ($context['block']['card_type'] === 'resource') {
@@ -53,7 +53,19 @@ class MoreStoriesServiceProvider
         if (! $manualStories) {
             if ($stories = get_field('stories')) {
                 if ($context['block']['card_type'] === 'default') {
-                    $context['block']['stories'] = PrimaryCard::convertCollection($stories);
+                    $context['block']['stories'] = PrimaryCard::convertCollection(
+                        $stories,
+                        function ($new, $original, $index) use ($context) {
+                            $new['is_featured'] = $index === 0 && $context['block']['has_featured'] === true;
+
+                            if ($new['is_featured']) {
+                                $new['type_key'] = 'featured';
+                                $new['type_label'] = 'Featured';
+                            }
+
+                            return $new;
+                        }
+                    );
                 }
 
                 if ($context['block']['card_type'] === 'resource') {
