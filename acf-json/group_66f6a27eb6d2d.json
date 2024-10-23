@@ -85,7 +85,7 @@
                         "id": ""
                     },
                     "gutenberg_visibility": "both",
-                    "wpml_cf_preferences": 1,
+                    "relevanssi_exclude": 0,
                     "return_format": "array",
                     "library": "all",
                     "min_width": "",
@@ -95,15 +95,16 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": "",
-                    "preview_size": "medium",
+                    "allow_in_bindings": 1,
+                    "preview_size": "thumbnail",
                     "parent_repeater": "field_66f6a2afaaccd"
                 },
                 {
-                    "key": "field_66f6a2d0aaccf",
-                    "label": "Issue Name",
-                    "name": "issue_name",
+                    "key": "field_671907dcda929",
+                    "label": "Link",
+                    "name": "link",
                     "aria-label": "",
-                    "type": "text",
+                    "type": "link",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
@@ -113,12 +114,9 @@
                         "id": ""
                     },
                     "gutenberg_visibility": "both",
-                    "wpml_cf_preferences": 2,
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
+                    "relevanssi_exclude": 0,
+                    "return_format": "array",
+                    "allow_in_bindings": 0,
                     "parent_repeater": "field_66f6a2afaaccd"
                 }
             ]
@@ -182,6 +180,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "acfml_field_group_mode": "advanced",
-    "modified": 1727439727
+    "modified": 1729694074
 }
