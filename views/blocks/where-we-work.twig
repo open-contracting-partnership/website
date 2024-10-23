@@ -3,20 +3,22 @@
     <h2 class="where-we-work__title alpha">{{ block.heading }}</h2>
 
     <div class="where-we-work__map-container">
-        <div>
-            <div class="where-we-work__cta-list">
-                {% for region in block.regions %}
-                    <a
-                        href="{{ region.link.url }}"
-                        class="button button--has-icon where-we-work__region-button region"
-                        data-colour="blue"
-                        data-region="{{ region.slug }}"
-                    >
-                        {{ region.link.title }}
-                        <svg class="where-we-work__button-icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-                    </a>
-                {% endfor %}
-            </div>
+        <div class="where-we-work__list">
+            {% for region in block.regions %}
+                <a
+                    href="{{ region.link.url }}"
+                    class="button button--has-icon zzzwhere-we-work__region-button zzzregion"
+                    data-colour="blue"
+                    data-size="huge"
+                    data-uppercase="false"
+                    data-icon-position="right"
+                    data-region="{{ region.slug }}"
+                >
+                    {{ region.link.title }}
+
+                    <svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                </a>
+            {% endfor %}
         </div>
 
         <div class="where-we-work__map">

@@ -9,26 +9,42 @@
     }
 }
 
-    .where-we-work__map-container {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        align-items: center;
-        justify-content: space-between;
+    .where-we-work__background {
+        background-color: $ui-teal;
+        position: absolute;
+        top: 0;
+        left: calc(-1*(100vw - 100%) / 2);
+        width: 100vw;
+        height: 100%;
+        z-index: -1;
+    }
 
-        @include from(L) {
-            flex-direction: row;
+    .where-we-work__map-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+
+        @include from(M) {
+            grid-template-columns: 1fr 2fr;
         }
     }
 
-        .where-we-work__map {
-            display: none;
+        .where-we-work__list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            // align-items: start;
+            gap: 12px;
+            align-self: flex-start;
+        }
 
-            @include from(L) {
-                display: block;
-            }
+        .where-we-work__map {
+            max-width: 800px;
+            align-self: center;
+            justify-self: center;
 
             svg {
+                width: 100%;
+                height: auto;
                 fill: $ui-white;
 
                 g {
@@ -65,49 +81,25 @@
             fill: $ui-blue;
         }
 
-    .where-we-work__background {
-        background-color: $ui-teal;
-        position: absolute;
-        top: 0;
-        left: calc(-1*(100vw - 100%) / 2);
-        width: 100vw;
-        height: 100%;
-        z-index: -1;
-    }
-
     .where-we-work__title {
         color: $ui-white;
     }
 
-    .where-we-work__cta-list {
-        display: flex;
-        flex-direction: column;
-        width: max-content;
-        gap: 12px;
-    }
+    // .where-we-work .button {
+    //     font-size: 22px;
+    //     font-weight: 700;
+    //     // min-width: 419px;
+    //     text-transform: none;
+    // }
 
-    .where-we-work .button {
-        font-size: 22px;
-        font-weight: 700;
-        // min-width: 419px;
-        text-transform: none;
-    }
+    // .where-we-work .button--has-icon {
+    //     padding: 12px 16px;
+    //     justify-content: space-between;
 
-    .where-we-work .button--has-icon {
-        padding: 12px 16px;
-        justify-content: space-between;
-
-        @include from (T) {
-            gap: 64px;
-        }
-    }
-
-    .where-we-work__button-icon {
-        font-size: 30px;
-        height: 1em;
-        width: 1em;
-        fill: currentColor;
-    }
+    //     @include from (T) {
+    //         gap: 64px;
+    //     }
+    // }
 
     .where-we-work__cta-list:hover .where-we-work__region-button:not(:hover) {
         opacity: 0.5;

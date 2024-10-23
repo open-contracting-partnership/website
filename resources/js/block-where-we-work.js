@@ -1,4 +1,4 @@
-const whereWeWorkButtons = document.querySelectorAll('.where-we-work__region-button');
+const whereWeWorkButtons = document.querySelectorAll('.where-we-work__list .button');
 
 if (whereWeWorkButtons) {
     [...whereWeWorkButtons].forEach(button => {
