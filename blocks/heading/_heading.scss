@@ -1,0 +1,30 @@
+$heading-sizes: (
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    // 'display-1',
+    // 'display-2',
+);
+
+$heading-margin-adjustments: (
+    'half': .5,
+    'quarter': .25,
+    'none': 0,
+);
+
+.heading {
+    @each $size in $heading-sizes {
+        &[data-size="#{$size}"] > .acf-innerblocks-container > * {
+            @extend .#{$size};
+        }
+    }
+
+    @each $name, $adjustment in $heading-margin-adjustments {
+        &[data-margin="#{$name}"] > .acf-innerblocks-container > * {
+            --heading-margin-adjuster: #{$adjustment};
+        }
+    }
+}

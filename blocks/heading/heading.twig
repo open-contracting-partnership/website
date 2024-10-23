@@ -1,0 +1,11 @@
+<div
+    class="heading / {{ block.custom_classes }}"
+    data-size="{{ block.size }}"
+    data-margin="{{ block.margin }}"
+>
+    <InnerBlocks
+        template="{{ block.template }}"
+        allowedBlocks="{{ block.allowed_inner_blocks }}"
+        templateLock="all"
+    />
+</div>

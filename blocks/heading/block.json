@@ -1,0 +1,13 @@
+{
+    "name": "app/heading",
+    "title": "Heading",
+    "description": "Allows high levels of control over the appearance of a heading",
+    "category": "app-blocks",
+    "supports": {
+        "align": false
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    }
+}

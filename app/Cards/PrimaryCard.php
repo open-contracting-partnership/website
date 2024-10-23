@@ -73,8 +73,6 @@ class PrimaryCard extends BaseCard
             ->filter()
             ->toArray();
 
-        dump($data);
-
         return $data;
     }
 }

@@ -28,8 +28,9 @@ return [
         Rareloop\Lumberjack\Providers\EncryptionServiceProvider::class,
 
         // Application Providers
-        App\Providers\AppServiceProvider::class,
         App\Providers\AdminServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\GutenbergServiceProvider::class,
         App\Providers\ImgixServiceProvider::class,
         App\Providers\MailChimpServiceProvider::class,
         App\Providers\SEOServiceProvider::class,
@@ -54,7 +55,6 @@ return [
         App\Providers\Blocks\HeroIconServiceProvider::class,
         App\Providers\Blocks\ImageWithLinksServiceProvider::class,
         App\Providers\Blocks\JumpToBarServiceProvider::class,
-        App\Providers\Blocks\KeyIssuesServiceProvider::class,
         App\Providers\Blocks\LogosServiceProvider::class,
         App\Providers\Blocks\MoreStoriesColumnsServiceProvider::class,
         App\Providers\Blocks\MoreStoriesServiceProvider::class,

@@ -1,0 +1,10 @@
+{
+    "name": "app/icon-cards",
+    "title": "Icon Cards",
+    "category": "app-blocks",
+    "acf": {
+        "mode": "preview",
+        "postTypes": ["page"],
+        "renderTemplate": "render.php"
+    }
+}
