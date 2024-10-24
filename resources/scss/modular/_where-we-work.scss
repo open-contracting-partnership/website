@@ -37,6 +37,14 @@
             align-self: flex-start;
         }
 
+            .where-we-work .button {
+                transition: opacity 0.5s ease;
+            }
+
+            .where-we-work__list:has(.button:hover) .button:not(:hover) {
+                opacity: 0.5;
+            }
+
         .where-we-work__map {
             max-width: 800px;
             align-self: center;
@@ -83,29 +91,4 @@
 
     .where-we-work__title {
         color: $ui-white;
-    }
-
-    // .where-we-work .button {
-    //     font-size: 22px;
-    //     font-weight: 700;
-    //     // min-width: 419px;
-    //     text-transform: none;
-    // }
-
-    // .where-we-work .button--has-icon {
-    //     padding: 12px 16px;
-    //     justify-content: space-between;
-
-    //     @include from (T) {
-    //         gap: 64px;
-    //     }
-    // }
-
-    .where-we-work__cta-list:hover .where-we-work__region-button:not(:hover) {
-        opacity: 0.5;
-    }
-
-    .where-we-work__region-button {
-        opacity: 1;
-        transition: opacity 0.5s ease;
     }
