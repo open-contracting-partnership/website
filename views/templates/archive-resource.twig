@@ -2,7 +2,12 @@
 
 {% block content %}
 	<main id="resource-archive" class="page-container / resource-archive">
-		{% include 'blocks/simple-header.twig' %}
+		{% include 'blocks/simple-header.twig' with {
+            block: {
+                heading: title,
+                content: resources.i18n.introduction,
+            }
+        } %}
 
 		<div class="resource-archive__controls">
 			<div>
