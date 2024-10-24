@@ -23,6 +23,7 @@ function callback ($matches) {
     );
 }
 
+$svg = str_replace('+', ' ', $svg);
 $svg = preg_replace_callback($pattern, 'callback', $svg);
 
 file_put_contents('map-new.svg', $svg);
