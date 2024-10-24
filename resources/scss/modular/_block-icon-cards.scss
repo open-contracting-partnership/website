@@ -24,7 +24,11 @@
         border-radius: 20px 5px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         padding: spacing(1.5) spacing(1.5) spacing(2);
-        width: 220px;
+        width: 100%;
+
+        @include from(400) {
+            width: 220px;
+        }
     }
 
     .icon-card__icon img {
