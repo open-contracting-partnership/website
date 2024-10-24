@@ -1,11 +1,8 @@
 {% set options = { 'image_loading': 'lazy' } | merge(options) %}
 
-<div class="card-container" style="contain: layout inline-size;">
-
-	<div class="card card--quote card--active">
-
-		<div class="card__image" data-image-style="{{ options.image_style }}">
-
+<div class="card-quote__container">
+	<div class="card-quote">
+		<div class="card-quote__image" data-image-style="{{ options.image_style }}">
 			{{ imgix({
 				src: card.image.url,
 				params: {
@@ -30,28 +27,23 @@
 				sizes: '(min-width: 768px) 600px, (min-width: 600px) 500px, 300px',
 				loading: options.image_loading
 			}) }}
-
 		</div>
 
-		<blockquote class="card__quote">
+		<blockquote class="card-quote__quote">
 			{% if card.link is not empty %}
-				<a href="{{ card.link }}" class="card__link">{{ card.quotation }}</a>
+				<a href="{{ card.link }}" class="card-quote__link">{{ card.quotation }}</a>
 			{% else %}
 				<p>{{ card.quotation }}</p>
 			{% endif %}
 
-			{% if card.name is not empty or card.bio is not empty %}
-				<footer>
-					{% if card.name is not empty %}
-						{{ card.name }}
+			{% if card.footer is not empty %}
+				<footer class="card-quote__footer">
+					{% if card.footer.name is not empty %}
+						<p class="card-quote__footer-name">{{ card.footer.name }}</p>
 					{% endif %}
 
-					{% if card.name is not empty and card.bio is not empty %}
-						<br>
-					{% endif %}
-
-					{% if card.bio is not empty %}
-						{{ card.bio }}
+					{% if card.footer.bio is not empty %}
+						<p class="card-quote__footer-bio">{{ card.footer.bio }}</p>
 					{% endif %}
 				</footer>
 			{% endif %}

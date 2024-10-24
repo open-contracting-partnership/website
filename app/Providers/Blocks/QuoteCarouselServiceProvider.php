@@ -37,7 +37,20 @@ class QuoteCarouselServiceProvider
 
         $context['block'] = [];
         $context['block']['title'] = get_field('title');
-        $context['block']['quotes'] = get_field('quotes') ?: [];
+        $context['block']['quotes'] = collect(get_field('quotes') ?: [])
+            ->map(function ($quote) {
+                $quote['footer'] = [];
+
+                if ($quote['name']) {
+                    $quote['footer']['name'] = $quote['name'];
+                }
+
+                if ($quote['bio']) {
+                    $quote['footer']['bio'] = $quote['bio'];
+                }
+
+                return $quote;
+            });
 
         $context['block']['background_colour'] = get_field('background_colour') ?: '#23B2A7';
         $context['block']['text_colour'] = isContrastingColourLight($context['block']['background_colour']) ? '#FFF' : '#000';

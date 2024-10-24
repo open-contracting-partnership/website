@@ -1,92 +1,92 @@
-.card-container {
-	container-type: inline-size;
+$elementBreakpoint: 500px;
 
+.card-quote__container {
+    container-type: inline-size;
 }
 
-.card.card--quote {
-	background-color: $ui-grey-3;
+.card-quote {
+    font-size: 20px;
+    background-color: $ui-grey-3;
     position: relative;
-	@include font('secondary', 'bold');
-	border-radius: 22px 5px ;
-	overflow: hidden;
-	color: $ui-white;
-	display: flex;
-	flex-direction: column;
+    @include font('secondary', 'bold');
+    border-radius: 22px 5px;
+    overflow: hidden;
+    color: $ui-white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
-	@container (min-width: 400px) {
-		flex-direction: column;
-	}
-	@container (min-width: 569px) {
-		flex-direction: row;
-	}
+    @container (min-width: #{$elementBreakpoint}) {
+        flex-direction: row;
+    }
+}
 
-	@include from(600) {
-		font-size: 18px;
-	}
+    .card-quote__image {
+        flex: 0 0 40%;
 
-	@include from(M) {
-		font-size: 20px;
-	}
+        @container (min-width: #{$elementBreakpoint}) {
+            aspect-ratio: 2 / 1;
+        }
 
-	.card__image {
-		min-width: 232px;
-		height: auto;
-		aspect-ratio: 2 / 1;
-
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			object-position: center;
-		}
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
 
         &[data-image-style="grayscale"] {
             filter: grayscale(100%);
         }
+    }
 
-		@container (min-width: 400px) {
-			grid-column: 1;
-			width: 100%;
-		  }
-	}
+    .card-quote__quote {
+        padding: spacing(2);
+        z-index: 1;
+        border: 0;
+        margin: 0;
+        flex-grow: 1;
 
-    .card__link {
-        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        @extend %heading-base;
 
-        &:hover {
-            text-decoration: underline;
-        }
+        // @include from(M) {
+        // 	grid-column: 2 / span 1;
+        // }
 
-        &::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            z-index: 1;
+        a {
+            margin-bottom: spacing(1);
         }
     }
 
-	.card__quote {
-		all: unset;
-		padding: spacing(3);
-		z-index: 1;
+        .card-quote__link {
+            text-decoration: none;
 
-		display: flex;
-		flex-direction: column;
+            &:hover {
+                text-decoration: underline;
+            }
 
-		@include from(M) {
-			grid-column: 2 / span 1;
-		}
-
-        a {
-			margin-bottom: spacing(1);
+            // &::before {
+            //     content: '';
+            //     position: absolute;
+            //     inset: 0;
+            //     z-index: 1;
+            // }
         }
 
-		footer {
+        .card-quote__footer {
+            font-size: 18px;
             margin-top: auto;
-			@include font('secondary');
-		}
-		// @container (min-width: 400px) {
-		// 	grid-column: 2;
-		//   }
-	}
-}
+            color: $ui-grey-6;
+            @include font('secondary');
+
+            p {
+                margin-bottom: 0;
+                line-height: 1.4;
+            }
+        }
+
+            .card-quote__footer-name {
+                font-weight: $bold;
+            }

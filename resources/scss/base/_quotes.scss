@@ -1,25 +1,22 @@
 @use "sass:math";
 
-blockquote {
+blockquote:not([class]),
+blockquote.wp-block-quote {
 	font-size: 20px;
 	padding: .5em 1em;
-	margin: 0 0 1em;
+	margin-block: spacing(3);
 	border-left: 5px solid $ui-black;
 
 	p {
 		@include font;
-		margin-bottom: math.div($space, 2);
+        margin-bottom: spacing(1.5);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
 	}
 
 	footer {
 		display: block;
 	}
 }
-
-// q {
-//
-// }
-
-// cite {
-//
-// }

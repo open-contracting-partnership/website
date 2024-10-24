@@ -1,34 +1,30 @@
 .block[data-block-type="quote-carousel"] {
+    .block__background {
+        grid-column: full;
+        grid-row: 1;
+    }
 
-	.block__background {
-		grid-column: full;
-		grid-row: 1;
-	}
+    .block__container {
+        grid-column: content;
+        grid-row: 1;
+        @include font('secondary', 'medium');
+        justify-content: space-around;
+        overflow: hidden;
+        position: relative;
+        color: $ui-grey-4;
+        @extend %screen-shell-grid;
 
-	.block__container {
+        @media screen {
+            padding: var(--v-spacing) 0;
+        }
+    }
 
-		grid-column: content;
-		grid-row: 1;
-		@include font('secondary', 'medium');
-		justify-content: space-around;
-		overflow: hidden;
-		position: relative;
-		color: $ui-grey-4;
-		@extend %screen-shell-grid;
+        .block__heading {
+            grid-column: wide;
 
-		@media screen {
-			padding: var(--v-spacing) 0;
-		}
-
-	}
-
-		.block__heading {
-
-			grid-column: wide;
-
-			@media screen {
-				@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
-				margin-bottom: var(--v-spacing-half);
+            @media screen {
+                @include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+                margin-bottom: var(--v-spacing-half);
 
                 &[data-alignment="justified"] {
                     text-align: left;
@@ -37,102 +33,57 @@
                 &[data-alignment="centered"] {
                     text-align: center;
                 }
-			}
+            }
+        }
 
-		}
+        .block__carousel_container {
+            grid-column: full;
+            position: relative;
+            height: 100%;
+        }
 
-		.block__carousel_container {
-			grid-column: full;
-			position: relative;
-			height: 100%;
-		}
+        .block__carousel {
+            display: flex;
+            align-items: stretch;
+        }
 
-		.block__carousel {
-			display: flex;
-    		align-items: stretch;
-		}
+            .block__carousel-controls {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 16px;
+                justify-content: center;
+                z-index: 3;
+                pointer-events: none;
 
-			.block__carousel-controls {
+                button {
+                    pointer-events: all;
+                }
 
-				// position: absolute;
-				// top: 0;
-				// right: 0;
-				// bottom: 0;
-				// left: 0;
-				// display: grid;
-				// grid-template-columns: repeat(2, 1fr);
-				// grid-column-gap: 20px;
-				display: flex;
-				flex-wrap: wrap;
-				gap: 16px;
-				justify-content: center;
-				z-index: 3;
-				pointer-events: none;
+                button[disabled] {
+                    opacity: .5;
+                    cursor: default;
+                }
 
-				button {
-					pointer-events: all;
-				}
+                button > svg {
+                    font-size: 77px;
+                    height: 1em;
+                    fill: $ui-brand;
+                }
 
-				button[disabled] {
-					opacity: .5;
-					cursor: default;
-				}
+                button[data-controls="prev"] > svg {
+                    transform: rotate(180deg);
+                }
+            }
 
-				button > svg {
-					font-size: 77px;
-					height: 1em;
-					fill: $ui-brand;
-				}
+            .block__carousel-item {
+                transition: opacity .3s ease;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                min-height: 100%;
 
-				button[data-controls="prev"] > svg {
-					transform: rotate(180deg);
-				}
-
-			}
-
-			.block__carousel-item {
-
-				transition: opacity .3s ease;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				min-height: 100%;
-
-				.card.card--quote .card__toggle::before {
-					background-color: rgba(0, 0, 0, .75);
-				}
-
-				.card-container {
-					display: flex;
+                > * {
                     height: 100%;
-				};
-
-			}
-
-			.block__carousel-item--active {
-
-				opacity: 1;
-
-				.card.card--quote .card__toggle::before {
-					background-color: initial;
-				}
-
-			}
-
-			.card__quote {
-				p {
-					@include font('secondary');
-					font-size: 20px;
-					font-weight: 500;
-				}
-
-				footer {
-					font-size: 18px;
-				}
-			}
-
-}
-
-.tns-item {
-	font-size: unset !important;
+                }
+            }
 }
