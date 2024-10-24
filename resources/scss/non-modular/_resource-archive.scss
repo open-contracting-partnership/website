@@ -90,7 +90,6 @@
 			}
 
 	.resource-archive__results {
-
 		--columns: 1;
 
 		grid-column: all;
@@ -105,8 +104,11 @@
 		@include from(L) {
 			--columns: 3;
 		}
-
 	}
+
+        .resource-archive__results-card > * {
+            height: 100%;
+        }
 
 	.resource-archive {
 

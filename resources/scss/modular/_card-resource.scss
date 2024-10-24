@@ -1,167 +1,139 @@
-.card__container {
-	display: flex;
+.card-resource__container {
+    display: flex;
 }
 
-.card.card--resource {
+.card-resource {
+    --accent-colour: #{$ui-black};
 
-	--accent-colour: #{$ui-white};
+    position: relative;
+    background-color: #F6F6F6;
+    color: $ui-black;
+    border-radius: spacing(4) spacing(1) spacing(4) spacing(1);
+    border: 2px solid $ui-grey-6;
+    padding: 20px 28px;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    gap: spacing(2);
+    @include font('secondary');
 
-	background-color: $ui-grey-3;
-	color: $ui-white;
-	border-radius: spacing(4) spacing(1) spacing(4) spacing(1);
-	border: 2px solid $ui-grey-6;
-	padding: 20px 28px;
-	display: flex;
-	flex-direction: row;
-	flex-grow: 1;
-	gap: spacing(2);
-	@include font('secondary');
+    @media print {
+        border: 3px solid $ui-grey-7;
+    }
+}
 
-	@media print {
-		border: 3px solid $ui-grey-7;
-	}
+    .card-resource__image-container {
+        flex: 0 0 108px;
 
-	.card__body {
-		flex: 1 1 100%;
-		display: flex;
-        flex-direction: column;
-		justify-content: center;
-		padding: spacing(1) 0;
-	}
-
-	.card__image-container {
-		flex: 0 0 108px;
-		img {
+        img {
             max-width: 100%;
             height: auto;
         }
-	}
+    }
 
-		.card__link {
-			font-size: 18px;
-			@include font('secondary', 'bold');
-			text-decoration: none;
-			line-height: 1.15;
-            margin-bottom: spacing(2);
+    .card-resource__body {
+        flex: 1 1 100%;
+    }
+
+        .card-resource__link {
+            font-size: 18px;
+            @include font('secondary', 'bold');
+            text-decoration: none;
+            line-height: 1.15;
+            margin-bottom: spacing(1);
+
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                z-index: 1;
+            }
         }
 
-        .card__excerpt {
+        .card-resource__excerpt {
             font-size: 14px;
-			font-weight: 300;
-			color: $ui-grey;
+            font-weight: 300;
+            color: $ui-grey;
             margin-bottom: 0;
         }
 
-        .card__body > :last-child {
+        .card-resource__body > :last-child {
             margin-bottom: 0;
         }
 
-	.card__footer {
-		// border-top: 4px solid var(--accent-colour);
-		// margin-top: spacing(1);
-		// padding-top: 10px;
-		display: flex;
-		align-items: center;
-	}
+    .card-resource__type {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        flex: 1 1 100%;
+        text-transform: uppercase;
+        padding-top: .1em;
+        color: var(--accent-colour-contrast, var(--accent-colour));
+        margin-bottom: spacing(1.5);
 
-		.card__icon {
-			display: block;
-			font-size: 30px;
-			height: 1em;
-			width: 1em;
-			border-radius: 50%;
-			border: 8px solid var(--accent-colour);
-			flex: 0 0 auto;
-			margin-right: spacing(1);
-			box-sizing: border-box;
-		}
+        &::before {
+            content: '';
+            font-size: 1.714em;
 
-		.card__type {
-			font-size: 14px;
-			font-weight: 500;
-			flex: 1 1 100%;
-			text-transform: uppercase;
-			padding-top: .1em;
-            color: var(--accent-colour);
-		}
-
-        .card__mast {
-            display: flex;
-            align-items: center;
-            margin-bottom: spacing(1.5);
+            display: block;
+            height: 1em;
+            width: 1em;
+            border-radius: 50%;
+            border: .25em solid var(--accent-colour);
+            flex: 0 0 auto;
+            margin-right: spacing(1);
+            box-sizing: border-box;
         }
+    }
 
-        .card__tag {
-            font-size: 14px;
-            font-weight: 500;
-            padding: 0.3em 0.6em 0.2em;
-            background-color: var(--accent-colour);
-            color: $ui-white;
-            margin-left: auto;
-        }
-
-    &[data-has-border="1"] {
+    .card-resource[data-has-border="true"] {
         border: 2px solid var(--accent-colour);
     }
 
+    // post colours
 
-	// Colour Scheme
-
-	&[data-colour-scheme="light"] {
-		background-color: #F6F6F6;
-		color: $ui-black;
-		--accent-colour: #{$ui-black};
-	}
-
-	// post colours
-
-    &[data-colour="orange"] {
-		--accent-colour: #{$ui-orange};
+    .card-resource[data-colour="orange"] {
+        --accent-colour: #{$ui-orange};
     }
 
-    &[data-colour="green"] {
-		--accent-colour: #{$ui-brand};
+    .card-resource[data-colour="green"] {
+        --accent-colour: #{$ui-brand};
     }
 
-    &[data-colour="blue"] {
-		--accent-colour: #{$ui-blue};
+    .card-resource[data-colour="blue"] {
+        --accent-colour: #{$ui-blue};
     }
 
-    &[data-colour="black"] {
-		--accent-colour: #{$ui-blue};
+    .card-resource[data-colour="black"] {
+        --accent-colour: #{$ui-blue};
     }
 
-	// post type colours
+    // post type colours
 
-	&[data-post-type="post"] {
-		--accent-colour: #{$ui-orange};
-	}
+    .card-resource[data-post-type="post"] {
+        --accent-colour: #{$ui-orange};
+    }
 
-	&[data-post-type="resource"] {
-		--accent-colour: #{$ui-blue};
-	}
+    .card-resource[data-post-type="resource"] {
+        --accent-colour: #{$ui-blue};
+    }
 
-	// resource type colours
+    // resource type colours
 
-	&[data-post-type="annual-report"] {
-		--accent-colour: #{$ui-brand};
-	}
+    .card-resource[data-post-type="annual-report"],
+    .card-resource[data-post-type="brochure"] {
+        --accent-colour: #{$ui-brand};
+        --accent-colour-contrast: #{$ui-grey-3};
+    }
 
+    .card-resource[data-post-type="report"],
+    .card-resource[data-post-type="guide"],
+    .card-resource[data-post-type="brief"] {
+        --accent-colour: #{$ui-orange};
+    }
 
-	&[data-post-type="brochure"] {
-		--accent-colour: #{$ui-black};
-	}
-
-	&[data-post-type="report"],
-	&[data-post-type="guide"],
-	&[data-post-type="brief"] {
-		--accent-colour: #{$ui-orange};
-	}
-
-	&[data-post-type="data-tool"],
-	&[data-post-type="training-material"],
-	&[data-post-type="methodology"] {
-		--accent-colour: #{$ui-blue};
-	}
-
-}
+    .card-resource[data-post-type="data-tool"],
+    .card-resource[data-post-type="training-material"],
+    .card-resource[data-post-type="methodology"] {
+        --accent-colour: #{$ui-blue};
+    }

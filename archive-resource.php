@@ -76,9 +76,6 @@ class ArchiveResourceController extends Controller
                 // new card output
                 'card' => Timber::compile('cards/resource.twig', [
                     'card' => $new,
-                    'options' => [
-                        'colour_scheme' => 'light'
-                    ]
                 ])
             ];
         });

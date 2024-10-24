@@ -46,7 +46,8 @@
 
 			<div class="resource-archive__results">
 				<template v-if="visibleResources.length">
-					<div class="card__container"
+					<div
+                        class="resource-archive__results-card"
 						v-for="resource in visibleResources"
 						v-bind:key="resource.id"
 						v-html="resource.card"
