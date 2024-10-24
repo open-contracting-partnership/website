@@ -2,12 +2,10 @@
 
 use App\Assets;
 
-add_action('admin_enqueue_scripts', function () {
+add_action('wp_enqueue_scripts', function () {
+
     Assets::registerScript('manifest', '/dist/js/manifest.js', [], true);
     Assets::registerScript('vendor', '/dist/js/vendor.js', [], true);
-});
-
-add_action('wp_enqueue_scripts', function () {
 
      //****************
     // REGISTER ASSETS
