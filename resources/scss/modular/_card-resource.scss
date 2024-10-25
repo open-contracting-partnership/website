@@ -43,6 +43,11 @@
             line-height: 1.15;
             margin-bottom: spacing(1);
 
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+            }
+
             &::before {
                 content: '';
                 position: absolute;
