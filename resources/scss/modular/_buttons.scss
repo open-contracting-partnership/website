@@ -100,6 +100,9 @@
 }
 
 .button[data-size="huge"] {
+    font-weight: 700;
+    font-size: 18px;
+
     @include from(M) {
         font-size: 22px;
         font-weight: 700;

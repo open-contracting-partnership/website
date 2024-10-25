@@ -2,25 +2,25 @@
 
 fieldset,
 form {
-	border: 0;
-	padding: 0;
-	margin: 0;
+    border: 0;
+    padding: 0;
+    margin: 0;
 }
 
 label,
 legend {
-	font-size: 13px;
-	text-transform: uppercase;
+    font-size: 13px;
+    text-transform: uppercase;
 
-	display: block;
-	margin-bottom: 0;
+    display: block;
+    margin-bottom: 0;
 
-	cursor: pointer;
+    cursor: pointer;
 }
 
 abbr[title="Required"] {
-	@include font('primary', 'bold');
-	color: $ui-black;
+    @include font('primary', 'bold');
+    color: $ui-black;
 }
 
 input[type="text"],
@@ -39,33 +39,33 @@ input[type="week"],
 input[type="datetime"],
 input[type="datetime-local"],
 textarea {
-	@include font('primary', 'regular');
-	font-size: 14px;
-	color: $ui-black;
-	background-color: $ui-white;
+    @include font('primary', 'regular');
+    font-size: 14px;
+    color: $ui-black;
+    background-color: $ui-white;
 
-	width: 100%;
-	border: 1px solid $ui-black;
-	border-radius: $border-radius;
-	padding: .5rem 1rem;
-	margin-bottom: math.div($space, 2);
+    width: 100%;
+    border: 1px solid $ui-black;
+    border-radius: $border-radius;
+    padding: .5rem 1rem;
+    margin-bottom: math.div($space, 2);
 
-	&:focus {
-		box-shadow: none;
-		outline: none;
-	}
+    &:focus {
+        box-shadow: none;
+        outline: none;
+    }
 
-	@include mq(M) {
-	    padding: em(16, 14) em(12, 14);
-	}
+    @include mq(M) {
+        padding: em(16, 14) em(12, 14);
+    }
 }
 
 input[type="color"] {
-	width: 1em;
+    width: 1em;
 }
 
 textarea {
-	line-height: 1.5;
+    line-height: 1.5;
 }
 
 // input[type="text"].valid,
@@ -77,61 +77,55 @@ textarea {
 // }
 
 
- //*******************
+//*******************
 // PLACEHOLDER STYLES
 
 ::-webkit-input-placeholder {
-   color: $ui-grey;
+color: $ui-grey;
 }
 
 :-moz-placeholder { /* Firefox 18- */
- 	color: $ui-grey;
+    color: $ui-grey;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: $ui-grey;
+color: $ui-grey;
 }
 
 :-ms-input-placeholder {
-   color: $ui-grey;
+color: $ui-grey;
 }
 
 .filter-menu {
-	padding: 17px;
-	margin-bottom: 48px;
-	background-color: $ui-grey-8;
-	border-radius: 22px 6px;
+    padding: 17px;
+    margin-bottom: 48px;
+    background-color: $ui-grey-8;
+    border-radius: 22px 6px;
 
-	a {
-		font-size: 14px;
-		font-weight: 500;
-	}
+    a {
+        font-size: 14px;
+        font-weight: 500;
+    }
 }
 
-	.filter-header {
-		display: flex;
-		justify-content: space-between;
+    .filter-header {
+        display: flex;
+        justify-content: space-between;
         align-items: flex-start;
-        margin-bottom: spacing(.5);
+        margin-bottom: 0;
 
-		p {
-			font-weight: 500;
-			font-size: 14px;
-		}
-	}
-
-	.filter-container {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 10px;
+        p {
+            font-weight: 500;
+            font-size: 14px;
+        }
     }
 
-	    .filter-item__input {
-		    @extend .visually-hidden;
-		}
+        .filter-item__input {
+            @extend .visually-hidden;
+        }
 
         .filter-item__control {
-            --padding-inline: #{em(6, 14)};
+            --padding-inline: #{em(1, 14)};
 
             --colour: #{$ui-black};
             --text-colour: var(--colour, #{$ui-black});
@@ -147,6 +141,7 @@ textarea {
             color: var(--text-colour);
             border: 1px solid var(--colour);
             cursor: pointer;
+            display: block;
             transition: background-color 0.3s ease, color 0.3s ease;
             font-size: 14px;
             font-weight: 500;
@@ -159,29 +154,29 @@ textarea {
                 background-color: var(--colour);
             }
 
-			&[data-colour="green"] {
+            &[data-colour="green"] {
                 --colour: #{$ui-brand};
                 --text-colour: #{$ui-black};
                 --contrast-colour: #{$ui-black};
-			}
+            }
 
-			&[data-colour="orange"] {
+            &[data-colour="orange"] {
                 --colour: #{$ui-orange};
-			}
+            }
 
-			&[data-colour="blue"] {
+            &[data-colour="blue"] {
                 --colour: #{$ui-blue};
-			}
+            }
 
-			&[data-colour="black"] {
+            &[data-colour="black"] {
                 --colour: #{$ui-black};
-			}
+            }
         }
 
-		.filter-item__input:checked ~ .filter-item__control {
+        .filter-item__input:checked ~ .filter-item__control {
             color: var(--contrast-colour);
             background-color: var(--colour);
-		}
+        }
 
     .filter__reset-link {
         font-size: 14px;
@@ -189,93 +184,6 @@ textarea {
         width: max-content;
         font-weight: 500;
     }
-
-.search-input {
-	font-size: 14px;
-	color: $ui-grey-4;
-
-	height: em(23, 14);
-	border: 0.5px solid currentColor;
-	border-radius: 2px 999px 999px 2px;
-	display: flex;
-
-	.search-input__input {
-
-		font-size: 1em;
-		flex: 1 1 100%;
-		@include font('secondary', 'bold');
-		border: none;
-		background: none;
-		border-radius: 0;
-		color: currentColor;
-		padding: 4px 34px 4px 7px;
-		margin: 0;
-		min-width: 0;
-
-		&::-webkit-input-placeholder {
-			@include font('secondary', 'bold');
-			color: currentColor;
-			opacity: 1;
-		}
-
-		&:-moz-placeholder { /* Firefox 18- */
-			@include font('secondary', 'bold');
-			color: currentColor;
-			opacity: 1;
-		}
-
-		&::-moz-placeholder {  /* Firefox 19+ */
-			@include font('secondary', 'bold');
-			color: currentColor;
-			opacity: 1;
-		}
-
-		&:-ms-input-placeholder {
-			@include font('secondary', 'bold');
-			color: currentColor;
-			opacity: 1;
-		}
-
-	}
-
-	.search-input__button {
-
-		flex: 0 0 auto;
-		margin-right: 1px;
-
-		> svg {
-			display: block;
-			font-size: em(14, 11);
-			height: 1em;
-			width: 1em;
-			fill: currentColor;
-		}
-
-	}
-
-	// sizes
-
-	&[data-size="large"] {
-
-		font-size: 18px;
-
-		.search-input__input {
-			font-size: .7em;
-		}
-
-		.search-input__button {
-			margin-right: 2px;
-		}
-
-	}
-
-	// colours
-
-	&[data-colour="light"] {
-		color: $ui-grey-5;
-	}
-
-}
 
 .select-dropdown {
     --accent-colour: #{$ui-grey-4};
@@ -320,54 +228,54 @@ textarea {
 
 .input-circle {
 
-	--colour: #{$ui-grey-4};
+    --colour: #{$ui-grey-4};
 
-	appearance: none;
-	font-size: 21px;
-	border: 3px solid var(--colour);
-	background-color: $ui-white;
-	width: 1em;
-	height: 1em;
-	cursor: pointer;
-	user-select: none;
-	border-radius: 50%;
-	margin: 0;
-	padding: 0;
-	transition: background-color .3s ease;
+    appearance: none;
+    font-size: 21px;
+    border: 3px solid var(--colour);
+    background-color: $ui-white;
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+    transition: background-color .3s ease;
 
-	color-adjust: exact !important;
-	-webkit-print-color-adjust: exact !important;
-	print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
 
-	&:checked,
-	&.checked {
+    &:checked,
+    &.checked {
 
-		background-color: var(--colour);
+        background-color: var(--colour);
 
-		@media print {
-			background-color: var(--colour) !important;
-		}
+        @media print {
+            background-color: var(--colour) !important;
+        }
 
-	}
+    }
 
-	&[data-colour="blue"] {
-		--colour: #{$ui-blue};
-	}
+    &[data-colour="blue"] {
+        --colour: #{$ui-blue};
+    }
 
-	&[data-colour="orange"] {
-		--colour: #{$ui-orange};
-	}
+    &[data-colour="orange"] {
+        --colour: #{$ui-orange};
+    }
 
-	&[data-colour="teal"] {
-		--colour: #{$ui-teal};
-	}
+    &[data-colour="teal"] {
+        --colour: #{$ui-teal};
+    }
 
-	&[data-colour="green"] {
-		--colour: #{$ui-brand};
-	}
+    &[data-colour="green"] {
+        --colour: #{$ui-brand};
+    }
 
-	&[data-colour="light-green"] {
-		--colour: #{$ui-brand-2};
-	}
+    &[data-colour="light-green"] {
+        --colour: #{$ui-brand-2};
+    }
 
 }

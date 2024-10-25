@@ -1,63 +1,74 @@
 {
-	"name": "bureau-style-guide",
-	"description": "The Idea Bureau, Style Guide",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/theideabureau/bureau-style-guide"
-	},
-	"author": {
-		"name": "The Idea Bureau",
-		"url": "https://theideabureau.co"
-	},
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/theideabureau/bureau-style-guide/issues"
-	},
-	"homepage": "https://github.com/theideabureau/bureau-style-guide",
-	"scripts": {
-		"development": "mix",
-		"watch": "mix watch",
-		"watch-poll": "mix watch -- --watch-options-poll=1000",
-		"hot": "mix watch --hot",
-		"production": "mix --production"
-	},
-	"devDependencies": {
-		"@babel/plugin-transform-runtime": "^7.2.0",
-		"@babel/polyfill": "^7.2.5",
-		"@babel/preset-env": "^7.3.1",
-		"autoprefixer": "^10.2.5",
-		"babel-loader": "^8.0.5",
-		"countup.js": "^2.6.2",
-		"cross-env": "^5.1.3",
-		"css-element-queries": "^1.0.2",
-		"gh-pages": "^1.1.0",
-		"import-glob-loader": "^1.1.0",
-		"laravel-mix": "^6.0.49",
-		"laravel-mix-svg-sprite": "^1.0.0",
-		"lodash": "^4.17.21",
-		"lodash.clonedeep": "^4.5.0",
-		"lodash.filter": "^4.6.0",
-		"lodash.intersection": "^4.4.0",
-		"mapbox-gl": "^1.5.0",
-		"modern-css-reset": "1.0.2",
-		"postcss": "^8.2.8",
-		"sass": "^1.72.0",
-		"sass-loader": "^12.6.0",
-		"tailwindcss": "^2.0.4",
-		"tiny-slider": "^2.9.2",
-		"topojson-client": "^3.0.1",
-		"underscore": "^1.8.3",
-		"vue": "^2.6.10",
-		"vue-loader": "^15.11.1",
-		"vue-resource": "^1.5.1",
-		"vue-router": "^3.1.3",
-		"vue-template-compiler": "^2.6.10",
-		"vuex": "^3.1.1",
-		"vuex-router-sync": "^5.0.0"
-	},
-	"dependencies": {
-		"@alpinejs/persist": "^3.10.2",
-		"alpinejs": "^3.9.2",
-		"webpack": "^5.91.0"
-	}
+  "name": "bureau-style-guide",
+  "description": "The Idea Bureau, Style Guide",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theideabureau/bureau-style-guide"
+  },
+  "author": {
+    "name": "The Idea Bureau",
+    "url": "https://theideabureau.co"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/theideabureau/bureau-style-guide/issues"
+  },
+  "homepage": "https://github.com/theideabureau/bureau-style-guide",
+  "scripts": {
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "production": "mix --production",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.1",
+    "@chromatic-com/storybook": "^1.9.0",
+    "@storybook/addon-essentials": "^8.3.6",
+    "@storybook/addon-links": "^8.3.6",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.5",
+    "@storybook/blocks": "^8.3.6",
+    "@storybook/server": "^8.3.6",
+    "@storybook/server-webpack5": "^8.3.6",
+    "@storybook/test": "^8.3.6",
+    "autoprefixer": "^10.2.5",
+    "babel-loader": "^8.0.5",
+    "countup.js": "^2.6.2",
+    "cross-env": "^5.1.3",
+    "css-element-queries": "^1.0.2",
+    "gh-pages": "^1.1.0",
+    "import-glob-loader": "^1.1.0",
+    "laravel-mix": "^6.0.49",
+    "laravel-mix-svg-sprite": "^1.0.0",
+    "lodash": "^4.17.21",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.filter": "^4.6.0",
+    "lodash.intersection": "^4.4.0",
+    "mapbox-gl": "^1.5.0",
+    "modern-css-reset": "1.0.2",
+    "postcss": "^8.2.8",
+    "sass": "^1.72.0",
+    "sass-loader": "^12.6.0",
+    "storybook": "^8.3.6",
+    "tailwindcss": "^2.0.4",
+    "tiny-slider": "^2.9.2",
+    "topojson-client": "^3.0.1",
+    "underscore": "^1.8.3",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.11.1",
+    "vue-resource": "^1.5.1",
+    "vue-router": "^3.1.3",
+    "vue-template-compiler": "^2.6.10",
+    "vuex": "^3.1.1",
+    "vuex-router-sync": "^5.0.0"
+  },
+  "dependencies": {
+    "@alpinejs/persist": "^3.10.2",
+    "alpinejs": "^3.9.2",
+    "webpack": "^5.91.0"
+  }
 }

@@ -39,13 +39,12 @@
 		margin-bottom: spacing(2);
 		background-color: $ui-white;
 
-
 		@include from(L) {
 			position: absolute;
 			top: spacing(2);
 			right: spacing(2);
+            width: 304px;
 		}
-
 	}
 
 	.resource-archive__filters {
@@ -128,15 +127,5 @@
 			gap: spacing(1);
 			margin-bottom: spacing(1);
 
-		}
-
-		.search-input__input {
-			padding: 4px 120px 4px 12px;
-			font-size: spacing(1.5);
-
-			@include from(L) {
-				padding: 4px 120px 4px 12px;
-
-			}
 		}
 	}

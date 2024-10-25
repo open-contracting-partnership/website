@@ -12,12 +12,12 @@
 		<div class="resource-archive__controls">
 			<div>
 				<div class="filter-menu">
-					<div class="resource-archive__search /  search-input" data-size="large">
-						<input class="search-input__input / uppercase" v-model="search" type="text" aria-label="Search" placeholder="Search">
+					<div class="resource-archive__search /  search-box" data-size="large">
+						<input class="search-box__input / uppercase" v-model="search" type="text" aria-label="Search" placeholder="Search">
 
-						<button class="search-input__button / button--naked">
+						<span class="search-box__icon">
 							<svg><use xlink:href="#icon-search-rounded"></use></svg>
-						</button>
+						</span>
 					</div>
 
 					{% for filter in resource_library_filters %}
@@ -27,20 +27,18 @@
 
 						<div class="filters-container">
 							{% for field in filter.filter %}
-								<div class="filter-container">
-									<label class="filter-item">
-										<input
-											type="checkbox"
-											name="regions"
-											class="filter-item__input"
-											value="{{ field.slug }}"
-											v-model="filters"
-											data-colour="{{ field.colour }}"
-										>
+                                <label class="filter-item">
+                                    <input
+                                        type="checkbox"
+                                        name="regions"
+                                        class="filter-item__input"
+                                        value="{{ field.slug }}"
+                                        v-model="filters"
+                                        data-colour="{{ field.colour }}"
+                                    >
 
-										<span class="filter-item__control" data-colour="{{ field.colour }}" >{{ field.label }}</span>
-									</label>
-								</div>
+                                    <span class="filter-item__control" data-colour="{{ field.colour }}" >{{ field.label }}</span>
+                                </label>
 							{% endfor %}
 						</div>
 					{% endfor %}

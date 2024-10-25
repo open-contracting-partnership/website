@@ -1,11 +1,9 @@
 <div class="simple-header">
-    <div class="simple-header__container">
-        {% if block.heading %}
-            <h1 class="simple-header__heading">{{ block.heading }}</h1>
-        {% endif %}
+    {% if block.heading %}
+        <h1 class="simple-header__heading">{{ block.heading }}</h1>
+    {% endif %}
 
-        {% if block.content %}
-            <div class="simple-header__content">{{ block.content }}</div>
-        {% endif %}
-    </div>
+    {% if block.content %}
+        <div class="simple-header__content">{{ block.content }}</div>
+    {% endif %}
 </div>
