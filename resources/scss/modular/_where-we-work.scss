@@ -32,7 +32,6 @@
         .where-we-work__list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            // align-items: start;
             gap: 12px;
             align-self: flex-start;
         }
@@ -47,7 +46,7 @@
 
         .where-we-work__map {
             max-width: 800px;
-            align-self: center;
+            // align-self: center;
             justify-self: center;
 
             svg {
