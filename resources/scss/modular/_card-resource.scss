@@ -10,12 +10,11 @@
     color: $ui-black;
     border-radius: spacing(4) spacing(1) spacing(4) spacing(1);
     border: 2px solid $ui-grey-6;
-    padding: 20px 28px;
+    padding: 22px 22px;
     display: flex;
     flex-direction: row;
     flex-grow: 1;
     gap: spacing(2);
-    @include font('secondary');
 
     @media print {
         border: 3px solid $ui-grey-7;
@@ -36,8 +35,10 @@
     }
 
         .card-resource__link {
+            font-family: $font-secondary;
+            font-weight: $bold;
+            display: block;
             font-size: 18px;
-            @include font('secondary', 'bold');
             text-decoration: none;
             line-height: 1.15;
             margin-bottom: spacing(1);
@@ -51,9 +52,10 @@
         }
 
         .card-resource__excerpt {
+            font-family: $font-primary;
+            font-weight: $regular;
             font-size: 14px;
-            font-weight: 300;
-            color: $ui-grey;
+            color: $ui-grey-3;
             margin-bottom: 0;
         }
 
@@ -62,6 +64,8 @@
         }
 
     .card-resource__type {
+        font-family: $font-secondary;
+        font-weight: $regular;
         display: flex;
         align-items: center;
         font-size: 14px;
