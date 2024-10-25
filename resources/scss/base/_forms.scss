@@ -125,15 +125,15 @@ color: $ui-grey;
         }
 
         .filter-item__control {
-            --padding-inline: #{em(1, 14)};
+            --padding-block: #{em(2, 14)};
 
             --colour: #{$ui-black};
             --text-colour: var(--colour, #{$ui-black});
             --background-colour: #{$ui-white};
             --contrast-colour: #{$ui-white};
 
-            padding-top: calc(2px + var(--padding-inline));
-            padding-bottom: var(--padding-inline);
+            padding-top: calc(2px + var(--padding-block));
+            padding-bottom: var(--padding-block);
             padding-inline: em(12, 14);
 
             border-radius: 20px;
