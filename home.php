@@ -117,6 +117,8 @@ class HomeController extends Controller
                     'is_active' => $isActive,
                 ];
             });
+
+        $context['latest']['filters']['reset'] = get_post_type_archive_link('post');
     }
 
     protected function getSelectedFilters()
