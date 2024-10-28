@@ -1,28 +1,23 @@
-<div class="where-we-work" data-block-type="where-we-work">
-    <div class="where-we-work__background" style="background-color: {{ block.background_colour }}"></div>
-    <h2 class="where-we-work__title alpha">{{ block.heading }}</h2>
+<div class="where-we-work">
+    <div class="where-we-work__list">
+        {% for region in block.regions %}
+            <a
+                href="{{ region.link.url }}"
+                class="button button--has-icon zzzwhere-we-work__region-button zzzregion"
+                data-colour="blue"
+                data-size="huge"
+                data-uppercase="false"
+                data-icon-position="right"
+                data-region="{{ region.slug }}"
+            >
+                {{ region.link.title }}
 
-    <div class="where-we-work__map-container">
-        <div class="where-we-work__list">
-            {% for region in block.regions %}
-                <a
-                    href="{{ region.link.url }}"
-                    class="button button--has-icon zzzwhere-we-work__region-button zzzregion"
-                    data-colour="blue"
-                    data-size="huge"
-                    data-uppercase="false"
-                    data-icon-position="right"
-                    data-region="{{ region.slug }}"
-                >
-                    {{ region.link.title }}
+                <svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+            </a>
+        {% endfor %}
+    </div>
 
-                    <svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-                </a>
-            {% endfor %}
-        </div>
-
-        <div class="where-we-work__map">
-            {% include 'views/blocks/where-we-work-map.twig' %}
-        </div>
+    <div class="where-we-work__map">
+        {% include 'views/blocks/where-we-work-map.twig' %}
     </div>
 </div>

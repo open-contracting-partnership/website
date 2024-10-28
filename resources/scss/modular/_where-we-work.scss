@@ -1,93 +1,67 @@
 .where-we-work {
-    position: relative;
-    background-color: $ui-teal;
-    padding-block: 80px;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
 
-    @include from(L) {
-        text-align: left;
+    @include from(M) {
+        grid-template-columns: 1fr 2fr;
     }
 }
 
-    .where-we-work__background {
-        background-color: $ui-teal;
-        position: absolute;
-        top: 0;
-        left: calc(-1*(100vw - 100%) / 2);
-        width: 100vw;
-        height: 100%;
-        z-index: -1;
-    }
-
-    .where-we-work__map-container {
+    .where-we-work__list {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 30px;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 12px;
+        align-self: flex-start;
+    }
 
-        @include from(M) {
-            grid-template-columns: 1fr 2fr;
+        .where-we-work .button {
+            transition: opacity 0.5s ease;
+        }
+
+        .where-we-work__list:has(.button:hover) .button:not(:hover) {
+            opacity: 0.5;
+        }
+
+    .where-we-work__map {
+        max-width: 800px;
+        justify-self: center;
+
+        svg {
+            width: 100%;
+            height: auto;
+            fill: $ui-white;
+
+            g {
+                transition: fill .3s ease;
+            }
         }
     }
 
-        .where-we-work__list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 12px;
-            align-self: flex-start;
-        }
+    .where-we-work__map-container[data-active-region="europe"] g.europe {
+        fill: $ui-blue;
+    }
 
-            .where-we-work .button {
-                transition: opacity 0.5s ease;
-            }
+    .where-we-work__map-container[data-active-region="africa"] g.africa {
+        fill: $ui-blue;
+    }
 
-            .where-we-work__list:has(.button:hover) .button:not(:hover) {
-                opacity: 0.5;
-            }
+    .where-we-work__map-container[data-active-region="asia-pacific"] g.asia-pacific {
+        fill: $ui-blue;
+    }
 
-        .where-we-work__map {
-            max-width: 800px;
-            // align-self: center;
-            justify-self: center;
+    .where-we-work__map-container[data-active-region="eeca"] g.eeca {
+        fill: $ui-blue;
+    }
 
-            svg {
-                width: 100%;
-                height: auto;
-                fill: $ui-white;
+    .where-we-work__map-container[data-active-region="latam"] g.latin-america {
+        fill: $ui-blue;
+    }
 
-                g {
-                    transition: fill .3s ease;
-                }
-            }
-        }
+    .where-we-work__map-container[data-active-region="usa"] g.usa {
+        fill: $ui-blue;
+    }
 
-        .where-we-work__map-container[data-active-region="europe"] g.europe {
-            fill: $ui-blue;
-        }
-
-        .where-we-work__map-container[data-active-region="africa"] g.africa {
-            fill: $ui-blue;
-        }
-
-        .where-we-work__map-container[data-active-region="asia-pacific"] g.asia-pacific {
-            fill: $ui-blue;
-        }
-
-        .where-we-work__map-container[data-active-region="eeca"] g.eeca {
-            fill: $ui-blue;
-        }
-
-        .where-we-work__map-container[data-active-region="latam"] g.latin-america {
-            fill: $ui-blue;
-        }
-
-        .where-we-work__map-container[data-active-region="usa"] g.usa {
-            fill: $ui-blue;
-        }
-
-        .where-we-work__map-container[data-active-region="open-contracting-in-ukraine"] g.ukraine {
-            fill: $ui-blue;
-        }
-
-    .where-we-work__title {
-        color: $ui-white;
+    .where-we-work__map-container[data-active-region="open-contracting-in-ukraine"] g.ukraine {
+        fill: $ui-blue;
     }
