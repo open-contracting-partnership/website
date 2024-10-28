@@ -70,7 +70,7 @@ $header-break-4: 1240;
 
 $fonts: (
 	primary: (
-		family: 'gt_eesti_pro_text',
+		family: 'gt_eesti_text',
 		fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
 		weights: (
 			light: 300,
@@ -81,7 +81,7 @@ $fonts: (
 		typekit: false
 	),
 	secondary: (
-		family: 'gt_eesti_pro_display',
+		family: 'gt_eesti_display',
 		fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
 		weights: (
 			regular: 400,
@@ -92,8 +92,8 @@ $fonts: (
 	)
 );
 
-$font-primary: "gt_eesti_pro_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-secondary: "gt_eesti_pro_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-primary: "gt_eesti_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-secondary: "gt_eesti_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 $thin: 100;
 $extra-light: 200;
