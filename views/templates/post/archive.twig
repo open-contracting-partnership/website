@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-            <section class="home__posts">
+            <section id="results" class="home__posts">
                 {% for card in latest.posts %}
                     {% include 'cards/primary.twig' with card %}
                 {% endfor %}

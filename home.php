@@ -22,17 +22,13 @@ class HomeController extends Controller
         $this->setFilterContext($context);
         $this->setPostsContext($context);
 
-        // dd($context['latest']['posts']);
         // add_filter('timber_post_get_meta', function ($post_meta, $pid, $post) {
         //     $tid = get_post_thumbnail_id($pid);
 
-        //     dump($tid);
         //     if ($tid) {
         //         $image = new $post->ImageClass($tid);
         //         $post_meta['thumbnail_url'] = $image->src;
         //     }
-
-
 
         //     return $post_meta;
         // }, 10, 3);
@@ -55,11 +51,11 @@ class HomeController extends Controller
         ];
 
         if (get_previous_posts_link()) {
-            $context['latest']['pagination']['prev'] = get_previous_posts_page_link();
+            $context['latest']['pagination']['prev'] = get_previous_posts_page_link() . '#results';
         }
 
         if (get_next_posts_link()) {
-            $context['latest']['pagination']['next'] = get_next_posts_page_link();
+            $context['latest']['pagination']['next'] = get_next_posts_page_link() . '#results';
         }
     }
 
