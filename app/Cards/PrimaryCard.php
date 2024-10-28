@@ -8,8 +8,7 @@ class PrimaryCard extends BaseCard
 {
     public static function convertTimberPost($post)
     {
-
-        $tags = collect($post->tags())
+        $tags = collect($post->terms('issue'))
             ->map(function ($tag) {
                 return [
                     'name' => $tag->title(),

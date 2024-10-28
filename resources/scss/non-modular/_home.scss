@@ -88,8 +88,8 @@ main.home {
 }
 
 .home__posts {
-
 	--columns: 1;
+
 	display: grid;
 	gap: spacing(4) spacing(3);
 	grid-template-columns: repeat(var(--columns), 1fr);
@@ -102,22 +102,12 @@ main.home {
 	@include from(M) {
 		--columns: 3;
 	}
-
-	.card__container {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		height: 100%;
-	  }
-
-	  .card {
-		flex-grow: 1;
-		margin-bottom: auto;
-	  }
-
 }
 
 .home__load-more {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacing(1.5);
 	margin-bottom: var(--v-spacing);
 }
 

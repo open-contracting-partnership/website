@@ -67,7 +67,7 @@
         <p class="card-primary__introduction">{{ card.introduction }}</p>
 
 		{% if card.tags | length > 0 %}
-			<p class="card-primary__topics">Topics:
+			<p class="card-primary__topics">Issues:
 				{% for tag in card.tags %}
 					<a href="{{ tag.link }}">{{ tag.name }}{% if not loop.last %}, {% endif %}</a>
 				{% endfor %}

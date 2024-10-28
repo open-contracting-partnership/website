@@ -1,0 +1,24 @@
+{% if latest.footer_latest_resources %}
+    <div class="home__section">
+        <div class="home__section-header">
+            <h2 class="gamma">{{ latest.content.resources_label }}</h2>
+
+            <a class="screen-only / arrow-link" data-text-color="black" data-size="medium" href="{{ latest.resources_archive_link.url }}">
+                <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                <span class="arrow-link__label / uppercase">{{ latest.resources_archive_link.label }}</span>
+            </a>
+        </div>
+
+        <div class="home__section-post">
+            {% for post in latest.footer_latest_resources %}
+                <div class="card card--text">
+                    <a class="card__title-link" href="{{ post.link() }}">
+                        <h3 class="card__title">{{ post.post_title}}</h3>
+                    </a>
+
+                    <p class="card__meta">{{ post.date('j M Y') }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

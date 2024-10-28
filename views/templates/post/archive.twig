@@ -1,0 +1,50 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <main class="home" id="blog-posts">
+        <div class="home__container">
+            {% include 'blocks/simple-header.twig' with {
+                block: {
+                    heading: latest.content.heading,
+                    content: latest.content.content,
+                }
+            } %}
+
+            <div class="filter-menu">
+                <div class="filter-header">
+                    <p class="filter-text">Filter by multiple issues:</p>
+                    <a href="" class="filter__reset-link">Reset all filters</a>
+                </div>
+
+                <div class="filters-container">
+                    {% for issue in latest.issues %}
+                        <a
+                            href="{{ issue.url }}"
+                            class="filter-item"
+                            data-instant
+                            data-is-active="{{ issue.is_active ? 'true' : 'false' }}"
+                        >
+                            <span class="filter-item__control" style="--hover-colour: #000000" >{{ issue.name }}</span>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <section class="home__posts">
+                {% for card in latest.posts %}
+                    {% include 'cards/primary.twig' with card %}
+                {% endfor %}
+            </section>
+
+            {% include 'templates/post/_pagination.twig' %}
+
+            {% include 'templates/post/_latest-news.twig' %}
+            {% include 'templates/post/_latest-events.twig' %}
+            {% include 'templates/post/_latest-resources.twig' %}
+        </div> <!-- / .home__container -->
+    </main>
+
+    <div class="page-container">
+        {{ latest.blog_content | raw }}
+    </div>
+{% endblock %}

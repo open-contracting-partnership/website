@@ -15,9 +15,10 @@ class ArchiveResourceController extends Controller
         $context = Timber::get_context();
         $context['title'] = _x('Search our resources', 'Resources archive title', 'ocp');
 
-        $context['resource_library_filters'] = get_field('resources_filters', 'options');
         $context['block']['heading'] = get_field('resources_heading', 'options');
         $context['block']['content'] = get_field('resources_content', 'options');
+
+        $context['resource_library_filters'] = get_field('resources_filters', 'options');
 
         $context['resources_output'] = $this->getAllResources();
 
