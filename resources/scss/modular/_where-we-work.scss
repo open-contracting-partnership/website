@@ -38,30 +38,30 @@
         }
     }
 
-    .where-we-work__map-container[data-active-region="europe"] g.europe {
+    .where-we-work[data-active-region="europe"] g.europe {
         fill: $ui-blue;
     }
 
-    .where-we-work__map-container[data-active-region="africa"] g.africa {
+    .where-we-work[data-active-region="africa"] g.africa {
         fill: $ui-blue;
     }
 
-    .where-we-work__map-container[data-active-region="asia-pacific"] g.asia-pacific {
+    .where-we-work[data-active-region="asia-pacific"] g.asia-pacific {
         fill: $ui-blue;
     }
 
-    .where-we-work__map-container[data-active-region="eeca"] g.eeca {
+    .where-we-work[data-active-region="eeca"] g.eeca {
         fill: $ui-blue;
     }
 
-    .where-we-work__map-container[data-active-region="latam"] g.latin-america {
+    .where-we-work[data-active-region="latam"] g.latin-america {
         fill: $ui-blue;
     }
 
-    .where-we-work__map-container[data-active-region="usa"] g.usa {
+    .where-we-work[data-active-region="usa"] g.usa {
         fill: $ui-blue;
     }
 
-    .where-we-work__map-container[data-active-region="open-contracting-in-ukraine"] g.ukraine {
+    .where-we-work[data-active-region="open-contracting-in-ukraine"] g.ukraine {
         fill: $ui-blue;
     }
