@@ -71,6 +71,9 @@ class SignUpCoverServiceProvider
         $context['block']['text_colour'] = '#FFF';
         $context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
 
+        // i18n
+        $context['block']['i18n']['subscribe'] = __('Subscribe', 'ocp');
+
         // options
         $context['block']['options'] = get_field('options') ?: [];
 

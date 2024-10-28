@@ -38,10 +38,10 @@
                 </div>
 
                 <div class="sign-up__form-wrapper">
-                    <input type="email" name="email" placeholder="Enter your email address" aria-label="Email" required>
+                    <input type="email" name="email" placeholder="Enter your email address" aria-label="Email" required class="sign-up__form-input">
 
                     <button class="sign-up__form-submit / button--naked" style="color: {{ block.background_colour }};" aria-label="Submit">
-                        SUBSCRIBE
+                        <span class="sign-up__form-submit-label">{{ block.i18n.subscribe }}</span>
                         <svg style="fill: {{ block.background_colour }};"><use xlink:href="#icon-arrow-circle"></use></svg>
                     </button>
                 </div>

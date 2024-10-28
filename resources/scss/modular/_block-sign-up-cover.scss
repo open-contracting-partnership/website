@@ -14,17 +14,19 @@
 }
 
     .sign-up__container {
-        grid-row: 1;
-        grid-column: content;
+        // grid-row: 1;
+        // grid-column: content;
         @include fluid-type(--padding, 375px, 1240px, spacing(2), spacing(6));
         @extend %column-grid;
+
+        row-gap: spacing(4);
 
         .sign-up[data-mailchimp-success="true"] & {
             display: none;
         }
 
         @media screen {
-            padding: 80px 0;
+            @include fluid-type((padding-block), 375px, 1240px, spacing(5), spacing(8));
         }
     }
 
@@ -36,7 +38,7 @@
             }
 
             @include from(M) {
-                grid-column: 1 / 7;
+                grid-column: 1 / 6;
             }
         }
 
@@ -49,29 +51,17 @@
             .sign-up__content {
                 color: currentColor;
                 margin-bottom: 0;
+
+                > :last-child {
+                    margin-bottom: 0;
+                }
             }
+
             .sign-up__form-regions {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 12px;
                 margin-bottom: 32px;
-
-                label:checked {
-                    border: 3px solid red;
-                }
-
-                .form-region {
-                    background-color: transparent;
-                    border: 2px solid $ui-white;
-                    border-radius: 48px;
-                    padding: 12px 16px;
-                }
-
-                // TODO change for active when implemented
-                .form-region:hover {
-                    background-color: $ui-white;
-                    color: $ui-grey;
-                }
             }
 
         .sign-up__form-container {
@@ -80,7 +70,7 @@
             justify-content: center;
 
             @include from(M) {
-                grid-column-start: span 5;
+                grid-column: 7 / 13;
                 align-self: center;
             }
         }
@@ -95,13 +85,20 @@
                     margin-bottom: spacing(1);
                     text-align: center;
                 }
+            }
 
-                input[type="email"] {
+            .sign-up__form-wrapper {
+                position: relative;
+                display: flex;
+            }
 
+                input.sign-up__form-input {
+                    flex-grow: 1;
                     font-size: 18px;
-                    padding: 12px 40px 12px 18px;
+                    padding: 12px 18px;
                     border: 2px solid $ui-white;
-                    border-radius: 12px 20px 20px 12px;
+                    border-right-width: 0;
+                    border-radius: 12px 0 0  12px;
                     background-color: transparent;
                     color: $ui-white;
                     margin-bottom: 0;
@@ -130,41 +127,39 @@
                         font-style: italic;
                     }
                 }
-            }
 
-            .sign-up__form-wrapper {
-                position: relative;
-            }
+                .sign-up__form-submit {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: center;
+                    align-items: center;
+                    font-size: 14px;
+                    font-weight: 500;
+                    background-color: $ui-white;
+                    border-radius: 0 12px 12px 0;
+                    padding: 12px;
+                    gap: 7px;
+                    flex-shrink: 0;
 
-            .sign-up__form-submit {
+                    > svg {
+                        font-size: 28px;
+                        height: 1em;
+                        width: 1em;
+                        display: block;
+                    }
 
-                position: absolute;
-                display: flex;
-                flex-wrap: wrap;
-                align-content: center;
-                align-items: center;
-                font-size: 14px;
-                font-weight: 500;
-                background-color: $ui-white;
-                border-radius: 0 12px 12px 0;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: auto;
-                padding: 12px;
-                gap: 7px;
-
-                > svg {
-                    font-size: 28px;
-                    height: 1em;
-                    width: 1em;
-                    display: block;
+                    button {
+                        padding: 7px 12px;
+                    }
                 }
 
-                button {
-                    padding: 7px 12px;
-                }
-            }
+                    .sign-up__form-submit-label {
+                        text-transform: uppercase;
+
+                        @include upto(S) {
+                            display: none;
+                        }
+                    }
 
             .js-mailchimp-form__message {
                 margin-top: spacing(1);
