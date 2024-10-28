@@ -58,6 +58,10 @@ $elementBreakpoint: 500px;
         a {
             margin-bottom: spacing(1);
         }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
     }
 
         .card-quote__link {

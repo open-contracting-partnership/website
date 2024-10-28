@@ -20,12 +20,11 @@
     }
 
         .block__heading {
+            @extend .h1;
+
             grid-column: wide;
 
             @media screen {
-                @include fluid-type(font-size, 360px, 1240px, 22px, 36px);
-                margin-bottom: var(--v-spacing-half);
-
                 &[data-alignment="justified"] {
                     text-align: left;
                 }
