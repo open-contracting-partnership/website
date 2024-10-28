@@ -39,7 +39,7 @@
 		margin-bottom: spacing(2);
 		background-color: $ui-white;
 
-		@include from(L) {
+		@include from(M) {
 			position: absolute;
 			top: spacing(2);
 			right: spacing(2);
