@@ -13,6 +13,12 @@
     border: var(--border-width) solid currentColor;
     border-radius: 2px var(--height-half) var(--height-half) 2px;
     display: flex;
+
+    &:has(.search-box__input:placeholder-shown) .search-box__reset {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
 }
 
     input.search-box__input {
@@ -49,6 +55,24 @@
             @include font('secondary', 'bold');
             color: currentColor;
             opacity: 1;
+        }
+    }
+
+    .search-box__reset {
+        @extend %button-naked;
+        flex: 0 0 auto;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        display: grid;
+        place-items: center;
+
+        svg {
+            --size: 12px;
+
+            height: var(--size);
+            width: var(--size);
+            display: block;
+            fill: currentColor;
         }
     }
 

@@ -65,6 +65,10 @@ new Vue({
         reset() {
             this.search = '';
             this.filters = [];
+        },
+
+        resetSearch() {
+            this.search = '';
         }
     },
 
