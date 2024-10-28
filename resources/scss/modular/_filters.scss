@@ -71,9 +71,11 @@
             user-select: none;
             @include font('secondary', 'medium');
 
-            &:hover {
+            &:hover,
+            &:focus {
                 color: var(--contrast-colour);
                 background-color: var(--colour);
+                text-decoration: underline;
             }
 
             &[data-colour="green"] {
