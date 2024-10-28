@@ -98,10 +98,20 @@
         }
 
         .card-primary__title {
+            @extend %heading-base;
+
             display: block;
             color: currentColor;
             text-decoration: none;
-            // max-width: 90%;
+            font-size: 20px;
+            margin-bottom: spacing(.5);
+
+            @include cardPrimaryFeatured {
+                @include from(T) {
+                    font-size: 35px;
+                    margin-bottom: spacing(.5);
+                }
+            }
 
             &:hover,
             &:focus {
@@ -117,20 +127,6 @@
                 }
             }
         }
-
-            .card-primary__title {
-                @extend %heading-base;
-
-                font-size: 20px;
-                margin-bottom: spacing(1);
-
-                @include cardPrimaryFeatured {
-                    @include from(T) {
-                        font-size: 35px;
-                        margin-bottom: spacing(.5);
-                    }
-                }
-            }
 
         .card-primary__introduction {
             font-size: 16px;
