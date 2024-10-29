@@ -33,7 +33,7 @@
 .hero-with-image__header {
     @include fluid-type((--padding-block), 375px, 1240px, spacing(5), spacing(7));
 
-    padding-top: calc(var(--padding-block) + (1vw * var(--header-top, 0)));
+    padding-top: max(var(--padding-block), 1vw * var(--header-top, 0));
     padding-bottom: var(--padding-block);
 
     grid-column: content;
@@ -58,21 +58,25 @@
 }
 
     .hero-with-image__heading {
-        font-size: 8vw;
+        font-size: 9vw;
         line-height: 1.2;
         align-items: center;
+        margin-bottom: .5em;
 
         @include from(T) {
-            font-size: 5.42vw;
+            font-size: 5.46vw;
         }
+    }
+
+    .hero-with-image .scroll-prompt {
+        margin-bottom: 15vw;
     }
 
     .hero-with-image__content__strapline {
         font-size: 22px;
         font-weight: $bold;
         margin-inline: auto;
-        margin-bottom: 13px;
-        margin-top: .3em;
+        margin-bottom: 1em;
 
         @include from(M) {
             font-size: 22px;
@@ -86,8 +90,7 @@
     .hero-with-image__content__text {
         font-size: 14px;
         font-weight: $medium;
-        margin-inline: 16px;
-        margin-top: .3em;
+        margin-inline: 1em;
 
         @include from(M) {
             font-size: 18px;
@@ -97,12 +100,4 @@
 
     .hero-with-image__cta  {
         display: flex;
-    }
-
-    .hero-with-image .scroll-prompt {
-        margin-bottom: spacing(2);
-
-        @include from(M) {
-            margin-bottom: spacing(4);
-        }
     }

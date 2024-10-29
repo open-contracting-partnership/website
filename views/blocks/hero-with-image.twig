@@ -10,10 +10,10 @@
     <div class="hero-with-image__header">
         <h1 class="hero-with-image__heading">{{ block.heading }}</h1>
 
+        {% include 'components/scroll-prompt.twig' %}
+
         <p class="hero-with-image__content__strapline">{{ block.strapline }}</p>
         <p class="hero-with-image__content__text">{{ block.content }}</p>
-
-        {% include 'components/scroll-prompt.twig' %}
 
         <div class="hero-with-image__cta">
             <a class="button button--has-icon" href="{{ block.cta.url }}" style="--custom-background: #ffffff; --custom-colour: #23b2a7;">
