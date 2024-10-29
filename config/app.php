@@ -65,7 +65,7 @@ return [
         App\Providers\Blocks\QuoteCarouselServiceProvider::class,
         App\Providers\Blocks\QuoteServiceProvider::class,
         App\Providers\Blocks\ReportHeaderServiceProvider::class,
-        App\Providers\Blocks\HomepageHeroServiceProvider::class,
+        App\Providers\Blocks\HeroWithImageServiceProvider::class,
         App\Providers\Blocks\ResourceServiceProvider::class,
         App\Providers\Blocks\SignUpCoverServiceProvider::class,
         App\Providers\Blocks\SimpleHeaderServiceProvider::class,
@@ -75,7 +75,6 @@ return [
         App\Providers\Blocks\TeamProfileServiceProvider::class,
         App\Providers\Blocks\TitleWithIconServiceProvider::class,
         App\Providers\Blocks\WhereWeWorkServiceProvider::class,
-
     ],
 
     'aliases' => [

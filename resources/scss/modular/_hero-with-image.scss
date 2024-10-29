@@ -1,0 +1,115 @@
+.hero-with-image {
+    --header-scale: .24;
+
+    @extend %container-reset;
+    @extend %screen-shell-grid;
+
+    // overflow: hidden;
+    background-color: var(--background-colour);
+    color: var(--text-colour);
+
+
+    // @include from(T) {
+    //     --header-scale: 0;
+    // }
+    @media (max-height: 500px) {
+        .hero-with-image {
+          min-height: auto;
+          height: 100vh;
+        }
+    }
+}
+
+.hero-with-image__image {
+    grid-column: full;
+    grid-row: 1;
+    z-index: 0;
+
+    img {
+        width: 100%;
+    }
+}
+
+.hero-with-image__header {
+    @include fluid-type((padding-block), 375px, 1240px, spacing(5), spacing(7));
+    grid-column: content;
+    grid-row: 1;
+
+    // max-width: 58vw;
+    margin-inline: auto;
+
+    font-size: 7.2vw;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include from(T) {
+        max-width: 75vw;
+        font-size: 4.2vw;
+    }
+
+    @include from(M) {
+        max-width: 58vw;
+    }
+}
+
+    .hero-with-image__heading {
+        font-size: 8vw;
+        line-height: 1.2;
+        // font-size: 1em;
+        align-items: center;
+
+        // span {
+            // display: block;
+            // line-height: 1;
+            // font-size: 35px;
+
+            @include from(T) {
+                font-size: 5.42vw;
+            }
+
+            @include from(L) {
+                // font-size: 78px;
+                // margin-bottom: 56px;
+            }
+        // }
+
+    }
+
+    .hero-with-image__content__strapline {
+        font-size: 18px;
+        margin-inline: auto;
+        margin-bottom: 13px;
+        margin-top: .3em;
+        font-weight: bold;
+
+        @include from(M) {
+            font-size: 22px;
+        }
+    }
+
+    .hero-with-image__content__text {
+        font-size: 14px;
+        font-weight: $medium;
+        margin-inline: 16px;
+        margin-top: .3em;
+
+        @include from(M) {
+            font-size: 18px;
+            margin-inline: auto;
+        }
+    }
+
+    .hero-with-image__cta  {
+        display: flex;
+    }
+
+    .hero-with-image .scroll-prompt {
+        margin-bottom: spacing(2);
+
+        @include from(M) {
+            margin-bottom: spacing(4);
+        }
+    }

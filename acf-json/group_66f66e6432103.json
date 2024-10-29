@@ -1,6 +1,6 @@
 {
     "key": "group_66f66e6432103",
-    "title": "Homepage Hero",
+    "title": "Hero with Image",
     "fields": [
         {
             "key": "field_66f66e643940a",
@@ -182,7 +182,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/ocp-homepage-hero"
+                "value": "acf\/ocp-hero-with-image"
             }
         ]
     ],
@@ -197,6 +197,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "acfml_field_group_mode": "advanced",
-    "modified": 1727435783
+    "modified": 1730199567
 }
