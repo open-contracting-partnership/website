@@ -21,10 +21,13 @@
                         <a
                             href="{{ issue.url }}"
                             class="filter-item"
-                            data-instant
                             data-is-active="{{ issue.is_active ? 'true' : 'false' }}"
+                            data-instant
                         >
-                            <span class="filter-item__control" style="--hover-colour: #000000" >{{ issue.name }}</span>
+                            <span
+                                class="filter-item__control"
+                                data-colour="green"
+                            >{{ issue.name }}</span>
                         </a>
                     {% endfor %}
                 </div>
