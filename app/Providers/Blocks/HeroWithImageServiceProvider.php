@@ -40,7 +40,7 @@ class HeroWithImageServiceProvider
         $context['block']['background_image'] = get_field('background_image');
         $context['block']['background_colour'] = get_field('background_colour');
         $context['block']['text_colour'] = get_field('text_colour');
-        $context['block']['header_top'] = get_field('header_top') ?? 7.6;
+        $context['block']['header_top'] = get_field('header_top') ?? 0;
         $context['block']['preview'] = $is_preview;
 
         echo Timber::compile('blocks/hero-with-image.twig', $context);
