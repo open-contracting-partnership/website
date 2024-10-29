@@ -256,13 +256,15 @@
     background-color: transparent;
     border: 2px solid $ui-white;
     border-radius: 999px;
-    padding: spacing(1) spacing(1.5
-    );
+    padding: spacing(1) spacing(1.5);
     user-select: none;
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $ui-white;
         color: var(--hover-colour);
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
     }
 }
 
