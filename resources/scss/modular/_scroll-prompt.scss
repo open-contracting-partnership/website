@@ -1,0 +1,46 @@
+@keyframes scrollPrompt {
+    0% {
+        transform: translateY(0);
+    }
+    10% {
+        transform: translateY(.1em);
+    }
+    20% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(.1em);
+    }
+    40% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes scrollPromptHover {
+    0%, 100% {
+        transform: translateY(.22em);
+    }
+}
+
+.scroll-prompt {
+    @extend .button--naked;
+}
+
+.scroll-prompt__icon {
+    display: block;
+    width: .9em;
+    fill: var(--text-colour);
+
+    path:last-child {
+        transition: transform .3s ease;
+        animation: scrollPrompt 3s infinite;
+
+        .scroll-prompt:hover & {
+            animation: scrollPromptHover 3s infinite;
+        }
+    }
+
+    @include from(T) {
+        width: .5em;
+    }
+}
