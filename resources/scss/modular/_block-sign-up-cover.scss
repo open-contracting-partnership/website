@@ -268,5 +268,5 @@
 
 .region-selector__input:checked ~ .region-selector__control {
     background-color: $ui-white;
-    color: $ui-grey;
+    color: var(--hover-colour);
 }
