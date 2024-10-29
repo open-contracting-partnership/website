@@ -55,29 +55,7 @@
 
         @include cardPrimaryFeatured {
             @include from(T) {
-                // the following calculations are to allow the image of a
-                // featured card to be as wide as a normal card when within a
-                // grid, i.e. within the more stories block
-
-                // NOTE: the calculation here are slightly off due to
-                // grid inconsistencies
-
-                --columns: 2;
-                --gutter: 24px;
-                --total-guttern: calc((var(--columns) - 1) * var(--gutter));
-                --grid-width: calc(100vw - (2 * var(--container-padding)));
-
-                aspect-ratio: auto;
-
-                @include from(M) {
-                    --columns: 3;
-                }
-
-                @include from(1360) {
-                    --grid-width: 1200px;
-                }
-
-                flex: 0 0 calc(((var(--grid-width) - var(--total-guttern)) / var(--columns)) - (2 * var(--padding)) - (2 * var(--border-width)));
+                flex-basis: 50%;
             }
         }
 
@@ -131,8 +109,12 @@
             margin-bottom: spacing(.5);
 
             @include cardPrimaryFeatured {
-                @include from(M) {
+                @include from(T) {
                     font-size: 24px;
+                }
+
+                @include from(M) {
+                    font-size: 30px;
                 }
 
                 @include from(L) {
