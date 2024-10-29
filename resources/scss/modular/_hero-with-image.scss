@@ -1,4 +1,6 @@
 .hero-with-image {
+    --header-scale: .24;
+
     @extend %container-reset;
     @extend %screen-shell-grid;
 
@@ -11,12 +13,17 @@
             height: 100vh;
         }
     }
+
+    @include from(T) {
+        --header-scale: 0;
+    }
 }
 
 .hero-with-image__image {
     grid-column: full;
     grid-row: 1;
     z-index: 0;
+    margin-inline: calc((100vw * var(--header-scale)) * -1);
 
     img {
         width: 100%;
@@ -61,14 +68,18 @@
     }
 
     .hero-with-image__content__strapline {
-        font-size: 18px;
+        font-size: 22px;
+        font-weight: $bold;
         margin-inline: auto;
         margin-bottom: 13px;
         margin-top: .3em;
-        font-weight: bold;
 
         @include from(M) {
             font-size: 22px;
+        }
+
+        @include from(L) {
+            font-size: 26px;
         }
     }
 
