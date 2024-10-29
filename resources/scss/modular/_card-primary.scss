@@ -90,12 +90,6 @@
             display: block;
             width: 100%;
             height: 100%;
-
-            @include cardPrimaryStandard {
-                @include from(L) {
-                    height: 170px;
-                }
-            }
         }
     }
 
