@@ -22,20 +22,6 @@ class HomeController extends Controller
         $this->setFilterContext($context);
         $this->setPostsContext($context);
 
-        // add_filter('timber_post_get_meta', function ($post_meta, $pid, $post) {
-        //     $tid = get_post_thumbnail_id($pid);
-
-        //     if ($tid) {
-        //         $image = new $post->ImageClass($tid);
-        //         $post_meta['thumbnail_url'] = $image->src;
-        //     }
-
-        //     return $post_meta;
-        // }, 10, 3);
-
-        $context['latest']['footer_latest_news'] = $this->getLatestNews(4);
-        $context['latest']['footer_latest_events'] = $this->getLatestEvents(2);
-
         // fetch the blog content from the other page
         $blog_content_page = new TimberPost(6335);
         $context['latest']['blog_content'] = $blog_content_page->content;
@@ -165,27 +151,5 @@ class HomeController extends Controller
         });
 
         $context['latest']['posts'] = $posts;
-    }
-
-    protected function getLatestNews($limit = 2)
-    {
-        return News::query([
-            'posts_per_page' => $limit
-        ]);
-    }
-
-    protected function getLatestEvents($limit = 1)
-    {
-        return Event::query([
-            'posts_per_page' => $limit,
-            'orderby' => 'meta_value_num',
-            'order' => 'ASC',
-            'meta_key' => 'event_date',
-            'meta_query' => [[
-                'key' => 'event_date',
-                'value' => date('Ymd'),
-                'compare' => '>='
-            ]]
-        ]);
     }
 }

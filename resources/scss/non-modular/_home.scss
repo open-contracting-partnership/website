@@ -110,35 +110,3 @@ main.home {
     gap: spacing(1.5);
 	margin-bottom: var(--v-spacing);
 }
-
-.home__section {
-	margin-bottom: var(--v-spacing);
-}
-
-	.home__section-header {
-
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding-bottom: spacing(2);
-		border-bottom: 4px solid $ui-grey-7;
-		margin-bottom: spacing(2);
-
-		h2 {
-			margin-bottom: 0;
-		}
-
-	}
-
-	.home__section-post {
-
-		--column: 1;
-		display: grid;
-		grid-template-columns: repeat(var(--column), 1fr);
-		grid-gap: spacing(2) spacing(6);
-
-		@include from(T) {
-			--column: 2;
-		}
-
-	}
