@@ -126,6 +126,7 @@ class HomeController extends Controller
         $selectedFilters = $this->getSelectedFilters()->toArray();
 
         $query = [
+            'post_type' => ['post', 'news'],
             'posts_per_page' => 12,
             'paged' => get_query_var('paged') ?: 1,
         ];
