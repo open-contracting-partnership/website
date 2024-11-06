@@ -91,12 +91,7 @@ h3,
 h4,
 .h4,
 .delta {
-
-	font-size: 13px;
-
-	@include from(S) {
-		font-size: 16px;
-	}
+    font-size: 16px;
 
 	@include from(M) {
 		font-size: 22px;

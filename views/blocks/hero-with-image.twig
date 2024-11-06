@@ -7,19 +7,23 @@
     "
     data-scroll-prompt-parent
 >
-    <div class="hero-with-image__header">
-        <h1 class="hero-with-image__heading">{{ block.heading }}</h1>
+    <div class="hero-with-image__container">
+        <div class="hero-with-image__header">
+            <h1 class="hero-with-image__heading">{{ block.heading }}</h1>
 
-        {% include 'components/scroll-prompt.twig' %}
+            {% include 'components/scroll-prompt.twig' %}
+        </div>
 
-        <p class="hero-with-image__content__strapline">{{ block.strapline }}</p>
-        <p class="hero-with-image__content__text">{{ block.content }}</p>
+        <div class="hero-with-image__content">
+            <h2 class="hero-with-image__content__strapline">{{ block.strapline }}</h2>
+            <p class="hero-with-image__content__text">{{ block.content }}</p>
 
-        <div class="hero-with-image__cta">
-            <a class="button button--has-icon" href="{{ block.cta.url }}" style="--custom-background: #ffffff; --custom-colour: #23b2a7;">
-                <svg class="button__icon" style="fill: #23b2a7;"><use xlink:href="#icon-arrow-circle"></use></svg>
-                {{ block.cta.title }}
-            </a>
+            <div class="hero-with-image__cta">
+                <a class="button button--has-icon" href="{{ block.cta.url }}" style="--custom-background: #ffffff; --custom-colour: #23b2a7;">
+                    <svg class="button__icon" style="fill: #23b2a7;"><use xlink:href="#icon-arrow-circle"></use></svg>
+                    {{ block.cta.title }}
+                </a>
+            </div>
         </div>
     </div>
 

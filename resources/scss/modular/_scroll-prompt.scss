@@ -24,6 +24,8 @@
 
 .scroll-prompt {
     @extend .button--naked;
+
+    display: block;
 }
 
 .scroll-prompt__icon {

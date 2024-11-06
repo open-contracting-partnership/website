@@ -30,7 +30,7 @@
     }
 }
 
-.hero-with-image__header {
+.hero-with-image__container {
     @include fluid-type((--padding-block), 375px, 1240px, spacing(5), spacing(7));
 
     padding-top: max(var(--padding-block), 1vw * var(--header-top, 0));
@@ -43,9 +43,6 @@
     font-size: 7.2vw;
     z-index: 1;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     @include from(T) {
         max-width: 75vw;
@@ -55,6 +52,13 @@
     @include from(M) {
         max-width: 58vw;
     }
+}
+
+.hero-with-image__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10vw;
 }
 
     .hero-with-image__heading {
@@ -68,34 +72,21 @@
         }
     }
 
-    .hero-with-image .scroll-prompt {
-        margin-bottom: 15vw;
-    }
+.hero-with-image__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
     .hero-with-image__content__strapline {
-        font-size: 22px;
-        font-weight: $bold;
-        margin-inline: auto;
         margin-bottom: 1em;
-
-        @include from(M) {
-            font-size: 22px;
-        }
-
-        @include from(L) {
-            font-size: 26px;
-        }
     }
 
     .hero-with-image__content__text {
-        font-size: 14px;
-        font-weight: $medium;
-        margin-inline: 1em;
+        @extend .h4;
 
-        @include from(M) {
-            font-size: 18px;
-            margin-inline: auto;
-        }
+        font-weight: $medium;
+        margin-bottom: 1.5em;
     }
 
     .hero-with-image__cta  {

@@ -19,6 +19,7 @@
 			@media screen {
 				display: flex;
                 flex-wrap: wrap;
+				@include fluid-type(margin-bottom, 375px, 1240px, 19px, 32px);
 
                 &[data-alignment="justified"] {
                     align-items: center;
@@ -44,10 +45,9 @@
 			}
 
 			.more-stories__subheading {
-				margin-bottom: 32px;
 				font-size: 20px;
 				text-align: var(--heading-text-align, center);
-
+                margin-bottom: 0;
 			}
 
 		.more-stories__cards {
