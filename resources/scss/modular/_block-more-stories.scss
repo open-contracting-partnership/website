@@ -65,7 +65,7 @@
                 --columns: 3;
             }
 
-            [data-is-featured="true"] {
+            .card-primary[data-is-featured="true"] {
                 @include from(S) {
                     grid-column: 1 / span 2;
                 }
