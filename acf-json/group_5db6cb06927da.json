@@ -46,30 +46,9 @@
             "delay": 0
         },
         {
-            "key": "field_5e1deb28ac935",
-            "label": "Form label",
-            "name": "form_label",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "gutenberg_visibility": "edit_screen",
-            "default_value": "Get our newsletter",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_5db6cb06be6ed",
-            "label": "Colour",
-            "name": "overlay_colour",
+            "label": "Background Colour",
+            "name": "background_colour",
             "aria-label": "",
             "type": "select",
             "instructions": "",
@@ -81,39 +60,21 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "wpml_cf_preferences": 0,
+            "relevanssi_exclude": 0,
             "choices": {
-                "#FB6045": "Orange",
-                "#6C75E1": "Blue",
-                "#23B2A7": "Teal",
-                "#E0E83D": "Brand Green"
+                "orange": "Orange",
+                "blue": "Blue",
+                "teal": "Teal",
+                "brand": "Brand Green"
             },
-            "default_value": "#6C75E1",
+            "default_value": "blue",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
+            "allow_in_bindings": 1,
             "ui": 0,
             "ajax": 0,
             "placeholder": ""
-        },
-        {
-            "key": "field_5e1decd504bbe",
-            "label": "Text Colour",
-            "name": "text_colour",
-            "aria-label": "",
-            "type": "color_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "gutenberg_visibility": "both",
-            "default_value": "",
-            "enable_opacity": false,
-            "return_format": "string"
         },
         {
             "key": "field_66fe6e1c2d817",
@@ -231,6 +192,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "acfml_field_group_mode": "advanced",
-    "modified": 1728303206
+    "modified": 1730892913
 }

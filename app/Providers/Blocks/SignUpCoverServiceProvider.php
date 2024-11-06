@@ -45,7 +45,6 @@ class SignUpCoverServiceProvider
         $context['block'] = [];
         $context['block']['heading'] = get_field('heading') ?: 'Add primary title here&hellip;';
         $context['block']['content'] = get_field('content');
-        $context['block']['form_label'] = get_field('form_label');
 
         // list our the region id/labels from the mailchimp tags, the worldwide
         // NOTE: mailchimp requires the tag value to be an exact string as it
@@ -63,13 +62,7 @@ class SignUpCoverServiceProvider
         $context['block']['thank_you_heading'] = get_field('thank_you_heading') ?: 'Add heading here&hellip;';
         $context['block']['thank_you_subheading'] = get_field('thank_you_subheading');
 
-        $context['block']['background_colour'] = get_field('overlay_colour') ?: '#000000';
-        // $context['block']['background_opacity'] = get_field('background_opacity') / 100;
-
-        // $context['block']['background_colour'] = hex2rgba($context['block']['overlay_color'], $context['block']['background_opacity']);
-        // $context['block']['text_colour'] = isContrastingColourLight($context['block']['background_colour']) ? '#FFF' : '#000';
-        $context['block']['text_colour'] = '#FFF';
-        $context['block']['text_colour'] = get_field('text_colour') ?: $context['block']['text_colour'];
+        $context['block']['background_colour'] = get_field('background_colour') ?: 'blue';
 
         // i18n
         $context['block']['i18n']['subscribe'] = __('Subscribe', 'ocp');

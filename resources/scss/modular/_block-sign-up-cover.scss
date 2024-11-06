@@ -1,6 +1,7 @@
 .sign-up {
     position: relative;
-    color: var(--color);
+    color: var(--colour, #{$ui-white});
+    z-index: 0;
 
     &::before {
         content: '';
@@ -8,8 +9,25 @@
         inset: 0;
         left: calc(50% - 50vw);
         width: 100vw;
-        background-color: var(--background-color);
+        background-color: var(--background-colour);
         z-index: -1;
+    }
+
+    &[data-background-colour="blue"] {
+        --background-colour: #{$ui-blue};
+    }
+
+    &[data-background-colour="orange"] {
+        --background-colour: #{$ui-orange};
+    }
+
+    &[data-background-colour="teal"] {
+        --background-colour: #{$ui-teal};
+    }
+
+    &[data-background-colour="brand"] {
+        --background-colour: #{$ui-brand};
+        --colour: #{$ui-black};
     }
 }
 
@@ -96,33 +114,33 @@
                     flex-grow: 1;
                     font-size: 18px;
                     padding: 12px 18px;
-                    border: 2px solid $ui-white;
+                    border: 2px solid var(--colour);
                     border-right-width: 0;
                     border-radius: 12px 0 0  12px;
                     background-color: transparent;
-                    color: $ui-white;
+                    color: var(--colour);
                     margin-bottom: 0;
 
                     &::-webkit-input-placeholder {
-                        color: $ui-white;
+                        color: var(--colour);
                         opacity: 1;
                         font-style: italic;
                     }
 
                     &:-moz-placeholder { /* Firefox 18- */
-                        color: $ui-white;
+                        color: var(--colour);
                         opacity: 1;
                         font-style: italic;
                     }
 
                     &::-moz-placeholder {  /* Firefox 19+ */
-                        color: $ui-white;
+                        color: var(--colour);
                         opacity: 1;
                         font-style: italic;
                     }
 
                     &:-ms-input-placeholder {
-                        color: $ui-white;
+                        color: var(--colour);
                         opacity: 1;
                         font-style: italic;
                     }
@@ -135,17 +153,19 @@
                     align-items: center;
                     font-size: 14px;
                     font-weight: 500;
-                    background-color: $ui-white;
+                    background-color: var(--colour);
                     border-radius: 0 12px 12px 0;
                     padding: 12px;
                     gap: 7px;
                     flex-shrink: 0;
+                    color: var(--background-colour);
 
                     > svg {
                         font-size: 28px;
                         height: 1em;
                         width: 1em;
                         display: block;
+                        fill: currentColor;
                     }
 
                     button {
@@ -254,21 +274,21 @@
     @include font('secondary', 'medium');
     display: block;
     background-color: transparent;
-    border: 2px solid $ui-white;
+    border: 2px solid var(--colour);
     border-radius: 999px;
     padding: spacing(1) spacing(1.5);
     user-select: none;
 
     &:hover,
     &:focus {
-        background-color: $ui-white;
-        color: var(--hover-colour);
+        background-color: var(--colour);
+        color: var(--background-colour);
         text-decoration: underline;
         text-decoration-thickness: 2px;
     }
 }
 
 .region-selector__input:checked ~ .region-selector__control {
-    background-color: $ui-white;
-    color: var(--hover-colour);
+    background-color: var(--colour);
+    color: var(--background-colour);
 }

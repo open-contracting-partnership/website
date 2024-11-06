@@ -4,10 +4,7 @@
     id="{{ options.id }}"
     class="sign-up / screen-only"
     data-mailchimp-success="false"
-    style="
-        --background-color: {{ block.background_colour }};
-        --color: {{ block.text_colour}};
-    "
+    data-background-colour="{{ block.background_colour }}"
 >
     <div class="sign-up__container">
         <div class="sign-up__main">
@@ -32,7 +29,7 @@
                                 value="{{ regionKey }}"
                             >
 
-                            <span class="region-selector__control" style="--hover-colour: {{ block.background_colour }}" >{{ regionLabel }}</span>
+                            <span class="region-selector__control">{{ regionLabel }}</span>
                         </label>
                     {% endfor %}
                 </div>
@@ -40,9 +37,9 @@
                 <div class="sign-up__form-wrapper">
                     <input type="email" name="email" placeholder="Enter your email address" aria-label="Email" required class="sign-up__form-input">
 
-                    <button class="sign-up__form-submit / button--naked" style="color: {{ block.background_colour }};" aria-label="Submit">
+                    <button class="sign-up__form-submit / button--naked" aria-label="Submit">
                         <span class="sign-up__form-submit-label">{{ block.i18n.subscribe }}</span>
-                        <svg style="fill: {{ block.background_colour }};"><use xlink:href="#icon-arrow-circle"></use></svg>
+                        <svg class="sign-up__form-submit-icon"><use xlink:href="#icon-arrow-circle"></use></svg>
                     </button>
                 </div>
 
