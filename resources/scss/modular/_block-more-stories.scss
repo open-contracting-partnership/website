@@ -13,6 +13,10 @@
 		padding-block: spacing(10);
 		grid-column: content;
 		grid-row: 1;
+
+        > :last-child {
+            margin-bottom: 0;
+        }
 	}
 
 		.more-stories__header {
@@ -56,6 +60,7 @@
             display: grid;
             grid-template-columns: repeat(var(--columns), 1fr);
             grid-gap: spacing(3);
+            margin-bottom: spacing(3);
 
             @include from(S) {
                 --columns: 2;
