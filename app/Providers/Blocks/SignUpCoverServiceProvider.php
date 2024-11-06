@@ -63,6 +63,7 @@ class SignUpCoverServiceProvider
         $context['block']['thank_you_subheading'] = get_field('thank_you_subheading');
 
         $context['block']['background_colour'] = get_field('background_colour') ?: 'blue';
+        $context['block']['background_image'] = get_field('background_image');
 
         // i18n
         $context['block']['i18n']['subscribe'] = __('Subscribe', 'ocp');

@@ -1,16 +1,14 @@
 .sign-up {
+    --overlay-opacity: 1;
+    --background-colour: #{$ui-blue};
+    --colour: #{$ui-white};
+
     position: relative;
-    color: var(--colour, #{$ui-white});
+    color: var(--colour);
     z-index: 0;
 
-    &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        left: calc(50% - 50vw);
-        width: 100vw;
-        background-color: var(--background-colour);
-        z-index: -1;
+    &:has(.sign-up__background-image) {
+        --overlay-opacity: .9;
     }
 
     &[data-background-colour="blue"] {
@@ -31,9 +29,37 @@
     }
 }
 
+    .sign-up__background-image {
+        position: absolute;
+        inset: 0;
+        left: calc(50% - 50vw);
+        width: 100vw;
+        // background-color: var(--background-colour);
+        z-index: -2;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+
+    .sign-up__background-overlay {
+        position: absolute;
+        inset: 0;
+        left: calc(50% - 50vw);
+        width: 100vw;
+        z-index: -1;
+        background-color: var(--background-colour);
+        opacity: var(--overlay-opacity);
+    }
+
     .sign-up__container {
-        // grid-row: 1;
-        // grid-column: content;
         @include fluid-type(--padding, 375px, 1240px, spacing(2), spacing(6));
         @extend %column-grid;
 
@@ -188,8 +214,6 @@
                     display: none;
                 }
             }
-
-
 
     .sign-up__thank-you {
         position: relative;

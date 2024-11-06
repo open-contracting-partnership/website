@@ -6,6 +6,33 @@
     data-mailchimp-success="false"
     data-background-colour="{{ block.background_colour }}"
 >
+    {% if block.background_image %}
+        <div class="sign-up__background-image">
+            {{ imgix({
+                src: block.background_image.url,
+                params: {
+                    auto: 'format',
+                    blur: 20,
+                    q: 60,
+                },
+                transforms: [{
+                    w: 320
+                }, {
+                    w: 768
+                }, {
+                    w: 1024
+                }, {
+                    w: 1536
+                }, {
+                    w: 2048
+                }],
+                sizes: '100vw',
+            }) }}
+        </div>
+    {% endif %}
+
+    <div class="sign-up__background-overlay"></div>
+
     <div class="sign-up__container">
         <div class="sign-up__main">
             <h1 class="sign-up__heading">{{ block.heading }}</h1>
