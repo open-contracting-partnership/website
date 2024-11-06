@@ -19,20 +19,17 @@
 				{% for card in block.stories %}
 					{% include 'cards/primary.twig' with {
 						'card': card,
-						'options': {
-							'colour_scheme': block.card_options.colour_scheme
-						}
 					} %}
 				{% endfor %}
 			{% endif %}
 
 			{% if block.card_type == 'resource' %}
 				{% for card in block.stories %}
-					{% include 'cards/resource.twig' with {
-						'card': card,
-						'options': {
-							'colour_scheme': block.card_options.colour_scheme
-						}
+                    {% include 'cards/resource.twig' with {
+                        'card': card,
+                        'options': {
+                            'has_border': false,
+                        }
 					} %}
 				{% endfor %}
 			{% endif %}

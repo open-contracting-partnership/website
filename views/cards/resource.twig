@@ -2,12 +2,13 @@
 	{% set options = [] %}
 {% endif %}
 
-{% set options = {} | merge(options) %}
+{% set options = { has_border: true } | merge(options) %}
 
 <div
     class="card-resource"
     data-post-type="{{ card.type }}"
-    data-has-border="{{ card.is_featured ? 'true' : 'false' }}"
+    data-is-featured="{{ card.is_featured ? 'true' : 'false' }}"
+    data-has-border="{{ options.has_border ? 'true' : 'false' }}"
 >
     <div class="card-resource__image-container">
         {% if 'imgix.net' in card.image_url %}

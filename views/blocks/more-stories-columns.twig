@@ -25,7 +25,12 @@
 					{% if column.acf_fc_layout == 'resource' %}
 
 						{% for card in column.posts %}
-							{% include 'cards/resource.twig' with card %}
+							{% include 'cards/resource.twig' with {
+                                'card': card,
+                                'options': {
+                                    'has_border': false,
+                                }
+                            } %}
 						{% endfor %}
 
 					{% endif %}

@@ -95,8 +95,14 @@
         }
     }
 
-    .card-resource[data-has-border="true"] {
-        border: 2px solid var(--accent-colour);
+    // borders
+
+    .card-resource[data-is-featured="true"] {
+        border-color: var(--accent-colour);
+    }
+
+    .card-resource[data-has-border="false"] {
+        border-width: 0;
     }
 
     // post colours
