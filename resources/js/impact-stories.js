@@ -3,7 +3,7 @@ import Vue from 'vue'
 
 const _intersection = require('lodash.intersection');
 
-const reports = new Vue({
+new Vue({
 	el: '#impact-stories',
 
 	data: {
@@ -28,7 +28,7 @@ const reports = new Vue({
 	methods: {
         updateResultsCount() {
             this.$nextTick(function() {
-                this.results_count = [...document.querySelectorAll('.impact-stories__posts > .card')]
+                this.results_count = [...document.querySelectorAll('.impact-stories__posts > .card-primary')]
                     .map(element => element.style.display)
                     .filter(display => display !== 'none')
                     .length;

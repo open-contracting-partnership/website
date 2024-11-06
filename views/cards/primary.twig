@@ -7,6 +7,9 @@
 <div
     class="card-primary"
     data-is-featured="{{ card.is_featured ? 'true' : 'false' }}"
+    {% for key, value in card.attributes %}
+        {{ key }}="{{ value }}"
+    {% endfor %}
 >
 	<div class="card-primary__image">
 		{% if card.image_url %}
@@ -64,7 +67,9 @@
 			{{ card.title }}
 		</a>
 
-        <p class="card-primary__introduction">{{ card.introduction }}</p>
+        {% if card.introduction %}
+            <p class="card-primary__introduction">{{ card.introduction }}</p>
+        {% endif %}
 
 		{% if card.tags | length > 0 %}
 			<p class="card-primary__topics">Issues:
@@ -74,8 +79,8 @@
 			</p>
 		{% endif %}
 
-		<div class="card-primary__footer">
-			{% if card.meta %}
+        {% if card.meta %}
+            <div class="card-primary__footer">
 				<div class="card-primary__meta">
                     {% if card.meta.primary %}
                         <span class="card-primary__meta-primary">{{ card.meta.primary }}</span>
@@ -85,7 +90,7 @@
                         <span class="card-primary__meta-secondary">{{ card.meta.secondary }}</span>
                     {% endif %}
                 </div>
-			{% endif %}
-		</div>
+            </div>
+        {% endif %}
 	</div>
 </div>

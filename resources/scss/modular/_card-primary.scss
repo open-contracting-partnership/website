@@ -79,6 +79,10 @@
         @include cardPrimaryFeatured {
             flex: 1 1 auto;
         }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
     }
 
         .card-primary__tag {

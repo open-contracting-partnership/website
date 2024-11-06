@@ -25,59 +25,45 @@ class PageImpactStoriesController extends Controller
 
         $context['title'] = $page->title();
         $context['content'] = $page->content;
-        $context['stories'] = $page->meta('add_stories');
-        $context['stories'] = get_field('add_stories', get_the_ID());
 
-        $context['countries'] = [];
-        $context['story_types'] = [];
-        $context['issues'] = [];
+        $context['latest_stories']['stories'] = collect(get_field('add_stories', get_the_ID()))
+            ->map(function ($story, $index) {
+                // 1. normalise taxonomy fields
+                $story['country'] = $story['country'] ?: [];
+                $story['story_type'] = $story['story_type'] ?: [];
+                $story['issues'] = [];
 
-        // compile the countries and story types
-        foreach ($context['stories'] as &$story) {
-            $story['country'] = $story['country'] ?: [];
-            $story['story_type'] = $story['story_type'] ?: [];
+                // 2. fetch the issues
+                $postID = url_to_postid($story['link']);
 
-            foreach ($story['country'] as $country) {
-                $context['countries'][$country->term_id] = $country->name;
-            }
-
-            $story['issues'] = [];
-
-            foreach ($story['story_type'] as $story_type) {
-                $context['story_types'][$story_type->term_id] = $story_type->name;
-            }
-
-            $postID = url_to_postid($story['link']);
-
-            if ($postID !== 0) {
-                $story['issues'] = wp_get_object_terms($postID, 'issue');
-
-                foreach ($story['issues'] as $storyIssue) {
-                    $context['issues'][$storyIssue->term_id] = $storyIssue->name;
+                if ($postID !== 0) {
+                    $story['issues'] = wp_get_object_terms($postID, 'issue');
                 }
-            }
-        }
 
-        // sort the countries and story types
-        asort($context['countries']);
-        asort($context['story_types']);
-        asort($context['issues']);
+                // 3. compile json array of term ids for vue filtering
+                $story['attributes'] = [
+                    'ref' => 'story-' . $index,
+                    'data-country-ids' => $this->getStoryTermIDs($story['country']),
+                    'data-story-type-ids' => $this->getStoryTermIDs($story['story_type']),
+                    'data-issue-ids' => $this->getStoryTermIDs($story['issues']),
+                ];
 
-        // bring the country and story ids into their own array
-        $context['stories'] = array_map(function ($story) {
+                // 4. card related data transformations
+                $story['image_url'] = $story['image'] ? $story['image']['url'] : null;
 
-            // fetch just the id from the country and types
-            $story['country_ids'] = array_column($story['country'], 'term_id');
-            $story['story_type_ids'] = array_column($story['story_type'], 'term_id');
-            $story['issue_ids'] = array_column($story['issues'], 'term_id');
+                if ($story['story_type']) {
+                    $story['type_label'] = $story['story_type'][0]->name;
+                }
 
-            // for the sake of vue, make them a string first
-            $story['country_ids'] = array_map('strval', $story['country_ids']);
-            $story['story_type_ids'] = array_map('strval', $story['story_type_ids']);
-            $story['issue_ids'] = array_map('strval', $story['issue_ids']);
+                $story['url'] = $story['link'];
 
-            return $story;
-        }, $context['stories']);
+                return $story;
+            });
+
+        // compile taxomony lists
+        $context['impact_stories']['terms']['countries'] = $this->getTerms($context['latest_stories']['stories'], 'country');
+        $context['impact_stories']['terms']['story_types'] = $this->getTerms($context['latest_stories']['stories'], 'story_type');
+        $context['impact_stories']['terms']['issues'] = $this->getTerms($context['latest_stories']['stories'], 'issues');
 
         $context['impact_stories']['i18n']['story_types_label'] = _x(
             'Story Types',
@@ -104,5 +90,27 @@ class PageImpactStoriesController extends Controller
         );
 
         return new TimberResponse('templates/impact-stories.twig', $context);
+    }
+
+    protected function getTerms($stories, $taxonomy)
+    {
+        return $stories
+            ->pluck($taxonomy)
+            ->flatten()
+            ->unique('term_id')
+            ->sortBy('name')
+            ->mapWithKeys(function ($country) {
+                return [$country->term_id => $country->name];
+            });
+    }
+
+    protected function getStoryTermIDs($terms)
+    {
+        $storyTermIDs = collect($terms)
+            ->pluck('term_id')
+            ->map(fn ($termID) => strval($termID))
+            ->values();
+
+        return htmlspecialchars(json_encode($storyTermIDs));
     }
 }
