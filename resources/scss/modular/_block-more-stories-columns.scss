@@ -59,14 +59,9 @@
 				}
 
 
-			.block__column-stories {}
-
-				.block__column-stories .card {
-					margin-bottom: spacing(3);
-				}
-
-				.block__column-stories .card--resource {
-					max-width: 325px;
-				}
-
+			.block__column-stories {
+                display: flex;
+                flex-direction: column;
+                gap: spacing(3);
+            }
 }
