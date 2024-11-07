@@ -86,9 +86,13 @@
     }
 
         .card-primary__tag {
+            --padding-block: 1px;
+
             font-size: 12px;
             width: fit-content;
-            padding: 3px 12px 1px;
+            padding-top: calc(var(--padding-block) + var(--vertical-align-fix-offset-em));
+            padding-bottom: var(--padding-block);
+            padding-inline: spacing(1.5);
             color: $ui-grey;
             border: 1px solid $ui-grey;
             border-radius: 42px;

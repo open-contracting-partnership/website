@@ -54,7 +54,7 @@
             --background-colour: #{$ui-white};
             --contrast-colour: #{$ui-white};
 
-            padding-top: calc(2px + var(--padding-block));
+            padding-top: calc(var(--padding-block) + var(--vertical-align-fix-offset-em));
             padding-bottom: var(--padding-block);
             padding-inline: em(12, 14);
 

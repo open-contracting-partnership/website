@@ -49,9 +49,14 @@
     }
 }
 
+    .button__label {
+        @include font-vertical-align-fix;
+    }
+
 	.button__icon {
         --button-icon-size: 28px;
 
+        display: block;
 		height: var(--button-icon-size);
 		width: var(--button-icon-size);
 		fill: currentColor;

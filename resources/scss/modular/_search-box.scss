@@ -22,6 +22,8 @@
 }
 
     input.search-box__input {
+        --padding-block: 4px;
+
         font-size: 1em;
         flex: 1 1 100%;
         @include font('secondary', 'bold');
@@ -29,9 +31,12 @@
         background: none;
         border-radius: 0;
         color: currentColor;
-        padding: 4px 7px;
         margin: 0;
         min-width: 0;
+
+        padding-top: calc(var(--padding-block) + var(--vertical-align-fix-offset-em));
+        padding-bottom: var(--padding-block);
+        padding-inline: 7px;
 
         &::-webkit-input-placeholder {
             @include font('secondary', 'bold');

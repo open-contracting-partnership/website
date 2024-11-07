@@ -137,9 +137,15 @@
             }
 
                 input.sign-up__form-input {
+                    --padding-block: 12px;
+
                     flex-grow: 1;
                     font-size: 18px;
-                    padding: 12px 18px;
+
+                    padding-top: calc(var(--padding-block) + var(--vertical-align-fix-offset-em));
+                    padding-bottom: var(--padding-block);
+                    padding-inline: spacing(2.25);
+
                     border: 2px solid var(--colour);
                     border-right-width: 0;
                     border-radius: 12px 0 0  12px;
@@ -200,6 +206,8 @@
                 }
 
                     .sign-up__form-submit-label {
+                        @include font-vertical-align-fix;
+
                         text-transform: uppercase;
 
                         @include upto(S) {
@@ -294,13 +302,17 @@
 }
 
 .region-selector__control {
+    --padding-block: #{em(6, 20)};
+
     font-size: 20px;
     @include font('secondary', 'medium');
     display: block;
     background-color: transparent;
     border: 2px solid var(--colour);
     border-radius: 999px;
-    padding: spacing(1) spacing(1.5);
+    padding-top: calc(var(--padding-block) + var(--vertical-align-fix-offset-em));
+    padding-bottom: var(--padding-block);
+    padding-inline: spacing(2);
     user-select: none;
 
     &:hover,

@@ -153,10 +153,7 @@
 			}
 
 				.block__avatar-name {
-
-					@include upto(S) {
-						display: none;
-					}
+                    --padding-block: #{em(14, 18)};
 
 					@include font('secondary', 'bold');
 					font-size: 18px;
@@ -167,11 +164,17 @@
 					background-color: $ui-brand;
 					min-width: 160px;
 					display: none;
-					padding: 14px 18px;
+                    padding-top: calc(var(--padding-block) + var(--vertical-align-fix-offset-em));
+                    padding-bottom: var(--padding-block);
+                    padding-inline: 18px;
+
 					white-space: nowrap;
 					z-index: -1;
 					pointer-events: none;
 
+                    @include upto(S) {
+                        display: none;
+                    }
 				}
 
 

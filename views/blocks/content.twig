@@ -71,7 +71,8 @@
 
 							<a class="button button--has-icon" href="{{ link.link.url }}" style="--custom-background: {{ link.background_colour }}; --custom-colour: {{ link.text_colour }};">
 								<svg class="button__icon" style="fill: {{ link.text_colour }};"><use xlink:href="#icon-arrow-circle"></use></svg>
-								{{ link.link.title }}
+
+                                <span class="button__label">{{ link.link.title }}</span>
 							</a>
 
 						{% endfor %}

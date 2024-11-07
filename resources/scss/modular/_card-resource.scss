@@ -95,6 +95,10 @@
         }
     }
 
+        .card-resource__type-label {
+            @include font-vertical-align-fix;
+        }
+
     // borders
 
     .card-resource[data-is-featured="true"] {

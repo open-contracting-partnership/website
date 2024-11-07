@@ -15,14 +15,18 @@
         <a
             href="{{ resource.link }}"
             class="button"
-        >{{ resource.i18n.view_label }}</a>
+        >
+            <span class="button__label">{{ resource.i18n.view_label }}</span>
+        </a>
     {% endif %}
 
     {% for attachment in resource.attachments %}
         <a
             href="{{ attachment.file }}"
             class="button"
-        >{{ attachment.name }}</a>
+        >
+            <span class="button__label">{{ attachment.name }}</span>
+        </a>
     {% endfor %}
 
     {% include 'partials/share.twig' with {
