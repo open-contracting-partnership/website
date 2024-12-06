@@ -1,9 +1,12 @@
-ul {
+ul,
+ul.wp-block-list {
 	list-style: disc;
+    padding-left: 40px;
 }
 
 ol,
-ul {
+ul,
+ul.wp-block-list {
 	margin-bottom: $space;
 
 	&.is-plain {
