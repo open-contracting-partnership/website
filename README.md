@@ -5,7 +5,7 @@
 | Environment | Status |
 | :-- | :-- |
 | [Production](https://www.open-contracting.org) | [![buddy pipeline](https://app.buddy.works/the-idea-bureau/website/pipelines/pipeline/247819/badge.svg?token=231a92d6d37280c9e8d3da6807a26e182bd2e613ef32061d150ac2619f979a3f "buddy pipeline")](https://app.buddy.works/the-idea-bureau/website/pipelines/pipeline/247819) |
-| Staging | [![buddy pipeline](https://app.buddy.works/the-idea-bureau/website/pipelines/pipeline/247818/badge.svg?token=231a92d6d37280c9e8d3da6807a26e182bd2e613ef32061d150ac2619f979a3f "buddy pipeline")](https://app.buddy.works/the-idea-bureau/website/pipelines/pipeline/247818) |
+| [Staging](https://ocp-website.staging.bureaudomains.co) | [![buddy pipeline](https://app.buddy.works/the-idea-bureau/website/pipelines/pipeline/247818/badge.svg?token=231a92d6d37280c9e8d3da6807a26e182bd2e613ef32061d150ac2619f979a3f "buddy pipeline")](https://app.buddy.works/the-idea-bureau/website/pipelines/pipeline/247818) |
 
 ---
 
