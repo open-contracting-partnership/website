@@ -52,11 +52,12 @@ class SignUpCoverServiceProvider
         // important they remain distinct
 
         $context['block']['regions'] = [
-            'Africa Community' => 'Africa',
-            'Asia Pacific' => 'Asia Pacific',
-            'Europe' => 'Europe',
-            'LatAm' => 'Latin America',
-            'US outreach' => 'U.S',
+            'b02ffafd18' => 'Worldwide',
+            '848e63078b' => 'Africa',
+            'ad88ca337c' => 'Asia Pacific',
+            '6167587ad7' => 'Europe',
+            '72ff3ac029' => 'Latin America',
+            '2e3248699d' => 'USA',
         ];
 
         $context['block']['thank_you_heading'] = get_field('thank_you_heading') ?: 'Add heading here&hellip;';
