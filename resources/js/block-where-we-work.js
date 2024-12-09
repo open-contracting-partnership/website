@@ -5,7 +5,13 @@ if (whereWeWorkButtons) {
         const $mapContainer = button.closest('.where-we-work');
 
         button.addEventListener('mouseover', (event) => {
-            $mapContainer.dataset.activeRegion = event.target.dataset.region;
+            let $target = event.target;
+
+            if ($target.dataset.region === undefined) {
+                $target = $target.closest('[data-region]');
+            }
+
+            $mapContainer.dataset.activeRegion = $target.dataset.region;
         });
 
         button.addEventListener('mouseout', () => {
