@@ -1,0 +1,67 @@
+.where-we-work {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+
+    @include from(M) {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+    .where-we-work__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 12px;
+        align-self: flex-start;
+    }
+
+        .where-we-work .button {
+            transition: opacity 0.5s ease;
+        }
+
+        .where-we-work__list:has(.button:hover) .button:not(:hover) {
+            opacity: 0.5;
+        }
+
+    .where-we-work__map {
+        max-width: 800px;
+        justify-self: center;
+
+        svg {
+            width: 100%;
+            height: auto;
+            fill: $ui-white;
+
+            g {
+                transition: fill .3s ease;
+            }
+        }
+    }
+
+    .where-we-work[data-active-region="europe"] g.europe {
+        fill: $ui-blue;
+    }
+
+    .where-we-work[data-active-region="africa"] g.africa {
+        fill: $ui-blue;
+    }
+
+    .where-we-work[data-active-region="asia-pacific"] g.asia-pacific {
+        fill: $ui-blue;
+    }
+
+    .where-we-work[data-active-region="eeca"] g.eeca {
+        fill: $ui-blue;
+    }
+
+    .where-we-work[data-active-region="latam"] g.latin-america {
+        fill: $ui-blue;
+    }
+
+    .where-we-work[data-active-region="usa"] g.usa {
+        fill: $ui-blue;
+    }
+
+    .where-we-work[data-active-region="open-contracting-in-ukraine"] g.ukraine {
+        fill: $ui-blue;
+    }

@@ -2,12 +2,10 @@
 
 use App\Assets;
 
-add_action('admin_enqueue_scripts', function () {
+add_action('wp_enqueue_scripts', function () {
+
     Assets::registerScript('manifest', '/dist/js/manifest.js', [], true);
     Assets::registerScript('vendor', '/dist/js/vendor.js', [], true);
-});
-
-add_action('wp_enqueue_scripts', function () {
 
      //****************
     // REGISTER ASSETS
@@ -24,7 +22,6 @@ add_action('wp_enqueue_scripts', function () {
 
     // SPECIFIC
     Assets::registerScript('page-impact-stories', '/dist/js/impact-stories.js', ['manifest', 'vendor'], true);
-    Assets::registerScript('latest-news', '/dist/js/latest-news.js', ['manifest', 'vendor'], true);
     Assets::registerScript('archive-resource', '/dist/js/archive-resource.js', ['manifest', 'vendor'], true);
     Assets::registerScript('page-worldwide', '/dist/js/worldwide.js', ['manifest', 'vendor'], true);
 
@@ -40,10 +37,6 @@ add_action('wp_enqueue_scripts', function () {
     // impact stories
     if (basename(get_page_template()) === 'page-impact-stories.php') {
         wp_enqueue_script('page-impact-stories');
-    }
-
-    if (is_home()) {
-        wp_enqueue_script('latest-news');
     }
 
     if (is_post_type_archive('resource')) {

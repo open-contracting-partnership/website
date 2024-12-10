@@ -1,176 +1,330 @@
-.block[data-block-type="sign-up-cover"] {
+.sign-up {
+    --overlay-opacity: 1;
+    --background-colour: #{$ui-blue};
+    --colour: #{$ui-white};
 
-	color: $ui-white;
+    position: relative;
+    color: var(--colour);
+    z-index: 0;
 
-	.block__image {
-		grid-column: full;
-		grid-row: 1;
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: 50% 50%;
-		object-fit: cover;
-	}
+    &:has(.sign-up__background-image) {
+        --overlay-opacity: .9;
+    }
 
-	.block__image-overlay {
-		grid-column: full;
-		grid-row: 1;
-	}
+    &[data-background-colour="blue"] {
+        --background-colour: #{$ui-blue};
+    }
 
-	.block__container {
+    &[data-background-colour="orange"] {
+        --background-colour: #{$ui-orange};
+    }
 
-		grid-row: 1;
-		grid-column: content;
-		@include fluid-type(--padding, 375px, 1240px, spacing(2), spacing(6));
-		@extend %column-grid;
+    &[data-background-colour="teal"] {
+        --background-colour: #{$ui-teal};
+    }
 
-		@media screen {
-			padding: var(--padding) 0;
-		}
+    &[data-background-colour="brand"] {
+        --background-colour: #{$ui-brand};
+        --colour: #{$ui-black};
+    }
+}
 
-	}
+    .sign-up__background-image {
+        position: absolute;
+        inset: 0;
+        left: calc(50% - 50vw);
+        width: 100vw;
+        // background-color: var(--background-colour);
+        z-index: -2;
 
-		.block__main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-			grid-column: all;
-
-			@include from(M) {
-				grid-column: 2 / 12;
-			}
-
-		}
-
-			.block__heading {
-				color: currentColor;
-				@include fluid-type(font-size, 360px, 1240px, 25px, 39px);
-			}
-
-			.block__content {
-				color: currentColor;
-				@include fluid-type(margin-top, 360px, 1240px, spacing(2), spacing(4));
-			}
-
-		.block__form-container {
-			grid-column: all;
-			display: flex;
-			justify-content: center;
-		}
-
-			.block__form {
-
-				width: 100%;
-				max-width: 400px;
-
-				p {
-					font-size: 20px;
-					@include font('secondary', 'bold');
-					margin-bottom: spacing(1);
-					text-align: center;
-				}
-
-				input[type="email"] {
-
-					font-size: 18px;
-					padding: 5px 40px 5px 18px;
-					border: 2px solid $ui-white;
-					border-radius: 12px 20px 20px 12px;
-					background-color: transparent;
-					color: $ui-white;
-					margin-bottom: 0;
-
-					&::-webkit-input-placeholder {
-						color: $ui-white;
-						opacity: 1;
-						font-style: italic;
-					}
-
-					&:-moz-placeholder { /* Firefox 18- */
-						color: $ui-white;
-						opacity: 1;
-						font-style: italic;
-					}
-
-					&::-moz-placeholder {  /* Firefox 19+ */
-						color: $ui-white;
-						opacity: 1;
-						font-style: italic;
-					}
-
-					&:-ms-input-placeholder {
-						color: $ui-white;
-						opacity: 1;
-						font-style: italic;
-					}
-
-				}
-
-			}
-
-			.block__form-wrapper {
-				position: relative;
-			}
-
-			.block__form-submit {
-
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: auto;
-				margin: 6px;
-
-				> svg {
-					font-size: 28px;
-					height: 1em;
-					width: 1em;
-					fill: $ui-white;
-					display: block;
-				}
-
-			}
-
-			.js-mailchimp-form__message {
-
-				margin-top: spacing(1);
-
-				&:empty {
-					display: none;
-				}
-
-			}
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
 
 
-	&[data-orientation="vertical"] {
+    .sign-up__background-overlay {
+        position: absolute;
+        inset: 0;
+        left: calc(50% - 50vw);
+        width: 100vw;
+        z-index: -1;
+        background-color: var(--background-colour);
+        opacity: var(--overlay-opacity);
+    }
 
-		.block__main {
-			@include fluid-type(margin-bottom, 360px, 1240px, 72px, 200px);
-			text-align: center;
-		}
+    .sign-up__container {
+        @include fluid-type(--padding, 375px, 1240px, spacing(2), spacing(6));
+        @extend %column-grid;
 
-	}
+        row-gap: spacing(4);
 
-	&[data-orientation="horizontal"] {
+        .sign-up[data-mailchimp-success="true"] & {
+            display: none;
+        }
 
-		@include upto(M) {
+        @media screen {
+            @include fluid-type((padding-block), 375px, 1240px, spacing(5), spacing(8));
+        }
+    }
 
-			.block__main {
-				text-align: center;
-			}
+        .sign-up__main {
+            grid-column: all;
 
-		}
+            @include upto(M) {
+                text-align: center;
+            }
 
-		@include from(M) {
+            @include from(M) {
+                grid-column: 1 / 6;
+            }
+        }
 
-			.block__main {
-				grid-column: 1 / 7;
-			}
+            .sign-up__heading {
+                color: currentColor;
+                margin-bottom: spacing(2);
+                @include fluid-type(font-size, 360px, 1240px, 25px, 39px);
+            }
 
-			.block__form-container {
-				grid-column: 9 / 13;
-				align-self: center;
-			}
+            .sign-up__content {
+                color: currentColor;
+                margin-bottom: 0;
 
-		}
+                > :last-child {
+                    margin-bottom: 0;
+                }
+            }
 
-	}
+            .sign-up__form-regions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                margin-bottom: 32px;
+            }
 
+        .sign-up__form-container {
+            grid-column: all;
+            display: flex;
+            justify-content: center;
+
+            @include from(M) {
+                grid-column: 7 / 13;
+                align-self: center;
+            }
+        }
+
+            .sign-up__form {
+
+                width: 100%;
+
+                p {
+                    font-size: 20px;
+                    @include font('secondary', 'bold');
+                    margin-bottom: spacing(1);
+                    text-align: center;
+                }
+            }
+
+            .sign-up__form-wrapper {
+                position: relative;
+                display: flex;
+            }
+
+                input.sign-up__form-input {
+                    --padding-block: 12px;
+
+                    flex-grow: 1;
+                    font-size: 18px;
+
+                    padding-top: calc(var(--padding-block) + var(--vertical-align-fix-offset-em));
+                    padding-bottom: var(--padding-block);
+                    padding-inline: spacing(2.25);
+
+                    border: 2px solid var(--colour);
+                    border-right-width: 0;
+                    border-radius: 12px 0 0  12px;
+                    background-color: transparent;
+                    color: var(--colour);
+                    margin-bottom: 0;
+
+                    &::-webkit-input-placeholder {
+                        color: var(--colour);
+                        opacity: 1;
+                        font-style: italic;
+                    }
+
+                    &:-moz-placeholder { /* Firefox 18- */
+                        color: var(--colour);
+                        opacity: 1;
+                        font-style: italic;
+                    }
+
+                    &::-moz-placeholder {  /* Firefox 19+ */
+                        color: var(--colour);
+                        opacity: 1;
+                        font-style: italic;
+                    }
+
+                    &:-ms-input-placeholder {
+                        color: var(--colour);
+                        opacity: 1;
+                        font-style: italic;
+                    }
+                }
+
+                .sign-up__form-submit {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: center;
+                    align-items: center;
+                    font-size: 14px;
+                    font-weight: 500;
+                    background-color: var(--colour);
+                    border-radius: 0 12px 12px 0;
+                    padding: 12px;
+                    gap: 7px;
+                    flex-shrink: 0;
+                    color: var(--background-colour);
+
+                    > svg {
+                        font-size: 28px;
+                        height: 1em;
+                        width: 1em;
+                        display: block;
+                        fill: currentColor;
+                    }
+
+                    button {
+                        padding: 7px 12px;
+                    }
+                }
+
+                    .sign-up__form-submit-label {
+                        @include font-vertical-align-fix;
+
+                        text-transform: uppercase;
+
+                        @include upto(S) {
+                            display: none;
+                        }
+                    }
+
+            .js-mailchimp-form__message {
+                margin-top: spacing(1);
+
+                &:empty {
+                    display: none;
+                }
+            }
+
+    .sign-up__thank-you {
+        position: relative;
+        width: 100%;
+        padding-block: 120px;
+        display: flex;
+        flex-direction: column;
+
+        .sign-up[data-mailchimp-success="false"] & {
+            display: none;
+        }
+
+        .sign-up__thank-you__card-container {
+            display: flex;
+        }
+
+        .sign-up__thank-you__heading {
+            margin-bottom: 8px;
+            color: currentColor;
+            @include fluid-type(font-size, 360px, 1240px, 25px, 39px);
+        }
+
+        .sign-up__thank-you__subheading {
+            margin-bottom: 32px;
+            color: currentColor;
+            @include fluid-type(margin-top, 360px, 1240px, spacing(2), spacing(4));
+        }
+        .sign-up__thank-you__stories {
+
+            > .card {
+                @media print {
+                    margin-bottom: spacing(2);
+                }
+            }
+
+            @include upto(T) {
+                display: flex;
+                flex-wrap: wrap;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                margin: 0 spacing(-3);
+                padding: 0 spacing(3);
+                gap: 24px;
+                justify-content: center;
+
+                > .card {
+                    scroll-snap-align: center;
+                    box-shadow: none;
+
+                    @include from(T) {
+                        &:not(:last-child) {
+                            margin-right: spacing(3);
+                        }
+                    }
+                }
+
+                &::after {
+                    content: '';
+                    display: block;
+                    flex: 0 0 24px;
+                }
+            }
+
+            @include from(T) {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(384px, 1fr));
+                grid-gap: spacing(3);
+            }
+        }
+    }
+
+.region-selector {
+    text-transform: none;
+}
+
+.region-selector__input {
+    @extend .visually-hidden;
+}
+
+.region-selector__control {
+    --padding-block: #{em(6, 20)};
+
+    font-size: 20px;
+    @include font('secondary', 'medium');
+    display: block;
+    background-color: transparent;
+    border: 2px solid var(--colour);
+    border-radius: 999px;
+    padding-top: calc(var(--padding-block) + var(--vertical-align-fix-offset-em));
+    padding-bottom: var(--padding-block);
+    padding-inline: spacing(2);
+    user-select: none;
+
+    &:hover,
+    &:focus {
+        background-color: var(--colour);
+        color: var(--background-colour);
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+    }
+}
+
+.region-selector__input:checked ~ .region-selector__control {
+    background-color: var(--colour);
+    color: var(--background-colour);
 }

@@ -1,0 +1,121 @@
+.search-box {
+    --border-width: .5px;
+    --button-offset: 4px;
+    --button-size: 17px;
+    --font-size: 14px;
+    --height-half: calc(var(--height) / 2);
+    --height: calc(var(--button-size) + (2 * var(--button-offset)));
+
+    height: var(--height);
+    font-size: var(--font-size);
+    color: $ui-grey-4;
+
+    border: var(--border-width) solid currentColor;
+    border-radius: 2px var(--height-half) var(--height-half) 2px;
+    display: flex;
+
+    &:has(.search-box__input:placeholder-shown) .search-box__reset {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+    input.search-box__input {
+        --padding-block: 4px;
+
+        font-size: 1em;
+        flex: 1 1 100%;
+        @include font('secondary', 'bold');
+        border: none;
+        background: none;
+        border-radius: 0;
+        color: currentColor;
+        margin: 0;
+        min-width: 0;
+
+        padding-top: calc(var(--padding-block) + var(--vertical-align-fix-offset-em));
+        padding-bottom: var(--padding-block);
+        padding-inline: 7px;
+
+        &::-webkit-input-placeholder {
+            @include font('secondary', 'bold');
+            color: currentColor;
+            opacity: 1;
+        }
+
+        &:-moz-placeholder { /* Firefox 18- */
+            @include font('secondary', 'bold');
+            color: currentColor;
+            opacity: 1;
+        }
+
+        &::-moz-placeholder {  /* Firefox 19+ */
+            @include font('secondary', 'bold');
+            color: currentColor;
+            opacity: 1;
+        }
+
+        &:-ms-input-placeholder {
+            @include font('secondary', 'bold');
+            color: currentColor;
+            opacity: 1;
+        }
+    }
+
+    .search-box__reset {
+        @extend %button-naked;
+        flex: 0 0 auto;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        display: grid;
+        place-items: center;
+
+        svg {
+            --size: 12px;
+
+            height: var(--size);
+            width: var(--size);
+            display: block;
+            fill: currentColor;
+        }
+    }
+
+    .search-box__icon {
+        // the icon can either be a button or a span, the former means it can be
+        // interacted with, as such we'll reset the button styles so we have
+        // full visual control...
+        @extend %button-naked;
+
+        // ...but we don't want a cursor on non-button elements
+        &:is(:not(button)) {
+            cursor: default;
+        }
+
+        flex: 0 0 auto;
+        display: block;
+        margin-right: var(--button-offset);
+        align-self: center;
+        height: var(--button-size);
+        width: var(--button-size);
+
+        > svg {
+            display: block;
+            height: 100%;
+            width: 100%;
+            fill: currentColor;
+        }
+    }
+
+// sizes
+.search-box[data-size="large"] {
+    --border-width: 1px;
+    --button-offset: 6px;
+    --button-size: 21px;
+    --font-size: 11px;
+}
+
+// colours
+.search-box[data-colour="light"] {
+    color: $ui-grey-5;
+}

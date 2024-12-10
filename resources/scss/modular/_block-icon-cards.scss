@@ -1,0 +1,58 @@
+.icon-cards__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+
+    &:not(:first-child) {
+        margin-top: spacing(7);
+    }
+
+    &:not(:last-child) {
+        margin-bottom: spacing(7);
+    }
+}
+
+    .icon-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: spacing(1);
+        background-color: white;
+        border-radius: 20px 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: spacing(1.5) spacing(1.5) spacing(2);
+        width: 100%;
+
+        @include from(400) {
+            width: 220px;
+        }
+    }
+
+    .icon-card__icon img {
+        width: spacing(10);
+        height: spacing(10);
+        border-radius: 999px;
+    }
+
+    .icon-card__title {
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        text-decoration: none;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+        }
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }

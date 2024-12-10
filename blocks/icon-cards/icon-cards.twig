@@ -1,0 +1,16 @@
+
+<div class="icon-cards__grid">
+    {% for issue in block.icon_cards %}
+        <div class="icon-card">
+            <div class="icon-card__icon">
+                <img src="{{ issue.icon.url }}" alt="{{ issue.issue_name }}">
+            </div>
+
+            <a
+                class="icon-card__title"
+                href="{{ issue.link.url }}"
+                target="{{ issue.link.target }}"
+            >{{ issue.link.title }}</a>
+        </div>
+    {% endfor %}
+</div>

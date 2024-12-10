@@ -50,11 +50,9 @@
 		{% endif %}
 
 		<div class="block__resources">
-
 			{% for card in block.resources %}
 				{% include 'cards/resource.twig' with card %}
 			{% endfor %}
-
 		</div>
 
 		{% if block.contact %}

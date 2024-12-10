@@ -1,0 +1,25 @@
+<div class="where-we-work">
+    <div class="where-we-work__list">
+        {% for region in block.regions %}
+            <a
+                href="{{ region.link.url }}"
+                class="button button--has-icon"
+                data-colour="blue"
+                data-size="huge"
+                data-uppercase="false"
+                data-icon-position="right"
+                data-region="{{ region.slug }}"
+            >
+                <span class="button__label">
+                    {{ region.link.title }}
+                </span>
+
+                <svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+            </a>
+        {% endfor %}
+    </div>
+
+    <div class="where-we-work__map">
+        {% include 'views/blocks/where-we-work-map.twig' %}
+    </div>
+</div>

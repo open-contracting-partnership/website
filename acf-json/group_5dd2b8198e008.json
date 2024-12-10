@@ -3,11 +3,11 @@
     "title": "Options: Resources",
     "fields": [
         {
-            "key": "field_605b14a5f81ae",
-            "label": "Resource Library",
-            "name": "",
+            "key": "field_6707b0bb7b661",
+            "label": "Resources Heading",
+            "name": "resources_heading",
             "aria-label": "",
-            "type": "tab",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,8 +17,34 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "placement": "top",
-            "endpoint": 0
+            "wpml_cf_preferences": 0,
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6707b0c67b662",
+            "label": "Resources Content",
+            "name": "resources_content",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 0,
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         },
         {
             "key": "field_5dd2b82798981",
@@ -40,6 +66,7 @@
             "max": 0,
             "layout": "block",
             "button_label": "Add Filter Row",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5dd2b83f98982",
@@ -83,6 +110,8 @@
                     "max": 0,
                     "layout": "table",
                     "button_label": "Add Row",
+                    "rows_per_page": 20,
+                    "parent_repeater": "field_5dd2b82798981",
                     "sub_fields": [
                         {
                             "key": "field_5dd2b8c2efa3b",
@@ -110,213 +139,9 @@
                             "bidirectional_target": [],
                             "parent_repeater": "field_5dd2b84698983"
                         }
-                    ],
-                    "rows_per_page": 20,
-                    "parent_repeater": "field_5dd2b82798981"
+                    ]
                 }
-            ],
-            "rows_per_page": 20
-        },
-        {
-            "key": "field_605b14b4f81af",
-            "label": "Learning Library",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "gutenberg_visibility": "both",
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_605b153837bf6",
-            "label": "Learning Library Filters",
-            "name": "learning_library_filters",
-            "aria-label": "",
-            "type": "flexible_content",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "gutenberg_visibility": "both",
-            "layouts": {
-                "layout_605b153f9f172": {
-                    "key": "layout_605b153f9f172",
-                    "name": "category",
-                    "label": "Category",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_605b148af81aa",
-                            "label": "Title",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "gutenberg_visibility": "both",
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_605b148af81ab",
-                            "label": "Filter",
-                            "name": "filter",
-                            "aria-label": "",
-                            "type": "repeater",
-                            "instructions": "",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "gutenberg_visibility": "both",
-                            "collapsed": "",
-                            "min": 0,
-                            "max": 0,
-                            "layout": "",
-                            "button_label": "Add Row",
-                            "sub_fields": [
-                                {
-                                    "key": "field_605b148af81ac",
-                                    "label": "Type",
-                                    "name": "type",
-                                    "aria-label": "",
-                                    "type": "taxonomy",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "gutenberg_visibility": "both",
-                                    "taxonomy": "learning-resource-category",
-                                    "field_type": "select",
-                                    "allow_null": 0,
-                                    "add_term": 0,
-                                    "save_terms": 0,
-                                    "load_terms": 0,
-                                    "return_format": "",
-                                    "multiple": 0,
-                                    "bidirectional_target": [],
-                                    "parent_repeater": "field_605b148af81ab"
-                                }
-                            ],
-                            "rows_per_page": 20
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "layout_605b157b37bf8": {
-                    "key": "layout_605b157b37bf8",
-                    "name": "type",
-                    "label": "Type",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_605b157b37bf9",
-                            "label": "Title",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "gutenberg_visibility": "both",
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_605b157b37bfa",
-                            "label": "Filter",
-                            "name": "filter",
-                            "aria-label": "",
-                            "type": "repeater",
-                            "instructions": "",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "gutenberg_visibility": "both",
-                            "collapsed": "",
-                            "min": 0,
-                            "max": 0,
-                            "layout": "table",
-                            "button_label": "Add Row",
-                            "sub_fields": [
-                                {
-                                    "key": "field_605b157b37bfb",
-                                    "label": "Type",
-                                    "name": "type",
-                                    "aria-label": "",
-                                    "type": "taxonomy",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "gutenberg_visibility": "both",
-                                    "taxonomy": "resource-type",
-                                    "field_type": "select",
-                                    "allow_null": 0,
-                                    "add_term": 0,
-                                    "save_terms": 0,
-                                    "load_terms": 0,
-                                    "return_format": "id",
-                                    "multiple": 0,
-                                    "bidirectional_target": [],
-                                    "parent_repeater": "field_605b157b37bfa"
-                                }
-                            ],
-                            "rows_per_page": 20
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                }
-            },
-            "button_label": "Add Row",
-            "min": "",
-            "max": ""
+            ]
         }
     ],
     "location": [
@@ -336,8 +161,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1695737534,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5dd2b8198e008.json",
-    "acfml_field_group_mode": "advanced"
+    "show_in_rest": 0,
+    "modified": 1728988458
 }

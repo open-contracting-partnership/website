@@ -34,8 +34,9 @@
 		@include font('secondary', 'medium');
 
 		@media screen {
+            @include font-vertical-align-fix;
+
 			flex: 1 1 100%;
-			padding-top: .2em;
 			margin-left: spacing(1);
 		}
 

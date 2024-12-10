@@ -2,23 +2,39 @@
 	{% set options = [] %}
 {% endif %}
 
-{% set options = { 'colour_scheme': null } | merge(options) %}
+{% set options = { has_border: true } | merge(options) %}
 
-<div class="card card--resource" data-post-type="{{ card.type }}" data-colour-scheme="{{ options.colour_scheme }}">
-
-	<div class="card__body">
-
-		<a class="card__link" href="{{ card.url }}">{{ card.title }}</a>
-
-        {% if card.meta %}
-            <p class="card__meta">{{ card.meta }}</p>
+<div
+    class="card-resource"
+    data-post-type="{{ card.type }}"
+    data-is-featured="{{ card.is_featured ? 'true' : 'false' }}"
+    data-has-border="{{ options.has_border ? 'true' : 'false' }}"
+>
+    <div class="card-resource__image-container">
+        {% if 'imgix.net' in card.image_url %}
+            <img src="{{ card.image_url }}" alt="{{ card.title }}" loading="lazy">
+        {% else %}
+            {{ imgix({
+                src: card.image_url,
+                params: {
+                    auto: 'format',
+                    fit: 'crop',
+                    w: 400,
+                    ar: 210 / 297,
+                }
+            }) }}
         {% endif %}
+    </div>
 
-	</div>
+    <div class="card-resource__body">
+        <div class="card-resource__type">
+            <span class="card-resource__type-label">{{ card.type_label }}</span>
+        </div>
 
-	<div class="card__footer">
-		<div class="card__icon"></div>
-		<span class="card__type">{{ card.type_label }}</span>
-	</div>
+        <a class="card-resource__link" href="{{ card.url }}">{{ card.title }}</a>
 
+        {% if card.excerpt %}
+            <p class="card-resource__excerpt">{{ card.excerpt }}</p>
+        {% endif %}
+    </div>
 </div>

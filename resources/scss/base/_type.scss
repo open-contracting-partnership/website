@@ -38,3 +38,18 @@ time {
 address {
 	font-style: normal;
 }
+
+:root {
+    --vertical-align-fix-offset: .2;
+    --vertical-align-fix-offset-em: calc(1em * var(--vertical-align-fix-offset));
+}
+
+@mixin font-vertical-align-fix {
+    display: inline-block;
+
+    padding-top: var(--vertical-align-fix-offset-em);
+}
+
+.font-vertical-align-fix {
+    @include font-vertical-align-fix;
+}

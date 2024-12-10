@@ -5,6 +5,7 @@
         --text-colour: {{ block.text_colour }};
         --header-top: {{ block.header_top }};
     "
+    data-scroll-prompt-parent
 >
     <div class="report-header__header">
         <h1 class="report-header__heading">
@@ -12,12 +13,7 @@
             <span style="--size-adjustment: {{ block.strapline_size }};">{{ block.strapline }}</span>
         </h1>
 
-        <button class="report-header__jump-to-content / button--naked" aria-label="Jump to content">
-            <svg class="report-header__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 47">
-                <path d="M16 46.7a16 16 0 0 0 16-16V17a16 16 0 0 0-32 0V30.7a16 16 0 0 0 16 16ZM2.29 17a13.71 13.71 0 0 1 27.42 0V30.7a13.71 13.71 0 0 1-27.42 0V17Z"/>
-                <path d="M14.86 23.27h.1l.23.24a1.14 1.14 0 0 0 1.62 0l.23-.24h.1v-.1l6.53-6.51-1.62-1.63-4.9 4.92V7.85h-2.3v12.1l-4.9-4.92-1.62 1.63 6.53 6.51v.1Z"/>
-            </svg>
-        </button>
+        {% include 'components/scroll-prompt.twig' %}
     </div>
 
     <div class="report-header__image">

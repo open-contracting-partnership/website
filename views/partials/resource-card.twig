@@ -14,16 +14,20 @@
     {% if resource.link %}
         <a
             href="{{ resource.link }}"
-            class="button js-resource-link"
-        >{{ resource.i18n.view_label }}</a>
+            class="button"
+        >
+            <span class="button__label">{{ resource.i18n.view_label }}</span>
+        </a>
     {% endif %}
 
-    {% if resource.attachments | length %}
+    {% for attachment in resource.attachments %}
         <a
-            href="{{ resource.attachments[0].file }}"
-            class="button js-resource-download"
-        >{{ resource.i18n.download_label }}</a>
-    {% endif %}
+            href="{{ attachment.file }}"
+            class="button"
+        >
+            <span class="button__label">{{ attachment.name }}</span>
+        </a>
+    {% endfor %}
 
     {% include 'partials/share.twig' with {
         share_links: resource.share_links,

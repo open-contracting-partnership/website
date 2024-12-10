@@ -11,6 +11,7 @@
 	color: var(--colour);
 	background-color: var(--background);
 
+    text-align: left;
 	border-radius: spacing(.5);
 	border: 2px solid var(--border-colour);
 	text-decoration: none;
@@ -21,45 +22,51 @@
 		border-color .3s ease;
 
 	@media screen {
-		padding: 0.75em 1.65em 0.65em;
+		padding: .45em 14px;
 	}
-
-    &[data-size="large"] {
-        font-size: 18px;
-    }
 
 	&:hover,
 	&:focus,
 	&:active {
 		--border-colour: #{darken($ui-brand, 10%)};
 		--background: #{darken($ui-brand, 10%)};
+
 		text-decoration: none;
 	}
-
 }
 
 .button--has-icon {
     position: relative;
 	display: inline-flex;
 	align-items: center;
-    padding-left: 3.7em;
+    gap: spacing(1.5);
+
+    &[data-icon-position="right"] {
+        .button__icon {
+            order: 9;
+            margin-left: auto;
+        }
+    }
 }
 
-	.button__icon {
+    .button__label {
+        @include font-vertical-align-fix;
+    }
 
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 0.45em;
-		font-size: 2em;
-		height: 1em;
-		width: 1em;
+	.button__icon {
+        --button-icon-size: 28px;
+
+        display: block;
+		height: var(--button-icon-size);
+		width: var(--button-icon-size);
 		fill: currentColor;
+        flex-shrink: 0;
+
+        order: var(--icon-order, -1);
 
 		@media print {
 			display: none;
 		}
-
 	}
 
 .button[data-icon-colour] .button__icon {
@@ -82,41 +89,34 @@
     @extend %button-naked;
 }
 
-// .button-bordered {
 
-// 	--height: #{em(23, 14)};
-// 	font-size: 14px;
-// 	position: relative;
-// 	display: inline-block;
-// 	padding: 0;
-// 	text-align: left;
-// 	color: $ui-grey-5;
-// 	background-color: $ui-grey-3;
-// 	border: 1px solid $ui-grey-5;
-// 	border-radius: 2px calc(var(--height) / 2) calc(var(--height) / 2) 2px;
-// 	line-height: 1;
-// 	height: var(--height);
-// 	padding: calc((var(--height) - 1em) / 2) 1em;
-// 	padding-right: 1.4em;
-// 	@include font('secondary', 'bold');
-// 	text-decoration: none;
+.button[data-uppercase="false"] {
+    text-transform: none;
+}
 
-// 	// sizes
-// 	&[data-size="small"] {
-// 		font-size: 11px;
-// 	}
-
-// }
+// SIZES
 
 .button[data-size="slim"] {
 	padding: 0.45em 1em 0.2em;
 }
 
- //********
+.button[data-size="large"] {
+    font-size: 18px;
+}
+
+.button[data-size="huge"] {
+    font-weight: 700;
+    font-size: 18px;
+
+    @include from(M) {
+        font-size: 22px;
+        font-weight: 700;
+    }
+}
+
 // COLOURS
 
 .button[data-colour="white"] {
-
 	--border-colour: #{$ui-white};
 	--background: #{$ui-white};
 
@@ -126,11 +126,9 @@
 		--border-colour: darken($ui-white, 2%);
 		--background: darken($ui-white, 2%);
 	}
-
 }
 
 .button[data-colour="dark"] {
-
 	--border-colour: #{$ui-grey};
 	--background: #{$ui-grey};
 	--colour: #{$ui-white};
@@ -141,11 +139,9 @@
 		--background: #{$ui-white};
 		--colour: #{$ui-grey};
 	}
-
 }
 
 .button[data-colour="light"] {
-
 	--border-colour: #{$ui-grey};
 	--background: #{$ui-white};
 	--colour: #{$ui-grey};
@@ -157,5 +153,18 @@
 		--background: #{$ui-grey};
 		--colour: #{$ui-white};
 	}
+}
 
+.button[data-colour="blue"] {
+	--border-colour: #{$ui-white};
+	--background: #{$ui-white};
+	--colour: #{$ui-blue};
+
+	&:hover,
+	&:focus,
+	&:active {
+		--border-colour: #{$ui-white};
+		--background: #{$ui-white};
+		--colour: #{$ui-blue};
+	}
 }

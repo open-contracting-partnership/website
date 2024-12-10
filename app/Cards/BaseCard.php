@@ -31,11 +31,11 @@ class BaseCard
     {
         $collection = self::convertCollectionToArray($collection);
 
-        foreach ($collection as &$original) {
+        foreach ($collection as $key => &$original) {
             $new = self::convertPost($original);
 
             if (is_callable($callback)) {
-                $new = $callback($new, $original);
+                $new = $callback($new, $original, $key);
             }
 
             // update the original item with the new

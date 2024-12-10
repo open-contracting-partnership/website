@@ -10,7 +10,7 @@
 			</div>
 
 			<div class="impact-stories__filters">
-				{% if issues %}
+				{% if impact_stories.terms.issues %}
 					<div>
                         <h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.issues_label }}</h3>
 
@@ -21,7 +21,7 @@
                             >
                                 <option value="">Select issues</option>
 
-                                {% for id, name in issues %}
+                                {% for id, name in impact_stories.terms.issues %}
                                     <option
                                         value="{{ id }}"
                                         v-show="! isFilterSet('issue', {{ id }})"
@@ -35,7 +35,7 @@
                         </div>
 
                         <div v-if="filters.issue.length" class="impact-stories__filter-tags">
-                            {% for id, name in issues %}
+                            {% for id, name in impact_stories.terms.issues %}
                                 <button
                                     v-if="isFilterSet('issue', {{ id }})"
                                     class="button--naked / impact-stories__filter-tag"
@@ -48,7 +48,7 @@
                     </div>
 				{% endif %}
 
-				{% if countries %}
+				{% if impact_stories.terms.countries %}
 					<div>
                         <h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.countries_label }}</h3>
 
@@ -59,7 +59,7 @@
                             >
                                 <option value="">Select countries</option>
 
-                                {% for id, name in countries %}
+                                {% for id, name in impact_stories.terms.countries %}
                                     <option
                                         value="{{ id }}"
                                         v-show="! isFilterSet('country', {{ id }})"
@@ -73,7 +73,7 @@
                         </div>
 
                         <div v-if="filters.country.length" class="impact-stories__filter-tags">
-                            {% for id, name in countries %}
+                            {% for id, name in impact_stories.terms.countries %}
                                 <button
                                     v-if="isFilterSet('country', {{ id }})"
                                     class="button--naked / impact-stories__filter-tag"
@@ -86,12 +86,12 @@
                     </div>
 				{% endif %}
 
-				{% if story_types %}
+				{% if impact_stories.terms.story_types %}
 					<div class="impact-stories__filter-story-types">
                         <h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.story_types_label }}</h3>
 
                         <div class="impact-stories__filter-checkboxes">
-                            {% for id, name in story_types %}
+                            {% for id, name in impact_stories.terms.story_types %}
                                 <label>
                                     <input type="checkbox" v-model="filters.type" value="{{ id }}">
                                     {{ name }}
@@ -103,47 +103,9 @@
 			</div>
 
 			<div v-show="results_count > 0" class="impact-stories__posts">
-				{% for key, story in stories %}
-					<div
-                        ref="story-{{ key }}"
-                        data-country-ids="{{ story.country_ids|json_encode|escape }}"
-                        data-story-type-ids="{{ story.story_type_ids|json_encode|escape }}"
-                        data-issue-ids="{{ story.issue_ids|json_encode|escape }}"
-                        class="card card--primary"
-                        data-colour-scheme="light"
-                    >
-						<div class="card__image">
-							{{ imgix({
-								src: story.image.url,
-								params: {
-									auto: 'format',
-									fit: 'crop'
-								},
-								aspect_ratio: [16, 9],
-								transforms: [{
-									w: 415
-								}, {
-									w: 830
-								}, {
-									w: 1024
-								}, {
-									w: 1536
-								}, {
-									w: 2048
-								}],
-								sizes: '100vw'
-							}) }}
-						</div>
-
-						<div class="card__main">
-							<a class="card__title-link" href="{{ story.link }}">
-								<h2 class="card__title">{{ story.title }}</h2>
-							</a>
-
-							{{ story.introduction }}
-						</div>
-					</div>
-				{% endfor %}
+                {% for card in latest_stories.stories %}
+                    {% include 'cards/primary.twig' with card %}
+                {% endfor %}
 			</div>
 
             <div v-if="results_count === 0" class="impact-stories__no-results">

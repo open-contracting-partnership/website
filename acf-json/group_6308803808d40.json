@@ -3,12 +3,12 @@
     "title": "Featured News",
     "fields": [
         {
-            "key": "field_6308804d99438",
-            "label": "Featured News Article",
-            "name": "featured_news_article",
+            "key": "field_66ffd673d3d93",
+            "label": "Heading",
+            "name": "announcements_heading",
             "aria-label": "",
-            "type": "post_object",
-            "instructions": "Specifically for the \"Latest News\" section",
+            "type": "text",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -17,15 +17,34 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "post_type": [
-                "post"
-            ],
-            "taxonomy": "",
-            "allow_null": 0,
-            "multiple": 0,
-            "return_format": "id",
-            "ui": 1,
-            "bidirectional_target": []
+            "wpml_cf_preferences": 0,
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_66ffd68cd3d94",
+            "label": "Content",
+            "name": "announcements_content",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 0,
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -46,7 +65,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695737531,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_6308803808d40.json",
-    "acfml_field_group_mode": "advanced"
+    "acfml_field_group_mode": "advanced",
+    "modified": 1728556299
 }

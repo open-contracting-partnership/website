@@ -1,38 +1,25 @@
-.block[data-block-type="more-stories"] {
+.more-stories {
+}
 
-	.block__background {
-
+	.more-stories__background {
 		grid-column: full;
 		grid-row: 1;
 		position: relative;
 		overflow: hidden;
-
-		// &::before {
-		// 	@include fluid-type(font-size, 360px, 1344px, 145px, 500px);
-		// 	content: '';
-		// 	display: block;
-		// 	border: .14em solid $ui-grey-6;
-		// 	border-radius: 50%;
-		// 	opacity: .1;
-		// 	height: 1em;
-		// 	width: 1em;
-		// 	position: absolute;
-		// 	top: -.55em;
-		// 	left: 50%;
-		// 	transform: translateX(-50%);
-		// }
-
 	}
 
-	.block__container {
+	.more-stories__container {
 		position: relative;
-		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(2), spacing(6));
+		padding-block: spacing(10);
 		grid-column: content;
 		grid-row: 1;
+
+        > :last-child {
+            margin-bottom: 0;
+        }
 	}
 
-		.block__header {
-
+		.more-stories__header {
 			@media screen {
 				display: flex;
                 flex-wrap: wrap;
@@ -52,68 +39,40 @@
 			@media print {
 				margin-bottom: spacing(2);
 			}
-
 		}
 
-			.block__heading {
-
+			.more-stories__heading {
 				@media screen {
-					@include fluid-type(font-size, 375px, 1240px, 22px, 36px);
 					margin-bottom: 0;
                     text-align: var(--heading-text-align, center);
 				}
-
 			}
 
-		.block__stories {
-
-			> .card {
-
-				@media print {
-					margin-bottom: spacing(2);
-				}
-
+			.more-stories__subheading {
+				font-size: 20px;
+				text-align: var(--heading-text-align, center);
+                margin-bottom: 0;
 			}
 
-			@include upto(T) {
+		.more-stories__cards {
+            --columns: 1;
 
-				display: flex;
-				overflow-x: scroll;
-				scroll-snap-type: x mandatory;
-				-webkit-overflow-scrolling: touch;
-				margin: 0 spacing(-3);
-				padding: 0 spacing(3);
+            display: grid;
+            grid-template-columns: repeat(var(--columns), 1fr);
+            grid-gap: spacing(3);
+            margin-bottom: spacing(3);
 
-				> .card {
+            @include from(S) {
+                --columns: 2;
+            }
 
-					scroll-snap-align: center;
-					flex: 0 0 85%;
-					box-shadow: none;
+            @include from(M) {
+                --columns: 3;
+            }
 
-					// the ::after element is now the far side margin, so dont
-					// set this on the last child, otherwise we'll have double
-					&:not(:last-child) {
-						margin-right: spacing(3);
-					}
-
-				}
-
-				// we can't use last-child margin to create our right hand side
-				// spacing, so we need to force the issue with an after element
-				&::after {
-					content: '';
-					display: block;
-					flex: 0 0 24px;
-				}
-
-			}
-
-			@include from(T) {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				grid-gap: spacing(3);
-			}
-
-		}
-
-}
+            .card-primary[data-is-featured="true"] {
+                @include from(S) {
+                    grid-column: 1 / span 2;
+                }
+            }
+        }

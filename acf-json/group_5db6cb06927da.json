@@ -17,11 +17,12 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 0,
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_5e1deab9d28ff",
@@ -45,11 +46,11 @@
             "delay": 0
         },
         {
-            "key": "field_5e1deb28ac935",
-            "label": "Form label",
-            "name": "form_label",
+            "key": "field_5db6cb06be6ed",
+            "label": "Background Colour",
+            "name": "background_colour",
             "aria-label": "",
-            "type": "text",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -58,17 +59,27 @@
                 "class": "",
                 "id": ""
             },
-            "gutenberg_visibility": "edit_screen",
-            "default_value": "Get our newsletter",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "choices": {
+                "orange": "Orange",
+                "blue": "Blue",
+                "teal": "Teal",
+                "brand": "Brand Green"
+            },
+            "default_value": "blue",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
         },
         {
-            "key": "field_5db6cb06be6db",
-            "label": "Image",
-            "name": "image",
+            "key": "field_672b5b5d0adc2",
+            "label": "Background Image",
+            "name": "background_image",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -80,8 +91,8 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
             "return_format": "array",
-            "preview_size": "medium",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -89,16 +100,18 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": ""
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "thumbnail"
         },
         {
-            "key": "field_5e1deb40ac936",
-            "label": "Orientation",
-            "name": "orientation",
+            "key": "field_66fe6e1c2d817",
+            "label": "Thank you heading",
+            "name": "thank_you_heading",
             "aria-label": "",
-            "type": "radio",
+            "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -106,64 +119,19 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "choices": {
-                "vertical": "Vertical",
-                "horizontal": "Horizontal"
-            },
-            "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "vertical",
-            "layout": "vertical",
-            "return_format": "value",
-            "save_other_choice": 0
-        },
-        {
-            "key": "field_5db6cb06be6ed",
-            "label": "Overlay Colour",
-            "name": "overlay_colour",
-            "aria-label": "",
-            "type": "color_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
             "wpml_cf_preferences": 0,
-            "default_value": "#000000",
-            "enable_opacity": false,
-            "return_format": "string"
-        },
-        {
-            "key": "field_5db6cb06be71e",
-            "label": "Background Opacity",
-            "name": "background_opacity",
-            "aria-label": "",
-            "type": "range",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "wpml_cf_preferences": 0,
-            "default_value": 50,
-            "min": "",
-            "max": "",
-            "step": 10,
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
             "prepend": "",
             "append": ""
         },
         {
-            "key": "field_5e1decd504bbe",
-            "label": "Text Colour",
-            "name": "text_colour",
+            "key": "field_66fe6e332d818",
+            "label": "Thank you subheading",
+            "name": "thank_you_subheading",
             "aria-label": "",
-            "type": "color_picker",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -173,9 +141,65 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
+            "wpml_cf_preferences": 0,
             "default_value": "",
-            "enable_opacity": false,
-            "return_format": "string"
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_66fe6e3f2d819",
+            "label": "Related Stories",
+            "name": "related_stories",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Select 3 items",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "edit_screen",
+            "wpml_cf_preferences": 0,
+            "post_type": [
+                "post"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": 3,
+            "max": 3,
+            "elements": "",
+            "bidirectional": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_66fe78f44b442",
+            "label": "Related Stories",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "block_settings",
+            "wpml_cf_preferences": 0,
+            "message": "This component is only editable in the edit screen. Click on the block and then the pencil to add, remove or reorder stories",
+            "new_lines": "wpautop",
+            "esc_html": 0
         }
     ],
     "location": [
@@ -193,10 +217,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1695737526,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5db6cb06927da.json",
-    "acfml_field_group_mode": "advanced"
+    "show_in_rest": 0,
+    "modified": 1730894710
 }

@@ -1,71 +1,95 @@
-.card.card--quote {
+$elementBreakpoint: 500px;
+
+.card-quote__container {
+    container-type: inline-size;
+}
+
+.card-quote {
+    font-size: 20px;
+    background-color: $ui-grey-3;
     position: relative;
-	font-size: 12px;
-	@include font('secondary', 'bold');
-	border-radius: spacing(4) spacing(1);
-	overflow: hidden;
-	color: $ui-white;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: 1;
+    @include font('secondary', 'bold');
+    border-radius: 22px 5px;
+    overflow: hidden;
+    color: $ui-white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
-	@include from(600) {
-		font-size: 18px;
-	}
+    @container (min-width: #{$elementBreakpoint}) {
+        flex-direction: row;
+    }
+}
 
-	@include from(M) {
-		font-size: 20px;
-	}
+    .card-quote__image {
+        flex: 0 0 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-	.card__image {
-		grid-column: 1 / span 2;
-		grid-row: 1;
-		width: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
 
         &[data-image-style="grayscale"] {
             filter: grayscale(100%);
         }
-	}
+    }
 
-    .card__link {
-        text-decoration: none;
+    .card-quote__quote {
+        padding: spacing(2);
+        z-index: 1;
+        border: 0;
+        margin: 0;
+        flex-grow: 1;
 
-        &:hover {
-            text-decoration: underline;
+        display: flex;
+        flex-direction: column;
+        @extend %heading-base;
+
+        // @include from(M) {
+        // 	grid-column: 2 / span 1;
+        // }
+
+        a {
+            margin-bottom: spacing(1);
         }
 
-        &::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            z-index: 1;
+        > :last-child {
+            margin-bottom: 0;
         }
     }
 
-	.card__quote {
-		all: unset;
-		grid-column: 1 / span 2;
-		grid-row: 1;
-		border-radius: spacing(4) spacing(1);
-		background-color: rgba(#1E1E1E, 70%);
-		padding: spacing(2);
-		z-index: 1;
+        .card-quote__link {
+            text-decoration: none;
 
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
+            &:hover {
+                text-decoration: underline;
+            }
 
-		@include from(M) {
-			grid-column: 2 / span 1;
-		}
+            // &::before {
+            //     content: '';
+            //     position: absolute;
+            //     inset: 0;
+            //     z-index: 1;
+            // }
+        }
 
-		p {
-			all: unset;
-		}
+        .card-quote__footer {
+            font-size: 18px;
+            margin-top: auto;
+            color: $ui-grey-6;
+            @include font('secondary');
 
-		footer {
-			margin-top: spacing(1);
-			@include font('secondary');
-		}
-	}
-}
+            p {
+                margin-bottom: 0;
+                line-height: 1.4;
+            }
+        }
+
+            .card-quote__footer-name {
+                font-weight: $bold;
+            }

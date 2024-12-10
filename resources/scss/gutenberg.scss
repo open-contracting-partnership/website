@@ -54,6 +54,7 @@ body [data-block] [class^="wp-block-"] {
 	    $MODULAR
 	\*------------------------------------*/
 	@import 'modular/*';
+    @import "../../blocks/**/*.scss";
 
 
 	/*------------------------------------*\

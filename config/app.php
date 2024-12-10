@@ -28,8 +28,9 @@ return [
         Rareloop\Lumberjack\Providers\EncryptionServiceProvider::class,
 
         // Application Providers
-        App\Providers\AppServiceProvider::class,
         App\Providers\AdminServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\GutenbergServiceProvider::class,
         App\Providers\ImgixServiceProvider::class,
         App\Providers\MailChimpServiceProvider::class,
         App\Providers\SEOServiceProvider::class,
@@ -64,14 +65,16 @@ return [
         App\Providers\Blocks\QuoteCarouselServiceProvider::class,
         App\Providers\Blocks\QuoteServiceProvider::class,
         App\Providers\Blocks\ReportHeaderServiceProvider::class,
+        App\Providers\Blocks\HeroWithImageServiceProvider::class,
         App\Providers\Blocks\ResourceServiceProvider::class,
         App\Providers\Blocks\SignUpCoverServiceProvider::class,
+        App\Providers\Blocks\SimpleHeaderServiceProvider::class,
         App\Providers\Blocks\StagesServiceProvider::class,
         App\Providers\Blocks\StatsServiceProvider::class,
         App\Providers\Blocks\StoriesServiceProvider::class,
         App\Providers\Blocks\TeamProfileServiceProvider::class,
         App\Providers\Blocks\TitleWithIconServiceProvider::class,
-
+        App\Providers\Blocks\WhereWeWorkServiceProvider::class,
     ],
 
     'aliases' => [

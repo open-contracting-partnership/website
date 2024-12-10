@@ -1,0 +1,25 @@
+<div class="screen-only / home__load-more / align-contents-center">
+    {% if latest.pagination.prev %}
+        <a
+            href="{{ latest.pagination.prev }}"
+            data-instant
+            class="button button--has-icon"
+            data-icon-direction="west"
+        >
+            <svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+            Previous page
+        </a>
+    {% endif %}
+
+    {% if latest.pagination.next %}
+        <a
+            href="{{ latest.pagination.next }}"
+            data-instant
+            class="button button--has-icon"
+            data-icon-position="right"
+        >
+            <svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+            Next page
+        </a>
+    {% endif %}
+</div>
