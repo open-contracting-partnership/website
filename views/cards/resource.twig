@@ -13,9 +13,21 @@
     <div class="card-resource__image-container">
         {% if 'imgix.net' in card.image_url %}
             <img src="{{ card.image_url }}" alt="{{ card.title }}" loading="lazy">
-        {% else %}
+        {% elseif card.image_url %}
             {{ imgix({
                 src: card.image_url,
+                params: {
+                    auto: 'format',
+                    fit: 'crop',
+                    w: 400,
+                    ar: 210 / 297,
+                }
+            }) }}
+        {% else %}
+            {% set fallback_image = site.url ~ '/wp-content/themes/ocp-v1/resources/img/fallback-v2.jpg' %}
+
+            {{ imgix({
+                src: fallback_image,
                 params: {
                     auto: 'format',
                     fit: 'crop',

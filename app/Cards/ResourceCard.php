@@ -2,6 +2,7 @@
 
 namespace App\Cards;
 
+use App\PostTypes\Resource;
 use Imgix\UrlBuilder;
 use Rareloop\Lumberjack\Facades\Config;
 
@@ -9,22 +10,26 @@ class ResourceCard extends BaseCard
 {
     public static function convertTimberPost($post)
     {
+        if ($post->type->slug === 'resource' && get_class($post) === 'Timber\Post') {
+            $post = new Resource($post->ID);
+        }
+
         $data = [
             'title' => $post->post_title,
             'date' => $post->date('c'),
             'meta' => null,
             'image_url' => $post->thumbnail ? $post->thumbnail->src : null,
             'url' => $post->link(),
-            'type' => null,
-            'type_label' => null,
+            'type' => $post->type->slug,
+            'type_label' => $post->type->name,
             'is_featured' => $post->meta('resource_is_featured') ?? false,
             'colour' => $post->colour,
             'excerpt' => (string) $post->preview->length(15)->read_more(false),
         ];
 
-        if ($post->type) {
-            $data['type'] = $post->type->slug;
-            $data['type_label'] = $post->type->name;
+        if ($post->resourceType) {
+            $data['type'] = $post->resourceType->slug;
+            $data['type_label'] = $post->resourceType->name;
         }
 
         if ($post->event_date) {
@@ -43,10 +48,14 @@ class ResourceCard extends BaseCard
 
     public static function generateFallbackImage($post)
     {
+        if ($post->type->slug !== 'resource') {
+            return null;
+        }
+
         $builder = new UrlBuilder(Config::get('images.imgix_host'));
 
-        $resourceType = $post->type ? $post->type->slug : null;
-        $resourceColour = $post->colour;
+        $resourceType = $post->resourceType ? $post->resourceType->slug : null;
+        $resourceColour = $post->colour ?: 'black';
         $isDataTool = $resourceType == 'data-tool';
 
         // image params
