@@ -21,10 +21,11 @@
             "max": 0,
             "layout": "block",
             "button_label": "Add Attachment",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5698fc33f3c29",
-                    "label": "Name",
+                    "label": "Button Label",
                     "name": "name",
                     "aria-label": "",
                     "type": "text",
@@ -36,13 +37,15 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
+                    "gutenberg_visibility": "both",
+                    "relevanssi_exclude": 0,
+                    "wpml_cf_preferences": 0,
+                    "default_value": "Download",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0,
                     "parent_repeater": "field_5698fbbbf3c28"
                 },
                 {
@@ -66,8 +69,7 @@
                     "mime_types": "",
                     "parent_repeater": "field_5698fbbbf3c28"
                 }
-            ],
-            "rows_per_page": 20
+            ]
         }
     ],
     "location": [
@@ -85,10 +87,9 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1695737543,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_5698fbb5c52b4.json",
-    "acfml_field_group_mode": "advanced"
+    "show_in_rest": 0,
+    "acfml_field_group_mode": "advanced",
+    "modified": 1734081313
 }
