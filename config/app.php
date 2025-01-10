@@ -34,6 +34,7 @@ return [
         App\Providers\ImgixServiceProvider::class,
         App\Providers\MailChimpServiceProvider::class,
         App\Providers\SEOServiceProvider::class,
+        App\Providers\MainNavServiceProvider::class,
 
         // Block Providers
         App\Providers\Blocks\AccordionItemServiceProvider::class,

@@ -1,7 +1,7 @@
 .header-mobile-nav {
 
     @include font('secondary', 'bold');
-    background-color: $ui-grey-3;
+    background-color: $ui-grey-8;
     bottom: 0;
     display: block;
     font-size: 18px;
@@ -19,12 +19,20 @@
         overflow-y: scroll;
     }
 
+    .search-box__icon {
+        padding:2px;
+    }
+
 }
 
 .header-mobile-nav__items {
     list-style: none;
     margin: spacing(1) 0 0 0;
     padding-left: 0;
+}
+
+.header-mobile-nav__toggle {
+    color: #323232;
 }
 
 .header-mobile-nav__item {
@@ -46,7 +54,7 @@
     margin-bottom: 12px;
 
     > a {
-        color: #fff;
+        color: #323232;
         font-size: 16px;
         font-weight: 700;
         text-decoration: none;
@@ -76,10 +84,11 @@
     row-gap: 12px;
 
     > a {
-        color: #fff;
+        color: #323232;
         font-size: 14px;
         font-weight: 500;
         text-decoration: none;
+        width: fit-content;
     }
 
 }

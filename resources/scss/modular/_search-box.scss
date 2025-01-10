@@ -119,3 +119,9 @@
 .search-box[data-colour="light"] {
     color: $ui-grey-5;
 }
+
+.header-mobile-nav {
+    .search-box {
+        color: #323232;
+    }
+}

@@ -47,6 +47,39 @@
 
 }
 
+
+.header-mobile-nav {
+    
+    .translation-menu__trigger {
+        color: #323232;
+        border-color: #323232;
+        &::after {
+            border-top-color: #323232;
+        }
+    }
+
+    .translation-menu__actual {
+        background-color: #fff;
+        color: #323232;
+        border-color: #323232;
+    }
+
+    .translation-menu__title, .translation-menu__item {
+        color: #323232;
+    }
+
+    .translation-menu__item {
+            &:hover {
+        background-color: $ui-grey-8;
+    }
+
+    &.is-active {
+        background-color: #E0E83D;
+        color: #4B4B4B;
+    }
+    }
+}
+
 .translation-menu__actual {
 
     background-color: #323232;

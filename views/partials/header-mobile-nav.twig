@@ -1,5 +1,11 @@
 <nav class="header-mobile-nav">
     <ul class="header-mobile-nav__items">
+
+        <li class="header-mobile-nav__item">
+            <div class="header-mobile-nav__parent">
+                <a href="/">Home</a>
+            </div>
+        </li>
         {% for item in header.primary_menu.items %}
             <li
                 class="header-mobile-nav__item"
@@ -7,14 +13,15 @@
                 x-data="{ open: false }"
             >
                 <div class="header-mobile-nav__parent">
-                    <a href="{{ item.link }}">{{ item.title }}</a>
-
+                    <a class="{{ item.class}} link-highlight link-highlight-{{item.highlight_colour}}" href="{{ item.link }}">{{ item.title }}</a>
+                   {% if item.children %} 
                     <span
                         class="header-mobile-nav__toggle"
                         @click="open = !open"
                     >
                         <svg><use xlink:href="#icon-chevron"></use></svg>
                     </span>
+                    {% endif %}
                 </div>
 
                 {% if item.children %}
@@ -23,7 +30,20 @@
                         x-show="open"
                     >
                         {% for child in item.children %}
-                            <a href="{{ child.link }}">{{ child.title }}</a>
+                            {%  if item.submenu_style == 'simple' %}
+                                <a class="{{ child.class}} link-highlight link-highlight-{{item.highlight_colour}}" href="{{ child.link }}">{{ child.title }}</a>
+                            {%  endif %}
+                            {% for subchild in child.children %}
+                                <a class="{{ subchild.class}} link-highlight link-highlight-{{item.highlight_colour}}" href="{{ subchild.link }}">{{ subchild.title }}</a>
+                            {% endfor %}
+                            {% if child.boxed_link %}
+                                <a href="{{ child.link }}" class="boxed-link box-{{item.highlight_colour}}">
+                                    {% if child.boxed_link_image %}
+                                        <img src="{{ TimberImage(child.boxed_link_image).src }}" alt="{{ child.title }}" class="boxed-link__image">
+                                    {% endif %}
+                                    {{ child.title }}
+                                </a>
+                            {% endif %}
                         {% endfor %}
                     </div>
                 {% endif %}
@@ -41,7 +61,7 @@
 				<input class="search-box__input" type="text" name="s" value="{{ search_term }}" aria-label="Search" placeholder="Search">
 
 				<button class="search-box__icon" aria-label="Search">
-					<svg><use xlink:href="#icon-search-rounded"></use></svg>
+					<svg><use xlink:href="#icon-search"></use></svg>
 				</button>
 
 				<input type="hidden" name="lang" value="en">

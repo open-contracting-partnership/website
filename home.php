@@ -114,11 +114,11 @@ class HomeController extends Controller
     {
         return sprintf(
             '%s/?%s',
-            get_post_type_archive_link('post'),
+            rtrim(get_post_type_archive_link('post'), '/'),
             http_build_query([
                 'filter' => $filters->sort()->implode(' ')
-            ]
-        ));
+            ])
+        );
     }
 
     protected function setPostsContext(&$context)
