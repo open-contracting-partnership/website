@@ -166,7 +166,7 @@
 				// second level
 
 				.nav-title-item, .nav-subdrop-item:not(:last-child) {
-					margin-bottom: 12px;
+					margin-bottom: 8px;
 				}
 
 				> ul > li > ul {
@@ -178,7 +178,7 @@
 					border-radius: 0 0 10px 5px;
 					left: -32px;
 					width: max-content;
-					gap: 32px;
+					gap: 56px;
 
 					&.nav-drop {
 						display: flex;

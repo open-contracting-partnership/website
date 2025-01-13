@@ -14,28 +14,43 @@
                         x-show="open" x-transition x-cloak
                     >
                         {% for child in item.children %}
-                        <li class="nav-drop-item">
-                            <a href="{{ child.link }}" 
-                            class="{{child.class}} 
-                            {% if child.title_item %}nav-title-item{% endif %}
-                            {% if child.boxed_link %}boxed-link box-{{item.highlight_colour}} {% else %} link-highlight link-highlight-{{item.highlight_colour}} {% endif %}">
-                                {% if child.boxed_link_image %}
-                                    <img src="{{ TimberImage(child.boxed_link_image).src }}" alt="{{ child.title }}" class="boxed-link__image">
+                            <li class="nav-drop-item">
+                                <a href="{{ child.link }}" 
+                                class="
+                                    {{child.class}} 
+                                    {% if child.title_item %}
+                                        nav-title-item
+                                    {% endif %}
+                                    {% if child.boxed_link %}
+                                        boxed-link
+                                        box-{{item.highlight_colour}}
+                                    {% else %}
+                                        link-highlight
+                                        link-highlight-{{item.highlight_colour}}
+                                    {% endif %}
+                                ">
+                                    {% if child.boxed_link_image %}
+                                        <img src="{{ TimberImage(child.boxed_link_image).src }}" alt="{{ child.title }}" class="boxed-link__image">
+                                    {% endif %}
+                                    {{ child.title }}
+                                </a>
+
+                                {% if child.children %}
+                                    <ul class="nav-subdrop">
+                                        {% for subchild in child.children %}
+                                            <li class="nav-subdrop-item">
+                                                <a 
+                                                    class="{{subchild.class}} link-highlight link-highlight-{{item.highlight_colour}}"
+                                                    href="{{ subchild.link }}
+                                                ">
+                                                    {{ subchild.title }}
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
                                 {% endif %}
-                                {{ child.title }}
-                            </a>
 
-                            {% if child.children %}
-                                <ul class="nav-subdrop">
-                                    {% for subchild in child.children %}
-                                        <li class="nav-subdrop-item">
-                                            <a class="{{subchild.class}} link-highlight link-highlight-{{item.highlight_colour}}" href="{{ subchild.link }}">{{ subchild.title }}</a>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
-
-                        </li>
+                            </li>
                         {% endfor %}
                     </ul>
                 {% elseif item.submenu_style == 'simple' %}

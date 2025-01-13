@@ -19,12 +19,12 @@ class MainNavServiceProvider extends ServiceProvider
                 $item->title_item = get_field('title_item', $item);
                 $item->submenu_style = get_field('submenu_style', $item);
                 $item->boxed_link = get_field('boxed_link', $item) ? 1 : 0;
-                if ($item->boxed_link) {
-                    $item->boxed_link_image = get_field('boxed_link_image', $item);
-                    $item->boxed_link_image_url = wp_get_attachment_url($item->boxed_link_image);
-                }
+                $item->boxed_link_image = get_field('boxed_link_image', $item);
+
+                // if ($item->boxed_link) {
+                //     $item->boxed_link_image = 'test2'; //get_field('link_image', $item);
+                // }
             }
-            // dump($context['header']);
 
             return $context;
         });
