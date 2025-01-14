@@ -396,7 +396,12 @@
 		margin-right:6px;
 	}
 }
-.link-highlight {
+span.link-highlight {
+	border-bottom: 3px solid transparent;
+	display: inline-block;
+	position: relative;
+}
+a.link-highlight {
 	border-bottom: 3px solid transparent;
 	display: inline-block;
 	position: relative;
