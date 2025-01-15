@@ -13,7 +13,7 @@
                 x-data="{ open: false }"
             >
                 <div class="header-mobile-nav__parent">
-                    <a class="{{ item.class}} link-highlight link-highlight-{{item.highlight_colour}}" href="{{ item.link }}">{{ item.title }}</a>
+                    <a class="{{ item.class}} link-highlight" data-highlight="{{ item.highlight_colour }}" href="{{ item.link }}">{{ item.title }}</a>
                    {% if item.children %} 
                     <span
                         class="header-mobile-nav__toggle"
@@ -31,13 +31,13 @@
                     >
                         {% for child in item.children %}
                             {%  if item.submenu_style == 'simple' %}
-                                <a class="{{ child.class}} link-highlight link-highlight-{{item.highlight_colour}}" href="{{ child.link }}">{{ child.title }}</a>
+                                <a class="{{ child.class}} link-highlight" data-highlight="{{ item.highlight_colour }}" href="{{ child.link }}">{{ child.title }}</a>
                             {%  endif %}
                             {% for subchild in child.children %}
-                                <a class="{{ subchild.class}} link-highlight link-highlight-{{item.highlight_colour}}" href="{{ subchild.link }}">{{ subchild.title }}</a>
+                                <a class="{{ subchild.class}} link-highlight" data-highlight="{{ item.highlight_colour }}" href="{{ subchild.link }}">{{ subchild.title }}</a>
                             {% endfor %}
                             {% if child.boxed_link %}
-                                <a href="{{ child.link }}" class="boxed-link box-{{item.highlight_colour}}">
+                                <a href="{{ child.link }}" class="boxed-link" data-highlight="{{ item.highlight_colour }}">
                                     {% if child.boxed_link_image %}
                                         <img src="{{ TimberImage(child.boxed_link_image).src }}" alt="{{ child.title }}" class="boxed-link__image">
                                     {% endif %}
@@ -51,21 +51,15 @@
         {% endfor %}
 
         <li class="header-mobile-nav__translation">
-
             {% include "partials/translation-menu.twig" %}
-
         </li>
         <li>
-        		<form role="search" method="get" class="search-box" data-colour="light" action="{{ site.home_url }}">
-
+        	<form role="search" method="get" class="search-box" data-colour="light" action="{{ site.home_url }}">
 				<input class="search-box__input" type="text" name="s" value="{{ search_term }}" aria-label="Search" placeholder="Search">
-
 				<button class="search-box__icon" aria-label="Search">
 					<svg><use xlink:href="#icon-search"></use></svg>
 				</button>
-
 				<input type="hidden" name="lang" value="en">
-
 			</form>
         </li>
     </ul>

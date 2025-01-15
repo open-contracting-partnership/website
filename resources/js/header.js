@@ -22,3 +22,39 @@ document.body.addEventListener('click', event => {
 	document.body.classList.remove('mobile-menu-active');
 
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const navMainItems = document.querySelectorAll('.nav-main-item');
+
+    function adjustNavDropPosition(navDrop) {
+        const rect = navDrop.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+
+		console.log(rect.right, viewportWidth);
+
+        if (rect.right > viewportWidth) {
+            navDrop.style.left = `${viewportWidth - (64 + rect.right)}px`;
+        } else {
+            navDrop.style.left = '';
+        }
+    }
+
+    navMainItems.forEach(navMainItem => {
+        const navDrops = navMainItem.querySelectorAll('.nav-drop, .nav-drop-simple');
+        navDrops.forEach(navDrop => {
+            navMainItem.addEventListener('mouseenter', function () {
+                adjustNavDropPosition(navDrop);
+            });
+			
+			// Reset the position on mouseleave - else it only works every other time!
+            navMainItem.addEventListener('mouseleave', function () {
+                navDrop.style.left = '';
+            });
+
+            // Adjust position on window resize, just in case
+            window.addEventListener('resize', function () {
+                adjustNavDropPosition(navDrop);
+            });
+        });
+    });
+});

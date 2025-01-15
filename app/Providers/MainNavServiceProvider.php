@@ -20,10 +20,6 @@ class MainNavServiceProvider extends ServiceProvider
                 $item->submenu_style = get_field('submenu_style', $item);
                 $item->boxed_link = get_field('boxed_link', $item) ? 1 : 0;
                 $item->boxed_link_image = get_field('boxed_link_image', $item);
-
-                // if ($item->boxed_link) {
-                //     $item->boxed_link_image = 'test2'; //get_field('link_image', $item);
-                // }
             }
 
             return $context;
