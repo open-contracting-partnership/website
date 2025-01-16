@@ -1,5 +1,4 @@
 .header-mobile-nav {
-
     @include font('secondary', 'bold');
     background-color: $ui-grey-8;
     bottom: 0;
@@ -22,7 +21,6 @@
     .search-box__icon {
         padding: 2px;
     }
-
 }
 
 .header-mobile-nav__items {
@@ -32,38 +30,32 @@
 }
 
 .header-mobile-nav__toggle {
-    color: #323232;
+    color: $ui-grey-3;
 }
 
 .header-mobile-nav__item {
-
     &.is-open {
 
         .header-mobile-nav__toggle {
             transform: rotate(-180deg);
         }
-
     }
-
 }
 
 .header-mobile-nav__parent {
-
     align-items: center;
     display: flex;
     margin-bottom: 12px;
 
     > a {
-        color: #323232;
+        color: $ui-grey-3;
         font-size: 16px;
         font-weight: 700;
         text-decoration: none;
     }
-
 }
 
 .header-mobile-nav__toggle {
-
     padding: 0 8px;
     transform: rotate(0);
     transition: .3s ease;
@@ -72,11 +64,9 @@
         height: 8px;
         width: 12px;
     }
-
 }
 
 .header-mobile-nav__children {
-
     display: flex;
     flex-direction: column;
     margin-bottom: 16px;
@@ -84,18 +74,16 @@
     row-gap: 12px;
 
     > a {
-        color: #323232;
+        color: $ui-grey-3;
         font-size: 14px;
         font-weight: 500;
         text-decoration: none;
         width: fit-content;
     }
-
 }
 
 .header-mobile-nav__translation {
-
-    border-top: solid 2px #666;
+    border-top: solid 2px $ui-grey-4;
     margin-top: 24px;
     padding: 24px 0;
 
@@ -104,7 +92,6 @@
         top: initial;
         width: 100%;
     }
-
 }
 
 @include from($header-break-2) {
@@ -112,5 +99,4 @@
     .header-mobile-nav {
         display: none;
     }
-
 }

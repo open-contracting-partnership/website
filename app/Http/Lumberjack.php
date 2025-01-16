@@ -41,37 +41,6 @@ class Lumberjack extends LumberjackCore
             'translations_menu' => new \Timber\Menu('Header: Translations'),
         ];
 
-
-//dd($context['header']['primary_menu']->items[5]->children[1]->meta('boxed_link_image'));
-
-
-
-
-
-            // $context['header'] = new Menu('header-primary-nav');
-
-            //             // foreach ($context['header']->items as $item) {
-            //             //     $item->highlight_colour = get_field('highlight_colour', $item);
-            //             //     $item->title_item = get_field('title_item', $item);
-            //             //     $item->submenu_style = get_field('submenu_style', $item);
-            //             //     $item->boxed_link = get_field('boxed_link', $item) ? 1 : 0;
-
-            //             //     $image = get_field('boxed_link_image', $item);
-            //             //     $item->boxed_link_image = $image;
-
-            //             // }
-
-            // return $context;
-
-
-
-
-
-
-
-
-
-
         $context['footer'] = [
             'menu' => new \Timber\Menu('Footer'),
             'i18n' => [

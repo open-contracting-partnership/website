@@ -1,11 +1,6 @@
 <nav class="header-mobile-nav">
     <ul class="header-mobile-nav__items">
 
-        <li class="header-mobile-nav__item">
-            <div class="header-mobile-nav__parent">
-                <a href="/">Home</a>
-            </div>
-        </li>
         {% for item in header.primary_menu.items %}
             <li
                 class="header-mobile-nav__item"
@@ -13,14 +8,22 @@
                 x-data="{ open: false }"
             >
                 <div class="header-mobile-nav__parent">
-                    <a class="{{ item.class}} link-highlight" data-highlight="{{ item.highlight_colour }}" href="{{ item.link }}">{{ item.title }}</a>
-                   {% if item.children %} 
-                    <span
-                        class="header-mobile-nav__toggle"
-                        @click="open = !open"
+
+                    <a 
+                        class="{{ item.class}} link-highlight" 
+                        data-highlight="{{ item.highlight_colour }}" 
+                        href="{{ item.link }}"
                     >
-                        <svg><use xlink:href="#icon-chevron"></use></svg>
-                    </span>
+                        {{ item.title }}
+                    </a>
+
+                    {% if item.children %} 
+                        <span
+                            class="header-mobile-nav__toggle"
+                            @click="open = !open"
+                        >
+                            <svg><use xlink:href="#icon-chevron"></use></svg>
+                        </span>
                     {% endif %}
                 </div>
 
@@ -30,15 +33,35 @@
                         x-show="open"
                     >
                         {% for child in item.children %}
-                            {%  if item.submenu_style == 'simple' %}
-                                <a class="{{ child.class}} link-highlight" data-highlight="{{ item.highlight_colour }}" href="{{ child.link }}">{{ child.title }}</a>
-                            {%  endif %}
+
+                            {% if item.submenu_style == 'simple' %}
+                                <a 
+                                class="{{ child.class}} link-highlight"
+                                data-highlight="{{ item.highlight_colour }}"
+                                href="{{ child.link }}"
+                                >
+                                    {{ child.title }}
+                                </a>
+                            {% endif %}
+
                             {% for subchild in child.children %}
-                                <a class="{{ subchild.class}} link-highlight" data-highlight="{{ item.highlight_colour }}" href="{{ subchild.link }}">{{ subchild.title }}</a>
+                                <a 
+                                class="{{ subchild.class}} link-highlight"
+                                data-highlight="{{ item.highlight_colour }}"
+                                href="{{ subchild.link }}"
+                            >
+                                {{ subchild.title }}
+                            </a>
                             {% endfor %}
+
                             {% if child.boxed_link %}
-                                <a href="{{ child.link }}" class="boxed-link" data-highlight="{{ item.highlight_colour }}">
+                                <a 
+                                    href="{{ child.link }}"
+                                    class="boxed-link"
+                                    data-highlight="{{ item.highlight_colour }}"
+                                >
                                     {% set boxedLinkImage = child.meta('boxed_link_image') %}
+
                                     {% if boxedLinkImage %}
                                         {{ imgix({
                                             src: boxedLinkImage.url,
@@ -59,9 +82,11 @@
                                             loading: 'eager',
                                         }) }}
                                     {% endif %}
+
                                     {{ child.title }}
                                 </a>
                             {% endif %}
+
                         {% endfor %}
                     </div>
                 {% endif %}

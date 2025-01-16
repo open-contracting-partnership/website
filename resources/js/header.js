@@ -30,8 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const rect = navDrop.getBoundingClientRect();
         const viewportWidth = window.innerWidth;
 
-		console.log(rect.right, viewportWidth);
-
         if (rect.right > viewportWidth) {
             navDrop.style.left = `${viewportWidth - (64 + rect.right)}px`;
         } else {
@@ -41,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     navMainItems.forEach(navMainItem => {
         const navDrops = navMainItem.querySelectorAll('.nav-drop, .nav-drop-simple');
+
         navDrops.forEach(navDrop => {
             navMainItem.addEventListener('mouseenter', function () {
                 adjustNavDropPosition(navDrop);

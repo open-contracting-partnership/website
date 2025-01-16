@@ -10,31 +10,46 @@
                         >
                             {% for child in item.children %}
                                 <li class="nav-drop-item">
-                                    {% if child.link == '#' %}
-                                        <span 
-                                    {%  else %}
-                                        <a href="{{ child.link }}"
-                                    {% endif %} 
-                                    class="
-                                        {{child.class}} 
-                                        {% if child.boxed_link %}
-                                            boxed-link
-                                        {% else %}
-                                            nav-title-item
-                                            link-highlight
-                                        {% endif %}
+                                    <a 
+                                        href="{{ child.link }}"
+                                        class="
+                                            {{child.class}}
+                                            {{ child.boxed_link ? 'boxed-link' : 'nav-title-item link-highlight' }}
+                                            {% if child.boxed_link %}
+                                                boxed-link
+                                            {% else %}
+                                                nav-title-item link-highlight
+                                            {% endif %}
                                         "
+                                        {% if child.link != '#' %}
                                             data-highlight="{{ item.highlight_colour }}"
-                                        >
-                                        {% if child.boxed_link_image %}
-                                            <img src="{{ TimberImage(child.boxed_link_image).src }}" alt="{{ child.title }}" class="boxed-link__image">
                                         {% endif %}
+                                    >
+
+                                        {% set boxedLinkImage = child.meta('boxed_link_image') %}
+
+                                        {% if boxedLinkImage %}
+                                            {{ imgix({
+                                                src: boxedLinkImage.url,
+                                                alt: boxedLinkImage.alt,
+                                                params: {
+                                                    auto: 'format,compress',
+                                                },
+                                                aspect_ratio: [boxedLinkImage.width, boxedLinkImage.height],
+                                                transforms: [{
+                                                    w: 32  
+                                                }, {
+                                                    w: 32 * 2
+                                                }, {
+                                                    w: 32 * 3
+                                                }],
+                                                sizes: '32px',
+                                                class: 'boxed-link__image',
+                                                loading: 'eager',
+                                            }) }}
+                                        {% endif %}
+
                                         {{ child.title }}
-                                        {% if child.link == '#' %}
-                                            </span>
-                                        {%  else %}
-                                            </a>
-                                        {% endif %}
                                     </a>
 
                                     {% if child.children %}
@@ -44,15 +59,14 @@
                                                     <a 
                                                         class="{{subchild.class}} link-highlight"
                                                         data-highlight="{{ item.highlight_colour }}"
-                                                        href="{{ subchild.link }}
-                                                    ">
+                                                        href="{{ subchild.link }}"
+                                                        >
                                                         {{ subchild.title }}
                                                     </a>
                                                 </li>
                                             {% endfor %}
                                         </ul>
                                     {% endif %}
-
                                 </li>
                             {% endfor %}
                         </ul>
@@ -60,7 +74,13 @@
                         <ul class="nav-drop-simple">
                             {% for child in item.children %}
                                 <li class="nav-subdrop-item">
-                                    <a href="{{ child.link }}" class="{{ child.class }} link-highlight" data-highlight="{{ item.highlight_colour }}">{{ child.title }}</a>
+                                    <a
+                                        href="{{ child.link }}"
+                                        class="{{ child.class }} link-highlight"
+                                        data-highlight="{{ item.highlight_colour }}"
+                                    >
+                                        {{ child.title }}
+                                    </a>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -68,58 +88,65 @@
                         <ul class="nav-drop">
                             {% for child in item.children %}
                                 <li class="nav-drop-item">
-                                    {% if child.link == "#" %}
-                                        <span
-                                    {% else %}
-                                        <a href="{{ child.link }}"
-                                    {% endif %}
-                                    class="
-                                        {{child.class}}
-                                        {% if child.boxed_link %}
-                                            boxed-link
-                                        {% else %}
-                                            nav-title-item link-highlight
+                                    <a 
+                                        href="{{ child.link }}"
+                                        class="
+                                            {{child.class}}
+                                            {{ child.boxed_link ? 'boxed-link' : 'nav-title-item link-highlight' }}
+                                            {% if child.boxed_link %}
+                                                boxed-link
+                                            {% else %}
+                                                nav-title-item link-highlight
+                                            {% endif %}
+                                        "
+                                        {% if child.link != '#' %}
+                                            data-highlight="{{ item.highlight_colour }}"
                                         {% endif %}
-                                    "
-                                    data-highlight="{{ item.highlight_colour }}"
                                     >
 
-                                    {% set boxedLinkImage = child.meta('boxed_link_image') %}
-                                    {% if boxedLinkImage %}
-                                        {{ imgix({
-                                            src: boxedLinkImage.url,
-                                            alt: boxedLinkImage.alt,
-                                            params: {
-                                                auto: 'format,compress',
-                                            },
-                                            aspect_ratio: [boxedLinkImage.width, boxedLinkImage.height],
-                                            transforms: [{
-                                                w: 32  
-                                            }, {
-                                                w: 32 * 2
-                                            }, {
-                                                w: 32 * 3
-                                            }],
-                                            sizes: '32px',
-                                            class: 'boxed-link__image',
-                                            loading: 'eager',
-                                        }) }}
-                                    {% endif %}
-                                    {{ child.title }}
-                                    {% if child.link == "#" %}
-                                        </span>
-                                    {% else %}
-                                        </a>
-                                    {% endif %}
+                                        {% set boxedLinkImage = child.meta('boxed_link_image') %}
+
+                                        {% if boxedLinkImage %}
+                                            {{ imgix({
+                                                src: boxedLinkImage.url,
+                                                alt: boxedLinkImage.alt,
+                                                params: {
+                                                    auto: 'format,compress',
+                                                },
+                                                aspect_ratio: [boxedLinkImage.width, boxedLinkImage.height],
+                                                transforms: [{
+                                                    w: 32  
+                                                }, {
+                                                    w: 32 * 2
+                                                }, {
+                                                    w: 32 * 3
+                                                }],
+                                                sizes: '32px',
+                                                class: 'boxed-link__image',
+                                                loading: 'eager',
+                                            }) }}
+                                        {% endif %}
+
+                                        {{ child.title }}
+                                    </a>
+
+
                                     {% if child.children %}
                                         <ul class="nav-subdrop-single-list">
                                             {% for subchild in child.children %}
                                                 <li class="nav-subdrop-item">
-                                                    <a class="{{ subchild.class }} link-highlight" data-highlight="{{ item.highlight_colour }}" href="{{ subchild.link }}">{{ subchild.title }}</a>
+                                                    <a
+                                                        class="{{ subchild.class }} link-highlight"
+                                                        data-highlight="{{ item.highlight_colour }}"
+                                                        href="{{ subchild.link }}"
+                                                    >
+                                                        {{ subchild.title }}
+                                                    </a>
                                                 </li>
                                             {% endfor %}
                                         </ul>
                                     {% endif %}
+
                                 </li>
                             {% endfor %}
                         </ul>

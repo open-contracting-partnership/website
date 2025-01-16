@@ -91,6 +91,7 @@
 			@include upto($header-break-2) {
 				display: none;
 			}
+
 			// desktop
 			@include from($header-break-2) {
 				// generic
@@ -120,14 +121,14 @@
 						position: relative;
 
 						> a {
-
 							display: block;
 							color: $ui-white;
 							padding: spacing(2) 0;
 							text-decoration: none;
 						}
 
-						&:hover, &:focus-within {
+						&:hover,
+						&:focus-within {
 
 							> a {
 								text-decoration: none;
@@ -137,9 +138,11 @@
 								}
 
 							}
+
 							.nav-drop {
 								display: flex;
 							}
+
 							.nav-drop-simple {
 								display: block;
 							}
@@ -149,7 +152,8 @@
 
 				// second level
 
-				.nav-title-item, .nav-subdrop-item:not(:last-child) {
+				.nav-title-item,
+				.nav-subdrop-item:not(:last-child) {
 					margin-bottom: 8px;
 				}
 
@@ -163,10 +167,13 @@
 					width: max-content;
 					gap: 56px;
 
-					&.nav-drop, &.nav-drop-simple {
+					&.nav-drop,
+					&.nav-drop-simple {
 						display: none;
 					}
-					&.nav-drop-simple, .nav-subdrop-single-list {
+
+					&.nav-drop-simple,
+					.nav-subdrop-single-list {
 						columns: 2;
 						column-gap: 60px;
 						max-width: 380px;
@@ -178,11 +185,13 @@
 						font-size: 15px;
 						position: relative;
 					}
+
 					.nav-title-item {
 						text-transform: uppercase;
 						font-weight: bold;
 						font-size: 15px;
 					}
+
 					.boxed-link {
 						margin-top: 40px;
 					}
@@ -208,6 +217,10 @@
 						margin: 0 calc((-100vw - -1248px) / 2);
 					}
 
+				}
+
+				.nav-main-item:has(.hide-on-desktop) {
+					display: none;
 				}
 
 			}
@@ -420,7 +433,6 @@ a.link-highlight {
 	&:focus,
 	&.current-menu-item,
 	&.current-menu-ancestor {
-
 		text-decoration: none;
 
 		&::before {
