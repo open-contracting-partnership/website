@@ -38,8 +38,26 @@
                             {% endfor %}
                             {% if child.boxed_link %}
                                 <a href="{{ child.link }}" class="boxed-link" data-highlight="{{ item.highlight_colour }}">
-                                    {% if child.boxed_link_image %}
-                                        <img src="{{ TimberImage(child.boxed_link_image).src }}" alt="{{ child.title }}" class="boxed-link__image">
+                                    {% set boxedLinkImage = child.meta('boxed_link_image') %}
+                                    {% if boxedLinkImage %}
+                                        {{ imgix({
+                                            src: boxedLinkImage.url,
+                                            alt: boxedLinkImage.alt,
+                                            params: {
+                                                auto: 'format,compress',
+                                            },
+                                            aspect_ratio: [boxedLinkImage.width, boxedLinkImage.height],
+                                            transforms: [{
+                                                w: 32  
+                                            }, {
+                                                w: 32 * 2
+                                            }, {
+                                                w: 32 * 3
+                                            }],
+                                            sizes: '32px',
+                                            class: 'boxed-link__image',
+                                            loading: 'eager',
+                                        }) }}
                                     {% endif %}
                                     {{ child.title }}
                                 </a>

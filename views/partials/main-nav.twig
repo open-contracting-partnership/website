@@ -1,10 +1,7 @@
 <nav class="site-header__navigation">
     <ul>
         {% for item in header.primary_menu.items %}
-            <li
-                class="nav-main-item"
-                {# x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false" #}
-            >
+            <li class="nav-main-item">
                 <a class="nav-main-link link-highlight {{item.class}}" data-highlight="{{ item.highlight_colour }}" href="{{ item.link }}">{{ item.title }}</a>
                 {% if item.children %}
                     {% if item.submenu_style == "multiple_list" %}
@@ -60,9 +57,7 @@
                             {% endfor %}
                         </ul>
                     {% elseif item.submenu_style == 'simple' %}
-                        <ul class="nav-drop-simple"
-                         {# x-show="open" x-transition x-cloak  #}
-                         >
+                        <ul class="nav-drop-simple">
                             {% for child in item.children %}
                                 <li class="nav-subdrop-item">
                                     <a href="{{ child.link }}" class="{{ child.class }} link-highlight" data-highlight="{{ item.highlight_colour }}">{{ child.title }}</a>
@@ -70,10 +65,7 @@
                             {% endfor %}
                         </ul>
                     {% elseif item.submenu_style == 'single_list' %}
-                        <ul
-                            class="nav-drop" 
-                            {# x-show="open" x-transition x-cloak #}
-                        >
+                        <ul class="nav-drop">
                             {% for child in item.children %}
                                 <li class="nav-drop-item">
                                     {% if child.link == "#" %}
@@ -91,15 +83,34 @@
                                     "
                                     data-highlight="{{ item.highlight_colour }}"
                                     >
-                                        {% if child.boxed_link_image %}
-                                            <img src="{{ TimberImage(child.boxed_link_image).src }}" alt="{{ child.title }}" class="boxed-link__image">
-                                        {% endif %}
-                                        {{ child.title }}
-                                        {% if child.link == "#" %}
-                                            </span>
-                                        {% else %}
-                                            </a>
-                                        {% endif %}
+
+                                    {% set boxedLinkImage = child.meta('boxed_link_image') %}
+                                    {% if boxedLinkImage %}
+                                        {{ imgix({
+                                            src: boxedLinkImage.url,
+                                            alt: boxedLinkImage.alt,
+                                            params: {
+                                                auto: 'format,compress',
+                                            },
+                                            aspect_ratio: [boxedLinkImage.width, boxedLinkImage.height],
+                                            transforms: [{
+                                                w: 32  
+                                            }, {
+                                                w: 32 * 2
+                                            }, {
+                                                w: 32 * 3
+                                            }],
+                                            sizes: '32px',
+                                            class: 'boxed-link__image',
+                                            loading: 'eager',
+                                        }) }}
+                                    {% endif %}
+                                    {{ child.title }}
+                                    {% if child.link == "#" %}
+                                        </span>
+                                    {% else %}
+                                        </a>
+                                    {% endif %}
                                     {% if child.children %}
                                         <ul class="nav-subdrop-single-list">
                                             {% for subchild in child.children %}

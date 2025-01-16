@@ -138,16 +138,13 @@
 
 							}
 							.nav-drop {
-								display:flex;
+								display: flex;
 							}
 							.nav-drop-simple {
 								display: block;
 							}
-
 						}
-
 					}
-
 				}
 
 				// second level
@@ -218,7 +215,6 @@
 			@include from($header-break-3) {
 				font-size: 20px;
 			}
-
 		}
 
 		.site-header__toolbox {
@@ -244,7 +240,6 @@
 			> *:not(:last-child) {
 				margin-right: spacing(2);
 			}
-
 		}
 
 			.site-header__search {
@@ -364,7 +359,7 @@
 	padding: 8px;
 	border-radius: 4px 4px 24px 4px;
 	background: white;
-	max-width:194px;
+	max-width: 194px;
 	display: flex;
 
 	&[data-highlight="blue"] {
@@ -381,9 +376,9 @@
 }
 
 .boxed-link__image {
-	height: 45px;
-	width: auto;
-	margin-right:6px;
+	width: 32px;
+	height: auto;
+	margin-right: 6px;
 }
 
 span.link-highlight {
@@ -391,6 +386,7 @@ span.link-highlight {
 	display: inline-block;
 	position: relative;
 }
+
 a.link-highlight {
 	border-bottom: 3px solid transparent;
 	display: inline-block;
@@ -430,6 +426,5 @@ a.link-highlight {
 		&::before {
 			height: 3px;
 		}
-
 	}
 }
