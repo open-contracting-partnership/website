@@ -9,6 +9,7 @@
                 >
                     {{ item.title }}
                 </a>
+
                 {% if item.children %}
                     {% if item.submenu_style == "multiple_list" %}
                         <ul
@@ -21,17 +22,11 @@
                                         class="
                                             {{child.class}}
                                             {{ child.boxed_link ? 'boxed-link' : 'nav-title-item link-highlight' }}
-                                            {% if child.boxed_link %}
-                                                boxed-link
-                                            {% else %}
-                                                nav-title-item link-highlight
-                                            {% endif %}
                                         "
                                         {% if child.link != '#' %}
                                             data-highlight="{{ item.highlight_colour }}"
                                         {% endif %}
                                     >
-
                                         {% set boxedLinkImage = child.meta('boxed_link_image') %}
 
                                         {% if boxedLinkImage %}
@@ -66,7 +61,7 @@
                                                         class="{{subchild.class}} link-highlight"
                                                         data-highlight="{{ item.highlight_colour }}"
                                                         href="{{ subchild.link }}"
-                                                        >
+                                                    >
                                                         {{ subchild.title }}
                                                     </a>
                                                 </li>
@@ -99,17 +94,11 @@
                                         class="
                                             {{child.class}}
                                             {{ child.boxed_link ? 'boxed-link' : 'nav-title-item link-highlight' }}
-                                            {% if child.boxed_link %}
-                                                boxed-link
-                                            {% else %}
-                                                nav-title-item link-highlight
-                                            {% endif %}
                                         "
                                         {% if child.link != '#' %}
                                             data-highlight="{{ item.highlight_colour }}"
                                         {% endif %}
                                     >
-
                                         {% set boxedLinkImage = child.meta('boxed_link_image') %}
 
                                         {% if boxedLinkImage %}
@@ -135,10 +124,9 @@
 
                                         {{ child.title }}
                                     </a>
-
-
                                     {% if child.children %}
                                         <ul class="nav-subdrop-single-list">
+
                                             {% for subchild in child.children %}
                                                 <li class="nav-subdrop-item">
                                                     <a
@@ -150,9 +138,9 @@
                                                     </a>
                                                 </li>
                                             {% endfor %}
+                                            
                                         </ul>
                                     {% endif %}
-
                                 </li>
                             {% endfor %}
                         </ul>

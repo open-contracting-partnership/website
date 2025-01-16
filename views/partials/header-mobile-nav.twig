@@ -1,6 +1,5 @@
 <nav class="header-mobile-nav">
     <ul class="header-mobile-nav__items">
-
         {% for item in header.primary_menu.items %}
             <li
                 class="header-mobile-nav__item"
@@ -36,9 +35,9 @@
 
                             {% if item.submenu_style == 'simple' %}
                                 <a 
-                                class="{{ child.class}} link-highlight"
-                                data-highlight="{{ item.highlight_colour }}"
-                                href="{{ child.link }}"
+                                    class="{{ child.class}} link-highlight"
+                                    data-highlight="{{ item.highlight_colour }}"
+                                    href="{{ child.link }}"
                                 >
                                     {{ child.title }}
                                 </a>
@@ -46,12 +45,12 @@
 
                             {% for subchild in child.children %}
                                 <a 
-                                class="{{ subchild.class}} link-highlight"
-                                data-highlight="{{ item.highlight_colour }}"
-                                href="{{ subchild.link }}"
-                            >
-                                {{ subchild.title }}
-                            </a>
+                                    class="{{ subchild.class}} link-highlight"
+                                    data-highlight="{{ item.highlight_colour }}"
+                                    href="{{ subchild.link }}"
+                                >
+                                    {{ subchild.title }}
+                                </a>
                             {% endfor %}
 
                             {% if child.boxed_link %}
@@ -86,7 +85,6 @@
                                     {{ child.title }}
                                 </a>
                             {% endif %}
-
                         {% endfor %}
                     </div>
                 {% endif %}
