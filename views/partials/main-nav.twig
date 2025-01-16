@@ -2,7 +2,13 @@
     <ul>
         {% for item in header.primary_menu.items %}
             <li class="nav-main-item">
-                <a class="nav-main-link link-highlight {{item.class}}" data-highlight="{{ item.highlight_colour }}" href="{{ item.link }}">{{ item.title }}</a>
+                <a
+                    class="nav-main-link link-highlight {{item.class}}"
+                    data-highlight="{{ item.highlight_colour }}"
+                    href="{{ item.link }}"
+                >
+                    {{ item.title }}
+                </a>
                 {% if item.children %}
                     {% if item.submenu_style == "multiple_list" %}
                         <ul
