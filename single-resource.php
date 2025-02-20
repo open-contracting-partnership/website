@@ -35,6 +35,15 @@ class SingleResourceController extends Controller
         $context['resource']['attachments'] = get_field('attachments', $resource->ID);
         $context['resource']['link'] = get_field('link', $resource->ID);
 
+        if (!empty($context['resource']['attachments']) && is_array($context['resource']['attachments'])) {
+            foreach ($context['resource']['attachments'] as &$attachment) {
+                if (empty($attachment['name'])) {
+                    $attachment['name'] = __('Download', 'ocp');
+                }
+            }
+            unset($attachment);
+        }
+
         if ($resource->organisation) {
             $context['resource']['organisation'] = $resource->organisation;
             $context['resource']['meta'] = sprintf(__('By %s', 'ocp'), $resource->organisation) . ' / ' . $resource->date('Y');
