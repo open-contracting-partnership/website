@@ -38,7 +38,11 @@ class SingleResourceController extends Controller
         if (!empty($context['resource']['attachments']) && is_array($context['resource']['attachments'])) {
             foreach ($context['resource']['attachments'] as &$attachment) {
                 if (empty($attachment['name'])) {
-                    $attachment['name'] = __('Download', 'ocp');
+                    $attachment['name'] = _x(
+                        'Download',
+                        'Default label for resource attachment download button',
+                        'ocp'
+                    );
                 }
             }
             unset($attachment);
