@@ -3,10 +3,17 @@
     data-size="{{ block.size }}"
     data-margin="{{ block.margin }}"
 >
-    <div 
-    id='timeline-embed' 
-    data-url="{{ block.google_sheet_url }}" 
-    style="width: 100%; height: 600px"
-    >
-    </div>
+    {%  if block.is_preview %}
+        <div 
+            id='timeline-embed' 
+            data-url="{{ block.google_sheet_url }}" 
+            style="width: 100%; height: 600px"
+        >
+        </div>
+        {% else %}
+
+        <div class="timeline__preview">
+        Timeline not available in Preview Mode.
+        </div>
+    {% endif %}
 </div>

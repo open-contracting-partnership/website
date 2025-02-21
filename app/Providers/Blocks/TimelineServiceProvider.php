@@ -46,7 +46,7 @@ class TimelineServiceProvider
         $context['block'] = [];
         $context['block']['custom_classes'] = $block['className'] ?? '';
         $context['block']['google_sheet_url'] = get_field('google_sheet_url');
-        $context['block']['preview'] = $is_preview;
+        $context['block']['is_preview'] = $is_preview;
 
         echo Timber::compile('blocks/timeline.twig', $context);
     }
