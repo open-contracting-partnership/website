@@ -3,7 +3,7 @@
     data-size="{{ block.size }}"
     data-margin="{{ block.margin }}"
 >
-    {%  if block.is_preview %}
+    {% if block.is_preview %}
         <div 
             id='timeline-embed' 
             data-url="{{ block.google_sheet_url }}" 
@@ -11,9 +11,8 @@
         >
         </div>
     {% else %}
-
         <div class="timeline__preview">
-        Timeline not available in Preview Mode.
+            Timeline not available in Preview Mode.
         </div>
     {% endif %}
 </div>

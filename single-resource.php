@@ -45,6 +45,7 @@ class SingleResourceController extends Controller
                     );
                 }
             }
+
             unset($attachment);
         }
 
