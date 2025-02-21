@@ -29,8 +29,8 @@
                     "name": "name",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
-                    "required": 1,
+                    "instructions": "Optional - defaults to \"Download\" if left blank",
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -38,9 +38,8 @@
                         "id": ""
                     },
                     "gutenberg_visibility": "both",
-                    "relevanssi_exclude": 0,
                     "wpml_cf_preferences": 0,
-                    "default_value": "Download",
+                    "default_value": "",
                     "maxlength": "",
                     "allow_in_bindings": 1,
                     "placeholder": "",
@@ -91,5 +90,5 @@
     "description": "",
     "show_in_rest": 0,
     "acfml_field_group_mode": "advanced",
-    "modified": 1734081313
+    "modified": 1740058244
 }

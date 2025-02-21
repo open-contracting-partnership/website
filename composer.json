@@ -8,7 +8,8 @@
 		"imgix/imgix-php": "^3.3"
 	},
 	"require-dev": {
-		"spatie/ray": "^1.33"
+		"spatie/ray": "^1.33",
+		"php-stubs/acf-pro-stubs": "^6.3"
 	},
 	"config": {
 		"allow-plugins": {

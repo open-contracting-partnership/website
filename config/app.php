@@ -73,6 +73,7 @@ return [
         App\Providers\Blocks\StatsServiceProvider::class,
         App\Providers\Blocks\StoriesServiceProvider::class,
         App\Providers\Blocks\TeamProfileServiceProvider::class,
+        App\Providers\Blocks\TimelineServiceProvider::class,
         App\Providers\Blocks\TitleWithIconServiceProvider::class,
         App\Providers\Blocks\WhereWeWorkServiceProvider::class,
     ],
