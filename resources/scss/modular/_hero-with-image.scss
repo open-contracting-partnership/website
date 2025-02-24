@@ -6,6 +6,7 @@
 
     background-color: var(--background-colour);
     color: var(--text-colour);
+    overflow-x: hidden;
 
     @media (max-height: 500px) {
         .hero-with-image {
