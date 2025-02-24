@@ -39,7 +39,7 @@ class TimelineServiceProvider
         });
     }
 
-    public function render($block, $is_preview = false)
+    public function render($block, $content = '', $is_preview = false)
     {
         $context = Timber::get_context();
 
