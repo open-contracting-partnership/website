@@ -17,6 +17,18 @@ class HomeController extends Controller
     {
         $context = Timber::get_context();
 
+        if (isset($_GET['filter'])) {
+            add_filter('wpseo_robots', function ($robots) {
+                $robots = preg_replace(
+                    '/^index/',
+                    'noindex',
+                    $robots
+                );
+
+                return $robots;
+            });
+        }
+
         $this->setPaginationContext($context);
         $this->setContentContext($context);
         $this->setFilterContext($context);
