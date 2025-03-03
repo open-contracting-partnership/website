@@ -70,30 +70,7 @@ table {
 	}
 
 	tbody tr {
-
 		position: relative;
-
-		&:not(:last-child)::after {
-			content: '';
-			display: block;
-			position: absolute;
-			left: 0;
-			bottom: 1px;
-			right: 0;
-			height: 1px;
-			background-image: repeating-linear-gradient(
-				to right,
-				transparent 0%,
-				transparent 25%,
-				$ui-grey-9 25%,
-				$ui-grey-9 75%,
-				transparent 75%,
-				transparent 100%);
-			background-position: center top;
-			background-repeat: repeat-x;
-			background-size: 10px 1px;
-		}
-
 	}
 
 	tbody td {
@@ -118,21 +95,9 @@ table {
 	}
 
 	td {
-
 		position: relative;
 		border: none;
 		padding: spacing(2);
-
-		&:first-child::after {
-			content: '';
-			height: 1px;
-			position: absolute;
-			top: 100%;
-			left: 0;
-			right: -10000px;
-
-		}
-
 	}
 
 	th, td {
