@@ -68,6 +68,7 @@ class SignUpCoverServiceProvider
 
         // i18n
         $context['block']['i18n']['subscribe'] = __('Subscribe', 'ocp');
+        $context['block']['i18n']['email_placeholder'] = __('Enter your email address', 'ocp');
 
         // options
         $context['block']['options'] = get_field('options') ?: [];
