@@ -62,7 +62,14 @@
                 </div>
 
                 <div class="sign-up__form-wrapper">
-                    <input type="email" name="email" placeholder="Enter your email address" aria-label="Email" required class="sign-up__form-input">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="{{ block.i18n.email_placeholder }}"
+                        aria-label="Email"
+                        required
+                        class="sign-up__form-input"
+                    >
 
                     <button class="sign-up__form-submit / button--naked" aria-label="Submit">
                         <span class="sign-up__form-submit-label">{{ block.i18n.subscribe }}</span>

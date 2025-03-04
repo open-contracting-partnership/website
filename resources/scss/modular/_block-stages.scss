@@ -40,7 +40,7 @@
 				@include fluid-type(margin-bottom, 375px, 1240px, 19px, 48px);
 
 				@include from(T) {
-					grid-column: all / 10;
+					grid-column: 3 / 11;
 				}
 
 			}
@@ -51,7 +51,12 @@
 
 		}
 
+		.block__introduction {
+			text-align: center;
+		}
+
 			.block__heading {
+				text-align: center;
 
 				@media screen {
 					@include fluid-type(font-size, 375px, 1240px, 22px, 36px);
