@@ -52,12 +52,12 @@ class SignUpCoverServiceProvider
         // important they remain distinct
 
         $context['block']['regions'] = [
-            'b02ffafd18' => 'Worldwide',
-            '848e63078b' => 'Africa',
-            'ad88ca337c' => 'Asia Pacific',
-            '6167587ad7' => 'Europe',
-            '72ff3ac029' => 'Latin America',
-            '2e3248699d' => 'USA',
+            'b02ffafd18' => __('Worldwide', 'ocp'),
+            '848e63078b' => __('Africa', 'ocp'),
+            'ad88ca337c' => __('Asia Pacific', 'ocp'),
+            '6167587ad7' => __('Europe', 'ocp'),
+            '72ff3ac029' => __('Latin America', 'ocp'),
+            '2e3248699d' => __('USA', 'ocp'),
         ];
 
         $context['block']['thank_you_heading'] = get_field('thank_you_heading') ?: 'Add heading here&hellip;';
@@ -68,6 +68,7 @@ class SignUpCoverServiceProvider
 
         // i18n
         $context['block']['i18n']['subscribe'] = __('Subscribe', 'ocp');
+        $context['block']['i18n']['email_placeholder'] = __('Enter your email address', 'ocp');
 
         // options
         $context['block']['options'] = get_field('options') ?: [];

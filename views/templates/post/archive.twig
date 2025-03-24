@@ -12,8 +12,8 @@
 
             <div class="filter-menu">
                 <div class="filter-header">
-                    <p class="filter-text">Filter by multiple issues:</p>
-                    <a href="{{ latest.filters.reset }}" class="filter__reset-link">Reset all filters</a>
+                    <p class="filter-text">{{ __('Filter by multiple issues', 'ocp') }}:</p>
+                    <a href="{{ latest.filters.reset }}" class="filter__reset-link">{{ __('Reset all filters', 'ocp') }}</a>
                 </div>
 
                 <div class="filters-container">
@@ -23,6 +23,7 @@
                             class="filter-item"
                             data-is-active="{{ issue.is_active ? 'true' : 'false' }}"
                             data-instant
+                            rel="nofollow"
                         >
                             <span
                                 class="filter-item__control"
