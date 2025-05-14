@@ -40,6 +40,7 @@ class MoreStoriesServiceProvider
         $context['block']['call_to_action'] = get_field('call_to_action');
         $context['block']['card_type'] = get_field('card_type') ?: 'default';
         $context['block']['has_featured'] = get_field('has_featured');
+        $context['block']['featured_image'] = get_field('featured_image');
         $context['block']['card_options'] = [];
 
         if ($context['block']['card_type'] === 'resource') {
@@ -61,6 +62,10 @@ class MoreStoriesServiceProvider
                             if ($new['is_featured']) {
                                 $new['type_key'] = 'featured';
                                 $new['type_label'] = 'Featured';
+                            }
+
+                            if ($new['is_featured'] && $context['block']['featured_image']) {
+                                $new['image_url'] = $context['block']['featured_image']['url'];
                             }
 
                             return $new;
