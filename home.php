@@ -4,10 +4,8 @@ namespace App;
 
 use App\Cards\PrimaryCard;
 use App\Http\Controllers\Controller;
-use App\PostTypes\Event;
-use App\PostTypes\News;
+use Illuminate\Support\Collection;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
-use Tightenco\Collect\Support\Collection;
 use Timber\Post as TimberPost;
 use Timber\Timber;
 

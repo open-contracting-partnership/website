@@ -5,7 +5,7 @@ require get_theme_root() . '/' . get_template() . '/vendor/autoload.php';
 use App\Http\Lumberjack;
 use Dotenv\Dotenv;
 
-$dotenv = Dotenv::create(__DIR__);
+$dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 // Create the Application Container
