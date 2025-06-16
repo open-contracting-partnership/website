@@ -20,7 +20,11 @@ table {
 				position: sticky;
 				top: 0;
 				z-index: 10;
-				text-align: center;
+				text-align: left;
+
+                &:first-of-type {
+                    padding-left: 0.75em;
+                }
 			}
 
 		}
@@ -139,4 +143,8 @@ table {
 		width: auto;
 	}
 
+}
+
+.wp-block-table td, .wp-block-table th {
+    border: none;
 }

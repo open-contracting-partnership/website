@@ -8,8 +8,10 @@
 			{% if block.title %}
 				<h2 class="block__heading">{{ block.title }}</h2>
 			{% endif %}
-
-			{{ block.introduction | raw }}
+			
+			<div class="block__introduction">
+				{{ block.introduction | raw }}
+			</div>
 		</div>
 
 		{% if block.stages %}
