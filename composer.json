@@ -9,7 +9,8 @@
 		"imgix/imgix-php": "^3.3"
 	},
 	"require-dev": {
-		"php-stubs/acf-pro-stubs": "^6.3"
+		"php-stubs/acf-pro-stubs": "^6.3",
+		"php-stubs/wordpress-stubs": "^6.8"
 	},
 	"config": {
 		"allow-plugins": {
