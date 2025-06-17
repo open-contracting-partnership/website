@@ -21,8 +21,16 @@ $mailchimp_forms.forEach($form => {
                 regions: params.getAll('regions'),
             })
         })
-        .then(response => response.json())
-        .then(data => {
+        .then(function(response) {
+            if (response.ok) {
+                return response.json();
+            }
+
+            $form.querySelector('.js-mailchimp-form__message').innerHTML = mailchimp_options.error_text;
+
+            throw new Error('Something went wrong.');
+        })
+        .then(() => {
             $form.reset();
             $form.closest('[data-mailchimp-success]').dataset.mailchimpSuccess = 'true';
         })

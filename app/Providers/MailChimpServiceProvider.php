@@ -40,7 +40,7 @@ class MailChimpServiceProvider extends ServiceProvider
         // fetch the mailchimp api from the options
         $mailchimp_api_key = Config::get('app.mailchimp_api_key');
 
-        if (! $request->get_param('email')) {
+        if (! $mailchimp_api_key) {
             return new \WP_Error('mailchimp_api_key_not_set', 'MailChimp API key not set', ['status' => 500]);
         }
 

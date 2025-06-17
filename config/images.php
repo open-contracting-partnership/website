@@ -4,8 +4,8 @@ return [
     'imgix_host' => $_ENV['IMGIX_HOST'],
 
     'imgix_host_transforms' => array_combine(
-        explode(',', getenv('IMGIX_SOURCE_HOSTS')),
-        explode(',', getenv('IMGIX_TRANSFORM_HOSTS'))
+        explode(',', $_ENV['IMGIX_SOURCE_HOSTS']),
+        explode(',', $_ENV['IMGIX_TRANSFORM_HOSTS]))
     ),
 
     /**

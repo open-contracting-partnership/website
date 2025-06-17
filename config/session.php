@@ -4,17 +4,17 @@ return [
     /**
      * The driver to use to store the session (defaults to `file`)
      */
-    'driver' => getenv('SESSION_DRIVER') ?: 'file',
+    'driver' => $_ENV['SESSION_DRIVER'] ?: 'file',
 
     /**
      * The name of the cookie that is set in a visitors browser
      */
-    'cookie' => getenv('SESSION_COOKIE') ?: 'lumberjack_session',
+    'cookie' => $_ENV['SESSION_COOKIE'] ?: 'lumberjack_session',
 
     /**
      * How long the session will persist for
      */
-    'lifetime' => getenv('SESSION_LIFETIME') ?: 120,
+    'lifetime' => $_ENV['SESSION_LIFETIME'] ?: 120,
 
     /**
      * The URL path that will be considered valid for the cookie. Normally this is the
@@ -25,12 +25,12 @@ return [
     /**
      * The domain that the cookie is valid for
      */
-    'domain' => getenv('SESSION_DOMAIN') ?: null,
+    'domain' => $_ENV['SESSION_DOMAIN'] ?: null,
 
     /**
      * If true, the cookie will only be sent if the connection is done over HTTPS
      */
-    'secure' => getenv('SESSION_SECURE_COOKIE') ?: false,
+    'secure' => $_ENV['SESSION_SECURE_COOKIE'] ?: false,
 
     /**
      * If true, JavaScript will not be able to access the cookie data
