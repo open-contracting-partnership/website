@@ -4,7 +4,7 @@ return [
     /**
      * The current application environment
      */
-    'environment' => getenv('WP_ENV'),
+    'environment' => $_ENV['WP_ENV'],
 
     /**
      * Is debug mode enabled?
@@ -106,11 +106,10 @@ return [
     /**
      * The key used by the Encrypter. This should be a random 32 character string.
      */
-    'key' => getenv('APP_KEY'),
+    'key' => $_ENV['APP_KEY'],
 
     /**
      * The key used by the Encrypter. This should be a random 32 character string.
      */
-    'mailchimp_api_key' => getenv('MAILCHIMP_API_KEY'),
-
+    'mailchimp_api_key' => $_ENV['MAILCHIMP_API_KEY'],
 ];
