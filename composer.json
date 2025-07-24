@@ -1,5 +1,6 @@
 {
 	"require": {
+		"php": "^8.1",
 		"rareloop/lumberjack-core": "^5.0",
 		"drewm/mailchimp-api": "^2.5",
 		"vlucas/phpdotenv": "^3.6",
