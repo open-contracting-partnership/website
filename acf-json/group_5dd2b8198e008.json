@@ -61,10 +61,12 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "collapsed": "",
+            "wpml_cf_preferences": 2,
+            "layout": "block",
+            "pagination": 0,
             "min": 0,
             "max": 0,
-            "layout": "block",
+            "collapsed": "",
             "button_label": "Add Filter Row",
             "rows_per_page": 20,
             "sub_fields": [
@@ -162,5 +164,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728988458
+    "acfml_field_group_mode": "advanced",
+    "modified": 1753351053
 }
