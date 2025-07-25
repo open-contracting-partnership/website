@@ -1,6 +1,6 @@
 # Open Contracting Partnership - WordPress Theme
 
-**Version**: 3.17.6
+**Version**: 3.17.7
 
 | Environment | Status |
 | :-- | :-- |
