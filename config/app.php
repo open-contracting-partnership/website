@@ -106,7 +106,7 @@ return [
     /**
      * The key used by the Encrypter. This should be a random 32 character string.
      */
-    'key' => $_ENV['APP_KEY'],
+    'key' => $_ENV['APP_KEY'] ?? '',
 
     /**
      * The key used by the Encrypter. This should be a random 32 character string.
