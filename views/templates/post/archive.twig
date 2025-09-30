@@ -13,34 +13,41 @@
             <div class="filter-menu">
                 <div class="filter-header">
                     <p class="filter-text">{{ __('Filter by multiple issues', 'ocp') }}:</p>
-                    <a href="{{ latest.filters.reset }}" class="filter__reset-link">{{ __('Reset all filters', 'ocp') }}</a>
+                    <button class="filter__reset-link" @click="reset">{{ __('Reset all filters', 'ocp') }}</button>
                 </div>
 
                 <div class="filters-container">
                     {% for issue in latest.issues %}
-                        <a
-                            href="{{ issue.url }}"
-                            class="filter-item"
-                            data-is-active="{{ issue.is_active ? 'true' : 'false' }}"
-                            data-instant
-                            rel="nofollow"
-                        >
-                            <span
-                                class="filter-item__control"
-                                data-colour="green"
-                            >{{ issue.name }}</span>
-                        </a>
+
+                        <label class="filter-item">
+                            <input
+                                type="checkbox"
+                                name="regions"
+                                class="filter-item__input"
+                                value="{{ issue.slug }}"
+                                v-model="filters"
+                            >
+
+                            <span class="filter-item__control" data-colour="green">{{ issue.name }}</span>
+                        </label>
                     {% endfor %}
                 </div>
             </div>
 
             <section id="results" class="home__posts">
-                {% for card in latest.posts %}
-                    {% include 'cards/primary.twig' with card %}
-                {% endfor %}
+                <primary-card
+                    v-for="post in pagedPosts"
+                    :key="post.id"
+                    :post="post"
+                ></primary-card>
             </section>
 
-            {% include 'templates/post/_pagination.twig' %}
+            <div class="screen-only / home__load-more / align-contents-center">
+                <button class="button button--has-icon" @click.prevent="increaseLimit()" v-if="hasNextPage">
+                    <svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                    {{ latest.content.load_more }}
+                </button>
+            </div>
         </div> <!-- / .home__container -->
     </main>
 

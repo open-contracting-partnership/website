@@ -104,6 +104,8 @@
         }
 
     .filter__reset-link {
+        @extend %button-naked;
+
         font-size: 14px;
         text-decoration: underline;
         width: max-content;
