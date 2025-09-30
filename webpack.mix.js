@@ -53,6 +53,7 @@ mix
     .js('resources/js/element-queries.js', 'dist/js')
     .js('resources/js/header.js', 'dist/js')
     .js('resources/js/impact-stories.js', 'dist/js')
+    .js('resources/js/latest-news.js', 'dist/js')
     .js('resources/js/mailchimp.js', 'dist/js')
     .js('resources/js/modules/worldwide/worldwide.js', 'dist/js')
     .js('resources/js/scripts.js', 'dist/js')
