@@ -1,10 +1,10 @@
 <div
     class="translation-menu"
     :class="open ? 'is-open' : ''"
-    x-data="{ open: false, currentTranslation: $persist('English') }"
+    x-data="{ open: false }"
     @click.away="open = false"
 >
-    <span class="translation-menu__trigger" @click="open = !open" x-text="currentTranslation"></span>
+    <span class="translation-menu__trigger" @click="open = !open">{{ i18n.current_language_name }}</span>
 
     <div
         class="translation-menu__actual"
@@ -19,7 +19,6 @@
                     <a
                         href="{{ language.url }}"
                         class="translation-menu__item{{ (language.active) ? ' is-active' : '' }}"
-                        @click="currentTranslation = '{{ language.native_name }}'"
                     >{{ language.native_name }}</a>
                 {% endfor %}
             </div>

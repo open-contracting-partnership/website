@@ -2,9 +2,9 @@
 
 namespace App\Http;
 
-use Rareloop\Lumberjack\Http\Lumberjack as LumberjackCore;
 use App\Menu\Menu;
 use ImLiam\ShareableLink;
+use Rareloop\Lumberjack\Http\Lumberjack as LumberjackCore;
 
 class Lumberjack extends LumberjackCore
 {
@@ -98,6 +98,10 @@ class Lumberjack extends LumberjackCore
 
     public function addLanguageContext(&$context)
     {
+        $currentLanguageCode = apply_filters('wpml_current_language', null);
+        $currentLanguageName = apply_filters('wpml_translated_language_name', null, $currentLanguageCode);
+
+        $context['i18n']['current_language_name'] = $currentLanguageName;
         $context['i18n']['alternate_languages'] = apply_filters('wpml_active_languages', []);
     }
 }
