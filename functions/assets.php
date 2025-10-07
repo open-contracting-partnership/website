@@ -44,6 +44,7 @@ add_action('wp_enqueue_scripts', function () {
     if (is_home()) {
         wp_localize_script('latest-news', 'latest_news_content', [
             'posts' => News::getPosts(),
+            'filters' => News::getFilters(),
         ]);
 
         wp_enqueue_script('latest-news');
