@@ -9,7 +9,7 @@ class StatsServiceProvider
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         add_action('acf/init', function () {
             acf_register_block_type([
@@ -27,7 +27,7 @@ class StatsServiceProvider
         });
     }
 
-    public function render($block, $content = '', $is_preview = false, $post_id = 0)
+    public function render(array $block, string $content = '', bool $is_preview = false, int $post_id = 0): void
     {
         $context = Timber::get_context();
 
@@ -39,6 +39,6 @@ class StatsServiceProvider
         $context['block']['show_plus_icons'] = get_field('show_plus_icons') ?? true;
         $context['block']['preview'] = $is_preview;
 
-        echo Timber::compile('blocks/stats.twig', $context);
+        Timber::render('blocks/stats.twig', $context);
     }
 }

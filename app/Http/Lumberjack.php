@@ -2,7 +2,6 @@
 
 namespace App\Http;
 
-use App\Menu\Menu;
 use ImLiam\ShareableLink;
 use Rareloop\Lumberjack\Http\Lumberjack as LumberjackCore;
 

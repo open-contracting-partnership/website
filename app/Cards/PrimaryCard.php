@@ -6,7 +6,7 @@ use App\PostTypes\Event;
 
 class PrimaryCard extends BaseCard
 {
-    public static function convertTimberPost($post)
+    public static function convertTimberPost($post): array
     {
         $tags = collect($post->terms('issue'))
             ->map(function ($tag) {

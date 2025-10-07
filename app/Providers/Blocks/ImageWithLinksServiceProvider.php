@@ -9,7 +9,7 @@ class ImageWithLinksServiceProvider
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         add_action('acf/init', function () {
             acf_register_block_type([
@@ -28,7 +28,7 @@ class ImageWithLinksServiceProvider
         });
     }
 
-    public function render()
+    public function render(): void
     {
         $context = Timber::get_context();
 
@@ -45,6 +45,6 @@ class ImageWithLinksServiceProvider
         // options
         $context['block']['options'] = get_field('options') ?: [];
 
-        echo Timber::compile('blocks/image-with-links.twig', $context);
+        Timber::render('blocks/image-with-links.twig', $context);
     }
 }

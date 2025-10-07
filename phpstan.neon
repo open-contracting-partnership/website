@@ -1,0 +1,24 @@
+parameters:
+    level: 5
+    paths:
+        - app
+        - blocks
+        - config
+        - functions
+        - functions.php
+    ignoreErrors:
+        - '#Method (.+) return type has no value type specified in iterable type array.#'
+        - '#Method (.+) has parameter (.+) with no value type specified in iterable type array.#'
+        - '#Function acf_get_field_groups not found.#'
+        - '#Function acf_register_block_type not found.#'
+        - '#Function acf_render_field_setting not found.#'
+        - '#Function get_field not found.#'
+        - '#Function get_row_layout not found.#'
+        - '#Function get_sub_field not found.#'
+        - '#Function have_rows not found.#'
+        - '#Function the_row not found.#'
+        - '#Undefined variable: \$block#'
+        - '#Variable \$is_preview might not be defined.#'
+        - '#Variable \$block in isset\(\) is never defined.#'
+        - '#Call to an undefined static method Rareloop\\Lumberjack\\Facades\\Config::get\(\).#'
+        - '#Call to an undefined static method Rareloop\\Lumberjack\\Facades\\Log::error\(\).#'

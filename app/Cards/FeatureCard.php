@@ -4,7 +4,7 @@ namespace App\Cards;
 
 class FeatureCard extends BaseCard
 {
-    public static function convertTimberPost($post)
+    public static function convertTimberPost($post): array
     {
         return [
             'image_url' => $post->thumbnail ? $post->thumbnail->src : null,

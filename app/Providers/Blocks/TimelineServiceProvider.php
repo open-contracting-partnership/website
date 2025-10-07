@@ -9,7 +9,7 @@ class TimelineServiceProvider
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         add_action('acf/init', function () {
             acf_register_block_type([
@@ -39,7 +39,7 @@ class TimelineServiceProvider
         });
     }
 
-    public function render($block, $content = '', $is_preview = false)
+    public function render(array $block, string $content = '', bool $is_preview = false): void
     {
         $context = Timber::get_context();
 
@@ -48,6 +48,6 @@ class TimelineServiceProvider
         $context['block']['google_sheet_url'] = get_field('google_sheet_url');
         $context['block']['is_preview'] = $is_preview;
 
-        echo Timber::compile('blocks/timeline.twig', $context);
+        Timber::render('blocks/timeline.twig', $context);
     }
 }

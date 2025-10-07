@@ -9,7 +9,7 @@ class WhereWeWorkServiceProvider
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         add_action('acf/init', function () {
             acf_register_block_type([
@@ -27,7 +27,7 @@ class WhereWeWorkServiceProvider
         });
     }
 
-    public function render()
+    public function render(): void
     {
         $context = Timber::get_context();
 
@@ -39,6 +39,6 @@ class WhereWeWorkServiceProvider
                 return $region;
             });
 
-        echo Timber::compile('blocks/where-we-work.twig', $context);
+        Timber::render('blocks/where-we-work.twig', $context);
     }
 }

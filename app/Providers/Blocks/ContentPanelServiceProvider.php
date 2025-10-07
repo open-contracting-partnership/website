@@ -9,7 +9,7 @@ class ContentPanelServiceProvider
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         add_action('acf/init', function () {
             acf_register_block_type([
@@ -32,7 +32,7 @@ class ContentPanelServiceProvider
         });
     }
 
-    public function render($block, $content = '', $is_preview = false, $post_id = 0)
+    public function render(array $block, string $content = '', bool $is_preview = false, int $post_id = 0): void
     {
         $context = Timber::get_context();
 
@@ -52,6 +52,6 @@ class ContentPanelServiceProvider
         $context['block']['text_align'] = $block['align_text'] ?? 'left';
         $context['block']['options'] = get_field('options') ?: [];
 
-        echo Timber::compile('blocks/content-panel.twig', $context);
+        Timber::render('blocks/content-panel.twig', $context);
     }
 }

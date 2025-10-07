@@ -9,12 +9,17 @@
 		"imgix/imgix-php": "^3.3"
 	},
 	"require-dev": {
-		"php-stubs/acf-pro-stubs": "^6.3",
-		"php-stubs/wordpress-stubs": "^6.8"
+		"php-stubs/acf-pro-stubs": "^6.5",
+		"php-stubs/wordpress-stubs": "^6.8",
+		"phpstan/extension-installer": "^1.4",
+		"phpstan/phpstan": "^2.1",
+		"szepeviktor/phpstan-wordpress": "^2.0"
 	},
 	"config": {
 		"allow-plugins": {
-			"composer/installers": true
-		}
+			"composer/installers": true,
+			"phpstan/extension-installer": true
+		},
+        "sort-packages": true
 	}
 }

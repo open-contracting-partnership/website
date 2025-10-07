@@ -11,14 +11,14 @@ class ImgixServiceProvider extends ServiceProvider
     /**
      * Register any app specific items into the container
      */
-    public function register()
+    public function register(): void
     {
     }
 
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         add_filter('timber/twig', function (\Twig_Environment $twig) {
             $twig->addFunction(new \Twig\TwigFunction('imgix', [$this, 'render']));
@@ -26,7 +26,7 @@ class ImgixServiceProvider extends ServiceProvider
         });
     }
 
-    public function render($args)
+    public function render(array $args): string
     {
         $this->prepareParams($args);
 
@@ -44,9 +44,8 @@ class ImgixServiceProvider extends ServiceProvider
         return Timber::compile('partials/imgix.twig', $image);
     }
 
-    private function prepareParams(&$args)
+    private function prepareParams(array &$args): void
     {
-
         // make sure the host is set within the params
         $args = array_merge([
             'host_transforms' => Config::get('images.imgix_host_transforms'),
@@ -56,7 +55,7 @@ class ImgixServiceProvider extends ServiceProvider
         ], $args);
     }
 
-    private function buildSources($args)
+    private function buildSources(array $args): string
     {
         $srcset = array_map(function ($transform) use ($args) {
             return $this->buildURL($args, $transform) . ' ' . $transform['w'] . 'w';
@@ -65,7 +64,7 @@ class ImgixServiceProvider extends ServiceProvider
         return implode(', ', $srcset);
     }
 
-    private function buildURL($args, $transform = null)
+    private function buildURL(array $args, $transform = null): string
     {
         if ($transform === null && isset($args['transforms'][0])) {
             $transform = $args['transforms'][0];

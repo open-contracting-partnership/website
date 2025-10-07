@@ -6,7 +6,7 @@ use App\PostTypes\Event;
 
 class BasicCard extends BaseCard
 {
-    public static function convertTimberPost($post)
+    public static function convertTimberPost($post): array
     {
         $data = [
             'title' => $post->post_title,

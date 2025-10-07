@@ -9,7 +9,7 @@ class FeaturedStoriesCarouselServiceProvider
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         add_action('acf/init', function () {
             acf_register_block_type([
@@ -37,7 +37,7 @@ class FeaturedStoriesCarouselServiceProvider
         });
     }
 
-    public function render()
+    public function render(): void
     {
         $context = Timber::get_context();
 
@@ -59,6 +59,6 @@ class FeaturedStoriesCarouselServiceProvider
         $context['block']['options'] = get_field('options') ?: [];
         $context['block']['options']['show_overlay'] = get_field('show_overlay') ?? true;
 
-        echo Timber::compile('blocks/featured-stories-carousel.twig', $context);
+        Timber::render('blocks/featured-stories-carousel.twig', $context);
     }
 }

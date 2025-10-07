@@ -44,7 +44,7 @@ class Resource extends Post
 
     public function image()
     {
-        return $this->thumbnail ? $this->thumbnail->src : null;
+        return $this->thumbnail() ? $this->thumbnail()->src : null;
     }
 
     public function resourceType()
@@ -59,8 +59,8 @@ class Resource extends Post
         // it doesn't matter if the type is truthy, it must be an instance of
         // Timber\Term to have a colour
 
-        if ($this->resourceType instanceof Term && isset($this->resourceType->colour)) {
-            $colour = $this->resourceType->colour;
+        if ($this->resourceType() instanceof Term && isset($this->resourceType()->colour)) {
+            $colour = $this->resourceType()->colour;
         }
 
         return $colour;

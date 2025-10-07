@@ -9,7 +9,7 @@ class OurModelServiceProvider
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         add_action('acf/init', function () {
             acf_register_block_type([
@@ -31,7 +31,7 @@ class OurModelServiceProvider
         });
     }
 
-    public function render()
+    public function render(): void
     {
         $context = Timber::get_context();
 
@@ -64,6 +64,6 @@ class OurModelServiceProvider
         // options
         $context['block']['options'] = get_field('options') ?: [];
 
-        echo Timber::compile('blocks/our-model.twig', $context);
+        Timber::render('blocks/our-model.twig', $context);
     }
 }
