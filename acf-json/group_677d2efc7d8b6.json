@@ -30,7 +30,9 @@
             "allow_in_bindings": 0,
             "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_677fc7cfc21bd",
@@ -60,7 +62,9 @@
             "allow_in_bindings": 0,
             "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_677fefa4f65ec",
@@ -127,7 +131,7 @@
             {
                 "param": "nav_menu_item",
                 "operator": "==",
-                "value": "391"
+                "value": "location\/header-primary-nav"
             }
         ]
     ],
@@ -141,5 +145,5 @@
     "description": "",
     "show_in_rest": 0,
     "acfml_field_group_mode": "translation",
-    "modified": 1737024546
+    "modified": 1759830984
 }
