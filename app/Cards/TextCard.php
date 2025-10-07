@@ -4,7 +4,7 @@ namespace App\Cards;
 
 class TextCard extends BaseCard
 {
-    public static function convertTimberPost($post)
+    public static function convertTimberPost($post): array
     {
         return [
             'title' => $post->post_title,

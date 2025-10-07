@@ -14,7 +14,6 @@ class HomeController extends Controller
         $context = Timber::get_context();
 
         $this->setContentContext($context);
-        $this->setFilterContext($context);
 
         // fetch the blog content from the other page
         $blog_content_page = new TimberPost(6335);
@@ -33,19 +32,5 @@ class HomeController extends Controller
             'The load more posts label for the latest news',
             'ocp'
         );
-    }
-
-    protected function setFilterContext(&$context)
-    {
-        $context['latest']['issues'] = collect(get_terms([
-                'taxonomy' => 'issue',
-            ]))
-            ->map(function ($term) {
-                return [
-                    'id' => $term->term_id,
-                    'name' => $term->name,
-                    'slug' => $term->slug,
-                ];
-            });
     }
 }

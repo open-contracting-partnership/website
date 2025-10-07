@@ -10,7 +10,7 @@ class SignUpCoverServiceProvider
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         add_action('acf/init', function () {
             acf_register_block_type([
@@ -38,7 +38,7 @@ class SignUpCoverServiceProvider
         });
     }
 
-    public function render()
+    public function render(): void
     {
         $context = Timber::get_context();
 
@@ -79,6 +79,6 @@ class SignUpCoverServiceProvider
             $context['block']['related'] = PrimaryCard::convertCollection($related);
         }
 
-        echo Timber::compile('blocks/sign-up-cover.twig', $context);
+        Timber::render('blocks/sign-up-cover.twig', $context);
     }
 }

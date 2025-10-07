@@ -67,7 +67,6 @@
     "vuex-router-sync": "^5.0.0"
   },
   "dependencies": {
-    "@alpinejs/persist": "^3.10.2",
     "@knight-lab/timelinejs": "^3.9.6",
     "alpinejs": "^3.9.2",
     "less-loader": "^12.2.0",

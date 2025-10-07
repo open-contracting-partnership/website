@@ -9,7 +9,7 @@ class QuoteCarouselServiceProvider
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         add_action('acf/init', function () {
             acf_register_block_type([
@@ -31,7 +31,7 @@ class QuoteCarouselServiceProvider
         });
     }
 
-    public function render()
+    public function render(): void
     {
         $context = Timber::get_context();
 
@@ -61,6 +61,6 @@ class QuoteCarouselServiceProvider
         // options
         $context['block']['options'] = get_field('options') ?: [];
 
-        echo Timber::compile('blocks/quote-carousel.twig', $context);
+        Timber::render('blocks/quote-carousel.twig', $context);
     }
 }

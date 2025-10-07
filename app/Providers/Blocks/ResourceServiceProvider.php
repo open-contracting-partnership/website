@@ -10,7 +10,7 @@ class ResourceServiceProvider
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         add_action('acf/init', function () {
             acf_register_block_type([
@@ -29,7 +29,7 @@ class ResourceServiceProvider
         });
     }
 
-    public function render()
+    public function render(): void
     {
         $context = Timber::get_context();
 
@@ -62,6 +62,6 @@ class ResourceServiceProvider
         // options
         $context['block']['options'] = get_field('options') ?: [];
 
-        echo Timber::compile('blocks/resource.twig', $context);
+        Timber::render('blocks/resource.twig', $context);
     }
 }

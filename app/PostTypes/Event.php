@@ -85,6 +85,6 @@ class Event extends Post
 
     public function formattedDate()
     {
-        return humanDateRanges($this->event_date, $this->event_end_date ?: $this->event_date);
+        return humanDateRanges($this->meta('event_date'), $this->meta('event_end_date') ?: $this->meta('event_date'));
     }
 }

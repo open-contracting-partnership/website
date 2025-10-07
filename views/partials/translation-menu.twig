@@ -1,10 +1,10 @@
 <div
     class="translation-menu"
     :class="open ? 'is-open' : ''"
-    x-data="{ open: false, currentTranslation: $persist('English') }"
+    x-data="{ open: false }"
     @click.away="open = false"
 >
-    <span class="translation-menu__trigger" @click="open = !open" x-text="currentTranslation"></span>
+    <span class="translation-menu__trigger" @click="open = !open">{{ i18n.current_language_name }}</span>
 
     <div
         class="translation-menu__actual"
@@ -14,11 +14,11 @@
         {% if i18n.alternate_languages %}
             <div class="translation-menu__group">
                 <span class="translation-menu__title">Full site translations</span>
+
                 {% for language in i18n.alternate_languages %}
                     <a
                         href="{{ language.url }}"
                         class="translation-menu__item{{ (language.active) ? ' is-active' : '' }}"
-                        @click="currentTranslation = '{{ language.native_name }}'"
                     >{{ language.native_name }}</a>
                 {% endfor %}
             </div>
@@ -27,6 +27,7 @@
         {% if header.translations_menu.items|length > 0 %}
             <div class="translation-menu__group">
                 <span class="translation-menu__title">Summary translations</span>
+
                 {% for item in header.translations_menu.items %}
                     <a
                         href="{{ item.url }}"

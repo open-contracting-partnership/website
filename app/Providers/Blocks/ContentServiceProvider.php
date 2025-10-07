@@ -9,7 +9,7 @@ class ContentServiceProvider
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         add_action('acf/init', function () {
             acf_register_block_type([
@@ -28,7 +28,7 @@ class ContentServiceProvider
         });
     }
 
-    public function render()
+    public function render(): void
     {
         $context = Timber::get_context();
 
@@ -78,6 +78,6 @@ class ContentServiceProvider
             $context['block']['options']['classes'] = $block['className'];
         }
 
-        echo Timber::compile('blocks/content.twig', $context);
+        Timber::render('blocks/content.twig', $context);
     }
 }

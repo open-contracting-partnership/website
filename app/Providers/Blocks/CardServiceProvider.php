@@ -9,7 +9,7 @@ class CardServiceProvider
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
         add_action('acf/init', function () {
             acf_register_block_type([
@@ -28,7 +28,7 @@ class CardServiceProvider
         });
     }
 
-    public function render($block, $content = '', $is_preview = false, $post_id = 0)
+    public function render(array $block, string $content = '', bool $is_preview = false, int $post_id = 0): void
     {
         $context = Timber::get_context();
 
@@ -66,6 +66,6 @@ class CardServiceProvider
         // options
         $context['block']['options'] = get_field('options') ?: [];
 
-        echo Timber::compile('blocks/card.twig', $context);
+        Timber::render('blocks/card.twig', $context);
     }
 }

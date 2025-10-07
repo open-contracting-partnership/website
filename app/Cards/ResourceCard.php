@@ -8,7 +8,7 @@ use Rareloop\Lumberjack\Facades\Config;
 
 class ResourceCard extends BaseCard
 {
-    public static function convertTimberPost($post)
+    public static function convertTimberPost($post): array
     {
         if ($post->type->slug === 'resource' && get_class($post) === 'Timber\Post') {
             $post = new Resource($post->ID);

@@ -3,16 +3,15 @@
 namespace App\Cards;
 
 use Timber\Post;
+use WP_Post;
 
 class BaseCard
 {
     /**
      * convert the incoming post object to one formatted specifically for the
      * card that extends this class
-     * @param  int/WP_Post/TimberPost $post the incoming post data
-     * @return array the post data array
      */
-    public static function convertPost($post)
+    public static function convertPost(int|Post|WP_Post $post): array
     {
         // idealy we'd like to only convert one data type, if the incoming data
         // is an ID or WP_Post object, convert it to a Timber\Post so we can
@@ -25,6 +24,13 @@ class BaseCard
         if (is_object($post) && ( get_class($post) === 'Timber\Post' || is_subclass_of($post, 'Timber\Post') )) {
             return static::convertTimberPost($post);
         }
+
+        return [];
+    }
+
+    public static function convertTimberPost($post): array
+    {
+        return [];
     }
 
     public static function convertCollection($collection, $callback = null)

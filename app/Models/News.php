@@ -24,4 +24,20 @@ class News
 
         return $posts;
     }
+
+    public static function getFilters(): array
+    {
+        return collect(get_terms([
+            'taxonomy' => 'issue',
+        ]))
+            ->map(function ($term) {
+                return [
+                    'id' => $term->term_id,
+                    'name' => $term->name,
+                    'slug' => $term->slug,
+                ];
+            })
+            ->values()
+            ->toArray();
+    }
 }

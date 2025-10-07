@@ -10,27 +10,26 @@
                 }
             } %}
 
-            <div class="filter-menu">
+            <div class="filter-menu" v-cloak>
                 <div class="filter-header">
                     <p class="filter-text">{{ __('Filter by multiple issues', 'ocp') }}:</p>
                     <button class="filter__reset-link" @click="reset">{{ __('Reset all filters', 'ocp') }}</button>
                 </div>
 
                 <div class="filters-container">
-                    {% for issue in latest.issues %}
+                    <label
+                        v-for="issue in filters.available"
+                        class="filter-item"
+                    >
+                        <input
+                            type="checkbox"
+                            class="filter-item__input"
+                            :value="issue.slug"
+                            v-model="filters.selected"
+                        >
 
-                        <label class="filter-item">
-                            <input
-                                type="checkbox"
-                                name="regions"
-                                class="filter-item__input"
-                                value="{{ issue.slug }}"
-                                v-model="filters"
-                            >
-
-                            <span class="filter-item__control" data-colour="green">{{ issue.name }}</span>
-                        </label>
-                    {% endfor %}
+                        <span class="filter-item__control" data-colour="green" v-text="issue.name"></span>
+                    </label>
                 </div>
             </div>
 

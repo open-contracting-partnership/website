@@ -11,7 +11,6 @@ $excerpt_length = 15;
  */
 function _the_excerpt($length = 15)
 {
-
     global $excerpt_length;
 
     $excerpt_length = $length;
@@ -45,7 +44,6 @@ function prevent_widow($text)
  */
 function get_post_type_label($post_type = null, $plural = false)
 {
-
     $post_type = $post_type ?: get_post_type();
     $post_type_object = get_post_type_object($post_type);
     $label = false;
@@ -63,11 +61,8 @@ function get_post_type_label($post_type = null, $plural = false)
 
 /**
  * echo alias of `get_post_type_label`
- * @param  mixed $post_type
- * @param  boolean $plural
- * @return NULL
  */
-function the_post_type_label($post_type = null, $plural = false)
+function the_post_type_label($post_type = null, bool $plural = false): void
 {
     echo get_post_type_label($post_type, $plural);
 }
@@ -78,14 +73,9 @@ function the_post_type_label($post_type = null, $plural = false)
 
 /**
 * impodes an array with both standard and last items glue
-* @param  string $standard_glue
-* @param  string $last_nodes_glue
-* @param  array $array
-* @return array
 */
-function array_multi_implode($standard_glue, $last_nodes_glue, $array)
+function array_multi_implode(string $standard_glue, string $last_nodes_glue, array $array): string
 {
-
     $length = count($array);
 
     if ($length > 1) {
@@ -102,12 +92,11 @@ function array_multi_implode($standard_glue, $last_nodes_glue, $array)
 
 function get_post_authors($post_id)
 {
-
     // set the initial authors array as the normal post author...
     $authors = array(get_author_object(get_post_field('post_author', $post_id)));
 
     // but if multiple authors have been set, completely overwrite this array
-    if (have_rows('authors', $post_id)) {
+    if (\have_rows('authors', $post_id)) {
         $authors = array();
 
         // loop through the rows of data
@@ -134,7 +123,6 @@ function get_post_authors($post_id)
 
 function get_author_object($author_id = null)
 {
-
     if (! $author_id) {
         $author_id = get_the_author_meta('ID');
     }
@@ -147,7 +135,6 @@ function get_author_object($author_id = null)
 
 function get_authors($post_id = null, $with_links = false)
 {
-
     // we should never display an author for news posts
     if (get_post_type() === 'news') {
         return '';
@@ -177,7 +164,6 @@ function get_authors($post_id = null, $with_links = false)
 
     return array_multi_implode(', ', ' and ', $output);
 }
-
 
 function the_authors($post_id = null, $with_links = false)
 {

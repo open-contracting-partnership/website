@@ -10,16 +10,15 @@ class AdminServiceProvider extends ServiceProvider
     /**
      * Register any app specific items into the container
      */
-    public function register()
+    public function register(): void
     {
     }
 
     /**
      * Perform any additional boot required for this application
      */
-    public function boot()
+    public function boot(): void
     {
-
         add_action('init', [$this, 'updatePostObjectLabel']);
         add_action('admin_menu', [$this, 'updatePostMenuLabel']);
 
@@ -29,8 +28,8 @@ class AdminServiceProvider extends ServiceProvider
 
             $context['gutenberg_fields_visibility'] = $this->getGutenbergFieldVisibility();
 
-            echo Timber::compile('partials/acf-gutenberg-visibility.twig', $context);
-            echo Timber::compile('partials/svg-loader.twig', $context);
+            Timber::render('partials/acf-gutenberg-visibility.twig', $context);
+            Timber::render('partials/svg-loader.twig', $context);
         });
 
         add_filter('upload_mimes', function ($mimes) {
@@ -39,16 +38,17 @@ class AdminServiceProvider extends ServiceProvider
         });
     }
 
-    public function updatePostMenuLabel()
+    public function updatePostMenuLabel(): void
     {
         global $menu;
-        global $submenu;
+
         $menu[5][0] = 'Blog';
     }
 
-    public function updatePostObjectLabel()
+    public function updatePostObjectLabel(): void
     {
         global $wp_post_types;
+
         $labels = &$wp_post_types['post']->labels;
         $labels->name = _x('Blog', 'Blog custom post type (plural)', 'ocp');
         $labels->singular_name = _x('Blog', 'Blog custom post type (singular)', 'ocp');
@@ -62,9 +62,8 @@ class AdminServiceProvider extends ServiceProvider
         $labels->not_found_in_trash = 'No blog posts found in Trash';
     }
 
-    public function getGutenbergFieldVisibility()
+    public function getGutenbergFieldVisibility(): array
     {
-
         $field_groups = acf_get_field_groups();
         $field_gutenberg_visibility = [];
 
