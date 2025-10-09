@@ -1,96 +1,90 @@
 .block[data-block-type="card"] {
+    // attempt to use custom variables, otherwise fallback on the defaults
+    --highlight: var(--custom-highlight, #{$ui-black});
+    --background: var(--custom-background, #{$ui-white});
+    --colour: var(--custom-colour, #{$ui-black});
 
-	// attempt to use custom variables, otherwise fallback on the defaults
-	--highlight: var(--custom-highlight, #{$ui-black});
-	--background: var(--custom-background, #{$ui-white});
-	--colour: var(--custom-colour, #{$ui-black});
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: white;
+    border: 3px solid var(--highlight);
+    border-radius: 32px 8px;
+    padding: spacing(3.5);
+    font-size: 16px;
+    color: black;
+    overflow: hidden;
 
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	background-color: white;
-	border: 3px solid var(--highlight);
-	border-radius: 32px 8px;
-	padding: spacing(3.5);
-	font-size: 16px;
-	color: black;
-	overflow: hidden;
+    @include el_from(500) {
+        --icon-size: 135px;
 
-	@include el_from(500) {
+        background: white;
+        padding-right: calc(var(--icon-size) + #{spacing(6)});
 
-		--icon-size: 135px;
+        &::before {
+            font-size: var(--icon-size);
+            content: '';
+            display: block;
+            border: .19em solid var(--highlight);
+            border-radius: 50%;
+            height: 1em;
+            width: 1em;
+            position: absolute;
+            bottom: -.5em;
+            right: spacing(3);
+        }
+    }
 
-		background: white;
-		padding-right: calc(var(--icon-size) + #{spacing(6)});
+    .block__main {
+        @apply space-y-3;
+        @apply mb-auto;
+        z-index: 1;
+    }
 
-		&::before {
-			font-size: var(--icon-size);
-			content: '';
-			display: block;
-			border: .19em solid var(--highlight);
-			border-radius: 50%;
-			height: 1em;
-			width: 1em;
-			position: absolute;
-			bottom: -.5em;
-			right: spacing(3);
-		}
+        .block__heading {
+            font-size: 20px;
+            font-weight: bold;
+            display: block;
+            text-decoration: none;
+        }
 
-	}
+        .block__lead {
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            font-size: em(15, 20);
+            color: var(--colour);
+            font-weight: normal;
+            margin-bottom: spacing(1);
+        }
 
-	.block__main {
-		@apply space-y-3;
-		@apply mb-auto;
-		z-index: 1;
-	}
+            .block__circle-icon {
+                flex: 0 0 1em;
+                display: block;
+                font-size: 24px;
+                height: 1em;
+                width: 1em;
+                border-radius: 50%;
+                border: em(6, 24) solid var(--highlight);
+                flex: 0 0 auto;
+                margin-right: spacing(1);
+                box-sizing: border-box;
+            }
 
-		.block__heading {
-			font-size: 20px;
-			font-weight: bold;
-			display: block;
-			text-decoration: none;
-		}
+        .block__buttons {
+            margin-top: auto;
+            display: flex;
+            flex-wrap: wrap;
+            grid-gap: spacing(2);
+            grid-template-columns: repeat(2, 1fr);
 
-		.block__lead {
-			display: flex;
-			align-items: center;
-			text-transform: uppercase;
-			font-size: em(15, 20);
-			color: var(--colour);
-			font-weight: normal;
-			margin-bottom: spacing(1);
-		}
+            > * {
+                display: block;
+            }
+        }
 
-			.block__circle-icon {
-				flex: 0 0 1em;
-				display: block;
-				font-size: 24px;
-				height: 1em;
-				width: 1em;
-				border-radius: 50%;
-				border: em(6, 24) solid var(--highlight);
-				flex: 0 0 auto;
-				margin-right: spacing(1);
-				box-sizing: border-box;
-			}
-
-		.block__buttons {
-
-			margin-top: auto;
-			display: flex;
-			flex-wrap: wrap;
-			grid-gap: spacing(2);
-			grid-template-columns: repeat(2, 1fr);
-
-			> * {
-				display: block;
-			}
-
-		}
-
-	.block__footer {
-		@apply mt-3;
-		z-index: 1;
-	}
-
+    .block__footer {
+        @apply mt-3;
+        z-index: 1;
+    }
 }

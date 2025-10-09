@@ -5,13 +5,13 @@
     --border-radius: #{spacing(5)} #{spacing(1)};
 
     position: relative;
-	border-radius: var(--border-radius);
-	background-color: var(--background-colour);
-	color: var(--text-colour);
-	display: flex;
+    border-radius: var(--border-radius);
+    background-color: var(--background-colour);
+    color: var(--text-colour);
+    display: flex;
     overflow: hidden;
 
-	.card__body {
+    .card__body {
         --padding: #{spacing(3)};
 
         border-bottom-left-radius: var(--border-radius-small);
@@ -23,7 +23,7 @@
         @include from(T) {
             --padding: #{spacing(4)};
         }
-	}
+    }
 
         .card__heading {
             font-size: 24px;

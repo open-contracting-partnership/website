@@ -1,73 +1,53 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
 <div id="{{ options.id }}" class="block" data-block-type="stories">
+    <div class="block__background" style="background-color: {{ block.background_colour }}"></div>
 
-	<div class="block__background" style="background-color: {{ block.background_colour }}"></div>
+    <div class="block__container" style="color: {{ block.text_colour }};">
+        <div class="block__header">
+            <h2 class="block__heading">{{ block.primary_title }}</h2>
 
-	<div class="block__container" style="color: {{ block.text_colour }};">
+            {% for link in block.primary_links %}
+                <a class="arrow-link" href="{{ link.url }}">
+                    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                    <span class="arrow-link__label">{{ link.title }}</span>
+                </a>
+            {% endfor %}
+        </div>
 
-		<div class="block__header">
+        {% if block.primary_content %}
+            <div class="block__content">
+                {{ block.primary_content | raw }}
+            </div>
+        {% endif %}
 
-			<h2 class="block__heading">{{ block.primary_title }}</h2>
+        <div class="block__primary-stories">
+            {% for card in block.primary_stories %}
+                {% include 'cards/feature.twig' with card %}
+            {% endfor %}
+        </div> <!-- / .block__primary-stories -->
 
-			{% for link in block.primary_links %}
+        <div class="block__header">
+            <h2 class="block__heading">{{ block.secondary_title }}</h2>
 
-				<a class="arrow-link" href="{{ link.url }}">
-					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-					<span class="arrow-link__label">{{ link.title }}</span>
-				</a>
+            {% for link in block.secondary_links %}
+                <a class="arrow-link" href="{{ link.url }}">
+                    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                    <span class="arrow-link__label">{{ link.title }}</span>
+                </a>
+            {% endfor %}
+        </div>
 
-			{% endfor %}
+        {% if block.secondary_content %}
+            <div class="block__content">
+                {{ block.secondary_content | raw }}
+            </div>
+        {% endif %}
 
-		</div>
-
-		{% if block.primary_content %}
-
-			<div class="block__content">
-				{{ block.primary_content | raw }}
-			</div>
-
-		{% endif %}
-
-		<div class="block__primary-stories">
-
-			{% for card in block.primary_stories %}
-				{% include 'cards/feature.twig' with card %}
-			{% endfor %}
-
-		</div> <!-- / .block__primary-stories -->
-
-		<div class="block__header">
-
-			<h2 class="block__heading">{{ block.secondary_title }}</h2>
-
-			{% for link in block.secondary_links %}
-
-				<a class="arrow-link" href="{{ link.url }}">
-					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-					<span class="arrow-link__label">{{ link.title }}</span>
-				</a>
-
-			{% endfor %}
-
-		</div>
-
-		{% if block.secondary_content %}
-
-			<div class="block__content">
-				{{ block.secondary_content | raw }}
-			</div>
-
-		{% endif %}
-
-		<div class="block__secondary-stories">
-
-			{% for card in block.secondary_stories %}
-				{% include 'cards/primary.twig' with card %}
-			{% endfor %}
-
-		</div> <!-- / .block__secondary-stories -->
-
-	</div>
-
+        <div class="block__secondary-stories">
+            {% for card in block.secondary_stories %}
+                {% include 'cards/primary.twig' with card %}
+            {% endfor %}
+        </div> <!-- / .block__secondary-stories -->
+    </div>
 </div>

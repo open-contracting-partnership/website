@@ -1,36 +1,36 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<main id="resource-archive" class="page-container / resource-archive">
-		{% include 'blocks/simple-header.twig' with {
+    <main id="resource-archive" class="page-container / resource-archive">
+        {% include 'blocks/simple-header.twig' with {
             block: {
                 heading: title,
                 content: resources.i18n.introduction,
             }
         } %}
 
-		<div class="resource-archive__controls">
-			<div>
-				<div class="filter-menu">
-					<div class="resource-archive__search /  search-box" data-size="large">
-						<input class="search-box__input / uppercase" v-model="search" type="text" aria-label="Search" placeholder="Search">
+        <div class="resource-archive__controls">
+            <div>
+                <div class="filter-menu">
+                    <div class="resource-archive__search /  search-box" data-size="large">
+                        <input class="search-box__input / uppercase" v-model="search" type="text" aria-label="Search" placeholder="Search">
 
                         <button class="search-box__reset" @click="resetSearch">
-							<svg><use xlink:href="#icon-close"></use></svg>
+                            <svg><use xlink:href="#icon-close"></use></svg>
                         </button>
 
-						<span class="search-box__icon">
-							<svg><use xlink:href="#icon-search-rounded"></use></svg>
-						</span>
-					</div>
+                        <span class="search-box__icon">
+                            <svg><use xlink:href="#icon-search-rounded"></use></svg>
+                        </span>
+                    </div>
 
-					{% for filter in resource_library_filters %}
-						<div class="filter-header">
-							<p class="filter-text">{{ filter.title }}</p>
-						</div>
+                    {% for filter in resource_library_filters %}
+                        <div class="filter-header">
+                            <p class="filter-text">{{ filter.title }}</p>
+                        </div>
 
-						<div class="filters-container">
-							{% for field in filter.filter %}
+                        <div class="filters-container">
+                            {% for field in filter.filter %}
                                 <label class="filter-item">
                                     <input
                                         type="checkbox"
@@ -43,26 +43,26 @@
 
                                     <span class="filter-item__control" data-colour="{{ field.colour }}" >{{ field.label }}</span>
                                 </label>
-							{% endfor %}
-						</div>
-					{% endfor %}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
 
                     <button class="button--naked / filter__reset-link" @click="reset">Reset all filters</button>
-				</div>
-			</div>
+                </div>
+            </div>
 
-			<div class="resource-archive__results">
-				<template v-if="visibleResources.length">
-					<div
+            <div class="resource-archive__results">
+                <template v-if="visibleResources.length">
+                    <div
                         class="resource-archive__results-card"
-						v-for="resource in visibleResources"
-						v-bind:key="resource.id"
-						v-html="resource.card"
-					></div>
-				</template>
+                        v-for="resource in visibleResources"
+                        v-bind:key="resource.id"
+                        v-html="resource.card"
+                    ></div>
+                </template>
 
-				<p v-else class="resource-archive__no-results">{{ resources.i18n.no_results_label }}</p>
-			</div>
-		</div>
-	</main>
+                <p v-else class="resource-archive__no-results">{{ resources.i18n.no_results_label }}</p>
+            </div>
+        </div>
+    </main>
 {% endblock %}

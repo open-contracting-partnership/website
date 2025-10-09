@@ -5,7 +5,6 @@
 }
 
 	.event-archive__header {
-
 		grid-column: all;
 		margin-bottom: var(--v-spacing);
 
@@ -16,7 +15,6 @@
 		@include from(M) {
 			grid-column: 1 / 7;
 		}
-
 	}
 
 		.event-archive__heading {
@@ -30,7 +28,6 @@
 		}
 
 	.event-archive__sidebar {
-
 		grid-column: all;
 		margin-bottom: var(--v-spacing);
 
@@ -41,7 +38,6 @@
 		@include from(1200) {
 			grid-column: 1 / 4;
 		}
-
 	}
 
 		.event-archive__sidebar-heading {
@@ -52,17 +48,14 @@
 		}
 
 		.event-archive__sidebar-events {
-
 			margin-bottom: spacing(3);
 
 			.card--event {
 				margin-bottom: spacing(2);
 			}
-
 		}
 
 	.event-archive__next {
-
 		grid-column: all;
 
 		@include from(M) {
@@ -72,5 +65,4 @@
 		@include from(1200) {
 			grid-column: 5 / 13;
 		}
-
 	}

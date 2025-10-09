@@ -1,5 +1,4 @@
 .card.card--event {
-
 	position: relative;
 	border-radius: spacing(2) spacing(.5) spacing(.5) spacing(.5);
 	background-color: $ui-grey-8;
@@ -34,7 +33,6 @@
 		}
 
 	.card__title-link {
-
 		display: flex;
 		align-items: center;
 		color: currentColor;
@@ -50,7 +48,6 @@
 			bottom: 0;
 			left: 0;
 		}
-
 	}
 
 		.card__title {
@@ -60,5 +57,4 @@
 			color: currentColor;
 			overflow-wrap: break-word;
 		}
-
 }

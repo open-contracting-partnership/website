@@ -50,14 +50,12 @@
 }
 
 .resource-preview--green {
-
     background-color: $ui-brand;
 
     .resource-preview__title,
     .resource-preview__intro {
         color: $ui-grey-3;
     }
-
 }
 
 .resource-preview--orange {
@@ -65,7 +63,6 @@
 }
 
 .resource-preview--thumb {
-
     background-image: none;
     padding-top: 0;
 
@@ -76,7 +73,6 @@
     &.resource-preview--data {
         background-image: none;
     }
-
 }
 
 .resource-preview--data {

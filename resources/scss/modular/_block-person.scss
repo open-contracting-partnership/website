@@ -1,156 +1,134 @@
 .block[data-block-type="person"] {
+    grid-template-rows: [all-start] repeat(6, auto) [all-end];
 
-	grid-template-rows: [all-start] repeat(6, auto) [all-end];
+    .block__background {
+        grid-column: full;
+        grid-row: all;
+        position: relative;
+        overflow: hidden;
 
-	.block__background {
+        &::before {
+            @include fluid-type(font-size, 360px, 1344px, 145px, 500px);
+            content: '';
+            display: block;
+            border: .14em solid $ui-grey-6;
+            border-radius: 50%;
+            opacity: .1;
+            height: 1em;
+            width: 1em;
+            position: absolute;
+            bottom: -.55em;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
 
-		grid-column: full;
-		grid-row: all;
-		position: relative;
-		overflow: hidden;
-
-		&::before {
-			@include fluid-type(font-size, 360px, 1344px, 145px, 500px);
-			content: '';
-			display: block;
-			border: .14em solid $ui-grey-6;
-			border-radius: 50%;
-			opacity: .1;
-			height: 1em;
-			width: 1em;
-			position: absolute;
-			bottom: -.55em;
-			left: 50%;
-			transform: translateX(-50%);
-		}
-
-	}
-
-	.block__container {
-		position: relative;
-		grid-column: content;
-		grid-row: 2;
-		display: grid;
-		@extend %column-grid;
-		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(4), spacing(6));
+    .block__container {
+        position: relative;
+        grid-column: content;
+        grid-row: 2;
+        display: grid;
+        @extend %column-grid;
+        @include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(4), spacing(6));
         row-gap: spacing(6);
-	}
+    }
 
         .block__heading {
             grid-column: span 12;
             margin-bottom: 0;
 
             @media screen {
-				@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
-			}
+                @include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+            }
         }
 
-		.block__author {
-			grid-column: span 12;
-			display: flex;
+        .block__author {
+            grid-column: span 12;
+            display: flex;
 
             @include from(M) {
                 grid-column: span 6;
             }
-		}
+        }
 
-			.block__author-avatar {
+            .block__author-avatar {
+                flex: 0 0 100px;
+                margin-right: spacing(2);
 
-				flex: 0 0 100px;
-				margin-right: spacing(2);
+                @include from(T) {
+                    flex-basis: 175px;
+                    margin-right: spacing(4);
+                }
 
-				@include from(T) {
-					flex-basis: 175px;
-					margin-right: spacing(4);
-				}
+                img {
+                    border-radius: 50%;
+                    border: 6px solid $ui-white;
+                }
+            }
 
-				img {
-					border-radius: 50%;
-					border: 6px solid $ui-white;
-				}
+            .block__author-heading {
+                font-size: 18px;
+                margin-bottom: spacing(.5);
 
-			}
+                @include from(T) {
+                    font-size: 20px;
+                    margin-bottom: spacing(1);
+                }
+            }
 
-			.block__author-heading {
+            .block__author-details {
+                flex: 1 1 100%;
+                display: flex;
+                flex-direction: column;
 
-				font-size: 18px;
-				margin-bottom: spacing(.5);
+                p {
+                    margin-bottom: spacing(1);
+                }
 
-				@include from(T) {
-					font-size: 20px;
-					margin-bottom: spacing(1);
-				}
+                @include upto(T) {
+                    font-size: 16px;
 
-			}
+                    br {
+                        display: none;
+                    }
+                }
 
-			.block__author-details {
+                @include from(T) {
+                    p {
+                        margin-bottom: spacing(2);
+                    }
+                }
+            }
 
-				flex: 1 1 100%;
-				display: flex;
-				flex-direction: column;
+            .block__author-social {
+                color: $ui-white;
 
-				p {
-					margin-bottom: spacing(1);
-				}
+                @media screen {
+                    display: flex;
+                }
 
-				@include upto(T) {
+                a {
+                    display: block;
+                    margin-right: spacing(3);
 
-					font-size: 16px;
+                    > svg {
+                        font-size: 28px;
+                        height: 1em;
+                        display: block;
+                        fill: currentColor;
 
-					br {
-						display: none;
-					}
+                        @media print {
+                            display: inline-block;
+                        }
 
-				}
+                        &[data-icon="mail"] {
+                            width: 1.384em;
+                        }
 
-				@include from(T) {
-
-					p {
-						margin-bottom: spacing(2);
-					}
-
-				}
-
-			}
-
-			.block__author-social {
-
-				color: $ui-white;
-
-				@media screen {
-					display: flex;
-				}
-
-				a {
-
-					display: block;
-					margin-right: spacing(3);
-
-					> svg {
-
-						font-size: 28px;
-						height: 1em;
-						display: block;
-						fill: currentColor;
-
-						@media print {
-							display: inline-block;
-						}
-
-						&[data-icon="mail"] {
-							width: 1.384em;
-						}
-
-						&[data-icon="twitter"] {
-							width: 1.09em;
-						}
-
-					}
-
-				}
-
-
-			}
-
-
+                        &[data-icon="twitter"] {
+                            width: 1.09em;
+                        }
+                    }
+                }
+            }
 }

@@ -1,42 +1,33 @@
 {% extends "base.twig" %}
 
 {% block content %}
+    <main class="page-container">
+        <div class="single-resource">
+            <div class="screen-only / single-resource__header">
+                {% if back_link %}
+                    <a class="arrow-link" href="{{ back_link.url }}" data-size="medium" data-direction="west" data-icon-color="grey" data-text-color="black">
+                        <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                        <span class="uppercase arrow-link__label /">{{ back_link.label }}</span>
+                    </a>
+                {% endif %}
 
-	<main class="page-container">
-		<div class="single-resource">
-			<div class="screen-only / single-resource__header">
-				{% if back_link %}
-					<a class="arrow-link" href="{{ back_link.url }}" data-size="medium" data-direction="west" data-icon-color="grey" data-text-color="black">
-						<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-						<span class="uppercase arrow-link__label /">{{ back_link.label }}</span>
-					</a>
-				{% endif %}
+                <h1 class="single-resource__title">{{ resource.title }}</h1>
+            </div>
 
-				<h1 class="single-resource__title">{{ resource.title }}</h1>
-			</div>
-	
-			<div class="single-resource__columns">
-				<div class="single-resource__card">
-					
-					{% include 'partials/resource-card.twig' %}
+            <div class="single-resource__columns">
+                <div class="single-resource__card">
+                    {% include 'partials/resource-card.twig' %}
+                    {% include 'partials/resource-preview.twig' %}
+                </div>
 
-					{% include 'partials/resource-preview.twig' %}
+                <div class="single-resource__content">
+                    {{ resource.content | raw }}
+                </div>
 
-				</div>
-
-				<div class="single-resource__content">
-				
-					{{ resource.content | raw }}
-
-				</div>
-			
-				<div class="single-resource__preview">
-
-					{% include 'partials/resource-preview.twig' %}
-					
-				</div>
-			</div>
-		</div>
-	</main>
-
+                <div class="single-resource__preview">
+                    {% include 'partials/resource-preview.twig' %}
+                </div>
+            </div>
+        </div>
+    </main>
 {% endblock %}

@@ -1,12 +1,12 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
 <div id="{{ options.id }}" class="block" data-block-type="content-panel">
-	<div class="block__background" style="background-color: {{ block.background_colour }}"></div>
+    <div class="block__background" style="background-color: {{ block.background_colour }}"></div>
 
-	<div class="block__container" style="color: {{ block.text_colour }};" data-text-align="{{ block.text_align }}">
+    <div class="block__container" style="color: {{ block.text_colour }};" data-text-align="{{ block.text_align }}">
         <InnerBlocks
             template="{{ block.template }}"
             allowedBlocks="{{ block.allowed_blocks }}"
         />
-	</div>
+    </div>
 </div>

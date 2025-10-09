@@ -9,9 +9,9 @@ import store from './store'
 Vue.use(VueRouter)
 
 // Raven
-// 	.config('https://0bd6363074584cbcaeab1e66d004ed5a@sentry.io/296260')
-// 	.addPlugin(RavenVue, Vue)
-// 	.install();
+//     .config('https://0bd6363074584cbcaeab1e66d004ed5a@sentry.io/296260')
+//     .addPlugin(RavenVue, Vue)
+//     .install();
 
 // route components
 import Table from './components/table.vue';
@@ -37,39 +37,37 @@ Vue.component('country-filter', CountryFilter);
 
 // router
 const router = new VueRouter({
-	routes: [
-		{
-			name: 'map',
-			path: '/',
-			component: Map,
-			children: [
-				{
-					name: 'table',
-					path: 'table',
-				},
-				{
-					name: 'country',
-					path: ':code'
-				}
-			]
-		}
-	]
+    routes: [
+        {
+            name: 'map',
+            path: '/',
+            component: Map,
+            children: [
+                {
+                    name: 'table',
+                    path: 'table',
+                },
+                {
+                    name: 'country',
+                    path: ':code'
+                }
+            ]
+        }
+    ]
 })
 
 const unsync = sync(store, router) // done. Returns an unsync callback fn
 
 // vue
 new Vue({
+    router,
+    store,
 
-	router,
-	store,
+    mounted() {
 
-	mounted() {
+        // initialise the data set
+        store.dispatch('fetchCountries');
+        store.dispatch('addContent', content);
 
-		// initialise the data set
-		store.dispatch('fetchCountries');
-		store.dispatch('addContent', content);
-
-	}
-
+    }
 }).$mount('#worldwide')

@@ -3,270 +3,242 @@ $footer-break-2: 800;
 $footer-break-3: 1240;
 
 .site-footer {
+    background-color: $ui-grey-3;
+    color: $ui-white;
+    @extend %screen-shell-grid;
 
-	background-color: $ui-grey-3;
-	color: $ui-white;
-	@extend %screen-shell-grid;
-
-	@media print {
-		border-top: 1px dashed grey;
-		padding-top: spacing(4);
-		margin-top: spacing(4);
-	}
-
+    @media print {
+        border-top: 1px dashed grey;
+        padding-top: spacing(4);
+        margin-top: spacing(4);
+    }
 }
 
-	.site-footer__container {
-
-		grid-column: wide;
-
-		@media screen {
-			padding: spacing(4);
-		}
-
-		@include from($footer-break-1) {
-			display: grid;
-			grid-template-columns: [all-start] repeat(3, auto) [all-end];
-			grid-column-gap: spacing(3);
-		}
-
-		@include from($footer-break-2) {
-			grid-template-columns: [all-start] repeat(4, auto) [all-end];
-		}
-
-	}
-
-		.site-footer__logo {
-
-			@include upto($footer-break-1) {
-				display: none;
-			}
-
-			@include from($footer-break-1) {
-				grid-column: 1;
-				grid-row: 1;
-			}
-
-		}
-
-			.site-footer__logo > svg {
-				font-size: 148px;
-				height: 1em;
-				width: .60em;
-				display: block;
-			}
-
-		.site-footer__navigation {
-
-			@include upto($footer-break-2) {
-				display: none;
-			}
-
-			font-size: 14px;
-			@include font('secondary', 'bold');
-			grid-column: 2;
-			grid-row: 1;
-			display: flex;
-			flex-wrap: wrap;
-			align-content: flex-start;
-
-			> li {
-				margin-right: spacing(4);
-				margin-bottom: spacing(2);
-			}
-
-			a {
-				@extend %reverse-underline;
-			}
-
-			ul {
-
-				font-size: 10px;
-				color: $ui-grey-5;
-				list-style: none;
-				margin: 0;
-				padding: spacing(1) 0 0 0;
-
-				@include upto($footer-break-3) {
-					display: none;
-				}
-
-			}
-
-		}
-
-		.site-footer__cta {
-
-			margin-bottom: spacing(3);
-
-			@include from($footer-break-1) {
-				display: none;
-			}
-
-		}
-
-		.site-footer__contact {
-
-			font-size: 12px;
-			@include font('secondary');
-			margin-bottom: spacing(4);
-
-			@media screen {
-				border: 3px solid $ui-brand;
-				border-radius: spacing(4) 0 0 0;
-				padding: spacing(2) spacing(3);
-			}
-
-			@include from($footer-break-1) {
-				grid-column: -3;
-				grid-row: 1;
-			}
-
-		}
-
-			.site-footer__contact-heading {
-				font-size: 20px;
-			}
-
-			.site-footer__contact a {
-				font-size: 14px;
-			}
-
-			.site-footer__contact p {
-				margin-bottom: spacing(1);
-			}
-
-			.site-footer__contact p:last-child {
-				margin-bottom: 0;
-			}
-
-
-		.site-footer__social {
-
-			margin-bottom: spacing(4);
-
-			@include from($footer-break-1) {
-				display: flex;
-				align-items: center;
-				grid-column: -2;
-				grid-row: 1;
-				flex-direction: column;
-			}
-
-		}
-
-			.site-footer__social-header {
-
-				font-size: 19px;
-				margin-bottom: 0;
-
-				@include upto($footer-break-1) {
-					margin-bottom: spacing(2);
-				}
-
-				@include from($footer-break-1) {
-					font-size: 14px;
-				}
-
-			}
-
-			.site-footer__social-links {
-
-				display: flex;
-				flex-wrap: wrap;
-
-				@include from($footer-break-1) {
-					display: grid;
-					grid-template-columns: repeat(2, 1fr);
-					font-size: 14px;
-				}
-
-			}
-
-				.site-footer__social-links a {
-
-					align-self: center;
-					justify-self: center;
-					display: block;
-
-					@include upto($footer-break-1) {
-						margin-right: spacing(2);
-					}
-
-					@include from($footer-break-1) {
-						margin-top: spacing(2);
-						padding: spacing(.5) spacing(1.5);
-					}
-
-					> svg {
-
-						font-size: 24px;
-						height: 1em;
-						fill: $ui-brand;
-						display: block;
-
-						&[data-platform="twitter"] {
-							width: 1.09em;
-						}
-
-						&[data-platform="facebook"] {
-							font-size: 20px;
-							width: 0.54em;
-						}
-
-						&[data-platform="linkedin"] {
-							font-size: 20px;
-							width: 0.90em;
-						}
-
-						&[data-platform="github"] {
-							width: 1.03em;
-						}
-
-						&[data-platform="soundcloud"] {
-							font-size: 14px;
-							width: 2.35em;
-						}
-
-						&[data-platform="youtube"] {
-							font-size: 18px;
-							width: 1.38em;
-						}
-
-					}
-
-				}
-
-		.site-footer__license {
-
-			font-size: 11px;
-			color: $ui-grey-5;
-			margin-bottom: spacing(2);
-
-			@include from($footer-break-1) {
-				grid-column: all;
-				grid-row: 2;
-			}
-
-		}
-
-			.site-footer__license p:last-child {
-				margin-bottom: 0;
-			}
-
-
-		.site-footer__copyright {
-
-			font-size: 11px;
-			color: $ui-grey-5;
-
-			@include from($footer-break-1) {
-				grid-column: all;
-				grid-row: 3;
-			}
-
-		}
-
-			.site-footer__copyright > *:not(:last-child) {
-				margin-right: spacing(3);
-			}
+    .site-footer__container {
+        grid-column: wide;
+
+        @media screen {
+            padding: spacing(4);
+        }
+
+        @include from($footer-break-1) {
+            display: grid;
+            grid-template-columns: [all-start] repeat(3, auto) [all-end];
+            grid-column-gap: spacing(3);
+        }
+
+        @include from($footer-break-2) {
+            grid-template-columns: [all-start] repeat(4, auto) [all-end];
+        }
+    }
+
+        .site-footer__logo {
+            @include upto($footer-break-1) {
+                display: none;
+            }
+
+            @include from($footer-break-1) {
+                grid-column: 1;
+                grid-row: 1;
+            }
+        }
+
+            .site-footer__logo > svg {
+                font-size: 148px;
+                height: 1em;
+                width: .60em;
+                display: block;
+            }
+
+        .site-footer__navigation {
+            @include upto($footer-break-2) {
+                display: none;
+            }
+
+            font-size: 14px;
+            @include font('secondary', 'bold');
+            grid-column: 2;
+            grid-row: 1;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+
+            > li {
+                margin-right: spacing(4);
+                margin-bottom: spacing(2);
+            }
+
+            a {
+                @extend %reverse-underline;
+            }
+
+            ul {
+                font-size: 10px;
+                color: $ui-grey-5;
+                list-style: none;
+                margin: 0;
+                padding: spacing(1) 0 0 0;
+
+                @include upto($footer-break-3) {
+                    display: none;
+                }
+            }
+        }
+
+        .site-footer__cta {
+            margin-bottom: spacing(3);
+
+            @include from($footer-break-1) {
+                display: none;
+            }
+        }
+
+        .site-footer__contact {
+            font-size: 12px;
+            @include font('secondary');
+            margin-bottom: spacing(4);
+
+            @media screen {
+                border: 3px solid $ui-brand;
+                border-radius: spacing(4) 0 0 0;
+                padding: spacing(2) spacing(3);
+            }
+
+            @include from($footer-break-1) {
+                grid-column: -3;
+                grid-row: 1;
+            }
+        }
+
+            .site-footer__contact-heading {
+                font-size: 20px;
+            }
+
+            .site-footer__contact a {
+                font-size: 14px;
+            }
+
+            .site-footer__contact p {
+                margin-bottom: spacing(1);
+            }
+
+            .site-footer__contact p:last-child {
+                margin-bottom: 0;
+            }
+
+
+        .site-footer__social {
+            margin-bottom: spacing(4);
+
+            @include from($footer-break-1) {
+                display: flex;
+                align-items: center;
+                grid-column: -2;
+                grid-row: 1;
+                flex-direction: column;
+            }
+        }
+
+            .site-footer__social-header {
+                font-size: 19px;
+                margin-bottom: 0;
+
+                @include upto($footer-break-1) {
+                    margin-bottom: spacing(2);
+                }
+
+                @include from($footer-break-1) {
+                    font-size: 14px;
+                }
+            }
+
+            .site-footer__social-links {
+                display: flex;
+                flex-wrap: wrap;
+
+                @include from($footer-break-1) {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    font-size: 14px;
+                }
+            }
+
+                .site-footer__social-links a {
+                    align-self: center;
+                    justify-self: center;
+                    display: block;
+
+                    @include upto($footer-break-1) {
+                        margin-right: spacing(2);
+                    }
+
+                    @include from($footer-break-1) {
+                        margin-top: spacing(2);
+                        padding: spacing(.5) spacing(1.5);
+                    }
+
+                    > svg {
+                        font-size: 24px;
+                        height: 1em;
+                        fill: $ui-brand;
+                        display: block;
+
+                        &[data-platform="twitter"] {
+                            width: 1.09em;
+                        }
+
+                        &[data-platform="facebook"] {
+                            font-size: 20px;
+                            width: 0.54em;
+                        }
+
+                        &[data-platform="linkedin"] {
+                            font-size: 20px;
+                            width: 0.90em;
+                        }
+
+                        &[data-platform="github"] {
+                            width: 1.03em;
+                        }
+
+                        &[data-platform="soundcloud"] {
+                            font-size: 14px;
+                            width: 2.35em;
+                        }
+
+                        &[data-platform="youtube"] {
+                            font-size: 18px;
+                            width: 1.38em;
+                        }
+                    }
+                }
+
+        .site-footer__license {
+            font-size: 11px;
+            color: $ui-grey-5;
+            margin-bottom: spacing(2);
+
+            @include from($footer-break-1) {
+                grid-column: all;
+                grid-row: 2;
+            }
+        }
+
+            .site-footer__license p:last-child {
+                margin-bottom: 0;
+            }
+
+
+        .site-footer__copyright {
+            font-size: 11px;
+            color: $ui-grey-5;
+
+            @include from($footer-break-1) {
+                grid-column: all;
+                grid-row: 3;
+            }
+        }
+
+            .site-footer__copyright > *:not(:last-child) {
+                margin-right: spacing(3);
+            }

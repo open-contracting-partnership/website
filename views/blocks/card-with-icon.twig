@@ -1,42 +1,34 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
 <div
-	id="{{ options.id }}"
-	class="block"
-	data-block-type="card-with-icon"
-	data-grid-placement="{{ options.grid_placement }}"
-	data-icon="{{ block.icon }}"
-	style="
+    id="{{ options.id }}"
+    class="block"
+    data-block-type="card-with-icon"
+    data-grid-placement="{{ options.grid_placement }}"
+    data-icon="{{ block.icon }}"
+    style="
         --text-colour: {{ block.text_colour }}; 
         --background-colour: {{ block.background_colour }};
     "
 >
+    <div class="block__main">
+        <h3 class="block__heading">{{ block.heading }}</h3>
 
-	<div class="block__main">
+        {% if block.strapline %}
+            <p>{{ block.strapline }}</p>
+        {% endif %}
+    </div>
 
-		<h3 class="block__heading">{{ block.heading }}</h3>
+    {% if block.link %}
+        <div class="block__footer [tw: mt-10 ]">
+            <a href="{{ block.link.url }}" target="{{ block.link.target }}" class="block__link [tw: flex items-center no-underline text-sm ]">
+                <span class="uppercase font-bold">{{ block.link.title }}</span>
+                <svg class="ml-2 fill-current w-5 h-5 block"><use xlink:href="#icon-arrow-circle"></use></svg>
+            </a>
+        </div>
+    {% endif %}
 
-		{% if block.strapline %}
-			<p>{{ block.strapline }}</p>
-		{% endif %}
-
-	</div>
-
-	{% if block.link %}
-
-		<div class="block__footer [tw: mt-10 ]">
-
-			<a href="{{ block.link.url }}" target="{{ block.link.target }}" class="block__link [tw: flex items-center no-underline text-sm ]">
-				<span class="uppercase font-bold">{{ block.link.title }}</span>
-				<svg class="ml-2 fill-current w-5 h-5 block"><use xlink:href="#icon-arrow-circle"></use></svg>
-			</a>
-
-		</div>
-
-	{% endif %}
-
-	<svg class="block__icon" fill="{{ block.text_colour }}">
-		<use xlink:href="#card-icon-{{ block.icon }}"></use>
-	</svg>
-
+    <svg class="block__icon" fill="{{ block.text_colour }}">
+        <use xlink:href="#card-icon-{{ block.icon }}"></use>
+    </svg>
 </div>

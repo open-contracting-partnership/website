@@ -1,59 +1,49 @@
 {% if not options %}
-	{% set options = [] %}
+    {% set options = [] %}
 {% endif %}
 
 {% set options = { 'badge': null } | merge(options) %}
 
 <div class="card card--feature">
+    <div class="card__image">
+        {{ imgix({
+            src: card.image_url,
+            params: {
+                auto: 'format',
+                fit: 'crop'
+            },
+            aspect_ratio: [16, 9],
+            transforms: [{
+                w: 415
+            }, {
+                w: 830
+            }, {
+                w: 1024
+            }, {
+                w: 1536
+            }, {
+                w: 2048
+            }],
+            sizes: '100vw'
+        }) }}
 
-	<div class="card__image">
+        <div class="card__image-overlay{% if card.overlay == false %} card__image-overlay--transparent{% endif %}">
+            <div class="screen-only / card__meta">
+                {% if options.badge.label %}
+                    <div class="badge">
+                        <span class="badge__label">{{ options.badge.label }}</span>
+                        <svg class="badge__icon"><use xlink:href="#icon-plus-circle"></use></svg>
+                    </div>
+                {% endif %}
+            </div>
 
-		{{ imgix({
-			src: card.image_url,
-			params: {
-				auto: 'format',
-				fit: 'crop'
-			},
-			aspect_ratio: [16, 9],
-			transforms: [{
-				w: 415
-			}, {
-				w: 830
-			}, {
-				w: 1024
-			}, {
-				w: 1536
-			}, {
-				w: 2048
-			}],
-			sizes: '100vw'
-		}) }}
+            <a class="card__title-link" href="{{ card.url }}">
+                <h2 class="card__title">{{ card.title }}</h2>
+            </a>
 
-		<div class="card__image-overlay{% if card.overlay == false %} card__image-overlay--transparent{% endif %}">
-
-			<div class="screen-only / card__meta">
-
-				{% if options.badge.label %}
-
-					<div class="badge">
-						<span class="badge__label">{{ options.badge.label }}</span>
-						<svg class="badge__icon"><use xlink:href="#icon-plus-circle"></use></svg>
-					</div>
-
-				{% endif %}
-
-			</div>
-
-			<a class="card__title-link" href="{{ card.url }}">
-				<h2 class="card__title">{{ card.title }}</h2>
-			</a>
-
-			<div class="card__intro">
-				{{ card.intro | raw }}
-			</div>
-
-		</div>
-
-	</div>
-
+            <div class="card__intro">
+                {{ card.intro | raw }}
+            </div>
+        </div>
+    </div>
 </div>

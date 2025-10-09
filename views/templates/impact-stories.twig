@@ -1,17 +1,17 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div id="impact-stories" class="impact-stories">
-		<div class="impact-stories__container">
-			<div class="impact-stories__header">
-				<h1>{{ title }}</h1>
+    <div id="impact-stories" class="impact-stories">
+        <div class="impact-stories__container">
+            <div class="impact-stories__header">
+                <h1>{{ title }}</h1>
 
-				{{ content | raw }}
-			</div>
+                {{ content | raw }}
+            </div>
 
-			<div class="impact-stories__filters">
-				{% if impact_stories.terms.issues %}
-					<div>
+            <div class="impact-stories__filters">
+                {% if impact_stories.terms.issues %}
+                    <div>
                         <h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.issues_label }}</h3>
 
                         <div class="select-dropdown">
@@ -46,10 +46,10 @@
                             {% endfor %}
                         </div>
                     </div>
-				{% endif %}
+                {% endif %}
 
-				{% if impact_stories.terms.countries %}
-					<div>
+                {% if impact_stories.terms.countries %}
+                    <div>
                         <h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.countries_label }}</h3>
 
                         <div class="select-dropdown">
@@ -84,10 +84,10 @@
                             {% endfor %}
                         </div>
                     </div>
-				{% endif %}
+                {% endif %}
 
-				{% if impact_stories.terms.story_types %}
-					<div class="impact-stories__filter-story-types">
+                {% if impact_stories.terms.story_types %}
+                    <div class="impact-stories__filter-story-types">
                         <h3 class="impact-stories__filter-heading">{{ impact_stories.i18n.story_types_label }}</h3>
 
                         <div class="impact-stories__filter-checkboxes">
@@ -99,18 +99,18 @@
                             {% endfor %}
                         </div>
                     </div>
-				{% endif %}
-			</div>
+                {% endif %}
+            </div>
 
-			<div v-show="results_count > 0" class="impact-stories__posts">
+            <div v-show="results_count > 0" class="impact-stories__posts">
                 {% for card in latest_stories.stories %}
                     {% include 'cards/primary.twig' with card %}
                 {% endfor %}
-			</div>
+            </div>
 
             <div v-if="results_count === 0" class="impact-stories__no-results">
                 <p>{{ impact_stories.i18n.no_results_label }}</p>
             </div>
-		</div>
-	</div>
+        </div>
+    </div>
 {% endblock %}

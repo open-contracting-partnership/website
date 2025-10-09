@@ -117,7 +117,6 @@ function humanDateRanges(string $start, string $end): string
     );
 }
 
-
 add_action('acf/render_field_settings', 'addFieldTranslationOption');
 
 /**

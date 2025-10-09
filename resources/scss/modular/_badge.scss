@@ -1,5 +1,4 @@
 .badge {
-
 	--height: 24px;
 	--icon-border: 2px;
 
@@ -9,7 +8,6 @@
 	color: $ui-black;
 	height: var(--height);
 	border-radius: 4px calc(var(--height) / 2) calc(var(--height) / 2) 4px;
-
 }
 
 	.badge__label {

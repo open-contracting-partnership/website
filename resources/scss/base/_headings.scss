@@ -1,10 +1,10 @@
 // TODO: replace heading classes with h1-6 classes
 
 %heading-base {
-	@include font('secondary', 'bold');
-	line-height: 1.3;
+    @include font('secondary', 'bold');
+    line-height: 1.3;
     margin-bottom: var(--heading-margin-bottom, calc(0.6em * var(--heading-margin-adjuster, 1)));
-	color: currentColor;
+    color: currentColor;
 }
 
 h1,
@@ -31,61 +31,55 @@ h6,
 h1,
 .h1,
 .alpha {
+    font-size: 26px;
 
-	font-size: 26px;
+    @include from(S) {
+        font-size: 30px;
+    }
 
-	@include from(S) {
-		font-size: 30px;
-	}
+    @include from(M) {
+        font-size: 46px;
+    }
 
-	@include from(M) {
-		font-size: 46px;
-	}
-
-	@media print {
-		font-size: 30px;
-	}
-
+    @media print {
+        font-size: 30px;
+    }
 }
 
 h2,
 .h2,
 .beta {
+    font-size: 22px;
 
-	font-size: 22px;
+    @include from(S) {
+        font-size: 24px;
+    }
 
-	@include from(S) {
-		font-size: 24px;
-	}
+    @include from(M) {
+        font-size: 40px;
+    }
 
-	@include from(M) {
-		font-size: 40px;
-	}
-
-	@media print {
-		font-size: 24px;
-	}
-
+    @media print {
+        font-size: 24px;
+    }
 }
 
 h3,
 .h3,
 .gamma {
+    font-size: 18px;
 
-	font-size: 18px;
+    @include from(S) {
+        font-size: 22px;
+    }
 
-	@include from(S) {
-		font-size: 22px;
-	}
+    @include from(M) {
+        font-size: 35px;
+    }
 
-	@include from(M) {
-		font-size: 35px;
-	}
-
-	@media print {
-		font-size: 22px;
-	}
-
+    @media print {
+        font-size: 22px;
+    }
 }
 
 h4,
@@ -93,57 +87,52 @@ h4,
 .delta {
     font-size: 16px;
 
-	@include from(M) {
-		font-size: 22px;
-	}
+    @include from(M) {
+        font-size: 22px;
+    }
 
-	@media print {
-		font-size: 16px;
-	}
-
+    @media print {
+        font-size: 16px;
+    }
 }
 
 h5,
 .h5,
 .epsilon {
+    font-size: 12px;
 
-	font-size: 12px;
+    @include from(S) {
+        font-size: 15px;
+    }
 
-	@include from(S) {
-		font-size: 15px;
-	}
+    @include from(M) {
+        font-size: 20px;
+    }
 
-	@include from(M) {
-		font-size: 20px;
-	}
-
-	@media print {
-		font-size: 15px;
-	}
-
+    @media print {
+        font-size: 15px;
+    }
 }
 
 h6,
 .h6,
 .zeta {
+    font-size: 12px;
 
-	font-size: 12px;
+    @include from(S) {
+        font-size: 12px;
+    }
 
-	@include from(S) {
-		font-size: 12px;
-	}
-
-	@include from(M) {
-		font-size: 18px;
-	}
+    @include from(M) {
+        font-size: 18px;
+    }
 
     @media print {
-		font-size: 12px;
-	}
-
+        font-size: 12px;
+    }
 }
 
 .heading-border {
-	border-bottom: 4px solid $ui-brand;
-	padding-bottom: .3em;
+    border-bottom: 4px solid $ui-brand;
+    padding-bottom: .3em;
 }

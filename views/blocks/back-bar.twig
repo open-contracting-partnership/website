@@ -1,34 +1,27 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
 <div
-	id="{{ options.id }}"
-	class="block"
-	data-block-type="back-bar"
+    id="{{ options.id }}"
+    class="block"
+    data-block-type="back-bar"
     data-is-sticky="{{ block.is_sticky ? 'true' : 'false' }}"
-	style="
-		--custom-background: {{ block.background_colour }};
-		--custom-colour: {{ block.text_colour }};
-	">
-
-	<div class="block__main">
-
-		<a class="arrow-link" href="{{ block.link.url }}" target="{{ block.link.target }}" data-size="medium-plus">
-			<svg class="arrow-link__icon [tw: transform rotate-180 ]"><use xlink:href="#icon-arrow-circle"></use></svg>
-			<span class="arrow-link__label [tw: uppercase ]">{{ block.link.title }}</span>
-		</a>
+    style="
+        --custom-background: {{ block.background_colour }};
+        --custom-colour: {{ block.text_colour }};
+    "
+>
+    <div class="block__main">
+        <a class="arrow-link" href="{{ block.link.url }}" target="{{ block.link.target }}" data-size="medium-plus">
+            <svg class="arrow-link__icon [tw: transform rotate-180 ]"><use xlink:href="#icon-arrow-circle"></use></svg>
+            <span class="arrow-link__label [tw: uppercase ]">{{ block.link.title }}</span>
+        </a>
 
         {% if block.jump_links %}
-
             <div class="block__jump-links">
-
                 {% for jump_link in block.jump_links %}
                     <a href="{{ jump_link.link.url }}" target="{{ jump_link.link.target }}" class="">{{ jump_link.link.title }}</a>
                 {% endfor %}
-
             </div>
-
         {% endif %}
-
-	</div>
-
+    </div>
 </div>

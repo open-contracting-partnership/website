@@ -1,23 +1,17 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
 <div id="{{ options.id }}" class="block" data-block-type="jump-to-bar" data-position="{{ block.position }}">
+    <div class="block__background" style="background-color: {{ block.background_colour }}"></div>
 
-	<div class="block__background" style="background-color: {{ block.background_colour }}"></div>
+    <div class="block__container" style="color: {{ block.text_colour }};">
+        {% if block.title %}
+            <span class="block__title">{{ block.title }}</span>
+        {% endif %}
 
-	<div class="block__container" style="color: {{ block.text_colour }};">
-
-		{% if block.title %}
-			<span class="block__title">{{ block.title }}</span>
-		{% endif %}
-
-		{% for link in block.links %}
-
-			<a class="block__link" href="{{ link.link.url }}">
-				{{ link.link.title }}
-			</a>
-
-		{% endfor %}
-
-	</div>
-
+        {% for link in block.links %}
+            <a class="block__link" href="{{ link.link.url }}">
+                {{ link.link.title }}
+            </a>
+        {% endfor %}
+    </div>
 </div>

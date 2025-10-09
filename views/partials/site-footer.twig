@@ -1,109 +1,90 @@
 <footer class="site-footer">
+    <div class="site-footer__container">
+        <div class="screen-only / site-footer__logo">
+            <svg><use xlink:href="#logo-vertical"></use></svg>
+        </div>
 
-	<div class="site-footer__container">
+        <ul class="screen-only / site-footer__navigation">
+            {% for item in footer.menu.items %}
+                <li class="nav-main-item {{ item.classes|join(' ') }}">
+                    <a class="nav-main-link" href="{{ item.link }}">{{ item.title }}</a>
 
-		<div class="screen-only / site-footer__logo">
-			<svg><use xlink:href="#logo-vertical"></use></svg>
-		</div>
+                    {% if item.children %}
+                        <ul class="nav-drop">
+                            {% for child in item.children %}
+                                <li class="nav-drop-item">
+                                    <a href="{{ child.link }}">{{ child.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
 
-		<ul class="screen-only / site-footer__navigation">
+        <div class="screen-only / site-footer__cta">
+            <a class="arrow-link" href="https://open-contracting.us12.list-manage.com/subscribe?u=4257477995e0a1fa5cb6587b2&id=fc9ec0e34b">
+                <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                <span class="arrow-link__label">{{ footer.i18n.newsletter_header }}</span>
+            </a>
+        </div>
 
-			{% for item in footer.menu.items %}
+        <div class="site-footer__contact">
+            <h3 class="uppercase site-footer__contact-heading /">{{ footer.i18n.contact_header }}</h3>
+            <p><a href="mailto:engage@open-contracting.org" class="">engage@open-contracting.org</a></p>
+            <p>Open Contracting Partnership,<br />1100 13th Street NW, Suite 800, 20005 Washington, D.C., USA</p>
+            <p>Open Contracting Partnership is an independent non-profit public charity<br>501(c)(3).</p>
+        </div>
 
-				<li class="nav-main-item {{ item.classes|join(' ') }}">
+        <div class="screen-only / site-footer__social">
+            <h4 class="site-footer__social-header">{{ footer.i18n.connect_header }}</h4>
 
-					<a class="nav-main-link" href="{{ item.link }}">{{ item.title }}</a>
+            <div class="site-footer__social-links">
+                {% if social_links.twitter %}
+                    <a href="{{ social_links.twitter }}" class="" title="Connect on Twitter">
+                        <svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
+                    </a>
+                {% endif %}
 
-					{% if item.children %}
+                {% if social_links.github %}
+                    <a href="{{ social_links.github }}" class="" title="Connect on Github">
+                        <svg data-platform="github"><use xlink:href="#social-github"></use></svg>
+                    </a>
+                {% endif %}
 
-						<ul class="nav-drop">
+                {% if social_links.facebook %}
+                    <a href="{{ social_links.facebook }}" class="" title="Connect on Facebook">
+                        <svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
+                    </a>
+                {% endif %}
 
-							{% for child in item.children %}
+                {% if social_links.soundcloud %}
+                    <a href="{{ social_links.soundcloud }}" class="" title="Connect on Soundcloud">
+                        <svg data-platform="soundcloud"><use xlink:href="#social-soundcloud"></use></svg>
+                    </a>
+                {% endif %}
 
-								<li class="nav-drop-item">
-									<a href="{{ child.link }}">{{ child.title }}</a>
-								</li>
+                {% if social_links.linkedin %}
+                    <a href="{{ social_links.linkedin }}" class="" title="Connect on LinkedIn">
+                        <svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
+                    </a>
+                {% endif %}
 
-							{% endfor %}
+                {% if social_links.youtube %}
+                    <a href="{{ social_links.youtube }}" class="" title="Connect on YouTube">
+                        <svg data-platform="youtube"><use xlink:href="#social-youtube"></use></svg>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
 
-						</ul>
+        <div class="site-footer__license">
+            <p>This work by the Open Contracting Partnership, unless otherwise noted, is licensed under a Creative Commons Attribution 4.0 International License.</p>
+        </div>
 
-					{% endif %}
-
-				</li>
-
-			{% endfor %}
-
-		</ul>
-
-		<div class="screen-only / site-footer__cta">
-
-			<a class="arrow-link" href="https://open-contracting.us12.list-manage.com/subscribe?u=4257477995e0a1fa5cb6587b2&id=fc9ec0e34b">
-				<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-				<span class="arrow-link__label">{{ footer.i18n.newsletter_header }}</span>
-			</a>
-
-		</div>
-
-		<div class="site-footer__contact">
-			<h3 class="uppercase site-footer__contact-heading /">{{ footer.i18n.contact_header }}</h3>
-			<p><a href="mailto:engage@open-contracting.org" class="">engage@open-contracting.org</a></p>
-			<p>Open Contracting Partnership,<br />1100 13th Street NW, Suite 800, 20005 Washington, D.C., USA</p>
-			<p>Open Contracting Partnership is an independent non-profit public charity<br>501(c)(3).</p>
-		</div>
-
-		<div class="screen-only / site-footer__social">
-
-			<h4 class="site-footer__social-header">{{ footer.i18n.connect_header }}</h4>
-
-			<div class="site-footer__social-links">
-				{% if social_links.twitter %}
-					<a href="{{ social_links.twitter }}" class="" title="Connect on Twitter">
-						<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
-					</a>
-				{% endif %}
-
-				{% if social_links.github %}
-					<a href="{{ social_links.github }}" class="" title="Connect on Github">
-						<svg data-platform="github"><use xlink:href="#social-github"></use></svg>
-					</a>
-				{% endif %}
-
-				{% if social_links.facebook %}
-					<a href="{{ social_links.facebook }}" class="" title="Connect on Facebook">
-						<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
-					</a>
-				{% endif %}
-
-				{% if social_links.soundcloud %}
-					<a href="{{ social_links.soundcloud }}" class="" title="Connect on Soundcloud">
-						<svg data-platform="soundcloud"><use xlink:href="#social-soundcloud"></use></svg>
-					</a>
-				{% endif %}
-
-				{% if social_links.linkedin %}
-					<a href="{{ social_links.linkedin }}" class="" title="Connect on LinkedIn">
-						<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
-					</a>
-				{% endif %}
-
-				{% if social_links.youtube %}
-					<a href="{{ social_links.youtube }}" class="" title="Connect on YouTube">
-						<svg data-platform="youtube"><use xlink:href="#social-youtube"></use></svg>
-					</a>
-				{% endif %}
-			</div>
-		</div>
-
-		<div class="site-footer__license">
-			<p>This work by the Open Contracting Partnership, unless otherwise noted, is licensed under a Creative Commons Attribution 4.0 International License.</p>
-		</div>
-
-		<div class="site-footer__copyright">
-			<span>Open Contracting Partnership {{ footer.year }}</span>
-			<a href="{{ site.terms_url }}" class="">Terms</a>
-		</div>
-
-	</div>
-
+        <div class="site-footer__copyright">
+            <span>Open Contracting Partnership {{ footer.year }}</span>
+            <a href="{{ site.terms_url }}" class="">Terms</a>
+        </div>
+    </div>
 </footer>

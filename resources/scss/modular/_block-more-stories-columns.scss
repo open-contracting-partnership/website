@@ -1,5 +1,4 @@
 .block[data-block-type="more-stories-columns"] {
-
 	.block__background {
 		grid-column: full;
 		grid-row: 1;
@@ -18,11 +17,9 @@
 	}
 
 		.block__column {
-
 			grid-column: all;
 
 			@include from(T) {
-
 				&:nth-child(2n+1) {
 					grid-column: 1;
 				}
@@ -30,9 +27,7 @@
 				&:nth-child(2n+2) {
 					grid-column: 2;
 				}
-
 			}
-
 		}
 
 			.block__column-header {
@@ -57,7 +52,6 @@
 					font-size: 14px;
 					flex: 0 0 auto;
 				}
-
 
 			.block__column-stories {
                 display: flex;

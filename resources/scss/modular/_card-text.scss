@@ -1,22 +1,20 @@
 .card.card--text {
+    font-size: 14px;
 
-	font-size: 14px;
+    .card__title-link {
+        @extend %reverse-underline;
+    }
 
-	.card__title-link {
-		@extend %reverse-underline;
-	}
+    .card__title {
+        @include fluid-type(font-size, 375px, 1240px, 14px, 18px);
+        margin-bottom: spacing(.5);
+    }
 
-	.card__title {
-		@include fluid-type(font-size, 375px, 1240px, 14px, 18px);
-		margin-bottom: spacing(.5);
-	}
-
-	.card__meta {
-		font-size: 14px;
-		@include font('secondary');
-		text-transform: uppercase;
-		margin-top: 0;
-		margin-bottom: 0;
-	}
-
+    .card__meta {
+        font-size: 14px;
+        @include font('secondary');
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 }

@@ -1,5 +1,4 @@
 .block[data-block-type="download-carousel"] {
-
 	.block__container {
 		grid-column: content;
 		font-size: 17px;
@@ -13,7 +12,6 @@
 	}
 
 		.block__carousel-controls {
-
 			display: flex;
 			justify-content: space-between;
 			margin-bottom: var(--v-spacing-half);
@@ -22,11 +20,9 @@
 				opacity: .5;
 				cursor: default;
 			}
-
 		}
 
 		.block__carousel-item {
-
 			overflow: hidden;
 			position: relative;
 			display: inline-block;
@@ -64,7 +60,6 @@
 			}
 
 			&:last-child {
-
 				color: $ui-grey;
 
 				&:after {
@@ -80,7 +75,6 @@
 				}
 
 				.block__carousel-item-title {
-
 					font-size: 24px;
 					@include font('secondary', 'bold');
 					margin-top: em(50, 17);
@@ -88,11 +82,8 @@
 					span.text--nano {
 						font-size: 17px;
 					}
-
 				}
-
 			}
-
 		}
 
 			.block__carousel-item-date {
@@ -104,7 +95,6 @@
 			}
 
 			.block__carousel-item-title {
-
 				display: block;
 				text-align: center;
 				margin-bottom: 0;
@@ -127,7 +117,5 @@
 					text-align: center;
 					margin-top: em(5, 14);
 				}
-
 			}
-
 }

@@ -81,7 +81,7 @@ textarea {
 // PLACEHOLDER STYLES
 
 ::-webkit-input-placeholder {
-color: $ui-grey;
+    color: $ui-grey;
 }
 
 :-moz-placeholder { /* Firefox 18- */
@@ -89,11 +89,11 @@ color: $ui-grey;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-color: $ui-grey;
+    color: $ui-grey;
 }
 
 :-ms-input-placeholder {
-color: $ui-grey;
+    color: $ui-grey;
 }
 
 .select-dropdown {
@@ -104,8 +104,9 @@ color: $ui-grey;
     &:hover {
         --accent-colour: #{$ui-black};
     }
+}
 
-    &__input {
+    .select-dropdown__input {
         appearance: none;
         display: inline-block;
         width: 100%;
@@ -118,7 +119,7 @@ color: $ui-grey;
         @include font('secondary', 'medium');
     }
 
-    &__icon {
+    .select-dropdown__icon {
         --size: 16px;
 
         position: absolute;
@@ -135,10 +136,8 @@ color: $ui-grey;
             display: block;
         }
     }
-}
 
 .input-circle {
-
     --colour: #{$ui-grey-4};
 
     appearance: none;
@@ -160,13 +159,11 @@ color: $ui-grey;
 
     &:checked,
     &.checked {
-
         background-color: var(--colour);
 
         @media print {
             background-color: var(--colour) !important;
         }
-
     }
 
     &[data-colour="blue"] {
@@ -188,5 +185,4 @@ color: $ui-grey;
     &[data-colour="light-green"] {
         --colour: #{$ui-brand-2};
     }
-
 }

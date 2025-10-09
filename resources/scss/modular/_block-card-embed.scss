@@ -1,7 +1,5 @@
 .block[data-block-type="card-embed"] {
-
 	.block__main {
-
 		grid-column: full;
 		background-color: white;
 		border-radius: spacing(1);
@@ -10,7 +8,6 @@
 		> * {
 			margin-bottom: 0;
 		}
-
 	}
 
 	.block__footer {
@@ -19,7 +16,6 @@
 	}
 
 		.block__buttons {
-
 			display: flex;
 			flex-wrap: wrap;
 			grid-gap: spacing(2);
@@ -27,7 +23,5 @@
 			> * {
 				display: block;
 			}
-
 		}
-
 }

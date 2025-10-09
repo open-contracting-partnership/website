@@ -1,11 +1,9 @@
 .block[data-block-type="title-with-icon"] {
-
 	@media print {
 		display: block;
 	}
 
 	.block__background {
-
 		padding: spacing(4) 0;
 		grid-column: full;
 		grid-row: 1;
@@ -13,11 +11,9 @@
 		@media print {
 			display: none;
 		}
-
 	}
 
 	.block__image-container {
-
 		grid-column: wide / 6;
 		grid-row: 1;
 		margin-right: spacing(3);
@@ -33,7 +29,6 @@
 		@media print {
 			display: none;
 		}
-
 	}
 
 		.block__image {
@@ -42,7 +37,6 @@
 		}
 
 	.block__container {
-
 		grid-column: content;
 		grid-row: 1;
 		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(3), spacing(9));
@@ -52,11 +46,9 @@
 		@media print {
 			display: block;
 		}
-
 	}
 
 		.block__heading {
-
 			grid-row: 1;
 			grid-column: 3 / 12;
 			align-self: center;
@@ -69,7 +61,5 @@
 			@include from(T) {
 				grid-column: 2 / 12;
 			}
-
 		}
-
 }

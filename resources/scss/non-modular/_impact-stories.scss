@@ -9,7 +9,6 @@
 	}
 
 		.impact-stories__header {
-
 			@include font('secondary');
 			grid-column: all;
 			margin-bottom: var(--v-spacing);
@@ -21,7 +20,6 @@
 			> *:last-child {
 				margin-bottom: 0;
 			}
-
 		}
 
 		.impact-stories__filters {
@@ -148,7 +146,6 @@
 			@include from(M) {
 				--columns: 3;
 			}
-
 		}
 
         .impact-stories__no-results {

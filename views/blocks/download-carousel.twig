@@ -1,45 +1,29 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
 <div id="{{ options.id }}" class="block" data-block-type="download-carousel">
+    <div class="print-only">
+        <ul>
+            {% for download in block.downloads %}
+                <li>
+                    <a href="{{ download.file }}">{{ download.date }} - {{ download.title | raw }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 
-	<div class="print-only">
+    <div class="screen-only / block__container">
+        <div class="block__carousel-controls">
+            <button class="button--naked" rel="prev">Previous</button>
+            <button class="button--naked" rel="next">Next</button>
+        </div>
 
-		<ul>
-
-			{% for download in block.downloads %}
-
-				<li>
-					<a href="{{ download.file }}">{{ download.date }} - {{ download.title | raw }}</a>
-				</li>
-
-			{% endfor %}
-
-		</ul>
-
-	</div>
-
-	<div class="screen-only / block__container">
-
-		<div class="block__carousel-controls">
-
-			<button class="button--naked" rel="prev">Previous</button>
-			<button class="button--naked" rel="next">Next</button>
-
-		</div>
-
-		<div class="block__carousel">
-
-			{% for download in block.downloads %}
-
-				<div class="block__carousel-item">
-					<span class="block__carousel-item-date">{{ download.date }}</span>
-					<a class="block__carousel-item-title" href="{{ download.file }}">{{ download.title | raw }}</a>
-				</div>
-
-			{% endfor %}
-
-		</div>
-
-	</div>
-
+        <div class="block__carousel">
+            {% for download in block.downloads %}
+                <div class="block__carousel-item">
+                    <span class="block__carousel-item-date">{{ download.date }}</span>
+                    <a class="block__carousel-item-title" href="{{ download.file }}">{{ download.title | raw }}</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>

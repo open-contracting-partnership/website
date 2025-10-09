@@ -4,288 +4,259 @@
     GLOBAL MIXINS
 \*------------------------------------*/
 
- //*****************
+//*****************
 // FONT DECLARATION
 
 @mixin font($family: primary, $weight: regular, $style: normal) {
+    $font-choice: map-get($fonts, $family);
+    $font: map-get($font-choice, family);
 
-	$font-choice: map-get($fonts, $family);
-	$font: map-get($font-choice, family);
+    @if $font == null {
+        @error 'Incorrect use of fonts';
+    }
 
-	@if $font == null {
-		@error 'Incorrect use of fonts';
-	}
+    $fallback: unquote(map-get($font-choice, fallback));
+    $weight: map-get(map-get($font-choice, weights), $weight);
 
-	$fallback: unquote(map-get($font-choice, fallback));
-	$weight: map-get(map-get($font-choice, weights), $weight);
+    @if ($weight == null) {
+        @error 'Font weight "#{$weight}" passed to `font` mixin does not exist';
+    }
 
-	@if ($weight == null) {
-		@error 'Font weight "#{$weight}" passed to `font` mixin does not exist';
-	}
+    @if ($style != 'normal' and $style != 'italic') {
+        @error 'Font style "#{$style}" passed to `font` mixin is invalid';
+    }
 
-	@if ($style != 'normal' and $style != 'italic') {
-		@error 'Font style "#{$style}" passed to `font` mixin is invalid';
-	}
+    $typekit: map-get($font-choice, typekit);
 
-	$typekit: map-get($font-choice, typekit);
+    font-weight: $weight;
+    font-style: $style;
+    -webkit-font-smoothing: antialiased;
 
-	font-weight: $weight;
-	font-style: $style;
-	-webkit-font-smoothing: antialiased;
+    @if $typekit == true {
+        // replace all spaces with dashes
+        $typekit-font: str_replace(to-lower-case($font), ' ', '-');
 
-	@if $typekit == true {
-		// replace all spaces with dashes
-		$typekit-font: str_replace(to-lower-case($font), ' ', '-');
-
-		font-family: "#{$typekit-font}-" + str-slice($style, 0, 1) + math.div($weight, 100), $font, $fallback;
-	} @else {
-		font-family: $font, $fallback;
-	}
+        font-family: "#{$typekit-font}-" + str-slice($style, 0, 1) + math.div($weight, 100), $font, $fallback;
+    } @else {
+        font-family: $font, $fallback;
+    }
 }
 
 @function em($value, $size: $base-font-size) {
-	@return math.div(strip-unit($value), strip-unit($size)) + em;
+    @return math.div(strip-unit($value), strip-unit($size)) + em;
 }
 
 @function rem($value) {
-	@return math.div($value, $base-font-size) + em;
+    @return math.div($value, $base-font-size) + em;
 }
 
 
- //*******************
+//*******************
 // COLOR BASED FUNCTIONS
 
 @function color($colour, $opacity: 1) {
+    $color: map-get($colours, $colour);
 
-	$color: map-get($colours, $colour);
+    @if ($color == null) {
+        @error 'Colour "#{$colour}" passed to `color` mixin does not exist';
+    }
 
-	@if ($color == null) {
-		@error 'Colour "#{$colour}" passed to `color` mixin does not exist';
-	}
-
-	@if $opacity < 1 {
-		@return rgba($color, $opacity);
-	} @else {
-		@return $color;
-	}
+    @if $opacity < 1 {
+        @return rgba($color, $opacity);
+    } @else {
+        @return $color;
+    }
 }
 
 
- //***************
+//***************
 // STRING REPLACE
 
 @function str-replace($string, $search, $replace: '') {
-	$index: str-index($string, $search);
+    $index: str-index($string, $search);
 
-	@if $index {
-		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-	}
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
 
-	@return $string;
+    @return $string;
 }
 
 
- //**************
+//**************
 // MEDIA QUERIES
 
 // $value: can be a number, 'landscape', or a breakpoint letter
 // $feature: default is min-width, can be overwritten with 'max-width', or 'orientation' etc.
 @mixin mq($arg1, $arg2: 'min-width') {
+    $between: false;
 
-   $between: false;
+    // convert the value if it's within breakpoints
+    @if map-has-key($breakpoints, $arg1) {
+        $arg1: map-get($breakpoints, $arg1);
+    }
 
-   // convert the value if it's within breakpoints
-   @if map-has-key($breakpoints, $arg1) {
-	   $arg1: map-get($breakpoints, $arg1);
-   }
+    @if $arg2 == 'max-width' {
+        $arg1: $arg1 - 1;
+    }
 
-   @if $arg2 == 'max-width' {
-	   $arg1: $arg1 - 1;
-   }
+    @if type-of($arg1) == 'number' {
+        $arg1: $arg1 + px;
+    }
 
-   @if type-of($arg1) == 'number' {
-	   $arg1: $arg1 + px;
-   }
+    // maybe arg2 references a breakpoint
+    @if map-has-key($breakpoints, $arg2) {
+        $arg2: map-get($breakpoints, $arg2);
+        $between: true;
+    }
 
-   // maybe arg2 references a breakpoint
-   @if map-has-key($breakpoints, $arg2) {
-	   $arg2: map-get($breakpoints, $arg2);
-	   $between: true;
-   }
+    // maybe arg2 is a number
+    @if type-of($arg2) == 'number' {
+        $arg2: ($arg2 - 1) * 1px;
+        $between: true;
+    }
 
-   // maybe arg2 is a number
-   @if type-of($arg2) == 'number' {
-	   $arg2: ($arg2 - 1) * 1px;
-	   $between: true;
-   }
-
-   @if $between == false {
-
-	   @media screen and (#{$arg2}: $arg1) {
-		   @content;
-	   }
-
-   } @else {
-
-	   @media screen and (min-width: $arg1) and (max-width: $arg2) {
-		   @content;
-	   }
-
-   }
-
+    @if $between == false {
+        @media screen and (#{$arg2}: $arg1) {
+            @content;
+        }
+    } @else {
+        @media screen and (min-width: $arg1) and (max-width: $arg2) {
+            @content;
+        }
+    }
 }
 
 @mixin upto($upto) {
-
-   @include mq($upto, 'max-width') {
-	   @content;
-   }
-
+    @include mq($upto, 'max-width') {
+        @content;
+    }
 }
 
 @mixin from($from) {
-
-   @include mq($from) {
-	   @content;
-   }
-
+    @include mq($from) {
+        @content;
+    }
 }
 
 @mixin between($from, $to) {
-
-   @include mq($from, $to) {
-	   @content;
-   }
-
+    @include mq($from, $to) {
+        @content;
+    }
 }
 
 
- //****************
+//****************
 // ELEMENT QUERIES
 
 // $value: can be a number, 'landscape', or a breakpoint letter
 // $feature: default is min-width, can be overwritten with 'max-width', or 'orientation' etc.
 @mixin el_mq($arg1, $arg2: 'min-width') {
+    $between: false;
 
-   $between: false;
+    // convert the value if it's within breakpoints
+    @if map-has-key($breakpoints, $arg1) {
+        $arg1: map-get($breakpoints, $arg1);
+    }
 
-   // convert the value if it's within breakpoints
-   @if map-has-key($breakpoints, $arg1) {
-	   $arg1: map-get($breakpoints, $arg1);
-   }
+    @if $arg2 == 'max-width' {
+        $arg1: $arg1 - 1;
+    }
 
-   @if $arg2 == 'max-width' {
-	   $arg1: $arg1 - 1;
-   }
+    @if type-of($arg1) == 'number' {
+        $arg1: $arg1 + px;
+    }
 
-   @if type-of($arg1) == 'number' {
-	   $arg1: $arg1 + px;
-   }
+    // maybe arg2 references a breakpoint
+    @if map-has-key($breakpoints, $arg2) {
+        $arg2: map-get($breakpoints, $arg2);
+        $between: true;
+    }
 
-   // maybe arg2 references a breakpoint
-   @if map-has-key($breakpoints, $arg2) {
-	   $arg2: map-get($breakpoints, $arg2);
-	   $between: true;
-   }
+    // maybe arg2 is a number
+    @if type-of($arg2) == 'number' {
+        $arg2: ($arg2 - 1) * 1px;
+        $between: true;
+    }
 
-   // maybe arg2 is a number
-   @if type-of($arg2) == 'number' {
-	   $arg2: ($arg2 - 1) * 1px;
-	   $between: true;
-   }
-
-   @if $between == false {
-
-	   &[#{$arg2}~="#{$arg1}"] {
-		   @content;
-	   }
-
-   } @else {
-
-	   // @media screen and (min-width: $arg1) and (max-width: $arg2) {
-	   // 	@content;
-	   // }
-
-   }
-
+    @if $between == false {
+        &[#{$arg2}~="#{$arg1}"] {
+            @content;
+        }
+    } @else {
+        // @media screen and (min-width: $arg1) and (max-width: $arg2) {
+        // 	@content;
+        // }
+    }
 }
 
 @mixin el_upto($upto) {
-
-   @include el_mq($upto, 'max-width') {
-	   @content;
-   }
-
+    @include el_mq($upto, 'max-width') {
+        @content;
+    }
 }
 
 @mixin el_from($from) {
-
-   @include el_mq($from) {
-	   @content;
-   }
-
+    @include el_mq($from) {
+        @content;
+    }
 }
 
 @mixin el_between($from, $to) {
-
-   @include el_mq($from, $to) {
-	   @content;
-   }
-
+    @include el_mq($from, $to) {
+        @content;
+    }
 }
 
 
- //**********************
+//**********************
 // Maintain Aspect Ratio
 //
 // https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
 
 @mixin aspect-ratio($width, $height) {
-	position: relative;
+    position: relative;
 
-	&::before {
-		display: block;
-		content: '';
-		width: 100%;
-		padding-top: math.div($height, $width) * 100%;
-	}
+    &::before {
+        display: block;
+        content: '';
+        width: 100%;
+        padding-top: math.div($height, $width) * 100%;
+    }
 
-	> .content {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-	}
+    > .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 }
 
 @function spacing($number) {
-	@return 8px * $number;
+    @return 8px * $number;
 }
 
 @mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+    @media screen {
+        @each $property in $properties {
+            #{$property}: $min-value;
+        }
 
-	@media screen {
+        @media screen and (min-width: $min-vw) {
+            @each $property in $properties {
+                #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+            }
+        }
 
-		@each $property in $properties {
-			#{$property}: $min-value;
-		}
-
-		@media screen and (min-width: $min-vw) {
-			@each $property in $properties {
-				#{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
-			}
-		}
-
-		@media screen and (min-width: $max-vw) {
-			@each $property in $properties {
-				#{$property}: $max-value;
-			}
-		}
-
-	}
+        @media screen and (min-width: $max-vw) {
+            @each $property in $properties {
+                #{$property}: $max-value;
+            }
+        }
+    }
 }
 
 @function strip-unit($value) {
-	@return math.div($value, ($value * 0 + 1));
+    @return math.div($value, ($value * 0 + 1));
 }

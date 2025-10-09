@@ -3,55 +3,53 @@
 \*------------------------------------*/
 
 .nav {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 
-	a {
-		text-decoration: none;
+    a {
+        text-decoration: none;
 
-		&:hover,
-		&:focus {
-			text-decoration: underline;
-		}
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
 
-		&:active {
-			text-decoration: none;
-		}
-	}
+        &:active {
+            text-decoration: none;
+        }
+    }
 
-	li {
-		list-style: none;
-	}
+    li {
+        list-style: none;
+    }
 }
 
 .nav--horizontal {
+    li {
+        float: left;
+        padding-left: 0;
+    }
 
-	li {
-		float: left;
-		padding-left: 0;
-	}
-
-	a {
-		display: block;
-	}
+    a {
+        display: block;
+    }
 }
 
 .nav--vertical {
+    li {
+        margin-bottom: 1em;
 
-	li {
-		margin-bottom: 1em;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
-
-	a {
-		display: inline-block;
-	}
+    a {
+        display: inline-block;
+    }
 }
 
 .nav-main-item {
-	list-style: none;
+    list-style: none;
 }

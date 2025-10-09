@@ -3,15 +3,15 @@
 \*------------------------------------*/
 
 .wrapper {
-	padding: 0;
-	margin: 0 auto;
-	max-width: $max-width + px;
+    padding: 0;
+    margin: 0 auto;
+    max-width: $max-width + px;
 }
 
 .wrapper--padded {
-	padding: 0 $space;
+    padding: 0 $space;
 
-	@include mq(M) {
-	    padding: 0 ($space * 2);
-	}
+    @include mq(M) {
+        padding: 0 ($space * 2);
+    }
 }

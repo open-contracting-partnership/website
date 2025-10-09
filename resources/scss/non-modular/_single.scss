@@ -1,15 +1,12 @@
 .article__container {
-
 	@extend %screen-shell-grid;
 
 	@media screen {
 		@include fluid-type(margin-top, 375px, 1240px, spacing(4), spacing(8));
 	}
-
 }
 
 	.article__header {
-
 		grid-column: content;
 		@include fluid-type(margin-bottom, 375px, 1240px, spacing(2), spacing(4));
 
@@ -20,17 +17,14 @@
 		@include from(M) {
 			grid-column: 5 / 15;
 		}
-
 	}
 
 		.article__header .arrow-link {
-
 			@include fluid-type(margin-bottom, 375px, 1240px, spacing(2), spacing(5));
 
 			@media print {
 				display: none;
 			}
-
 		}
 
 		.article__heading {
@@ -54,7 +48,6 @@
 			}
 
 	.article {
-
 		grid-column: content;
 		@include fluid-type(margin-bottom, 375px, 1240px, spacing(2), spacing(8));
 
@@ -62,13 +55,9 @@
 			grid-row: 2;
 			grid-column: 5 / 15;
 		}
-
 	}
 
-
-
 	.article__footer {
-
 		grid-column: content;
 		@include fluid-type(margin-bottom, 375px, 1240px, spacing(4), spacing(8));
 
@@ -76,11 +65,9 @@
 			grid-row: 3;
 			grid-column: 5 / 15;
 		}
-
 	}
 
 		.article__tags {
-
 			display: flex;
 			flex-wrap: wrap;
 			align-items: flex-start;
@@ -90,7 +77,6 @@
 				display: block;
 				margin: 0 spacing(1) spacing(1) 0;
 			}
-
 		}
 
 			.article__tags-heading {
@@ -98,7 +84,6 @@
 			}
 
 		.article__discussion {
-
 			@include fluid-type(--vertical-padding, 375px, 1240px, spacing(3), spacing(5));
 			@include fluid-type(--horizontal-padding, 375px, 1240px, spacing(3), spacing(5));
 
@@ -107,7 +92,6 @@
 			color: $ui-black;
 			border-radius: spacing(3) spacing(.5) spacing(.5) spacing(.5);
 			padding: var(--vertical-padding) var(--horizontal-padding);
-
 		}
 
 			.article__discussion-heading {
@@ -116,26 +100,21 @@
 			}
 
 			.article__discussion-share {
-
 				@include from(S) {
 					display: flex;
 				}
-
 			}
 
 				.article__discussion-share p {
-
 					margin-bottom: 0;
 					margin-right: spacing(4);
 
 					@include upto(S) {
 						margin-bottom: spacing(2);
 					}
-
 				}
 
 				.article__discussion-share-icons {
-
 					flex: 0 0 auto;
 					display: flex;
 					align-items: center;
@@ -145,7 +124,6 @@
 					}
 
 					a > svg {
-
 						font-size: 26px;
 						height: 1em;
 						fill: $ui-white;
@@ -162,7 +140,5 @@
 						&[data-platform="linkedin"] {
 							width: 0.90em;
 						}
-
 					}
-
 				}

@@ -1,56 +1,42 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
 <div
-	id="{{ options.id }}"
-	class="block"
-	data-block-type="card"
-	data-grid-placement="{{ options.grid_placement }}"
-	style="
-		--custom-highlight: {{ block.highlight_colour }};
-		--custom-background: {{ block.background_colour }};
-		--custom-colour: {{ block.text_colour }};
-	"
+    id="{{ options.id }}"
+    class="block"
+    data-block-type="card"
+    data-grid-placement="{{ options.grid_placement }}"
+    style="
+        --custom-highlight: {{ block.highlight_colour }};
+        --custom-background: {{ block.background_colour }};
+        --custom-colour: {{ block.text_colour }};
+    "
 >
+    <div class="block__main">
+        {% if block.lead %}
+            <div class="block__lead">
+                <div class="block__circle-icon"></div>
+                {{ block.lead }}
+            </div>
+        {% endif %}
 
-	<div class="block__main">
+        <a class="block__heading" href="{{ block.link.url }}">{{ block.link.title }}</a>
 
-		{% if block.lead %}
+        {% if block.description %}
+            <p>{{ block.description }}</p>
+        {% endif %}
+    </div>
 
-			<div class="block__lead">
-				<div class="block__circle-icon"></div>
-				{{ block.lead }}
-			</div>
-
-		{% endif %}
-
-		<a class="block__heading" href="{{ block.link.url }}">{{ block.link.title }}</a>
-
-		{% if block.description %}
-			<p>{{ block.description }}</p>
-		{% endif %}
-
-	</div>
-
-	{% if block.buttons %}
-
-		<div class="block__footer">
-
-			<div class="block__buttons">
-
-				{% for button in block.buttons %}
-
-					{% if loop.index0 == 0 %}
-						<a href="{{ button.link.url }}" target="{{ button.link.target }}" class="button" data-colour="dark" data-size="slim">{{ button.link.title }}</a>
-					{% else %}
-						<a href="{{ button.link.url }}" target="{{ button.link.target }}" class="button" data-colour="light" data-size="slim">{{ button.link.title }}</a>
-					{% endif %}
-
-				{% endfor %}
-
-			</div>
-
-		</div>
-
-	{% endif %}
-
+    {% if block.buttons %}
+        <div class="block__footer">
+            <div class="block__buttons">
+                {% for button in block.buttons %}
+                    {% if loop.index0 == 0 %}
+                        <a href="{{ button.link.url }}" target="{{ button.link.target }}" class="button" data-colour="dark" data-size="slim">{{ button.link.title }}</a>
+                    {% else %}
+                        <a href="{{ button.link.url }}" target="{{ button.link.target }}" class="button" data-colour="light" data-size="slim">{{ button.link.title }}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
 </div>

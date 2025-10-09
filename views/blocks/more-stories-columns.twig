@@ -1,54 +1,38 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
 <div id="{{ options.id }}" class="block" data-block-type="more-stories-columns">
+    <div class="block__background" style="background-color: {{ block.background_colour }}"></div>
 
-	<div class="block__background" style="background-color: {{ block.background_colour }}"></div>
+    <div class="block__container" style="color: {{ block.text_colour }};">
+        {% for column in block.columns %}
+            <div class="block__column">
+                <div class="block__column-header">
+                    <h2 class="block__column-heading">{{ column.title }}</h2>
 
-	<div class="block__container" style="color: {{ block.text_colour }};">
+                    {% if column.view_all_link %}
+                        <a href="{{ column.view_all_link.url }}" class="block__column-view-all">{{ column.view_all_link.title }}</a>
+                    {% endif %}
+                </div>
 
-		{% for column in block.columns %}
-
-			<div class="block__column">
-
-				<div class="block__column-header">
-
-					<h2 class="block__column-heading">{{ column.title }}</h2>
-
-					{% if column.view_all_link %}
-						<a href="{{ column.view_all_link.url }}" class="block__column-view-all">{{ column.view_all_link.title }}</a>
-					{% endif %}
-
-				</div>
-
-				<div class="block__column-stories">
-
-					{% if column.acf_fc_layout == 'resource' %}
-
-						{% for card in column.posts %}
-							{% include 'cards/resource.twig' with {
+                <div class="block__column-stories">
+                    {% if column.acf_fc_layout == 'resource' %}
+                        {% for card in column.posts %}
+                            {% include 'cards/resource.twig' with {
                                 'card': card,
                                 'options': {
                                     'has_border': false,
                                 }
                             } %}
-						{% endfor %}
+                        {% endfor %}
+                    {% endif %}
 
-					{% endif %}
-
-					{% if column.acf_fc_layout == 'default' %}
-
-						{% for card in column.posts %}
-							{% include 'cards/text.twig' with card %}
-						{% endfor %}
-
-					{% endif %}
-
-				</div> <!-- / .block__stories -->
-
-			</div>
-
-		{% endfor %}
-
-	</div>
-
+                    {% if column.acf_fc_layout == 'default' %}
+                        {% for card in column.posts %}
+                            {% include 'cards/text.twig' with card %}
+                        {% endfor %}
+                    {% endif %}
+                </div> <!-- / .block__stories -->
+            </div>
+        {% endfor %}
+    </div>
 </div>

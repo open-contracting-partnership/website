@@ -1,23 +1,16 @@
 .translation-menu {
-
     position: relative;
 
     &.is-open {
-
         .translation-menu__trigger {
-
             &::after {
                 transform: rotate(-180deg);
             }
-
         }
-
     }
-
 }
 
 .translation-menu__trigger {
-
     border: solid 0.5px #C4C4C4;
     border-radius: 2px 999px 999px 2px;
     color: #C4C4C4;
@@ -32,19 +25,18 @@
 
     &::after {
         border-left: 4px solid transparent;
-		border-right: 4px solid transparent;
-		border-top: 8px solid #C4C4C4;
+        border-right: 4px solid transparent;
+        border-top: 8px solid #C4C4C4;
         content: '';
         height: 0;
         margin-top: -4px;
         position: absolute;
         right: 8px;
-		top: 50%;
+        top: 50%;
         transform: rotate(0);
         transition: .3s ease;
         width: 0;
     }
-
 }
 
 .header-mobile-nav {
@@ -79,7 +71,6 @@
 }
 
 .translation-menu__actual {
-
     background-color: #323232;
     border: solid 0.5px #C4C4C4;
     border-radius: 2px;
@@ -93,7 +84,6 @@
     > .translation-menu__group:first-of-type {
         border-top: none;
     }
-
 }
 
 .translation-menu__group {
@@ -115,7 +105,6 @@
 }
 
 .translation-menu__item {
-
     color: #C4C4C4;
     font-size: 14px;
     font-weight: 500;
@@ -131,5 +120,4 @@
         background-color: #4B4B4B;
         color: #E0E83D;
     }
-
 }

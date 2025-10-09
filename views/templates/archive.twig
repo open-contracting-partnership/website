@@ -1,58 +1,40 @@
 {% extends "base.twig" %}
 
 {% block content %}
+    <main class="archive">
+        <div class="archive__header">
+            {% if back_link %}
+                <a class="screen-only / arrow-link" href="{{ back_link.url }}" data-size="small" data-direction="west" data-icon-color="grey" data-text-color="black">
+                    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                    <span class="arrow-link__label / uppercase">{{ back_link.label }}</span>
+                </a>
+            {% endif %}
 
-	<main class="archive">
+            <h1 class="archive__heading">{{ title }}</h1>
+        </div>
 
-		<div class="archive__header">
+        {% if posts | length > 0 %}
+            <div class="archive__posts">
+                {% for card in posts %}
+                    {% include 'cards/basic.twig' with card %}
+                {% endfor %}
+            </div>
+        {% endif %}
 
-			{% if back_link %}
+        <div class="screen-only / archive__pagination">
+            {% if previous_page_url %}
+                <a class="button button--has-icon" data-icon-direction="west" href="{{ previous_page_url }}">
+                    <svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                    {{ previous_page_label }}
+                </a>
+            {% endif %}
 
-				<a class="screen-only / arrow-link" href="{{ back_link.url }}" data-size="small" data-direction="west" data-icon-color="grey" data-text-color="black">
-					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-					<span class="arrow-link__label / uppercase">{{ back_link.label }}</span>
-				</a>
-
-			{% endif %}
-
-			<h1 class="archive__heading">{{ title }}</h1>
-
-		</div>
-
-		{% if posts | length > 0 %}
-
-			<div class="archive__posts">
-
-				{% for card in posts %}
-					{% include 'cards/basic.twig' with card %}
-				{% endfor %}
-
-			</div>
-
-		{% endif %}
-
-		<div class="screen-only / archive__pagination">
-
-			{% if previous_page_url %}
-
-				<a class="button button--has-icon" data-icon-direction="west" href="{{ previous_page_url }}">
-					<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-					{{ previous_page_label }}
-				</a>
-
-			{% endif %}
-
-			{% if next_page_url %}
-
-				<a class="button button--has-icon" href="{{ next_page_url }}">
-					<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-					{{ next_page_label }}
-				</a>
-
-			{% endif %}
-
-		</div>
-
-	</main>
-
+            {% if next_page_url %}
+                <a class="button button--has-icon" href="{{ next_page_url }}">
+                    <svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                    {{ next_page_label }}
+                </a>
+            {% endif %}
+        </div>
+    </main>
 {% endblock %}

@@ -1,20 +1,17 @@
 .box-link {
+    font-size: 11px;
+    @include font('secondary');
+    border: 1px solid $ui-black;
+    border-radius: 6px 2px 2px 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 3px 12px;
+    transition: all .3s ease;
 
-	font-size: 11px;
-	@include font('secondary');
-	border: 1px solid $ui-black;
-	border-radius: 6px 2px 2px 2px;
-	text-transform: uppercase;
-	text-decoration: none;
-	padding: 3px 12px;
-	transition: all .3s ease;
-
-	&:hover,
-	&:focus,
-	&:active {
-		color: $ui-white;
-		background-color: $ui-black;
-		// text-decoration: underline;
-	}
-
+    &:hover,
+    &:focus,
+    &:active {
+        color: $ui-white;
+        background-color: $ui-black;
+    }
 }

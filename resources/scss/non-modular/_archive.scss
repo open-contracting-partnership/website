@@ -17,10 +17,10 @@ main.archive {
 		}
 
 	.archive__posts {
+		--columns: 1;
 
 		grid-column: content;
 		margin-bottom: var(--v-spacing-half);
-		--columns: 1;
 		display: grid;
 		grid-gap: spacing(4) spacing(2);
 		grid-template-columns: repeat(var(--columns), 1fr);
@@ -32,11 +32,9 @@ main.archive {
 		@include from(M) {
 			--columns: 3;
 		}
-
 	}
 
 	.archive__pagination {
-
 		grid-column: content;
 		display: flex;
 		justify-content: center;
@@ -45,5 +43,4 @@ main.archive {
 		> *:not(:last-child) {
 			margin-right: spacing(2);
 		}
-
 	}
