@@ -48,7 +48,7 @@
 
 						{% if contact.email_address %}
 
-							<a href="mailto:{{ contact.email_address }}">
+							<a href="mailto:{{ contact.email_address }}" class="">
 								<svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
 							</a>
 
@@ -56,7 +56,7 @@
 
 						{% if contact.twitter_url %}
 
-							<a href="{{ contact.twitter_url }}">
+							<a href="{{ contact.twitter_url }}" class="">
 								<svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
 							</a>
 

@@ -47,7 +47,7 @@
 
 		<div class="site-footer__contact">
 			<h3 class="uppercase site-footer__contact-heading /">{{ footer.i18n.contact_header }}</h3>
-			<p><a href="mailto:engage@open-contracting.org">engage@open-contracting.org</a></p>
+			<p><a href="mailto:engage@open-contracting.org" class="">engage@open-contracting.org</a></p>
 			<p>Open Contracting Partnership,<br />1100 13th Street NW, Suite 800, 20005 Washington, D.C., USA</p>
 			<p>Open Contracting Partnership is an independent non-profit public charity<br>501(c)(3).</p>
 		</div>
@@ -58,37 +58,37 @@
 
 			<div class="site-footer__social-links">
 				{% if social_links.twitter %}
-					<a href="{{ social_links.twitter }}" title="Connect on Twitter">
+					<a href="{{ social_links.twitter }}" class="" title="Connect on Twitter">
 						<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
 					</a>
 				{% endif %}
 
 				{% if social_links.github %}
-					<a href="{{ social_links.github }}" title="Connect on Github">
+					<a href="{{ social_links.github }}" class="" title="Connect on Github">
 						<svg data-platform="github"><use xlink:href="#social-github"></use></svg>
 					</a>
 				{% endif %}
 
 				{% if social_links.facebook %}
-					<a href="{{ social_links.facebook }}" title="Connect on Facebook">
+					<a href="{{ social_links.facebook }}" class="" title="Connect on Facebook">
 						<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
 					</a>
 				{% endif %}
 
 				{% if social_links.soundcloud %}
-					<a href="{{ social_links.soundcloud }}" title="Connect on Soundcloud">
+					<a href="{{ social_links.soundcloud }}" class="" title="Connect on Soundcloud">
 						<svg data-platform="soundcloud"><use xlink:href="#social-soundcloud"></use></svg>
 					</a>
 				{% endif %}
 
 				{% if social_links.linkedin %}
-					<a href="{{ social_links.linkedin }}" title="Connect on LinkedIn">
+					<a href="{{ social_links.linkedin }}" class="" title="Connect on LinkedIn">
 						<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
 					</a>
 				{% endif %}
 
 				{% if social_links.youtube %}
-					<a href="{{ social_links.youtube }}" title="Connect on YouTube">
+					<a href="{{ social_links.youtube }}" class="" title="Connect on YouTube">
 						<svg data-platform="youtube"><use xlink:href="#social-youtube"></use></svg>
 					</a>
 				{% endif %}
@@ -101,7 +101,7 @@
 
 		<div class="site-footer__copyright">
 			<span>Open Contracting Partnership {{ footer.year }}</span>
-			<a href="{{ site.terms_url }}">Terms</a>
+			<a href="{{ site.terms_url }}" class="">Terms</a>
 		</div>
 
 	</div>

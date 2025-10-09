@@ -1,12 +1,16 @@
 .block[data-block-type="card-with-icon"] {
-
 	--icon-width: 75px;
+
+    --link-block-primary-colour: var(--text-colour);
+    --link-block-hover-text-colour: var(--background-colour);
 
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	border-radius: spacing(1);
 	padding: spacing(3);
+    color: var(--text-colour);
+    background-color: var(--background-colour);
 
 	@include el_from(400) {
 

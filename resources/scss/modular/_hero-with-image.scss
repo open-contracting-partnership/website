@@ -1,19 +1,15 @@
 .hero-with-image {
     --header-scale: .24;
 
+    --link-block-primary-colour: var(--text-colour);
+    --link-block-hover-text-colour: var(--background-colour);
+
     @extend %container-reset;
     @extend %screen-shell-grid;
 
     background-color: var(--background-colour);
     color: var(--text-colour);
     overflow-x: hidden;
-
-    @media (max-height: 500px) {
-        .hero-with-image {
-            min-height: auto;
-            height: 100vh;
-        }
-    }
 
     @include from(T) {
         --header-scale: 0;

@@ -3,14 +3,17 @@
 <div
 	id="{{ options.id }}"
 	class="block {{ options.classes }}"
-	style="color: {{ block.text_colour }}"
+	style="
+        --text-colour: {{ block.text_colour | upper }};
+        --background-colour: {{ block.background_colour | upper }};
+    "
 	data-block-type="content"
 	data-size="{{ options.size }}"
 	data-primary-column-width="{{ options.primary_column_width }}"
 	data-content-text-align="{{ options.content_text_align }}"
 >
 
-	<div class="block__background" style="background-color: {{ block.background_colour }}"></div>
+	<div class="block__background"></div>
 
 	<div class="block__container">
 

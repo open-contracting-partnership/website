@@ -6,7 +6,10 @@
 	data-block-type="card-with-icon"
 	data-grid-placement="{{ options.grid_placement }}"
 	data-icon="{{ block.icon }}"
-	style="color: {{ block.text_colour }}; background-color: {{ block.background_colour }};"
+	style="
+        --text-colour: {{ block.text_colour }}; 
+        --background-colour: {{ block.background_colour }};
+    "
 >
 
 	<div class="block__main">

@@ -44,7 +44,7 @@
 
 			{% for person in block.team %}
 
-				<a href="#{{ person.slug }}">
+				<a href="#{{ person.slug }}" class="">
 
 					<h4 class="block__list-name">{{ person.name }}</h4>
 
@@ -95,19 +95,19 @@
 
 						<div class="block__profile-social">
 							{% if person.email_address %}
-								<a href="mailto:{{ person.email_address }}" title="Email {{ person.name }}">
+								<a href="mailto:{{ person.email_address }}" class="" title="Email {{ person.name }}">
 									<svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
 								</a>
 							{% endif %}
 
 							{% if person.twitter_name %}
-								<a href="https://twitter.com/{{ person.twitter_name }}" title="Follow {{ person.name }} on Twitter">
+								<a href="https://twitter.com/{{ person.twitter_name }}" class="" title="Follow {{ person.name }} on Twitter">
 									<svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
 								</a>
 							{% endif %}
 
 							{% if person.linkedin_url %}
-								<a href="{{ person.linkedin_url }}" title="Connect with {{ person.name }} on Linkedin" target="_blank">
+								<a href="{{ person.linkedin_url }}" class="" title="Connect with {{ person.name }} on Linkedin" target="_blank">
 									<svg data-icon="linkedin"><use xlink:href="#social-linkedin"></use></svg>
 								</a>
 							{% endif %}

@@ -7,9 +7,8 @@
 	data-grid-layout="{{ block.layout }}"
 	data-grid-spacing="{{ block.spacing|lower }}"
 	style="
-		{% if block.text_colour %}
-			--colour: {{ block.text_colour }}
-		{% endif %}
+        --text-colour: {{ block.text_colour }};
+        --background-colour: {{ block.background_colour }};
 	">
 
 	<div class="block__background" style="background-color: {{ block.background_colour }}"></div>

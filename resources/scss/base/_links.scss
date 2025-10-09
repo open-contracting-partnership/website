@@ -81,27 +81,37 @@ tbody tr a {
 	}
 }
 
-%link-block {
+%link-block-reset {
+    --link-block-primary-colour: initial;
+    --link-block-hover-text-colour: initial;
+}
 
-	color: inherit;
+%link-block {
 	text-decoration: none;
-	border-bottom: 2px solid $ui-brand;
-	padding-left: 2px;
-	margin-left: -2px;
-	padding-right: 2px;
-	margin-right: -2px;
-	transition: background .3s ease;
+	color: inherit;
+	border-bottom: 2px solid var(--link-block-primary-colour, #{$ui-brand});
+    padding-top: 4px;
+    margin-top: -4px;
+    box-decoration-break: clone;
+
+	transition:
+        background-color .3s ease
+        color .3s ease;
 
 	&:hover,
 	&:active,
 	&:focus {
+        padding-inline: 2px;
+        margin-inline: -2px;
+
 		text-decoration: none;
-		background-color: $ui-brand;
+		background-color: var(--link-block-primary-colour, #{$ui-brand});
+        color: var(--link-block-hover-text-colour, inherit);
 	}
 
 }
 
-.article a {
+a:not([class]):not(:has(img))  {
 	@extend %link-block;
 }
 
