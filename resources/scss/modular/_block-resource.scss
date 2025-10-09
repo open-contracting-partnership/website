@@ -1,9 +1,13 @@
 .block[data-block-type="resource"] {
 
+    --link-block-primary-colour: var(--text-colour);
+    --link-block-hover-text-colour: var(--background-colour);
+
 	grid-template-rows: [all-start] repeat(6, auto) [all-end];
+    color: var(--text-colour);
 
 	.block__background {
-
+        background-color: var(--background-colour);
 		grid-column: full;
 		grid-row: all;
 		position: relative;

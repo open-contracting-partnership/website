@@ -3,6 +3,13 @@
 	--padding: var(--v-spacing);
 	--content-span: 8;
 
+    &:not([style*="--background-colour: #FFFFFF;"]) {
+        --link-block-primary-colour: var(--text-colour);
+        --link-block-hover-text-colour: var(--background-colour);
+    }
+
+    color: var(--text-colour);
+
 	.block__background {
 
 		grid-column: full;
@@ -10,6 +17,8 @@
 
 		position: relative;
 		overflow: hidden;
+
+        background-color: var(--background-colour);
 
 		// &::before {
 		// 	@include fluid-type(font-size, 360px, 1344px, 145px, 500px);

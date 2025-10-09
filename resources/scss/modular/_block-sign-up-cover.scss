@@ -3,6 +3,9 @@
     --background-colour: #{$ui-blue};
     --colour: #{$ui-white};
 
+    --link-block-primary-colour: var(--colour);
+    --link-block-hover-text-colour: var(--background-colour);
+
     position: relative;
     color: var(--colour);
     z-index: 0;

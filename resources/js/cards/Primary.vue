@@ -34,7 +34,12 @@
             <p v-if="post.tags" class="card-primary__topics">
                 Issues:
 
-                <a v-for="(tag, index) in post.tags" :href="tag.link">
+                <a
+                    v-for="(tag, index) in post.tags"
+                    :key="index"
+                    :href="tag.link"
+                    class="card-primary__topics-link"
+                >
                     {{ tag.name }}<span v-if="index < post.tags.length - 1">, </span>
                 </a>
             </p>

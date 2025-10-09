@@ -1,10 +1,18 @@
 .block[data-block-type="grid-section"] {
+    &:not([style*="--background-colour: #FFFFFF;"]) {
+        --link-block-primary-colour: var(--text-colour);
+        --link-block-hover-text-colour: var(--background-colour);
+    }
 
 	font-size: 16px;
-	color: var(--colour, #{$ui-white});
+	color: var(--text-colour, #{$ui-white});
 
 	@include fluid-type(--padding, 360px, 1240px, spacing(2), spacing(15));
 	@include fluid-type(--font-size, 360px, 1240px, 19px, 32px);
+
+    .block__grid {
+        @extend %link-block-reset;
+    }
 
 	&[data-grid-spacing="small"] {
 		.block__grid {

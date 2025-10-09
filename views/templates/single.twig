@@ -73,19 +73,19 @@
 
 					<div class="article__discussion-share-icons">
 						{% if share.links.twitter %}
-							<a href="{{ share.links.twitter }}" onclick="_gaq.push(['_trackEvent', 'Social', 'Single Footer', 'Twitter']);">
+							<a href="{{ share.links.twitter }}" class="" onclick="_gaq.push(['_trackEvent', 'Social', 'Single Footer', 'Twitter']);">
 								<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
 							</a>
 						{% endif %}
 
 						{% if share.links.facebook %}
-							<a href="{{ share.links.facebook }}" onclick="_gaq.push(['_trackEvent', 'Social', 'Single Footer', 'Facebook']);">
+							<a href="{{ share.links.facebook }}" class="" onclick="_gaq.push(['_trackEvent', 'Social', 'Single Footer', 'Facebook']);">
 								<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
 							</a>
 						{% endif %}
 
 						{% if share.links.linkedin %}
-							<a href="{{ share.links.linkedin }}" onclick="_gaq.push(['_trackEvent', 'Social', 'Single Footer', 'Linkedin']);">
+							<a href="{{ share.links.linkedin }}" class="" onclick="_gaq.push(['_trackEvent', 'Social', 'Single Footer', 'Linkedin']);">
 								<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
 							</a>
 						{% endif %}

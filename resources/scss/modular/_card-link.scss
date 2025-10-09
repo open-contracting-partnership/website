@@ -6,6 +6,9 @@
 	--highlight-colour: #{$ui-white};
 	--border-colour: transparent;
 
+    --link-block-primary-colour: var(--text-colour);
+    --link-block-hover-text-colour: var(--background-colour);
+
 	font-size: 16px;
 	@include font('secondary');
 	background-color: var(--background-colour);
