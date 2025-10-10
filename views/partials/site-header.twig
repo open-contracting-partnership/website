@@ -12,7 +12,7 @@
 
         <div class="site-header__toolbox">
             {% for item in header.secondary_menu.items %}
-                <a href="{{ item.url }}">{{ item.title }}</a>
+                <a href="{{ item.url }}" class="site-header__toolbox-link">{{ item.title }}</a>
             {% endfor %}
 
             {% include "partials/translation-menu.twig" %}

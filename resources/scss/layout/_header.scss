@@ -236,7 +236,7 @@
             align-items: center;
             margin-bottom: auto;
 
-            a:not([class]) {
+            .site-header__toolbox-link {
                 font-size: 14px;
                 @include font('secondary', 'bold');
                 color: $ui-grey-5;
