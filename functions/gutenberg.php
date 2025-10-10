@@ -1,7 +1,6 @@
 <?php
 
 add_action('admin_head', function () {
-
     echo '
         <style type="text/css">
         /* Main column width */
@@ -23,7 +22,6 @@ add_action('admin_head', function () {
 });
 
 add_action('after_setup_theme', function () {
-
     // enable responsive embds
     add_theme_support('responsive-embeds');
 

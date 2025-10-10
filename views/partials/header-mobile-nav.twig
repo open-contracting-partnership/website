@@ -8,15 +8,15 @@
             >
                 <div class="header-mobile-nav__parent">
 
-                    <a 
-                        class="{{ item.class}} link-highlight" 
-                        data-highlight="{{ item.highlight_colour }}" 
+                    <a
+                        class="{{ item.class}} link-highlight"
+                        data-highlight="{{ item.highlight_colour }}"
                         href="{{ item.link }}"
                     >
                         {{ item.title }}
                     </a>
 
-                    {% if item.children %} 
+                    {% if item.children %}
                         <span
                             class="header-mobile-nav__toggle"
                             @click="open = !open"
@@ -34,7 +34,7 @@
                         {% for child in item.children %}
 
                             {% if item.submenu_style == 'simple' %}
-                                <a 
+                                <a
                                     class="{{ child.class}} link-highlight"
                                     data-highlight="{{ item.highlight_colour }}"
                                     href="{{ child.link }}"
@@ -44,7 +44,7 @@
                             {% endif %}
 
                             {% for subchild in child.children %}
-                                <a 
+                                <a
                                     class="{{ subchild.class}} link-highlight"
                                     data-highlight="{{ item.highlight_colour }}"
                                     href="{{ subchild.link }}"
@@ -54,7 +54,7 @@
                             {% endfor %}
 
                             {% if child.boxed_link %}
-                                <a 
+                                <a
                                     href="{{ child.link }}"
                                     class="boxed-link"
                                     data-highlight="{{ item.highlight_colour }}"
@@ -70,7 +70,7 @@
                                             },
                                             aspect_ratio: [boxedLinkImage.width, boxedLinkImage.height],
                                             transforms: [{
-                                                w: 32  
+                                                w: 32
                                             }, {
                                                 w: 32 * 2
                                             }, {
@@ -94,14 +94,15 @@
         <li class="header-mobile-nav__translation">
             {% include "partials/translation-menu.twig" %}
         </li>
+
         <li>
-        	<form role="search" method="get" class="search-box" data-colour="light" action="{{ site.home_url }}">
-				<input class="search-box__input" type="text" name="s" value="{{ search_term }}" aria-label="Search" placeholder="Search">
-				<button class="search-box__icon" aria-label="Search">
-					<svg><use xlink:href="#icon-search"></use></svg>
-				</button>
-				<input type="hidden" name="lang" value="en">
-			</form>
+            <form role="search" method="get" class="search-box" data-colour="light" action="{{ site.home_url }}">
+                <input class="search-box__input" type="text" name="s" value="{{ search_term }}" aria-label="Search" placeholder="Search">
+                <button class="search-box__icon" aria-label="Search">
+                    <svg><use xlink:href="#icon-search"></use></svg>
+                </button>
+                <input type="hidden" name="lang" value="en">
+            </form>
         </li>
     </ul>
 </nav>

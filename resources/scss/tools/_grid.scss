@@ -1,130 +1,107 @@
 body {
+    --container-width: 1200px;
+    --container-padding: #{spacing(3)};
 
-	--container-width: 1200px;
-	--container-padding: #{spacing(3)};
-
-	@include from(M) {
-		--container-padding: #{spacing(10)};
-	}
-
+    @include from(M) {
+        --container-padding: #{spacing(10)};
+    }
 }
 
 %container {
+    width: 100%;
 
-	width: 100%;
-
-	@media screen {
-		max-width: calc(var(--container-width) + (var(--container-padding) * 2));
-		padding: 0 var(--container-padding);
-		margin: 0 auto;
-	}
-
+    @media screen {
+        max-width: calc(var(--container-width) + (var(--container-padding) * 2));
+        padding: 0 var(--container-padding);
+        margin: 0 auto;
+    }
 }
 
 %container-reset {
+    @media screen {
+        margin: 0 calc(0px - var(--container-padding));
 
-	@media screen {
-
-		margin: 0 calc(0px - var(--container-padding));
-
-		@include from(1360) {
-			margin: 0 calc(-1 * ((100vw - 1200px) / 2));
-		}
-
-	}
-
+        @include from(1360) {
+            margin: 0 calc(-1 * ((100vw - 1200px) / 2));
+        }
+    }
 }
 
 %grid-layout {
+    display: grid;
+    grid-template-columns: [wide-start] minmax(0, 1fr) [all-start] repeat(12, minmax(0, 100px)) [all-end] minmax(0, 1fr) [wide-end];
+    column-gap: spacing(2);
 
-	display: grid;
-	grid-template-columns: [wide-start] minmax(0, 1fr) [all-start] repeat(12, minmax(0, 100px)) [all-end] minmax(0, 1fr) [wide-end];
-	column-gap: spacing(2);
-
-	@include from(M) {
-		grid-template-columns: [wide-start] minmax(#{spacing(2)}, 1fr) [all-start]  [all-end] minmax(#{spacing(2)}, 1fr) [wide-end];
-	}
-
+    @include from(M) {
+        grid-template-columns: [wide-start] minmax(#{spacing(2)}, 1fr) [all-start]  [all-end] minmax(#{spacing(2)}, 1fr) [wide-end];
+    }
 }
 
 %column-grid {
-
-	@media screen {
-		display: grid;
-		grid-column-gap: spacing(2);
-		grid-template-columns: [all-start] repeat(12, 1fr) [all-end];
-	}
-
+    @media screen {
+        display: grid;
+        grid-column-gap: spacing(2);
+        grid-template-columns: [all-start] repeat(12, 1fr) [all-end];
+    }
 }
 
 @mixin screen-shell-grid() {
+    @media screen {
+        display: grid;
+        grid-template-columns:
+            [full-start]
+                minmax(0, auto)
+                [wide-start]
+                    0
+                    [intermediate-start]
+                        spacing(3)
+                        [content-start]
+                            repeat(12, minmax(0, 100px))
+                        [content-end]
+                        spacing(3)
+                    [intermediate-end]
+                    0
+                [wide-end]
+                minmax(0, auto)
+            [full-end];
 
-	@media screen {
-
-		display: grid;
-		grid-template-columns:
-			[full-start]
-				minmax(0, auto)
-				[wide-start]
-					0
-					[intermediate-start]
-						spacing(3)
-						[content-start]
-							repeat(12, minmax(0, 100px))
-						[content-end]
-						spacing(3)
-					[intermediate-end]
-					0
-				[wide-end]
-				minmax(0, auto)
-			[full-end];
-
-		@include from(M) {
-
-			grid-template-columns:
-				[full-start]
-					minmax(0, auto)
-					[wide-start]
-						minmax(0, spacing(6))
-						[intermediate-start]
-							spacing(3)
-							[content-start]
-								repeat(12, minmax(0, 100px))
-							[content-end]
-							spacing(3)
-						[intermediate-end]
-						minmax(0, spacing(6))
-					[wide-end]
-					minmax(0, auto)
-				[full-end];
-
-		}
-
-	}
-
+        @include from(M) {
+            grid-template-columns:
+                [full-start]
+                    minmax(0, auto)
+                    [wide-start]
+                        minmax(0, spacing(6))
+                        [intermediate-start]
+                            spacing(3)
+                            [content-start]
+                                repeat(12, minmax(0, 100px))
+                            [content-end]
+                            spacing(3)
+                        [intermediate-end]
+                        minmax(0, spacing(6))
+                    [wide-end]
+                    minmax(0, auto)
+                [full-end];
+        }
+    }
 }
 
 %screen-shell-grid {
-	@include screen-shell-grid();
+    @include screen-shell-grid();
 }
 
 .shell-grid-example {
-	@extend %screen-shell-grid;
+    @extend %screen-shell-grid;
 }
 
-	.shell-grid-example__full {
-		background-color: blue;
-		height: 100px;
-		grid-column: full;
-	}
+    .shell-grid-example__full {
+        background-color: blue;
+        height: 100px;
+        grid-column: full;
+    }
 
-	.shell-grid-example__wide {
-		background-color: red;
-		height: 100px;
-		grid-column: wide;
-	}
-
-
-// full
-// wide
-// internal
+    .shell-grid-example__wide {
+        background-color: red;
+        height: 100px;
+        grid-column: wide;
+    }

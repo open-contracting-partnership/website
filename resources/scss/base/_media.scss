@@ -7,38 +7,21 @@ canvas,
 img,
 svg,
 video {
-	vertical-align: middle;
+    vertical-align: middle;
 }
 
 iframe,
 img {
-	max-width: 100%;
-	width: 100%;
+    max-width: 100%;
+    width: 100%;
 }
 
 img {
-	vertical-align: middle;
-	height: auto;
-	width: auto;
+    vertical-align: middle;
+    height: auto;
+    width: auto;
 }
 
 a img {
-	border: 0;
+    border: 0;
 }
-
-// img,
-// video,
-// object {
-// }
-//
-// iframe {
-// }
-
-// figure {
-//
-// 	img {
-// 	}
-// }
-//
-// figcaption {
-// }

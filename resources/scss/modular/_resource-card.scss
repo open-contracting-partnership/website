@@ -1,5 +1,4 @@
 .resource-card {
-
     background-color: $ui-grey-8;
     border-radius: 36px 8px 36px 8px;
     display: flex;
@@ -9,7 +8,6 @@
     padding: 32px 24px;
 
     > .button {
-
         background-color: $ui-black;
         border-color: $ui-black;
         color: $ui-white;
@@ -22,11 +20,9 @@
             background-color: $ui-grey-3;
             border-color: $ui-grey-3;
         }
-
     }
 
     > .share {
-
         border-bottom: none;
         color: $ui-grey-3;
         display: flex;
@@ -39,19 +35,14 @@
         }
 
         > .share-link {
-    
             > svg {
                 font-size: 22px;
             }
-
         }
-
     }
-
 }
 
 .resource-card__tag {
-
     display: block;
     font-size: 15px;
     line-height: 17px;
@@ -73,19 +64,16 @@
         transform: translateY(-50%);
         width: 24px;
     }
-
 }
 
 .resource-card__creator,
 .resource-card__published {
-
     font-size: 14px;
     line-height: 21px;
 
     > span {
         font-weight: 700;
     }
-
 }
 
 .resource-card__creator {
@@ -93,34 +81,28 @@
 }
 
 .resource-card--blue {
-
     .resource-card__tag::before {
         border-color: $ui-blue;
     }
 
     > .button {
-
         background-color: $ui-blue;
         border-color: $ui-blue;
-        
+
         &:focus,
         &:hover {
             background-color: lighten($ui-blue, 8%);
             border-color: lighten($ui-blue, 8%);
         }
-
     }
-
 }
 
 .resource-card--green {
-
     .resource-card__tag::before {
         border-color: $ui-brand;
     }
 
     > .button {
-
         background-color: $ui-brand;
         border-color: $ui-brand;
         color: $ui-grey-3;
@@ -130,28 +112,22 @@
             background-color: $ui-brand-2;
             border-color: $ui-brand-2;
         }
-
     }
-
 }
 
 .resource-card--orange {
-
     .resource-card__tag::before {
         border-color: $ui-orange;
     }
 
     > .button {
-
         background-color: $ui-orange;
         border-color: $ui-orange;
-        
+
         &:focus,
         &:hover {
             background-color: lighten($ui-orange, 8%);
             border-color: lighten($ui-orange, 8%);
         }
-
     }
-
 }

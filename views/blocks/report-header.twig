@@ -18,34 +18,34 @@
 
     <div class="report-header__image">
         {{ imgix({
-			src: block.background_image.url,
-			params: {
-				auto: 'format',
-				fit: 'crop',
-			},
+            src: block.background_image.url,
+            params: {
+                auto: 'format',
+                fit: 'crop',
+            },
             aspect_ratio: [
                 block.background_image.width,
                 block.background_image.height
             ],
-			transforms: [{
-				w: 300
-			}, {
-				w: 500
-			}, {
-				w: 600
-			}, {
-				w: 100
-			}, {
-				w: 1200
-			}, {
-				w: 1800
-			}, {
-				w: 2400
-			}, {
-				w: 2800
-			}],
-			sizes: '100vw',
-			loading: 'eager'
-		}) }}
+            transforms: [{
+                w: 300
+            }, {
+                w: 500
+            }, {
+                w: 600
+            }, {
+                w: 100
+            }, {
+                w: 1200
+            }, {
+                w: 1800
+            }, {
+                w: 2400
+            }, {
+                w: 2800
+            }],
+            sizes: '100vw',
+            loading: 'eager'
+        }) }}
     </div>
 </div>

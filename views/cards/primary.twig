@@ -1,7 +1,7 @@
 {% if card.post_type == 'resource' %}
-	{% set fallback_image = '/wp-content/themes/ocp-v1/resources/img/fallback-resource.jpg' %}
+    {% set fallback_image = '/wp-content/themes/ocp-v1/resources/img/fallback-resource.jpg' %}
 {% else %}
-	{% set fallback_image = '/wp-content/themes/ocp-v1/resources/img/fallback-v2.jpg' %}
+    {% set fallback_image = '/wp-content/themes/ocp-v1/resources/img/fallback-v2.jpg' %}
 {% endif %}
 
 <div
@@ -11,77 +11,77 @@
         {{ key }}="{{ value }}"
     {% endfor %}
 >
-	<div class="card-primary__image">
-		{% if card.image_url %}
-			{{ imgix({
-				src: card.image_url,
-				params: {
-					auto: 'format',
-					fit: 'crop'
-				},
-				aspect_ratio: [16, 9],
-				transforms: [{
-					w: 415
-				}, {
-					w: 830
-				}, {
-					w: 1024
-				}, {
-					w: 1536
-				}, {
-					w: 2048
-				}],
-				sizes: '(min-width: 1340px) 385px, (min-width: 768px) 32vw, 80vw'
-			}) }}
+    <div class="card-primary__image">
+        {% if card.image_url %}
+            {{ imgix({
+                src: card.image_url,
+                params: {
+                    auto: 'format',
+                    fit: 'crop'
+                },
+                aspect_ratio: [16, 9],
+                transforms: [{
+                    w: 415
+                }, {
+                    w: 830
+                }, {
+                    w: 1024
+                }, {
+                    w: 1536
+                }, {
+                    w: 2048
+                }],
+                sizes: '(min-width: 1340px) 385px, (min-width: 768px) 32vw, 80vw'
+            }) }}
 
-		{% else %}
-			{{ imgix({
-				src: fallback_image,
-				params: {
-					auto: 'format',
-					fit: 'crop'
-				},
-				aspect_ratio: [16, 9],
-				transforms: [{
-					w: 415
-				}, {
-					w: 830
-				}, {
-					w: 1024
-				}, {
-					w: 1536
-				}, {
-					w: 2048
-				}],
-				sizes: '100vw'
-			}) }}
-		{% endif %}
-	</div>
+        {% else %}
+            {{ imgix({
+                src: fallback_image,
+                params: {
+                    auto: 'format',
+                    fit: 'crop'
+                },
+                aspect_ratio: [16, 9],
+                transforms: [{
+                    w: 415
+                }, {
+                    w: 830
+                }, {
+                    w: 1024
+                }, {
+                    w: 1536
+                }, {
+                    w: 2048
+                }],
+                sizes: '100vw'
+            }) }}
+        {% endif %}
+    </div>
 
-	<div class="card-primary__main">
-		{% if card.type_label %}
-			<div class="card-primary__tag" data-tag="{{ card.type_key }}">{{ card.type_label }}</div>
-		{% endif %}
+    <div class="card-primary__main">
+        {% if card.type_label %}
+            <div class="card-primary__tag" data-tag="{{ card.type_key }}">{{ card.type_label }}</div>
+        {% endif %}
 
-		<a class="card-primary__title" href="{{ card.url }}">
-			{{ card.title }}
-		</a>
+        <a class="card-primary__title" href="{{ card.url }}">
+            {{ card.title }}
+        </a>
 
         {% if card.introduction %}
             <p class="card-primary__introduction">{{ card.introduction }}</p>
         {% endif %}
 
-		{% if card.tags | length > 0 %}
-			<p class="card-primary__topics">Issues:
-				{% for tag in card.tags %}
-					<a class="card-primary__topics-link" href="{{ tag.link }}">{{ tag.name }}{% if not loop.last %}, {% endif %}</a>
-				{% endfor %}
-			</p>
-		{% endif %}
+        {% if card.tags | length > 0 %}
+            <p class="card-primary__topics">Issues:
+                {% for tag in card.tags %}
+                    <a class="card-primary__topics-link" href="{{ tag.link }}">{{ tag.name }}{% if not loop.last %}, {% endif %}</a>
+                {% endfor %}
+            </p>
+        {% endif %}
 
         {% if card.meta %}
             <div class="card-primary__footer">
-				<div class="card-primary__meta">
+                <div class="card-primary__meta">
                     {% if card.meta.primary %}
                         <span class="card-primary__meta-primary">{{ card.meta.primary }}</span>
                     {% endif %}
@@ -92,5 +92,5 @@
                 </div>
             </div>
         {% endif %}
-	</div>
+    </div>
 </div>

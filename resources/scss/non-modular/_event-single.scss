@@ -8,7 +8,6 @@
 	}
 
 	.event-single__event {
-
 		grid-column: all;
 
 		@include from(T) {
@@ -18,5 +17,4 @@
 		@include from(M) {
 			grid-column: 1 / 9;
 		}
-
 	}

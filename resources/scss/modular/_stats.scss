@@ -105,7 +105,6 @@ $font-size: 64px;
         }
     }
 
-
     .stats__strapline {
         font-size: 20px;
         @include font('secondary', 'medium');
@@ -164,6 +163,7 @@ $font-size: 64px;
         grid-row: var(--row-start) / span var(--row-span);
     }
 }
+
     .stat__icon {
         width: auto;
 

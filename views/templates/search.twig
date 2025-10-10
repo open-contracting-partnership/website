@@ -1,9 +1,9 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<main class="search">
-		<div class="search__container">
-			<h1>{{ title }}</h1>
+    <main class="search">
+        <div class="search__container">
+            <h1>{{ title }}</h1>
 
             <div class="switcher">
                 <a
@@ -29,15 +29,15 @@
                     } %}
                 {% endfor %}
 
-				{% if search.pagination.next %}
-					<a class="button button--has-icon" href="{{ search.pagination.next.link }}">
-						<svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-						{{ search.i18n.next_page_label }}
-					</a>
-				{% endif %}
-			{% else %}
-				<p>{{ search.i18n.no_results_label }}</p>
-			{% endif %}
-		</div>
-	</main>
+                {% if search.pagination.next %}
+                    <a class="button button--has-icon" href="{{ search.pagination.next.link }}">
+                        <svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                        {{ search.i18n.next_page_label }}
+                    </a>
+                {% endif %}
+            {% else %}
+                <p>{{ search.i18n.no_results_label }}</p>
+            {% endif %}
+        </div>
+    </main>
 {% endblock %}

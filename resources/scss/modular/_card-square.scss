@@ -1,5 +1,4 @@
 .card.card--square {
-
 	position: relative;
 	border-radius: spacing(4) spacing(1);
 	overflow: hidden;
@@ -9,14 +8,11 @@
 	max-width: 600px; // temp, dev
 
 	.card__image {
-
 		width: 100%;
 
 		img {
 			display: block;
 			width: 100%;
 		}
-
 	}
-
 }

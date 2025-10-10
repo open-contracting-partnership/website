@@ -23,7 +23,6 @@ class AdminServiceProvider extends ServiceProvider
         add_action('admin_menu', [$this, 'updatePostMenuLabel']);
 
         add_action('admin_footer', function () {
-
             $context = Timber::get_context();
 
             $context['gutenberg_fields_visibility'] = $this->getGutenbergFieldVisibility();

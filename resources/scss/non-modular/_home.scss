@@ -14,7 +14,6 @@ main.home {
 }
 
 	.home__header-featured {
-
 		grid-column: all;
 
 		@include from(M) {
@@ -24,11 +23,9 @@ main.home {
 		@media print {
 			margin-bottom: spacing(4);
 		}
-
 	}
 
 	.home__header-extra {
-
 		@include upto(M) {
 			display: none;
 		}
@@ -40,17 +37,14 @@ main.home {
 		@media print {
 			margin-bottom: spacing(4);
 		}
-
 	}
 
 		.home__header-extra-heading {
-
 			font-size: 18px;
 
 			@include from(T) {
 				font-size: 24px;
 			}
-
 		}
 
 		.home__header-extra .card--text {
@@ -61,30 +55,23 @@ main.home {
 			margin-bottom: spacing(4);
 		}
 
-
 .home__title {
-
 	margin-bottom: var(--v-spacing);
 
 	.home__heading {
-
 		@include fluid-type(font-size, 375px, 1240px, 24px, 36px);
 
 		@include upto(T) {
-
 			&::after {
 				content: '…';
 			}
-
 		}
 
 		@include from(T) {
 			margin-bottom: 0;
 			margin-right: spacing(3);
 		}
-
 	}
-
 }
 
 .home__posts {

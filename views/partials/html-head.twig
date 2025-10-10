@@ -1,25 +1,23 @@
 <head>
+    <!-- developed by The Idea Bureau, http://theideabureau.co -->
 
-	<!-- developed by The Idea Bureau, http://theideabureau.co -->
+    <script>document.documentElement.classList.remove('no-js');</script>
 
-	<script>document.documentElement.classList.remove('no-js');</script>
+    <title>{{ function('wp_title') }}</title>
 
-	<title>{{ function('wp_title') }}</title>
+    <meta charset="{{ site.charset }}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="pingback" href="{{ site.pingback_url }}" />
 
-	<meta charset="{{ site.charset }}" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="format-detection" content="telephone=no">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="pingback" href="{{ site.pingback_url }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ theme.uri }}/resources/img/favicons/apple-touch-icon.png?v=3">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ theme.uri }}/resources/img/favicons/favicon-32x32.png?v=3">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ theme.uri }}/resources/img/favicons/favicon-16x16.png?v=3">
+    <link rel="manifest" href="{{ theme.uri }}/resources/img/favicons/site.webmanifest?v=3">
+    <link rel="mask-icon" href="{{ theme.uri }}/resources/img/favicons/safari-pinned-tab.svg?v=3" color="#4d4d54">
+    <meta name="msapplication-TileColor" content="#4d4d54">
+    <meta name="theme-color" content="#ffffff">
 
-	<link rel="apple-touch-icon" sizes="180x180" href="{{ theme.uri }}/resources/img/favicons/apple-touch-icon.png?v=3">
-	<link rel="icon" type="image/png" sizes="32x32" href="{{ theme.uri }}/resources/img/favicons/favicon-32x32.png?v=3">
-	<link rel="icon" type="image/png" sizes="16x16" href="{{ theme.uri }}/resources/img/favicons/favicon-16x16.png?v=3">
-	<link rel="manifest" href="{{ theme.uri }}/resources/img/favicons/site.webmanifest?v=3">
-	<link rel="mask-icon" href="{{ theme.uri }}/resources/img/favicons/safari-pinned-tab.svg?v=3" color="#4d4d54">
-	<meta name="msapplication-TileColor" content="#4d4d54">
-	<meta name="theme-color" content="#ffffff">
-
-	{{ function('wp_head') }}
-
+    {{ function('wp_head') }}
 </head>

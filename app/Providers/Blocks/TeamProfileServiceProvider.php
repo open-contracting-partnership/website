@@ -46,7 +46,6 @@ class TeamProfileServiceProvider
         $context['block']['team'] = get_field('team_members');
 
         $context['block']['team'] = array_map(function ($person) {
-
             // set the slug
             $person['slug'] = sanitize_title($person['name']);
 

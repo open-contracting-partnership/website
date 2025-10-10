@@ -41,6 +41,7 @@
 
     .accordion-item__icon {
         --size: #{spacing(3)};
+
         flex: 0 0 auto;
         display: block;
         height: var(--size);
@@ -60,7 +61,6 @@
     }
 
 .accordion-item__content {
-
     padding-inline: spacing(3);
     padding-top: spacing(1);
 

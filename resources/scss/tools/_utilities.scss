@@ -17,94 +17,90 @@
     clip: rect(1px, 1px, 1px, 1px);
 }
 
-
- //*****
+//*****
 // TEXT
 
 .uppercase {
-	text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 
- //*******
+//*******
 // FLOATS
 
 .pull-right {
-	float: right;
+    float: right;
 }
 
 .pull-left {
-	float: left;
+    float: left;
 }
 
 
- //***************
+//***************
 // TEXT ALIGNMENT
 
 .align-right {
-	text-align: right;
+    text-align: right;
 }
 
 .align-center {
-	text-align: center;
+    text-align: center;
 }
 
 .align-left {
-	text-align: left;
+    text-align: left;
 }
 
 .align-contents-right {
-	display: flex;
-	justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .align-contents-center {
-	display: flex;
-	justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 
- //**********
+//**********
 // WORDPRESS
 
-
 .alignright {
-	float: right;
-	margin: 0 0 1em 1em;
-	max-width: 50%;
+    float: right;
+    margin: 0 0 1em 1em;
+    max-width: 50%;
 }
 
 .alignleft {
-	float: left;
-	margin: 0 1em 1em 0;
-	max-width: 50%;
+    float: left;
+    margin: 0 1em 1em 0;
+    max-width: 50%;
 }
 
 .aligncenter {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
 }
 
 .alignnone {
-	max-width: 100%;
+    max-width: 100%;
 }
 
 .alignright,
 .alignleft,
 .aligncenter {
+    a {
+        display: block;
+    }
 
-	a {
-		display: block;
-	}
-
-	img {
-		width: 100%;
-	}
-
+    img {
+        width: 100%;
+    }
 }
 
 [x-cloak] {
-	display: none!important;
+    display: none!important;
 }

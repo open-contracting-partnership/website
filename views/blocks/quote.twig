@@ -1,13 +1,11 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
 <div
-	id="{{ options.id }}"
-	class="block"
-	data-block-type="quote"
+    id="{{ options.id }}"
+    class="block"
+    data-block-type="quote"
 >
-
     <figure class="block__content">
-
         <svg class="block__icon">
             <use xlink:href="#icon-quote"></use>
         </svg>
@@ -20,7 +18,5 @@
             <span class="block__citation">{{ block.citation }}</span>
             <span class="block__strapline">{{ block.strapline }}</span>
         </figcaption>
-
     </figure>
-
 </div>

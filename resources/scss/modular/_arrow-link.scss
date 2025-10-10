@@ -1,5 +1,4 @@
 .arrow-link {
-
 	display: flex;
 	align-items: center;
 	text-decoration: none;
@@ -11,11 +10,9 @@
 	&:active {
 		text-decoration: underline;
 	}
-
 }
 
 	.arrow-link__icon {
-
 		flex: 0 0 1em;
 		font-size: 28px;
 		height: 1em;
@@ -25,11 +22,9 @@
 		@media print {
 			display: none;
 		}
-
 	}
 
 	.arrow-link__label {
-
 		font-size: 18px;
 		@include font('secondary', 'medium');
 
@@ -39,25 +34,19 @@
 			flex: 1 1 100%;
 			margin-left: spacing(1);
 		}
-
 	}
 
 .arrow-link[data-size="large"] {
-
 	.arrow-link__label {
-
 		font-size: 20px;
 
 		@include from(M) {
 			font-size: 24px;
 		}
-
 	}
-
 }
 
 .arrow-link[data-size="medium"] {
-
 	.arrow-link__icon {
 		font-size: 24px;
 	}
@@ -65,11 +54,9 @@
 	.arrow-link__label {
 		font-size: 14px;
 	}
-
 }
 
 .arrow-link[data-size="medium-plus"] {
-
 	.arrow-link__icon {
 		font-size: 24px;
 	}
@@ -77,11 +64,9 @@
 	.arrow-link__label {
 		font-size: 16px;
 	}
-
 }
 
 .arrow-link[data-size="small"] {
-
 	.arrow-link__icon {
 		font-size: 24px;
 	}
@@ -89,7 +74,6 @@
 	.arrow-link__label {
 		font-size: 11px;
 	}
-
 }
 
 .arrow-link[data-icon-color="white"] .arrow-link__icon {
@@ -121,7 +105,6 @@
 }
 
 .arrow-link--reverse {
-
 	flex-direction: row-reverse;
 	justify-content: flex-end;
 
@@ -130,5 +113,4 @@
 		margin: 0;
 		padding-right: 8px;
 	}
-
 }

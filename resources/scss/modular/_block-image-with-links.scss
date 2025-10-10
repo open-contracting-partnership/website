@@ -1,80 +1,73 @@
 .block[data-block-type="image-with-links"] {
+    .block__background {
+        grid-column: full;
+        grid-row: 1;
+    }
 
-	.block__background {
-		grid-column: full;
-		grid-row: 1;
-	}
+    .block__container {
+        grid-column: content;
+        grid-row: 1;
+        @include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(3), spacing(9));
+        display: grid;
+        @extend %column-grid;
+    }
 
-	.block__container {
-		grid-column: content;
-		grid-row: 1;
-		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(3), spacing(9));
-		display: grid;
-		@extend %column-grid;
-	}
+        .block__heading {
+            grid-row: 1;
+            grid-column: all;
+            @include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+        }
 
-		.block__heading {
-			grid-row: 1;
-			grid-column: all;
-			@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
-		}
+        .block__image {
+            grid-column: all;
+            align-self: center;
 
-		.block__image {
+            @include upto(T) {
+                margin-bottom: spacing(3);
+            }
 
-			grid-column: all;
-			align-self: center;
+            @include from(T) {
+                grid-column: 1 / 7;
+                grid-row: 2;
+            }
 
-			@include upto(T) {
-				margin-bottom: spacing(3);
-			}
+            @include from(M) {
+                grid-column: 1 / 8;
+            }
 
-			@include from(T) {
-				grid-column: 1 / 7;
-				grid-row: 2;
-			}
+            img {
+                border: 3px solid $ui-white;
+                border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
+            }
+        }
 
-			@include from(M) {
-				grid-column: 1 / 8;
-			}
+        .block__sidebar {
+            grid-column: all;
+            align-self: center;
 
-			img {
-				border: 3px solid $ui-white;
-				border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
-			}
+            @include from(T) {
+                grid-column: -1 / -7;
+                grid-row: 2;
+            }
 
-		}
+            @include from(M) {
+                grid-column: 9 / all;
+            }
+        }
 
-		.block__sidebar {
+            .block__link {
+                &:not(:last-child) {
+                    margin-bottom: spacing(3);
+                }
+            }
 
-			grid-column: all;
-			align-self: center;
+                .arrow-link {
+                    color: $ui-white;
+                    margin-bottom: spacing(1);
+                }
 
-			@include from(T) {
-				grid-column: -1 / -7;
-				grid-row: 2;
-			}
-
-			@include from(M) {
-				grid-column: 9 / all;
-			}
-
-		}
-
-			.block__link {
-
-				&:not(:last-child) {
-					margin-bottom: spacing(3);
-				}
-			}
-
-				.arrow-link {
-					color: $ui-white;
-					margin-bottom: spacing(1);
-				}
-
-				.block__link-description {
-					font-size: 14px;
-					margin-bottom: 0;
-				}
-
+                .block__link-description {
+                    font-size: 14px;
+                    margin-bottom: 0;
+                }
 }

@@ -1,5 +1,5 @@
 <template>
-	<div
+    <div
         class="card-primary"
         :data-is-featured="post.is_featured"
     >
@@ -56,7 +56,7 @@
 </template>
 
 <script>
-	export default {
+    export default {
         props: {
             post: {
                 type: Object,
@@ -75,5 +75,5 @@
                 return 'https://ocp.imgix.net/wp-content/' + urlParts[1];
             }
         }
-	}
+    }
 </script>

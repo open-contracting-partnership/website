@@ -1,13 +1,13 @@
 .flex-input {
-	display: flex;
+    display: flex;
 
-	input {
-		border-right: 0;
-		border-radius: $border-radius 0 0 $border-radius;
-	}
+    input {
+        border-right: 0;
+        border-radius: $border-radius 0 0 $border-radius;
+    }
 
-	button {
-		padding: 0 1em;
-		border-radius: 0 $border-radius $border-radius 0;
-	}
+    button {
+        padding: 0 1em;
+        border-radius: 0 $border-radius $border-radius 0;
+    }
 }

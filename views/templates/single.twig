@@ -1,99 +1,99 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<section class="article__container">
-		<header class="article__header">
-			{% if back_link %}
-				<a class="arrow-link" href="{{ back_link.url }}" data-size="small" data-direction="west" data-icon-color="grey" data-text-color="black">
-					<svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-					<span class="arrow-link__label / uppercase">{{ back_link.label }}</span>
-				</a>
-			{% endif %}
+    <section class="article__container">
+        <header class="article__header">
+            {% if back_link %}
+                <a class="arrow-link" href="{{ back_link.url }}" data-size="small" data-direction="west" data-icon-color="grey" data-text-color="black">
+                    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                    <span class="arrow-link__label / uppercase">{{ back_link.label }}</span>
+                </a>
+            {% endif %}
 
-			<h1 class="article__heading">{{ title }}</h1>
+            <h1 class="article__heading">{{ title }}</h1>
 
-			<span class="article__meta">
-				{% include 'components/type-label.twig' with type %}
+            <span class="article__meta">
+                {% include 'components/type-label.twig' with type %}
 
-				{% if authors %}
-					<span class="article__meta-author">{{ authors }} / {{ date }}</span>
-				{% else %}
-					<span class="article__meta-author">{{ date }}</span>
-				{% endif %}
-			</span>
-		</header>
+                {% if authors %}
+                    <span class="article__meta-author">{{ authors }} / {{ date }}</span>
+                {% else %}
+                    <span class="article__meta-author">{{ date }}</span>
+                {% endif %}
+            </span>
+        </header>
 
-		<article class="article">
-			{% if featued_image %}
-				<figure class="wp-block-image">
-					{{ imgix({
-						src: featued_image.url,
-						params: {
-							auto: 'format'
-						},
-						transforms: [{
-							w: 415
-						}, {
-							w: 830
-						}, {
-							w: 1024
-						}, {
-							w: 1536
-						}, {
-							w: 2048
-						}],
-						sizes: '100vw, (min-width: 1340px) 800px',
-					}) }}
+        <article class="article">
+            {% if featued_image %}
+                <figure class="wp-block-image">
+                    {{ imgix({
+                        src: featued_image.url,
+                        params: {
+                            auto: 'format'
+                        },
+                        transforms: [{
+                            w: 415
+                        }, {
+                            w: 830
+                        }, {
+                            w: 1024
+                        }, {
+                            w: 1536
+                        }, {
+                            w: 2048
+                        }],
+                        sizes: '100vw, (min-width: 1340px) 800px',
+                    }) }}
 
-					{% if featued_image.caption %}
-						<figcaption>{{ featued_image.caption }}</figcaption>
-					{% endif %}
-				</figure>
-			{% endif %}
+                    {% if featued_image.caption %}
+                        <figcaption>{{ featued_image.caption }}</figcaption>
+                    {% endif %}
+                </figure>
+            {% endif %}
 
-			{{ content|raw }}
-		</article>
+            {{ content|raw }}
+        </article>
 
-		<footer class="article__footer">
-			{% if tags %}
-				<div class="article__tags">
-					<h6 class="article__tags-heading / uppercase">{{ single.content.related_tags_heading }}</h6>
+        <footer class="article__footer">
+            {% if tags %}
+                <div class="article__tags">
+                    <h6 class="article__tags-heading / uppercase">{{ single.content.related_tags_heading }}</h6>
 
-					{% for tag in tags %}
-						<a class="box-link" href="{{ tag.url }}">{{ tag.name }}</a>
-					{% endfor %}
-				</div>
-			{% endif %}
+                    {% for tag in tags %}
+                        <a class="box-link" href="{{ tag.url }}">{{ tag.name }}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
-			<div class="screen-only / article__discussion">
-				<h4 class="article__discussion-heading">{{ single.i18n.discussion_heading }}</h4>
+            <div class="screen-only / article__discussion">
+                <h4 class="article__discussion-heading">{{ single.i18n.discussion_heading }}</h4>
 
-				<div class="article__discussion-share">
-					<p>{{ single.i18n.discussion_content }}</p>
+                <div class="article__discussion-share">
+                    <p>{{ single.i18n.discussion_content }}</p>
 
-					<div class="article__discussion-share-icons">
-						{% if share.links.twitter %}
-							<a href="{{ share.links.twitter }}" class="" onclick="_gaq.push(['_trackEvent', 'Social', 'Single Footer', 'Twitter']);">
-								<svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
-							</a>
-						{% endif %}
+                    <div class="article__discussion-share-icons">
+                        {% if share.links.twitter %}
+                            <a href="{{ share.links.twitter }}" class="" onclick="_gaq.push(['_trackEvent', 'Social', 'Single Footer', 'Twitter']);">
+                                <svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
+                            </a>
+                        {% endif %}
 
-						{% if share.links.facebook %}
-							<a href="{{ share.links.facebook }}" class="" onclick="_gaq.push(['_trackEvent', 'Social', 'Single Footer', 'Facebook']);">
-								<svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
-							</a>
-						{% endif %}
+                        {% if share.links.facebook %}
+                            <a href="{{ share.links.facebook }}" class="" onclick="_gaq.push(['_trackEvent', 'Social', 'Single Footer', 'Facebook']);">
+                                <svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
+                            </a>
+                        {% endif %}
 
-						{% if share.links.linkedin %}
-							<a href="{{ share.links.linkedin }}" class="" onclick="_gaq.push(['_trackEvent', 'Social', 'Single Footer', 'Linkedin']);">
-								<svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
-							</a>
-						{% endif %}
-					</div>
-				</div>
-			</div>
-		</footer>
-	</section>
+                        {% if share.links.linkedin %}
+                            <a href="{{ share.links.linkedin }}" class="" onclick="_gaq.push(['_trackEvent', 'Social', 'Single Footer', 'Linkedin']);">
+                                <svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
 
     {% if more_stories %}
         {% include 'blocks/more-stories.twig' with {

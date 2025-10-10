@@ -1,23 +1,23 @@
 ul,
 ul.wp-block-list {
-	list-style: disc;
+    list-style: disc;
     padding-left: 40px;
 }
 
 ol,
 ul,
 ul.wp-block-list {
-	margin-bottom: $space;
+    margin-bottom: $space;
 
-	&.is-plain {
-		list-style-type: none;
+    &.is-plain {
+        list-style-type: none;
 
-		margin: 0;
-		padding: 0;
-	}
+        margin: 0;
+        padding: 0;
+    }
 }
 
 ul ul,
 ol ol {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }

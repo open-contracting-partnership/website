@@ -4,14 +4,12 @@
 }
 
 	.resource-single__header {
-
 		grid-column: all;
 		margin-bottom: var(--v-spacing-half);
 
 		@include from(T) {
 			grid-column: span 9;
 		}
-
 	}
 
 		.resource-single__header .arrow-link {
@@ -23,7 +21,6 @@
 		}
 
 	.resource-single__meta {
-
 		grid-column: all;
 		margin-bottom: var(--v-spacing-half);
 
@@ -31,11 +28,9 @@
 			display: flex;
 			align-items: center;
 		}
-
 	}
 
 		.resource-single__meta .type-label {
-
 			@include upto(T) {
 				margin-bottom: spacing(1);
 			}
@@ -44,7 +39,6 @@
 				margin-right: spacing(2);
 				flex: 0 0 auto;
 			}
-
 		}
 
 		.resource-single__meta span {
@@ -54,7 +48,6 @@
 		}
 
 	.resource-single__thumbnail {
-
 		grid-column: all;
 		margin-bottom: var(--v-spacing);
 
@@ -65,11 +58,9 @@
 		@include from(T) {
 			grid-column: span 6;
 		}
-
 	}
 
 	.resource-single__actions {
-
 		grid-column: all;
 		margin-bottom: var(--v-spacing);
 
@@ -84,7 +75,6 @@
 		@include from(T) {
 			grid-column: span 5;
 		}
-
 	}
 
 		.resource-single__actions .share {
@@ -92,7 +82,6 @@
 		}
 
 	.resource-single__content {
-
 		grid-column: all;
 		font-size: 16px;
 
@@ -103,5 +92,4 @@
 		@include from(M) {
 			grid-column: all / -2;
 		}
-
 	}

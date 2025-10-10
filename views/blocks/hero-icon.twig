@@ -1,27 +1,24 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
 <div
-	id="{{ options.id }}"
-	class="block"
-	data-block-type="hero-icon"
-	style="
-		{% if block.text_colour %}
-			--colour: {{ block.text_colour }}
-		{% endif %}
-	">
-
+    id="{{ options.id }}"
+    class="block"
+    data-block-type="hero-icon"
+    style="
+        {% if block.text_colour %}
+            --colour: {{ block.text_colour }}
+        {% endif %}
+    "
+>
     <div class="block__background" style="background-color: {{ block.background_colour }}"></div>
 
-	<div class="[app: block__content ][tw: space-y-6 ]">
-		<InnerBlocks />
-	</div>
+    <div class="[app: block__content ][tw: space-y-6 ]">
+        <InnerBlocks />
+    </div>
 
     <div class="block__icon-container">
-
         <svg class="block__icon" fill="{{ block.text_colour }}">
             <use xlink:href="#hero-icon-{{ block.icon }}"></use>
         </svg>
-
     </div>
-
 </div>

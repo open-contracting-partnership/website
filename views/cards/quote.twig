@@ -1,52 +1,52 @@
 {% set options = { 'image_loading': 'lazy' } | merge(options) %}
 
 <div class="card-quote__container">
-	<div class="card-quote">
-		<div class="card-quote__image" data-image-style="{{ options.image_style }}">
-			{{ imgix({
-				src: card.image.url,
-				params: {
-					auto: 'format',
-					fit: 'crop',
-					crop: 'faces'
-				},
-				aspect_ratio: [2, 1],
-				transforms: [{
-					w: 300
-				}, {
-					w: 500
-				}, {
-					w: 600
-				}, {
-					w: 100
-				}, {
-					w: 1200
-				}, {
-					w: 1800
-				}],
-				sizes: '(min-width: 768px) 600px, (min-width: 600px) 500px, 300px',
-				loading: options.image_loading
-			}) }}
-		</div>
+    <div class="card-quote">
+        <div class="card-quote__image" data-image-style="{{ options.image_style }}">
+            {{ imgix({
+                src: card.image.url,
+                params: {
+                    auto: 'format',
+                    fit: 'crop',
+                    crop: 'faces'
+                },
+                aspect_ratio: [2, 1],
+                transforms: [{
+                    w: 300
+                }, {
+                    w: 500
+                }, {
+                    w: 600
+                }, {
+                    w: 100
+                }, {
+                    w: 1200
+                }, {
+                    w: 1800
+                }],
+                sizes: '(min-width: 768px) 600px, (min-width: 600px) 500px, 300px',
+                loading: options.image_loading
+            }) }}
+        </div>
 
-		<blockquote class="card-quote__quote">
-			{% if card.link is not empty %}
-				<a href="{{ card.link }}" class="card-quote__link">{{ card.quotation }}</a>
-			{% else %}
-				<p>{{ card.quotation }}</p>
-			{% endif %}
+        <blockquote class="card-quote__quote">
+            {% if card.link is not empty %}
+                <a href="{{ card.link }}" class="card-quote__link">{{ card.quotation }}</a>
+            {% else %}
+                <p>{{ card.quotation }}</p>
+            {% endif %}
 
-			{% if card.footer is not empty %}
-				<footer class="card-quote__footer">
-					{% if card.footer.name is not empty %}
-						<p class="card-quote__footer-name">{{ card.footer.name }}</p>
-					{% endif %}
+            {% if card.footer is not empty %}
+                <footer class="card-quote__footer">
+                    {% if card.footer.name is not empty %}
+                        <p class="card-quote__footer-name">{{ card.footer.name }}</p>
+                    {% endif %}
 
-					{% if card.footer.bio is not empty %}
-						<p class="card-quote__footer-bio">{{ card.footer.bio }}</p>
-					{% endif %}
-				</footer>
-			{% endif %}
-		</blockquote>
-	</div>
+                    {% if card.footer.bio is not empty %}
+                        <p class="card-quote__footer-bio">{{ card.footer.bio }}</p>
+                    {% endif %}
+                </footer>
+            {% endif %}
+        </blockquote>
+    </div>
 </div>

@@ -23,12 +23,13 @@ function isContrastingColourLight(string $hexColor): bool
         0.0722 * pow($B2BlackColor / 255, 2.2);
 
     $contrastRatio = 0;
+
     if ($L1 > $L2) {
         $contrastRatio = (int)(($L1 + 0.05) / ($L2 + 0.05));
     } else {
         $contrastRatio = (int)(($L2 + 0.05) / ($L1 + 0.05));
     }
 
-    // If contrast is more than 5, return black color
+    // if contrast is more than 5, return black color
     return $contrastRatio <= 5;
 }

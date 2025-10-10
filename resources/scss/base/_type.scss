@@ -3,40 +3,40 @@ p,
 ul,
 ol,
 dl {
-	line-height: 1.5;
+    line-height: 1.5;
     margin-bottom: 1.3em;
 }
 
 small {
-	font-size: .8rem;
+    font-size: .8rem;
 }
 
 b,
 strong {
-	@include font('primary', 'bold');
+    @include font('primary', 'bold');
 }
 
 i,
 em {
-	font-style: italic;
+    font-style: italic;
 }
 
 time {
-	@include font('secondary', 'bold');
-	color: $ui-black;
-	letter-spacing: .1px;
-	line-height: 1;
+    @include font('secondary', 'bold');
+    color: $ui-black;
+    letter-spacing: .1px;
+    line-height: 1;
 
-	display: block;
-	margin-bottom: 1em;
+    display: block;
+    margin-bottom: 1em;
 
-	@include mq(S) {
-	    margin-bottom: em(14, 16);
-	}
+    @include mq(S) {
+        margin-bottom: em(14, 16);
+    }
 }
 
 address {
-	font-style: normal;
+    font-style: normal;
 }
 
 :root {

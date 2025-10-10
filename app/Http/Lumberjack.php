@@ -33,7 +33,6 @@ class Lumberjack extends LumberjackCore
 
     public function addFurnitureContext(&$context)
     {
-
         $context['header'] = [
             'primary_menu' => new \Timber\Menu('Header: Primary'),
             'secondary_menu' => new \Timber\Menu('Header: Secondary'),
@@ -70,7 +69,6 @@ class Lumberjack extends LumberjackCore
 
     public function addSocialContext(&$context)
     {
-
         $context['social_links'] = array(
             'twitter' => get_field('twitter_url', 'options') ?: null,
             'facebook' => get_field('facebook_url', 'options') ?: null,

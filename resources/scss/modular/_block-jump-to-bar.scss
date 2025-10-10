@@ -1,68 +1,58 @@
 .block[data-block-type="jump-to-bar"] {
+    z-index: 3;
 
-	z-index: 3;
+    @media print {
+        display: none;
+    }
 
-	@media print {
-		display: none;
-	}
+    &[data-position="sticky"] {
+        @include from(M) {
+            position: sticky;
+            top: 0;
+        }
+    }
 
-	&[data-position="sticky"] {
+    .block__background {
+        grid-column: full;
+        grid-row: 1;
+    }
 
-		@include from(M) {
-			position: sticky;
-			top: 0;
-		}
+    .block__container {
+        grid-column: content;
+        grid-row: 1;
+        padding: spacing(1) 0;
 
-	}
+        @include from(T) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
 
-	.block__background {
-		grid-column: full;
-		grid-row: 1;
-	}
+        .block__title,
+        .block__link {
+            font-size: 18px;
+            padding: spacing(1) spacing(2);
+            text-transform: uppercase;
+            display: block;
+            border-radius: spacing(.5);
 
-	.block__container {
+            @include from(L) {
+                font-size: 20px;
+                padding: spacing(1) spacing(4);
+            }
+        }
 
-		grid-column: content;
-		grid-row: 1;
-		padding: spacing(1) 0;
+        .block__title {
+            padding-left: 0;
+        }
 
-		@include from(T) {
-			display: flex;
-			flex-wrap: wrap;
-		}
+        .block__link {
+            text-decoration: none;
+            @include font('secondary', 'bold');
 
-	}
-
-		.block__title,
-		.block__link {
-
-			font-size: 18px;
-			padding: spacing(1) spacing(2);
-			text-transform: uppercase;
-			display: block;
-			border-radius: spacing(.5);
-
-			@include from(L) {
-				font-size: 20px;
-				padding: spacing(1) spacing(4);
-			}
-
-		}
-
-		.block__title {
-			padding-left: 0;
-		}
-
-		.block__link {
-
-			text-decoration: none;
-			@include font('secondary', 'bold');
-
-			&:hover,
-			&:focus {
-				background-color: rgba($ui-white, 25%);
-			}
-
-		}
-
+            &:hover,
+            &:focus {
+                background-color: rgba($ui-white, 25%);
+            }
+        }
 }

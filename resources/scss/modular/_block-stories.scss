@@ -1,176 +1,151 @@
 .block[data-block-type="stories"] {
+    .block__background {
+        grid-column: full;
+        grid-row: 1;
+        position: relative;
+        overflow: hidden;
 
-	.block__background {
+        &::before {
+            @include fluid-type(font-size, 360px, 1344px, 145px, 500px);
+            content: '';
+            display: block;
+            border: .14em solid $ui-grey-6;
+            border-radius: 50%;
+            opacity: .1;
+            height: 1em;
+            width: 1em;
+            position: absolute;
+            top: -.55em;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
 
-		grid-column: full;
-		grid-row: 1;
-		position: relative;
-		overflow: hidden;
+    .block__container {
+        position: relative;
+        grid-column: content;
+        grid-row: 1;
+        @include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(2), spacing(6));
+    }
 
-		&::before {
-			@include fluid-type(font-size, 360px, 1344px, 145px, 500px);
-			content: '';
-			display: block;
-			border: .14em solid $ui-grey-6;
-			border-radius: 50%;
-			opacity: .1;
-			height: 1em;
-			width: 1em;
-			position: absolute;
-			top: -.55em;
-			left: 50%;
-			transform: translateX(-50%);
-		}
+        .block__header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
 
-	}
+            @include fluid-type((margin-bottom), 375px, 1240px, spacing(1.5), spacing(3));
+        }
 
-	.block__container {
-		position: relative;
-		grid-column: content;
-		grid-row: 1;
-		@include fluid-type((padding-top, padding-bottom), 375px, 1240px, spacing(2), spacing(6));
-	}
+            .block__heading {
+                @include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+                margin-right: spacing(5);
+                margin-bottom: 0;
+                margin-right: auto;
 
-		.block__header {
+                @include upto(T) {
+                    flex: 0 0 100%;
+                }
+            }
 
-			display: flex;
-			flex-wrap: wrap;
-			align-items: center;
-		}
+            .arrow-link{
+                margin-top: spacing(2);
 
-			.block__heading {
+                &:not(:last-child) {
+                    margin-right: spacing(3);
 
-				@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
-				margin-right: spacing(5);
-				margin-bottom: 0;
-				margin-right: auto;
+                    @include from(T) {
+                        margin-right: spacing(5);
+                    }
+                }
+            }
 
-				@include upto(T) {
-					flex: 0 0 100%;
-				}
+        .block__content {
+            margin-bottom: spacing(4);
 
-			}
+            @include from(T) {
+                max-width: 60%;
+            }
+        }
 
-			.arrow-link{
+        .block__primary-stories {
+            @media print {
+                > .card:not(:last-child) {
+                    margin-bottom: spacing(4);
+                }
+            }
 
-				margin-top: spacing(2);
+            @include upto(T) {
+                display: flex;
+                overflow-x: scroll;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                margin: 0 spacing(-3);
+                padding: 0 spacing(3);
+                margin-bottom: spacing(3);
 
-				&:not(:last-child) {
+                > .card {
+                    scroll-snap-align: center;
+                    min-width: 100%;
+                    box-shadow: none;
 
-					margin-right: spacing(3);
+                    // the ::after element is now the far side margin, so dont
+                    // set this on the last child, otherwise we'll have double
+                    &:not(:last-child) {
+                        margin-right: spacing(3);
+                    }
+                }
 
-					@include from(T) {
-						margin-right: spacing(5);
-					}
+                // we can't use last-child margin to create our right hand side
+                // spacing, so we need to force the issue with an after element
+                &::after {
+                    content: '';
+                    display: block;
+                    flex: 0 0 24px;
+                }
+            }
 
-				}
+            @include from(T) {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: spacing(3);
+                margin-bottom: spacing(5);
+            }
+        }
 
-			}
+        .block__secondary-stories {
+            @include upto(T) {
+                display: flex;
+                overflow-x: scroll;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                margin: 0 spacing(-3);
+                padding: 0 spacing(3);
 
-		.block__content {
+                > .card-primary {
+                    scroll-snap-align: center;
+                    min-width: 75%;
+                    box-shadow: none;
 
-			margin-bottom: spacing(4);
+                    // the ::after element is now the far side margin, so dont
+                    // set this on the last child, otherwise we'll have double
+                    &:not(:last-child) {
+                        margin-right: spacing(3);
+                    }
+                }
 
-			@include from(T) {
-				max-width: 60%;
-			}
+                // we can't use last-child margin to create our right hand side
+                // spacing, so we need to force the issue with an after element
+                &::after {
+                    content: '';
+                    display: block;
+                    flex: 0 0 24px;
+                }
+            }
 
-		}
-
-		.block__primary-stories {
-
-			@media print {
-
-				> .card:not(:last-child) {
-					margin-bottom: spacing(4);
-				}
-
-			}
-
-			@include upto(T) {
-
-				display: flex;
-				overflow-x: scroll;
-				scroll-snap-type: x mandatory;
-				-webkit-overflow-scrolling: touch;
-				margin: 0 spacing(-3);
-				padding: 0 spacing(3);
-				margin-bottom: spacing(3);
-
-				> .card {
-
-					scroll-snap-align: center;
-					min-width: 100%;
-					box-shadow: none;
-
-					// the ::after element is now the far side margin, so dont
-					// set this on the last child, otherwise we'll have double
-					&:not(:last-child) {
-						margin-right: spacing(3);
-					}
-
-				}
-
-				// we can't use last-child margin to create our right hand side
-				// spacing, so we need to force the issue with an after element
-				&::after {
-					content: '';
-					display: block;
-					flex: 0 0 24px;
-				}
-
-			}
-
-			@include from(T) {
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				grid-gap: spacing(3);
-				margin-bottom: spacing(5);
-			}
-
-		}
-
-		.block__secondary-stories {
-
-			@include upto(T) {
-
-				display: flex;
-				overflow-x: scroll;
-				scroll-snap-type: x mandatory;
-				-webkit-overflow-scrolling: touch;
-				margin: 0 spacing(-3);
-				padding: 0 spacing(3);
-
-				> .card {
-
-					scroll-snap-align: center;
-					min-width: 75%;
-					box-shadow: none;
-
-					// the ::after element is now the far side margin, so dont
-					// set this on the last child, otherwise we'll have double
-					&:not(:last-child) {
-						margin-right: spacing(3);
-					}
-
-				}
-
-				// we can't use last-child margin to create our right hand side
-				// spacing, so we need to force the issue with an after element
-				&::after {
-					content: '';
-					display: block;
-					flex: 0 0 24px;
-				}
-
-			}
-
-			@include from(T) {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				grid-gap: spacing(3);
-			}
-
-		}
-
+            @include from(T) {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: spacing(3);
+            }
+        }
 }

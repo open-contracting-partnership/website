@@ -1,5 +1,4 @@
 .block[data-block-type="team-profile"] {
-
 	grid-template-rows: [all-start] repeat(6, auto) [all-end];
 	margin-bottom: var(--v-spacing);
 
@@ -9,7 +8,6 @@
 	}
 
 		.block__avatar-container {
-
 			grid-column: all;
 
 			--columns: 5;
@@ -32,17 +30,14 @@
 			@include from(L) {
 				grid-gap: spacing(3) spacing(4);
 			}
-
 		}
 
 			.block__avatar {
-
 				display: block;
 				position: relative;
 				z-index: 1;
 
 				&:hover {
-
 					z-index: 2;
 
 					img {
@@ -51,13 +46,10 @@
 					}
 
 					.block__avatar-name {
-
 						@include from(S) {
 							display: block;
 						}
-
 					}
-
 				}
 
 				img {
@@ -66,90 +58,70 @@
 					border-radius: 50%;
 					display: block;
 					border: 5px solid transparent;
-
 				}
 
 				@include between(S, T) {
-
 					&:nth-child(4n+1),
 					&:nth-child(4n+2) {
-
 						.block__avatar-name {
 							left: 100%;
 							margin-left: -15px;
 							padding-left: 29px;
 						}
-
 					}
 
 					&:nth-child(4n+3),
 					&:nth-child(4n+4) {
-
 						.block__avatar-name {
 							right: 100%;
 							margin-right: -15px;
 							padding-right: 29px;
 						}
-
 					}
-
 				}
 
 				@include between(T, M) {
-
 					&:nth-child(5n+1),
 					&:nth-child(5n+2),
 					&:nth-child(5n+3) {
-
 						.block__avatar-name {
 							left: 100%;
 							margin-left: -15px;
 							padding-left: 29px;
 						}
-
 					}
 
 					&:nth-child(5n+4),
 					&:nth-child(5n+5) {
-
 						.block__avatar-name {
 							right: 100%;
 							margin-right: -15px;
 							padding-right: 29px;
 						}
-
 					}
-
 				}
 
 				@include from(M) {
-
 					&:nth-child(6n+1),
 					&:nth-child(6n+2),
 					&:nth-child(6n+3) {
-
 						.block__avatar-name {
 							left: 100%;
 							margin-left: -15px;
 							padding-left: 29px;
 						}
-
 					}
 
 					&:nth-child(6n+4),
 					&:nth-child(6n+5),
 					&:nth-child(6n+6) {
-
 						.block__avatar-name {
 							right: 100%;
 							margin-right: -15px;
 							padding-right: 29px;
 						}
-
 					}
-
 				}
-
 			}
 
 				.block__avatar-name {
@@ -177,9 +149,7 @@
                     }
 				}
 
-
 		.block__list {
-
 			grid-column: 1 / 5;
 			font-size: 16px;
 
@@ -191,7 +161,6 @@
 				display: block;
 				@extend %reverse-underline;
 			}
-
 		}
 
 			.block__list-name {
@@ -199,25 +168,22 @@
 				margin-bottom: 0;
 			}
 
-
 		.block__profile-container {
-
 			grid-column: all;
 
 			@include from(T) {
 				grid-column: 6 / -1;
 			}
-
 		}
 
 			.block__profile {
-
 				--profile-offset: #{spacing(2)};
 				--profile-avatar-size: 72px;
 				--content-padding: #{spacing(2)};
 				--header-padding: #{spacing(2)};
 
 				display: grid;
+
 				grid-template-columns:
 					var(--profile-offset)
 					var(--content-padding)
@@ -240,7 +206,6 @@
 				margin-bottom: var(--v-spacing-half);
 
 				@include from(T) {
-
 					--content-padding: #{spacing(4)};
 					--header-padding: #{spacing(2)};
 					--profile-avatar-size: #{spacing(16)};
@@ -248,7 +213,6 @@
 					&:not(.active) {
 						display: none;
 					}
-
 				}
 
 				@include from(M) {
@@ -256,7 +220,6 @@
 					--header-padding: #{spacing(4)};
 					--profile-avatar-size: #{spacing(23)};
 				}
-
 			}
 
 				.block__profile img {
@@ -281,7 +244,6 @@
 					@include from(T) {
 						align-self: center;
 					}
-
 				}
 
 					.block__profile-name {
@@ -296,7 +258,6 @@
 					}
 
 					.block__profile-social {
-
 						@media screen {
 							display: flex;
 							flex-wrap: wrap;
@@ -313,7 +274,6 @@
 						}
 
 						a > svg {
-
 							display: block;
 							font-size: 26px;
 							fill: $ui-grey-4;
@@ -334,20 +294,16 @@
 							&[data-icon="linkedin"] {
 								width: 1em;
 							}
-
 						}
-
 					}
 
 					.block__profile-mobile-toggle {
-
 						@include font('secondary', 'bold');
 						margin-top: spacing(.5);
 
 						@include from(T) {
 							display: none;
 						}
-
 					}
 
 				.block__profile-content {
@@ -360,7 +316,6 @@
 				}
 
 					.block__profile-posts {
-
 						margin-top: spacing(6);
 
 						h4 {
@@ -370,11 +325,9 @@
 						.card {
 							margin-bottom: spacing(3);
 						}
-
 					}
 
 			@include upto(T) {
-
 				.block__profile:not(.mobile-active) .block__profile-content {
 					display: none;
 				}
@@ -386,7 +339,5 @@
 				.block__profile:not(.mobile-active) .block__profile-mobile-toggle[data-action="hide"] {
 					display: none;
 				}
-
 			}
-
 }

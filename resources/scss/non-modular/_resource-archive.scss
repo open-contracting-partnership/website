@@ -4,14 +4,12 @@
 }
 
 	.resource-archive__header {
-
 		grid-column: all;
 		margin-bottom: var(--v-spacing);
 
 		@include from(M) {
 			grid-column: all / span 6;
 		}
-
 	}
 
 		.resource-archive__heading {
@@ -48,14 +46,12 @@
 	}
 
 	.resource-archive__filters {
-
 		grid-column: all;
 		margin-bottom: var(--v-spacing);
 
 		@include from(T) {
 			grid-column: all / span 6;
 		}
-
 	}
 
 		.resource-archive__filter {
@@ -72,7 +68,6 @@
 			}
 
 			.resource-archive__filter-field {
-
 				display: flex;
 				align-items: center;
 				margin-right: spacing(3);
@@ -85,7 +80,6 @@
 					flex: 0 0 auto;
 					margin-right: spacing(1);
 				}
-
 			}
 
 	.resource-archive__results {

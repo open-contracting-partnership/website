@@ -13,7 +13,6 @@ class ArchiveController extends Controller
 {
     public function handle()
     {
-
         // urgh
         global $wp_query;
 

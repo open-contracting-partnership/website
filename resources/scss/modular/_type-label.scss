@@ -1,5 +1,4 @@
 .type-label {
-
 	display: flex;
 	align-items: center;
 	color: $ui-black;
@@ -17,7 +16,6 @@
 	&[data-colour="green"] {
 		color: $ui-brand;
 	}
-
 }
 
 	.type-label__icon {
@@ -39,29 +37,3 @@
 		text-transform: uppercase;
 		padding-top: .1em;
 	}
-
-
-//
-// &[data-post-type="post"] {
-//
-// 	.card__footer {
-// 		border-color: $ui-orange;
-// 	}
-//
-// 	.card__icon {
-// 		border-color: $ui-orange;
-// 	}
-//
-// }
-//
-// &[data-post-type="resource"] {
-//
-// 	.card__footer {
-// 		border-color: $ui-blue;
-// 	}
-//
-// 	.card__icon {
-// 		border-color: $ui-blue;
-// 	}
-//
-// }

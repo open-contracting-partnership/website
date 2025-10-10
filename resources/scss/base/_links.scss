@@ -1,50 +1,46 @@
 /*------------------------------------*\
-	LINKS
+    LINKS
 \*------------------------------------*/
 
 a {
+    text-decoration: underline;
+    word-wrap: break-word;
+    color: currentColor;
 
-	text-decoration: underline;
-	word-wrap: break-word;
-	color: currentColor;
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
 
-	&:hover,
-	&:focus {
-		text-decoration: none;
-	}
-
-	&:active {
-		text-decoration: underline;
-	}
-
+    &:active {
+        text-decoration: underline;
+    }
 }
 
 %reverse-underline {
-	text-decoration: none;
+    text-decoration: none;
 
-	&:hover,
-	&:focus {
-		text-decoration: underline;
-	}
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
 
-	&:active {
-		text-decoration: none;
-	}
+    &:active {
+        text-decoration: none;
+    }
 }
 
 @mixin reverse-underline {
+    text-decoration: none;
 
-	text-decoration: none;
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
 
-	&:hover,
-	&:focus {
-		text-decoration: underline;
-	}
-
-	&:active {
-		text-decoration: none;
-	}
-
+    &:active {
+        text-decoration: none;
+    }
 }
 
 h1,
@@ -52,33 +48,32 @@ h2,
 h3,
 h4,
 h5 {
+    a {
+        text-decoration: none;
 
-	a {
-		text-decoration: none;
+        &:hover,
+        &:focus {
+        text-decoration: underline;
+        }
 
-		&:hover,
-		&:focus {
-		  text-decoration: underline;
-		}
-
-		&:active {
-		  text-decoration: none;
-		}
-	}
+        &:active {
+        text-decoration: none;
+        }
+    }
 }
 
 tbody tr a {
-	color: inherit;
-	text-decoration: underline;
+    color: inherit;
+    text-decoration: underline;
 
-	&:hover,
-	&:focus {
-		text-decoration: none;
-	}
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
 
-	&:active {
-		text-decoration: underline;
-	}
+    &:active {
+        text-decoration: underline;
+    }
 }
 
 %link-block-reset {
@@ -87,46 +82,44 @@ tbody tr a {
 }
 
 %link-block {
-	text-decoration: none;
-	color: inherit;
-	border-bottom: 2px solid var(--link-block-primary-colour, #{$ui-brand});
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 2px solid var(--link-block-primary-colour, #{$ui-brand});
     padding-top: 4px;
     margin-top: -4px;
     box-decoration-break: clone;
 
-	transition:
+    transition:
         background-color .3s ease
         color .3s ease;
 
-	&:hover,
-	&:active,
-	&:focus {
+    &:hover,
+    &:active,
+    &:focus {
         padding-inline: 2px;
         margin-inline: -2px;
 
-		text-decoration: none;
-		background-color: var(--link-block-primary-colour, #{$ui-brand});
+        text-decoration: none;
+        background-color: var(--link-block-primary-colour, #{$ui-brand});
         color: var(--link-block-hover-text-colour, inherit);
-	}
+    }
 
 }
 
 a:not([class]):not(:has(img))  {
-	@extend %link-block;
+    @extend %link-block;
 }
 
 .article .block a {
+    text-decoration: underline;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    transition: none;
 
-	text-decoration: underline;
-	border: 0;
-	padding: 0;
-	margin: 0;
-	transition: none;
-
-	&:hover,
-	&:active,
-	&:focus {
-		background-color: unset;
-	}
-
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: unset;
+    }
 }

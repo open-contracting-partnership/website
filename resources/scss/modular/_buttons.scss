@@ -1,5 +1,4 @@
 .button {
-
 	// attempt to use custom variables, otherwise fallback on the defaults
 	--border-colour: var(--custom-background, #{$ui-brand});
 	--background: var(--custom-background, #{$ui-brand});
@@ -17,6 +16,7 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	cursor: pointer;
+
 	transition:
 		background-color .3s ease,
 		border-color .3s ease;
@@ -88,7 +88,6 @@
 .button--naked {
     @extend %button-naked;
 }
-
 
 .button[data-uppercase="false"] {
     text-transform: none;

@@ -35,7 +35,6 @@
 
 .header-mobile-nav__item {
     &.is-open {
-
         .header-mobile-nav__toggle {
             transform: rotate(-180deg);
         }
@@ -95,7 +94,6 @@
 }
 
 @include from($header-break-2) {
-
     .header-mobile-nav {
         display: none;
     }

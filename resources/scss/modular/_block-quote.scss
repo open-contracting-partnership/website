@@ -16,7 +16,6 @@
     }
 
     blockquote {
-
         border: none;
         padding: 0;
         margin-bottom: spacing(2);
@@ -32,7 +31,6 @@
             margin: 0;
             box-decoration-break: clone;
         }
-
     }
 
     figcaption {
@@ -51,5 +49,4 @@
         @include font('secondary', 'regular');
         color: $ui-grey-9;
     }
-
 }

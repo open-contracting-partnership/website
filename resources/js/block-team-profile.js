@@ -1,77 +1,64 @@
 const team_profile_handler = () => {
 
-	const $profile_blocks = document.querySelectorAll('.block[data-block-type="team-profile"]');
+    const $profile_blocks = document.querySelectorAll('.block[data-block-type="team-profile"]');
 
-	$profile_blocks.forEach($block => {
+    $profile_blocks.forEach($block => {
+        $triggers = $block.querySelectorAll('.block__list a, .block__avatar');
+        $mobile_triggers = $block.querySelectorAll('.block__profile-mobile-toggle');
+        $profiles = $block.querySelectorAll('.block__profile');
 
-		$triggers = $block.querySelectorAll('.block__list a, .block__avatar');
-		$mobile_triggers = $block.querySelectorAll('.block__profile-mobile-toggle');
-		$profiles = $block.querySelectorAll('.block__profile');
+        let scroll_into_view = false;
 
-		let scroll_into_view = false;
+        $triggers.forEach($trigger => {
+            $trigger.addEventListener('click', event => {
+                event.preventDefault();
 
-		$triggers.forEach($trigger => {
+                // replace the url has without triggering a jump tp
+                history.replaceState('', '', $trigger.getAttribute('href'));
 
-			$trigger.addEventListener('click', event => {
+                $profiles.forEach($profile => {
+                    $profile.classList.toggle('active', $trigger.getAttribute('href').replace('#', '') === $profile.id);
+                });
 
-				event.preventDefault();
+                if ( scroll_into_view ) {
 
-				// replace the url has without triggering a jump tp
-				history.replaceState('', '', $trigger.getAttribute('href'));
+                    $block.querySelector('.block__profile.active').scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
 
-				$profiles.forEach($profile => {
-					$profile.classList.toggle('active', $trigger.getAttribute('href').replace('#', '') === $profile.id);
-				});
+                }
 
-				if ( scroll_into_view ) {
+                scroll_into_view = true;
 
-					$block.querySelector('.block__profile.active').scrollIntoView({
-						behavior: "smooth",
-						block: "start"
-					});
+                return false;
+            });
+        });
 
-				}
+        $mobile_triggers.forEach($trigger => {
+            $trigger.addEventListener('click', event => {
+                event.preventDefault();
 
-				scroll_into_view = true;
-				
-				return false;
+                $trigger.closest('.block__profile').classList.toggle('mobile-active');
+            });
+        });
 
-			});
+        // try and get the target link based on the window location hash
+        let $target = $block.querySelector('.block__list a[href="' + window.location.hash + '"]');
 
-		});
+        // otherwise, set it to the first in the list
+        if ( ! $target ) {
+            $target = $triggers[0];
+        }
 
-		$mobile_triggers.forEach($trigger => {
-
-			$trigger.addEventListener('click', event => {
-
-				event.preventDefault();
-
-				$trigger.closest('.block__profile').classList.toggle('mobile-active');
-
-			});
-
-		});
-
-		// try and get the target link based on the window location hash
-		let $target = $block.querySelector('.block__list a[href="' + window.location.hash + '"]');
-
-		// otherwise, set it to the first in the list
-		if ( ! $target ) {
-			$target = $triggers[0];
-		}
-
-		$target.click();
-
-	});
-
+        $target.click();
+    });
 };
 
 if ( _options.is_admin ) {
-
-	window.document.addEventListener('ocp-block-team-profile-loaded', event => {
-		team_profile_handler();
-	});
-
+    window.document.addEventListener('ocp-block-team-profile-loaded', event => {
+        team_profile_handler();
+    });
 } else {
-	team_profile_handler();
+    team_profile_handler();
 }
