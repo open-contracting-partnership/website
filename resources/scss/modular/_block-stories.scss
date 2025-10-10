@@ -32,6 +32,8 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
+
+            @include fluid-type((margin-bottom), 375px, 1240px, spacing(1.5), spacing(3));
         }
 
             .block__heading {
@@ -119,7 +121,7 @@
                 margin: 0 spacing(-3);
                 padding: 0 spacing(3);
 
-                > .card {
+                > .card-primary {
                     scroll-snap-align: center;
                     min-width: 75%;
                     box-shadow: none;

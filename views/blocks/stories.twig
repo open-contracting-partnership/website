@@ -25,7 +25,7 @@
             {% for card in block.primary_stories %}
                 {% include 'cards/feature.twig' with card %}
             {% endfor %}
-        </div> <!-- / .block__primary-stories -->
+        </div>
 
         <div class="block__header">
             <h2 class="block__heading">{{ block.secondary_title }}</h2>
@@ -48,6 +48,6 @@
             {% for card in block.secondary_stories %}
                 {% include 'cards/primary.twig' with card %}
             {% endfor %}
-        </div> <!-- / .block__secondary-stories -->
+        </div>
     </div>
 </div>
