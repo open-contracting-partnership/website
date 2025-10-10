@@ -24,7 +24,7 @@ require_once('functions/loader.php');
 // Set global params in the Timber context
 add_filter('timber/context', [$lumberjack, 'addToContext']);
 
-function hex2rgba(string $color, bool $opacity = false): string
+function hex2rgba(string $color, float $opacity = 1.0): string
 {
     $default = 'rgb(0,0,0)';
 
@@ -50,7 +50,19 @@ function hex2rgba(string $color, bool $opacity = false): string
     // Convert hexadec to rgb
     $rgb = array_map('hexdec', $hex);
 
-    return 'rgb(' . implode(",", $rgb) . ')';
+    // check if opacity is set(rgba or rgb)
+    if ($opacity) {
+        if (abs($opacity) > 1) {
+            $opacity = 1.0;
+        }
+
+        $output = 'rgba(' . implode(",", $rgb) . ',' . $opacity . ')';
+    } else {
+        $output = 'rgb(' . implode(",", $rgb) . ')';
+    }
+
+    // return rgb(a) color string
+    return $output;
 }
 
 /**

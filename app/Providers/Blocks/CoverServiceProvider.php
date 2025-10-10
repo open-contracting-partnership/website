@@ -45,7 +45,11 @@ class CoverServiceProvider
         $context['block']['text_colour'] = get_field('text_colour');
         $context['block']['overlay_color'] = get_field('overlay_colour') ?: '#000000';
         $context['block']['background_opacity'] = get_field('background_opacity') / 100;
-        $context['block']['background_color'] = hex2rgba($context['block']['overlay_color'], $context['block']['background_opacity']);
+
+        $context['block']['background_color'] = hex2rgba(
+            $context['block']['overlay_color'],
+            $context['block']['background_opacity']
+        );
 
         // options
         $context['block']['options'] = get_field('options') ?: [];
