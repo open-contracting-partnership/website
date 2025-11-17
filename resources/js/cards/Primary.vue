@@ -5,16 +5,10 @@
     >
         <div class="card-primary__image">
             <img
-                :src="`${imgixUrl}?auto=format&amp;fit=crop&amp;w=415&amp;h=234`"
-                class=""
-                :srcset="`
-                    ${imgixUrl}?auto=format&amp;fit=crop&amp;w=415&amp;h=234 415w,
-                    ${imgixUrl}?auto=format&amp;fit=crop&amp;w=830&amp;h=467 830w,
-                    ${imgixUrl}?auto=format&amp;fit=crop&amp;w=1024&amp;h=576 1024w,
-                    ${imgixUrl}?auto=format&amp;fit=crop&amp;w=1536&amp;h=864 1536w,
-                    ${imgixUrl}?auto=format&amp;fit=crop&amp;w=2048&amp;h=1152 2048w
-                `"
+                :src="post.imageSrc"
+                :srcset="post.imageSrcset"
                 sizes="(min-width: 1340px) 385px, (min-width: 768px) 32vw, 80vw"
+                class=""
                 alt=""
                 width="16"
                 height="9"
@@ -63,17 +57,5 @@
                 required: true
             }
         },
-
-        computed: {
-            imgixUrl() {
-                if (! this.post.image_url) {
-                    return 'https://ocp.imgix.net/wp-content/themes/ocp-v1/resources/img/fallback-v2.jpg';
-                }
-
-                const urlParts = this.post.image_url.split('/wp-content/');
-
-                return 'https://ocp.imgix.net/wp-content/' + urlParts[1];
-            }
-        }
     }
 </script>

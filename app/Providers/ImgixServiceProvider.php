@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Imgix\UrlBuilder;
 use Rareloop\Lumberjack\Facades\Config;
 use Rareloop\Lumberjack\Providers\ServiceProvider;
 use Timber\Timber;
@@ -48,7 +49,6 @@ class ImgixServiceProvider extends ServiceProvider
     {
         // make sure the host is set within the params
         $args = array_merge([
-            'host_transforms' => Config::get('images.imgix_host_transforms'),
             'alt' => '',
             'aspect_ratio' => null,
             'loading' => 'lazy'
@@ -87,12 +87,9 @@ class ImgixServiceProvider extends ServiceProvider
             $transform['h'] = ceil($transform['w'] / ($args['aspect_ratio'][0] / $args['aspect_ratio'][1]));
         }
 
-        $args['src'] = str_replace(
-            array_keys($args['host_transforms']),
-            array_values($args['host_transforms']),
-            $args['src']
-        );
+        $builder = new UrlBuilder(Config::get('images.imgix_domain'));
+        $builder->setSignKey(Config::get('images.imgix_signing_key'));
 
-        return $args['src'] . '?' . http_build_query($transform);
+        return $builder->createURL(parse_url($args['src'])['path'], $transform);
     }
 }

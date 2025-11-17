@@ -1,6 +1,6 @@
 # Open Contracting Partnership - WordPress Theme
 
-**Version**: 3.19.3
+**Version**: 3.20.0
 
 | Environment | Status |
 | :-- | :-- |
@@ -26,7 +26,7 @@ We use the [Semantic Versioning 2.0.0](https://semver.org/) version scheme, when
 
 ## Project dependencies
 
-- PHP 7.4
+- PHP 8.1
 - [Composer](https://getcomposer.org/download/)
 - [Laravel Mix](https://github.com/JeffreyWay/laravel-mix/tree/master/docs#summary)
 - [NPM](https://nodejs.org/en/download)

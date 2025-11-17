@@ -1,12 +1,9 @@
 <?php
 
 return [
-    'imgix_host' => $_ENV['IMGIX_HOST'],
-
-    'imgix_host_transforms' => array_combine(
-        explode(',', $_ENV['IMGIX_SOURCE_HOSTS']),
-        explode(',', $_ENV['IMGIX_TRANSFORM_HOSTS'])
-    ),
+    'imgix_signing_key' => $_ENV['IMGIX_SIGNING_KEY'],
+    'imgix_base_url' => $_ENV['IMGIX_BASE_URL'],
+    'imgix_domain' => $_ENV['IMGIX_DOMAIN'],
 
     /**
      * List of image sizes to register, each image size looks like:

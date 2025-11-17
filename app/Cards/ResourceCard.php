@@ -52,7 +52,8 @@ class ResourceCard extends BaseCard
             return null;
         }
 
-        $builder = new UrlBuilder(Config::get('images.imgix_host'));
+        $builder = new UrlBuilder(Config::get('images.imgix_domain'));
+        $builder->setSignKey(Config::get('images.imgix_signing_key'));
 
         $resourceType = $post->resourceType ? $post->resourceType->slug : null;
         $resourceColour = $post->colour ?: 'black';
@@ -79,7 +80,7 @@ class ResourceCard extends BaseCard
 
         $imageURL = $builder->createURL($backgroundImage, [
             'mark64' => $textURL,
-            'mark-align' => 'top,left',
+            'markAlign64' => 'top,left',
             'mark-pad' => '35',
             'mark-w' => '1.0',
             'mark-y' => '50',
