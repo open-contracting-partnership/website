@@ -73,7 +73,7 @@ class ResourceCard extends BaseCard
         ]);
 
         $backgroundImage = sprintf(
-            'wp-content/themes/ocp-v1/resources/img/resource-covers/%s-%s.png',
+            '/themes/ocp-v1/resources/img/resource-covers/%s-%s.png',
             $isDataTool ? 'data' : 'resource',
             $resourceColour,
         );
