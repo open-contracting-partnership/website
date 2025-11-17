@@ -87,9 +87,20 @@ class ImgixServiceProvider extends ServiceProvider
             $transform['h'] = ceil($transform['w'] / ($args['aspect_ratio'][0] / $args['aspect_ratio'][1]));
         }
 
+        $imageUrl = $this->processUrl($args['src']);
+
         $builder = new UrlBuilder(Config::get('images.imgix_domain'));
         $builder->setSignKey(Config::get('images.imgix_signing_key'));
 
-        return $builder->createURL(parse_url($args['src'])['path'], $transform);
+        return $builder->createURL($imageUrl, $transform);
+    }
+
+    public static function processUrl(string $url): string
+    {
+        return str_replace(
+            Config::get('images.imgix_base_url'),
+            '',
+            $url,
+        );
     }
 }

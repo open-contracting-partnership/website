@@ -22,6 +22,8 @@ class SEOServiceProvider extends ServiceProvider
     {
         // overwrite the yoast og image to use imgix as the domain
         add_filter('wpseo_opengraph_image', function ($imageUrl) {
+            $imageUrl = ImgixServiceProvider::processUrl($imageUrl);
+
             $builder = new UrlBuilder(Config::get('images.imgix_domain'));
             $builder->setSignKey(Config::get('images.imgix_signing_key'));
 

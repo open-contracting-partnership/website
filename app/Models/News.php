@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Cards\PrimaryCard;
+use App\Providers\ImgixServiceProvider;
 use Imgix\UrlBuilder;
 use Rareloop\Lumberjack\Facades\Config;
 use Timber\Timber;
@@ -18,7 +19,7 @@ class News
 
         $posts = PrimaryCard::convertCollection($posts, function ($new, $original) {
             if (! isset($new['image_url'])) {
-                $new['image_url'] = '/wp-content/themes/ocp-v1/resources/img/fallback-v2.jpg';
+                $new['image_url'] = '/themes/ocp-v1/resources/img/fallback-v2.jpg';
             }
 
             $new['imageSrc'] = self::imgixImages($new['image_url'], [
@@ -55,12 +56,14 @@ class News
         return $posts;
     }
 
-    protected static function imgixImages(string $url, ?array $params = []): string
+    protected static function imgixImages(string $imageUrl, ?array $params = []): string
     {
+        $imageUrl = ImgixServiceProvider::processUrl($imageUrl);
+
         $builder = new UrlBuilder(Config::get('images.imgix_domain'));
         $builder->setSignKey(Config::get('images.imgix_signing_key'));
 
-        return $builder->createURL(parse_url($url)['path'], $params);
+        return $builder->createURL($imageUrl, $params);
     }
 
     public static function getFilters(): array
