@@ -95,7 +95,7 @@ class ImgixServiceProvider extends ServiceProvider
         return $builder->createURL($imageUrl, $transform);
     }
 
-    public static function processUrl(string $url): string
+    public static function processUrl(string $url = ''): string
     {
         return str_replace(
             Config::get('images.imgix_base_url'),
