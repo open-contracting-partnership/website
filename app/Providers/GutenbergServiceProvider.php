@@ -87,6 +87,10 @@ class GutenbergServiceProvider extends ServiceProvider
 
     public static function saveBlockFields(array $paths, array $post): array
     {
+        if (! isset($post['key'])) {
+            return $paths;
+        }
+
         $blockFieldPaths = glob(__DIR__ . '/../../blocks/**/' . $post['key'] . '.json');
 
         if (! empty($blockFieldPaths)) {
