@@ -65,6 +65,12 @@ class Lumberjack extends LumberjackCore
                 }
             }
         }
+
+        if (get_field('show_sticky_cta', 'options')) {
+            $context['show_sticky_cta'] = get_field('show_sticky_cta', 'options');
+            $context['sticky_cta_image'] = get_field('sticky_cta_image', 'options');
+            $context['sticky_cta_link'] = get_field('sticky_cta_link', 'options');
+        }
     }
 
     public function addSocialContext(&$context)

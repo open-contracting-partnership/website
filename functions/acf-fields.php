@@ -14,6 +14,13 @@ if (function_exists('acf_add_options_page') && function_exists('acf_add_options_
 
     // add sub page
     acf_add_options_sub_page([
+        'page_title' => 'Sticky CTA',
+        'menu_title' => 'Sticky CTA',
+        'parent_slug' => $parent['menu_slug'],
+    ]);
+
+    // add sub page
+    acf_add_options_sub_page([
         'page_title' => 'Navigation',
         'menu_title' => 'Navigation',
         'parent_slug' => $parent['menu_slug'],
