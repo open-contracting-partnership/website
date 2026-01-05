@@ -3,11 +3,9 @@
     color: $ui-grey-3;
     gap: spacing(1);
     display: flex;
-    max-width: 360px;
     position: fixed;
     bottom: spacing(2);
     right: spacing(2);
-
     border-radius: spacing(2);
     z-index: 202;
     padding: spacing(1.5);
@@ -15,21 +13,13 @@
     font-weight: $bold;
     align-items: center;
     transition: all 0.3s ease;
-
-
-    max-width: 175px; // rem?
-
-    // @include upto(T) {
-    //     bottom: spacing(2);
-    //     right: 0;
-    //     margin-inline: spacing(2);
-    // }
+    max-width: 175px;
 
     @include from(T) {
         bottom: spacing(3);
         right: spacing(3);
         padding: spacing(2);
-        max-width: 210px; // rem?
+        max-width: 210px;
     }
 
     &:hover {
@@ -39,8 +29,6 @@
 
 .sticky-cta__text {
     @include font('primary', 'semibold');
-
-    // @extend .h5;
 
     font-size: 14px;
     line-height: 1.3;
