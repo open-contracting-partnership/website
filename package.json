@@ -70,6 +70,6 @@
     "@knight-lab/timelinejs": "^3.9.6",
     "alpinejs": "^3.9.2",
     "less-loader": "^12.2.0",
-    "webpack": "^5.91.0"
+    "webpack": "^5.105.1"
   }
 }
