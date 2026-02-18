@@ -40,7 +40,7 @@
     "countup.js": "^2.6.2",
     "cross-env": "^5.1.3",
     "css-element-queries": "^1.0.2",
-    "gh-pages": "^1.1.0",
+    "gh-pages": "^6.3.0",
     "import-glob-loader": "^1.1.0",
     "laravel-mix": "^6.0.49",
     "laravel-mix-svg-sprite": "^1.0.0",
@@ -71,5 +71,12 @@
     "alpinejs": "^3.9.2",
     "less-loader": "^12.2.0",
     "webpack": "^5.105.1"
+  },
+  "overrides": {
+    "svg-baker": {
+      "braces": "^3.0.3",
+      "postcss": "^8.5.0",
+      "micromatch": "^4.0.8"
+    }
   }
 }
