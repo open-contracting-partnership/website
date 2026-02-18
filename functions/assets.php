@@ -20,6 +20,19 @@ add_action('wp_enqueue_scripts', function () {
     Assets::registerScript('archive-resource', 'resources/js/archive-resource.js', true);
     Assets::registerScript('page-worldwide', 'resources/js/modules/worldwide/worldwide.js', true);
 
+    // BLOCKS
+    Assets::registerScript('block-download-carousel', 'resources/js/block-download-carousel.js', true);
+    Assets::registerScript('block-featured-stories-carousel', 'resources/js/block-featured-stories-carousel.js', true);
+    Assets::registerScript('block-our-model', 'resources/js/block-our-model.js', true);
+    Assets::registerScript('block-quote-carousel', 'resources/js/block-quote-carousel.js', true);
+    Assets::registerScript('block-stats', 'resources/js/block-stats.js', true);
+    Assets::registerScript('block-team-profile', 'resources/js/block-team-profile.js', true);
+    Assets::registerScript('block-timeline', 'resources/js/block-timeline.js', true);
+    Assets::registerScript('block-where-we-work', 'resources/js/block-where-we-work.js', true);
+
+    // MISCELLANEOUS
+    Assets::registerScript('mailchimp', 'resources/js/mailchimp.js', true);
+    Assets::registerScript('scroll-prompt', 'resources/js/scroll-prompt.js', true);
 
     //************
     // LOAD ASSETS

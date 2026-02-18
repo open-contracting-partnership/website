@@ -23,7 +23,7 @@ class HeroWithImageServiceProvider
                     'align' => false,
                 ],
                 'enqueue_assets' => function () {
-                    wp_enqueue_script('scroll-prompt', get_template_directory_uri() . '/dist/js/scroll-prompt.js', ['manifest'], false, true);
+                    wp_enqueue_script('scroll-prompt');
                 },
             ]);
         });

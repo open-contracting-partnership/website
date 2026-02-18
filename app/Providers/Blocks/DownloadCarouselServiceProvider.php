@@ -20,7 +20,7 @@ class DownloadCarouselServiceProvider
                 'category' => 'ocp-blocks',
                 'icon' => 'download',
                 'enqueue_assets' => function () {
-                    wp_enqueue_script('block-download-carousel', get_template_directory_uri() . '/dist/js/block-download-carousel.js', ['manifest'], false, true);
+                    wp_enqueue_script('block-download-carousel');
                 },
                 'keywords' => ['download', 'carousel'],
                 'post_types' => ['page'],
