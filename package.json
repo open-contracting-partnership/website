@@ -16,8 +16,9 @@
   },
   "homepage": "https://github.com/theideabureau/bureau-style-guide",
   "scripts": {
-    "dev": "vite build --watch",
-    "build": "vite build"
+    "development": "vite build --minify false --sourcemap",
+    "watch": "vite build --watch",
+    "production": "vite build"
   },
   "devDependencies": {
     "@vitejs/plugin-vue2": "^2.3.1",
