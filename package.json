@@ -77,6 +77,11 @@
       "braces": "^3.0.3",
       "postcss": "^8.5.0",
       "micromatch": "^4.0.8"
+    },
+    "import-glob-loader": {
+      "loader-utils": {
+        "json5": "^1.0.2"
+      }
     }
   }
 }
