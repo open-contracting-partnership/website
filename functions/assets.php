@@ -5,30 +5,23 @@ use App\Models\News;
 
 add_action('wp_enqueue_scripts', function () {
 
-    Assets::registerScript('manifest', '/dist/js/manifest.js', [], true);
-    Assets::registerScript('vendor', '/dist/js/vendor.js', [], true);
-
-     //****************
+    //****************
     // REGISTER ASSETS
 
-    // EXTRACTED
-    Assets::registerScript('manifest', '/dist/js/manifest.js', [], true);
-    Assets::registerScript('vendor', '/dist/js/vendor.js', [], true);
-
     // BASE
-    Assets::registerStyle('main', '/dist/css/styles.css');
-    Assets::registerScript('main', '/dist/js/scripts.js', ['manifest'], true);
-    Assets::registerScript('header', '/dist/js/header.js', ['manifest'], true);
-    Assets::registerScript('element-queries', '/dist/js/element-queries.js', [], true);
+    Assets::registerStyle('main', 'resources/scss/styles.scss');
+    Assets::registerScript('main', 'resources/js/scripts.js', true);
+    Assets::registerScript('header', 'resources/js/header.js', true);
+    Assets::registerScript('element-queries', 'resources/js/element-queries.js', true);
 
     // SPECIFIC
-    Assets::registerScript('page-impact-stories', '/dist/js/impact-stories.js', ['manifest', 'vendor'], true);
-    Assets::registerScript('latest-news', '/dist/js/latest-news.js', ['manifest', 'vendor'], true);
-    Assets::registerScript('archive-resource', '/dist/js/archive-resource.js', ['manifest', 'vendor'], true);
-    Assets::registerScript('page-worldwide', '/dist/js/worldwide.js', ['manifest', 'vendor'], true);
+    Assets::registerScript('page-impact-stories', 'resources/js/impact-stories.js', true);
+    Assets::registerScript('latest-news', 'resources/js/latest-news.js', true);
+    Assets::registerScript('archive-resource', 'resources/js/archive-resource.js', true);
+    Assets::registerScript('page-worldwide', 'resources/js/modules/worldwide/worldwide.js', true);
 
 
-     //************
+    //************
     // LOAD ASSETS
 
     wp_enqueue_style('main');

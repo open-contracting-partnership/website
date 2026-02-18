@@ -3,7 +3,6 @@ import vue from '@vitejs/plugin-vue2';
 import sassGlobImports from 'vite-plugin-sass-glob-import';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 import svgSpritePlugin from './vite-plugins/svg-sprite.js';
-import mixManifestPlugin from './vite-plugins/mix-manifest.js';
 import { resolve } from 'path';
 
 export default defineConfig({
@@ -19,8 +18,7 @@ export default defineConfig({
         }
       ]
     }),
-    svgSpritePlugin('resources/svg', 'svg/icons.svg'),
-    mixManifestPlugin()
+    svgSpritePlugin('resources/svg', 'svg/icons.svg')
   ],
   build: {
     outDir: 'dist',
