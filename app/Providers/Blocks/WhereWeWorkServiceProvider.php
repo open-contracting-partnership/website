@@ -21,7 +21,7 @@ class WhereWeWorkServiceProvider
                     'align' => false,
                 ],
                 'enqueue_assets' => function () {
-                    wp_enqueue_script('block-where-we-work', get_template_directory_uri() . '/dist/js/block-where-we-work.js', ['manifest'], false, true);
+                    wp_enqueue_script('block-where-we-work');
                 },
             ]);
         });

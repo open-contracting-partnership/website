@@ -27,13 +27,7 @@ class TimelineServiceProvider
                         [],
                         null
                     );
-                    wp_enqueue_script(
-                        'block-timeline',
-                        get_template_directory_uri() . '/dist/js/block-timeline.js',
-                        ['manifest'],
-                        filemtime(get_template_directory() . '/dist/js/block-timeline.js'),
-                        true
-                    );
+                    wp_enqueue_script('block-timeline');
                 },
             ]);
         });
