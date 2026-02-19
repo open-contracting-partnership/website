@@ -47,8 +47,6 @@ export default defineConfig({
     svgSpritePlugin('resources/svg', 'svg/icons.svg'),
   ],
   build: {
-    outDir: 'dist',
-    emptyOutDir: true,
     manifest: true,
     rollupOptions: {
       input: {
@@ -75,16 +73,18 @@ export default defineConfig({
         gutenberg: resolve(__dirname, 'resources/scss/gutenberg.scss'),
       },
       output: {
-        entryFileNames: 'js/[name].[hash].js',
-        chunkFileNames: 'js/[name].[hash].js',
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name?.endsWith('.css')) {
-            return 'css/[name].[hash].[ext]';
+        entryFileNames: 'js/[name]-[hash].js',
+        chunkFileNames: 'js/[name]-[hash].js',
+        assetFileNames: ({ name }) => {
+          if (name) {
+            if (name.endsWith('.css')) {
+              return 'css/[name]-[hash].[ext]';
+            }
+            if (/\.woff2?$/.test(name)) {
+              return 'fonts/[name].[ext]';
+            }
           }
-          if (assetInfo.name && /\.(woff2?|ttf|eot|otf)$/.test(assetInfo.name)) {
-            return 'fonts/[name].[ext]';
-          }
-          return 'assets/[name].[hash].[ext]'; // not expected
+          return 'assets/[name]-[hash].[ext]'; // not expected
         },
         manualChunks: {
           vendor: ['vue'],
