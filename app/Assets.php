@@ -17,49 +17,35 @@ class Assets
         return self::$manifest;
     }
 
-    private static function getAsset(string $entry): array
+    private static function getUrl(string $entry): ?string
     {
         $manifest = self::getManifest();
         $file = $manifest[$entry]['file'] ?? null;
-        if (! $file) {
-            return [null, ''];
-        }
+        return $file ? get_template_directory_uri() . '/dist/' . $file : null;
+    }
 
-        $url = get_template_directory_uri() . '/dist/' . $file;
-        $path = get_template_directory() . '/dist/' . $file;
-        $version = file_exists($path) ? substr(md5_file($path), 0, 8) : '';
-
-        return [$url, $version];
+    public static function getPath(string $entry): ?string
+    {
+        $manifest = self::getManifest();
+        $file = $manifest[$entry]['file'] ?? null;
+        return $file ? 'dist/' . $file : null;
     }
 
     public static function registerScript(string $handle, string $path, bool $in_footer = false): void
     {
-        [$url, $version] = self::getAsset($path);
+        $url = self::getUrl($path);
         if (! $url) {
             return;
         }
-
-        wp_register_script(
-            $handle,
-            $url,
-            [],
-            $version,
-            $in_footer
-        );
+        wp_register_script($handle, $url, [], false, $in_footer);
     }
 
     public static function registerStyle(string $handle, string $path): void
     {
-        [$url, $version] = self::getAsset($path);
+        $url = self::getUrl($path);
         if (! $url) {
             return;
         }
-
-        wp_register_style(
-            $handle,
-            $url,
-            [],
-            $version
-        );
+        wp_register_style($handle, $url, [], false);
     }
 }

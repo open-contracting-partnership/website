@@ -75,16 +75,16 @@ export default defineConfig({
         gutenberg: resolve(__dirname, 'resources/scss/gutenberg.scss'),
       },
       output: {
-        entryFileNames: 'js/[name].js',
-        chunkFileNames: 'js/[name].js',
+        entryFileNames: 'js/[name].[hash].js',
+        chunkFileNames: 'js/[name].[hash].js',
         assetFileNames: (assetInfo) => {
           if (assetInfo.name?.endsWith('.css')) {
-            return 'css/[name].[ext]';
+            return 'css/[name].[hash].[ext]';
           }
           if (assetInfo.name && /\.(woff2?|ttf|eot|otf)$/.test(assetInfo.name)) {
             return 'fonts/[name].[ext]';
           }
-          return 'assets/[name].[ext]';
+          return 'assets/[name].[hash].[ext]'; // not expected
         },
         manualChunks: {
           vendor: ['vue'],
