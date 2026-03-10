@@ -17,7 +17,7 @@
                         >
                             {% for child in item.children %}
                                 <li class="nav-drop-item">
-                                    <a 
+                                    <a
                                         href="{{ child.link }}"
                                         class="
                                             {{child.class}}
@@ -33,16 +33,10 @@
                                             {{ imgix({
                                                 src: boxedLinkImage.url,
                                                 alt: boxedLinkImage.alt,
-                                                params: {
-                                                    auto: 'format,compress',
-                                                },
-                                                aspect_ratio: [boxedLinkImage.width, boxedLinkImage.height],
+                                                height: boxedLinkImage.height,
+                                                width: boxedLinkImage.width,
                                                 transforms: [{
-                                                    w: 32  
-                                                }, {
-                                                    w: 32 * 2
-                                                }, {
-                                                    w: 32 * 3
+                                                    w: 128
                                                 }],
                                                 sizes: '32px',
                                                 class: 'boxed-link__image',
@@ -57,7 +51,7 @@
                                         <ul class="nav-subdrop">
                                             {% for subchild in child.children %}
                                                 <li class="nav-subdrop-item">
-                                                    <a 
+                                                    <a
                                                         class="{{subchild.class}} link-highlight"
                                                         data-highlight="{{ item.highlight_colour }}"
                                                         href="{{ subchild.link }}"
@@ -89,7 +83,7 @@
                         <ul class="nav-drop">
                             {% for child in item.children %}
                                 <li class="nav-drop-item">
-                                    <a 
+                                    <a
                                         href="{{ child.link }}"
                                         class="
                                             {{child.class}}
@@ -105,16 +99,10 @@
                                             {{ imgix({
                                                 src: boxedLinkImage.url,
                                                 alt: boxedLinkImage.alt,
-                                                params: {
-                                                    auto: 'format,compress',
-                                                },
-                                                aspect_ratio: [boxedLinkImage.width, boxedLinkImage.height],
+                                                height: boxedLinkImage.height,
+                                                width: boxedLinkImage.width,
                                                 transforms: [{
-                                                    w: 32  
-                                                }, {
-                                                    w: 32 * 2
-                                                }, {
-                                                    w: 32 * 3
+                                                    w: 128
                                                 }],
                                                 sizes: '32px',
                                                 class: 'boxed-link__image',
@@ -138,7 +126,7 @@
                                                     </a>
                                                 </li>
                                             {% endfor %}
-                                            
+
                                         </ul>
                                     {% endif %}
                                 </li>

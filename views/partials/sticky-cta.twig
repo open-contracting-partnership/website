@@ -5,17 +5,12 @@
                 {{ imgix({
                     src: sticky_cta_image.url,
                     params: {
-                        auto: "format,compress",
                         fit: 'crop',
                         crop: 'faces'
                     },
                     aspect_ratio: [1, 1],
                     transforms: [{
-                        w: 40 * 1
-                    }, {
-                        w: 40 * 2
-                    }, {
-                        w: 40 * 3
+                        w: 128
                     }],
                     sizes: "40px"
                 }) }}

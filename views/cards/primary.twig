@@ -16,14 +16,13 @@
             {{ imgix({
                 src: card.image_url,
                 params: {
-                    auto: 'format',
                     fit: 'crop'
                 },
                 aspect_ratio: [16, 9],
                 transforms: [{
-                    w: 415
+                    w: 512
                 }, {
-                    w: 830
+                    w: 768
                 }, {
                     w: 1024
                 }, {
@@ -37,14 +36,13 @@
             {{ imgix({
                 src: fallback_image,
                 params: {
-                    auto: 'format',
                     fit: 'crop'
                 },
                 aspect_ratio: [16, 9],
                 transforms: [{
-                    w: 415
+                    w: 512
                 }, {
-                    w: 830
+                    w: 768
                 }, {
                     w: 1024
                 }, {

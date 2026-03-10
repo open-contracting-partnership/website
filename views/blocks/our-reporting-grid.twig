@@ -37,13 +37,8 @@
                     {{ imgix({
                         class: 'our-reporting-card__image',
                         src: card.icon.icon.url,
-                        aspect_ratio: [
-                            card.icon.icon.width,
-                            card.icon.icon.height
-                        ],
-                        params: {
-                            auto: 'format'
-                        }
+                        height: card.icon.icon.height,
+                        width: card.icon.icon.width,
                     }) }}
                 {% endif %}
 
@@ -58,30 +53,18 @@
         <div class="our-reporting-grid__banner-image">
             {{ imgix({
                 src: block.banner_image.url,
-                params: {
-                    auto: 'format',
-                    fit: 'crop'
-                },
-                aspect_ratio: [
-                    block.banner_image.width,
-                    block.banner_image.height
-                ],
+                height: block.banner_image.height,
+                width: block.banner_image.width,
                 transforms: [{
-                    w: 300
+                    w: 512
                 }, {
-                    w: 500
+                    w: 768
                 }, {
-                    w: 600
+                    w: 1024
                 }, {
-                    w: 1000
+                    w: 1536
                 }, {
-                    w: 1200
-                }, {
-                    w: 1800
-                }, {
-                    w: 2400
-                }, {
-                    w: 2800
+                    w: 3072
                 }],
                 sizes: '100vw',
                 loading: 'lazy'

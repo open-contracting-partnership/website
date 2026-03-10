@@ -31,30 +31,18 @@
     <div class="hero-with-image__image">
         {{ imgix({
             src: block.background_image.url,
-            params: {
-                auto: 'format',
-                fit: 'crop',
-            },
-            aspect_ratio: [
-                block.background_image.width,
-                block.background_image.height
-            ],
+            height: block.background_image.height,
+            width: block.background_image.width,
             transforms: [{
-                w: 300
+                w: 512
             }, {
-                w: 500
+                w: 768
             }, {
-                w: 600
+                w: 1024
             }, {
-                w: 100
+                w: 1536
             }, {
-                w: 1200
-            }, {
-                w: 1800
-            }, {
-                w: 2400
-            }, {
-                w: 2800
+                w: 3072
             }],
             sizes: '100vw',
             loading: 'eager'

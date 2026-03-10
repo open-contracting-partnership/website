@@ -42,13 +42,8 @@
                     {{ imgix({
                         class: 'stat__icon',
                         src: stat.icon.icon.url,
-                        aspect_ratio: [
-                            stat.icon.icon.width,
-                            stat.icon.icon.height
-                        ],
-                        params: {
-                            auto: 'format'
-                        }
+                        height: stat.icon.icon.height,
+                        width: stat.icon.icon.width,
                     }) }}
                 {% endif %}
             </div>

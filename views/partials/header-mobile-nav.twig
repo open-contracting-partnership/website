@@ -65,16 +65,10 @@
                                         {{ imgix({
                                             src: boxedLinkImage.url,
                                             alt: boxedLinkImage.alt,
-                                            params: {
-                                                auto: 'format,compress',
-                                            },
-                                            aspect_ratio: [boxedLinkImage.width, boxedLinkImage.height],
+                                            height: boxedLinkImage.height,
+                                            width: boxedLinkImage.width,
                                             transforms: [{
-                                                w: 32
-                                            }, {
-                                                w: 32 * 2
-                                            }, {
-                                                w: 32 * 3
+                                                w: 128
                                             }],
                                             sizes: '32px',
                                             class: 'boxed-link__image',
