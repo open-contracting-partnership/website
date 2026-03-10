@@ -17,7 +17,6 @@
             {{ imgix({
                 src: card.image_url,
                 params: {
-                    auto: 'format',
                     fit: 'crop',
                     w: 400,
                     ar: 210 / 297,
@@ -29,7 +28,6 @@
             {{ imgix({
                 src: fallback_image,
                 params: {
-                    auto: 'format',
                     fit: 'crop',
                     w: 400,
                     ar: 210 / 297,

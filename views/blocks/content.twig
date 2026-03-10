@@ -94,19 +94,14 @@
 
                             {{ imgix({
                                 src: item.image.url,
-                                params: {
-                                    auto: 'format'
-                                },
                                 transforms: [{
-                                    w: 415
+                                    w: 512
                                 }, {
-                                    w: 600
+                                    w: 768
                                 }, {
                                     w: 1024
                                 }, {
-                                    w: 1200
-                                }, {
-                                    w: 1800
+                                    w: 2048
                                 }],
                                 sizes: '(min-width: 1340px) 600px, (min-width: 1024px) 50vw, 100vw'
                             }) }}

@@ -37,8 +37,8 @@ class ImgixServiceProvider extends ServiceProvider
             'srcset' => $this->buildSources($args),
             'sizes' => $args['sizes'] ?? '',
             'alt' => $args['alt'],
-            'width' => $args['aspect_ratio'] ? $args['aspect_ratio'][0] : null,
-            'height' => $args['aspect_ratio'] ? $args['aspect_ratio'][1] : null,
+            'width' => $args['aspect_ratio'][0] ?? $args['width'] ?? null,
+            'height' => $args['aspect_ratio'][1] ?? $args['height'] ?? null,
             'loading' => $args['loading']
         ];
 
@@ -71,9 +71,9 @@ class ImgixServiceProvider extends ServiceProvider
         }
 
         if ($transform) {
-            $transform = array_merge($args['params'], $transform);
+            $transform = array_merge($args['params'] ?? [], $transform);
         } else {
-            $transform = $args['params'];
+            $transform = $args['params'] ?? [];
         }
 
         unset($transform['host']);

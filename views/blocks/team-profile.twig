@@ -8,21 +8,16 @@
                     {{ imgix({
                         src: person.image.url,
                         params: {
-                            auto: 'format',
                             fit: 'crop',
                             crop: 'faces'
                         },
                         aspect_ratio: [1, 1],
                         transforms: [{
-                            w: 80
+                            w: 128
                         }, {
-                            w: 125
+                            w: 256
                         }, {
-                            w: 180
-                        }, {
-                            w: 320
-                        }, {
-                            w: 500
+                            w: 512
                         }],
                         sizes: '(min-width: 1340px) 170px, (min-width: 1024px) 12vw, (min-width: 768px) 18vw, (min-width: 640px) 21vw, 28vw',
                     }) }}
@@ -52,21 +47,16 @@
                     {{ imgix({
                         src: person.image.url,
                         params: {
-                            auto: 'format',
                             fit: 'crop',
                             crop: 'faces'
                         },
                         aspect_ratio: [1, 1],
                         transforms: [{
-                            w: 80
+                            w: 128
                         }, {
-                            w: 125
+                            w: 256
                         }, {
-                            w: 180
-                        }, {
-                            w: 320
-                        }, {
-                            w: 500
+                            w: 512
                         }],
                         sizes: '(min-width: 1340px) 170px, (min-width: 1024px) 12vw, (min-width: 768px) 18vw, (min-width: 640px) 21vw, 28vw',
                     }) }}

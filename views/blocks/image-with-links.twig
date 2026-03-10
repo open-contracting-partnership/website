@@ -15,20 +15,19 @@
             {{ imgix({
                 src: block.image.url,
                 params: {
-                    auto: 'format',
                     fit: 'crop'
                 },
                 aspect_ratio: [3, 2],
                 transforms: [{
-                    w: 415
+                    w: 512
                 }, {
-                    w: 830
+                    w: 768
                 }, {
                     w: 1024
                 }, {
                     w: 1536
                 }, {
-                    w: 2048
+                    w: 3072
                 }],
                 sizes: '100vw'
             }) }}
