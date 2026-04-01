@@ -264,7 +264,7 @@
 
         methods: {
             setMap() {
-                mapboxgl.accessToken = 'pk.eyJ1IjoidGhlaWRlYWJ1cmVhdSIsImEiOiJjbW5mdnJsbWYwMGlyMnFzNzV6MzQ5cXcyIn0.kydau7sHUv7eOXVH-v584w';
+                mapboxgl.accessToken = page_worldwide_options.mapbox_access_token;
 
                 this.map = new mapboxgl.Map({
                     container: 'map',
