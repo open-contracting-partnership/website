@@ -4,16 +4,22 @@
         --background-colour: {{ block.background_colour }};
         --text-colour: {{ block.text_colour }};
         --header-top: {{ block.header_top }};
+        --header-top-mobile: {{ block.header_top_mobile }};
     "
     data-scroll-prompt-parent
 >
     <div class="report-header__header">
         <h1 class="report-header__heading">
             <span style="--size-adjustment: {{ block.heading_size }};">{{ block.heading }}</span>
-            <span style="--size-adjustment: {{ block.strapline_size }};">{{ block.strapline }}</span>
+
+            {% if block.strapline %}
+                <span style="--size-adjustment: {{ block.strapline_size }};">{{ block.strapline }}</span>
+            {% endif %}
         </h1>
 
-        {% include 'components/scroll-prompt.twig' %}
+        {% if block.show_arrow_icon %}
+            {% include 'components/scroll-prompt.twig' %}
+        {% endif %}
     </div>
 
     <div class="report-header__image">
