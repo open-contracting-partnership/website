@@ -13,7 +13,7 @@ small {
 
 b,
 strong {
-    @include font('primary', 'bold');
+    font-weight: $font-weight-bold;
 }
 
 i,
