@@ -70,6 +70,7 @@ class ResourceCard extends BaseCard
             'txt' => html_entity_decode($post->title),
             'txt-pad' => '5',
             'txt-color' => $textColour,
+            'bg' => '00FFFFFF',
         ]);
 
         $backgroundImage = sprintf(
