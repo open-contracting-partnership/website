@@ -58,14 +58,21 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
             "default_value": "#FFFFFF",
             "enable_opacity": 0,
-            "return_format": "string"
+            "return_format": "string",
+            "allow_in_bindings": 1,
+            "show_custom_palette": 0,
+            "show_color_wheel": 1,
+            "custom_palette_source": "",
+            "palette_colors": ""
         },
         {
             "key": "field_6469e4c77d853",
@@ -77,14 +84,21 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
             "default_value": "#323232",
             "enable_opacity": 0,
-            "return_format": "string"
+            "return_format": "string",
+            "allow_in_bindings": 1,
+            "show_custom_palette": 0,
+            "show_color_wheel": 1,
+            "custom_palette_source": "",
+            "palette_colors": ""
         },
         {
             "key": "field_6469e4f307a65",
@@ -131,7 +145,33 @@
             "wpml_cf_preferences": 0,
             "default_value": "7.3",
             "min": 0,
-            "max": 25,
+            "max": 100,
+            "allow_in_bindings": 1,
+            "step": ".1",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_69e89d824a4f2",
+            "label": "Header top (mobile)",
+            "name": "header_top_mobile",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
+            "default_value": "",
+            "min": 0,
+            "max": 100,
+            "allow_in_bindings": 1,
             "step": ".1",
             "prepend": "",
             "append": ""
@@ -183,6 +223,30 @@
             "step": ".1",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_69e8971b7bb5a",
+            "label": "Show arrow icon?",
+            "name": "show_arrow_icon",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
+            "message": "",
+            "default_value": 1,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
         }
     ],
     "location": [
@@ -205,6 +269,9 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
     "acfml_field_group_mode": "advanced",
-    "modified": 1708699308
+    "modified": 1776852377
 }

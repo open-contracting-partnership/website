@@ -28,13 +28,10 @@
                 <figure class="wp-block-image">
                     {{ imgix({
                         src: featued_image.url,
-                        params: {
-                            auto: 'format'
-                        },
                         transforms: [{
-                            w: 415
+                            w: 512
                         }, {
-                            w: 830
+                            w: 768
                         }, {
                             w: 1024
                         }, {

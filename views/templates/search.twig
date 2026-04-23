@@ -7,12 +7,14 @@
 
             <div class="switcher">
                 <a
+                    class="switcher__option"
                     href="{{ search.sort_links.relevance }}"
                     data-active="{{ search.order_by == 'relevance' ? 'true' : 'false' }}"
                     data-instant
                 >By relevance</a>
 
                 <a
+                    class="switcher__option"
                     href="{{ search.sort_links.recent }}"
                     data-active="{{ search.order_by == 'post_date' ? 'true' : 'false' }}"
                     data-instant

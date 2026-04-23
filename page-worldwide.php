@@ -12,6 +12,7 @@
 namespace App;
 
 use App\Http\Controllers\Controller;
+use Rareloop\Lumberjack\Facades\Config;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Rareloop\Lumberjack\Page;
 use Timber\Timber;
@@ -27,6 +28,10 @@ class PageWorldwideController extends Controller
 
         // localise the script only *after* the scripts are queued up
         add_action('wp_enqueue_scripts', function () use ($page) {
+
+            wp_localize_script('page-worldwide', 'page_worldwide_options', [
+                'mapbox_access_token' => Config::get('services.mapbox_access_token'),
+            ]);
 
             wp_localize_script('page-worldwide', 'content', [
                 'title' => $page->meta('heading'),

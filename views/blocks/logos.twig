@@ -23,18 +23,11 @@
                         {{ imgix({
                             src: logo.logo.url,
                             params: {
-                                auto: 'format',
                                 fit: 'crop'
                             },
                             aspect_ratio: [1, 1],
                             transforms: [{
-                                w: 88
-                            }, {
-                                w: 176
-                            }, {
-                                w: 264
-                            }, {
-                                w: 352
+                                w: 256
                             }],
                             sizes: '88px'
                         }) }}

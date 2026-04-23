@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "@knight-lab/timelinejs": "^3.9.6",
-    "alpinejs": "^3.9.2"
+    "alpinejs": "^3.9.2",
+    "flag-icons": "^7.5.0"
   }
 }
