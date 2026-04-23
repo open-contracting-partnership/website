@@ -70,6 +70,26 @@ class Lumberjack extends LumberjackCore
             $context['show_sticky_cta'] = get_field('show_sticky_cta', 'options');
             $context['sticky_cta_image'] = get_field('sticky_cta_image', 'options');
             $context['sticky_cta_link'] = get_field('sticky_cta_link', 'options');
+            $context['sticky_cta_link'] = get_field('sticky_cta_link', 'options');
+            $context['sticky_cta_hash'] = md5(json_encode($context['sticky_cta_link']));
+
+            $currentUrl = home_url($_SERVER['REQUEST_URI']);
+
+            $excludeStickyCtaByUrl = collect(explode("\r\n", get_field('sticky_cta_excluded_urls', 'options') ?? ''))
+                ->map('trim')
+                ->filter()
+                ->contains(function (string $url) use ($currentUrl) {
+                    if (substr($url, -1) === '*') {
+                        $url = substr($url, 0, -1);
+                        return str_starts_with($currentUrl, $url);
+                    }
+
+                    return $currentUrl === $url;
+                });
+
+            if ($excludeStickyCtaByUrl) {
+                $context['show_sticky_cta'] = false;
+            }
         }
     }
 

@@ -19,6 +19,7 @@ add_action('wp_enqueue_scripts', function () {
     Assets::registerStyle('main', '/dist/css/styles.css');
     Assets::registerScript('main', '/dist/js/scripts.js', ['manifest'], true);
     Assets::registerScript('header', '/dist/js/header.js', ['manifest'], true);
+    Assets::registerScript('sticky-cta', '/dist/js/sticky-cta.js', ['manifest'], true);
     Assets::registerScript('element-queries', '/dist/js/element-queries.js', [], true);
 
     // SPECIFIC
@@ -34,6 +35,7 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('main');
     wp_enqueue_script('main');
     wp_enqueue_script('header');
+    wp_enqueue_script('sticky-cta');
     wp_enqueue_script('element-queries');
 
     // impact stories

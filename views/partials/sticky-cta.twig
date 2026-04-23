@@ -1,22 +1,32 @@
-{% if show_sticky_cta %}
-    <a href="{{ sticky_cta_link.url }}" target="{{ sticky_cta_link.target }}" class="sticky-cta">
-        {% if sticky_cta_image %}
-            <div class="sticky-cta__image">
-                {{ imgix({
-                    src: sticky_cta_image.url,
-                    params: {
-                        fit: 'crop',
-                        crop: 'faces'
-                    },
-                    aspect_ratio: [1, 1],
-                    transforms: [{
-                        w: 128
-                    }],
-                    sizes: "40px"
-                }) }}
-            </div>
-        {% endif %}
+ {% if show_sticky_cta %}
+    <div
+        x-data="alpineStickyCta('{{ sticky_cta_hash }}')"
+        class="sticky-cta"
+        :data-is-open="open ? 'true' : 'false'"
+    >
+        <a href="{{ sticky_cta_link.url }}" target="{{ sticky_cta_link.target }}" class="sticky-cta__link">
+            {% if sticky_cta_image %}
+                <div class="sticky-cta__image">
+                    {{ imgix({
+                        src: sticky_cta_image.url,
+                        params: {
+                            fit: 'crop',
+                            crop: 'faces'
+                        },
+                        aspect_ratio: [1, 1],
+                        transforms: [{
+                            w: 128
+                        }],
+                        sizes: "40px"
+                    }) }}
+                </div>
+            {% endif %}
 
-        <div class="sticky-cta__text">{{ sticky_cta_link.title }}</div>
-    </a>
+            <div class="sticky-cta__text">{{ sticky_cta_link.title }}</div>
+        </a>
+
+        <button class="sticky-cta__close" aria-label="Close" @click="close">
+            <svg><use xlink:href="#icon-close" /></svg>
+        </button>
+    </div>
 {% endif %}

@@ -1,25 +1,35 @@
 .sticky-cta {
-    background-color: $ui-brand;
-    color: $ui-grey-3;
-    gap: spacing(1);
-    display: flex;
     position: fixed;
     bottom: spacing(2);
     right: spacing(2);
-    border-radius: spacing(2);
     z-index: 202;
-    padding: spacing(1.5);
-    text-decoration: none;
-    font-weight: $font-weight-bold;
-    align-items: center;
-    transition: all 0.3s ease;
     max-width: 175px;
 
     @include from(T) {
         bottom: spacing(3);
         right: spacing(3);
-        padding: spacing(2);
         max-width: 210px;
+    }
+
+    &[data-is-open="false"] {
+        display: none;
+    }
+}
+
+.sticky-cta__link {
+    background-color: $ui-brand;
+    color: $ui-grey-3;
+    gap: spacing(1);
+    display: flex;
+    border-radius: spacing(2);
+    padding: spacing(1.5);
+    text-decoration: none;
+    font-weight: $font-weight-bold;
+    align-items: center;
+    transition: all 0.3s ease;
+
+    @include from(T) {
+        padding: spacing(2);
     }
 
     &:hover {
@@ -54,5 +64,34 @@
     img {
         height: 100%;
         width: 100%;
+    }
+}
+
+.sticky-cta__close {
+    @extend %button-naked;
+    position: absolute;
+    top: spacing(-1.5);
+    right: 0;;
+    border-radius: 50%;
+    height: spacing(3);
+    width: spacing(3);
+    border: 1px solid $ui-teal;
+    background-color: $ui-white;
+    display: grid;
+    place-items: center;
+
+    svg {
+        display: block;
+        height: 10px;
+        width: 10px;
+        fill: $ui-teal;
+    }
+
+    &:hover {
+        background-color: $ui-teal;
+
+        svg {
+            fill: $ui-white;
+        }
     }
 }
