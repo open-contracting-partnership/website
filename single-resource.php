@@ -35,6 +35,8 @@ class SingleResourceController extends Controller
         $context['resource']['attachments'] = get_field('attachments', $resource->ID);
         $context['resource']['link'] = get_field('link', $resource->ID);
 
+        $context['resource']['fallback_image_type'] = $resource->fallbackImageType;
+
         if (!empty($context['resource']['attachments']) && is_array($context['resource']['attachments'])) {
             foreach ($context['resource']['attachments'] as &$attachment) {
                 if (empty($attachment['name'])) {
