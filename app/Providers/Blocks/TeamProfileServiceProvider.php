@@ -49,6 +49,16 @@ class TeamProfileServiceProvider
             // set the slug
             $person['slug'] = sanitize_title($person['name']);
 
+            // get contact methods
+
+            $person['contact'] = collect([
+                'email_address' => $person['email_address'] ?? null,
+                'twitter_name' => $person['twitter_name'] ?? null,
+                'linkedin_url' => $person['linkedin_url'] ?? null
+            ])
+                ->filter()
+                ->all();
+
             // add any blog posts
             $person['posts'] = array();
 

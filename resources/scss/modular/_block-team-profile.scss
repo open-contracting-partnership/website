@@ -222,7 +222,7 @@
 				}
 			}
 
-				.block__profile img {
+				.block__profile-image {
 					grid-column: 1 / 4;
 					grid-row: 1 / 3;
 					border-radius: 50%;
@@ -254,8 +254,42 @@
 					.block__profile-role {
 						@include fluid-type(font-size, 375px, 1240px, 16px, 22px);
 						@include font('secondary');
-						margin-bottom: 0;
+
+                        &:not(:last-child) {
+                            margin-bottom: spacing(.5);
+
+                            @include from(M) {
+                                margin-bottom: spacing(1);
+                            }
+                        }
 					}
+
+                    .block__profile-locations {
+						@include fluid-type(font-size, 375px, 1240px, 16px, 18px);
+                        font-family: $font-secondary;
+                        display: flex;
+                        flex-direction: column;
+                        gap: spacing(.5);
+
+                        @include from(M) {
+                            gap: spacing(2.5);
+                            flex-direction: row;
+                        }
+                    }
+
+                        .block__profile-location {
+                            display: flex;
+                            gap: spacing(1);
+                            align-items: center;
+                            line-height: 1;
+                        }
+
+                        .block__profile-flag {
+                            display: block;
+                            height: 1.2em;
+                            aspect-ratio: 4 / 3;
+                            border-radius: 2px;
+                        }
 
 					.block__profile-social {
 						@media screen {
@@ -275,7 +309,7 @@
 
 						a > svg {
 							display: block;
-							font-size: 26px;
+							font-size: spacing(2);
 							fill: $ui-grey-4;
 							height: 1em;
 
