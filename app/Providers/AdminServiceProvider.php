@@ -35,6 +35,8 @@ class AdminServiceProvider extends ServiceProvider
             $mimes['svg'] = 'image/svg+xml';
             return $mimes;
         });
+
+        $this->addDynamicLocationFields();
     }
 
     public function updatePostMenuLabel(): void
@@ -88,5 +90,23 @@ class AdminServiceProvider extends ServiceProvider
         }
 
         return $field_gutenberg_visibility;
+    }
+
+    protected function addDynamicLocationFields(): void
+    {
+        add_filter('acf/load_field/key=field_69e8d4dd860d8', [$this, 'setAcfCountryLocationValues']);
+        add_filter('acf/load_field/key=field_69e8d534860d9', [$this, 'setAcfCountryLocationValues']);
+    }
+
+    public static function setAcfCountryLocationValues($field)
+    {
+        $countryJson = get_template_directory() . '/node_modules/flag-icons/country.json';
+        $countries = collect(json_decode(file_get_contents($countryJson), true));
+
+        $field['choices'] = $countries->mapWithKeys(function ($country) {
+            return [$country['code'] => $country['name']];
+        })->toArray();
+
+        return $field;
     }
 }

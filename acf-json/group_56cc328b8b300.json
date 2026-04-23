@@ -22,6 +22,7 @@
             "max": 0,
             "layout": "row",
             "button_label": "Add Team Member",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_56cc32c8754bf",
@@ -115,6 +116,66 @@
                     "parent_repeater": "field_56cc32b5754be"
                 },
                 {
+                    "key": "field_69e8d4dd860d8",
+                    "label": "Location",
+                    "name": "location",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "relevanssi_exclude": 0,
+                    "wpml_cf_preferences": 0,
+                    "choices": [],
+                    "default_value": [],
+                    "return_format": "value",
+                    "multiple": 1,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "create_options": 0,
+                    "placeholder": "",
+                    "save_options": 0,
+                    "parent_repeater": "field_56cc32b5754be"
+                },
+                {
+                    "key": "field_69e8d534860d9",
+                    "label": "Nationality",
+                    "name": "nationality",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "gutenberg_visibility": "both",
+                    "relevanssi_exclude": 0,
+                    "wpml_cf_preferences": 0,
+                    "choices": [],
+                    "default_value": [],
+                    "return_format": "value",
+                    "multiple": 1,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "create_options": 0,
+                    "placeholder": "",
+                    "save_options": 0,
+                    "parent_repeater": "field_56cc32b5754be"
+                },
+                {
                     "key": "field_56e84557cf0f8",
                     "label": "Twitter Name",
                     "name": "twitter_name",
@@ -198,8 +259,7 @@
                     "bidirectional_target": [],
                     "parent_repeater": "field_56cc32b5754be"
                 }
-            ],
-            "rows_per_page": 20
+            ]
         }
     ],
     "location": [
@@ -221,8 +281,10 @@
     ],
     "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1695737528,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_56cc328b8b300.json",
-    "acfml_field_group_mode": "advanced"
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "acfml_field_group_mode": "advanced",
+    "modified": 1776866620
 }

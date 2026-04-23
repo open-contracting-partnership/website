@@ -58,6 +58,7 @@ mix
     .js('resources/js/modules/worldwide/worldwide.js', 'dist/js')
     .js('resources/js/scripts.js', 'dist/js')
     .js('resources/js/scroll-prompt.js', 'dist/js')
+    .js('resources/js/sticky-cta.js', 'dist/js')
     .js('resources/js/svg.js', 'dist/js')
     .vue()
     .sass('resources/scss/gutenberg.scss', 'dist/css')

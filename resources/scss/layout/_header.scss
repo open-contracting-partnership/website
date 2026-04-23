@@ -420,7 +420,8 @@ a.link-highlight {
     &:active,
     &:focus,
     &.current-menu-item,
-    &.current-menu-ancestor {
+    &.current-menu-ancestor,
+    &.current-menu-item-ancestor {
         text-decoration: none;
 
         &::before {

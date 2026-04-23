@@ -69,6 +69,7 @@
   "dependencies": {
     "@knight-lab/timelinejs": "^3.9.6",
     "alpinejs": "^3.9.2",
+    "flag-icons": "^7.5.0",
     "less-loader": "^12.2.0",
     "webpack": "^5.105.1"
   }

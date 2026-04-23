@@ -90,6 +90,38 @@
             "wpml_cf_preferences": 0,
             "return_format": "array",
             "allow_in_bindings": 0
+        },
+        {
+            "key": "field_69e9e415e1d23",
+            "label": "Excluded URLs",
+            "name": "sticky_cta_excluded_urls",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Specify a range of links to exclude the call to action on. Use * at the end to specify a wildcard.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_695b94e6bbf49",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -111,6 +143,8 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
     "acfml_field_group_mode": "advanced",
-    "modified": 1767609750
+    "modified": 1776936393
 }

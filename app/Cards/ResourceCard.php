@@ -57,7 +57,12 @@ class ResourceCard extends BaseCard
 
         $resourceType = $post->resourceType ? $post->resourceType->slug : null;
         $resourceColour = $post->colour ?: 'black';
-        $isDataTool = $resourceType == 'data-tool';
+
+        $imageType = match ($resourceType) {
+            'data-tool' => 'data',
+            'infographic' => 'infographic',
+            default => 'resource',
+        };
 
         // image params
         $width = 400;
@@ -70,11 +75,12 @@ class ResourceCard extends BaseCard
             'txt' => html_entity_decode($post->title),
             'txt-pad' => '5',
             'txt-color' => $textColour,
+            'bg' => '00FFFFFF',
         ]);
 
         $backgroundImage = sprintf(
             '/themes/ocp-v1/resources/img/resource-covers/%s-%s.png',
-            $isDataTool ? 'data' : 'resource',
+            $imageType,
             $resourceColour,
         );
 

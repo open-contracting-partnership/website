@@ -45,6 +45,7 @@
                     <div class="block__profile-background"></div>
 
                     {{ imgix({
+                        class: 'block__profile-image',
                         src: person.image.url,
                         params: {
                             fit: 'crop',
@@ -65,25 +66,51 @@
                         <h2 class="block__profile-name">{{ person.name }}</h2>
                         <h3 class="block__profile-role">{{ person.role }}</h3>
 
-                        <div class="block__profile-social">
-                            {% if person.email_address %}
-                                <a href="mailto:{{ person.email_address }}" class="" title="Email {{ person.name }}">
-                                    <svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
-                                </a>
-                            {% endif %}
+                        {% if person.location or person.nationality %}
+                            <div class="block__profile-locations">
+                                {% if person.location %}
+                                    <div class="block__profile-location">
+                                        <span>Location:</span>
 
-                            {% if person.twitter_name %}
-                                <a href="https://twitter.com/{{ person.twitter_name }}" class="" title="Follow {{ person.name }} on Twitter">
-                                    <svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
-                                </a>
-                            {% endif %}
+                                        {% for location in person.location %}
+                                            <img src="{{ theme.uri }}/node_modules/flag-icons/flags/4x3/{{ location | lower }}.svg" class="block__profile-flag">
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
 
-                            {% if person.linkedin_url %}
-                                <a href="{{ person.linkedin_url }}" class="" title="Connect with {{ person.name }} on Linkedin" target="_blank">
-                                    <svg data-icon="linkedin"><use xlink:href="#social-linkedin"></use></svg>
-                                </a>
-                            {% endif %}
-                        </div>
+                                {% if person.nationality %}
+                                    <div class="block__profile-location">
+                                        <span>Nationality:</span>
+
+                                        {% for nationality in person.nationality %}
+                                            <img src="{{ theme.uri }}/node_modules/flag-icons/flags/4x3/{{ nationality | lower }}.svg" class="block__profile-flag">
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                        {% if person.contact %}
+                            <div class="block__profile-social">
+                                {% if person.contact.email_address %}
+                                    <a href="mailto:{{ person.contact.email_address }}" class="" title="Email {{ person.name }}">
+                                        <svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
+                                    </a>
+                                {% endif %}
+
+                                {% if person.contact.twitter_name %}
+                                    <a href="https://twitter.com/{{ person.contact.twitter_name }}" class="" title="Follow {{ person.name }} on Twitter">
+                                        <svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
+                                    </a>
+                                {% endif %}
+
+                                {% if person.contact.linkedin_url %}
+                                    <a href="{{ person.contact.linkedin_url }}" class="" title="Connect with {{ person.name }} on Linkedin" target="_blank">
+                                        <svg data-icon="linkedin"><use xlink:href="#social-linkedin"></use></svg>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        {% endif %}
 
                         <button class="screen-only / block__profile-mobile-toggle button--naked" data-action="show">Show bio</button>
                         <button class="screen-only / block__profile-mobile-toggle button--naked" data-action="hide">Hide bio</button>
