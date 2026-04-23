@@ -147,7 +147,8 @@
 
     .card-resource[data-post-type="report"],
     .card-resource[data-post-type="guide"],
-    .card-resource[data-post-type="brief"] {
+    .card-resource[data-post-type="brief"],
+    .card-resource[data-post-type="infographic"] {
         --accent-colour: #{$ui-orange};
     }
 

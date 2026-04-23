@@ -55,14 +55,7 @@ class ResourceCard extends BaseCard
         $builder = new UrlBuilder(Config::get('images.imgix_domain'));
         $builder->setSignKey(Config::get('images.imgix_signing_key'));
 
-        $resourceType = $post->resourceType ? $post->resourceType->slug : null;
-        $resourceColour = $post->colour ?: 'black';
-
-        $imageType = match ($resourceType) {
-            'data-tool' => 'data',
-            'infographic' => 'infographic',
-            default => 'resource',
-        };
+        $resourceColour = $post->colour;
 
         // image params
         $width = 400;
@@ -80,7 +73,7 @@ class ResourceCard extends BaseCard
 
         $backgroundImage = sprintf(
             '/themes/ocp-v1/resources/img/resource-covers/%s-%s.png',
-            $imageType,
+            $post->fallbackImageType,
             $resourceColour,
         );
 

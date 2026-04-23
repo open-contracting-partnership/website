@@ -49,10 +49,10 @@ class Resource extends Post
 
     public function resourceType()
     {
-        return $this->meta('resource_type');
+        return $this->meta('resource_type') ?: null;
     }
 
-    public function colour()
+    public function colour(): string
     {
         $colour = 'black';
 
@@ -64,5 +64,14 @@ class Resource extends Post
         }
 
         return $colour;
+    }
+
+    public function fallbackImageType(): string
+    {
+        return match ($this->resourceType?->slug) {
+            'data-tool' => 'data',
+            'infographic' => 'infographic',
+            default => 'resource',
+        };
     }
 }

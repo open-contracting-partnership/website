@@ -1,21 +1,5 @@
 {% if resource.link or resource.attachments | length %}
-    <a
-        href="{{ resource.link ? resource.link : resource.attachments[0].file }}"
-        class="
-            resource-preview
-            {% if resource.colour %} resource-preview--{{ resource.colour }}{% endif %}
-            {% if resource.type.slug == "data-tool" %} resource-preview--data{% endif %}
-            {% if resource.image_url %} resource-preview--thumb{% endif %}
-        "
-    >
-        <div class="resource-preview__content">
-            <h4 class="resource-preview__title">{{ resource.title }}</h4>
-
-            {% if resource.organisation %}
-                <p class="resource-preview__intro">By {{ resource.organisation }}</p>
-            {% endif %}
-        </div>
-
+    <div class="resource-preview">
         {% if resource.image_url %}
             <div class="resource-preview__thumb">
                 {{ imgix({
@@ -34,6 +18,30 @@
                     sizes: '(min-width: 1120px) 260px, (min-width: 420px) 300px, calc(34vw + 164px)'
                 }) }}
             </div>
+        {% else %}
+            <div class="resource-preview__content">
+                <h4 class="resource-preview__title">{{ resource.title }}</h4>
+
+                {% if resource.organisation %}
+                    <p class="resource-preview__intro">By {{ resource.organisation }}</p>
+                {% endif %}
+            </div>
+
+            {{ imgix({
+                src: theme.uri ~ '/resources/img/resource-covers/' ~ resource.fallback_image_type ~ '-' ~ resource.colour ~ '.png',
+                params: {
+                    fit: 'crop'
+                },
+                aspect_ratio: [210, 297],
+                transforms: [{
+                    w: 512
+                }, {
+                    w: 768
+                }, {
+                    w: 1024
+                }],
+                sizes: '(min-width: 1120px) 260px, (min-width: 420px) 300px, calc(34vw + 164px)'
+            }) }}
         {% endif %}
-    </a>
+    </div>
 {% endif %}
