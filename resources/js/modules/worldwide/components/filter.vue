@@ -59,7 +59,6 @@
 </template>
 
 <script>
-    import _ from 'underscore'
     import { mapGetters, mapActions } from 'vuex'
 
     export default {

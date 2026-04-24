@@ -1,6 +1,4 @@
-import _ from 'lodash'
 import Vue from 'vue/dist/vue.esm.js'
-import { cloneDeep } from 'lodash';
 import getWordPressData from '@/js/wordpress-data';
 
 const archive_resources_data = getWordPressData('archive-resource');
@@ -19,32 +17,32 @@ new Vue({
 
     computed: {
         visibleResources: function () {
-            let resources = cloneDeep(this.resources);
-
-            return _.chain(resources)
-                .orderBy(['is_featured', 'date'], ['desc', 'desc'])
+            return [...this.resources]
+                .sort((a, b) => {
+                    const aFeat = a.is_featured ? 1 : 0;
+                    const bFeat = b.is_featured ? 1 : 0;
+                    if (aFeat !== bFeat) return bFeat - aFeat;
+                    if (a.date > b.date) return -1;
+                    if (a.date < b.date) return 1;
+                    return 0;
+                })
                 .filter(resource => {
-                    let display = true;
-
-                    // apply search
                     if (this.search !== "") {
-                        var re = new RegExp(this.search, "gi");
+                        const re = new RegExp(this.search, "gi");
 
                         if (resource.title.match(re) === null) {
-                            display = false;
+                            return false;
                         }
                     }
 
-                    // apply resource type filter
                     if (this.filters.length) {
                         if (! this.filters.includes(resource.type)) {
-                            display = false;
+                            return false;
                         }
                     }
 
-                    return display;
-                })
-                .value();
+                    return true;
+                });
         }
     },
 

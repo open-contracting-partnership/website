@@ -38,7 +38,6 @@
 
 <script>
     import mapboxgl from 'mapbox-gl'
-    import _ from 'underscore'
     import { mapGetters, mapActions } from 'vuex'
     import getWordPressData from '@/js/wordpress-data';
 
@@ -99,7 +98,7 @@
                     ocds_ongoing: []
                 }
 
-                _.each(this.countries, (country) => {
+                Object.values(this.countries).forEach((country) => {
                     const code = country.iso_a2;
 
                     // OCDS ongoing
@@ -146,10 +145,10 @@
                     filters.inactive.push(code);
                 });
 
-                _.each(filters, (filter, index) => {
+                Object.keys(filters).forEach((index) => {
                     let mb_filters = [];
 
-                    filter.forEach((code) => {
+                    filters[index].forEach((code) => {
                         mb_filters.push(['==', 'iso_a2', code]);
                     });
 
@@ -247,7 +246,7 @@
 
                 const re = /ocp-country-(.*?)-fill/;
 
-                _.each(this.map.getStyle().layers, (layer) => {
+                this.map.getStyle().layers.forEach((layer) => {
                     if ( layer.id.match(re) !== null ) {
                         this.map.on('mousemove', layer.id, mousemove.bind(this));
                         this.map.on('mouseleave', layer.id, mouseleave.bind(this));
@@ -303,7 +302,7 @@
                 if (this.map_loaded) {
 
                     // loop through the available filters and apply either the filter or a bank
-                    _.each(this.mapbox_filters, (filter, key) => {
+                    Object.entries(this.mapbox_filters).forEach(([key, filter]) => {
                         // always unset filter to enforce the correct layer order
                         this.map.setFilter('ocp-country-' + key.replace('_', '-') + '-fill', ['==', 'name', '']);
 
