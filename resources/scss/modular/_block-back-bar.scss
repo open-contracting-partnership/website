@@ -16,7 +16,7 @@
         grid-column: content;
         display: flex;
         align-items: center;
-        @apply py-3;
+        padding-block: spacing(1.5);
     }
 
         .block__jump-links {
@@ -24,9 +24,13 @@
                 display: none;
             }
 
+            display: flex;
+            justify-content: end;
+            flex-wrap: wrap;
+            column-gap: spacing(3);
+            row-gap: spacing(.5);
             font-size: 16px;
             margin-left: auto;
-            @apply space-x-6;
             text-transform: uppercase;
             @include font('primary', 'semibold');
 

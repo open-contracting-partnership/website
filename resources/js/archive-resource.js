@@ -1,38 +1,25 @@
 import _ from 'lodash'
-import Vue from 'vue'
+import Vue from 'vue/dist/vue.esm.js'
+import { cloneDeep } from 'lodash';
+import getWordPressData from '@/js/wordpress-data';
 
-const _cloneDeep = require('lodash.clonedeep');
+const archive_resources_data = getWordPressData('archive-resource');
 
 new Vue({
     el: '#resource-archive',
 
     data: {
         // data
-        resources: content.resources,
+        resources: archive_resources_data.resources || [],
 
         // search and filters
         search: '',
         filters: []
     },
 
-    // watch: {
-
-    //     filter: {
-    //         deep: true,
-    //         handler() {
-
-    //             let params = this.filter;
-
-    //             const url = window.location.pathname + '?' + new URLSearchParams(params).toString();
-    //             history.replaceState(null, '', url);
-    //         }
-    //     }
-
-    // },
-
     computed: {
         visibleResources: function () {
-            let resources = _cloneDeep(this.resources);
+            let resources = cloneDeep(this.resources);
 
             return _.chain(resources)
                 .orderBy(['is_featured', 'date'], ['desc', 'desc'])

@@ -225,16 +225,16 @@
         }
 
         .site-header__toolbox {
-            @include upto($header-break-2) {
-                display: none;
-            }
-
             grid-column: -2;
             grid-row: 1;
             display: flex;
             justify-content: flex-end;
             align-items: center;
             margin-bottom: auto;
+
+            @include upto($header-break-2) {
+                display: none;
+            }
 
             .site-header__toolbox-link {
                 font-size: 14px;

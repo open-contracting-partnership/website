@@ -58,6 +58,7 @@
 					border-radius: 50%;
 					display: block;
 					border: 5px solid transparent;
+                    width: 100%;
 				}
 
 				@include between(S, T) {

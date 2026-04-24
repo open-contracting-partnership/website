@@ -1,4 +1,7 @@
+@use 'sass:map';
+@use 'sass:meta';
 @use "sass:math";
+@use "sass:string";
 
 /*------------------------------------*\
     GLOBAL MIXINS
@@ -7,16 +10,17 @@
 //*****************
 // FONT DECLARATION
 
+// TODO: replace this with normal font variables
 @mixin font($family: primary, $weight: regular, $style: normal) {
-    $font-choice: map-get($fonts, $family);
-    $font: map-get($font-choice, family);
+    $font-choice: map.get($fonts, $family);
+    $font: map.get($font-choice, family);
 
     @if $font == null {
         @error 'Incorrect use of fonts';
     }
 
-    $fallback: unquote(map-get($font-choice, fallback));
-    $weight: map-get(map-get($font-choice, weights), $weight);
+    $fallback: string.unquote(map.get($font-choice, fallback));
+    $weight: map.get(map.get($font-choice, weights), $weight);
 
     @if ($weight == null) {
         @error 'Font weight "#{$weight}" passed to `font` mixin does not exist';
@@ -26,7 +30,7 @@
         @error 'Font style "#{$style}" passed to `font` mixin is invalid';
     }
 
-    $typekit: map-get($font-choice, typekit);
+    $typekit: map.get($font-choice, typekit);
 
     font-weight: $weight;
     font-style: $style;
@@ -55,7 +59,7 @@
 // COLOR BASED FUNCTIONS
 
 @function color($colour, $opacity: 1) {
-    $color: map-get($colours, $colour);
+    $color: map.get($colours, $colour);
 
     @if ($color == null) {
         @error 'Colour "#{$colour}" passed to `color` mixin does not exist';
@@ -92,22 +96,22 @@
     $between: false;
 
     // convert the value if it's within breakpoints
-    @if map-has-key($breakpoints, $arg1) {
-        $arg1: map-get($breakpoints, $arg1);
+    @if map.has-key($breakpoints, $arg1) {
+        $arg1: map.get($breakpoints, $arg1);
     }
 
-    @if type-of($arg1) == 'number' {
+    @if meta.type-of($arg1) == 'number' {
         $arg1: $arg1 * 1px;
     }
 
     // maybe arg2 references a breakpoint
-    @if map-has-key($breakpoints, $arg2) {
-        $arg2: map-get($breakpoints, $arg2);
+    @if map.has-key($breakpoints, $arg2) {
+        $arg2: map.get($breakpoints, $arg2);
         $between: true;
     }
 
     // maybe arg2 is a number
-    @if type-of($arg2) == 'number' {
+    @if meta.type-of($arg2) == 'number' {
         $arg2: ($arg2 - 1) * 1px;
         $between: true;
     }
@@ -145,61 +149,50 @@
 //****************
 // ELEMENT QUERIES
 
-// $value: can be a number, 'landscape', or a breakpoint letter
-// $feature: default is min-width, can be overwritten with 'max-width', or 'orientation' etc.
-@mixin el_mq($arg1, $arg2: 'min-width') {
-    $between: false;
+// TODO: this needs to change
 
-    // convert the value if it's within breakpoints
-    @if map-has-key($breakpoints, $arg1) {
-        $arg1: map-get($breakpoints, $arg1);
-    }
+@mixin container-query($arg1, $arg2: 'min-width') {
+    $between: false;
 
     @if $arg2 == 'max-width' {
         $arg1: $arg1 - 1;
     }
 
-    @if type-of($arg1) == 'number' {
-        $arg1: $arg1 + px;
-    }
-
-    // maybe arg2 references a breakpoint
-    @if map-has-key($breakpoints, $arg2) {
-        $arg2: map-get($breakpoints, $arg2);
-        $between: true;
+    @if meta.type-of($arg1) == 'number' {
+        $arg1: $arg1 * 1px;
     }
 
     // maybe arg2 is a number
-    @if type-of($arg2) == 'number' {
+    @if meta.type-of($arg2) == 'number' {
         $arg2: ($arg2 - 1) * 1px;
         $between: true;
     }
 
     @if $between == false {
-        &[#{$arg2}~="#{$arg1}"] {
+        @container (#{$arg2}: #{$arg1}) {
             @content;
         }
     } @else {
-        // @media screen and (min-width: $arg1) and (max-width: $arg2) {
-        // 	@content;
-        // }
+        @container (min-width: #{$arg1}) and (max-width: #{$arg2}) {
+            @content;
+        }
     }
 }
 
 @mixin el_upto($upto) {
-    @include el_mq($upto, 'max-width') {
+    @include container-query($upto, 'max-width') {
         @content;
     }
 }
 
 @mixin el_from($from) {
-    @include el_mq($from) {
+    @include container-query($from) {
         @content;
     }
 }
 
 @mixin el_between($from, $to) {
-    @include el_mq($from, $to) {
+    @include container-query($from, $to) {
         @content;
     }
 }

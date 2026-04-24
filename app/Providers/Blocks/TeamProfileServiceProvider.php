@@ -22,12 +22,7 @@ class TeamProfileServiceProvider
                 'category' => 'ocp-blocks',
                 'icon' => 'format-image',
                 'enqueue_assets' => function () {
-
-                    wp_enqueue_script('block-team-profile', get_template_directory_uri() . '/dist/js/block-team-profile.js', ['manifest'], false, true);
-
-                    wp_localize_script('block-team-profile', '_options', [
-                        'is_admin' => is_admin()
-                    ]);
+                    wp_enqueue_script_module('block-team-profile');
                 },
                 'keywords' => ['team', 'profile'],
                 'post_types' => ['page'],

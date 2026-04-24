@@ -2,7 +2,7 @@
 
 import * as topojson from "topojson-client";
 import _ from 'underscore'
-import Vue from 'vue'
+import Vue from 'vue/dist/vue.esm.js'
 import Vuex from 'vuex'
 import VueResource from 'vue-resource'
 

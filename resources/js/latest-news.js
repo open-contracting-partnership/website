@@ -1,11 +1,10 @@
-import Vue from 'vue'
+import Vue from 'vue/dist/vue.esm.js'
 import PrimaryCard from './cards/Primary.vue';
-
 import { map } from 'lodash';
+import { cloneDeep, filter, intersection } from 'lodash';
+import getWordPressData from '@/js/wordpress-data';
 
-const _cloneDeep = require('lodash.clonedeep');
-const _filter = require('lodash.filter');
-const _intersection = require('lodash.intersection');
+const latest_news_content = getWordPressData('latest-news');
 
 Vue.component('primary-card', PrimaryCard);
 
@@ -29,11 +28,11 @@ new Vue({
 
     computed: {
         visiblePosts() {
-            let posts = _cloneDeep(this.posts);
+            let posts = cloneDeep(this.posts);
 
             if (this.filters.selected.length) {
-                posts = _filter(posts, post => {
-                    return _intersection(post.issues, this.filters.selected).length > 0;
+                posts = filter(posts, post => {
+                    return intersection(post.issues, this.filters.selected).length > 0;
                 });
             }
 

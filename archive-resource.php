@@ -50,18 +50,10 @@ class ArchiveResourceController extends Controller
             'ocp'
         );
 
-        // localise the script only *after* the scripts are queued up
-        add_action('wp_enqueue_scripts', function () {
-            wp_localize_script('archive-resource', 'content', [
-                'resources' => $this->getAllResources(),
-                'select_a_filter' => str_replace(' ', '&nbsp;', __('Select a topic', 'ocp'))
-            ]);
-        });
-
         return new TimberResponse('templates/archive-resource.twig', $context);
     }
 
-    private function getAllResources()
+    public static function getAllResources()
     {
         $resources = Resource::query([
             'posts_per_page' => -1

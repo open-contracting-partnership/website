@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .button {
 	// attempt to use custom variables, otherwise fallback on the defaults
 	--border-colour: var(--custom-background, #{$ui-brand});
@@ -28,8 +30,8 @@
 	&:hover,
 	&:focus,
 	&:active {
-		--border-colour: #{darken($ui-brand, 10%)};
-		--background: #{darken($ui-brand, 10%)};
+		--border-colour: #{color.adjust($ui-brand, $lightness: -10%)};
+		--background: #{color.adjust($ui-brand, $lightness: -10%)};
 
 		text-decoration: none;
 	}
@@ -122,8 +124,8 @@
 	&:hover,
 	&:focus,
 	&:active {
-		--border-colour: darken($ui-white, 2%);
-		--background: darken($ui-white, 2%);
+		--border-colour: #{color.adjust($ui-white, $lightness: -2%)};
+		--background: #{color.adjust($ui-white, $lightness: -2%)};
 	}
 }
 
