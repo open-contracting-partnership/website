@@ -27,8 +27,15 @@
     }
 
     .block__main {
-        @apply space-y-2;
         margin-bottom: auto;
+
+        p {
+            margin-block: spacing(1);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 
         .block__heading {

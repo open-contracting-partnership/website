@@ -43,8 +43,7 @@
     }
 
     .block__main {
-        @apply space-y-3;
-        @apply mb-auto;
+        margin-bottom: auto;
         z-index: 1;
     }
 
@@ -53,6 +52,10 @@
             font-weight: bold;
             display: block;
             text-decoration: none;
+
+            &:not(:last-child) {
+                margin-bottom: spacing(1.5);
+            }
         }
 
         .block__lead {
@@ -78,6 +81,10 @@
                 box-sizing: border-box;
             }
 
+        .block__description {
+            margin: 0;
+        }
+
         .block__buttons {
             margin-top: auto;
             display: flex;
@@ -91,7 +98,7 @@
         }
 
     .block__footer {
-        @apply mt-3;
+        margin-top: spacing(1.5);
         z-index: 1;
     }
 }
