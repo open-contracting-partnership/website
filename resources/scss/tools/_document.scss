@@ -3,7 +3,10 @@ html {
 }
 
 // set the body selector based on if we're loading into gutenberg or the front-end
-$body-selector: if($is-gutenberg, '&', 'body');
+$body-selector: 'body';
+@if $is-gutenberg {
+    $body-selector: '&';
+}
 
 #{$body-selector} {
     @include font;
