@@ -1,25 +1,8 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
   "entry": [
-    "resources/js/archive-resource.js",
-    "resources/js/block-download-carousel.js",
-    "resources/js/block-featured-stories-carousel.js",
-    "resources/js/block-our-model.js",
-    "resources/js/block-quote-carousel.js",
-    "resources/js/block-stats.js",
-    "resources/js/block-team-profile.js",
-    "resources/js/block-timeline.js",
-    "resources/js/block-where-we-work.js",
-    "resources/js/header.js",
-    "resources/js/impact-stories.js",
-    "resources/js/latest-news.js",
-    "resources/js/mailchimp.js",
-    "resources/js/scripts.js",
-    "resources/js/scroll-prompt.js",
-    "resources/js/sticky-cta.js",
-    "resources/js/modules/worldwide/worldwide.js",
-    "resources/scss/styles.scss",
-    "resources/scss/gutenberg.scss"
+    "resources/js/*.js",
+    "resources/js/modules/worldwide/worldwide.js"
   ],
   "project": ["resources/js/**/*.{js,vue}"],
   "ignoreDependencies": [
