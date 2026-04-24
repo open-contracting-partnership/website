@@ -51,10 +51,6 @@ $footer-break-3: 1240;
             }
 
         .site-footer__navigation {
-            @include upto($footer-break-2) {
-                display: none;
-            }
-
             font-size: 14px;
             @include font('secondary', 'bold');
             grid-column: 2;
@@ -62,6 +58,10 @@ $footer-break-3: 1240;
             display: flex;
             flex-wrap: wrap;
             align-content: flex-start;
+
+            @include upto($footer-break-2) {
+                display: none;
+            }
 
             > li {
                 margin-right: spacing(4);
