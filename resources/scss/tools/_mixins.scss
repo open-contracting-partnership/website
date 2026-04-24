@@ -145,28 +145,17 @@
 //****************
 // ELEMENT QUERIES
 
-// $value: can be a number, 'landscape', or a breakpoint letter
-// $feature: default is min-width, can be overwritten with 'max-width', or 'orientation' etc.
-@mixin el_mq($arg1, $arg2: 'min-width') {
-    $between: false;
+// TODO: this needs to change
 
-    // convert the value if it's within breakpoints
-    @if map-has-key($breakpoints, $arg1) {
-        $arg1: map-get($breakpoints, $arg1);
-    }
+@mixin container-query($arg1, $arg2: 'min-width') {
+    $between: false;
 
     @if $arg2 == 'max-width' {
         $arg1: $arg1 - 1;
     }
 
     @if type-of($arg1) == 'number' {
-        $arg1: $arg1 + px;
-    }
-
-    // maybe arg2 references a breakpoint
-    @if map-has-key($breakpoints, $arg2) {
-        $arg2: map-get($breakpoints, $arg2);
-        $between: true;
+        $arg1: $arg1 * 1px;
     }
 
     // maybe arg2 is a number
@@ -176,30 +165,30 @@
     }
 
     @if $between == false {
-        &[#{$arg2}~="#{$arg1}"] {
+        @container (#{$arg2}: #{$arg1}) {
             @content;
         }
     } @else {
-        // @media screen and (min-width: $arg1) and (max-width: $arg2) {
-        // 	@content;
-        // }
+        @container (min-width: #{$arg1}) and (max-width: #{$arg2}) {
+            @content;
+        }
     }
 }
 
 @mixin el_upto($upto) {
-    @include el_mq($upto, 'max-width') {
+    @include container-query($upto, 'max-width') {
         @content;
     }
 }
 
 @mixin el_from($from) {
-    @include el_mq($from) {
+    @include container-query($from) {
         @content;
     }
 }
 
 @mixin el_between($from, $to) {
-    @include el_mq($from, $to) {
+    @include container-query($from, $to) {
         @content;
     }
 }

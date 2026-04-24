@@ -51,18 +51,22 @@ class Assets
     public static function registerScript(string $handle, string $path, bool $in_footer = false): void
     {
         $url = self::getUrl($path);
+
         if (! $url) {
             return;
         }
+
         wp_register_script_module($handle, $url, [], false, ['in_footer' => $in_footer]);
     }
 
     public static function registerStyle(string $handle, string $path): void
     {
         $url = self::getUrl($path);
+
         if (! $url) {
             return;
         }
+
         wp_register_style($handle, $url, [], false);
     }
 }
