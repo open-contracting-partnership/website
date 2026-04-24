@@ -2,8 +2,10 @@
 
 namespace App\PostTypes;
 
+use App\Cards\ResourceCard;
 use Rareloop\Lumberjack\Post;
 use Timber\Term;
+use Timber\Timber;
 
 class Resource extends Post
 {
@@ -73,5 +75,28 @@ class Resource extends Post
             'infographic' => 'infographic',
             default => 'resource',
         };
+    }
+
+    public static function getAllResources(): array
+    {
+        $resources = Resource::query([
+            'posts_per_page' => -1
+        ]);
+
+        $resources = ResourceCard::convertCollection($resources, function ($new, $original) {
+            return [
+                'title' => $new['title'],
+                'date' => $new['date'],
+                'is_featured' => $new['is_featured'],
+                'type' => $new['type'],
+
+                // new card output
+                'card' => Timber::compile('cards/resource.twig', [
+                    'card' => $new,
+                ])
+            ];
+        });
+
+        return $resources;
     }
 }

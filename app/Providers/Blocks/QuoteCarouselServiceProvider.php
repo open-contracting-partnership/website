@@ -20,7 +20,7 @@ class QuoteCarouselServiceProvider
                 'category' => 'ocp-blocks',
                 'icon' => 'format-quote',
                 'enqueue_assets' => function () {
-                    wp_enqueue_script('block-quote-carousel');
+                    wp_enqueue_script_module('block-quote-carousel');
                 },
                 'keywords' => ['quote', 'carousel'],
                 'post_types' => ['page'],

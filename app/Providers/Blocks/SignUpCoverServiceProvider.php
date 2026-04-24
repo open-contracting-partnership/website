@@ -21,11 +21,7 @@ class SignUpCoverServiceProvider
                 'category' => 'ocp-blocks',
                 'icon' => 'format-image',
                 'enqueue_assets' => function () {
-                    wp_enqueue_script('mailchimp');
-                    wp_localize_script('mailchimp', 'mailchimp_options', [
-                        'root' => esc_url_raw(rest_url()),
-                        'error_text' => __('An error occured, try again later.', 'ocp')
-                    ]);
+                    wp_enqueue_script_module('mailchimp');
                 },
                 'keywords' => ['cover', 'sign', 'up', 'sign-up'],
                 'post_types' => ['page'],

@@ -40,11 +40,14 @@
     import mapboxgl from 'mapbox-gl'
     import _ from 'underscore'
     import { mapGetters, mapActions } from 'vuex'
+    import getWordPressData from '@/js/wordpress-data';
+
+    const page_worldwide_options = getWordPressData('page-worldwide');
 
     export default {
         data: () => {
             return {
-                content: content,
+                content: page_worldwide_options.content,
                 map_loaded: false,
                 show_filter: false
             }

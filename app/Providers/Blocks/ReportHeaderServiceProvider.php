@@ -23,7 +23,7 @@ class ReportHeaderServiceProvider
                     'align' => false,
                 ],
                 'enqueue_assets' => function () {
-                    wp_enqueue_script('scroll-prompt');
+                    wp_enqueue_script_module('scroll-prompt');
                 },
             ]);
         });

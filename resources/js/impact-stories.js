@@ -1,7 +1,6 @@
 import _ from 'underscore'
-import Vue from 'vue'
-
-const _intersection = require('lodash.intersection');
+import Vue from 'vue/dist/vue.esm.js'
+import { intersection } from 'lodash';
 
 new Vue({
     el: '#impact-stories',
@@ -63,19 +62,19 @@ new Vue({
                 $story.style.display = null;
 
                 if (this.filters.type.length) {
-                    if (_intersection(story_type_ids, this.filters.type).length === 0) {
+                    if (intersection(story_type_ids, this.filters.type).length === 0) {
                         $story.style.display = 'none';
                     }
                 }
 
                 if (this.filters.country.length) {
-                    if (_intersection(country_ids, this.filters.country).length === 0) {
+                    if (intersection(country_ids, this.filters.country).length === 0) {
                         $story.style.display = 'none';
                     }
                 }
 
                 if (this.filters.issue.length) {
-                    if (_intersection(issue_ids, this.filters.issue).length === 0) {
+                    if (intersection(issue_ids, this.filters.issue).length === 0) {
                         $story.style.display = 'none';
                     }
                 }

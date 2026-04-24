@@ -1,10 +1,13 @@
 import { sync } from 'vuex-router-sync'
-import Vue from 'vue'
+import Vue from 'vue/dist/vue.esm.js'
 import VueRouter from 'vue-router'
 // import Raven from 'raven-js';
 // import RavenVue from 'raven-js/plugins/vue';
 import _ from 'underscore';
 import store from './store'
+import getWordPressData from '@/js/wordpress-data';
+
+const page_worldwide_options = getWordPressData('page-worldwide');
 
 Vue.use(VueRouter)
 
@@ -67,7 +70,7 @@ new Vue({
 
         // initialise the data set
         store.dispatch('fetchCountries');
-        store.dispatch('addContent', content);
+        store.dispatch('addContent', page_worldwide_options.content);
 
     }
 }).$mount('#worldwide')

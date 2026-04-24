@@ -20,7 +20,7 @@ class OurModelServiceProvider
                 'category' => 'ocp-blocks',
                 'icon' => 'update',
                 'enqueue_assets' => function () {
-                    wp_enqueue_script('block-our-model');
+                    wp_enqueue_script_module('block-our-model');
                 },
                 'keywords' => ['content', 'sidebar'],
                 'post_types' => ['page'],

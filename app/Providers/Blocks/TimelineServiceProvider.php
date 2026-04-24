@@ -27,7 +27,8 @@ class TimelineServiceProvider
                         [],
                         null
                     );
-                    wp_enqueue_script('block-timeline');
+
+                    wp_enqueue_script_module('block-timeline');
                 },
             ]);
         });

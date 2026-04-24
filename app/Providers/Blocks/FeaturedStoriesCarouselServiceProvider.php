@@ -20,7 +20,7 @@ class FeaturedStoriesCarouselServiceProvider
                 'category' => 'ocp-blocks',
                 'icon' => 'format-gallery',
                 'enqueue_assets' => function () {
-                    wp_enqueue_script('block-featured-stories-carousel');
+                    wp_enqueue_script_module('block-featured-stories-carousel');
                 },
                 'keywords' => ['featured', 'story', 'stories', 'carousel'],
                 'post_types' => ['page', 'post'],

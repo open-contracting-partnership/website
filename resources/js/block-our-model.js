@@ -1,11 +1,11 @@
 const $block_our_model = document.querySelectorAll('.block[data-block-type="our-model"]');
 
 $block_our_model.forEach($block => {
-    $diagram = $block.querySelector('.block__model-diagram > svg');
-    $sections = $diagram.querySelectorAll('g[data-section]');
-    $section_container = $diagram.querySelector('.section-container');
+    const $diagram = $block.querySelector('.block__model-diagram > svg');
+    const $sections = $diagram.querySelectorAll('g[data-section]');
+    const $section_container = $diagram.querySelector('.section-container');
 
-    $content = $block.querySelector('.block__model-content');
+    const $content = $block.querySelector('.block__model-content');
 
     $sections.forEach($section => {
         $section.addEventListener('click', event => {

@@ -1,3 +1,7 @@
+import getWordPressData from '@/js/wordpress-data';
+
+const blockTeamProfileOptions = getWordPressData('block-team-profile');
+
 const team_profile_handler = () => {
 
     const $profile_blocks = document.querySelectorAll('.block[data-block-type="team-profile"]');
@@ -55,7 +59,7 @@ const team_profile_handler = () => {
     });
 };
 
-if ( _options.is_admin ) {
+if ( blockTeamProfileOptions.is_admin ) {
     window.document.addEventListener('ocp-block-team-profile-loaded', event => {
         team_profile_handler();
     });

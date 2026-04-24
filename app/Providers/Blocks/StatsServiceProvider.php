@@ -21,7 +21,7 @@ class StatsServiceProvider
                     'align' => false,
                 ],
                 'enqueue_assets' => function () {
-                    wp_enqueue_script('block-stats');
+                    wp_enqueue_script_module('block-stats');
                 },
             ]);
         });
