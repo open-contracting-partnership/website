@@ -7,9 +7,9 @@ const team_profile_handler = () => {
     const $profile_blocks = document.querySelectorAll('.block[data-block-type="team-profile"]');
 
     $profile_blocks.forEach($block => {
-        $triggers = $block.querySelectorAll('.block__list a, .block__avatar');
-        $mobile_triggers = $block.querySelectorAll('.block__profile-mobile-toggle');
-        $profiles = $block.querySelectorAll('.block__profile');
+        const $triggers = $block.querySelectorAll('.block__list a, .block__avatar');
+        const $mobile_triggers = $block.querySelectorAll('.block__profile-mobile-toggle');
+        const $profiles = $block.querySelectorAll('.block__profile');
 
         let scroll_into_view = false;
 
@@ -17,7 +17,7 @@ const team_profile_handler = () => {
             $trigger.addEventListener('click', event => {
                 event.preventDefault();
 
-                // replace the url has without triggering a jump tp
+                // replace the url hash without triggering a jump to
                 history.replaceState('', '', $trigger.getAttribute('href'));
 
                 $profiles.forEach($profile => {
