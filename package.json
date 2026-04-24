@@ -47,7 +47,6 @@
     "tailwindcss": "^2.0.4",
     "vite": "^7.3.1",
     "vite-plugin-sass-glob-import": "^6.0.2",
-    "vite-plugin-static-copy": "^3.2.0",
-    "vue-template-compiler": "^2.6.10"
+    "vite-plugin-static-copy": "^3.2.0"
   }
 }
