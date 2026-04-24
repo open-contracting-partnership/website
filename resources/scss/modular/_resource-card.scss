@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .resource-card {
     background-color: $ui-grey-8;
     border-radius: 36px 8px 36px 8px;
@@ -91,8 +93,8 @@
 
         &:focus,
         &:hover {
-            background-color: lighten($ui-blue, 8%);
-            border-color: lighten($ui-blue, 8%);
+            background-color: color.adjust($ui-blue, $lightness: 8%);
+            border-color: color.adjust($ui-blue, $lightness: 8%);
         }
     }
 }
@@ -126,8 +128,8 @@
 
         &:focus,
         &:hover {
-            background-color: lighten($ui-orange, 8%);
-            border-color: lighten($ui-orange, 8%);
+            background-color: color.adjust($ui-orange, $lightness: 8%);
+            border-color: color.adjust($ui-orange, $lightness: 8%);
         }
     }
 }
