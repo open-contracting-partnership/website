@@ -46,6 +46,13 @@ export default defineConfig({
     }),
     svgSpritePlugin('resources/svg', 'svg/icons.svg'),
   ],
+  css: {
+    preprocessorOptions: {
+      less: {
+        rewriteUrls: 'all',
+      },
+    },
+  },
   build: {
     manifest: true,
     rollupOptions: {
@@ -60,18 +67,18 @@ export default defineConfig({
         'block-team-profile': resolve(__dirname, 'resources/js/block-team-profile.js'),
         'block-timeline': resolve(__dirname, 'resources/js/block-timeline.js'),
         'block-where-we-work': resolve(__dirname, 'resources/js/block-where-we-work.js'),
-        'header': resolve(__dirname, 'resources/js/header.js'),
+        header: resolve(__dirname, 'resources/js/header.js'),
         'impact-stories': resolve(__dirname, 'resources/js/impact-stories.js'),
         'latest-news': resolve(__dirname, 'resources/js/latest-news.js'),
-        'mailchimp': resolve(__dirname, 'resources/js/mailchimp.js'),
-        'scripts': resolve(__dirname, 'resources/js/scripts.js'),
+        mailchimp: resolve(__dirname, 'resources/js/mailchimp.js'),
+        scripts: resolve(__dirname, 'resources/js/scripts.js'),
         'scroll-prompt': resolve(__dirname, 'resources/js/scroll-prompt.js'),
         'sticky-cta': resolve(__dirname, 'resources/js/sticky-cta.js'),
-        'worldwide': resolve(__dirname, 'resources/js/modules/worldwide/worldwide.js'),
+        worldwide: resolve(__dirname, 'resources/js/modules/worldwide/worldwide.js'),
 
         // SCSS entry points
-        'styles': resolve(__dirname, 'resources/scss/styles.scss'),
-        'gutenberg': resolve(__dirname, 'resources/scss/gutenberg.scss'),
+        styles: resolve(__dirname, 'resources/scss/styles.scss'),
+        gutenberg: resolve(__dirname, 'resources/scss/gutenberg.scss'),
       },
       output: {
         entryFileNames: 'js/[name]-[hash].js',
