@@ -3,7 +3,6 @@ import Vue from 'vue/dist/vue.esm.js'
 import VueRouter from 'vue-router'
 // import Raven from 'raven-js';
 // import RavenVue from 'raven-js/plugins/vue';
-import _ from 'underscore';
 import store from './store'
 import getWordPressData from '@/js/wordpress-data';
 

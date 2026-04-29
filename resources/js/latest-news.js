@@ -1,7 +1,5 @@
 import Vue from 'vue/dist/vue.esm.js'
 import PrimaryCard from './cards/Primary.vue';
-import { map } from 'lodash';
-import { cloneDeep, filter, intersection } from 'lodash';
 import getWordPressData from '@/js/wordpress-data';
 
 const latest_news_content = getWordPressData('latest-news');
@@ -28,15 +26,13 @@ new Vue({
 
     computed: {
         visiblePosts() {
-            let posts = cloneDeep(this.posts);
-
-            if (this.filters.selected.length) {
-                posts = filter(posts, post => {
-                    return intersection(post.issues, this.filters.selected).length > 0;
-                });
+            if (!this.filters.selected.length) {
+                return this.posts;
             }
 
-            return posts;
+            return this.posts.filter(post => {
+                return post.issues.some(issue => this.filters.selected.includes(issue));
+            });
         },
 
         pagedPosts: function() {
@@ -48,7 +44,7 @@ new Vue({
         },
 
         availableFilterSlugs() {
-            return map(this.filters.available, 'slug');
+            return this.filters.available.map(filter => filter.slug);
         },
 
         selectedFiltersString() {

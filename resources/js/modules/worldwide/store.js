@@ -1,7 +1,6 @@
 // store.js
 
 import * as topojson from "topojson-client";
-import _ from 'underscore'
 import Vue from 'vue/dist/vue.esm.js'
 import Vuex from 'vuex'
 import VueResource from 'vue-resource'
@@ -32,7 +31,7 @@ const getters = {
         let countries = {};
 
         if ( state.countries ) {
-            _.each(state.countries.features, function(country) {
+            state.countries.features.forEach(function(country) {
                 // set the initial country object
                 let country_object = country.properties;
 
@@ -40,13 +39,13 @@ const getters = {
                 // report true if one of the following arrays is being used
 
                 country_object.has_data =
-                    _.size(country_object.innovations) > 0 ||
-                    _.size(country_object.publishers) > 0 ||
-                    _.size(country_object.ogp_commitments) > 0 ||
-                    _.size(country_object.impacts_stories) > 0;
+                    country_object.innovations?.length > 0 ||
+                    country_object.publishers?.length > 0 ||
+                    country_object.ogp_commitments?.length > 0 ||
+                    country_object.impacts_stories?.length > 0;
 
                 // attempt to supliment additional publisher data
-                _.each(country_object.publishers, function(publisher) {
+                (country_object.publishers || []).forEach(function(publisher) {
                     let status = null;
 
                     if ( typeof publisher.ocds_historic_data && publisher.ocds_historic_data === true ) {
@@ -130,8 +129,9 @@ const actions = {
             const geojson = topojson.feature(response.data, response.data.objects.ne_50m_admin_0_countries)
 
             geojson.features.forEach((country) => {
-                country.properties.filter_ocds_ongoing = typeof _.find(country.properties.publishers, {ocds_ongoing_data: true}) !== 'undefined';
-                country.properties.filter_ocds_historic = typeof _.find(country.properties.publishers, {ocds_historic_data: true}) !== 'undefined';
+                const publishers = country.properties.publishers || [];
+                country.properties.filter_ocds_ongoing = publishers.some(p => p.ocds_ongoing_data === true);
+                country.properties.filter_ocds_historic = publishers.some(p => p.ocds_historic_data === true);
 
                 country.properties.filter_ocds =
                     country.properties.filter_ocds_ongoing ||

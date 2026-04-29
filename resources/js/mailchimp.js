@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import getWordPressData from '@/js/wordpress-data';
 
 const mailchimp_options = getWordPressData('mailchimp');
