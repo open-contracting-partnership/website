@@ -1,6 +1,6 @@
 import { createHighlighter } from 'shiki/bundle/web';
 
-const THEME = 'github-light';
+const THEME = 'min-light';
 const LANGUAGES = [
     'text',
     'bash',

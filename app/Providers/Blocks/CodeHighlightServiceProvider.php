@@ -57,6 +57,6 @@ class CodeHighlightServiceProvider
         $context['block']['options'] = is_array(get_field('options')) ? get_field('options') : [];
         $context['block']['preview'] = $is_preview;
 
-        Timber::render('blocks/code-snippet.twig', $context);
+        Timber::render('blocks/code-highlight.twig', $context);
     }
 }
