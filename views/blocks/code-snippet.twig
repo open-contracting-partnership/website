@@ -1,0 +1,20 @@
+{% set options = { 'id': null } | merge(block.options|default({})) %}
+
+<div
+	id="{{ options.id }}"
+	class="block"
+	data-block-type="code-highlight"
+>
+
+        <div class="block__header">
+            <span class="block__language">{{ block.language_label|default('Text') }}</span>
+        </div>
+
+        {% if block.code|default('') %}
+            <pre class="block__pre">
+                <code class="block__source" data-language="{{ block.language|default('text')|e('html_attr') }}">{{ block.code|e }}</code>
+            </pre>
+        {% elseif block.preview|default(false) %}
+            <div class="block__empty">Paste code into the block settings to preview the snippet.</div>
+        {% endif %}
+</div>

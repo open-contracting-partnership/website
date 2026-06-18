@@ -1,0 +1,51 @@
+.block[data-block-type="code-highlight"] {
+    display: block;
+    margin: 1.5rem 0;
+    border: 1px solid #d0d7de;
+    border-radius: .5rem;
+    overflow: hidden;
+
+    .block__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: .625rem .875rem;
+        border-bottom: 1px solid #d8dee4;
+        background-color: #f6f8fa;
+    }
+
+    .block__language {
+        font-size: .8125rem;
+        line-height: 1;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        color: #57606a;
+    }
+
+    .block__pre,
+    .block__shiki {
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        overflow-x: auto;
+        font-size: .875rem;
+        line-height: 1.5;
+    }
+
+    .block__pre {
+        padding: 1rem;
+        background-color: #ffffff;
+    }
+
+    .block__empty {
+        padding: 1rem;
+        color: #57606a;
+        font-style: italic;
+        background-color: #ffffff;
+    }
+
+    .block__shiki {
+        padding: 1rem;
+    }
+}
