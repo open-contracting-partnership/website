@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": [
+    "resources/js/*.js",
+    "resources/js/modules/worldwide/worldwide.js"
+  ],
+  "project": ["resources/js/**/*.{js,vue}"],
+  "ignoreDependencies": [
+    // Served as a static asset from node_modules in views/blocks/team-profile.twig
+    "flag-icons",
+    // Imported from SCSS entry points (knip does not scan SCSS)
+    "modern-css-reset"
+  ]
+}
