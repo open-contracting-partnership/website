@@ -114,7 +114,6 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script_module('main');
     wp_enqueue_script_module('header');
     wp_enqueue_script_module('sticky-cta');
-    wp_enqueue_script_module('block-code-highlight');
 
     // impact stories
     if (basename(get_page_template()) === 'page-impact-stories.php') {

@@ -19,6 +19,9 @@ class CodeHighlightServiceProvider
                 'category' => 'ocp-blocks',
                 'icon' => 'editor-code',
                 'mode' => 'edit',
+                'enqueue_assets' => function () {
+                    wp_enqueue_script_module('block-code-highlight');
+                },
                 'keywords' => ['code', 'highlight', 'snippet', 'syntax'],
                 'post_types' => ['post', 'news', 'resource', 'event', 'page'],
                 'supports' => [
