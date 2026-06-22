@@ -32,13 +32,6 @@ if (function_exists('acf_add_options_page') && function_exists('acf_add_options_
         'menu_title' => 'Resources',
         'parent_slug' => $parent['menu_slug'],
     ]);
-
-    // add sub page
-    acf_add_options_sub_page([
-        'page_title' => 'News and Blogs',
-        'menu_title' => 'News and Blogs',
-        'parent_slug' => $parent['menu_slug'],
-    ]);
 }
 
 // populate the ACF mega menu "parent" field with real menu items
