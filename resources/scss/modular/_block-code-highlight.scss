@@ -1,0 +1,40 @@
+.block[data-block-type="code-highlight"] {
+    display: block;
+    margin: 1.5rem 0;
+    border-radius: 0.5rem;
+    border: 1px solid $ui-grey-5;
+    overflow: hidden;
+
+    .block__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.625rem 0.875rem;
+        border-bottom: 1px solid $ui-grey-5;
+    }
+
+    .block__language {
+        font-size: 0.75rem;
+        line-height: 1;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: $ui-grey-2;
+    }
+
+    .block__pre,
+    .block__shiki {
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        overflow-x: auto;
+        padding: 1rem;
+        background-color: $ui-white;
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .block__empty {
+        color: $ui-grey;
+    }
+}

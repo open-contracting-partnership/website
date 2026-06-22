@@ -49,6 +49,10 @@ class PrimaryCard extends BaseCard
             }
         }
 
+        if ($post->post_type === 'resource' && $post->resource_image_alternate) {
+            $data['image_url'] = $post->meta('resource_image_alternate')['url'];
+        }
+
         if ($post->post_type === 'event') {
             $data['meta']['secondary'] = (new Event($post->id))->formattedDate();
         }
@@ -72,6 +76,7 @@ class PrimaryCard extends BaseCard
             ->filter()
             ->toArray();
 
+            dump($data);
         return $data;
     }
 }

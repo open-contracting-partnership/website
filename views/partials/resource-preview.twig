@@ -5,7 +5,8 @@
                 {{ imgix({
                     src: resource.image_url,
                     params: {
-                        fit: 'crop'
+                        fit: 'crop',
+                        crop: 'top',
                     },
                     aspect_ratio: [210, 297],
                     transforms: [{

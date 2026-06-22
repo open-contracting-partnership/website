@@ -52,6 +52,7 @@ export default defineConfig({
       input: {
         // JS entry points
         'archive-resource': resolve(__dirname, 'resources/js/archive-resource.js'),
+        'block-code-highlight': resolve(__dirname, 'resources/js/block-code-highlight.js'),
         'block-download-carousel': resolve(__dirname, 'resources/js/block-download-carousel.js'),
         'block-featured-stories-carousel': resolve(__dirname, 'resources/js/block-featured-stories-carousel.js'),
         'block-our-model': resolve(__dirname, 'resources/js/block-our-model.js'),
