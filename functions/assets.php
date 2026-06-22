@@ -93,6 +93,7 @@ add_action('wp_enqueue_scripts', function () {
     Assets::registerScript('page-worldwide', 'js/worldwide-VITE.js', true);
 
     // BLOCKS
+    Assets::registerScript('block-code-highlight', 'js/block-code-highlight-VITE.js', true);
     Assets::registerScript('block-download-carousel', 'js/block-download-carousel-VITE.js', true);
     Assets::registerScript('block-featured-stories-carousel', 'js/block-featured-stories-carousel-VITE.js', true);
     Assets::registerScript('block-our-model', 'js/block-our-model-VITE.js', true);
@@ -113,6 +114,7 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script_module('main');
     wp_enqueue_script_module('header');
     wp_enqueue_script_module('sticky-cta');
+    wp_enqueue_script_module('block-code-highlight');
 
     // impact stories
     if (basename(get_page_template()) === 'page-impact-stories.php') {
