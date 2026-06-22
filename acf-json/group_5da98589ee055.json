@@ -106,42 +106,6 @@
             "ui": 1
         },
         {
-            "key": "field_682462bdd4863",
-            "label": "Featured Image",
-            "name": "featured_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "If left blank, the post image will be used.",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_66fbde18a5082",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "gutenberg_visibility": "both",
-            "wpml_cf_preferences": 0,
-            "return_format": "array",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "allow_in_bindings": 0,
-            "preview_size": "medium"
-        },
-        {
             "key": "field_5dd527760edd2",
             "label": "Stories",
             "name": "stories",
@@ -446,7 +410,10 @@
             "wpml_cf_preferences": 0,
             "default_value": "",
             "enable_opacity": false,
-            "return_format": "string"
+            "return_format": "string",
+            "custom_palette_source": "",
+            "palette_colors": "",
+            "show_color_wheel": true
         },
         {
             "key": "field_5da9858a80a80",
@@ -465,7 +432,10 @@
             "wpml_cf_preferences": 0,
             "default_value": "",
             "enable_opacity": false,
-            "return_format": "string"
+            "return_format": "string",
+            "custom_palette_source": "",
+            "palette_colors": "",
+            "show_color_wheel": true
         },
         {
             "key": "field_646b2ef3f8ee1",
@@ -512,6 +482,9 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
     "acfml_field_group_mode": "advanced",
-    "modified": 1747215103
+    "modified": 1782130935
 }
