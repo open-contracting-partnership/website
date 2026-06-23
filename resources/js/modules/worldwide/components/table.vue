@@ -46,7 +46,6 @@
 </template>
 
 <script>
-    import _ from 'underscore'
     import { mapGetters } from 'vuex'
 
     export default {
@@ -65,8 +64,8 @@
             publishers() {
                 let publishers = [];
 
-                _.each(this.countries, (country) => {
-                    _.each(country.publishers, function(publisher) {
+                Object.values(this.countries).forEach((country) => {
+                    (country.publishers || []).forEach(function(publisher) {
                         let agency = {
                             country: {
                                 name: country.name,
@@ -77,8 +76,6 @@
                             year: publisher.year_first_implemented,
                             status: null
                         };
-
-                        let status = null;
 
                         if ( typeof publisher.ocds_historic_data && publisher.ocds_historic_data === true ) {
                             agency.status = {
@@ -105,7 +102,7 @@
                 let order_by = this.order_by !== null ? this.order_by : 'country';
 
                 // sort the publishers by the given field
-                publishers = _.sortBy(publishers, (publisher) => {
+                const sortValue = (publisher) => {
                     let value = null;
 
                     if ( order_by === 'country' ) {
@@ -116,15 +113,24 @@
                         value = publisher.year;
                     }
 
-                    if ( typeof value === 'undefined' ) {
+                    if (value === null || typeof value === 'undefined') {
                         return false;
                     }
 
                     return value.trim();
+                };
+
+                // apply the sort, the logic for this exists above
+                publishers.sort((a, b) => {
+                    const va = sortValue(a);
+                    const vb = sortValue(b);
+                    if (va < vb) return -1;
+                    if (va > vb) return 1;
+                    return 0;
                 });
 
                 // if reverse the order if we're not ascending
-                if ( ! this.order_asc ) {
+                if (! this.order_asc) {
                     publishers = publishers.reverse();
                 }
 
