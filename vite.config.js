@@ -46,6 +46,13 @@ export default defineConfig({
     }),
     svgSpritePlugin('resources/svg', 'svg/icons.svg'),
   ],
+  css: {
+    preprocessorOptions: {
+      less: {
+        rewriteUrls: 'all',
+      },
+    },
+  },
   build: {
     manifest: true,
     rollupOptions: {

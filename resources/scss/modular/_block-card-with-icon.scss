@@ -1,8 +1,9 @@
-.block[data-block-type="card-with-icon"] {
+.card-with-icon {
     container-type: inline-size;
     display: flex;
+}
 
-    .block__inner {
+    .card-with-icon__inner {
         --icon-width: 75px;
         --link-block-primary-colour: var(--text-colour);
         --link-block-hover-text-colour: var(--background-colour);
@@ -26,7 +27,7 @@
         }
     }
 
-    .block__main {
+    .card-with-icon__main {
         margin-bottom: auto;
 
         p {
@@ -38,12 +39,12 @@
         }
     }
 
-        .block__heading {
+        .card-with-icon__heading {
             @include fluid-type(font-size, 360px, 1240px, 20px, 32px);
             margin-bottom: 0;
         }
 
-    .block__footer {
+    .card-with-icon__footer {
         margin-top: spacing(3);
 
         @include from(T) {
@@ -51,7 +52,7 @@
         }
     }
 
-    .block__icon {
+    .card-with-icon__icon {
         display: block;
         height: var(--icon-width);
         width: calc(var(--icon-width) * 1.0333);
@@ -61,14 +62,27 @@
         opacity: .5;
     }
 
-    .block__link::after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 2;
+    .card-with-icon__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: $font-weight-bold;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+        }
+
+        svg {
+            display: block;
+            margin-left: spacing(1);
+            height: spacing(2.5);
+            width: spacing(2.5);
+            fill: currentColor;
+        }
     }
-}

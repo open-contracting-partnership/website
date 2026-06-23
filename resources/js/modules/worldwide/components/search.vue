@@ -27,7 +27,6 @@
 </template>
 
 <script>
-    import _ from 'underscore'
     import { mapGetters } from 'vuex'
 
     export default {
@@ -64,7 +63,7 @@
                 const filter_match = new RegExp(this.filter, "gi");
 
                 if ( this.countries ) {
-                    _.each(this.countries, (country) => {
+                    Object.values(this.countries).forEach((country) => {
                         // if set, test the filter and reject if no match found
                         if ( this.filter !== '' && country.name.match(filter_match) === null ) {
                             return;
@@ -115,11 +114,11 @@
             },
 
             moveUp() {
-                this.focus = this.focus === 0 ? _.size(this.filtered_countries) - 1 : this.focus - 1;
+                this.focus = this.focus === 0 ? this.filtered_countries.length - 1 : this.focus - 1;
             },
 
             moveDown() {
-                this.focus = this.focus === _.size(this.filtered_countries) - 1 ? 0 : this.focus + 1;
+                this.focus = this.focus === this.filtered_countries.length - 1 ? 0 : this.focus + 1;
             },
 
             open() {

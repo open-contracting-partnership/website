@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 ol,
 ul,
 ul.wp-block-list {
@@ -16,7 +18,7 @@ ol.wp-block-list {
     padding-left: 40px;
 
     > li {
-        margin-bottom: $space / 4;
+        margin-bottom: math.div($space, 4);
 
         &:last-child {
             margin-bottom: 0;
