@@ -1,4 +1,4 @@
-.block[data-block-type="back-bar"] {
+.back-bar {
     // attempt to use custom variables, otherwise fallback on the defaults
     --background: var(--custom-background, #{$ui-white});
     --colour: var(--custom-colour, #{$ui-black});
@@ -11,15 +11,24 @@
         top: 0;
         z-index: 999;
     }
+}
 
-    .block__main {
+    .back-bar__main {
         grid-column: content;
         display: flex;
         align-items: center;
         padding-block: spacing(1.5);
+
+        .arrow-link__icon {
+            transform: rotate(180deg);
+        }
+
+        .arrow-link__label {
+            text-transform: uppercase;
+        }
     }
 
-        .block__jump-links {
+        .back-bar__jump-links {
             @include upto(T) {
                 display: none;
             }
@@ -43,4 +52,4 @@
                 }
             }
         }
-}
+
