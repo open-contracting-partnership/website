@@ -1,6 +1,6 @@
 .block[data-block-type="content"] {
-    --padding: var(--v-spacing);
-    --content-span: 8;
+	--padding: var(--v-spacing);
+	--content-span: 8;
 
     &:not([style*="--background-colour: #FFFFFF;"]) {
         --link-block-primary-colour: var(--text-colour);
@@ -9,253 +9,253 @@
 
     color: var(--text-colour);
 
-    .block__background {
-        grid-column: full;
-        grid-row: 1;
+	.block__background {
+		grid-column: full;
+		grid-row: 1;
 
-        position: relative;
-        overflow: hidden;
+		position: relative;
+		overflow: hidden;
 
         background-color: var(--background-colour);
-    }
+	}
 
-    .block__container {
-        grid-column: content;
-        grid-row: 1;
-        @extend %column-grid;
-        grid-column-gap: spacing(2);
-        z-index: 1;
+	.block__container {
+		grid-column: content;
+		grid-row: 1;
+		@extend %column-grid;
+		grid-column-gap: spacing(2);
+		z-index: 1;
 
-        @include from(S) {
-            grid-column-gap: spacing(2);
-        }
+		@include from(S) {
+			grid-column-gap: spacing(2);
+		}
 
-        @media screen {
-            padding: var(--padding) 0;
-        }
-    }
+		@media screen {
+			padding: var(--padding) 0;
+		}
+	}
 
-    .block__content {
-        grid-column: all;
+		.block__content {
+			grid-column: all;
 
-        @include upto(M) {
-            margin-bottom: spacing(3);
-        }
+			@include upto(M) {
+				margin-bottom: spacing(3);
+			}
 
-        @include from(M) {
-            grid-column: all / span var(--content-span);
-        }
+			@include from(M) {
+				grid-column: all / span var(--content-span);
+			}
 
-        > *:not(:last-child):not(.block__heading) {
-            margin-bottom: spacing(6);
-        }
-    }
+			> *:not(:last-child):not(.block__heading) {
+				margin-bottom: spacing(6);
+			}
+		}
 
-    .block__heading {
-        @media screen {
-            @include fluid-type(font-size, 360px, 1240px, 22px, 36px);
-        }
-    }
+			.block__heading {
+				@media screen {
+					@include fluid-type(font-size, 360px, 1240px, 22px, 36px);
+				}
+			}
 
-    &.implement .block__heading {
-        position: relative;
-        display: flex;
-        align-items: center;
+			&.implement .block__heading {
+				position: relative;
+				display: flex;
+				align-items: center;
 
-        &::before {
-            content: "";
-            display: block;
-            font-size: 2em;
-            height: 1em;
-            width: 1em;
-            border: 0.25em solid $ui-teal;
-            margin-right: 0.25em;
-            border-radius: 50%;
-            margin-top: -0.1em;
-            opacity: 0.5;
-            flex: 0 0 1em;
+				&::before {
+					content: '';
+					display: block;
+					font-size: 2em;
+					height: 1em;
+					width: 1em;
+					border: .25em solid $ui-teal;
+					margin-right: .25em;
+					border-radius: 50%;
+					margin-top: -0.1em;
+					opacity: .5;
+					flex: 0 0 1em;
 
-            @include from(M) {
-                font-size: 3em;
-            }
-        }
-    }
+					@include from(M) {
+						font-size: 3em;
+					}
+				}
+			}
 
-    .sub-content {
-        @media print {
-            overflow: hidden;
-        }
-    }
+			.sub-content {
+				@media print {
+					overflow: hidden;
+				}
+			}
 
-    .sub-content > *:last-child {
-        margin-bottom: 0;
-    }
+			.sub-content > *:last-child {
+				margin-bottom: 0;
+			}
 
-    .sub-content[data-type="content-with-icon"] {
-        @include from(S) {
-            display: flex;
-        }
+			.sub-content[data-type="content-with-icon"] {
+				@include from(S) {
+					display: flex;
+				}
 
-        .sub-content__icon {
-            flex: 0 0 48px;
+				.sub-content__icon {
+					flex: 0 0 48px;
 
-            @include upto(S) {
-                margin-bottom: spacing(2);
-            }
+					@include upto(S) {
+						margin-bottom: spacing(2);
+					}
 
-            @include from(S) {
-                margin-right: spacing(3);
-            }
+					@include from(S) {
+						margin-right: spacing(3);
+					}
+
+					@include from(T) {
+						flex-basis: 96px;
+					}
+
+					@include from(M) {
+						flex-basis: 128px;
+						margin-right: spacing(5);
+					}
+
+					> svg {
+						font-size: 48px;
+						height: 1em;
+						width: 1em;
+						fill: currentColor;
+
+						@include from(T) {
+							font-size: 96px;
+						}
+
+						@include from(M) {
+							font-size: 128px;
+						}
+					}
+				}
+
+				.sub-content__content {
+					flex: 1 1 100%;
+
+					> *:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+
+			.block__arrow-links,
+			.block__arrow-buttons {
+				@include from(T) {
+					display: flex;
+					flex-wrap: wrap;
+				}
+
+				> * {
+					font-size: 16px;
+					margin-right: spacing(3);
+					margin-bottom: spacing(2);
+				}
+			}
+
+			.block__arrow-links .arrow-link__label {
+				color: currentColor;
+			}
+
+		.block__sidebar {
+			grid-column: all;
+
+			> *:not(:last-child) {
+				margin-bottom: spacing(3);
+			}
+
+			@include from(M) {
+				grid-column: calc(var(--content-span) + 1) / all;
+
+				&[data-vertical-alignment="bottom"] {
+					align-self: flex-end;
+				}
+			}
+		}
+
+			.block__sidebar-image--with-border {
+				border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
+				border: 3px solid $ui-white;
+				background-color: $ui-white;
+				overflow: hidden;
+			}
+
+			.block__sidebar .card--link {
+				@media print {
+					max-width: 33%;
+				}
+			}
+
+        .block__data-cards {
+            display: grid;
+            gap: spacing(3);
 
             @include from(T) {
-                flex-basis: 96px;
-            }
-
-            @include from(M) {
-                flex-basis: 128px;
-                margin-right: spacing(5);
-            }
-
-            > svg {
-                font-size: 48px;
-                height: 1em;
-                width: 1em;
-                fill: currentColor;
-
-                @include from(T) {
-                    font-size: 96px;
-                }
-
-                @include from(M) {
-                    font-size: 128px;
-                }
+                gap: spacing(2);
             }
         }
 
-        .sub-content__content {
-            flex: 1 1 100%;
+        .block__data-cards-title {
+            margin-bottom: spacing(1);
+        }
 
-            > *:last-child {
-                margin-bottom: 0;
+        .block__data-cards-arrow {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto;
+
+            @include from(T) {
+                margin-left: spacing(5);
+            }
+
+            svg {
+                width: 100%;
+                height: 100%;
             }
         }
-    }
 
-    .block__arrow-links,
-    .block__arrow-buttons {
-        @include from(T) {
-            display: flex;
-            flex-wrap: wrap;
-        }
+	// variations
 
-        > * {
-            font-size: 16px;
-            margin-right: spacing(3);
-            margin-bottom: spacing(2);
-        }
-    }
+	@include from(T) {
+		&[data-primary-column-width="small"] {
+			--content-span: 6;
+		}
 
-    .block__arrow-links .arrow-link__label {
-        color: currentColor;
-    }
+		&[data-primary-column-width="medium"] {
+			--content-span: 8;
+		}
 
-    .block__data-cards {
-        display: grid;
-        gap: spacing(3);
+		&[data-primary-column-width="large"] {
+			--content-span: 9;
+		}
 
-        @include from(T) {
-            gap: spacing(2);
-        }
-    }
+		&[data-primary-column-width="full"] {
+			--content-span: 12;
+		}
+	}
 
-    .block__data-cards-title {
-        margin-bottom: spacing(1);
-    }
+	&[data-content-text-align="center"] {
+		text-align: center;
 
-    .block__data-cards-arrow {
-        width: 48px;
-        height: 48px;
-        margin: 0 auto;
+		.block__arrow-links,
+		.block__arrow-buttons {
+			justify-content: center;
+		}
+	}
 
-        @include from(T) {
-            margin-left: spacing(5);
-        }
+	&[data-size="small"] {
+		--padding: var(--v-spacing-half);
 
-        svg {
-            width: 100%;
-            height: 100%;
-        }
-    }
+		font-size: 16px;
 
-    .block__sidebar {
-        grid-column: all;
+		.block__heading {
+			@include fluid-type(font-size, 360px, 1240px, 20px, 24px);
+		}
 
-        > *:not(:last-child) {
-            margin-bottom: spacing(3);
-        }
-
-        @include from(M) {
-            grid-column: calc(var(--content-span) + 1) / all;
-
-            &[data-vertical-alignment="bottom"] {
-                align-self: flex-end;
-            }
-        }
-    }
-
-    .block__sidebar-image--with-border {
-        border-radius: spacing(4) spacing(1) spacing(1) spacing(1);
-        border: 3px solid $ui-white;
-        background-color: $ui-white;
-        overflow: hidden;
-    }
-
-    .block__sidebar .card--link {
-        @media print {
-            max-width: 33%;
-        }
-    }
-
-    // variations
-
-    @include from(T) {
-        &[data-primary-column-width="small"] {
-            --content-span: 6;
-        }
-
-        &[data-primary-column-width="medium"] {
-            --content-span: 8;
-        }
-
-        &[data-primary-column-width="large"] {
-            --content-span: 9;
-        }
-
-        &[data-primary-column-width="full"] {
-            --content-span: 12;
-        }
-    }
-
-    &[data-content-text-align="center"] {
-        text-align: center;
-
-        .block__arrow-links,
-        .block__arrow-buttons {
-            justify-content: center;
-        }
-    }
-
-    &[data-size="small"] {
-        --padding: var(--v-spacing-half);
-
-        font-size: 16px;
-
-        .block__heading {
-            @include fluid-type(font-size, 360px, 1240px, 20px, 24px);
-        }
-
-        .block__container > *:not(:last-child):not(.block__heading) {
-            margin-bottom: spacing(3);
-        }
-    }
+		.block__container > *:not(:last-child):not(.block__heading) {
+			margin-bottom: spacing(3);
+		}
+	}
 }
