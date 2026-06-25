@@ -61,6 +61,20 @@
                         {% endfor %}
                     </div>
                 {% endif %}
+
+                {% if item.acf_fc_layout == 'data_cards' and item.cards %}
+                    <div class="block__data-cards">
+                        {% for card in item.cards %}
+                            {% include 'cards/data.twig' with { card: card } %}
+
+                            {% if item.show_arrows and not loop.last %}
+                                <div class="block__data-cards-arrow" aria-hidden="true">
+                                    <svg><use xlink:href="#card-icon-chevron-down"></use></svg>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
 

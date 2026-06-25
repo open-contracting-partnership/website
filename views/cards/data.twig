@@ -1,0 +1,23 @@
+<article class="card card--data">
+	{% if card.icon %}
+		<div class="card__icon">
+			<img src="{{ card.icon.url }}" alt="{{ card.title ?: 'Card icon' }}">
+		</div>
+	{% endif %}
+
+	<div class="card__content">
+		{% if card.title %}
+			<h4 class="card__title">{{ card.title }}</h4>
+		{% endif %}
+
+		{% if card.data_blocks %}
+			<div class="card__data-blocks">
+				{% for data_block in card.data_blocks %}
+					{% if data_block.text %}
+						<div class="card__data-block">{{ data_block.text | raw }}</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+</article>
