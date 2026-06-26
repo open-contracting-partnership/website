@@ -1,0 +1,30 @@
+<article class="card card--data">
+	{% if card.icon %}
+		<div class="card__icon">
+			{{ imgix({
+                src: card.icon.url,
+                aspect_ratio: [1, 1],
+                transforms: [{
+                    w: 192
+                }],
+                sizes: '(min-width: 768px) 96px, 80px',
+            }) }}
+		</div>
+	{% endif %}
+
+	<div class="card__content">
+		{% if card.title %}
+			<h4 class="card__title">{{ card.title }}</h4>
+		{% endif %}
+
+		{% if card.data_blocks %}
+			<div class="card__data-blocks">
+				{% for data_block in card.data_blocks %}
+					{% if data_block.text %}
+						<div class="card__data-block">{{ data_block.text | raw }}</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+</article>

@@ -275,6 +275,156 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_685b4e01f5a11": {
+                    "key": "layout_685b4e01f5a11",
+                    "name": "data_cards",
+                    "label": "Data Blocks",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_685b4e01f5a13",
+                            "label": "Show arrows between cards?",
+                            "name": "show_arrows",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "gutenberg_visibility": "both",
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_685b4e01f5a14",
+                            "label": "Blocks",
+                            "name": "cards",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "gutenberg_visibility": "both",
+                            "collapsed": "field_685b4e01f5a16",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "block",
+                            "button_label": "Add Block",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_685b4e01f5a15",
+                                    "label": "Icon",
+                                    "name": "icon",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "35",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "gutenberg_visibility": "both",
+                                    "return_format": "array",
+                                    "preview_size": "thumbnail",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "parent_repeater": "field_685b4e01f5a14"
+                                },
+                                {
+                                    "key": "field_685b4e01f5a16",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "65",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "gutenberg_visibility": "both",
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": "",
+                                    "parent_repeater": "field_685b4e01f5a14"
+                                },
+                                {
+                                    "key": "field_685b4e01f5a17",
+                                    "label": "Data Blocks",
+                                    "name": "data_blocks",
+                                    "aria-label": "",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "gutenberg_visibility": "both",
+                                    "collapsed": "field_685b4e01f5a18",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "table",
+                                    "button_label": "Add Data Block",
+                                    "rows_per_page": 20,
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_685b4e01f5a18",
+                                            "label": "Text",
+                                            "name": "text",
+                                            "aria-label": "",
+                                            "type": "wysiwyg",
+                                            "required": 1,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "gutenberg_visibility": "both",
+                                            "default_value": "",
+                                            "tabs": "visual",
+                                            "toolbar": "basic",
+                                            "media_upload": 0,
+                                            "delay": 0,
+                                            "parent_repeater": "field_685b4e01f5a17"
+                                        }
+                                    ],
+                                    "parent_repeater": "field_685b4e01f5a14"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Item",
