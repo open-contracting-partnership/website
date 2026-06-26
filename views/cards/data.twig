@@ -1,7 +1,14 @@
 <article class="card card--data">
 	{% if card.icon %}
 		<div class="card__icon">
-			<img src="{{ card.icon.url }}" alt="{{ card.title ?: 'Card icon' }}">
+			{{ imgix({
+                src: card.icon.url,
+                aspect_ratio: [1, 1],
+                transforms: [{
+                    w: 192
+                }],
+                sizes: '(min-width: 768px) 96px, 80px',
+            }) }}
 		</div>
 	{% endif %}
 
