@@ -1,0 +1,58 @@
+{
+    "key": "group_6a3915e879d98",
+    "title": "Resource Image (Alternate)",
+    "fields": [
+        {
+            "key": "field_6a3915e87cd14",
+            "label": "Resource Image (Alternate)",
+            "name": "resource_image_alternate",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "The main resource \"featured image\" should represent the report cover, typically in portrait A4 aspect ratio. This size isn't always appropriate when the resources is featured in other places on the website, for example on the homepage. This \"alternate\" image can be used to display in those circumstances, where it'll typically display in 16:9 aspect ratio, but may squash down to a square, this video provides more guidance on image creation.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "gutenberg_visibility": "both",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "thumbnail"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "resource"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "acfml_field_group_mode": "advanced",
+    "modified": 1782126668
+}

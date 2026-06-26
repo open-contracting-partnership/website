@@ -1,15 +1,15 @@
 {
-    "key": "group_6308803808d40",
-    "title": "Featured News",
+    "key": "group_6a33ff5279123",
+    "title": "Posts Page Header",
     "fields": [
         {
-            "key": "field_66ffd673d3d93",
+            "key": "field_6a33ff53c5b56",
             "label": "Heading",
-            "name": "announcements_heading",
+            "name": "heading",
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -17,19 +17,21 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "wpml_cf_preferences": 0,
-            "default_value": "",
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 2,
+            "default_value": "News",
             "maxlength": "",
+            "allow_in_bindings": 0,
             "placeholder": "",
             "prepend": "",
             "append": ""
         },
         {
-            "key": "field_66ffd68cd3d94",
+            "key": "field_6a34000ec5b57",
             "label": "Content",
-            "name": "announcements_content",
+            "name": "content",
             "aria-label": "",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -39,20 +41,22 @@
                 "id": ""
             },
             "gutenberg_visibility": "both",
-            "wpml_cf_preferences": 0,
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 2,
             "default_value": "",
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
         }
     ],
     "location": [
         [
             {
-                "param": "options_page",
+                "param": "page_type",
                 "operator": "==",
-                "value": "acf-options-news-and-blogs"
+                "value": "posts_page"
             }
         ]
     ],
@@ -65,6 +69,9 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "acfml_field_group_mode": "advanced",
-    "modified": 1728556299
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "acfml_field_group_mode": "translation",
+    "modified": 1782124757
 }

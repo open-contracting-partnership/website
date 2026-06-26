@@ -35,6 +35,16 @@
             grid-column: content / 9;
         }
 
+        > * {
+            &:not(:first-child) {
+                margin-top: spacing(3);
+            }
+
+            &:not(:last-child) {
+                margin-bottom: spacing(3);
+            }
+        }
+
         h1,
         h2,
         h3,

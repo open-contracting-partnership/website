@@ -1,11 +1,12 @@
-.block[data-block-type="cover"] {
+.cover {
 	color: var(--colour, #{$ui-white});
 
 	@include fluid-type(--padding, 360px, 1240px, spacing(2), spacing(15));
 
 	grid-template-rows: [all-start] var(--padding) auto var(--padding) [all-end];
+}
 
-	.block__image {
+	.cover__image {
 		grid-column: full;
 		grid-row: all;
 		background-repeat: no-repeat;
@@ -13,12 +14,12 @@
 		background-position: 50% 50%;
 	}
 
-	.block__image-overlay {
+	.cover__image-overlay {
 		grid-column: full;
 		grid-row: all;
 	}
 
-	.block__content {
+	.cover__content {
 		grid-column: content / -6;
 		grid-row: 2;
 		color: currentColor;
@@ -27,6 +28,16 @@
 		@include from(T) {
 			grid-column: content / 10;
 		}
+
+        > * {
+            &:not(:first-child) {
+                margin-top: spacing(1.5);
+            }
+
+            &:not(:last-child) {
+                margin-bottom: spacing(1.5);
+            }
+        }
 
 		h1,
 		h2,
@@ -40,4 +51,4 @@
 			}
 		}
 	}
-}
+

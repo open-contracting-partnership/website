@@ -24,8 +24,10 @@ class HomeController extends Controller
 
     protected function setContentContext(&$context)
     {
-        $context['latest']['content']['heading'] = get_field('announcements_heading', 'options');
-        $context['latest']['content']['content'] = get_field('announcements_content', 'options');
+        $posts_page_id = (int) get_option('page_for_posts');
+
+        $context['latest']['content']['heading'] = get_field('heading', $posts_page_id);
+        $context['latest']['content']['content'] = get_field('content', $posts_page_id);
 
         $context['latest']['content']['load_more'] = _x(
             'Load more',

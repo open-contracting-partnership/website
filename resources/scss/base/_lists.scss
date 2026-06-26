@@ -1,8 +1,4 @@
-ul,
-ul.wp-block-list {
-    list-style: disc;
-    padding-left: 40px;
-}
+@use 'sass:math';
 
 ol,
 ul,
@@ -14,6 +10,32 @@ ul.wp-block-list {
 
         margin: 0;
         padding: 0;
+    }
+}
+
+ul.wp-block-list,
+ol.wp-block-list {
+    padding-left: 40px;
+
+    > li {
+        margin-bottom: math.div($space, 4);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+ul,
+ul.wp-block-list {
+    list-style: disc;
+}
+
+ol.wp-block-list {
+    list-style: decimal;
+
+    > li::marker {
+        font-weight: 700;
     }
 }
 
