@@ -207,7 +207,7 @@
             margin: 0 auto;
 
             @include from(T) {
-                margin-left: spacing(5);
+                margin-left: 56px;
             }
 
             svg {
