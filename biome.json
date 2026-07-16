@@ -19,6 +19,7 @@
     },
     "javascript": {
         "formatter": {
+            "quoteProperties": "preserve",
             "quoteStyle": "single"
         }
     },

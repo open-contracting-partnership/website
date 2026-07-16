@@ -43,7 +43,6 @@ add_filter('script_module_data_page-worldwide', function ($data) {
             'contract' => __('Innovation in contract monitoring & data use', 'ocp'),
             'impact_stories' => __('Impact Stories', 'ocp'),
             'no_data' => __('No data available', 'ocp'),
-            'improve_data' => __('Improve this data', 'ocp'),
         ),
         'search' => array(
             'placeholder' => __('Find Country', 'ocp'),
