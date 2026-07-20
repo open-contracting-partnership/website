@@ -4,7 +4,7 @@ use App\Assets;
 use App\Models\News;
 use App\PostTypes\Resource;
 use Rareloop\Lumberjack\Facades\Config;
-use Rareloop\Lumberjack\Page;
+use Timber\Timber;
 
 add_filter('script_module_data_archive-resource', function ($data) {
     $data['resources'] = Resource::getAllResources();
@@ -16,7 +16,7 @@ add_filter('script_module_data_archive-resource', function ($data) {
 add_filter('script_module_data_page-worldwide', function ($data) {
     $data['mapbox_access_token'] = Config::get('services.mapbox_access_token');
 
-    $page = new Page();
+    $page = Timber::get_post();
 
     $data['content'] = [
         'title' => $page->meta('heading'),

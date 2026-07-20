@@ -30,7 +30,7 @@ class AccordionServiceProvider
 
     public function render(array $block, string $content = '', bool $is_preview = false, int $post_id = 0): void
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
         $context['block']['colour'] = get_field('colour');
 
         $context['block']['template'] = esc_attr(wp_json_encode([

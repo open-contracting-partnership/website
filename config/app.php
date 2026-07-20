@@ -97,7 +97,7 @@ return [
     'logs' => [
         'enabled' => true,
         'path' => false,
-        'level' => Monolog\Logger::DEBUG,
+        'level' => Monolog\Level::Error,
     ],
 
     'themeSupport' => [

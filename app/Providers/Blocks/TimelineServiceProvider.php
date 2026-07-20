@@ -36,7 +36,7 @@ class TimelineServiceProvider
 
     public function render(array $block, string $content = '', bool $is_preview = false): void
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
 
         $context['block'] = [];
         $context['block']['custom_classes'] = $block['className'] ?? '';

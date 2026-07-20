@@ -33,7 +33,7 @@ class FeaturedStoriesCarouselServiceProvider
 
     public function render(): void
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
 
         $context['block'] = [];
         $context['block']['featured_stories'] = get_field('featured_stories') ?: [];

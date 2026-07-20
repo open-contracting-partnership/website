@@ -16,8 +16,8 @@ class SingleEventController extends Controller
 {
     public function handle()
     {
-        $context = Timber::get_context();
-        $event = new Event();
+        $context = Timber::context();
+        $event = Timber::get_post();
 
         $context['event'] = Event::convertTimberObject($event);
 

@@ -32,7 +32,7 @@ class StoriesServiceProvider
 
     public function render(): void
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
 
         $context['block'] = [];
 

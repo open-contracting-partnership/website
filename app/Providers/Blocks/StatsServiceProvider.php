@@ -29,7 +29,7 @@ class StatsServiceProvider
 
     public function render(array $block, string $content = '', bool $is_preview = false, int $post_id = 0): void
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
 
         $context['block']['heading'] = get_field('heading');
         $context['block']['heading_size'] = get_field('heading_size');

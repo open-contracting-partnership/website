@@ -34,7 +34,7 @@ class SignUpCoverServiceProvider
 
     public function render(): void
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
 
         $context['block'] = [];
         $context['block']['heading'] = get_field('heading') ?: 'Add primary title here&hellip;';
