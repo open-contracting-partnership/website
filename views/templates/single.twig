@@ -27,7 +27,7 @@
             {% if featued_image %}
                 <figure class="wp-block-image">
                     {{ imgix({
-                        src: featued_image.url,
+                        src: featued_image.src,
                         transforms: [{
                             w: 512
                         }, {

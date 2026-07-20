@@ -37,6 +37,7 @@ class AdminServiceProvider extends ServiceProvider
         });
 
         $this->addDynamicLocationFields();
+        $this->handleAcfImageFields();
     }
 
     public function updatePostMenuLabel(): void
@@ -108,5 +109,20 @@ class AdminServiceProvider extends ServiceProvider
         })->toArray();
 
         return $field;
+    }
+
+    protected function handleAcfImageFields(): void
+    {
+        add_filter('acf/format_value/type=image', function ($value, $post_id, $field) {
+            return Timber::get_image($value);
+        }, 999, 3);
+
+        add_filter('acf/format_value/type=gallery', function ($value, $post_id, $field) {
+            return collect($value ?: [])
+                ->map(function ($image) {
+                    return Timber::get_image($image);
+                })
+                ->toArray();
+        }, 999, 3);
     }
 }

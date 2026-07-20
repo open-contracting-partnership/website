@@ -2,7 +2,7 @@
 	{% if card.icon %}
 		<div class="card__icon">
 			{{ imgix({
-                src: card.icon.url,
+                src: card.icon.src,
                 aspect_ratio: [1, 1],
                 transforms: [{
                     w: 192
