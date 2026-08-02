@@ -40,7 +40,7 @@
     "@vitejs/plugin-vue2": "^2.3.1",
     "autoprefixer": "^10.2.5",
     "less": "^4.6.7",
-    "postcss": "^8.2.8",
+    "postcss": "^8.5.25",
     "sass": "^1.72.0",
     "svg-sprite": "^2.0.4",
     "vite": "^7.3.6",
