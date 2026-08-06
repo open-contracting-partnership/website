@@ -1,0 +1,89 @@
+.gform_fields {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: var(--grid-column-gap);
+    grid-row-gap: spacing(3);
+    margin-bottom: spacing(3);
+}
+
+.gfield {
+    grid-column: span 12;
+}
+
+.gfield--width-half {
+    grid-column: span 12;
+
+    @include from(sm) {
+        grid-column: span 6;
+    }
+}
+
+.gfield--width-full {
+    grid-column: span 12;
+}
+
+.gform_required_legend {
+    display: none;
+}
+
+.gform_submission_error {
+    // font-size: $text-lg;
+    margin-block: spacing(4);
+    text-align: center;
+}
+
+.gfield_validation_message {
+    // font-size: $text-sm;
+    margin-top: spacing(0.5);
+    color: crimson;
+
+    a {
+        color: currentColor;
+
+        &:hover,
+        &:focus {
+            color: currentColor;
+        }
+    }
+}
+
+.gchoice {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 8px;
+    align-items: center;
+
+    &:not(:last-child) {
+        margin-bottom: spacing(1.5);
+    }
+
+    label {
+        margin-bottom: 0;
+        // color: $grey-dark;
+    }
+}
+
+.gfield_html {
+    h4 {
+        @extend .h5;
+        // color: $grey-dark;
+        margin-top: 0.6em;
+        margin-bottom: 0;
+    }
+}
+
+.gfield_label {
+    text-align: left;
+}
+
+.gfield.hidden_label .gfield_label {
+    display: none;
+}
+
+.gfield_required.gfield_required_asterisk {
+    font-weight: inherit;
+
+    &::before {
+        content: " ";
+    }
+}
