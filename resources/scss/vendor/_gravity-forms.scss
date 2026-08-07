@@ -1,0 +1,326 @@
+// --- Idea Bureau Boilerplate Gravity Forms Styles ---
+.gform_title {
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+.gform_fields {
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: spacing(3);
+    row-gap: spacing(4);
+
+    > * {
+        grid-column: span 12;
+    }
+}
+
+// columns
+@include from(T) {
+    .gfield--width-quarter {
+        grid-column: span 3;
+    }
+
+    .gfield--width-third {
+        grid-column: span 4;
+    }
+
+    .gfield--width-five-twelfths {
+        grid-column: span 5;
+    }
+
+    .gfield--width-half {
+        grid-column: span 6;
+    }
+
+    .gfield--width-seven-twelfths {
+        grid-column: span 7;
+    }
+
+    .gfield--width-two-thirds {
+        grid-column: span 8;
+    }
+
+    .gfield--width-three-quarter {
+        grid-column: span 9;
+    }
+}
+
+// progress bar
+.gf_progressbar_wrapper {
+    margin-bottom: spacing(2);
+}
+
+.gf_progressbar {
+    color: var(--primary);
+    font-weight: $font-weight-semibold;
+    background-color: color-mix(in srgb, var(--primary) 20%, var(--white) 80%);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.gf_progressbar_percentage {
+    background-color: color-mix(in srgb, var(--primary) 40%, var(--white) 60%);
+    padding-inline: spacing(1);
+}
+
+.gf_progressbar_title {
+    font-size: 0.875rem;
+    margin-bottom: spacing(0.5);
+}
+
+// validation
+.gform_required_legend {
+    display: none;
+}
+
+.gfield_validation_message {
+    color: var(--error);
+    font-weight: $font-weight-medium;
+}
+
+// section title
+.gsection_title {
+    text-align: center;
+}
+
+// fields
+.gfield_description {
+    --description-margin: #{spacing(0.75)};
+}
+
+.field_description_below .gfield_description {
+    margin-top: var(--description-margin);
+}
+
+.field_description_above .gfield_description {
+    margin-bottom: var(--description-margin);
+}
+
+.gfield--input-type-hidden {
+    display: none;
+}
+
+// choices
+.gfield_checkbox,
+.gfield_radio {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(0.5);
+}
+
+%gform_choice,
+.gchoice {
+    display: flex;
+    align-items: center;
+    gap: spacing(1);
+
+    .gfield-choice-input {
+        flex-shrink: 0;
+    }
+}
+
+.gchoice_other_control {
+    flex: 0 0 100%;
+}
+
+.ginput_container_consent {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: spacing(1);
+}
+
+.gfield_choice_all_toggle {
+    @extend .button;
+}
+
+// labels
+.gform-field-label {
+    margin-bottom: spacing(0.5);
+}
+
+.gform-field-label--type-sub:not(:first-child) {
+    margin-top: spacing(0.5);
+}
+
+.gfield .gfield_required {
+    margin-left: spacing(0.5);
+}
+
+.gfield_label .gfield_required_text {
+    color: var(--error);
+}
+
+// lists
+.add_list_item {
+    @extend .button;
+}
+
+.delete_list_item {
+    @extend .button;
+}
+
+// uploads
+.gform_button_select_files {
+    @extend .button;
+}
+
+%gform_vertical_stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    // gap: 100px;
+    gap: spacing(1.5);
+
+    > * {
+        // flex-grow: 1;
+    }
+}
+
+// misc
+.gf_clear {
+    display: none;
+}
+
+.gfield--type-honeypot {
+    display: none !important;
+    left: -9000px;
+    position: absolute !important;
+}
+
+// address
+.gfield--type-address,
+.ginput_container_address {
+    @extend %gform_vertical_stack;
+}
+
+.copy_values_option_container {
+    @extend %gform_choice;
+}
+
+// email
+.ginput_container_email {
+    @extend %gform_vertical_stack;
+}
+
+.ginput_container--name {
+    display: flex;
+    // flex-direction: column;
+    gap: spacing(1.5);
+
+    > * {
+        flex-grow: 1;
+    }
+}
+
+// lists
+.gfield_list_groups,
+.gfield_list_group {
+    @extend %gform_vertical_stack;
+}
+
+// buttons
+.gform_button {
+    @extend .button;
+}
+
+// date and time
+.gfield--type-date,
+.gfield--type-time {
+    .ginput_complex {
+        display: flex;
+        flex-flow: row;
+        gap: spacing(2);
+
+        .gform-grid-col {
+            width: 100%;
+        }
+
+        .hour_minute_colon {
+            width: auto;
+        }
+    }
+}
+
+// grid row
+.gfield_list .gform-grid-row {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: spacing(2);
+
+    .gform-grid-col {
+        width: 100%;
+    }
+}
+
+// footer
+.gform_page_footer {
+    display: flex;
+    justify-content: center;
+    gap: spacing(2);
+
+    margin-top: spacing(4);
+}
+
+.gform_previous_button,
+.gform_next_button,
+.gform_button {
+    width: auto;
+}
+
+.gform_footer {
+    margin-top: spacing(4);
+}
+// --- End of Idea Bureau Boilerplate Gravity Forms Styles ---
+
+// --- Custom styles for OCP ---
+.gform_wrapper {
+    margin: spacing(4) auto;
+
+    @include from(T) {
+        margin: spacing(10) auto;
+        max-width: 50rem;
+    }
+}
+
+.gfield_description {
+    @include font("primary", "regular");
+    font-size: 0.875rem;
+    color: $ui-grey;
+}
+
+.ginput_container :is(input, textarea, select) {
+    margin-bottom: 0;
+}
+
+.ginput_container.ginput_container_textarea {
+    line-height: 0;
+}
+
+.ginput_container.ginput_container_textarea textarea {
+    line-height: 1.5;
+}
+
+.gchoice label {
+    @include font("primary", "regular");
+    margin: 0;
+    font-size: 1rem;
+    color: $ui-black;
+    text-transform: none;
+}
+
+.gfield_label_before_complex {
+    margin-bottom: spacing(1);
+}
+
+.gchoice input {
+    accent-color: #e0e83d;
+}
+
+.gfield_required.gfield_required_asterisk {
+    margin: 0;
+}
+// --- End of Custom styles for OCP ---
