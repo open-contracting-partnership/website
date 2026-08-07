@@ -1,0 +1,14 @@
+{
+    "name": "app/grid-container",
+    "title": "Grid Container",
+    "category": "app-blocks",
+    "supports": {
+        "align": false,
+        "jsx": true
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php",
+        "blockVersion": 3
+    }
+}

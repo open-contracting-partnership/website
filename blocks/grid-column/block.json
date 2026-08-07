@@ -1,0 +1,16 @@
+{
+    "name": "app/grid-column",
+    "title": "Grid Column",
+    "category": "app-blocks",
+    "parent": ["app/grid-container"],
+    "supports": {
+        "align": false,
+        "jsx": true
+    },
+    "acf": {
+        "mode": "preview",
+        "postTypes": ["page", "service"],
+        "renderTemplate": "render.php",
+        "blockVersion": 3
+    }
+}

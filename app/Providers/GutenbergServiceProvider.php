@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Collection;
 use Rareloop\Lumberjack\Providers\ServiceProvider;
 
 class GutenbergServiceProvider extends ServiceProvider
@@ -24,8 +25,11 @@ class GutenbergServiceProvider extends ServiceProvider
         // blocks
         add_action('init', [$this, 'registerBlockCategories'], 5);
         add_action('init', [$this, 'loadBlocks'], 5);
-        add_filter('acf/settings/load_json', [$this, 'loadBlockFields']);
-        add_filter('acf/json/save_paths', [$this, 'saveBlockFields'], 10, 2);
+        // add_filter('acf/settings/load_json', [$this, 'loadBlockFields']);
+        // add_filter('acf/json/save_paths', [$this, 'saveBlockFields'], 10, 2);
+
+        // block fields
+        add_action('acf/init', [$this, 'loadBlockFields']);
 
         // patterns
         add_action('init', [$this, 'disableCorePatterns'], 5);
@@ -74,16 +78,34 @@ class GutenbergServiceProvider extends ServiceProvider
         }
     }
 
-    public static function loadBlockFields(array $paths): array
-    {
-        collect(glob(__DIR__ . '/../../blocks/*'))
-            ->map(fn ($blockDirectoryPath) => realpath($blockDirectoryPath))
-            ->each(function ($blockDirectoryPath) use (&$paths) {
-                $paths[] = $blockDirectoryPath;
-            });
+    // public static function loadBlockFields(array $paths): array
+    // {
+    //     collect(glob(__DIR__ . '/../../blocks/*'))
+    //         ->map(fn ($blockDirectoryPath) => realpath($blockDirectoryPath))
+    //         ->each(function ($blockDirectoryPath) use (&$paths) {
+    //             $paths[] = $blockDirectoryPath;
+    //         });
 
-        return $paths;
+    //     return $paths;
+    // }
+
+    public function loadBlockFields(): void
+    {
+        $blockFields = $this->globFiles(__DIR__ . '/../../blocks/*/*-fields.php');
+
+        foreach ($blockFields as $blockFieldPath) {
+            require $blockFieldPath;
+        }
     }
+
+    protected function globFiles(string $pattern): Collection
+    {
+        return collect(glob($pattern))
+            ->map(fn ($file) => realpath($file))
+            ->sort()
+            ->values();
+    }
+
 
     public static function saveBlockFields(array $paths, array $post): array
     {
