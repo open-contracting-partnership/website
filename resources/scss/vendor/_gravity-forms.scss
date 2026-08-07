@@ -1,13 +1,15 @@
 // --- Idea Bureau Boilerplate Gravity Forms Styles ---
 .gform_title {
     text-align: center;
+    margin-bottom: 1.5em;
 }
 
 .gform_fields {
     display: grid;
     align-items: flex-start;
     grid-template-columns: repeat(12, 1fr);
-    gap: spacing(3);
+    column-gap: spacing(3);
+    row-gap: spacing(4);
 
     > * {
         grid-column: span 12;
@@ -137,7 +139,7 @@
 
 // labels
 .gform-field-label {
-    margin: spacing(0.5);
+    margin-bottom: spacing(0.5);
 }
 
 .gform-field-label--type-sub:not(:first-child) {
@@ -276,6 +278,15 @@
 // --- End of Idea Bureau Boilerplate Gravity Forms Styles ---
 
 // --- Custom styles for OCP ---
+.gform_wrapper {
+    margin: spacing(4) auto;
+
+    @include from(T) {
+        margin: spacing(10) auto;
+        max-width: 50rem;
+    }
+}
+
 .gfield_description {
     @include font("primary", "regular");
     font-size: 0.875rem;
@@ -292,5 +303,25 @@
 
 .ginput_container.ginput_container_textarea textarea {
     line-height: 1.5;
+}
+
+.gchoice label {
+    @include font("primary", "regular");
+    margin: 0;
+    font-size: 1rem;
+    color: $ui-black;
+    text-transform: none;
+}
+
+.gfield_label_before_complex {
+    margin-bottom: spacing(1);
+}
+
+.gchoice input {
+    accent-color: #e0e83d;
+}
+
+.gfield_required.gfield_required_asterisk {
+    margin: 0;
 }
 // --- End of Custom styles for OCP ---
