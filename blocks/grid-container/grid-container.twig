@@ -1,0 +1,14 @@
+<div
+    class="grid-container"
+    data-block="grid-container"
+    data-is-preview="{{ block.is_preview }}"
+    data-block-spacing-top="{{ block.block_spacing.top }}"
+    data-block-spacing-bottom="{{ block.block_spacing.bottom }}"
+    data-column-gap="{{ block.column_gap }}"
+    data-row-gap="{{ block.row_gap }}"
+>
+    <InnerBlocks
+        allowedBlocks="{{ block.allowed_inner_blocks }}"
+        template="{{ block.template }}"
+    />
+</div>

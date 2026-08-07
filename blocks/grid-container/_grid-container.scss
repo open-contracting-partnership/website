@@ -1,0 +1,112 @@
+$debug: false;
+
+%common-grid {
+    --column-gap: #{spacing(2)};
+    --row-gap: #{spacing(4)};
+
+    align-items: flex-start;
+    display: grid;
+    column-gap: var(--column-gap-override, var(--column-gap));
+    row-gap: var(--row-gap-override, var(--row-gap));
+
+    @include from(S) {
+        --column-gap: #{spacing(4)};
+    }
+}
+
+.grid-container {
+    @if $debug {
+        border: 2px dotted rgba(255, 0, 0, .3);
+        // background-color: rgba(0, 0, 0, .025);
+    }
+
+    > .acf-innerblocks-container {
+        @extend %common-grid;
+        grid-template-columns: repeat(12, 1fr);
+
+        --block-spacing-override: #{spacing(4)};
+
+        // @include block-spacing-value;
+
+        // match the row gap with the block spacing
+        // row-gap: var(--block-spacing-value, #{spacing(4)});
+
+        > .wp-block {
+            margin-block: 0;
+        }
+    }
+
+    &[data-column-gap="small"] {
+        @include from(S) {
+            --column-gap-override: #{spacing(2)};
+        }
+    }
+
+    &[data-row-gap="none"] {
+        --row-gap-override: 0;
+    }
+}
+
+.grid-column {
+    --columns: calc(var(--offset) + var(--span));
+
+    @if ($is_gutenberg == false) {
+        display: var(--display);
+    }
+
+    grid-column: span var(--columns);
+    order: var(--order);
+    height: 100%;
+
+    @extend %common-grid;
+    grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+
+    --display: var(--mobile-display);
+    --span: var(--mobile-span);
+    --offset: var(--mobile-offset);
+    --order: var(--mobile-order);
+
+    @include from(T) {
+        --display: var(--tablet-display);
+        --span: var(--tablet-span);
+        --offset: var(--tablet-offset);
+        --order: var(--tablet-order);
+    }
+
+    @include from(M) {
+        --display: var(--desktop-display);
+        --span: var(--desktop-span);
+        --offset: var(--desktop-offset);
+        --order: var(--desktop-order);
+    }
+
+    &[data-is-preview="true"] {
+        min-height: 10px;
+    }
+
+    > .grid-column-inner {
+        > .acf-innerblocks-container {
+            // @extend %common-grid;
+            // grid-template-columns: repeat(12, 1fr);
+
+            // @extend %kill-last-margin-bottom;
+
+            height: 100%;
+
+            > .wp-block {
+                margin-block: 0;
+            }
+        }
+    }
+
+}
+
+.grid-column-inner {
+    grid-column: calc(var(--offset) + 1) / span var(--span);
+    height: 100%;
+
+    @if $debug {
+        border: 2px dotted rgba(0, 0, 255, .3);
+        // background-color: rgba(0, 0, 0, .025);
+    }
+}

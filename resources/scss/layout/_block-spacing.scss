@@ -1,0 +1,152 @@
+// version: 1.1 alpha
+
+@use "sass:map";
+
+// the container's child elements that should have spacing applied to
+$block-spacing-data-selectors: (
+    'block-spacing': (
+        'property': 'margin-block',
+        'default-size': 'large',
+    ),
+    'block-spacing-top': (
+        'property': 'margin-top',
+        'default-size': 'large',
+    ),
+    'block-spacing-bottom': (
+        'property': 'margin-bottom',
+        'default-size': 'large',
+    ),
+);
+
+$block-spacing-standard-selectors: (
+    // '.wp-block-image': (
+    //     'property': 'margin-block',
+    //     'default-size': 'large',
+    // ),
+    '.wp-block-gallery': (
+        'property': 'margin-block',
+        'default-size': 'large',
+    ),
+    '.wp-block-columns': (
+        'property': 'margin-block',
+        'default-size': 'large',
+    ),
+);
+
+
+//
+$block-spacing-sizes: (
+    "none": (
+        "mobile": 0,
+        "tablet": 0,
+        "desktop": 0,
+    ),
+    "tiny": (
+        "mobile": spacing(2),
+        "tablet": spacing(3),
+        "desktop": spacing(3),
+    ),
+    "small": (
+        "mobile": spacing(3),
+        "tablet": spacing(4),
+        "desktop": spacing(4),
+    ),
+    "medium": (
+        "mobile": spacing(4),
+        "tablet": spacing(5),
+        "desktop": spacing(5),
+    ),
+    "large": (
+        "mobile": spacing(6),
+        "tablet": spacing(7),
+        "desktop": spacing(8),
+    ),
+    "country-compare-top": (
+        "mobile": spacing(2),
+        "tablet": spacing(2),
+        "desktop": spacing(8),
+    ),
+    "country-single-top": (
+        "mobile": spacing(2),
+        "tablet": spacing(2),
+        "desktop": spacing(8),
+    ),
+);
+
+
+.block-spacing:not(.block-spacing--with-end-margins) > :first-child {
+    margin-top: 0;
+}
+
+.block-spacing:not(.block-spacing--with-end-margins) > :last-child {
+    margin-bottom: 0;
+}
+
+.block-spacing {
+    // &:not(.block-spacing--with-end-margins) {
+    //     --margin-block: 0;
+    // }
+
+    @each $element, $elementSettings in $block-spacing-data-selectors {
+        $property: map.get($elementSettings, 'property');
+        $default-size: map.get($elementSettings, 'default-size');
+
+        > [data-#{$element}] {
+            $default-size: map.get($block-spacing-sizes, $default-size);
+
+            #{$property}: map.get($default-size, "mobile");
+
+            @include from(T) {
+                #{$property}: map.get($default-size, "tablet");
+            }
+
+            @include from(M) {
+                #{$property}: map.get($default-size, "desktop");
+            }
+        }
+
+        @each $size, $margin-values in $block-spacing-sizes {
+            > [data-#{$element}="#{$size}"] {
+                #{$property}: map.get($margin-values, "mobile");
+
+                @include from(T) {
+                    #{$property}: map.get($margin-values, "tablet");
+                }
+
+                @include from(M) {
+                    #{$property}: map.get($margin-values, "desktop");
+                }
+            }
+        }
+    }
+
+    @each $element, $elementSettings in $block-spacing-standard-selectors {
+        $property: map.get($elementSettings, 'property');
+        $default-size: map.get($elementSettings, 'default-size');
+
+        > #{$element} {
+            $default-size: map.get($block-spacing-sizes, $default-size);
+
+            #{$property}: map.get($default-size, "mobile");
+
+            @include from(T) {
+                #{$property}: map.get($default-size, "tablet");
+            }
+
+            @include from(M) {
+                #{$property}: map.get($default-size, "desktop");
+            }
+        }
+    }
+}
+
+.acf-innerblocks-container {
+    @extend .block-spacing;
+
+    // --block-spacing-override: #{spacing(4)};
+}
+
+// .block-spacing-container > .acf-innerblocks-container {
+//     --block-spacing-override: unset;
+//     --block-spacing-adjuster: .25;
+// }

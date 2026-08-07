@@ -9,11 +9,12 @@ form {
 
 label,
 legend {
-    font-size: 13px;
+    display: block;
+    font-size: 0.875rem;
     text-transform: uppercase;
 
     display: block;
-    margin-bottom: 0;
+    margin-bottom: 0.25rem;
 
     cursor: pointer;
 }
@@ -38,25 +39,23 @@ input[type="month"],
 input[type="week"],
 input[type="datetime"],
 input[type="datetime-local"],
-textarea {
+textarea,
+select {
     @include font('primary', 'regular');
-    font-size: 14px;
+    font-size: 1rem; // min. 16px to avoid zooming on mobile devices
+    line-height: 1.5;
     color: $ui-black;
     background-color: $ui-white;
 
     width: 100%;
     border: 1px solid $ui-black;
     border-radius: $border-radius;
-    padding: .5rem 1rem;
+    padding: .75rem;
     margin-bottom: math.div($space, 2);
 
     &:focus {
         box-shadow: none;
         outline: none;
-    }
-
-    @include mq(M) {
-        padding: em(16, 14) em(12, 14);
     }
 }
 
@@ -66,6 +65,15 @@ input[type="color"] {
 
 textarea {
     line-height: 1.5;
+}
+
+select {
+    appearance: none;
+    padding-right: 1.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='m213.66 101.66-80 80a8 8 0 0 1-11.32 0l-80-80a8 8 0 0 1 11.32-11.32L128 164.69l74.34-74.35a8 8 0 0 1 11.32 11.32'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1rem;
 }
 
 // input[type="text"].valid,

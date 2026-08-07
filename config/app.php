@@ -30,6 +30,7 @@ return [
         // Application Providers
         App\Providers\AdminServiceProvider::class,
         App\Providers\AppServiceProvider::class,
+        App\Providers\FormServiceProvider::class,
         App\Providers\GutenbergServiceProvider::class,
         App\Providers\ImgixServiceProvider::class,
         App\Providers\MailChimpServiceProvider::class,
