@@ -1,0 +1,33 @@
+<div
+    data-column-identifier="{{ block.column_identifier }}"
+    class="grid-column"
+    data-block="grid-column"
+    data-is-preview="{{ block.is_preview }}"
+    style="
+        --mobile-display: {{ block.display.mobile }};
+        --tablet-display: {{ block.display.tablet }};
+        --desktop-display: {{ block.display.desktop }};
+
+        --mobile-span: {{ block.span.mobile }};
+        --tablet-span: {{ block.span.tablet }};
+        --desktop-span: {{ block.span.desktop }};
+
+        --mobile-offset: {{ block.offset.mobile }};
+        --tablet-offset: {{ block.offset.tablet }};
+        --desktop-offset: {{ block.offset.desktop }};
+
+        --mobile-order: {{ block.order.mobile }};
+        --tablet-order: {{ block.order.tablet }};
+        --desktop-order: {{ block.order.desktop }};
+    "
+
+    {% if block.is_preview %}
+        data-desktop-span="{{ block.span.desktop + block.offset.desktop }}"
+    {% endif %}
+>
+    <div class="grid-column-inner">
+        <InnerBlocks
+            template="{{ block.template }}"
+        />
+    </div>
+</div>

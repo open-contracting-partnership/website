@@ -1,12 +1,13 @@
 {
     "require": {
         "php": "^8.1",
-        "rareloop/lumberjack-core": "^6.0",
         "drewm/mailchimp-api": "^2.5",
-        "vlucas/phpdotenv": "^5.6",
+        "imgix/imgix-php": "^4.1.0",
         "imliam/shareable-link": "^1.0.0",
         "ozdemirburak/iris": "^3.1",
-        "imgix/imgix-php": "^4.1.0"
+        "rareloop/lumberjack-core": "^6.0",
+        "vinkla/extended-acf": "14.6.2",
+        "vlucas/phpdotenv": "^5.6"
     },
     "require-dev": {
         "php-stubs/acf-pro-stubs": "^6.5",
