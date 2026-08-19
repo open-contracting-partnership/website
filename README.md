@@ -1,6 +1,6 @@
 # Open Contracting Partnership - WordPress Theme
 
-**Version**: 3.28.0
+**Version**: 3.28.1
 
 | Environment | Status |
 | :-- | :-- |
@@ -18,7 +18,7 @@ We use the [Semantic Versioning 2.0.0](https://semver.org/) version scheme, when
 
 ## Project guidelines
 
-- Local URL is `open-contracting.test`
+- Local URL is `ocp-website.test`
 - Theme directory name is `ocp-website`
 - [Git-Flow](https://nvie.com/posts/a-successful-git-branching-model/) to be used for git branching
 - [PHP PSR-12](https://www.php-fig.org/psr/psr-12/) coding standards

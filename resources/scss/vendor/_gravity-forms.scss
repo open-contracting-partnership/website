@@ -55,13 +55,18 @@
 .gf_progressbar {
     color: var(--primary);
     font-weight: $font-weight-semibold;
-    background-color: color-mix(in srgb, var(--primary) 20%, var(--white) 80%);
+    background-color: $ui-brand-2;
     border-radius: 4px;
     overflow: hidden;
+
+    span {
+        display: block;
+        padding-top: 0.15em;
+    }
 }
 
 .gf_progressbar_percentage {
-    background-color: color-mix(in srgb, var(--primary) 40%, var(--white) 60%);
+    background-color: $ui-brand;
     padding-inline: spacing(1);
 }
 
@@ -71,12 +76,20 @@
 }
 
 // validation
+.gform_validation_errors:focus-visible {
+    outline: none;
+}
+
+.gform_submission_error {
+    @extend .h4;
+}
+
 .gform_required_legend {
     display: none;
 }
 
 .gfield_validation_message {
-    color: var(--error);
+    color: crimson;
     font-weight: $font-weight-medium;
 }
 
@@ -108,6 +121,10 @@
     display: flex;
     flex-direction: column;
     gap: spacing(0.5);
+
+    input {
+        margin: 0;
+    }
 }
 
 %gform_choice,
@@ -130,6 +147,15 @@
     flex-wrap: wrap;
     align-items: center;
     gap: spacing(1);
+
+    input[type="checkbox"] {
+        margin: 0;
+    }
+
+    .gfield_consent_label,
+    .gform-field-label__text {
+        margin: 0;
+    }
 }
 
 .gfield_choice_all_toggle {
@@ -278,18 +304,15 @@
 
 // --- Custom styles for OCP ---
 .gform_wrapper {
-    margin: spacing(4) auto;
+    margin-block: spacing(4);
 
     @include from(T) {
-        margin: spacing(10) auto;
-        max-width: 50rem;
+        margin-block: spacing(10);
     }
 }
 
 .gfield_description {
-    @include font("primary", "regular");
     font-size: 0.875rem;
-    color: $ui-grey;
 }
 
 .ginput_container :is(input, textarea, select) {
@@ -297,7 +320,7 @@
 }
 
 .ginput_container.ginput_container_textarea {
-    line-height: 0;
+    // line-height: 0;
 }
 
 .ginput_container.ginput_container_textarea textarea {
@@ -314,6 +337,7 @@
 
 .gfield_label_before_complex {
     margin-bottom: spacing(1);
+    padding: 0;
 }
 
 .gchoice input {

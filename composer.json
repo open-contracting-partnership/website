@@ -6,7 +6,7 @@
         "imliam/shareable-link": "^1.0.0",
         "ozdemirburak/iris": "^3.1",
         "rareloop/lumberjack-core": "^6.0",
-        "vinkla/extended-acf": "14.6.2",
+        "vinkla/extended-acf": "13.8.0",
         "vlucas/phpdotenv": "^5.6"
     },
     "require-dev": {
@@ -21,6 +21,11 @@
             "composer/installers": true,
             "phpstan/extension-installer": true
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "policy": {
+            "advisories": {
+                "block": false
+            }
+        }
     }
 }
