@@ -130,6 +130,15 @@
     flex-wrap: wrap;
     align-items: center;
     gap: spacing(1);
+
+    input[type="checkbox"] {
+        margin: 0;
+    }
+
+    .gfield_consent_label,
+    .gform-field-label__text {
+        margin: 0;
+    }
 }
 
 .gfield_choice_all_toggle {
