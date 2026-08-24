@@ -165,6 +165,7 @@
 // labels
 .gform-field-label {
     margin-bottom: spacing(0.5);
+    font-weight: $font-weight-medium;
 }
 
 .gform-field-label--type-sub:not(:first-child) {
