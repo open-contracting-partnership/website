@@ -1,7 +1,7 @@
 {% if card.post_type == 'resource' %}
-    {% set fallback_image = '/themes/ocp-v1/resources/img/fallback-resource.jpg' %}
+    {% set fallback_image = '/themes/' ~ theme.slug ~ '/resources/img/fallback-resource.jpg' %}
 {% else %}
-    {% set fallback_image = '/themes/ocp-v1/resources/img/fallback-v2.jpg' %}
+    {% set fallback_image = '/themes/' ~ theme.slug ~ '/resources/img/fallback-v2.jpg' %}
 {% endif %}
 
 <div
