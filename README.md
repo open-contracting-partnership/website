@@ -31,6 +31,15 @@ We use the [Semantic Versioning 2.0.0](https://semver.org/) version scheme, when
 - [Laravel Mix](https://github.com/JeffreyWay/laravel-mix/tree/master/docs#summary)
 - [NPM](https://nodejs.org/en/download)
 
+## Integrations
+
+- Mapbox (worldwide map tiles and `theideabureau` styles)
+- GitHub ([worldwide map data](https://github.com/open-contracting-partnership/ocp-data/tree/publish))
+- Google Sheets (timeline `google_sheet_url`)
+- [imgix](https://www.imgix.com) (image CDN)
+- Knight Lab CDN (TimelineJS CSS)
+- Mailchimp (newsletter signup)
+
 ## Setup
 
 ### Back-end
