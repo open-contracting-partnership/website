@@ -73,7 +73,7 @@
                                         <span>Location:</span>
 
                                         {% for location in person.location %}
-                                            <img src="{{ theme.uri }}/node_modules/flag-icons/flags/4x3/{{ location | lower }}.svg" class="block__profile-flag">
+                                            <img src="{{ theme.uri }}/dist/flags/{{ location | lower }}.svg" class="block__profile-flag">
                                         {% endfor %}
                                     </div>
                                 {% endif %}
@@ -83,7 +83,7 @@
                                         <span>Nationality:</span>
 
                                         {% for nationality in person.nationality %}
-                                            <img src="{{ theme.uri }}/node_modules/flag-icons/flags/4x3/{{ nationality | lower }}.svg" class="block__profile-flag">
+                                            <img src="{{ theme.uri }}/dist/flags/{{ nationality | lower }}.svg" class="block__profile-flag">
                                         {% endfor %}
                                     </div>
                                 {% endif %}
