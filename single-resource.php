@@ -7,7 +7,6 @@
 namespace App;
 
 use App\Http\Controllers\Controller;
-use ImLiam\ShareableLink;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
 use Timber\Timber;
 
@@ -71,13 +70,7 @@ class SingleResourceController extends Controller
             }
         }
 
-        $share_links = new ShareableLink($resource->link(), $resource->title);
-
-        $context['resource']['share_links'] = array(
-            'twitter' => $share_links->twitter,
-            'facebook' => $share_links->facebook,
-            'linkedin' => $share_links->linkedin
-        );
+        $context['resource']['share_links'] = get_share_links($resource->link(), $resource->title);
 
         $context['resource']['i18n']['download_label'] = _x(
             'Download resource',
