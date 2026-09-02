@@ -1,7 +1,6 @@
 <template>
     <div class="map">
         <div class="mapbox-container">
-            <link href='/wp-content/themes/ocp-v1/dist/node_modules/mapbox-gl/mapbox-gl.css' rel='stylesheet' />
             <div id='map'></div>
         </div>
 
@@ -38,6 +37,7 @@
 
 <script>
     import mapboxgl from 'mapbox-gl'
+    import 'mapbox-gl/dist/mapbox-gl.css'
     import { mapGetters } from 'vuex'
     import getWordPressData from '@/js/wordpress-data';
 

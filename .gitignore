@@ -3,6 +3,12 @@
 /vendor
 node_modules
 
+# Backups
+/*.sql
+/*.sql.gz
+/*.tar
+/*.tar.gz
+
 # Assets
 dist/
 yarn-error.log
