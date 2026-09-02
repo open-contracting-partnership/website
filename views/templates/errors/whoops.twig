@@ -8,9 +8,26 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="pingback" href="{{ site.pingback_url }}" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,800" rel="stylesheet">
 
         <style>
+            @font-face {
+                font-family: 'gt_eesti_display';
+                src: url({{ theme.link }}/dist/fonts/GT-Eesti-Display-Bold.woff2) format('woff2'),
+                     url({{ theme.link }}/dist/fonts/GT-Eesti-Display-Bold.woff) format('woff');
+                font-weight: 700;
+                font-style: normal;
+                font-display: swap;
+            }
+
+            @font-face {
+                font-family: 'gt_eesti_text';
+                src: url({{ theme.link }}/dist/fonts/GT-Eesti-Text-Bold.woff2) format('woff2'),
+                     url({{ theme.link }}/dist/fonts/GT-Eesti-Text-Bold.woff) format('woff');
+                font-weight: 700;
+                font-style: normal;
+                font-display: swap;
+            }
+
             html {
                 -webkit-box-sizing: border-box;
                 box-sizing: border-box;
@@ -27,7 +44,7 @@
             body {
                 -moz-osx-font-smoothing: grayscale;
                 -webkit-font-smoothing: antialiased;
-                font-family: "Open Sans", sans-serif;
+                font-family: "gt_eesti_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
                 font-weight: 700;
                 color: #000;
                 color: #0f114c;
@@ -39,32 +56,22 @@
                 font-size: 100%;
             }
 
-            @supports (display: flex) {
-                .right {
-                    width: 130%;
-                    height: 0;
-                    margin-left: -30%;
-                    padding-top: 143%;
-
-                    background: url({{ theme.link }}/assets/img/whoops.svg) center left;
-                    background-size: cover;
-                }
-            }
-
             .main-content {
                 padding: 2em;
             }
 
             .status-code {
+                font-family: "gt_eesti_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
                 font-size: 3.75rem;
-                font-weight: 800;
+                font-weight: 700;
             }
 
             .page-title {
                 margin: 0;
 
+                font-family: "gt_eesti_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
                 font-size: 1.875rem;
-                font-weight: 800;
+                font-weight: 700;
                 letter-spacing: -1.2px;
             }
 
@@ -89,9 +96,9 @@
                 padding: 1em 0;
                 min-width: 160px;
 
-                font-family: 'Open Sans', sans-serif;
+                font-family: "gt_eesti_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
                 font-size: 1rem;
-                font-weight: 800;
+                font-weight: 700;
                 text-align: center;
                 color: #fff;
                 text-decoration: none;
@@ -172,40 +179,17 @@
                 body {
                     display: flex;
                     height: 100%;
-                }
 
-                @supports (display: flex) {
-                    .left,
-                    .right {
-                        width: 50%;
-                    }
-
-                    .left {
-                        display: flex;
-                        padding-right: 4em;
-
-                        align-items: center;
-                        justify-content: flex-end;
-                    }
-
-                    .right {
-                        height: 100%;
-                        margin-left: 0;
-                        padding: 0;
-                    }
+                    align-items: center;
+                    justify-content: center;
                 }
 
                 .main-content {
                     max-width: 580px;
-                    padding-right: 0;
                 }
 
                 .status-code {
                     font-size: 6.125rem;
-                }
-
-                .status-message {
-                    max-width: 450px;
                 }
 
                 .page-title {
@@ -230,17 +214,14 @@
     </head>
 
     <body class="{{ body_class }}">
-        <div class="left">
-            <div class="main-content">
-                <span class="status-code">500</span>
-                <h1 class="page-title">Something went <span class="text-highlight">wrong</span></h1>
-                <p class="status-message">Please try again in a few minutes, if the error persists contact us for support.</p>
-                <div class="buttons">
-                    <a class="button button--home" href="{{ site.link }}">Go home</a>
-                </div>
+        <div class="main-content">
+            <span class="status-code">500</span>
+            <h1 class="page-title">Something went <span class="text-highlight">wrong</span></h1>
+            <p class="status-message">Please try again in a few minutes, if the error persists contact us for support.</p>
+            <div class="buttons">
+                <a class="button button--home" href="{{ site.link }}">Go home</a>
             </div>
         </div>
-        <div class="right"></div>
         <script>
             if (window.enhanced) {
                 // Swap the html class

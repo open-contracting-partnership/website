@@ -34,6 +34,7 @@ class AdminServiceProvider extends ServiceProvider
         });
 
         $this->addDynamicLocationFields();
+        $this->disableAcfInnerBlocksContainer();
     }
 
     public function updatePostMenuLabel(): void
@@ -76,5 +77,10 @@ class AdminServiceProvider extends ServiceProvider
         })->toArray();
 
         return $field;
+    }
+
+    protected function disableAcfInnerBlocksContainer(): void
+    {
+        add_filter('acf/blocks/wrap_frontend_innerblocks', '__return_false');
     }
 }
