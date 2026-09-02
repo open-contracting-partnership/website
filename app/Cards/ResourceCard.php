@@ -72,7 +72,8 @@ class ResourceCard extends BaseCard
         ]);
 
         $backgroundImage = sprintf(
-            '/themes/ocp-v1/resources/img/resource-covers/%s-%s.png',
+            '/themes/%s/resources/img/resource-covers/%s-%s.png',
+            get_template(),
             $post->fallbackImageType,
             $resourceColour,
         );
