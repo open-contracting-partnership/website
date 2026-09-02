@@ -68,7 +68,12 @@ class AdminServiceProvider extends ServiceProvider
 
     public static function setAcfCountryLocationValues($field)
     {
-        $countryJson = get_template_directory() . '/node_modules/flag-icons/country.json';
+        $countryJson = get_template_directory() . '/dist/data/country.json';
+
+        if (! file_exists($countryJson)) {
+            return $field;
+        }
+
         $countries = collect(json_decode(file_get_contents($countryJson), true));
 
         $field['choices'] = $countries->mapWithKeys(function ($country) {

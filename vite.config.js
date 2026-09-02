@@ -54,7 +54,10 @@ export default defineConfig({
     sassGlobImports(),
     svgSpritePlugin('resources/svg', 'svg/icons.svg'),
     copyPlugin({
-      targets: [{ src: 'node_modules/flag-icons/flags/4x3', dest: 'flags' }],
+      targets: [
+        { src: 'node_modules/flag-icons/flags/4x3', dest: 'flags' },
+        { src: 'node_modules/flag-icons/country.json', dest: 'data/country.json' },
+      ],
     }),
   ],
   css: {
