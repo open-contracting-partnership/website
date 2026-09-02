@@ -1,6 +1,6 @@
 # Open Contracting Partnership - WordPress Theme
 
-**Version**: 3.28.4
+**Version**: 3.28.5
 
 | Environment | Status |
 | :-- | :-- |
@@ -19,7 +19,6 @@ We use the [Semantic Versioning 2.0.0](https://semver.org/) version scheme, when
 ## Project guidelines
 
 - Local URL is `ocp-website.test`
-- Theme directory name is `ocp-website`
 - [Git-Flow](https://nvie.com/posts/a-successful-git-branching-model/) to be used for git branching
 - [PHP PSR-12](https://www.php-fig.org/psr/psr-12/) coding standards
 - `.editorconfig` rules used to maintain coding styles
@@ -30,6 +29,15 @@ We use the [Semantic Versioning 2.0.0](https://semver.org/) version scheme, when
 - [Composer](https://getcomposer.org/download/)
 - [Laravel Mix](https://github.com/JeffreyWay/laravel-mix/tree/master/docs#summary)
 - [NPM](https://nodejs.org/en/download)
+
+## Integrations
+
+- Mapbox (worldwide map tiles and `theideabureau` styles)
+- GitHub ([worldwide map data](https://github.com/open-contracting-partnership/ocp-data/tree/publish))
+- Google Sheets (timeline `google_sheet_url`)
+- [imgix](https://www.imgix.com) (image CDN)
+- Knight Lab CDN (TimelineJS CSS)
+- Mailchimp (newsletter signup)
 
 ## Setup
 
