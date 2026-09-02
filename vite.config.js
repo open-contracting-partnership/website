@@ -1,10 +1,9 @@
-import { readdirSync, readFileSync } from 'node:fs';
+import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
 import vue from '@vitejs/plugin-vue2';
 import SVGSpriter from 'svg-sprite';
 import { defineConfig } from 'vite';
 import sassGlobImports from 'vite-plugin-sass-glob-import';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 function svgSpritePlugin(inputDir, outputFile) {
   return {
@@ -31,20 +30,35 @@ function svgSpritePlugin(inputDir, outputFile) {
   };
 }
 
+function copyPlugin({ targets }) {
+  return {
+    name: 'copy',
+    generateBundle() {
+      for (const { src, dest } of targets) {
+        const files = statSync(src).isDirectory()
+          ? readdirSync(src).map((f) => [join(src, f), `${dest}/${f}`])
+          : [[src, dest]];
+
+        for (const [from, to] of files) {
+          this.emitFile({ type: 'asset', fileName: to, source: readFileSync(from) });
+        }
+      }
+    },
+  };
+}
+
 export default defineConfig({
   base: './',
   plugins: [
     vue(),
     sassGlobImports(),
-    viteStaticCopy({
+    svgSpritePlugin('resources/svg', 'svg/icons.svg'),
+    copyPlugin({
       targets: [
-        {
-          src: 'node_modules/mapbox-gl/dist/mapbox-gl.css',
-          dest: 'node_modules/mapbox-gl',
-        },
+        { src: 'node_modules/flag-icons/flags/4x3', dest: 'flags' },
+        { src: 'node_modules/flag-icons/country.json', dest: 'data/country.json' },
       ],
     }),
-    svgSpritePlugin('resources/svg', 'svg/icons.svg'),
   ],
   css: {
     preprocessorOptions: {

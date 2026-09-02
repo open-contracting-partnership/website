@@ -23,7 +23,7 @@
                 }
             }) }}
         {% else %}
-            {% set fallback_image = site.url ~ '/wp-content/themes/ocp-v1/resources/img/fallback-v2.jpg' %}
+            {% set fallback_image = theme.link ~ '/resources/img/fallback-v2.jpg' %}
 
             {{ imgix({
                 src: fallback_image,

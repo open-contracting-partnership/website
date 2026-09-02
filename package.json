@@ -24,7 +24,6 @@
     "@knight-lab/timelinejs": "^3.9.6",
     "alpinejs": "^3.9.2",
     "countup.js": "^2.6.2",
-    "flag-icons": "^7.5.0",
     "mapbox-gl": "^1.5.0",
     "modern-css-reset": "1.0.2",
     "shiki": "^3.14.0",
@@ -39,12 +38,12 @@
   "devDependencies": {
     "@vitejs/plugin-vue2": "^2.3.1",
     "autoprefixer": "^10.2.5",
+    "flag-icons": "^7.5.0",
     "less": "^4.6.7",
     "postcss": "^8.5.25",
     "sass": "^1.72.0",
     "svg-sprite": "^2.0.4",
     "vite": "^7.3.6",
-    "vite-plugin-sass-glob-import": "^6.0.2",
-    "vite-plugin-static-copy": "^3.2.0"
+    "vite-plugin-sass-glob-import": "^6.0.2"
   }
 }

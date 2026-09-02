@@ -1,10 +1,17 @@
 <template>
-    <span class="flag-icon" :style="'background-image: url(https://flagicons.lipis.dev/flags/4x3/' + code  + '.svg)'"></span>
+    <span class="flag-icon" :style="'background-image: url(' + flags_url + '/' + code + '.svg)'"></span>
 </template>
 
 <script>
+    import getWordPressData from '@/js/wordpress-data';
+
+    const { flags_url } = getWordPressData('page-worldwide');
+
     export default {
-        props: ['code']
+        props: ['code'],
+        data() {
+            return { flags_url }
+        }
     }
 </script>
 
