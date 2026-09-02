@@ -40,9 +40,39 @@ Install all PHP dependencies with composer:
 ```bash
 composer install
 ```
+
+Copy `.env.example` to `.env` and fill it in. `make wp` (see [Local server](#local-server)) writes the file for you, using the values from the files backup.
+
 ### Database
 
 Use WP Migrate to pull the latest database from the production environment. Initially you can [export the database](https://www.open-contracting.org/wp-admin/tools.php?page=wp-migrate-db-pro&adbc-ignore-notice=0#migrate/1) only and import locally, and then run WP Mirgate to properly download the database, media and plugins.
+
+### Local server
+
+Alternatively, `make up` serves the production site from PHP's built-in server, using this checkout as the theme. It needs:
+
+- **PHP 8.x**
+- **MySQL** (`mysql -uroot`, no password)
+- A `public_html` files backup and a database backup from production, in the repository root (the newest of each is auto-detected):
+  - `*.tar` or `*.tar.gz` (override with `TAR=`)
+  - `*.sql` or `*.sql.gz` (override with `DUMP=`)
+- PHP and front-end dependencies installed, and assets built
+
+| Command | Description |
+|---|---|
+| `make up` | `setup` and `serve` |
+| `make setup` | `db` and `wp` |
+| `make db` | create and load the database (`FORCE=1` to re-load), rewrite the site URL to localhost, activate this theme, and disable production-only plugins |
+| `make wp` | extract files into a working directory (`FORCE=1` to re-extract), patch `wp-config.php`, write `.env`, and symlink this directory as the theme |
+| `make serve` | start PHP's built-in server (`php -S`) at http://localhost:8090, with 4 request workers (`WORKERS=`) and OPcache off so file edits take effect immediately |
+| `make flush` | drop cached rewrite rules |
+| `make clean` | drop the database and remove the working directory |
+| `make help` | list the available commands (runs by default) |
+
+Images are requested from imgix, which serves them from production, so uploads need no local setup. To serve on another port, set `PORT` on every command, like `make up PORT=8100`, and delete `.env` first, so that `make wp` writes the port into the imgix base URL.
+
+> [!TIP]
+> Run `make flush` if a custom post type or taxonomy archive returns a 404: for example, after switching git branches or changing its registration.
 
 ### Front-end
 
