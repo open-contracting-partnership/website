@@ -100,3 +100,13 @@ SVG files within the `/resources/svg` directory will be combined into a single S
 ```
 
 SVGs used like this can be interacted with JavaScript and styled with CSS.
+
+### World map
+
+The homepage's "Where we work" map is generated. `worldmap/map-transform.php` reads `worldmap/map-original.svg`, replaces each path with circles, and writes `worldmap/map-new.svg`, whose contents are pasted into `views/blocks/where-we-work-map.twig`.
+
+```bash
+cd worldmap && php map-transform.php
+```
+
+The script resolves both filenames relative to the working directory, so run it from inside `worldmap`. Nothing reads that directory at runtime: it holds the source and the tool, and the template holds the output.
