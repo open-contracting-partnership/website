@@ -27,7 +27,6 @@ We use the [Semantic Versioning 2.0.0](https://semver.org/) version scheme, when
 
 - PHP 8.1
 - [Composer](https://getcomposer.org/download/)
-- [Laravel Mix](https://github.com/JeffreyWay/laravel-mix/tree/master/docs#summary)
 - [NPM](https://nodejs.org/en/download)
 
 ## Integrations
