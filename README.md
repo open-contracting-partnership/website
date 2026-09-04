@@ -92,6 +92,33 @@ Images are requested from imgix, which serves them from production, so uploads n
 > [!TIP]
 > Run `make flush` if a custom post type or taxonomy archive returns a 404: for example, after switching git branches or changing its registration.
 
+### Profiling plugins
+
+`make serve` runs with OPcache off, which makes every request recompile every plugin and roughly doubles admin page times. Measure with it on instead:
+
+```bash
+WP=~/.cache/ocp-v1/public_html
+php -d opcache.enable=1 -d opcache.enable_cli=1 -S localhost:8090 -t "$WP"
+```
+
+To time a plugin's contribution, drop this in `$WP/wp-content/mu-plugins/skip-plugins.php` and request any page with `?skip_plugin=slug1,slug2`:
+
+```php
+add_filter('option_active_plugins', function ($plugins) {
+    $skip = explode(',', (string) ($_GET['skip_plugin'] ?? ''));
+
+    return array_values(array_filter($plugins, fn ($p) => !in_array(explode('/', $p)[0], $skip, true)));
+});
+```
+
+Admin screens need a login cookie, which `wp eval` can mint:
+
+```bash
+wp eval 'echo "wordpress_" . COOKIEHASH . "=" . wp_generate_auth_cookie(53, time() + 86400, "auth");'
+```
+
+`make db` deactivates the plugins listed in the Makefile's `DISABLE`, so they are absent from a profiling run. Activate any you want to measure.
+
 ## SVG sprites
 
 SVG files within the `/resources/svg` directory will be combined into a single SVG sprite, and can be referenced using the following snippet where a filename of `icon-twitter.svg` is referenced as:
