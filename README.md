@@ -50,11 +50,20 @@ composer install
 
 Copy `.env.example` to `.env` and fill it in. `make wp` (see [Local server](#local-server)) writes the file for you, using the values from the files backup.
 
+### Front-end
+
+Start by installing all npm dependencies and then run the watch command to compile assets.
+
+```bash
+npm install
+npm run watch
+```
+
 ### Database
 
 Use WP Migrate to pull the latest database from the production environment. Initially you can [export the database](https://www.open-contracting.org/wp-admin/tools.php?page=wp-migrate-db-pro&adbc-ignore-notice=0#migrate/1) only and import locally, and then run WP Mirgate to properly download the database, media and plugins.
 
-### Local server
+## Local server
 
 Alternatively, `make up` serves the production site from PHP's built-in server, using this checkout as the theme. It needs:
 
@@ -83,16 +92,7 @@ Images are requested from imgix, which serves them from production, so uploads n
 > [!TIP]
 > Run `make flush` if a custom post type or taxonomy archive returns a 404: for example, after switching git branches or changing its registration.
 
-### Front-end
-
-Start by installing all npm dependencies and then run the watch command to compile assets.
-
-```bash
-npm install
-npm run watch
-```
-
-### SVG sprites
+## SVG sprites
 
 SVG files within the `/resources/svg` directory will be combined into a single SVG sprite, and can be referenced using the following snippet where a filename of `icon-twitter.svg` is referenced as:
 
@@ -102,7 +102,7 @@ SVG files within the `/resources/svg` directory will be combined into a single S
 
 SVGs used like this can be interacted with JavaScript and styled with CSS.
 
-### World map
+## World map
 
 The homepage's "Where we work" map is generated. `worldmap/map-transform.php` reads `worldmap/map-original.svg`, replaces each path with circles, and writes `worldmap/map-new.svg`, whose contents are pasted into `views/blocks/where-we-work-map.twig`.
 
