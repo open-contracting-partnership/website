@@ -27,7 +27,6 @@ We use the [Semantic Versioning 2.0.0](https://semver.org/) version scheme, when
 
 - PHP 8.1
 - [Composer](https://getcomposer.org/download/)
-- [Laravel Mix](https://github.com/JeffreyWay/laravel-mix/tree/master/docs#summary)
 - [NPM](https://nodejs.org/en/download)
 
 ## Integrations
@@ -51,16 +50,26 @@ composer install
 
 Copy `.env.example` to `.env` and fill it in. `make wp` (see [Local server](#local-server)) writes the file for you, using the values from the files backup.
 
+### Front-end
+
+Start by installing all npm dependencies and then run the watch command to compile assets.
+
+```bash
+npm install
+npm run watch
+```
+
 ### Database
 
 Use WP Migrate to pull the latest database from the production environment. Initially you can [export the database](https://www.open-contracting.org/wp-admin/tools.php?page=wp-migrate-db-pro&adbc-ignore-notice=0#migrate/1) only and import locally, and then run WP Mirgate to properly download the database, media and plugins.
 
-### Local server
+## Local server
 
 Alternatively, `make up` serves the production site from PHP's built-in server, using this checkout as the theme. It needs:
 
-- **PHP 8.x**
+- **PHP 8.1** (`brew install php@8.1`), which the Makefile finds at its Homebrew path from `PHP_VERSION`; override that, or point `PHP=` at a binary
 - **MySQL** (`mysql -uroot`, no password)
+- **wp-cli** (`brew install wp-cli`), for `make urls`
 - A `public_html` files backup and a database backup from production, in the repository root (the newest of each is auto-detected):
   - `*.tar` or `*.tar.gz` (override with `TAR=`)
   - `*.sql` or `*.sql.gz` (override with `DUMP=`)
@@ -69,9 +78,10 @@ Alternatively, `make up` serves the production site from PHP's built-in server, 
 | Command | Description |
 |---|---|
 | `make up` | `setup` and `serve` |
-| `make setup` | `db` and `wp` |
-| `make db` | create and load the database (`FORCE=1` to re-load), rewrite the site URL to localhost, activate this theme, and disable production-only plugins |
+| `make setup` | `db`, `wp` and `urls` |
+| `make db` | create and load the database (`FORCE=1` to re-load), rewrite the site URL to localhost, activate this theme, disable production-only plugins, and drop caches of production paths |
 | `make wp` | extract files into a working directory (`FORCE=1` to re-extract), patch `wp-config.php`, write `.env`, and symlink this directory as the theme |
+| `make urls` | rewrite production URLs to localhost, including inside serialized and JSON values |
 | `make serve` | start PHP's built-in server (`php -S`) at http://localhost:8090, with 4 request workers (`WORKERS=`) and OPcache off so file edits take effect immediately |
 | `make flush` | drop cached rewrite rules |
 | `make clean` | drop the database and remove the working directory |
@@ -82,16 +92,34 @@ Images are requested from imgix, which serves them from production, so uploads n
 > [!TIP]
 > Run `make flush` if a custom post type or taxonomy archive returns a 404: for example, after switching git branches or changing its registration.
 
-### Front-end
+### Profiling plugins
 
-Start by installing all npm dependencies and then run the watch command to compile assets.
+`make serve` runs with OPcache off, which makes every request recompile every plugin and roughly doubles admin page times. Measure with it on instead:
 
 ```bash
-npm install
-npm run watch
+WP=~/.cache/ocp-v1/public_html
+php -d opcache.enable=1 -d opcache.enable_cli=1 -S localhost:8090 -t "$WP"
 ```
 
-### SVG sprites
+To time a plugin's contribution, drop this in `$WP/wp-content/mu-plugins/skip-plugins.php` and request any page with `?skip_plugin=slug1,slug2`:
+
+```php
+add_filter('option_active_plugins', function ($plugins) {
+    $skip = explode(',', (string) ($_GET['skip_plugin'] ?? ''));
+
+    return array_values(array_filter($plugins, fn ($p) => !in_array(explode('/', $p)[0], $skip, true)));
+});
+```
+
+Admin screens need a login cookie, which `wp eval` can mint:
+
+```bash
+wp eval 'echo "wordpress_" . COOKIEHASH . "=" . wp_generate_auth_cookie(53, time() + 86400, "auth");'
+```
+
+`make db` deactivates the plugins listed in the Makefile's `DISABLE`, so they are absent from a profiling run. Activate any you want to measure.
+
+## SVG sprites
 
 SVG files within the `/resources/svg` directory will be combined into a single SVG sprite, and can be referenced using the following snippet where a filename of `icon-twitter.svg` is referenced as:
 
@@ -100,3 +128,13 @@ SVG files within the `/resources/svg` directory will be combined into a single S
 ```
 
 SVGs used like this can be interacted with JavaScript and styled with CSS.
+
+## World map
+
+The homepage's "Where we work" map is generated. `worldmap/map-transform.php` reads `worldmap/map-original.svg`, replaces each path with circles, and writes `worldmap/map-new.svg`, whose contents are pasted into `views/blocks/where-we-work-map.twig`.
+
+```bash
+cd worldmap && php map-transform.php
+```
+
+The script resolves both filenames relative to the working directory, so run it from inside `worldmap`. Nothing reads that directory at runtime: it holds the source and the tool, and the template holds the output.
