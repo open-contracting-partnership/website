@@ -9,7 +9,7 @@ THEME        := ocp-v1
 DB           ?= corporate_wp
 PROD_URL     := https://www.open-contracting.org
 PROD_WP      := /home/corporate/public_html
-DISABLE      := ["ithemes-security-pro","redis-cache","w3-total-cache","wordfence","wp-cloudflare-page-cache"]
+DISABLE      := ["redis-cache","wp-cloudflare-page-cache"]
 PHP_VERSION  := 8.1
 # Cached options that embed absolute paths or IDs from the source site.
 DROP_OPTIONS := 'rewrite_rules','wpml_language_switcher_template_objects'
