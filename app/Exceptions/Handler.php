@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use ErrorException;
 use Exception;
 use Psr\Http\Message\ResponseInterface;
 use Rareloop\Lumberjack\Exceptions\Handler as LumberjackHandler;
@@ -17,7 +18,25 @@ class Handler extends LumberjackHandler
 
     public function report(Exception $e)
     {
+        // Lumberjack replaces Sentry's handlers on the front end, so forward to Sentry here.
+        if (function_exists('Sentry\\captureException') && $this->coveredBySentry($e)) {
+            \Sentry\captureException($e);
+        }
+
         parent::report($e);
+    }
+
+    /**
+     * Whether Sentry's configured error types cover the exception. captureException() bypasses the error handler
+     * that WP_SENTRY_ERROR_TYPES configures, so the mask is applied here.
+     */
+    private function coveredBySentry(Exception $e): bool
+    {
+        if (!$e instanceof ErrorException || !defined('WP_SENTRY_ERROR_TYPES')) {
+            return true;
+        }
+
+        return (bool) (constant('WP_SENTRY_ERROR_TYPES') & $e->getSeverity());
     }
 
     public function render(ServerRequestInterface $request, Exception $e): ResponseInterface
