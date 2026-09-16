@@ -7,6 +7,8 @@ use Timber\Timber;
 
 class AdminServiceProvider extends ServiceProvider
 {
+    private const ITEMS_PER_PAGE = 10;
+
     /**
      * Register any app specific items into the container
      */
@@ -33,6 +35,7 @@ class AdminServiceProvider extends ServiceProvider
             return $mimes;
         });
 
+        $this->setDefaultItemsPerPage();
         $this->addDynamicLocationFields();
         $this->disableAcfInnerBlocksContainer();
     }
@@ -59,6 +62,30 @@ class AdminServiceProvider extends ServiceProvider
         $labels->search_items = 'Search blog posts';
         $labels->not_found = 'No blog posts found';
         $labels->not_found_in_trash = 'No blog posts found in Trash';
+    }
+
+    protected function setDefaultItemsPerPage(): void
+    {
+        add_action('admin_init', [$this, 'filterItemsPerPage']);
+    }
+
+    public function filterItemsPerPage(): void
+    {
+        $options = ['upload_per_page', 'edit_comments_per_page', 'plugins_per_page', 'users_per_page'];
+
+        foreach (get_post_types(['show_ui' => true]) as $postType) {
+            $options[] = "edit_{$postType}_per_page";
+        }
+
+        foreach (get_taxonomies(['show_ui' => true]) as $taxonomy) {
+            // The slug is used verbatim, dashes included: edit_resource-type_per_page.
+            $options[] = "edit_{$taxonomy}_per_page";
+        }
+
+        foreach ($options as $option) {
+            // A saved Screen Option wins, matching how the list table falls back to its own default.
+            add_filter($option, fn ($perPage) => (int) get_user_option($option) >= 1 ? $perPage : self::ITEMS_PER_PAGE);
+        }
     }
 
     protected function addDynamicLocationFields(): void
