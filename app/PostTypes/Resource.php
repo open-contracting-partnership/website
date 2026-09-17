@@ -59,9 +59,9 @@ class Resource extends Post
         $colour = 'black';
 
         // it doesn't matter if the type is truthy, it must be an instance of
-        // Timber\Term to have a colour
+        // Timber\Term to have a colour, and its colour meta can be empty
 
-        if ($this->resourceType() instanceof Term && isset($this->resourceType()->colour)) {
+        if ($this->resourceType() instanceof Term && ! empty($this->resourceType()->colour)) {
             $colour = $this->resourceType()->colour;
         }
 
