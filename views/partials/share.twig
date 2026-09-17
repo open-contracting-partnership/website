@@ -1,30 +1,30 @@
 <div class="share">
     <h3 class="share-title">{{ share.i18n.heading }}</h3>
 
-    {% if share.links.twitter %}
+    {% if share_links.twitter %}
         <a
             class="share-link"
-            href="{{ share.links.twitter }}"
+            href="{{ share_links.twitter }}"
             target="_blank"
         >
             <svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
         </a>
     {% endif %}
 
-    {% if share.links.facebook %}
+    {% if share_links.facebook %}
         <a
             class="share-link"
-            href="{{ share.links.facebook }}"
+            href="{{ share_links.facebook }}"
             target="_blank"
         >
             <svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
         </a>
     {% endif %}
 
-    {% if share.links.linkedin %}
+    {% if share_links.linkedin %}
         <a
             class="share-link"
-            href="{{ share.links.linkedin }}"
+            href="{{ share_links.linkedin }}"
             target="_blank"
         >
             <svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
