@@ -15,6 +15,7 @@ add_filter('script_module_data_archive-resource', function ($data) {
 
 add_filter('script_module_data_page-worldwide', function ($data) {
     $data['mapbox_access_token'] = Config::get('services.mapbox_access_token');
+    $data['flags_url'] = get_template_directory_uri() . '/dist/flags';
 
     $page = new Page();
 
