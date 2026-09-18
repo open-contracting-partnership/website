@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function handle()
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
 
         $this->setContentContext($context);
 

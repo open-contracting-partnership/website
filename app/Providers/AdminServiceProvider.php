@@ -23,7 +23,7 @@ class AdminServiceProvider extends ServiceProvider
         add_action('admin_menu', [$this, 'updatePostMenuLabel']);
 
         add_action('admin_footer', function () {
-            $context = Timber::get_context();
+            $context = Timber::context();
 
             Timber::render('partials/svg-loader.twig', $context);
         });
@@ -35,6 +35,7 @@ class AdminServiceProvider extends ServiceProvider
 
         $this->addDynamicLocationFields();
         $this->disableAcfInnerBlocksContainer();
+        $this->handleAcfImageFields();
     }
 
     public function updatePostMenuLabel(): void
@@ -88,5 +89,20 @@ class AdminServiceProvider extends ServiceProvider
 
             return $wrap;
         }, 10, 2);
+    }
+
+    protected function handleAcfImageFields(): void
+    {
+        add_filter('acf/format_value/type=image', function ($value, $post_id, $field) {
+            return Timber::get_image($value);
+        }, 999, 3);
+
+        add_filter('acf/format_value/type=gallery', function ($value, $post_id, $field) {
+            return collect($value ?: [])
+                ->map(function ($image) {
+                    return Timber::get_image($image);
+                })
+                ->toArray();
+        }, 999, 3);
     }
 }

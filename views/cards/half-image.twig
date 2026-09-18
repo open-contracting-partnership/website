@@ -29,7 +29,7 @@
     {% if card.image is not empty %}
         <div class="card__image">
             {{ imgix({
-                src: card.image.url,
+                src: card.image.src,
                 transforms: [{
                     w: 128
                 }, {

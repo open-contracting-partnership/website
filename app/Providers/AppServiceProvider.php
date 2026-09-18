@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Rareloop\Lumberjack\Page;
+use Rareloop\Lumberjack\Post;
 use Rareloop\Lumberjack\Providers\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,6 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        add_filter('timber/post/classmap', fn($classmap) => [
+            ...$classmap,
+            Post::getPostType() => Post::class,
+            Page::getPostType() => Page::class,
+        ]);
     }
 
     /**

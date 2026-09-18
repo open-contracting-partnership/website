@@ -36,7 +36,7 @@
                 {% if card.icon.icon is not empty %}
                     {{ imgix({
                         class: 'our-reporting-card__image',
-                        src: card.icon.icon.url,
+                        src: card.icon.icon.src,
                         height: card.icon.icon.height,
                         width: card.icon.icon.width,
                     }) }}
@@ -52,7 +52,7 @@
     {% if block.banner_image %}
         <div class="our-reporting-grid__banner-image">
             {{ imgix({
-                src: block.banner_image.url,
+                src: block.banner_image.src,
                 height: block.banner_image.height,
                 width: block.banner_image.width,
                 transforms: [{

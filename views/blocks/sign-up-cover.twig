@@ -9,7 +9,7 @@
     {% if block.background_image %}
         <div class="sign-up__background-image">
             {{ imgix({
-                src: block.background_image.url,
+                src: block.background_image.src,
                 params: {
                     blur: 20,
                     q: 60,

@@ -33,7 +33,7 @@ class MoreStoriesColumnsServiceProvider
 
     public function render(): void
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
 
         $context['block'] = [];
         $context['block']['columns'] = get_field('columns');

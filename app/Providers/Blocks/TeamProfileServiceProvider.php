@@ -35,7 +35,7 @@ class TeamProfileServiceProvider
 
     public function render(): void
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
 
         $context['block'] = [];
         $context['block']['team'] = get_field('team_members');
@@ -58,7 +58,8 @@ class TeamProfileServiceProvider
             $person['posts'] = array();
 
             if ($person['wordpress_author']) {
-                $person['posts'] = TextCard::convertCollection(Post::query([
+                $person['posts'] = TextCard::convertCollection(Timber::get_posts([
+                    'post_type' => 'post',
                     'author' => $person['wordpress_author'],
                     'posts_per_page' => 3
                 ]));

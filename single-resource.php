@@ -7,18 +7,16 @@
 namespace App;
 
 use App\Http\Controllers\Controller;
-use App\PostTypes\Resource;
 use ImLiam\ShareableLink;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
-use Rareloop\Lumberjack\Post;
 use Timber\Timber;
 
 class SingleResourceController extends Controller
 {
     public function handle()
     {
-        $context = Timber::get_context();
-        $resource = new Resource();
+        $context = Timber::context();
+        $resource = Timber::get_post();
 
         $context['resource'] = [];
 

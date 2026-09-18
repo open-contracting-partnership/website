@@ -6,7 +6,7 @@
             {% for person in block.team %}
                 <a class="block__avatar" href="#{{ person.slug }}">
                     {{ imgix({
-                        src: person.image.url,
+                        src: person.image.src,
                         params: {
                             fit: 'crop',
                             crop: 'faces'
@@ -46,7 +46,7 @@
 
                     {{ imgix({
                         class: 'block__profile-image',
-                        src: person.image.url,
+                        src: person.image.src,
                         params: {
                             fit: 'crop',
                             crop: 'faces'

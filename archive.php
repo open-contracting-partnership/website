@@ -16,7 +16,7 @@ class ArchiveController extends Controller
         // urgh
         global $wp_query;
 
-        $context = Timber::get_context();
+        $context = Timber::context();
         $context['title'] = 'Archive';
         $context['posts'] = BasicCard::convertCollection($wp_query->posts);
 
