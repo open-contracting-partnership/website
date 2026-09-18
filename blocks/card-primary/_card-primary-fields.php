@@ -7,7 +7,7 @@ use Extended\ACF\Fields\Link;
 use Extended\ACF\Fields\PostObject;
 use Extended\ACF\Fields\Select;
 use Extended\ACF\Fields\Text;
-use Extended\ACF\Fields\URL;
+use Extended\ACF\Fields\Url;
 use Extended\ACF\Location;
 
 register_extended_field_group([
@@ -68,7 +68,7 @@ register_extended_field_group([
                     ->and('link_type', '==', 'button')
             ]),
 
-        URL::make('URL', 'heading_url')
+        Url::make('URL', 'heading_url')
             ->required()
             ->conditionalLogic([
                 ConditionalLogic::where('content', '==', 'manual_entry')
