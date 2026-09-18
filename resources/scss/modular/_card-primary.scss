@@ -27,6 +27,7 @@
     flex-direction: column;
     gap: spacing(1.5);
     width: 100%;
+    text-align: left;
 
     &[data-is-featured="true"] {
         gap: spacing(2);

@@ -36,3 +36,7 @@ $is-gutenberg: true;
 @import "../../blocks/**/*.scss";
 @import 'non-modular/*';
 @import 'vendor/*';
+
+a {
+    pointer-events: none;
+}

@@ -1,0 +1,10 @@
+{
+    "name": "app/card-primary",
+    "title": "Card Primary",
+    "category": "app-cards",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php",
+        "blockVersion": 3
+    }
+}

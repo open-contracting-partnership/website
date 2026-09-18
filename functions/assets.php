@@ -92,6 +92,7 @@ add_action('wp_enqueue_scripts', function () {
     Assets::registerScript('page-worldwide', 'js/worldwide-VITE.js', true);
 
     // BLOCKS
+    Assets::registerScript('block-cards-carousel', 'js/block-cards-carousel-VITE.js', true);
     Assets::registerScript('block-code-highlight', 'js/block-code-highlight-VITE.js', true);
     Assets::registerScript('block-download-carousel', 'js/block-download-carousel-VITE.js', true);
     Assets::registerScript('block-featured-stories-carousel', 'js/block-featured-stories-carousel-VITE.js', true);
