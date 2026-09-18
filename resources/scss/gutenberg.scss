@@ -16,52 +16,23 @@ $is-gutenberg: true;
 
 @import 'tools/fonts';
 
-body [data-block] .acf-block-preview,
-body [data-block] [class^="wp-block-"] {
-	.acf-block-preview {
-		background-color: transparent;
-	}
-
-	/*------------------------------------*\
-	    $TOOLS
-	\*------------------------------------*/
-	@import 'modern-css-reset';
-	@import 'tools/mixins';
-	@import 'tools/variables';
-	@import 'tools/grid';
-	@import 'tools/utilities';
-	@import 'tools/document';
-	@import 'tools/print';
-	@import 'tools/gutenberg';
-    @import 'tools/buttons';
-
-
-	/*------------------------------------*\
-	    $BASE ELEMENTS
-	\*------------------------------------*/
-	@import 'base/*';
-
-
-	/*------------------------------------*\
-	    $LAYOUT
-	\*------------------------------------*/
-	@import 'layout/*';
-
-
-	/*------------------------------------*\
-	    $MODULAR
-	\*------------------------------------*/
-	@import 'modular/*';
-    @import "../../blocks/**/*.scss";
-
-
-	/*------------------------------------*\
-	    $NON-MODULAR
-	\*------------------------------------*/
-	@import 'non-modular/*';
-
-    /*------------------------------------*\
-        $VENDOR
-    \*------------------------------------*/
-    @import 'vendor/*';
+.acf-block-preview {
+    background-color: transparent;
 }
+
+@import 'modern-css-reset';
+@import 'tools/mixins';
+@import 'tools/variables';
+@import 'tools/grid';
+@import 'tools/utilities';
+@import 'tools/document';
+@import 'tools/print';
+@import 'tools/gutenberg';
+@import 'tools/buttons';
+
+@import 'base/*';
+@import 'layout/*';
+@import 'modular/*';
+@import "../../blocks/**/*.scss";
+@import 'non-modular/*';
+@import 'vendor/*';

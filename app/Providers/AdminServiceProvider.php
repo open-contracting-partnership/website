@@ -83,6 +83,14 @@ class AdminServiceProvider extends ServiceProvider
     protected function disableAcfInnerBlocksContainer(): void
     {
         add_filter('acf/blocks/wrap_frontend_innerblocks', function ($wrap, $blockName) {
+            $ignoredBlocks = [
+                'acf/ocp-grid-section',
+            ];
+
+            if (in_array($blockName, $ignoredBlocks)) {
+                return $wrap;
+            }
+
             if (strpos($blockName, 'acf/ocp-') === 0) {
                 return false;
             }
