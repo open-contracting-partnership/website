@@ -49,7 +49,7 @@ class PrimaryCard extends BaseCard
         }
 
         if ($post->post_type === 'resource' && $post->resource_image_alternate) {
-            $data['image_url'] = $post->meta('resource_image_alternate')['url'];
+            $data['image_url'] = $post->meta('resource_image_alternate')->src;
         }
 
         if ($post->post_type === 'event') {
