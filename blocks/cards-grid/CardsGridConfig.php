@@ -24,7 +24,7 @@ class CardsGridConfig
             'default_variation' => 'two-columns',
         ],
         'card-with-icon' => [
-            'title' => 'Card (with Icon)',
+            'title' => 'With Icon',
             'variations' => [
                 'two-columns' => 'Two Columns',
             ],
