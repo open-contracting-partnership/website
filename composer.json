@@ -30,7 +30,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\Blocks\\CardsCarousel\\": "blocks/cards-carousel/"
+            "App\\Blocks\\CardsCarousel\\": "blocks/cards-carousel/",
+            "App\\Blocks\\CardsGrid\\": "blocks/cards-grid/"
         }
     }
 }

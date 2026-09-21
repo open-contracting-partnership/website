@@ -1,0 +1,13 @@
+{
+    "name": "app/cards-grid",
+    "title": "Cards Grid",
+    "category": "app-blocks",
+    "supports": {
+        "jsx": true
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php",
+        "blockVersion": 3
+    }
+}
