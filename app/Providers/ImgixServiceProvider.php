@@ -21,7 +21,7 @@ class ImgixServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        add_filter('timber/twig', function (\Twig_Environment $twig) {
+        add_filter('timber/twig', function (\Twig\Environment $twig) {
             $twig->addFunction(new \Twig\TwigFunction('imgix', [$this, 'render']));
             return $twig;
         });

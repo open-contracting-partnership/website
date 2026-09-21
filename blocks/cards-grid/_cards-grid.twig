@@ -1,0 +1,26 @@
+<div
+    id="{{ block.id }}"
+    class="cards-grid"
+    data-block-spacing-top="{{ block.block_spacing.top }}"
+    data-block-spacing-bottom="{{ block.block_spacing.bottom }}"
+    data-card-type="{{ block.card_type }}"
+    data-variation="{{ block.variation }}"
+>
+    {% if block.cards is not empty %}
+        <div class="cards-grid__inner">
+            {% for card in block.cards %}
+                {{ card | raw }}
+            {% endfor %}
+        </div>
+    {% elseif block.content %}
+        <div class="cards-grid__inner">
+            {{ block.content | raw }}
+        </div>
+    {% else %}
+        <InnerBlocks
+            class="cards-grid__inner"
+            template="{{ block.template }}"
+            allowedBlocks="{{ block.allowed_blocks }}"
+        />
+    {% endif %}
+</div>

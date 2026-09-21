@@ -29,7 +29,7 @@ class ContentWithIconServiceProvider
 
     public function render(array $block, string $content = '', bool $is_preview = false, int $post_id = 0): void
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
 
         $context['block']['background_colour'] = get_field('background_colour');
         $context['block']['text_colour'] = get_field('text_colour');

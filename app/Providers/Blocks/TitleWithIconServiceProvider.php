@@ -30,7 +30,7 @@ class TitleWithIconServiceProvider
 
     public function render(): void
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
 
         $context['block'] = [];
         $context['block']['title'] = get_field('title');

@@ -31,7 +31,7 @@ class CoverServiceProvider
 
     public function render(array $block, string $content = '', bool $is_preview = false, int $post_id = 0): void
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
 
         $context['block'] = [];
 

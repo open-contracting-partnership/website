@@ -8,7 +8,7 @@
             {% if sticky_cta_image %}
                 <div class="sticky-cta__image">
                     {{ imgix({
-                        src: sticky_cta_image.url,
+                        src: sticky_cta_image.src,
                         params: {
                             fit: 'crop',
                             crop: 'faces'

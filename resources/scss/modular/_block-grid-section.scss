@@ -89,7 +89,7 @@
 			}
 		}
 
-		.block__grid {
+		.block__grid > .acf-innerblocks-container {
 			display: grid;
 			grid-template-columns: [all-start] repeat(12, 1fr) [all-end];
 			grid-gap: spacing(3);

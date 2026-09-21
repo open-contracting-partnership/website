@@ -2,8 +2,7 @@
 
 namespace App\Cards;
 
-use App\PostTypes\Event;
-
+use Timber\Timber;
 class PrimaryCard extends BaseCard
 {
     public static function convertTimberPost($post): array
@@ -50,11 +49,11 @@ class PrimaryCard extends BaseCard
         }
 
         if ($post->post_type === 'resource' && $post->resource_image_alternate) {
-            $data['image_url'] = $post->meta('resource_image_alternate')['url'];
+            $data['image_url'] = $post->meta('resource_image_alternate')->src;
         }
 
         if ($post->post_type === 'event') {
-            $data['meta']['secondary'] = (new Event($post->id))->formattedDate();
+            $data['meta']['secondary'] = (Timber::get_post($post->id))->formattedDate();
         }
 
         // the meta can always be a br separated string, so make it one now

@@ -4,7 +4,7 @@
     <div class="card-quote">
         <div class="card-quote__image" data-image-style="{{ options.image_style }}">
             {{ imgix({
-                src: card.image.url,
+                src: card.image.src,
                 params: {
                     fit: 'crop',
                     crop: 'faces'

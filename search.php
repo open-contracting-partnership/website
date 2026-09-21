@@ -15,7 +15,7 @@ class SearchController extends Controller
 {
     public function handle()
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
         $search_query = trim(get_search_query());
 
         $context['title'] = 'Search results for \'' . htmlspecialchars($search_query) . '\'';
