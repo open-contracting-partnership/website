@@ -1,9 +1,7 @@
 <?php
 
 use Extended\ACF\ConditionalLogic;
-use Extended\ACF\Fields\DatePicker;
 use Extended\ACF\Fields\Image;
-use Extended\ACF\Fields\Link;
 use Extended\ACF\Fields\PostObject;
 use Extended\ACF\Fields\Select;
 use Extended\ACF\Fields\Text;
@@ -50,7 +48,10 @@ register_extended_field_group([
             ]),
 
         Url::make('URL', 'url')
-            ->required(),
+            ->required()
+            ->conditionalLogic([
+                ConditionalLogic::where('content', '==', 'manual_entry')
+            ]),
     ],
     'location' => [
         Location::where('block', 'app/card-primary'),
