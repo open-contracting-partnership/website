@@ -24,4 +24,4 @@ if (CardsGridConfig::hasVariation($context['block']['card_type'])) {
     $context['block']['variation'] = get_field($variationsFieldName) ?: CardsGridConfig::getDefaultVariation($context['block']['card_type']);
 }
 
-Timber::render('cards-grid.twig', $context);
+Timber::render('_cards-grid.twig', $context);

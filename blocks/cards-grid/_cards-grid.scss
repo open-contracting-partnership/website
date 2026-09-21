@@ -2,7 +2,7 @@
     --cards-grid-columns: 1;
     --cards-grid-gap: #{spacing(2)};
 
-    @include from(md) {
+    @include from(T) {
         --cards-grid-gap: #{spacing(3)};
     }
 }
@@ -11,7 +11,7 @@
     --cards-grid-columns: 1;
     --cards-grid-gap: #{spacing(2)};
 
-    @include from(md) {
+    @include from(T) {
         --cards-grid-columns: 2;
         --cards-grid-gap: #{spacing(3)};
     }
@@ -21,11 +21,11 @@
     --cards-grid-columns: 1;
     --cards-grid-gap: #{spacing(2)};
 
-    @include from(md) {
+    @include from(T) {
         --cards-grid-columns: 2;
     }
 
-    @include from(lg) {
+    @include from(M) {
         --cards-grid-columns: 3;
         --cards-grid-gap: #{spacing(3)};
     }
@@ -51,6 +51,11 @@
     column-gap: var(--cards-grid-column-gap, var(--cards-grid-gap));
     grid-template-columns: repeat(var(--cards-grid-columns), 1fr);
 
+    &:empty {
+        height: 24px;
+        border: 2px dashed black;
+    }
+
     > .wp-block {
         width: 100%;
         margin: 0;
@@ -62,7 +67,7 @@
 
     @for $i from 1 through 6 {
         .cards-grid[data-max-sm="#{$i}"] & {
-            @include upto(md) {
+            @include upto(T) {
                 > *:nth-child(n+#{$i+1}) {
                     display: none;
                 }
@@ -78,7 +83,7 @@
         }
 
         .cards-grid[data-max-lg="#{$i}"] & {
-            @include from(lg) {
+            @include from(M) {
                 > *:nth-child(n+#{$i+1}) {
                     display: none;
                 }

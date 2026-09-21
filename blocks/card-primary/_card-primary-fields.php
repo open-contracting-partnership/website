@@ -44,36 +44,13 @@ register_extended_field_group([
                 ConditionalLogic::where('content', '==', 'manual_entry')
             ]),
 
-        Text::make('Strapline', 'strapline')
-            ->required()
+        Text::make('Introduction', 'introduction')
             ->conditionalLogic([
                 ConditionalLogic::where('content', '==', 'manual_entry')
             ]),
 
-        Select::class::make('Link Type', 'link_type')
-            ->choices([
-                'button' => 'Button',
-                'heading_link' => 'Heading Link',
-            ])
-            ->defaultValue('button')
-            ->required()
-            ->conditionalLogic([
-                ConditionalLogic::where('content', '==', 'manual_entry')
-            ]),
-
-        Link::make('Link', 'link')
-            ->required()
-            ->conditionalLogic([
-                ConditionalLogic::where('content', '==', 'manual_entry')
-                    ->and('link_type', '==', 'button')
-            ]),
-
-        Url::make('URL', 'heading_url')
-            ->required()
-            ->conditionalLogic([
-                ConditionalLogic::where('content', '==', 'manual_entry')
-                    ->and('link_type', '==', 'heading_link')
-            ]),
+        Url::make('URL', 'url')
+            ->required(),
     ],
     'location' => [
         Location::where('block', 'app/card-primary'),
