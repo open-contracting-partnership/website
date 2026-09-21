@@ -37,6 +37,13 @@ class CardsGridConfig
             ],
             'default_variation' => 'three-columns',
         ],
+        'card-person' => [
+            'title' => 'Person',
+            'variations' => [
+                'two-columns' => 'Two Columns',
+            ],
+            'default_variation' => 'two-columns',
+        ],
     ];
 
     public static function getCardTypeChoices(): array
@@ -59,7 +66,7 @@ class CardsGridConfig
     public static function getCardTypeVariations(): array
     {
         return collect(self::$cardTypes)
-            ->filter(fn ($item) => isset($item['variations']))
+            ->filter(fn($item) => isset($item['variations']))
             ->map(function ($cardType, $cardKey) {
                 $fieldName = self::getVariationsFieldName($cardKey);
 
@@ -81,7 +88,7 @@ class CardsGridConfig
 
     public static function hasVariation(?string $cardType = null): bool
     {
-        if (! $cardType) {
+        if (!$cardType) {
             return false;
         }
 
