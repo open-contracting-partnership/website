@@ -4,6 +4,7 @@ use Extended\ACF\Fields\ColorPicker;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Link;
 use Extended\ACF\Fields\Text;
+use Extended\ACF\Fields\Url;
 use Extended\ACF\Location;
 
 register_extended_field_group([
@@ -19,8 +20,10 @@ register_extended_field_group([
             ->library('all')
             ->previewSize('medium'),
 
-        Link::make('Link', 'link')
-            ->returnFormat('array'),
+        Url::make('Link URL', 'link'),
+
+        // Link::make('Link', 'link')
+        //     ->returnFormat('array'),
 
         ColorPicker::make('Background Colour', 'background_colour')
             ->defaultValue('#B9C504'),
