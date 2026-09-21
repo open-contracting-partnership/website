@@ -48,6 +48,11 @@
     &[data-card-type="card-half-image"][data-variation="two-columns"] {
         @extend %two-columns;
     }
+
+    &[data-card-type="card-with-icon"][data-variation=""],
+    &[data-card-type="card-with-icon"][data-variation="two-columns"] {
+        @extend %two-columns;
+    }
 }
 
 .cards-grid__inner {
