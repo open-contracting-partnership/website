@@ -30,6 +30,13 @@ class CardsGridConfig
             ],
             'default_variation' => 'two-columns',
         ],
+        'card-resource' => [
+            'title' => 'Resource',
+            'variations' => [
+                'three-columns' => 'Three Columns',
+            ],
+            'default_variation' => 'three-columns',
+        ],
     ];
 
     public static function getCardTypeChoices(): array
