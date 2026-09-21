@@ -44,7 +44,7 @@ class FeaturedStoriesCarouselServiceProvider
             return [
                 'title' => $story['link']['title'] ?? null,
                 'introduction' => $story['introduction'],
-                'image_url' => $story['image']['url'],
+                'image_url' => $story['image']->src,
                 'url' => $story['link']['url'] ?? null
             ];
         }, $context['block']['featured_stories']);

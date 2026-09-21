@@ -48,7 +48,7 @@ class PageImpactStoriesController extends Controller
                 ];
 
                 // 4. card related data transformations
-                $story['image_url'] = $story['image'] ? $story['image']['url'] : null;
+                $story['image_url'] = $story['image']?->src;
 
                 if ($story['story_type']) {
                     $story['type_label'] = $story['story_type'][0]->name;

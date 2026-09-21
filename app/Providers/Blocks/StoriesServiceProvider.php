@@ -49,7 +49,7 @@ class StoriesServiceProvider
 
                 if ($story['acf_fc_layout'] === 'custom_link') {
                     $context['block']['primary_stories'][] = [
-                        'image_url' => $story['image']['url'],
+                        'image_url' => $story['image']->src,
                         'title' => $story['title'],
                         'url' => $story['url'],
                         'button_label' => $story['button_label'] ?: __('Read', 'ocp'),
@@ -72,7 +72,7 @@ class StoriesServiceProvider
 
                 if ($story['acf_fc_layout'] === 'custom_link') {
                     $context['block']['secondary_stories'][] = [
-                        'image_url' => $story['image']['url'],
+                        'image_url' => $story['image']->src,
                         'type_label' => $story['type'],
                         'title' => $story['title'],
                         'url' => $story['url'],

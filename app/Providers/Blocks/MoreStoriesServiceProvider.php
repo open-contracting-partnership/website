@@ -79,7 +79,7 @@ class MoreStoriesServiceProvider
                         'title' => $story['heading'],
                         'introduction' => $story['strapline'],
                         'url' => $story['link'],
-                        'image_url' => $story['image']['url'],
+                        'image_url' => $story['image']->src,
                         'button_label' => 'FIND OUT MORE'
                     ];
                 })
