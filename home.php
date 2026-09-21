@@ -4,7 +4,6 @@ namespace App;
 
 use App\Http\Controllers\Controller;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
-use Timber\Post as TimberPost;
 use Timber\Timber;
 
 class HomeController extends Controller
@@ -16,7 +15,7 @@ class HomeController extends Controller
         $this->setContentContext($context);
 
         // fetch the blog content from the other page
-        $blog_content_page = new TimberPost(6335);
+        $blog_content_page = Timber::get_post(6335);
         $context['latest']['blog_content'] = $blog_content_page->content;
 
         return new TimberResponse('templates/post/archive.twig', $context);
