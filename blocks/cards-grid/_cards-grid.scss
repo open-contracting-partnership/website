@@ -53,6 +53,11 @@
     &[data-card-type="card-with-icon"][data-variation="two-columns"] {
         @extend %two-columns;
     }
+
+    &[data-card-type="card-resource"][data-variation=""],
+    &[data-card-type="card-resource"][data-variation="three-columns"] {
+        @extend %three-columns;
+    }
 }
 
 .cards-grid__inner {
