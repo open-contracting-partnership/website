@@ -4,6 +4,10 @@
 
 {% set options = { 'colour_scheme': null } | merge(options) %}
 
+{# card.link may be a plain URL string (e.g. our-work-grid) or an ACF link array (card-half-image block) #}
+{% set link_url = card.link.url is defined ? card.link.url : card.link %}
+{% set link_target = card.link.target is defined ? card.link.target : '' %}
+
 <div
     class="card card--half-image"
     style="
@@ -14,8 +18,8 @@
 >
     <div class="card__body">
         <h3 class="card__heading">
-            {% if card.link is not empty %}
-                <a class="card__link" href="{{ card.link }}">{{ card.title }}</a>
+            {% if link_url is not empty %}
+                <a class="card__link" href="{{ link_url }}" target="{{ link_target }}">{{ card.title }}</a>
             {% else %}
                 {{ card.title }}
             {% endif %}
