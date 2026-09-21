@@ -13,6 +13,7 @@ $context['block']['block_spacing'] = BlockSpacingControls::makeContext();
 $allowedCards = match ($context['block']['card_type']) {
     'card-primary' => 'app/card-primary',
     'card-half-image' => 'app/card-half-image',
+    'card-with-icon' => 'acf/ocp-card-with-icon',
     default => null,
 };
 
