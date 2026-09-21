@@ -1,0 +1,10 @@
+{
+    "name": "app/card-feature",
+    "title": "Card Feature",
+    "category": "app-cards",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php",
+        "blockVersion": 3
+    }
+}

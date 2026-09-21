@@ -16,6 +16,7 @@ $allowedCards = match ($context['block']['card_type']) {
     'card-with-icon' => 'acf/ocp-card-with-icon',
     'card-resource' => 'app/card-resource',
     'card-person' => 'app/card-person',
+    'card-feature' => 'app/card-feature',
     default => null,
 };
 
