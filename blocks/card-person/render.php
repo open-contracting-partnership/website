@@ -10,4 +10,4 @@ $context['card']['role'] = get_field('role');
 $context['card']['email_address'] = get_field('email_address');
 $context['card']['twitter_url'] = get_field('twitter_url');
 
-Timber::render('views/cards/person.twig', $context);
+Timber::render('blocks/card-person/card-person.twig', $context);
