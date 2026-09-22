@@ -18,6 +18,7 @@ $allowedCards = match ($context['block']['card_type']) {
     'card-person' => 'app/card-person',
     'card-feature' => 'app/card-feature',
     'card-border' => 'app/card-border',
+    'card-image' => 'app/card-image',
     default => null,
 };
 
