@@ -1,0 +1,45 @@
+{% if not options %}
+    {% set options = [] %}
+{% endif %}
+
+<div class="card-person">
+    <div class="card-person__avatar">
+        {{ imgix({
+            src: card.avatar.src,
+            params: {
+                fit: 'crop'
+            },
+            aspect_ratio: [1, 1],
+            transforms: [{
+                w: 128
+            }, {
+                w: 256
+            }, {
+                w: 512
+            }],
+            sizes: '(min-width: 780px) 163px, 88px'
+        }) }}
+    </div>
+
+    <div class="card-person__details">
+        <p>
+            {{ card.name }}
+            <br/>
+            {{ card.role }}
+        </p>
+
+        <div class="card-person__social">
+            {% if card.email_address %}
+                <a href="mailto:{{ card.email_address }}" class="card-person__social-link">
+                    <svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
+                </a>
+            {% endif %}
+
+            {% if card.twitter_url %}
+                <a href="{{ card.twitter_url }}" class="card-person__social-link">
+                    <svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
