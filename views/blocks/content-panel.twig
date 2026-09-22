@@ -8,7 +8,10 @@
         --background-colour: {{ block.background_colour }};
         --text-colour: {{ block.text_colour }};"
 >
-    <div class="block__background"></div>
+    <div
+        class="block__background"
+        data-show-circle-decoration="{{ block.show_circle_decoration }}"
+    ></div>
 
     <div class="block__container acf-innerblocks-container" data-text-align="{{ block.text_align }}">
         <InnerBlocks

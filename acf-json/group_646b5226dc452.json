@@ -19,7 +19,10 @@
             "wpml_cf_preferences": 0,
             "default_value": "",
             "enable_opacity": false,
-            "return_format": "string"
+            "return_format": "string",
+            "custom_palette_source": "",
+            "palette_colors": "",
+            "show_color_wheel": true
         },
         {
             "key": "field_646b522700a3c",
@@ -38,7 +41,33 @@
             "wpml_cf_preferences": 0,
             "default_value": "",
             "enable_opacity": false,
-            "return_format": "string"
+            "return_format": "string",
+            "custom_palette_source": "",
+            "palette_colors": "",
+            "show_color_wheel": true
+        },
+        {
+            "key": "field_6ab24a0167107",
+            "label": "Show circle decoration",
+            "name": "show_circle_decoration",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -59,7 +88,9 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695737518,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_646b5226dc452.json",
-    "acfml_field_group_mode": "advanced"
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "acfml_field_group_mode": "advanced",
+    "modified": 1790069311
 }
