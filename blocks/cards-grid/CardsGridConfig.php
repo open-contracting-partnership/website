@@ -58,6 +58,13 @@ class CardsGridConfig
             ],
             'default_variation' => 'three-columns',
         ],
+        'card-image' => [
+            'title' => 'Image',
+            'variations' => [
+                'two-columns' => 'Two Columns',
+            ],
+            'default_variation' => 'two-columns',
+        ],
     ];
 
     public static function getCardTypeChoices(): array

@@ -1,0 +1,30 @@
+{% set options = {'id': null}|merge(block.options) %}
+
+<div
+    id="{{ options.id }}"
+    class="card-image"
+    data-grid-placement="{{ options.grid_placement }}"
+>
+    {% if block.image %}
+        <div class="card-image__media">
+            {{ imgix({
+                src: block.image.src,
+                transforms: [{
+                    w: 400
+                }, {
+                    w: 800
+                }],
+                sizes: '(min-width: 1025px) 33vw, 100vw',
+            }) }}
+        </div>
+    {% endif %}
+
+    {% if block.show_link and block.link %}
+        <div class="card-image__link">
+            <a class="arrow-link" href="{{ block.link.url }}" target="{{ block.link.target }}">
+                <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                <span class="arrow-link__label">{{ block.link.title }}</span>
+            </a>
+        </div>
+    {% endif %}
+</div>
