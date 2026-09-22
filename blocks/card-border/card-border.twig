@@ -1,0 +1,43 @@
+{% set options = { 'id': null } | merge(block.options) %}
+
+<div
+    id="{{ options.id }}"
+    class="card-border"
+    data-grid-placement="{{ options.grid_placement }}"
+    style="
+        --custom-highlight: {{ block.highlight_colour }};
+        --custom-background: {{ block.background_colour }};
+        --custom-colour: {{ block.text_colour }};
+    "
+>
+    <div class="card-border__inner">
+        <div class="card-border__main">
+            {% if block.lead %}
+                <div class="card-border__lead">
+                    <div class="card-border__circle-icon"></div>
+                    {{ block.lead }}
+                </div>
+            {% endif %}
+
+            <p class="card-border__heading">{{ block.title }}</p>
+
+            {% if block.description %}
+                <p class="card-border__description">{{ block.description }}</p>
+            {% endif %}
+        </div>
+
+        {% if block.buttons %}
+            <div class="card-border__footer">
+                <div class="card-border__buttons">
+                    {% for button in block.buttons %}
+                        {% if loop.index0 == 0 %}
+                            <a href="{{ button.link.url }}" target="{{ button.link.target }}" class="button" data-colour="dark" data-size="slim">{{ button.link.title }}</a>
+                        {% else %}
+                            <a href="{{ button.link.url }}" target="{{ button.link.target }}" class="button" data-colour="light" data-size="slim">{{ button.link.title }}</a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
