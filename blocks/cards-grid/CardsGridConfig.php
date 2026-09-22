@@ -44,6 +44,13 @@ class CardsGridConfig
             ],
             'default_variation' => 'two-columns',
         ],
+        'card-feature' => [
+            'title' => 'Feature',
+            'variations' => [
+                'two-columns' => 'Two Columns',
+            ],
+            'default_variation' => 'two-columns',
+        ],
     ];
 
     public static function getCardTypeChoices(): array
