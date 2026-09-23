@@ -58,6 +58,26 @@
     &[data-card-type="card-resource"][data-variation="three-columns"] {
         @extend %three-columns;
     }
+
+    &[data-card-type="card-person"][data-variation=""],
+    &[data-card-type="card-person"][data-variation="two-columns"] {
+        @extend %two-columns;
+    }
+
+    &[data-card-type="card-feature"][data-variation=""],
+    &[data-card-type="card-feature"][data-variation="two-columns"] {
+        @extend %two-columns;
+    }
+
+    &[data-card-type="card-border"][data-variation=""],
+    &[data-card-type="card-border"][data-variation="three-columns"] {
+        @extend %three-columns;
+    }
+
+    &[data-card-type="card-image"][data-variation=""],
+    &[data-card-type="card-image"][data-variation="two-columns"] {
+        @extend %two-columns;
+    }
 }
 
 .cards-grid__inner {

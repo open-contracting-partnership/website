@@ -15,6 +15,10 @@ $allowedCards = match ($context['block']['card_type']) {
     'card-half-image' => 'app/card-half-image',
     'card-with-icon' => 'acf/ocp-card-with-icon',
     'card-resource' => 'app/card-resource',
+    'card-person' => 'app/card-person',
+    'card-feature' => 'app/card-feature',
+    'card-border' => 'app/card-border',
+    'card-image' => 'app/card-image',
     default => null,
 };
 

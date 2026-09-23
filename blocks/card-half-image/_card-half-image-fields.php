@@ -2,7 +2,6 @@
 
 use Extended\ACF\Fields\ColorPicker;
 use Extended\ACF\Fields\Image;
-use Extended\ACF\Fields\Link;
 use Extended\ACF\Fields\Text;
 use Extended\ACF\Fields\Url;
 use Extended\ACF\Location;

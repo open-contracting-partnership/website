@@ -12,6 +12,7 @@ class CardsGridConfig
         'card-primary' => [
             'title' => 'Primary',
             'variations' => [
+                'two-columns' => 'Two Columns',
                 'three-columns' => 'Three Columns',
             ],
             'default_variation' => 'three-columns',
@@ -20,6 +21,7 @@ class CardsGridConfig
             'title' => 'Half Image',
             'variations' => [
                 'two-columns' => 'Two Columns',
+                'three-columns' => 'Three Columns',
             ],
             'default_variation' => 'two-columns',
         ],
@@ -27,15 +29,49 @@ class CardsGridConfig
             'title' => 'With Icon',
             'variations' => [
                 'two-columns' => 'Two Columns',
+                'three-columns' => 'Three Columns',
             ],
             'default_variation' => 'two-columns',
         ],
         'card-resource' => [
             'title' => 'Resource',
             'variations' => [
+                'two-columns' => 'Two Columns',
                 'three-columns' => 'Three Columns',
             ],
             'default_variation' => 'three-columns',
+        ],
+        'card-person' => [
+            'title' => 'Person',
+            'variations' => [
+                'two-columns' => 'Two Columns',
+                'three-columns' => 'Three Columns',
+            ],
+            'default_variation' => 'two-columns',
+        ],
+        'card-feature' => [
+            'title' => 'Feature',
+            'variations' => [
+                'two-columns' => 'Two Columns',
+                'three-columns' => 'Three Columns',
+            ],
+            'default_variation' => 'two-columns',
+        ],
+        'card-border' => [
+            'title' => 'Border',
+            'variations' => [
+                'two-columns' => 'Two Columns',
+                'three-columns' => 'Three Columns',
+            ],
+            'default_variation' => 'three-columns',
+        ],
+        'card-image' => [
+            'title' => 'Image',
+            'variations' => [
+                'two-columns' => 'Two Columns',
+                'three-columns' => 'Three Columns',
+            ],
+            'default_variation' => 'two-columns',
         ],
     ];
 
@@ -59,7 +95,7 @@ class CardsGridConfig
     public static function getCardTypeVariations(): array
     {
         return collect(self::$cardTypes)
-            ->filter(fn ($item) => isset($item['variations']))
+            ->filter(fn($item) => isset($item['variations']))
             ->map(function ($cardType, $cardKey) {
                 $fieldName = self::getVariationsFieldName($cardKey);
 
@@ -81,7 +117,7 @@ class CardsGridConfig
 
     public static function hasVariation(?string $cardType = null): bool
     {
-        if (! $cardType) {
+        if (!$cardType) {
             return false;
         }
 

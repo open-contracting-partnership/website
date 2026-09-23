@@ -5,6 +5,23 @@
         position: relative;
         overflow: hidden;
         background-color: var(--background-colour);
+
+        &[data-show-circle-decoration="true"] {
+            &::before {
+                @include fluid-type(font-size, 360px, 1344px, 145px, 500px);
+                content: "";
+                display: block;
+                border: 0.14em solid $ui-grey-6;
+                border-radius: 50%;
+                opacity: 0.1;
+                height: 1em;
+                width: 1em;
+                position: absolute;
+                bottom: -0.55em;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
     }
 
     .block__container {
