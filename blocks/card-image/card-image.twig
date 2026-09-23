@@ -4,6 +4,7 @@
     id="{{ options.id }}"
     class="card-image"
     data-grid-placement="{{ options.grid_placement }}"
+    data-block-spacing="small"
 >
     {% if block.image %}
         <div class="card-image__media">
@@ -16,15 +17,6 @@
                 }],
                 sizes: '(min-width: 1025px) 33vw, 100vw',
             }) }}
-        </div>
-    {% endif %}
-
-    {% if block.show_link and block.link %}
-        <div class="card-image__link">
-            <a class="arrow-link" href="{{ block.link.url }}" target="{{ block.link.target }}">
-                <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-                <span class="arrow-link__label">{{ block.link.title }}</span>
-            </a>
         </div>
     {% endif %}
 </div>
