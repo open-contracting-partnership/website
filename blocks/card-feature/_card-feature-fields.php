@@ -13,20 +13,20 @@ register_extended_field_group([
     'title' => 'Block → Card Feature',
     'fields' => [
         Select::make('Content', 'content')
-            ->instructions('Choose whether to pull in an existing resource or manually enter the details for this card.')
+            ->instructions('Choose whether to pull in an existing post or manually enter the details for this card.')
             ->choices([
-                'resource' => 'Resource',
+                'post' => 'Post',
                 'manual_entry' => 'Manual Entry',
             ])
             ->defaultValue('manual_entry'),
 
-        PostObject::make('Resource', 'resource')
-            ->postTypes(['resource'])
+        PostObject::make('Post', 'post')
+            ->postTypes(['post'])
             ->postStatus(['publish'])
             ->returnFormat('id')
             ->required()
             ->conditionalLogic([
-                ConditionalLogic::where('content', '==', 'resource')
+                ConditionalLogic::where('content', '==', 'post')
             ]),
 
         Image::make('Image', 'image')

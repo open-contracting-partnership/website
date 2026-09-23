@@ -5,8 +5,8 @@ use Timber\Timber;
 
 $context = Timber::context();
 
-if (get_field('content') === 'resource') {
-    $post = Timber::get_post(get_field('resource'));
+if (get_field('content') === 'post') {
+    $post = Timber::get_post(get_field('post'));
 
     if ($post) {
         if ($post->post_status !== 'publish') {

@@ -7,8 +7,8 @@ $context = Timber::context();
 
 $context['block'] = [];
 
-if (get_field('content') === 'resource') {
-    $post = Timber::get_post(get_field('resource'));
+if (get_field('content') === 'post') {
+    $post = Timber::get_post(get_field('post'));
 
     if (!$post || $post->post_status !== 'publish') {
         return;

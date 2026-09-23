@@ -6,8 +6,7 @@
         overflow: hidden;
         background-color: var(--background-colour);
 
-        &[data-show-circle-decoration="true"],
-        &[data-show-circle-decoration="1"] {
+        &[data-show-circle-decoration="true"] {
             &::before {
                 @include fluid-type(font-size, 360px, 1344px, 145px, 500px);
                 content: "";
