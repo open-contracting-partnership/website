@@ -10,7 +10,7 @@ class ResourceCard extends BaseCard
 {
     public static function convertTimberPost($post): array
     {
-        if ($post->resourceType?->slug === 'resource' && get_class($post) === 'Timber\Post') {
+        if ($post->resourceType && $post->resourceType?->slug === 'resource' && get_class($post) === 'Timber\Post') {
             $post = Timber::get_post($post->ID);
         }
 
