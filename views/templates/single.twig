@@ -24,10 +24,10 @@
         </header>
 
         <article class="article">
-            {% if featued_image %}
+            {% if post.thumbnail %}
                 <figure class="wp-block-image">
                     {{ imgix({
-                        src: featued_image.src,
+                        src: post.thumbnail.src,
                         transforms: [{
                             w: 512
                         }, {
@@ -42,8 +42,8 @@
                         sizes: '100vw, (min-width: 1340px) 800px',
                     }) }}
 
-                    {% if featued_image.caption %}
-                        <figcaption>{{ featued_image.caption }}</figcaption>
+                    {% if post.thumbnail.caption %}
+                        <figcaption>{{ post.thumbnail.caption }}</figcaption>
                     {% endif %}
                 </figure>
             {% endif %}
