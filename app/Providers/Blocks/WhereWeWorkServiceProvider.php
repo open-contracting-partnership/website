@@ -29,7 +29,7 @@ class WhereWeWorkServiceProvider
 
     public function render(): void
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
 
         $context['block']['heading'] = get_field('heading');
         $context['block']['regions'] = collect(get_field('regions') ?? [])

@@ -30,7 +30,7 @@ class BlogHighlightServiceProvider
 
     public function render(): void
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
 
         $context['block'] = [];
         $context['block']['content'] = get_field('content');

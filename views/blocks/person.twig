@@ -1,4 +1,4 @@
-{% set options = { 'id': null } | merge(block.options) %}
+{% set options = {'id': null}|merge(block.options) %}
 
 <div id="{{ options.id }}" class="block" data-block-type="person">
     <div class="block__background" style="background-color: {{ block.background_colour }};"></div>
@@ -12,7 +12,7 @@
             <div class="block__author">
                 <div class="block__author-avatar">
                     {{ imgix({
-                        src: contact.avatar.url,
+                        src: contact.avatar.src,
                         params: {
                             fit: 'crop'
                         },
@@ -29,7 +29,9 @@
                 </div>
 
                 <div class="block__author-details">
-                    <h4 class="block__author-heading">{{ contact.title }}</h4>
+                    {% if contact.title %}
+                        <h4 class="card-person__heading">{{ contact.title }}</h4>
+                    {% endif %}
 
                     <p>{{ contact.name_bio }}</p>
 

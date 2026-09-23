@@ -6,7 +6,6 @@ use App\Cards\EventCard;
 use App\Http\Controllers\Controller;
 use App\PostTypes\Event;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
-use Rareloop\Lumberjack\Post;
 use Timber\Timber;
 
 class ArchiveEventController extends Controller
@@ -19,7 +18,7 @@ class ArchiveEventController extends Controller
             return (new \App\ArchiveController())->handle();
         }
 
-        $upcoming_events = Event::query([
+        $upcoming_events = Timber::get_posts([
             'post_type' => 'event',
             'posts_per_page' => -1,
             'meta_key' => 'event_date',
@@ -32,7 +31,7 @@ class ArchiveEventController extends Controller
             ]]
         ]);
 
-        $archive_events = Event::query([
+        $archive_events = Timber::get_posts([
             'post_type' => 'event',
             'posts_per_page' => 5,
             'meta_key' => 'event_date',
@@ -45,7 +44,7 @@ class ArchiveEventController extends Controller
             ]]
         ]);
 
-        $context = Timber::get_context();
+        $context = Timber::context();
         $context['title'] = get_post_type_label('event', true);
         $context['latest_event'] = null;
 

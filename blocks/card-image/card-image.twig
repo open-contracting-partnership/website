@@ -1,0 +1,21 @@
+{% set options = {'id': null}|merge(block.options) %}
+
+<div
+    id="{{ options.id }}"
+    class="card-image"
+    data-block-spacing="small"
+>
+    {% if block.image %}
+        <div class="card-image__media">
+            {{ imgix({
+                src: block.image.src,
+                transforms: [{
+                    w: 400
+                }, {
+                    w: 800
+                }],
+                sizes: '(min-width: 1025px) 33vw, 100vw',
+            }) }}
+        </div>
+    {% endif %}
+</div>

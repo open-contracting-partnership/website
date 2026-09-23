@@ -19,7 +19,7 @@ class News
 
         $posts = PrimaryCard::convertCollection($posts, function ($new, $original) {
             if (! isset($new['image_url'])) {
-                $new['image_url'] = '/themes/ocp-v1/resources/img/fallback-v2.jpg';
+                $new['image_url'] = '/themes/' . get_template() . '/resources/img/fallback-v2.jpg';
             }
 
             $new['imageSrc'] = self::imgixImages($new['image_url'], [

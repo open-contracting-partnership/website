@@ -12,7 +12,7 @@ register_extended_field_group([
                 'small' => 'Small',
                 'normal' => 'Normal',
             ])
-            ->default('normal')
+            ->defaultValue('normal')
             ->required(),
 
         Select::make('Row Gap', 'row_gap')
@@ -20,7 +20,7 @@ register_extended_field_group([
                 'none' => 'None',
                 'normal' => 'Normal',
             ])
-            ->default('normal')
+            ->defaultValue('normal')
             ->required(),
 
         ...BlockSpacingControls::fields(),

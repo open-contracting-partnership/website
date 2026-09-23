@@ -3,6 +3,7 @@
 namespace App\Cards;
 
 use Timber\Post;
+use Timber\Timber;
 use WP_Post;
 
 class BaseCard
@@ -18,7 +19,7 @@ class BaseCard
         // focus all of the converting in just on area
 
         if (is_int($post) || (is_object($post) && get_class($post) === 'WP_Post')) {
-            $post = new Post($post);
+            $post = Timber::get_post($post);
         }
 
         if (is_object($post) && ( get_class($post) === 'Timber\Post' || is_subclass_of($post, 'Timber\Post') )) {

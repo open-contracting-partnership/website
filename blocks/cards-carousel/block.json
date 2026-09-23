@@ -1,0 +1,16 @@
+{
+    "name": "app/cards-carousel",
+    "title": "Cards Carousel",
+    "category": "app-blocks",
+    "viewScriptModule": [
+        "block-cards-carousel"
+    ],
+    "supports": {
+        "jsx": true
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php",
+        "blockVersion": 3
+    }
+}

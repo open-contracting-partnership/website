@@ -32,7 +32,7 @@ class MoreStoriesServiceProvider
 
     public function render(): void
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
 
         $context['block'] = [];
         $context['block']['title'] = get_field('title');
@@ -79,7 +79,7 @@ class MoreStoriesServiceProvider
                         'title' => $story['heading'],
                         'introduction' => $story['strapline'],
                         'url' => $story['link'],
-                        'image_url' => $story['image']['url'],
+                        'image_url' => $story['image']->src,
                         'button_label' => 'FIND OUT MORE'
                     ];
                 })

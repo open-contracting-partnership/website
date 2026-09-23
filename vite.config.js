@@ -4,7 +4,6 @@ import vue from '@vitejs/plugin-vue2';
 import SVGSpriter from 'svg-sprite';
 import { defineConfig } from 'vite';
 import sassGlobImports from 'vite-plugin-sass-glob-import';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 function svgSpritePlugin(inputDir, outputFile) {
   return {
@@ -33,19 +32,7 @@ function svgSpritePlugin(inputDir, outputFile) {
 
 export default defineConfig({
   base: './',
-  plugins: [
-    vue(),
-    sassGlobImports(),
-    viteStaticCopy({
-      targets: [
-        {
-          src: 'node_modules/mapbox-gl/dist/mapbox-gl.css',
-          dest: 'node_modules/mapbox-gl',
-        },
-      ],
-    }),
-    svgSpritePlugin('resources/svg', 'svg/icons.svg'),
-  ],
+  plugins: [vue(), sassGlobImports(), svgSpritePlugin('resources/svg', 'svg/icons.svg')],
   css: {
     preprocessorOptions: {
       less: {
@@ -59,6 +46,7 @@ export default defineConfig({
       input: {
         // JS entry points
         'archive-resource': resolve(__dirname, 'resources/js/archive-resource.js'),
+        'block-cards-carousel': resolve(__dirname, 'blocks/cards-carousel/_cards-carousel.js'),
         'block-code-highlight': resolve(__dirname, 'resources/js/block-code-highlight.js'),
         'block-download-carousel': resolve(__dirname, 'resources/js/block-download-carousel.js'),
         'block-featured-stories-carousel': resolve(__dirname, 'resources/js/block-featured-stories-carousel.js'),

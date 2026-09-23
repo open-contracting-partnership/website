@@ -12,7 +12,7 @@ class ArchiveResourceController extends Controller
 {
     public function handle()
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
         $context['title'] = _x('Search our resources', 'Resources archive title', 'ocp');
 
         $context['block']['heading'] = get_field('resources_heading', 'options');
@@ -55,7 +55,8 @@ class ArchiveResourceController extends Controller
 
     public static function getAllResources()
     {
-        $resources = Resource::query([
+        $resources = Timber::get_posts([
+            'post_type' => 'resource',
             'posts_per_page' => -1
         ]);
 

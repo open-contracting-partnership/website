@@ -41,7 +41,7 @@
                 {% if stat.icon.icon is not empty %}
                     {{ imgix({
                         class: 'stat__icon',
-                        src: stat.icon.icon.url,
+                        src: stat.icon.icon.src,
                         height: stat.icon.icon.height,
                         width: stat.icon.icon.width,
                     }) }}

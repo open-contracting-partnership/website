@@ -66,13 +66,6 @@
                 </div>
             </div>
         </div> <!-- / .country-content__container -->
-
-        <div class="country-improve">
-            <a class="arrow-link" data-size="small" data-icon-color="grey" data-text-color="black" :href="'http://survey.open-contracting.org/#/forms/oc-status/' + selected_country.iso_a2.toLowerCase()">
-                <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
-                <span class="arrow-link__label" v-html="content.country.improve_data"></span>
-            </a>
-        </div>
     </div>
 </template>
 
@@ -214,10 +207,4 @@
                 .country-content__no-data {
                     margin-bottom: 0;
                 }
-
-        .country-improve {
-            flex: 0 0 auto;
-            display: flex;
-            justify-content: flex-end;
-        }
 </style>

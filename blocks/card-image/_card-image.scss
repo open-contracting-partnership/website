@@ -1,0 +1,22 @@
+.card-image {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.card-image__media {
+    border-radius: 32px 8px 8px;
+    border: 3px solid $ui-white;
+    background-color: $ui-white;
+    overflow: hidden;
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+
+.card-image__link {
+    margin-top: spacing(3);
+}

@@ -4,6 +4,7 @@ namespace App\Http;
 
 use ImLiam\ShareableLink;
 use Rareloop\Lumberjack\Http\Lumberjack as LumberjackCore;
+use Timber\Timber;
 
 class Lumberjack extends LumberjackCore
 {
@@ -34,13 +35,13 @@ class Lumberjack extends LumberjackCore
     public function addFurnitureContext(&$context)
     {
         $context['header'] = [
-            'primary_menu' => new \Timber\Menu('Header: Primary'),
-            'secondary_menu' => new \Timber\Menu('Header: Secondary'),
-            'translations_menu' => new \Timber\Menu('Header: Translations'),
+            'primary_menu' => Timber::get_menu('Header: Primary'),
+            'secondary_menu' => Timber::get_menu('Header: Secondary'),
+            'translations_menu' => Timber::get_menu('Header: Translations'),
         ];
 
         $context['footer'] = [
-            'menu' => new \Timber\Menu('Footer'),
+            'menu' => Timber::get_menu('Footer'),
             'i18n' => [
                 'newsletter_header' => __('Get Our Newsletter', 'ocp'),
                 'contact_header' => __('Contact', 'ocp'),

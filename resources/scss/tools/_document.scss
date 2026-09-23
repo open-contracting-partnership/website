@@ -2,10 +2,7 @@ html {
     font-size: 100%;
 }
 
-// set the body selector based on if we're loading into gutenberg or the front-end
-$body-selector: if(sass($is-gutenberg): "&"; else: "body");
-
-#{$body-selector} {
+body {
     @include font;
     font-size: 18px;
     line-height: 1.5;

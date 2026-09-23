@@ -129,28 +129,6 @@ function humanDateRanges(string $start, string $end): string
     );
 }
 
-add_action('acf/render_field_settings', 'addFieldTranslationOption');
-
-/**
- * Add "Translate field" option to ACF field, can then be used to translate
- * specific custom fields
- * @param array $field the field object
- */
-function addFieldTranslationOption(array $field): void
-{
-    acf_render_field_setting($field, array(
-        'label' => __('Gutenberg visibility'),
-        'instructions' => 'Where should this field display within the Gutenberg editor?',
-        'name' => 'gutenberg_visibility',
-        'type' => 'select',
-        'choices' => [
-            'both' => 'Block Settings and Edit Screen',
-            'block_settings' => 'Just Block Settings',
-            'edit_screen' => 'Just Edit Screen',
-        ]
-    ), true);
-}
-
 //***********
 // TAXONOMIES
 

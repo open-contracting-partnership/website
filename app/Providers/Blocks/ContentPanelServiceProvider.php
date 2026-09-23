@@ -34,7 +34,7 @@ class ContentPanelServiceProvider
 
     public function render(array $block, string $content = '', bool $is_preview = false, int $post_id = 0): void
     {
-        $context = Timber::get_context();
+        $context = Timber::context();
 
         $template = [
             [
@@ -51,6 +51,7 @@ class ContentPanelServiceProvider
         $context['block']['text_colour'] = get_field('text_colour') ?: '#FFFFFF';
         $context['block']['text_align'] = $block['align_text'] ?? 'left';
         $context['block']['options'] = get_field('options') ?: [];
+        $context['block']['show_circle_decoration'] = get_field('show_circle_decoration') ? true : false;
 
         Timber::render('blocks/content-panel.twig', $context);
     }

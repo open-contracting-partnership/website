@@ -2,16 +2,16 @@
 
 namespace App\Cards;
 
-use App\PostTypes\Resource;
 use Imgix\UrlBuilder;
 use Rareloop\Lumberjack\Facades\Config;
+use Timber\Timber;
 
 class ResourceCard extends BaseCard
 {
     public static function convertTimberPost($post): array
     {
-        if ($post->type->slug === 'resource' && get_class($post) === 'Timber\Post') {
-            $post = new Resource($post->ID);
+        if ($post->resourceType?->slug === 'resource' && get_class($post) === 'Timber\Post') {
+            $post = Timber::get_post($post->ID);
         }
 
         $data = [
@@ -20,8 +20,6 @@ class ResourceCard extends BaseCard
             'meta' => null,
             'image_url' => $post->thumbnail ? $post->thumbnail->src : null,
             'url' => $post->link(),
-            'type' => $post->type->slug,
-            'type_label' => $post->type->name,
             'is_featured' => $post->meta('resource_is_featured') ?? false,
             'colour' => $post->colour,
             'excerpt' => (string) $post->preview->length(15)->read_more(false),
@@ -48,7 +46,7 @@ class ResourceCard extends BaseCard
 
     public static function generateFallbackImage($post)
     {
-        if ($post->type->slug !== 'resource') {
+        if ($post->resourceType?->slug !== 'resource') {
             return null;
         }
 
@@ -72,7 +70,8 @@ class ResourceCard extends BaseCard
         ]);
 
         $backgroundImage = sprintf(
-            '/themes/ocp-v1/resources/img/resource-covers/%s-%s.png',
+            '/themes/%s/resources/img/resource-covers/%s-%s.png',
+            get_template(),
             $post->fallbackImageType,
             $resourceColour,
         );

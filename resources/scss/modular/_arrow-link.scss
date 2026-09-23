@@ -1,7 +1,8 @@
 .arrow-link {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	text-decoration: none;
+    text-align: left;
 
 	color: var(--colour, #{$ui-white});
 
@@ -17,6 +18,7 @@
 		font-size: 28px;
 		height: 1em;
 		width: 1em;
+        margin-top: 0.15em;
 		fill: var(--colour, #{$ui-brand});
 
 		@media print {

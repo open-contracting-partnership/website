@@ -2,7 +2,7 @@
 
 namespace App\Cards;
 
-use App\PostTypes\Event;
+use Timber\Timber;
 
 class BasicCard extends BaseCard
 {
@@ -19,7 +19,7 @@ class BasicCard extends BaseCard
         ];
 
         if ($post->post_type === 'event') {
-            $data['meta'] = (new Event($post->id))->formattedDate();
+            $data['meta'] = (Timber::get_post($post->id))->formattedDate();
         }
 
         return $data;

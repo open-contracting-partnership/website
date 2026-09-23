@@ -13,15 +13,14 @@ namespace App;
 
 use App\Http\Controllers\Controller;
 use Rareloop\Lumberjack\Http\Responses\TimberResponse;
-use Rareloop\Lumberjack\Page;
 use Timber\Timber;
 
 class PageImpactStoriesController extends Controller
 {
     public function handle()
     {
-        $context = Timber::get_context();
-        $page = new Page();
+        $context = Timber::context();
+        $page = Timber::get_post();
 
         $context['title'] = $page->title();
         $context['content'] = $page->content;
@@ -49,7 +48,7 @@ class PageImpactStoriesController extends Controller
                 ];
 
                 // 4. card related data transformations
-                $story['image_url'] = $story['image'] ? $story['image']['url'] : null;
+                $story['image_url'] = $story['image']?->src;
 
                 if ($story['story_type']) {
                     $story['type_label'] = $story['story_type'][0]->name;

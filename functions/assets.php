@@ -4,7 +4,7 @@ use App\Assets;
 use App\Models\News;
 use App\PostTypes\Resource;
 use Rareloop\Lumberjack\Facades\Config;
-use Rareloop\Lumberjack\Page;
+use Timber\Timber;
 
 add_filter('script_module_data_archive-resource', function ($data) {
     $data['resources'] = Resource::getAllResources();
@@ -16,7 +16,7 @@ add_filter('script_module_data_archive-resource', function ($data) {
 add_filter('script_module_data_page-worldwide', function ($data) {
     $data['mapbox_access_token'] = Config::get('services.mapbox_access_token');
 
-    $page = new Page();
+    $page = Timber::get_post();
 
     $data['content'] = [
         'title' => $page->meta('heading'),
@@ -43,7 +43,6 @@ add_filter('script_module_data_page-worldwide', function ($data) {
             'contract' => __('Innovation in contract monitoring & data use', 'ocp'),
             'impact_stories' => __('Impact Stories', 'ocp'),
             'no_data' => __('No data available', 'ocp'),
-            'improve_data' => __('Improve this data', 'ocp'),
         ),
         'search' => array(
             'placeholder' => __('Find Country', 'ocp'),
@@ -93,6 +92,7 @@ add_action('wp_enqueue_scripts', function () {
     Assets::registerScript('page-worldwide', 'js/worldwide-VITE.js', true);
 
     // BLOCKS
+    Assets::registerScript('block-cards-carousel', 'js/block-cards-carousel-VITE.js', true);
     Assets::registerScript('block-code-highlight', 'js/block-code-highlight-VITE.js', true);
     Assets::registerScript('block-download-carousel', 'js/block-download-carousel-VITE.js', true);
     Assets::registerScript('block-featured-stories-carousel', 'js/block-featured-stories-carousel-VITE.js', true);

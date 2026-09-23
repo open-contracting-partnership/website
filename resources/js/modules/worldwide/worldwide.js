@@ -1,19 +1,12 @@
 import { sync } from 'vuex-router-sync'
 import Vue from 'vue/dist/vue.esm.js'
 import VueRouter from 'vue-router'
-// import Raven from 'raven-js';
-// import RavenVue from 'raven-js/plugins/vue';
 import store from './store'
 import getWordPressData from '@/js/wordpress-data';
 
 const page_worldwide_options = getWordPressData('page-worldwide');
 
 Vue.use(VueRouter)
-
-// Raven
-//     .config('https://0bd6363074584cbcaeab1e66d004ed5a@sentry.io/296260')
-//     .addPlugin(RavenVue, Vue)
-//     .install();
 
 // route components
 import Table from './components/table.vue';

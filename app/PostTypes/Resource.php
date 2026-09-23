@@ -79,7 +79,8 @@ class Resource extends Post
 
     public static function getAllResources(): array
     {
-        $resources = Resource::query([
+        $resources = Timber::get_posts([
+            'post_type' => 'resource',
             'posts_per_page' => -1
         ]);
 

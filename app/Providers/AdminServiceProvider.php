@@ -23,11 +23,8 @@ class AdminServiceProvider extends ServiceProvider
         add_action('admin_menu', [$this, 'updatePostMenuLabel']);
 
         add_action('admin_footer', function () {
-            $context = Timber::get_context();
+            $context = Timber::context();
 
-            $context['gutenberg_fields_visibility'] = $this->getGutenbergFieldVisibility();
-
-            Timber::render('partials/acf-gutenberg-visibility.twig', $context);
             Timber::render('partials/svg-loader.twig', $context);
         });
 
@@ -37,6 +34,8 @@ class AdminServiceProvider extends ServiceProvider
         });
 
         $this->addDynamicLocationFields();
+        $this->disableAcfInnerBlocksContainer();
+        $this->handleAcfImageFields();
     }
 
     public function updatePostMenuLabel(): void
@@ -63,35 +62,6 @@ class AdminServiceProvider extends ServiceProvider
         $labels->not_found_in_trash = 'No blog posts found in Trash';
     }
 
-    public function getGutenbergFieldVisibility(): array
-    {
-        $field_groups = acf_get_field_groups();
-        $field_gutenberg_visibility = [];
-
-        foreach ($field_groups as $group) {
-            $fields = get_posts([
-                'posts_per_page' => -1,
-                'post_type' => 'acf-field',
-                'orderby' => 'menu_order',
-                'order' => 'ASC',
-                'suppress_filters' => true, // DO NOT allow WPML to modify the query
-                'post_parent' => $group['ID'],
-                'post_status' => 'any',
-                'update_post_meta_cache' => false
-            ]);
-
-            foreach ($fields as $field) {
-                $meta = unserialize($field->post_content);
-
-                if (isset($meta['gutenberg_visibility'])) {
-                    $field_gutenberg_visibility[$field->post_name] = $meta['gutenberg_visibility'];
-                }
-            }
-        }
-
-        return $field_gutenberg_visibility;
-    }
-
     protected function addDynamicLocationFields(): void
     {
         add_filter('acf/load_field/key=field_69e8d4dd860d8', [$this, 'setAcfCountryLocationValues']);
@@ -108,5 +78,39 @@ class AdminServiceProvider extends ServiceProvider
         })->toArray();
 
         return $field;
+    }
+
+    protected function disableAcfInnerBlocksContainer(): void
+    {
+        add_filter('acf/blocks/wrap_frontend_innerblocks', function ($wrap, $blockName) {
+            $ignoredBlocks = [
+                'acf/ocp-grid-section',
+            ];
+
+            if (in_array($blockName, $ignoredBlocks)) {
+                return $wrap;
+            }
+
+            if (strpos($blockName, 'acf/ocp-') === 0) {
+                return false;
+            }
+
+            return $wrap;
+        }, 10, 2);
+    }
+
+    protected function handleAcfImageFields(): void
+    {
+        add_filter('acf/format_value/type=image', function ($value, $post_id, $field) {
+            return Timber::get_image($value);
+        }, 999, 3);
+
+        add_filter('acf/format_value/type=gallery', function ($value, $post_id, $field) {
+            return collect($value ?: [])
+                ->map(function ($image) {
+                    return Timber::get_image($image);
+                })
+                ->toArray();
+        }, 999, 3);
     }
 }

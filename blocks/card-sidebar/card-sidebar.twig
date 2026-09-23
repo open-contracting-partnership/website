@@ -1,0 +1,43 @@
+{% set options = {'id': null}|merge(block.options) %}
+
+<div
+    id="{{ options.id }}"
+    class="card-sidebar"
+    data-colour-scheme="{{ block.colour_scheme }}"
+    data-block-spacing="small"
+>
+    <div class="card-sidebar__body">
+        {% if block.title %}
+            <h3 class="card-sidebar__heading">{{ block.title }}</h3>
+        {% endif %}
+
+        {% if block.description %}
+            <p class="card-sidebar__description">{{ block.description }}</p>
+        {% endif %}
+
+        {% if block.image %}
+            <div class="card-sidebar__image">
+                {{ imgix({
+                    src: block.image.src,
+                    transforms: [{
+                        w: 400
+                    }, {
+                        w: 800
+                    }],
+                    sizes: '(min-width: 1025px) 33vw, 100vw',
+                }) }}
+            </div>
+        {% endif %}
+    </div>
+
+    {% if block.links %}
+        <div class="card-sidebar__footer">
+            {% for item in block.links %}
+                <a class="arrow-link" href="{{ item.link.url }}" target="{{ item.link.target }}">
+                    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                    <span class="arrow-link__label">{{ item.link.title }}</span>
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
