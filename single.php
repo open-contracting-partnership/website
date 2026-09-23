@@ -46,13 +46,6 @@ class SingleController extends Controller
             'label' => __('Back to latest')
         ];
 
-        if ($attachment_id = get_post_thumbnail_id($post->ID)) {
-            $context['featued_image'] = [
-                'url' => wp_get_attachment_url($attachment_id),
-                'caption' => wp_get_attachment_caption($attachment_id)
-            ];
-        }
-
         if ($context['authors']) {
             $context['authors'] = __('By', 'ocp') . ' ' . $context['authors'];
         }
