@@ -63,7 +63,6 @@ return [
         App\Providers\Blocks\OurModelServiceProvider::class,
         App\Providers\Blocks\OurReportingGridServiceProvider::class,
         App\Providers\Blocks\OurWorkGridServiceProvider::class,
-        App\Providers\Blocks\PersonServiceProvider::class,
         App\Providers\Blocks\QuoteCarouselServiceProvider::class,
         App\Providers\Blocks\QuoteServiceProvider::class,
         App\Providers\Blocks\ReportHeaderServiceProvider::class,
