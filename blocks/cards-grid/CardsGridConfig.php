@@ -12,6 +12,7 @@ class CardsGridConfig
         'card-primary' => [
             'title' => 'Primary',
             'variations' => [
+                'two-columns' => 'Two Columns',
                 'three-columns' => 'Three Columns',
             ],
             'default_variation' => 'three-columns',
@@ -20,6 +21,7 @@ class CardsGridConfig
             'title' => 'Half Image',
             'variations' => [
                 'two-columns' => 'Two Columns',
+                'three-columns' => 'Three Columns',
             ],
             'default_variation' => 'two-columns',
         ],
@@ -27,12 +29,14 @@ class CardsGridConfig
             'title' => 'With Icon',
             'variations' => [
                 'two-columns' => 'Two Columns',
+                'three-columns' => 'Three Columns',
             ],
             'default_variation' => 'two-columns',
         ],
         'card-resource' => [
             'title' => 'Resource',
             'variations' => [
+                'two-columns' => 'Two Columns',
                 'three-columns' => 'Three Columns',
             ],
             'default_variation' => 'three-columns',
@@ -41,6 +45,7 @@ class CardsGridConfig
             'title' => 'Person',
             'variations' => [
                 'two-columns' => 'Two Columns',
+                'three-columns' => 'Three Columns',
             ],
             'default_variation' => 'two-columns',
         ],
@@ -48,12 +53,14 @@ class CardsGridConfig
             'title' => 'Feature',
             'variations' => [
                 'two-columns' => 'Two Columns',
+                'three-columns' => 'Three Columns',
             ],
             'default_variation' => 'two-columns',
         ],
         'card-border' => [
             'title' => 'Border',
             'variations' => [
+                'two-columns' => 'Two Columns',
                 'three-columns' => 'Three Columns',
             ],
             'default_variation' => 'three-columns',
@@ -62,6 +69,7 @@ class CardsGridConfig
             'title' => 'Image',
             'variations' => [
                 'two-columns' => 'Two Columns',
+                'three-columns' => 'Three Columns',
             ],
             'default_variation' => 'two-columns',
         ],
