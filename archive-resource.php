@@ -65,7 +65,7 @@ class ArchiveResourceController extends Controller
                 'title' => $new['title'],
                 'date' => $new['date'],
                 'is_featured' => $new['is_featured'],
-                'type' => $new['type'],
+                'type' => $new['type'] ?? null,
 
                 // new card output
                 'card' => Timber::compile('cards/resource.twig', [
