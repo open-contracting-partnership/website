@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Rareloop\Lumberjack\Providers\ServiceProvider;
-use WP_Post;
+use WP_Block_Editor_Context;
 
 class CoreBlocksServiceProvider extends ServiceProvider
 {
@@ -38,12 +38,12 @@ class CoreBlocksServiceProvider extends ServiceProvider
     /**
      * Allow all registered blocks except those explicitly disabled.
      *
-     * @param array<string>|true $allowedBlockTypes
+     * @param array<string>|bool $allowedBlockTypes
      * @return array<string>
      */
     public function filterAllowedBlockTypes(
-        array|true $allowedBlockTypes,
-        WP_Post $post
+        array|bool $allowedBlockTypes,
+        WP_Block_Editor_Context $post
     ): array {
         $registeredBlocks = array_keys(
             \WP_Block_Type_Registry::get_instance()->get_all_registered()
