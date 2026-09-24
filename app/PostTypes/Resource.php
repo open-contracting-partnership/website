@@ -81,7 +81,7 @@ class Resource extends Post
     {
         $resources = Timber::get_posts([
             'post_type' => 'resource',
-            'posts_per_page' => -1
+            'posts_per_page' => -1,
         ]);
 
         $resources = ResourceCard::convertCollection($resources, function ($new, $original) {

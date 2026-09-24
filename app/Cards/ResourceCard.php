@@ -46,10 +46,6 @@ class ResourceCard extends BaseCard
 
     public static function generateFallbackImage($post)
     {
-        if ($post->resourceType?->slug !== 'resource') {
-            return null;
-        }
-
         $builder = new UrlBuilder(Config::get('images.imgix_domain'));
         $builder->setSignKey(Config::get('images.imgix_signing_key'));
 
