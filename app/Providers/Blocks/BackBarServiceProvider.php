@@ -48,8 +48,10 @@ class BackBarServiceProvider
 
             if ($context['block']['jump_links']) {
                 $context['block']['jump_links'] = array_map(function ($button) {
-                    $button['link']['url'] = '#';
-                    $button['link']['target'] = '';
+                    if ($button['link']) {
+                        $button['link']['url'] = '#';
+                        $button['link']['target'] = '';
+                    }
 
                     return $button;
                 }, $context['block']['jump_links']);

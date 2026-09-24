@@ -48,8 +48,10 @@ class CardServiceProvider
 
             if ($context['block']['buttons']) {
                 $context['block']['buttons'] = array_map(function ($button) {
-                    $button['link']['url'] = '#';
-                    $button['link']['target'] = '';
+                    if ($button['link']) {
+                        $button['link']['url'] = '#';
+                        $button['link']['target'] = '';
+                    }
 
                     return $button;
                 }, $context['block']['buttons']);

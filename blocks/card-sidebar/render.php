@@ -14,8 +14,10 @@ $context['block']['links'] = get_field('links') ?: [];
 
 if ($is_preview) {
     $context['block']['links'] = array_map(function ($item) {
-        $item['link']['url'] = '#';
-        $item['link']['target'] = '';
+        if ($item['link']) {
+            $item['link']['url'] = '#';
+            $item['link']['target'] = '';
+        }
 
         return $item;
     }, $context['block']['links']);
