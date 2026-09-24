@@ -18,7 +18,7 @@
 		font-size: 28px;
 		height: 1em;
 		width: 1em;
-        margin-top: 0.15em;
+        margin-top: 4px;
 		fill: var(--colour, #{$ui-brand});
 
 		@media print {
@@ -39,6 +39,8 @@
 	}
 
 .arrow-link[data-size="large"] {
+    font-size: 20px;
+
 	.arrow-link__label {
 		font-size: 20px;
 
@@ -46,10 +48,15 @@
 			font-size: 24px;
 		}
 	}
+
+    .arrow-link__icon {
+        margin-top: 6px;
+    }
 }
 
 .arrow-link[data-size="medium"] {
 	.arrow-link__icon {
+        margin-top: 2px;
 		font-size: 24px;
 	}
 
@@ -71,10 +78,12 @@
 .arrow-link[data-size="small"] {
 	.arrow-link__icon {
 		font-size: 24px;
+        margin-top: 0;
 	}
 
 	.arrow-link__label {
 		font-size: 11px;
+        margin-top: 2px;
 	}
 }
 

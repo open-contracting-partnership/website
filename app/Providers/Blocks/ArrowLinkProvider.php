@@ -34,6 +34,7 @@ class ArrowLinkProvider
 
         $context['block'] = [];
         $context['block']['link'] = get_field('link');
+        $context['block']['size'] = get_field('size');
 
         if ($is_preview && $context['block']['link']) {
             $context['block']['link']['url'] = '#';
