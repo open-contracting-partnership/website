@@ -12,6 +12,7 @@ class CardsGridConfig
         'card-primary' => [
             'title' => 'Primary',
             'variations' => [
+                'one-column' => 'One Column',
                 'two-columns' => 'Two Columns',
                 'three-columns' => 'Three Columns',
             ],
@@ -20,6 +21,7 @@ class CardsGridConfig
         'card-half-image' => [
             'title' => 'Half Image',
             'variations' => [
+                 'one-column' => 'One Column',
                 'two-columns' => 'Two Columns',
                 'three-columns' => 'Three Columns',
             ],
@@ -28,6 +30,7 @@ class CardsGridConfig
         'card-with-icon' => [
             'title' => 'With Icon',
             'variations' => [
+                 'one-column' => 'One Column',
                 'two-columns' => 'Two Columns',
                 'three-columns' => 'Three Columns',
             ],
@@ -36,6 +39,7 @@ class CardsGridConfig
         'card-resource' => [
             'title' => 'Resource',
             'variations' => [
+                 'one-column' => 'One Column',
                 'two-columns' => 'Two Columns',
                 'three-columns' => 'Three Columns',
             ],
@@ -44,6 +48,7 @@ class CardsGridConfig
         'card-person' => [
             'title' => 'Person',
             'variations' => [
+                 'one-column' => 'One Column',
                 'two-columns' => 'Two Columns',
                 'three-columns' => 'Three Columns',
             ],
@@ -52,6 +57,7 @@ class CardsGridConfig
         'card-feature' => [
             'title' => 'Feature',
             'variations' => [
+                 'one-column' => 'One Column',
                 'two-columns' => 'Two Columns',
                 'three-columns' => 'Three Columns',
             ],
@@ -60,6 +66,7 @@ class CardsGridConfig
         'card-border' => [
             'title' => 'Border',
             'variations' => [
+                 'one-column' => 'One Column',
                 'two-columns' => 'Two Columns',
                 'three-columns' => 'Three Columns',
             ],
@@ -68,6 +75,7 @@ class CardsGridConfig
         'card-image' => [
             'title' => 'Image',
             'variations' => [
+                 'one-column' => 'One Column',
                 'two-columns' => 'Two Columns',
                 'three-columns' => 'Three Columns',
             ],

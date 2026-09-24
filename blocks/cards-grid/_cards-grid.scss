@@ -73,6 +73,9 @@
     }
 
     // Variations
+    &[data-card-type][data-variation="one-column"] {
+        @extend %one-column;
+    }
 
     &[data-card-type][data-variation="two-columns"] {
         @extend %two-columns;
