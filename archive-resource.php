@@ -20,8 +20,6 @@ class ArchiveResourceController extends Controller
 
         $context['resource_library_filters'] = get_field('resources_filters', 'options');
 
-        $context['resources_output'] = $this->getAllResources();
-
         if ($context['resource_library_filters']) {
             foreach ($context['resource_library_filters'] as &$filter_group) {
                 $filter_group['filter'] = array_map(function ($filter) {
@@ -51,29 +49,5 @@ class ArchiveResourceController extends Controller
         );
 
         return new TimberResponse('templates/archive-resource.twig', $context);
-    }
-
-    public static function getAllResources()
-    {
-        $resources = Timber::get_posts([
-            'post_type' => 'resource',
-            'posts_per_page' => -1
-        ]);
-
-        $resources = ResourceCard::convertCollection($resources, function ($new, $original) {
-            return [
-                'title' => $new['title'],
-                'date' => $new['date'],
-                'is_featured' => $new['is_featured'],
-                'type' => $new['type'] ?? null,
-
-                // new card output
-                'card' => Timber::compile('cards/resource.twig', [
-                    'card' => $new,
-                ])
-            ];
-        });
-
-        return $resources;
     }
 }

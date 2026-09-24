@@ -1,4 +1,10 @@
 .block[data-block-type="content-panel"] {
+    &:not([style*="--background-colour: #ffffff;"]),
+    &:not([style*="--background-colour: #FFFFFF;"]) {
+        --link-block-primary-colour: var(--text-colour);
+        --link-block-hover-text-colour: var(--background-colour);
+    }
+
     .block__background {
         grid-column: full;
         grid-row: 1;
@@ -41,10 +47,5 @@
         &[data-text-align="center"] {
             text-align: center;
         }
-    }
-
-    a {
-        --link-block-primary-colour: var(--text-colour);
-        --link-block-hover-text-colour: var(--background-colour);
     }
 }

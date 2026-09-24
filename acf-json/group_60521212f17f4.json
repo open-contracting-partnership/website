@@ -18,6 +18,37 @@
             },
             "gutenberg_visibility": "both",
             "return_format": "array"
+        },
+        {
+            "key": "field_6ab4fc596def3",
+            "label": "Size",
+            "name": "size",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "wpml_cf_preferences": 0,
+            "choices": {
+                "default": "Default",
+                "large": "Large"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         }
     ],
     "location": [
@@ -39,8 +70,10 @@
     ],
     "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1705932768,
-    "local_file": "\/Users\/beneverard\/Sites\/open-contracting\/wp-content\/themes\/ocp-v1\/acf-json\/group_60521212f17f4.json",
-    "acfml_field_group_mode": "advanced"
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "acfml_field_group_mode": "advanced",
+    "modified": 1790246110
 }

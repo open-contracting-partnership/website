@@ -30,6 +30,7 @@ return [
         // Application Providers
         App\Providers\AdminServiceProvider::class,
         App\Providers\AppServiceProvider::class,
+        App\Providers\CoreBlocksServiceProvider::class,
         App\Providers\FormServiceProvider::class,
         App\Providers\GutenbergServiceProvider::class,
         App\Providers\ImgixServiceProvider::class,
@@ -55,7 +56,6 @@ return [
         App\Providers\Blocks\FeaturedStoriesCarouselServiceProvider::class,
         App\Providers\Blocks\GridSectionServiceProvider::class,
         App\Providers\Blocks\HeroIconServiceProvider::class,
-        App\Providers\Blocks\ImageWithLinksServiceProvider::class,
         App\Providers\Blocks\JumpToBarServiceProvider::class,
         App\Providers\Blocks\LogosServiceProvider::class,
         App\Providers\Blocks\MoreStoriesColumnsServiceProvider::class,

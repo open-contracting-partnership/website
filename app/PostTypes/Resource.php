@@ -49,9 +49,9 @@ class Resource extends Post
         return $this->thumbnail() ? $this->thumbnail()->src : null;
     }
 
-    public function resourceType()
+    public function resourceType(): Term|null
     {
-        return $this->meta('resource_type') ?: null;
+        return $this->terms('resource-type')[0] ?? null;
     }
 
     public function colour(): string
@@ -61,7 +61,7 @@ class Resource extends Post
         // it doesn't matter if the type is truthy, it must be an instance of
         // Timber\Term to have a colour
 
-        if ($this->resourceType() instanceof Term && isset($this->resourceType()->colour)) {
+        if ($this->resourceType() instanceof Term && $this->resourceType()->colour) {
             $colour = $this->resourceType()->colour;
         }
 
@@ -70,7 +70,7 @@ class Resource extends Post
 
     public function fallbackImageType(): string
     {
-        return match ($this->resourceType?->slug) {
+        return match ($this->resourceType()?->slug) {
             'data-tool' => 'data',
             'infographic' => 'infographic',
             default => 'resource',
@@ -81,7 +81,7 @@ class Resource extends Post
     {
         $resources = Timber::get_posts([
             'post_type' => 'resource',
-            'posts_per_page' => -1
+            'posts_per_page' => -1,
         ]);
 
         $resources = ResourceCard::convertCollection($resources, function ($new, $original) {
