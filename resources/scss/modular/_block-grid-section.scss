@@ -96,15 +96,19 @@
 
 			> * {
 				grid-column: all;
+                width: 100%;
+                margin: 0;
 			}
 
-			> [data-grid-placement="small"] {
+			> [data-grid-placement="small"],
+            > :has([data-grid-placement="small"]) {
 				@include from(T) {
 					grid-column: span 4;
 				}
 			}
 
-			> [data-grid-placement="medium"] {
+			> [data-grid-placement="medium"],
+            > :has([data-grid-placement="medium"]) {
 				@include from(T) {
 					grid-column: span 6;
 				}
