@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Assets;
 use Rareloop\Lumberjack\Providers\ServiceProvider;
 use Timber\Timber;
 
@@ -36,6 +37,7 @@ class AdminServiceProvider extends ServiceProvider
         $this->addDynamicLocationFields();
         $this->disableAcfInnerBlocksContainer();
         $this->handleAcfImageFields();
+        $this->queueAdminAssets();
     }
 
     public function updatePostMenuLabel(): void
@@ -112,5 +114,12 @@ class AdminServiceProvider extends ServiceProvider
                 })
                 ->toArray();
         }, 999, 3);
+    }
+
+    protected function queueAdminAssets(): void
+    {
+        add_action('admin_enqueue_scripts', function () {
+            wp_enqueue_script('admin-scripts', Assets::getUrl('js/admin-VITE.js'), ['acf-input']);
+        });
     }
 }

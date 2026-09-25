@@ -45,6 +45,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         // JS entry points
+        'admin': resolve(__dirname, 'resources/js/admin.js'),
         'archive-resource': resolve(__dirname, 'resources/js/archive-resource.js'),
         'block-cards-carousel': resolve(__dirname, 'blocks/cards-carousel/_cards-carousel.js'),
         'block-code-highlight': resolve(__dirname, 'resources/js/block-code-highlight.js'),
