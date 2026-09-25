@@ -5,7 +5,7 @@
             <h1 class="country__heading" v-html="selected_country.name" />
 
             <button class="map-country__close" @click="closeCountry">
-                <svg><use xlink:href="{{ iconUrl('icon-close') }}" /></svg>
+                <svg><use :xlink:href="`${icon_url}#icon-close`" /></svg>
             </button>
         </div>
 
@@ -70,9 +70,18 @@
 </template>
 
 <script>
+    import getWordPressData from '@/js/wordpress-data';
     import { mapGetters, mapActions } from 'vuex'
 
+    const { icon_url } = getWordPressData('page-worldwide');
+
     export default {
+        data() {
+            return {
+                icon_url
+            };
+        },
+
         computed: {
             ...mapGetters([
                 'content',

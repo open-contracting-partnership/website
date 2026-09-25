@@ -13,11 +13,11 @@
 
             <div class="map-zoom">
                 <span @click="zoomIn">
-                    <svg><use xlink:href="{{ iconUrl('icon-plus') }}" /></svg>
+                    <svg><use :xlink:href="`${icon_url}#icon-plus`" /></svg>
                 </span>
 
                 <span @click="zoomOut">
-                    <svg><use xlink:href="{{ iconUrl('icon-minus') }}" /></svg>
+                    <svg><use :xlink:href="`${icon_url}#icon-minus`" /></svg>
                 </span>
             </div>
         </div>
@@ -41,14 +41,15 @@
     import { mapGetters } from 'vuex'
     import getWordPressData from '@/js/wordpress-data';
 
-    const page_worldwide_options = getWordPressData('page-worldwide');
+    const { content, mapbox_access_token, icon_url } = getWordPressData('page-worldwide');
 
     export default {
         data: () => {
             return {
-                content: page_worldwide_options.content,
+                content,
                 map_loaded: false,
-                show_filter: false
+                show_filter: false,
+                icon_url,
             }
         },
 
@@ -266,7 +267,7 @@
 
         methods: {
             setMap() {
-                mapboxgl.accessToken = page_worldwide_options.mapbox_access_token;
+                mapboxgl.accessToken = mapbox_access_token;
 
                 this.map = new mapboxgl.Map({
                     container: 'map',
