@@ -23,10 +23,6 @@ class AdminServiceProvider extends ServiceProvider
         add_action('init', [$this, 'updatePostObjectLabel']);
         add_action('admin_menu', [$this, 'updatePostMenuLabel']);
 
-        add_action('admin_footer', function () {
-            Timber::render('partials/svg-loader.twig', ['theme' => new \Timber\Theme()]);
-        });
-
         add_filter('upload_mimes', function ($mimes) {
             $mimes['svg'] = 'image/svg+xml';
             return $mimes;

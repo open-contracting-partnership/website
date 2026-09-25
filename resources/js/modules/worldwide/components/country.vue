@@ -5,7 +5,7 @@
             <h1 class="country__heading" v-html="selected_country.name" />
 
             <button class="map-country__close" @click="closeCountry">
-                <svg><use xlink:href="#icon-close" /></svg>
+                <svg><use xlink:href="{{ iconUrl('icon-close') }}" /></svg>
             </button>
         </div>
 

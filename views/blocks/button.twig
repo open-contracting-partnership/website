@@ -10,7 +10,7 @@
     "
 >
     {% if block.has_icon %}
-        <svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+        <svg class="button__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
     {% endif %}
 
     <span class="button__label">{{ block.link.title }}</span>

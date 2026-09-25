@@ -1,7 +1,7 @@
 <template>
     <div class="map-filter" v-if="content">
         <button class="map-filter__close" @click="closeFilter()">
-            <svg><use xlink:href="#icon-close" /></svg>
+            <svg><use xlink:href="{{ iconUrl('icon-close') }}" /></svg>
         </button>
 
         <h1 class="map-filter__title" v-html="content.title" />
@@ -9,12 +9,12 @@
         <div class="map-view-toggle">
             <span class="map-view-toggle__item" @click="showTable()">
                 <span v-html="content.table_view" />
-                <svg><use xlink:href="#icon-table" /></svg>
+                <svg><use xlink:href="{{ iconUrl('icon-table') }}" /></svg>
             </span>
 
             <span class="map-view-toggle__item" @click="showMap()">
                 <span v-html="content.map_view" />
-                <svg><use xlink:href="#icon-target" /></svg>
+                <svg><use xlink:href="{{ iconUrl('icon-target') }}" /></svg>
             </span>
         </div>
 

@@ -124,7 +124,7 @@ wp eval 'echo "wordpress_" . COOKIEHASH . "=" . wp_generate_auth_cookie(53, time
 SVG files within the `/resources/svg` directory will be combined into a single SVG sprite, and can be referenced using the following snippet where a filename of `icon-twitter.svg` is referenced as:
 
 ```
-<svg><use xlink:href="#icon-twitter"></use></svg>
+<svg><use xlink:href="{{ iconUrl('icon-twitter') }}"></use></svg>
 ```
 
 SVGs used like this can be interacted with JavaScript and styled with CSS.

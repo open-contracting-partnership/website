@@ -13,11 +13,11 @@
 
             <div class="map-zoom">
                 <span @click="zoomIn">
-                    <svg><use xlink:href="#icon-plus" /></svg>
+                    <svg><use xlink:href="{{ iconUrl('icon-plus') }}" /></svg>
                 </span>
 
                 <span @click="zoomOut">
-                    <svg><use xlink:href="#icon-minus" /></svg>
+                    <svg><use xlink:href="{{ iconUrl('icon-minus') }}" /></svg>
                 </span>
             </div>
         </div>

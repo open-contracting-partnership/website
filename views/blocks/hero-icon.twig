@@ -18,7 +18,7 @@
 
     <div class="block__icon-container">
         <svg class="block__icon" fill="{{ block.text_colour }}">
-            <use xlink:href="#hero-icon-{{ block.icon }}"></use>
+            <use xlink:href="{{ iconUrl('hero-icon-' ~ block.icon) }}"></use>
         </svg>
     </div>
 </div>

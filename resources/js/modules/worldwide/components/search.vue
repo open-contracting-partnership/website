@@ -3,11 +3,11 @@
         <div class="country-search" v-bind:class="{ 'country-search--is-open': is_open }" @click.prevent>
             <div class="country-search__input">
                 <input type="text" :placeholder="placeholder" v-model="filter" ref="input" @focus="open" @blur="blur" @keydown.up.prevent="moveUp" @keydown.down.prevent="moveDown" @keyup.enter="change" @keyup.esc="close" />
-                <svg><use xlink:href="#icon-search" /></svg>
+                <svg><use xlink:href="{{ iconUrl('icon-search') }}" /></svg>
             </div>
 
             <router-link class="country-search__table" :to="{ name: 'table' }">
-                <svg><use xlink:href="#icon-table" /></svg>
+                <svg><use xlink:href="{{ iconUrl('icon-table') }}" /></svg>
             </router-link>
 
             <div class="country-search__results" v-if="is_open === true && filtered_countries.length > 0">
