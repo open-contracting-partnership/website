@@ -40,11 +40,6 @@ class CardWithIconServiceProvider
         $context['block']['icon'] = get_field('icon');
         $context['block']['link'] = get_field('link');
 
-        if ($is_preview && $context['block']['link']) {
-            $context['block']['link']['url'] = '#';
-            $context['block']['link']['target'] = '';
-        }
-
         // colours
         $context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';
         $context['block']['is_dark'] = isContrastingColourLight($context['block']['background_colour']);

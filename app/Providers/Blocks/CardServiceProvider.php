@@ -40,22 +40,6 @@ class CardServiceProvider
         $context['block']['link'] = get_field('link');
         $context['block']['buttons'] = get_field('buttons');
 
-        if ($is_preview) {
-            if ($context['block']['link']) {
-                $context['block']['link']['url'] = '#';
-                $context['block']['link']['target'] = '';
-            }
-
-            if ($context['block']['buttons']) {
-                $context['block']['buttons'] = array_map(function ($button) {
-                    $button['link']['url'] = '#';
-                    $button['link']['target'] = '';
-
-                    return $button;
-                }, $context['block']['buttons']);
-            }
-        }
-
         // colours
         $context['block']['highlight_colour'] = get_field('highlight_colour') ?: '#000000';
         $context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';
