@@ -1,15 +1,24 @@
 {% extends "base.twig" %}
 
 {% block content %}
-    <main id="resource-archive" class="page-container / resource-archive">
-        {% include 'blocks/simple-header.twig' with {
-            block: {
-                heading: title,
-                content: resources.i18n.introduction,
-            }
-        } %}
+    <main id="resource-archive" class="page-container / resource-archive / block-spacing block-spacing--with-start-margins block-spacing--with-end-margins">
+        <div
+            data-block-spacing-top="lg"
+            data-block-spacing-bottom="sm"
+        >
+            {% include 'blocks/simple-header.twig' with {
+                block: {
+                    heading: title,
+                    content: resources.i18n.introduction,
+                }
+            } %}
+        </div>
 
-        <div class="resource-archive__controls">
+        <div
+            class="resource-archive__controls"
+            data-block-spacing-top="sm"
+            data-block-spacing-bottom="lg"
+        >
             <div>
                 <div class="filter-menu">
                     <div class="resource-archive__search /  search-box" data-size="large">

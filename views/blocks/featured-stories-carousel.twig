@@ -1,6 +1,11 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
-<div id="{{ options.id }}" class="block" data-block-type="featured-stories-carousel">
+<div
+    id="{{ options.id }}"
+    class="block"
+    data-block-type="featured-stories-carousel"
+    data-block-spacing="none"
+>
     <div class="print-only">
         {% for card in block.featured_stories %}
             {% include 'cards/primary.twig' with card %}
