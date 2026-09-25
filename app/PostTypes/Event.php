@@ -85,6 +85,13 @@ class Event extends Post
 
     public function formattedDate()
     {
-        return humanDateRanges($this->meta('event_date'), $this->meta('event_end_date') ?: $this->meta('event_date'));
+        // Translated events can lack a date, if WPML isn't configured to copy the field.
+        $start = $this->meta('event_date');
+
+        if (! $start) {
+            return '';
+        }
+
+        return humanDateRanges($start, $this->meta('event_end_date') ?: $start);
     }
 }

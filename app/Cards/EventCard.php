@@ -6,11 +6,13 @@ class EventCard extends BaseCard
 {
     public static function convertTimberPost($post): array
     {
+        $date = $post->event_date ? strtotime($post->event_date) : null;
+
         return [
             'title' => $post->post_title,
             'url' => $post->link(),
-            'day' => date('j', strtotime($post->event_date)),
-            'month' => date('M', strtotime($post->event_date))
+            'day' => $date ? date('j', $date) : '',
+            'month' => $date ? date('M', $date) : ''
         ];
     }
 }
