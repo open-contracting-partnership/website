@@ -2,7 +2,6 @@
 
 namespace App\PostTypes;
 
-use ImLiam\ShareableLink;
 use Rareloop\Lumberjack\Post;
 
 class Event extends Post
@@ -72,13 +71,7 @@ class Event extends Post
             }, $taxonomy);
         }
 
-        $share_links = new ShareableLink($event->link(), $event->title);
-
-        $context['share_links'] = array(
-            'twitter' => $share_links->twitter,
-            'facebook' => $share_links->facebook,
-            'linkedin' => $share_links->linkedin
-        );
+        $context['share_links'] = get_share_links($event->link(), $event->title);
 
         return $context;
     }
