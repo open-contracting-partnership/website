@@ -24,9 +24,7 @@ class AdminServiceProvider extends ServiceProvider
         add_action('admin_menu', [$this, 'updatePostMenuLabel']);
 
         add_action('admin_footer', function () {
-            $context = Timber::context();
-
-            Timber::render('partials/svg-loader.twig', $context);
+            Timber::render('partials/svg-loader.twig', ['theme' => new \Timber\Theme()]);
         });
 
         add_filter('upload_mimes', function ($mimes) {
