@@ -37,15 +37,6 @@ class CardEmbedServiceProvider
 
         $context['block']['buttons'] = get_field('buttons');
 
-        if ($is_preview && $context['block']['buttons']) {
-            $context['block']['buttons'] = array_map(function ($button) {
-                $button['link']['url'] = '#';
-                $button['link']['target'] = '';
-
-                return $button;
-            }, $context['block']['buttons']);
-        }
-
         // $context['block']['allowed_inner_blocks'] = esc_attr(wp_json_encode([
         //  'core/heading',
         //  'core/paragraph',

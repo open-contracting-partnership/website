@@ -2,7 +2,6 @@
 
 namespace App\Http;
 
-use ImLiam\ShareableLink;
 use Rareloop\Lumberjack\Http\Lumberjack as LumberjackCore;
 use Timber\Timber;
 
@@ -50,23 +49,6 @@ class Lumberjack extends LumberjackCore
             'year' => date('Y')
         ];
 
-        // fetch the menu
-        $mega_menus = get_field('mega_menu', 'options');
-
-        foreach ($context['header']['primary_menu']->items as &$item) {
-            $item->mega_menu = false;
-
-            if ($mega_menus) {
-                $mega_menu = array_filter($mega_menus, function ($menu) use ($item) {
-                    return $menu['parent'] == $item->id;
-                });
-
-                if ($mega_menu) {
-                    $item->mega_menu = current($mega_menu);
-                }
-            }
-        }
-
         if (get_field('show_sticky_cta', 'options')) {
             $context['show_sticky_cta'] = get_field('show_sticky_cta', 'options');
             $context['sticky_cta_image'] = get_field('sticky_cta_image', 'options');
@@ -105,13 +87,7 @@ class Lumberjack extends LumberjackCore
             'youtube' => get_field('youtube_url', 'options') ?: null
         );
 
-        $share_links = new ShareableLink(get_permalink(), trim(wp_title('', false)));
-
-        $context['share']['links'] = array(
-            'twitter' => $share_links->twitter,
-            'facebook' => $share_links->facebook,
-            'linkedin' => $share_links->linkedin
-        );
+        $context['share']['links'] = get_share_links(get_permalink(), trim(wp_title('', false)));
 
         $context['share']['i18n']['heading'] = _x(
             'Share:',

@@ -1,8 +1,10 @@
 <section class="event">
-    <div class="event__date">
-        <svg><use xlink:href="#icon-event"></use></svg>
-        <span>{{ event.date }}</span>
-    </div>
+    {% if event.date %}
+        <div class="event__date">
+            <svg><use xlink:href="#icon-event"></use></svg>
+            <span>{{ event.date }}</span>
+        </div>
+    {% endif %}
 
     <h1 class="event__title">{{ event.title }}</h1>
     <p class="uppercase event__meta /">Organisation: {{ event.organisation }}. {% if event.location %}Location: {{ event.location }}{% endif %}</p>

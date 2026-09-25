@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from 'node:fs';
+import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
 import vue from '@vitejs/plugin-vue2';
 import SVGSpriter from 'svg-sprite';
@@ -30,9 +30,36 @@ function svgSpritePlugin(inputDir, outputFile) {
   };
 }
 
+function copyPlugin({ targets }) {
+  return {
+    name: 'copy',
+    generateBundle() {
+      for (const { src, dest } of targets) {
+        const files = statSync(src).isDirectory()
+          ? readdirSync(src).map((f) => [join(src, f), `${dest}/${f}`])
+          : [[src, dest]];
+
+        for (const [from, to] of files) {
+          this.emitFile({ type: 'asset', fileName: to, source: readFileSync(from) });
+        }
+      }
+    },
+  };
+}
+
 export default defineConfig({
   base: './',
-  plugins: [vue(), sassGlobImports(), svgSpritePlugin('resources/svg', 'svg/icons.svg')],
+  plugins: [
+    vue(),
+    sassGlobImports(),
+    svgSpritePlugin('resources/svg', 'svg/icons.svg'),
+    copyPlugin({
+      targets: [
+        { src: 'node_modules/flag-icons/flags/4x3', dest: 'flags' },
+        { src: 'node_modules/flag-icons/country.json', dest: 'data/country.json' },
+      ],
+    }),
+  ],
   css: {
     preprocessorOptions: {
       less: {
@@ -45,6 +72,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         // JS entry points
+        'admin': resolve(__dirname, 'resources/js/admin.js'),
         'archive-resource': resolve(__dirname, 'resources/js/archive-resource.js'),
         'block-cards-carousel': resolve(__dirname, 'blocks/cards-carousel/_cards-carousel.js'),
         'block-code-highlight': resolve(__dirname, 'resources/js/block-code-highlight.js'),

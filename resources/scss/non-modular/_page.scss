@@ -1,10 +1,6 @@
 .page-container {
 	@extend %container;
 
-	> :first-child:not(.block) {
-		margin-top: var(--v-spacing);
-	}
-
 	> .block {
 		@extend %container-reset;
 	}
