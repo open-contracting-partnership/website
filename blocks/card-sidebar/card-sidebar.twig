@@ -34,7 +34,7 @@
         <div class="card-sidebar__footer">
             {% for item in block.links %}
                 <a class="arrow-link" href="{{ item.link.url }}" target="{{ item.link.target }}">
-                    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                    <svg class="arrow-link__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                     <span class="arrow-link__label">{{ item.link.title }}</span>
                 </a>
             {% endfor %}

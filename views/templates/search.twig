@@ -33,7 +33,7 @@
 
                 {% if search.pagination.next %}
                     <a class="button button--has-icon" href="{{ search.pagination.next.link }}">
-                        <svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                        <svg class="button__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                         {{ search.i18n.next_page_label }}
                     </a>
                 {% endif %}

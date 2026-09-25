@@ -33,6 +33,12 @@ class GutenbergServiceProvider extends ServiceProvider
         add_action('init', [$this, 'disableCorePatterns'], 5);
         add_action('init', [$this, 'registerPatternCategories'], 5);
         add_action('init', [$this, 'loadPatterns'], 5);
+
+        // misc
+        add_filter('timber/twig', function (\Twig\Environment $twig) {
+            $twig->addFunction(new \Twig\TwigFunction('iconUrl', [$this, 'iconUrl']));
+            return $twig;
+        });
     }
 
     public function addSupports(): void
@@ -121,5 +127,14 @@ class GutenbergServiceProvider extends ServiceProvider
                 $patternProperties
             );
         }
+    }
+
+    public function iconUrl(string $iconType): string
+    {
+        $theme = wp_get_theme();
+        $version = $theme->get('Version');
+        $uri = get_template_directory_uri();
+
+        return "{$uri}/dist/svg/icons.svg?v={$version}#{$iconType}";
     }
 }

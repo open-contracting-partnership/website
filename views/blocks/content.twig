@@ -31,7 +31,7 @@
                 {% if item.acf_fc_layout == 'content_with_icon' %}
                     <div class="sub-content" data-type="content-with-icon">
                         <div class="sub-content__icon">
-                            <svg><use xlink:href="#content-icon-{{ item.icon }}"></use></svg>
+                            <svg><use xlink:href="{{ iconUrl('content-icon-' ~ item.icon) }}"></use></svg>
                         </div>
 
                         <div class="sub-content__content">
@@ -44,7 +44,7 @@
                     <div class="block__arrow-links">
                         {% for link in item.links %}
                             <a class="arrow-link" href="{{ link.link.url }}">
-                                <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                                <svg class="arrow-link__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                                 <span class="arrow-link__label">{{ link.link.title }}</span>
                             </a>
                         {% endfor %}
@@ -55,7 +55,7 @@
                     <div class="block__arrow-buttons">
                         {% for link in item.links %}
                             <a class="button button--has-icon" href="{{ link.link.url }}" style="--custom-background: {{ link.background_colour }}; --custom-colour: {{ link.text_colour }};">
-                                <svg class="button__icon" style="fill: {{ link.text_colour }};"><use xlink:href="#icon-arrow-circle"></use></svg>
+                                <svg class="button__icon" style="fill: {{ link.text_colour }};"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
 
                                 <span class="button__label">{{ link.link.title }}</span>
                             </a>
@@ -70,7 +70,7 @@
 
                             {% if item.show_arrows and not loop.last %}
                                 <div class="block__data-cards-arrow" aria-hidden="true">
-                                    <svg><use xlink:href="#card-icon-chevron-down"></use></svg>
+                                    <svg><use xlink:href="{{ iconUrl('card-icon-chevron-down') }}"></use></svg>
                                 </div>
                             {% endif %}
                         {% endfor %}
@@ -90,7 +90,7 @@
 
                             <div class="card__footer">
                                 <a class="arrow-link" href="{{ item.link.url }}" data-text-color="black">
-                                    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                                    <svg class="arrow-link__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                                     <span class="arrow-link__label">{{ item.link.title }}</span>
                                 </a>
                             </div>
@@ -143,7 +143,7 @@
                                 <div class="card__footer">
                                     {% for link in item.links %}
                                         <a class="arrow-link" href="{{ link.link.url }}" data-text-color="black">
-                                            <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                                            <svg class="arrow-link__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                                             <span class="arrow-link__label">{{ link.link.title }}</span>
                                         </a>
                                     {% endfor %}
@@ -155,7 +155,7 @@
                     {% if item.acf_fc_layout == 'arrow_links' %}
                         {% for link in item.links %}
                             <a class="arrow-link" href="{{ link.link.url }}">
-                                <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                                <svg class="arrow-link__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                                 <span class="arrow-link__label">{{ link.link.title }}</span>
                             </a>
                         {% endfor %}

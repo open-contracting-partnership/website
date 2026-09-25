@@ -14,7 +14,7 @@
 
             {% for link in block.primary_links %}
                 <a class="arrow-link" href="{{ link.url }}">
-                    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                    <svg class="arrow-link__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                     <span class="arrow-link__label">{{ link.title }}</span>
                 </a>
             {% endfor %}
@@ -37,7 +37,7 @@
 
             {% for link in block.secondary_links %}
                 <a class="arrow-link" href="{{ link.url }}">
-                    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                    <svg class="arrow-link__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                     <span class="arrow-link__label">{{ link.title }}</span>
                 </a>
             {% endfor %}

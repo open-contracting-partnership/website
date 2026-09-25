@@ -42,7 +42,7 @@
 
         {% if block.call_to_action %}
             <a class="arrow-link" href="{{ block.call_to_action.url }}" style="color: inherit;">
-                <svg class="arrow-link__icon" style="fill: currentColor;"><use xlink:href="#icon-arrow-circle"></use></svg>
+                <svg class="arrow-link__icon" style="fill: currentColor;"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                 <span class="arrow-link__label">{{ block.call_to_action.title }}</span>
             </a>
         {% endif %}

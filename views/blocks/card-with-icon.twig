@@ -15,7 +15,7 @@
             <h3 class="card-with-icon__heading">{{ block.heading }}</h3>
 
             {% if block.strapline %}
-                <p>{{ block.strapline }}</p>
+                <div>{{ block.strapline }}</div>
             {% endif %}
         </div>
 
@@ -29,14 +29,14 @@
                     <span>{{ block.link.title }}</span>
 
                     <svg>
-                        <use xlink:href="#icon-arrow-circle"></use>
+                        <use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use>
                     </svg>
                 </a>
             </div>
         {% endif %}
 
         <svg class="card-with-icon__icon" fill="{{ block.text_colour }}">
-            <use xlink:href="#card-icon-{{ block.icon }}"></use>
+            <use xlink:href="{{ iconUrl('card-icon-' ~ block.icon) }}"></use>
         </svg>
     </div>
 </div>

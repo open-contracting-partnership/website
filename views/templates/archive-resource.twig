@@ -25,11 +25,11 @@
                         <input class="search-box__input / uppercase" v-model="search" type="text" aria-label="Search" placeholder="Search">
 
                         <button class="search-box__reset" @click="resetSearch">
-                            <svg><use xlink:href="#icon-close"></use></svg>
+                            <svg><use xlink:href="{{ iconUrl('icon-close') }}"></use></svg>
                         </button>
 
                         <span class="search-box__icon">
-                            <svg><use xlink:href="#icon-search-rounded"></use></svg>
+                            <svg><use xlink:href="{{ iconUrl('icon-search-rounded') }}"></use></svg>
                         </span>
                     </div>
 

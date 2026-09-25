@@ -1,7 +1,7 @@
 <footer class="site-footer">
     <div class="site-footer__container">
         <div class="screen-only / site-footer__logo">
-            <svg><use xlink:href="#logo-vertical"></use></svg>
+            <svg><use xlink:href="{{ iconUrl('logo-vertical') }}"></use></svg>
         </div>
 
         <ul class="screen-only / site-footer__navigation">
@@ -24,7 +24,7 @@
 
         <div class="screen-only / site-footer__cta">
             <a class="arrow-link" href="https://open-contracting.us12.list-manage.com/subscribe?u=4257477995e0a1fa5cb6587b2&id=fc9ec0e34b">
-                <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                <svg class="arrow-link__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                 <span class="arrow-link__label">{{ footer.i18n.newsletter_header }}</span>
             </a>
         </div>
@@ -42,37 +42,37 @@
             <div class="site-footer__social-links">
                 {% if social_links.twitter %}
                     <a href="{{ social_links.twitter }}" class="" title="Connect on Twitter">
-                        <svg data-platform="twitter"><use xlink:href="#social-twitter"></use></svg>
+                        <svg data-platform="twitter"><use xlink:href="{{ iconUrl('social-twitter') }}"></use></svg>
                     </a>
                 {% endif %}
 
                 {% if social_links.github %}
                     <a href="{{ social_links.github }}" class="" title="Connect on Github">
-                        <svg data-platform="github"><use xlink:href="#social-github"></use></svg>
+                        <svg data-platform="github"><use xlink:href="{{ iconUrl('social-github') }}"></use></svg>
                     </a>
                 {% endif %}
 
                 {% if social_links.facebook %}
                     <a href="{{ social_links.facebook }}" class="" title="Connect on Facebook">
-                        <svg data-platform="facebook"><use xlink:href="#social-facebook"></use></svg>
+                        <svg data-platform="facebook"><use xlink:href="{{ iconUrl('social-facebook') }}"></use></svg>
                     </a>
                 {% endif %}
 
                 {% if social_links.soundcloud %}
                     <a href="{{ social_links.soundcloud }}" class="" title="Connect on Soundcloud">
-                        <svg data-platform="soundcloud"><use xlink:href="#social-soundcloud"></use></svg>
+                        <svg data-platform="soundcloud"><use xlink:href="{{ iconUrl('social-soundcloud') }}"></use></svg>
                     </a>
                 {% endif %}
 
                 {% if social_links.linkedin %}
                     <a href="{{ social_links.linkedin }}" class="" title="Connect on LinkedIn">
-                        <svg data-platform="linkedin"><use xlink:href="#social-linkedin"></use></svg>
+                        <svg data-platform="linkedin"><use xlink:href="{{ iconUrl('social-linkedin') }}"></use></svg>
                     </a>
                 {% endif %}
 
                 {% if social_links.youtube %}
                     <a href="{{ social_links.youtube }}" class="" title="Connect on YouTube">
-                        <svg data-platform="youtube"><use xlink:href="#social-youtube"></use></svg>
+                        <svg data-platform="youtube"><use xlink:href="{{ iconUrl('social-youtube') }}"></use></svg>
                     </a>
                 {% endif %}
             </div>

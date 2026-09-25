@@ -6,7 +6,7 @@
             <div class="screen-only / single-resource__header">
                 {% if back_link %}
                     <a class="arrow-link" href="{{ back_link.url }}" data-size="medium" data-direction="west" data-icon-color="grey" data-text-color="black">
-                        <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                        <svg class="arrow-link__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                         <span class="uppercase arrow-link__label /">{{ back_link.label }}</span>
                     </a>
                 {% endif %}

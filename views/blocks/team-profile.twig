@@ -94,19 +94,19 @@
                             <div class="block__profile-social">
                                 {% if person.contact.email_address %}
                                     <a href="mailto:{{ person.contact.email_address }}" class="" title="Email {{ person.name }}">
-                                        <svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
+                                        <svg data-icon="mail"><use xlink:href="{{ iconUrl('icon-mail') }}"></use></svg>
                                     </a>
                                 {% endif %}
 
                                 {% if person.contact.twitter_name %}
                                     <a href="https://twitter.com/{{ person.contact.twitter_name }}" class="" title="Follow {{ person.name }} on Twitter">
-                                        <svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
+                                        <svg data-icon="twitter"><use xlink:href="{{ iconUrl('social-twitter') }}"></use></svg>
                                     </a>
                                 {% endif %}
 
                                 {% if person.contact.linkedin_url %}
                                     <a href="{{ person.contact.linkedin_url }}" class="" title="Connect with {{ person.name }} on Linkedin" target="_blank">
-                                        <svg data-icon="linkedin"><use xlink:href="#social-linkedin"></use></svg>
+                                        <svg data-icon="linkedin"><use xlink:href="{{ iconUrl('social-linkedin') }}"></use></svg>
                                     </a>
                                 {% endif %}
                             </div>

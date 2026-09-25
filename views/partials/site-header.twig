@@ -2,7 +2,7 @@
     <div class="site-header__container">
         <div class="site-header__logo">
             <a class="site-header__logo-link" href="{{ site.url }}" aria-label="Logo">
-                <svg><use xlink:href="#logo-horizontal"></use></svg>
+                <svg><use xlink:href="{{ iconUrl('logo-horizontal') }}"></use></svg>
             </a>
         </div>
 
@@ -21,7 +21,7 @@
                 <input class="search-box__input" type="text" name="s" value="{{ search_term }}" aria-label="Search" placeholder="Search">
 
                 <button class="search-box__icon" aria-label="Search">
-                    <svg><use xlink:href="#icon-search-rounded"></use></svg>
+                    <svg><use xlink:href="{{ iconUrl('icon-search-rounded') }}"></use></svg>
                 </button>
 
                 <input type="hidden" name="lang" value="en">
@@ -30,16 +30,16 @@
 
         <div class="site-header__hamburger">
             <svg data-icon="menu">
-                <use xlink:href="#icon-menu" />
+                <use xlink:href="{{ iconUrl('icon-menu') }}" />
             </svg>
 
             <svg data-icon="close">
-                <use xlink:href="#icon-close" />
+                <use xlink:href="{{ iconUrl('icon-close') }}" />
             </svg>
         </div>
     </div>
 </header>
 
 <div class="print-only / site-header__print-logo">
-    <svg><use xlink:href="#logo-horizontal"></use></svg>
+    <svg><use xlink:href="{{ iconUrl('logo-horizontal') }}"></use></svg>
 </div>
