@@ -1,7 +1,7 @@
 <template>
     <div class="map-table">
         <router-link class="country-table__close" :to="{ name: 'map' }">
-            <svg><use xlink:href="{{ iconUrl('icon-close') }}" /></svg>
+            <svg><use :xlink:href="`${icon_url}#icon-close`" /></svg>
         </router-link>
 
         <div class="country-table__container">
@@ -35,7 +35,7 @@
 
                         <td class="country-table__data">
                             <a class="arrow-link" data-size="small" :href="publisher.url">
-                                <svg class="arrow-link__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}" /></svg>
+                                <svg class="arrow-link__icon"><use :xlink:href="`${icon_url}#icon-arrow-circle`" /></svg>
                             </a>
                         </td>
                     </tr>
@@ -46,13 +46,18 @@
 </template>
 
 <script>
+    import getWordPressData from '@/js/wordpress-data';
+
+    const { icon_url } = getWordPressData('page-worldwide');
+
     import { mapGetters } from 'vuex'
 
     export default {
         data() {
             return {
                 order_by: null,
-                order_asc: true
+                order_asc: true,
+                icon_url,
             }
         },
 
@@ -135,7 +140,7 @@
                 }
 
                 return publishers;
-            }
+            },
         },
 
         methods: {

@@ -129,12 +129,18 @@ class GutenbergServiceProvider extends ServiceProvider
         }
     }
 
-    public function iconUrl(string $iconType): string
+    public static function iconUrl(string|null $iconType = null): string
     {
         $theme = wp_get_theme();
         $version = $theme->get('Version');
         $uri = get_template_directory_uri();
 
-        return "{$uri}/dist/svg/icons.svg?v={$version}#{$iconType}";
+        $url = "{$uri}/dist/svg/icons.svg?v={$version}";
+
+        if ($iconType) {
+            $url .= "#{$iconType}";
+        }
+
+        return $url;
     }
 }

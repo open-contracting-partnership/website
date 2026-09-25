@@ -3,6 +3,7 @@
 use App\Assets;
 use App\Models\News;
 use App\PostTypes\Resource;
+use App\Providers\GutenbergServiceProvider;
 use Rareloop\Lumberjack\Facades\Config;
 use Timber\Timber;
 
@@ -14,6 +15,7 @@ add_filter('script_module_data_archive-resource', function ($data) {
 });
 
 add_filter('script_module_data_page-worldwide', function ($data) {
+    $data['icon_url'] = GutenbergServiceProvider::iconUrl();
     $data['mapbox_access_token'] = Config::get('services.mapbox_access_token');
     $data['flags_url'] = get_template_directory_uri() . '/dist/flags';
 
