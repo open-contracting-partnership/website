@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Rareloop\Lumberjack\Facades\Config;
 use Rareloop\Lumberjack\Page;
 use Rareloop\Lumberjack\Post;
 use Rareloop\Lumberjack\Providers\ServiceProvider;
@@ -29,5 +30,11 @@ class AppServiceProvider extends ServiceProvider
             $mimes['svg'] = 'image/svg+xml';
             return $mimes;
         });
+
+        add_filter('timber/twig/environment/options', fn($options) => [
+            ...$options,
+            'cache' => Config::get('timber.cache', false),
+            'auto_reload' => true,
+        ]);
     }
 }
