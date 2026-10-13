@@ -52,6 +52,43 @@ class BaseCard
         return $collection;
     }
 
+    /**
+     * Return the cached result of $build, per language, until any post, term or user changes.
+     *
+     * Rendering content enqueues the styles and scripts of its blocks,
+     * so a cached result re-enqueues those that $build enqueued.
+     */
+    public static function remember(string $key, callable $build)
+    {
+        $key = implode(':', [
+            $key,
+            apply_filters('wpml_current_language', null),
+            wp_cache_get_last_changed('posts'),
+            wp_cache_get_last_changed('terms'),
+            wp_cache_get_last_changed('users'),
+        ]);
+
+        $cached = wp_cache_get($key, 'ocp_cards', false, $found);
+
+        if ($found) {
+            array_map('wp_enqueue_style', $cached['styles']);
+            array_map('wp_enqueue_script', $cached['scripts']);
+        } else {
+            $styles = wp_styles()->queue;
+            $scripts = wp_scripts()->queue;
+
+            $cached = [
+                'value' => $build(),
+                'styles' => array_values(array_diff(wp_styles()->queue, $styles)),
+                'scripts' => array_values(array_diff(wp_scripts()->queue, $scripts)),
+            ];
+
+            wp_cache_set($key, $cached, 'ocp_cards', DAY_IN_SECONDS);
+        }
+
+        return $cached['value'];
+    }
+
     public static function convertCollectionToArray($collection)
     {
         if (is_array($collection)) {

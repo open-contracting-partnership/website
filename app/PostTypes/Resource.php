@@ -79,6 +79,11 @@ class Resource extends Post
 
     public static function getAllResources(): array
     {
+        return ResourceCard::remember('resources', [self::class, 'buildAllResources']);
+    }
+
+    public static function buildAllResources(): array
+    {
         $resources = Timber::get_posts([
             'post_type' => 'resource',
             'posts_per_page' => -1,
