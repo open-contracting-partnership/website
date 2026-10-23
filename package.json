@@ -43,7 +43,7 @@
     "postcss": "^8.5.25",
     "sass": "^1.72.0",
     "svg-sprite": "^2.0.4",
-    "vite": "^7.3.6",
+    "vite": "^7.3.7",
     "vite-plugin-sass-glob-import": "^6.0.2"
   }
 }
