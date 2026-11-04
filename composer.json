@@ -1,17 +1,17 @@
 {
     "require": {
-        "php": "^8.1",
+        "php": "^8.5",
         "drewm/mailchimp-api": "^2.5",
         "imgix/imgix-php": "^4.1.0",
         "imliam/shareable-link": "^1.0.0",
         "ozdemirburak/iris": "^3.1",
         "rareloop/lumberjack-core": "^8.0",
-        "vinkla/extended-acf": "13.8.0",
+        "vinkla/extended-acf": "^15.1",
         "vlucas/phpdotenv": "^5.6"
     },
     "require-dev": {
         "php-stubs/acf-pro-stubs": "^6.5",
-        "php-stubs/wordpress-stubs": "^6.8",
+        "php-stubs/wordpress-stubs": "^7.1",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^2.1",
         "szepeviktor/phpstan-wordpress": "^2.0"

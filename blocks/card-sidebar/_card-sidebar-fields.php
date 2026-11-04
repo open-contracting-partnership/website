@@ -16,7 +16,7 @@ register_extended_field_group([
         Textarea::make('Description', 'description'),
 
         Image::make('Image', 'image')
-            ->returnFormat('id')
+            ->format('id')
             ->library('all')
             ->previewSize('medium'),
 
@@ -29,12 +29,12 @@ register_extended_field_group([
                 'white' => 'White',
                 'transparent' => 'Transparent',
             ])
-            ->defaultValue('grey'),
+            ->default('grey'),
 
         Repeater::make('Links', 'links')
             ->fields([
                 Link::make('Link', 'link')
-                    ->returnFormat('array')
+                    ->format('array')
                     ->required(),
             ]),
     ],

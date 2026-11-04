@@ -48,7 +48,7 @@ class BlockSpacingControls
 
         return [
             Accordion::make('Vertical Spacing')
-                ->instructions('Control the vertical spacing of this block.')
+                ->helperText('Control the vertical spacing of this block.')
                 ->multiExpand(),
 
             ButtonGroup::make('', 'vertical_spacing_override')
@@ -57,12 +57,12 @@ class BlockSpacingControls
                     'basic' => 'Basic',
                     'advanced' => 'Advanced'
                 ])
-                ->defaultValue('default'),
+                ->default('default'),
 
             Select::make('Spacing', 'vertical_spacing__block')
                 ->choices($verticalSpacingOptions)
-                ->defaultValue($blockDefault)
-                ->returnFormat('value')
+                ->default($blockDefault)
+                ->format('value')
                 ->required()
                 ->conditionalLogic([
                     ConditionalLogic::where('vertical_spacing_override', '==', 'basic')
@@ -70,8 +70,8 @@ class BlockSpacingControls
 
             Select::make('Top Spacing', 'vertical_spacing__top')
                 ->choices($topSpacingOptions)
-                ->defaultValue($topDefault)
-                ->returnFormat('value')
+                ->default($topDefault)
+                ->format('value')
                 ->required()
                 ->conditionalLogic([
                     ConditionalLogic::where('vertical_spacing_override', '==', 'advanced')
@@ -79,8 +79,8 @@ class BlockSpacingControls
 
             Select::make('Bottom Spacing', 'vertical_spacing__bottom')
                 ->choices($bottomSpacingOptions)
-                ->defaultValue($bottomDefault)
-                ->returnFormat('value')
+                ->default($bottomDefault)
+                ->format('value')
                 ->required()
                 ->conditionalLogic([
                     ConditionalLogic::where('vertical_spacing_override', '==', 'advanced')

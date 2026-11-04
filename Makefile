@@ -10,7 +10,7 @@ DB           ?= corporate_wp
 PROD_URL     := https://www.open-contracting.org
 PROD_WP      := /home/corporate/public_html
 DISABLE      := ["redis-cache","wp-cloudflare-page-cache"]
-PHP_VERSION  := 8.1
+PHP_VERSION  := 8.5
 # Cached options that embed absolute paths or IDs from the source site.
 DROP_OPTIONS := 'rewrite_rules','wpml_language_switcher_template_objects'
 # .env key holding a base URL that has to point at the local site.
