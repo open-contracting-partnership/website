@@ -6,7 +6,7 @@
         "imliam/shareable-link": "^1.0.0",
         "ozdemirburak/iris": "^3.1",
         "rareloop/lumberjack-core": "^8.0",
-        "vinkla/extended-acf": "13.8.0",
+        "vinkla/extended-acf": "^15.1",
         "vlucas/phpdotenv": "^5.6"
     },
     "require-dev": {

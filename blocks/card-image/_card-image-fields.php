@@ -7,7 +7,7 @@ register_extended_field_group([
     'title' => 'Block → Card Image',
     'fields' => [
         Image::make('Image', 'image')
-            ->returnFormat('id')
+            ->format('id')
             ->library('all')
             ->previewSize('medium')
             ->required(),

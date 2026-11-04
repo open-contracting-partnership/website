@@ -12,15 +12,15 @@ register_extended_field_group([
             ->layout('block')
             ->fields([
                 TrueFalse::make('Mobile', 'mobile')
-                    ->defaultValue(1)
+                    ->default(1)
                     ->column(33),
 
                 TrueFalse::make('Tablet', 'tablet')
-                    ->defaultValue(1)
+                    ->default(1)
                     ->column(33),
 
                 TrueFalse::make('Desktop', 'desktop')
-                    ->defaultValue(1)
+                    ->default(1)
                     ->column(33),
             ]),
 
@@ -28,21 +28,21 @@ register_extended_field_group([
             ->layout('block')
             ->fields([
                 Number::make('Mobile', 'mobile')
-                    ->defaultValue(12)
+                    ->default(12)
                     ->min(1)
                     ->max(12)
                     ->step(1)
                     ->column(33),
 
                 Number::make('Tablet', 'tablet')
-                    ->defaultValue(12)
+                    ->default(12)
                     ->min(1)
                     ->max(12)
                     ->step(1)
                     ->column(33),
 
                 Number::make('Desktop', 'desktop')
-                    ->defaultValue(12)
+                    ->default(12)
                     ->min(1)
                     ->max(12)
                     ->step(1)
@@ -53,21 +53,21 @@ register_extended_field_group([
             ->layout('block')
             ->fields([
                 Number::make('Mobile', 'mobile')
-                    ->defaultValue(0)
+                    ->default(0)
                     ->min(0)
                     ->max(12)
                     ->step(1)
                     ->column(33),
 
                 Number::make('Tablet', 'tablet')
-                    ->defaultValue(0)
+                    ->default(0)
                     ->min(0)
                     ->max(12)
                     ->step(1)
                     ->column(33),
 
                 Number::make('Desktop', 'desktop')
-                    ->defaultValue(0)
+                    ->default(0)
                     ->min(0)
                     ->max(12)
                     ->step(1)
@@ -78,17 +78,17 @@ register_extended_field_group([
             ->layout('block')
             ->fields([
                 Number::make('Mobile', 'mobile')
-                    ->defaultValue(0)
+                    ->default(0)
                     ->step(1)
                     ->column(33),
 
                 Number::make('Tablet', 'tablet')
-                    ->defaultValue(0)
+                    ->default(0)
                     ->step(1)
                     ->column(33),
 
                 Number::make('Desktop', 'desktop')
-                    ->defaultValue(0)
+                    ->default(0)
                     ->step(1)
                     ->column(33),
             ]),

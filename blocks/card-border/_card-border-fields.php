@@ -13,17 +13,17 @@ register_extended_field_group([
     'title' => 'Block → Card Border',
     'fields' => [
         Select::make('Content', 'content')
-            ->instructions('Choose whether to pull in an existing post or manually enter the details for this card.')
+            ->helperText('Choose whether to pull in an existing post or manually enter the details for this card.')
             ->choices([
                 'post' => 'Post',
                 'manual_entry' => 'Manual Entry',
             ])
-            ->defaultValue('manual_entry'),
+            ->default('manual_entry'),
 
         PostObject::make('Post', 'post')
             ->postTypes(['post'])
             ->postStatus(['publish'])
-            ->returnFormat('id')
+            ->format('id')
             ->required()
             ->conditionalLogic([
                 ConditionalLogic::where('content', '==', 'post')
@@ -48,7 +48,7 @@ register_extended_field_group([
         Repeater::make('Buttons', 'buttons')
             ->fields([
                 Link::make('Link', 'link')
-                    ->returnFormat('array')
+                    ->format('array')
                     ->required(),
             ])
             ->conditionalLogic([
