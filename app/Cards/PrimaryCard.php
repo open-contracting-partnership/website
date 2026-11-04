@@ -3,6 +3,7 @@
 namespace App\Cards;
 
 use Timber\Timber;
+
 class PrimaryCard extends BaseCard
 {
     public static function convertTimberPost($post): array
