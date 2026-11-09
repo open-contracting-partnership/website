@@ -12,6 +12,11 @@ class News
 {
     public static function getPosts()
     {
+        return PrimaryCard::remember('news', [self::class, 'buildPosts']);
+    }
+
+    public static function buildPosts()
+    {
         $posts = Timber::get_posts([
             'post_type' => ['post', 'news'],
             'posts_per_page' => -1,

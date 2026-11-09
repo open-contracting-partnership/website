@@ -183,7 +183,8 @@ foreach ($taxonomies as $taxonomy => $options) {
             'show_ui' => true,
             'show_tagcloud' => false,
             'hierarchical' => true,
-            'rewrite' => array('slug' => $taxonomy, 'with_front' => false)
+            'rewrite' => array('slug' => $taxonomy, 'with_front' => false),
+            'show_in_rest' => true,
         )
     );
 
@@ -196,3 +197,12 @@ foreach ($taxonomies as $taxonomy => $options) {
         });
     }
 }
+
+// Hide the block editor's taxonomy panels, as terms are set via ACF fields.
+add_filter('rest_prepare_taxonomy', function ($response, $taxonomy) use ($taxonomies) {
+    if (isset($taxonomies[$taxonomy->name], $response->data['visibility'])) {
+        $response->data['visibility']['show_ui'] = false;
+    }
+
+    return $response;
+}, 10, 2);

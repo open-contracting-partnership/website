@@ -242,6 +242,12 @@
                 const click = (e) => {
                     const code = e.features[0].properties.iso_a2.toLowerCase();
 
+                    // check code is valid
+                    if (! code || code.length !== 2) {
+                        console.error('Invalid country code:', code);
+                        return;
+                    }
+
                     this.setCountry(code);
                 };
 

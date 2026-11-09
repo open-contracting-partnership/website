@@ -11,6 +11,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: $ui-white;
+    // Makes cqw units in descendants measure the page width excluding the scrollbar, unlike vw.
+    container-type: inline-size;
 
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
