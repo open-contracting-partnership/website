@@ -210,7 +210,7 @@
                     }
 
                     @include from(1344) {
-                        margin: 0 calc((-100vw - -1248px) / 2);
+                        margin: 0 calc((-100cqw - -1248px) / 2);
                     }
                 }
 
