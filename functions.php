@@ -206,3 +206,26 @@ add_filter('rest_prepare_taxonomy', function ($response, $taxonomy) use ($taxono
 
     return $response;
 }, 10, 2);
+
+// Add each resource's language and translations, as {language code: post ID}.
+add_action('rest_api_init', function () {
+    register_rest_field('resource', 'lang', [
+        'get_callback' => function ($post) {
+            return apply_filters('wpml_element_language_code', null, [
+                'element_id' => $post['id'],
+                'element_type' => 'resource',
+            ]);
+        },
+        'schema' => ['type' => ['string', 'null'], 'context' => ['view', 'edit'], 'readonly' => true],
+    ]);
+
+    register_rest_field('resource', 'translations', [
+        'get_callback' => function ($post) {
+            $trid = apply_filters('wpml_element_trid', null, $post['id'], 'post_resource');
+            $translations = apply_filters('wpml_get_element_translations', [], $trid, 'post_resource');
+
+            return (object) array_map(fn ($translation) => (int) $translation->element_id, $translations ?: []);
+        },
+        'schema' => ['type' => 'object', 'context' => ['view', 'edit'], 'readonly' => true],
+    ]);
+});
