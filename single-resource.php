@@ -26,8 +26,9 @@ class SingleResourceController extends Controller
 
         if ($context['resource']['type']) {
             $context['resource']['type'] = get_term($context['resource']['type']);
-            $context['resource']['colour'] = get_field('colour', $context['resource']['type']);
         }
+
+        $context['resource']['colour'] = $resource->colour();
 
         $context['resource']['attachments'] = get_field('attachments', $resource->ID);
         $context['resource']['link'] = get_field('link', $resource->ID);
