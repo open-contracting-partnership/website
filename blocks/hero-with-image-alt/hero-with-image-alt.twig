@@ -1,0 +1,45 @@
+<div
+    class="block / hero-with-image-alt"
+    data-block-spacing="none"
+    data-block="hero-with-image-alt"
+>
+    <div class="hero-with-image-alt__container">
+        <div class="hero-with-image-alt__content">
+            <h1 class="hero-with-image-alt__heading">
+                {{ block.heading }}
+            </h1>
+            <p class="hero-with-image-alt__description">
+                {{ block.content }}
+            </p>
+
+            <div class="hero-with-image-alt__cta">
+                <a
+                    class="button button--has-icon"
+                    href="{{ block.cta.url }}"
+                    style="--custom-background: #ffffff; --custom-colour: #23b2a7;"
+                >
+                    <svg class="button__icon" style="fill: #23b2a7;">
+                        <use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use>
+                    </svg>
+
+                    <span class="button__label">{{ block.cta.title }}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-with-image-alt__image">
+        {{ imgix({
+            src: block.background_image.src,
+            height: block.background_image.height,
+            width: block.background_image.width,
+            transforms: [{
+                w: 1980
+            }, {
+                w: 3960
+            }],
+            sizes: '1980px',
+            loading: 'eager'
+        }) }}
+    </div>
+</div>

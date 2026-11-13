@@ -1,0 +1,10 @@
+{
+    "name": "app/hero-with-image-alt",
+    "title": "Hero With Image Alt",
+    "category": "app-blocks",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php",
+        "blockVersion": 3
+    }
+}
