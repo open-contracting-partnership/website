@@ -4,8 +4,7 @@
     --button-size: 17px;
     --font-size: 14px;
     --line-height: 16px;
-    --height-half: calc(var(--height) / 2);
-    // --height: calc(var(--button-size) + (2 * var(--button-offset)));
+    --width: 120px;
 
     // height: var(--height);
     font-size: var(--font-size);
@@ -13,6 +12,7 @@
 
     border: var(--border-width) solid currentColor;
     display: flex;
+    width: var(--width);
 
     &:has(.search-box__input:placeholder-shown) .search-box__reset {
         opacity: 0;
