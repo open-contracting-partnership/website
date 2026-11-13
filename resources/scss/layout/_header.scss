@@ -141,6 +141,17 @@ body:has([data-block="hero-with-image-alt"]) .site-header {
                     text-decoration: none;
                 }
 
+                // bridge to dropdown
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    height: 32px;
+                    width: 100%;
+                }
+
                 &:hover,
                 &:focus-within {
                     > a {
@@ -175,6 +186,7 @@ body:has([data-block="hero-with-image-alt"]) .site-header {
             color: black;
             padding: 32px;
             border-radius: 0 0 10px 5px;
+            top: calc(100% + 32px);
             left: -32px;
             width: max-content;
             gap: 56px;
