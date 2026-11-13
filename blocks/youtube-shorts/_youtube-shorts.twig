@@ -1,0 +1,48 @@
+<div
+    id="{{ block.id }}"
+    class="youtube-shorts"
+    data-block-spacing-top="{{ block.block_spacing.top }}"
+    data-block-spacing-bottom="{{ block.block_spacing.bottom }}"
+>
+    {% if block.youtube_shorts is not empty %}
+        <div class="youtube-shorts__grid">
+            {% for short in block.youtube_shorts %}
+                <div class="youtube-shorts__item">
+                    <div class="youtube-shorts__wrapper">
+                        {% if short.poster_image and short.poster_image.src %}
+                            <img 
+                                src="{{ short.poster_image.src }}"
+                                alt="{{ short.poster_image.alt | default('Video') }}"
+                                class="youtube-shorts__poster"
+                                loading="lazy"
+                            >
+                            {% if short.video_id %}
+                                <button 
+                                    class="youtube-shorts__play-btn"
+                                    aria-label="Play video"
+                                    data-video-id="{{ short.video_id }}"
+                                    type="button"
+                                >
+                                    <svg class="youtube-shorts__play-icon" viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </button>
+                            {% endif %}
+                        {% else %}
+                            {% if short.video_id %}
+                                <iframe
+                                    class="youtube-shorts__iframe"
+                                    src="https://www.youtube.com/embed/{{ short.video_id }}?enablejsapi=1"
+                                    title="YouTube Short"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                                ></iframe>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
