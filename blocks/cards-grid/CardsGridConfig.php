@@ -109,7 +109,7 @@ class CardsGridConfig
 
                 return Select::make('Variations', $fieldName)
                     ->choices($cardType['variations'])
-                    ->defaultValue($cardType['default_variation'] ?? array_keys($cardType['variations'])[0])
+                    ->default($cardType['default_variation'] ?? array_keys($cardType['variations'])[0])
                     ->conditionalLogic([
                         ConditionalLogic::where('card_type', '==', $cardKey)
                     ]);

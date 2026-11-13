@@ -25,6 +25,12 @@
     }
 }
 
+.accordion-item {
+    &:not(:last-child) {
+        margin-bottom: spacing(2);
+    }
+}
+
 .accordion-item__header {
     @extend %button-naked;
     color: var(--contrast-colour);
@@ -36,7 +42,6 @@
     width: 100%;
     gap: spacing(3);
     padding: spacing(2.5) spacing(3);
-    margin-bottom: spacing(1.5);
 }
 
     .accordion-item__icon {
@@ -61,10 +66,5 @@
     }
 
 .accordion-item__content {
-    padding-inline: spacing(3);
-    padding-top: spacing(1);
-
-    > :last-child {
-        margin-bottom: 0;
-    }
+    margin: spacing(3);
 }

@@ -30,7 +30,7 @@ class Assets
         return self::$manifest;
     }
 
-    private static function getUrl(string $entry): ?string
+    public static function getUrl(string $entry): ?string
     {
         $pattern = '#^' . str_replace('VITE', '(.{8})', $entry) . '$#';
         $manifest = self::getManifest();

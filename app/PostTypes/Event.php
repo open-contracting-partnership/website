@@ -2,7 +2,6 @@
 
 namespace App\PostTypes;
 
-use ImLiam\ShareableLink;
 use Rareloop\Lumberjack\Post;
 
 class Event extends Post
@@ -72,19 +71,20 @@ class Event extends Post
             }, $taxonomy);
         }
 
-        $share_links = new ShareableLink($event->link(), $event->title);
-
-        $context['share_links'] = array(
-            'twitter' => $share_links->twitter,
-            'facebook' => $share_links->facebook,
-            'linkedin' => $share_links->linkedin
-        );
+        $context['share_links'] = get_share_links($event->link(), $event->title);
 
         return $context;
     }
 
     public function formattedDate()
     {
-        return humanDateRanges($this->meta('event_date'), $this->meta('event_end_date') ?: $this->meta('event_date'));
+        // Translated events can lack a date, if WPML isn't configured to copy the field.
+        $start = $this->meta('event_date');
+
+        if (! $start) {
+            return '';
+        }
+
+        return humanDateRanges($start, $this->meta('event_end_date') ?: $start);
     }
 }

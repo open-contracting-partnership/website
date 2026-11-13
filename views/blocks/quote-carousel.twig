@@ -1,6 +1,11 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
-<div id="{{ options.id }}" class="block" data-block-type="quote-carousel">
+<div
+    id="{{ options.id }}"
+    class="block"
+    data-block-type="quote-carousel"
+    data-block-spacing="none"
+>
     <div class="block__background" style="background-color: {{ block.background_colour }}"></div>
 
     <div class="block__container" style="color: {{ block.text_colour }};">

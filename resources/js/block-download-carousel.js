@@ -1,4 +1,4 @@
-import { tns } from "../../node_modules/tiny-slider/src/tiny-slider"
+import { tns } from 'tiny-slider';
 
 const $block_download_carousel = document.querySelectorAll('.block[data-block-type="download-carousel"]');
 

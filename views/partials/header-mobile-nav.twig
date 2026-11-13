@@ -21,7 +21,7 @@
                             class="header-mobile-nav__toggle"
                             @click="open = !open"
                         >
-                            <svg><use xlink:href="#icon-chevron"></use></svg>
+                            <svg><use xlink:href="{{ iconUrl('icon-chevron') }}"></use></svg>
                         </span>
                     {% endif %}
                 </div>
@@ -93,7 +93,7 @@
             <form role="search" method="get" class="search-box" data-colour="light" action="{{ site.home_url }}">
                 <input class="search-box__input" type="text" name="s" value="{{ search_term }}" aria-label="Search" placeholder="Search">
                 <button class="search-box__icon" aria-label="Search">
-                    <svg><use xlink:href="#icon-search"></use></svg>
+                    <svg><use xlink:href="{{ iconUrl('icon-search') }}"></use></svg>
                 </button>
                 <input type="hidden" name="lang" value="en">
             </form>

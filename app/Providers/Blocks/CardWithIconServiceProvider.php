@@ -36,14 +36,9 @@ class CardWithIconServiceProvider
 
         // content
         $context['block']['heading'] = get_field('heading');
-        $context['block']['strapline'] = get_field('strapline');
+        $context['block']['strapline'] = strip_tags(get_field('strapline'), '<p><a><strong><em>');
         $context['block']['icon'] = get_field('icon');
         $context['block']['link'] = get_field('link');
-
-        if ($is_preview && $context['block']['link']) {
-            $context['block']['link']['url'] = '#';
-            $context['block']['link']['target'] = '';
-        }
 
         // colours
         $context['block']['background_colour'] = get_field('background_colour') ?: '#FFFFFF';

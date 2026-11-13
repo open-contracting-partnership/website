@@ -31,6 +31,11 @@ class Handler extends LumberjackHandler
             }
         }
 
+        // Lumberjack replaces Sentry's handlers on the front end, so forward to Sentry here.
+        if (function_exists('Sentry\\captureException')) {
+            \Sentry\captureException($e);
+        }
+
         parent::report($e);
     }
 

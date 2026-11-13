@@ -36,11 +36,6 @@ class ArrowLinkProvider
         $context['block']['link'] = get_field('link');
         $context['block']['size'] = get_field('size');
 
-        if ($is_preview && $context['block']['link']) {
-            $context['block']['link']['url'] = '#';
-            $context['block']['link']['target'] = '';
-        }
-
         Timber::render('blocks/arrow-link.twig', $context);
     }
 }

@@ -1,6 +1,15 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
-<div id="{{ options.id }}" class="block" data-block-type="stages" style="--block-colour: {{ block.background_colour }}; --active-colour: {{ block.active_colour }}">
+<div
+    id="{{ options.id }}"
+    class="block"
+    data-block-type="stages"
+    data-block-spacing="none"
+    style="
+        --block-colour: {{ block.background_colour }}; 
+        --active-colour: {{ block.active_colour }}
+    "
+>
     <div class="block__background" style="background-color: {{ block.background_colour }}"></div>
 
     <div class="block__container" style="color: {{ block.text_colour }};">

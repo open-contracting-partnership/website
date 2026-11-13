@@ -5,8 +5,6 @@ $heading-sizes: (
     'h4',
     'h5',
     'h6',
-    // 'display-1',
-    // 'display-2',
 );
 
 $heading-margin-adjustments: (
@@ -16,15 +14,26 @@ $heading-margin-adjustments: (
 );
 
 .heading {
+    @extend %heading-margins;
+
+    position: relative;
+
     @each $size in $heading-sizes {
-        &[data-size="#{$size}"] > .acf-innerblocks-container > * {
+        &[data-size="#{$size}"],
+        &[data-size="default"]:has(#{$size}) {
             @extend .#{$size};
+
+            > .acf-innerblocks-container > * {
+                font-size: 1em;
+            }
         }
     }
 
     @each $name, $adjustment in $heading-margin-adjustments {
-        &[data-margin="#{$name}"] > .acf-innerblocks-container > * {
+        &[data-margin="#{$name}"] {
             --heading-margin-adjuster: #{$adjustment};
         }
     }
 }
+
+// headings followed by specific elements should have no top margin

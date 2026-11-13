@@ -4,7 +4,7 @@
 
 {% set options = { 'badge': null } | merge(options) %}
 
-<div class="card card--feature" data-block-spacing="small">
+<div class="card card--feature" data-block-spacing="sm">
     <div class="card__image">
         {{ imgix({
             src: card.image_url,
@@ -31,7 +31,7 @@
                 {% if options.badge.label %}
                     <div class="badge">
                         <span class="badge__label">{{ options.badge.label }}</span>
-                        <svg class="badge__icon"><use xlink:href="#icon-plus-circle"></use></svg>
+                        <svg class="badge__icon"><use xlink:href="{{ iconUrl('icon-plus-circle') }}"></use></svg>
                     </div>
                 {% endif %}
             </div>

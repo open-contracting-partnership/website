@@ -11,9 +11,8 @@
 }
 
 .translation-menu__trigger {
-    border: solid 0.5px #C4C4C4;
-    border-radius: 2px 999px 999px 2px;
-    color: #C4C4C4;
+    border: 1px solid;
+    color: currentColor;
     cursor: pointer;
     display: block;
     font-size: 14px;
@@ -26,7 +25,7 @@
     &::after {
         border-left: 4px solid transparent;
         border-right: 4px solid transparent;
-        border-top: 8px solid #C4C4C4;
+        border-top: 8px solid;
         content: '';
         height: 0;
         margin-top: -4px;

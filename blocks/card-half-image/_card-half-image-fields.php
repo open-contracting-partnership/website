@@ -3,7 +3,7 @@
 use Extended\ACF\Fields\ColorPicker;
 use Extended\ACF\Fields\Image;
 use Extended\ACF\Fields\Text;
-use Extended\ACF\Fields\Url;
+use Extended\ACF\Fields\URL;
 use Extended\ACF\Location;
 
 register_extended_field_group([
@@ -15,23 +15,23 @@ register_extended_field_group([
         Text::make('Strapline', 'strapline'),
 
         Image::make('Image', 'image')
-            ->returnFormat('id')
+            ->format('id')
             ->library('all')
             ->previewSize('medium'),
 
-        Url::make('Link URL', 'link'),
+        URL::make('Link URL', 'link'),
 
         // Link::make('Link', 'link')
-        //     ->returnFormat('array'),
+        //     ->format('array'),
 
         ColorPicker::make('Background Colour', 'background_colour')
-            ->defaultValue('#B9C504'),
+            ->default('#B9C504'),
 
         ColorPicker::make('Hover Colour', 'hover_colour')
-            ->defaultValue('#B9C504'),
+            ->default('#B9C504'),
 
         ColorPicker::make('Text Colour', 'text_colour')
-            ->defaultValue('#000000'),
+            ->default('#000000'),
     ],
     'location' => [
         Location::where('block', 'app/card-half-image'),

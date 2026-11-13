@@ -2,9 +2,9 @@
     class="arrow-link"
     href="{{ block.link.url }}"
     target="{{ block.link.target }}"
-    data-block-spacing="tiny"
+    data-block-spacing="xs"
     data-size="{{ block.size ? block.size : 'default' }}"
 >
-    <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+    <svg class="arrow-link__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
     <span class="arrow-link__label">{{ block.link.title }}</span>
 </a>

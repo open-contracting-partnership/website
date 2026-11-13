@@ -1,6 +1,11 @@
 {% set options = { 'id': null } | merge(block.options) %}
 
-<div id="{{ options.id }}" class="block" data-block-type="featured-stories-carousel">
+<div
+    id="{{ options.id }}"
+    class="block"
+    data-block-type="featured-stories-carousel"
+    data-block-spacing="none"
+>
     <div class="print-only">
         {% for card in block.featured_stories %}
             {% include 'cards/primary.twig' with card %}
@@ -10,11 +15,11 @@
     <div class="screen-only / block__container">
         <div class=" block__controls">
             <button class="button--naked" rel="prev" aria-label="Previous">
-                <svg><use xlink:href="#icon-large-arrow"></use></svg>
+                <svg><use xlink:href="{{ iconUrl('icon-large-arrow') }}"></use></svg>
             </button>
 
             <button class="button--naked" rel="next" aria-label="Next">
-                <svg><use xlink:href="#icon-large-arrow"></use></svg>
+                <svg><use xlink:href="{{ iconUrl('icon-large-arrow') }}"></use></svg>
             </button>
         </div>
 

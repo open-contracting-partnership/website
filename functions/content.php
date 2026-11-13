@@ -169,3 +169,22 @@ function the_authors($post_id = null, $with_links = false)
 {
     echo get_authors($post_id, $with_links);
 }
+
+
+ //**************
+// SHARING LINKS
+
+/**
+ * Return the social sharing URLs for a page.
+ */
+function get_share_links(string $url, string $title): array
+{
+    $links = new \ImLiam\ShareableLink($url, $title);
+
+    return array(
+        'twitter' => $links->twitter,
+        // The package builds facebook.com/dialog/share, which rejects requests without an app ID.
+        'facebook' => 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode($url),
+        'linkedin' => $links->linkedin
+    );
+}

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Assets;
 use Rareloop\Lumberjack\Providers\ServiceProvider;
 use Timber\Timber;
 
@@ -22,12 +23,6 @@ class AdminServiceProvider extends ServiceProvider
         add_action('init', [$this, 'updatePostObjectLabel']);
         add_action('admin_menu', [$this, 'updatePostMenuLabel']);
 
-        add_action('admin_footer', function () {
-            $context = Timber::context();
-
-            Timber::render('partials/svg-loader.twig', $context);
-        });
-
         add_filter('upload_mimes', function ($mimes) {
             $mimes['svg'] = 'image/svg+xml';
             return $mimes;
@@ -36,6 +31,7 @@ class AdminServiceProvider extends ServiceProvider
         $this->addDynamicLocationFields();
         $this->disableAcfInnerBlocksContainer();
         $this->handleAcfImageFields();
+        $this->queueAdminAssets();
     }
 
     public function updatePostMenuLabel(): void
@@ -70,7 +66,12 @@ class AdminServiceProvider extends ServiceProvider
 
     public static function setAcfCountryLocationValues($field)
     {
-        $countryJson = get_template_directory() . '/node_modules/flag-icons/country.json';
+        $countryJson = get_template_directory() . '/dist/data/country.json';
+
+        if (! file_exists($countryJson)) {
+            return $field;
+        }
+
         $countries = collect(json_decode(file_get_contents($countryJson), true));
 
         $field['choices'] = $countries->mapWithKeys(function ($country) {
@@ -112,5 +113,12 @@ class AdminServiceProvider extends ServiceProvider
                 })
                 ->toArray();
         }, 999, 3);
+    }
+
+    protected function queueAdminAssets(): void
+    {
+        add_action('admin_enqueue_scripts', function () {
+            wp_enqueue_script('admin-scripts', Assets::getUrl('js/admin-VITE.js'), ['acf-input']);
+        });
     }
 }

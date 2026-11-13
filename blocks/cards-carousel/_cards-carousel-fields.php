@@ -10,9 +10,9 @@ register_extended_field_group([
     'key' => 'block_cards_carousel',
     'fields' => [
         Select::make('Card Type', 'card_type')
-            ->instructions('<strong>Note: </strong> Only change the card type when there are no cards, doing so when cards are present will cause issues.')
+            ->helperText('<strong>Note: </strong> Only change the card type when there are no cards, doing so when cards are present will cause issues.')
             ->choices(CardsCarouselConfig::getCardTypeChoices())
-            ->allowNull(),
+            ->nullable(),
 
         ...CardsCarouselConfig::getCardTypeVariations(),
 

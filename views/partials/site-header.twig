@@ -2,44 +2,51 @@
     <div class="site-header__container">
         <div class="site-header__logo">
             <a class="site-header__logo-link" href="{{ site.url }}" aria-label="Logo">
-                <svg><use xlink:href="#logo-horizontal"></use></svg>
+                <svg><use xlink:href="{{ iconUrl('logo-horizontal') }}"></use></svg>
             </a>
         </div>
 
-        {% include 'views/partials/main-nav.twig' %}
 
-        {% include "partials/header-mobile-nav.twig" %}
+        <!-- Desktop navigation -->
+        <div class="site-header__desktop">
+            <div class="site-header__toolbox">
+                {# {% for item in header.secondary_menu.items %}
+                    <a href="{{ item.url }}" class="site-header__toolbox-link">{{ item.title }}</a>
+                {% endfor %} #}
 
-        <div class="site-header__toolbox">
-            {% for item in header.secondary_menu.items %}
-                <a href="{{ item.url }}" class="site-header__toolbox-link">{{ item.title }}</a>
-            {% endfor %}
+                {% include "partials/translation-menu.twig" %}
 
-            {% include "partials/translation-menu.twig" %}
+                <form role="search" method="get" class="search-box" data-colour="light" action="{{ site.home_url }}">
+                    <input class="search-box__input" type="text" name="s" value="{{ search_term }}" aria-label="Search" placeholder="Search">
 
-            <form role="search" method="get" class="search-box" data-colour="light" action="{{ site.home_url }}">
-                <input class="search-box__input" type="text" name="s" value="{{ search_term }}" aria-label="Search" placeholder="Search">
+                    <button class="search-box__icon" aria-label="Search">
+                        <svg><use xlink:href="{{ iconUrl('icon-search') }}"></use></svg>
+                    </button>
 
-                <button class="search-box__icon" aria-label="Search">
-                    <svg><use xlink:href="#icon-search-rounded"></use></svg>
-                </button>
+                    <input type="hidden" name="lang" value="en">
+                </form>
+            </div>
 
-                <input type="hidden" name="lang" value="en">
-            </form>
+            {% include 'views/partials/main-nav.twig' %}
         </div>
 
-        <div class="site-header__hamburger">
-            <svg data-icon="menu">
-                <use xlink:href="#icon-menu" />
-            </svg>
+        <!-- Mobile navigation -->
+        <div class="site-header__mobile">
+            {% include "partials/header-mobile-nav.twig" %}
 
-            <svg data-icon="close">
-                <use xlink:href="#icon-close" />
-            </svg>
+            <div class="site-header__hamburger">
+                <svg data-icon="menu">
+                    <use xlink:href="{{ iconUrl('icon-menu') }}"/>
+                </svg>
+
+                <svg data-icon="close">
+                    <use xlink:href="{{ iconUrl('icon-close') }}"/>
+                </svg>
+            </div>
         </div>
     </div>
 </header>
 
 <div class="print-only / site-header__print-logo">
-    <svg><use xlink:href="#logo-horizontal"></use></svg>
+    <svg><use xlink:href="{{ iconUrl('logo-horizontal') }}"></use></svg>
 </div>

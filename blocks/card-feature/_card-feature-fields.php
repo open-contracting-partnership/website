@@ -6,31 +6,31 @@ use Extended\ACF\Fields\PostObject;
 use Extended\ACF\Fields\Select;
 use Extended\ACF\Fields\Text;
 use Extended\ACF\Fields\TrueFalse;
-use Extended\ACF\Fields\Url;
+use Extended\ACF\Fields\URL;
 use Extended\ACF\Location;
 
 register_extended_field_group([
     'title' => 'Block → Card Feature',
     'fields' => [
         Select::make('Content', 'content')
-            ->instructions('Choose whether to pull in an existing post or manually enter the details for this card.')
+            ->helperText('Choose whether to pull in an existing post or manually enter the details for this card.')
             ->choices([
                 'post' => 'Post',
                 'manual_entry' => 'Manual Entry',
             ])
-            ->defaultValue('manual_entry'),
+            ->default('manual_entry'),
 
         PostObject::make('Post', 'post')
             ->postTypes(['post'])
             ->postStatus(['publish'])
-            ->returnFormat('id')
+            ->format('id')
             ->required()
             ->conditionalLogic([
                 ConditionalLogic::where('content', '==', 'post')
             ]),
 
         Image::make('Image', 'image')
-            ->returnFormat('id')
+            ->format('id')
             ->library('all')
             ->previewSize('medium')
             ->conditionalLogic([
@@ -48,14 +48,14 @@ register_extended_field_group([
                 ConditionalLogic::where('content', '==', 'manual_entry')
             ]),
 
-        Url::make('URL', 'url')
+        URL::make('URL', 'url')
             ->required()
             ->conditionalLogic([
                 ConditionalLogic::where('content', '==', 'manual_entry')
             ]),
 
         TrueFalse::make('Show Overlay', 'overlay')
-            ->defaultValue(true),
+            ->default(true),
     ],
     'location' => [
         Location::where('block', 'app/card-feature'),

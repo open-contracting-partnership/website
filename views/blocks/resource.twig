@@ -30,7 +30,7 @@
 
                         <div class="card__footer">
                             <a class="arrow-link" href="{{ link.url }}" data-icon-color="white" data-text-color="black">
-                                <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                                <svg class="arrow-link__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                                 <span class="arrow-link__label">More</span>
                             </a>
                         </div>
@@ -81,13 +81,13 @@
                     <div class="block__author-social">
                         {% if block.contact.email_address %}
                             <a href="mailto:{{ block.contact.email_address }}" class="">
-                                <svg data-icon="mail"><use xlink:href="#icon-mail"></use></svg>
+                                <svg data-icon="mail"><use xlink:href="{{ iconUrl('icon-mail') }}"></use></svg>
                             </a>
                         {% endif %}
 
                         {% if block.contact.twitter_url %}
                             <a href="{{ block.contact.twitter_url }}" class="">
-                                <svg data-icon="twitter"><use xlink:href="#social-twitter"></use></svg>
+                                <svg data-icon="twitter"><use xlink:href="{{ iconUrl('social-twitter') }}"></use></svg>
                             </a>
                         {% endif %}
                     </div>

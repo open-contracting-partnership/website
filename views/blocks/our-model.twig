@@ -27,7 +27,7 @@
             <div class="block__model-content">
                 <div data-content="publish">
                     <div class="block__sub-content-header">
-                        <svg data-icon="people-publish"><use xlink:href="#people-publish"></use></svg>
+                        <svg data-icon="people-publish"><use xlink:href="{{ iconUrl('people-publish') }}"></use></svg>
                     </div>
 
                     {{ block.content_publish | raw }}
@@ -35,7 +35,7 @@
 
                 <div data-content="engagement">
                     <div class="block__sub-content-header">
-                        <svg data-icon="people-map"><use xlink:href="#people-map"></use></svg>
+                        <svg data-icon="people-map"><use xlink:href="{{ iconUrl('people-map') }}"></use></svg>
                     </div>
 
                     {{ block.content_engagement | raw }}
@@ -43,7 +43,7 @@
 
                 <div data-content="measure">
                     <div class="block__sub-content-header">
-                        <svg data-icon="people-learn-and-share"><use xlink:href="#people-learn-and-share"></use></svg>
+                        <svg data-icon="people-learn-and-share"><use xlink:href="{{ iconUrl('people-learn-and-share') }}"></use></svg>
                     </div>
 
                     {{ block.content_measure | raw }}
@@ -51,7 +51,7 @@
 
                 <div data-content="goals">
                     <div class="block__sub-content-header">
-                        <svg data-icon="people-design"><use xlink:href="#people-design"></use></svg>
+                        <svg data-icon="people-design"><use xlink:href="{{ iconUrl('people-design') }}"></use></svg>
                     </div>
 
                     {{ block.content_goals | raw }}
@@ -62,13 +62,13 @@
         <div class="block__links">
             <div class="block__link" data-colour="teal">
                 <div class="block__link-header">
-                    <svg><use xlink:href="#icon-face-smile"></use></svg>
+                    <svg><use xlink:href="{{ iconUrl('icon-face-smile') }}"></use></svg>
                     {{ block.i18n.im_convinced_heading }}
                 </div>
 
                 <div class="block__link-body">
                     <a class="arrow-link" data-icon-color="white" data-text-color="white" href="{{ block.im_convinced_link.url }}">
-                        <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                        <svg class="arrow-link__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                         <span class="arrow-link__label">{{ block.im_convinced_link.title }}</span>
                     </a>
                 </div>
@@ -76,13 +76,13 @@
 
             <div class="block__link" data-colour="orange">
                 <div class="block__link-header">
-                    <svg><use xlink:href="#icon-face-frown"></use></svg>
+                    <svg><use xlink:href="{{ iconUrl('icon-face-frown') }}"></use></svg>
                     {{ block.i18n.im_not_convinced_heading }}
                 </div>
 
                 <div class="block__link-body">
                     <a class="arrow-link" data-icon-color="white" data-text-color="white" href="{{ block.im_not_convinced_link.url }}">
-                        <svg class="arrow-link__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                        <svg class="arrow-link__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                         <span class="arrow-link__label">{{ block.im_not_convinced_link.title }}</span>
                     </a>
                 </div>

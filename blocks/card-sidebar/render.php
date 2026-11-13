@@ -12,15 +12,6 @@ $context['block']['image'] = get_field('image');
 $context['block']['colour_scheme'] = get_field('colour_scheme');
 $context['block']['links'] = get_field('links') ?: [];
 
-if ($is_preview) {
-    $context['block']['links'] = array_map(function ($item) {
-        $item['link']['url'] = '#';
-        $item['link']['target'] = '';
-
-        return $item;
-    }, $context['block']['links']);
-}
-
 // options
 $context['block']['options'] = get_field('options') ?: [];
 

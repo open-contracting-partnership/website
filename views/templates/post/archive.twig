@@ -43,14 +43,14 @@
 
             <div class="screen-only / home__load-more / align-contents-center">
                 <button class="button button--has-icon" @click.prevent="increaseLimit()" v-if="hasNextPage">
-                    <svg class="button__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                    <svg class="button__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                     {{ latest.content.load_more }}
                 </button>
             </div>
         </div> <!-- / .home__container -->
     </main>
 
-    <div class="page-container">
+    <div class="page-container / block-spacing block-spacing--with-start-margins block-spacing--with-end-margins">
         {{ latest.blog_content | raw }}
     </div>
 {% endblock %}

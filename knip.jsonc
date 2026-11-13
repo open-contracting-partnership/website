@@ -6,7 +6,7 @@
   ],
   "project": ["resources/js/**/*.{js,vue}"],
   "ignoreDependencies": [
-    // Served as a static asset from node_modules in views/blocks/team-profile.twig
+    // Copied into dist/flags by vite.config.js
     "flag-icons",
     // Imported from SCSS entry points (knip does not scan SCSS)
     "modern-css-reset"

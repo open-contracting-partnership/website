@@ -1,6 +1,6 @@
 # Open Contracting Partnership - WordPress Theme
 
-**Version**: 3.29.10
+**Version**: 3.31.1
 
 | Environment | Status |
 | :-- | :-- |
@@ -25,7 +25,7 @@ We use the [Semantic Versioning 2.0.0](https://semver.org/) version scheme, when
 
 ## Project dependencies
 
-- PHP 8.1
+- PHP 8.5
 - [Composer](https://getcomposer.org/download/)
 - [NPM](https://nodejs.org/en/download)
 
@@ -67,7 +67,7 @@ Use WP Migrate to pull the latest database from the production environment. Init
 
 Alternatively, `make up` serves the production site from PHP's built-in server, using this checkout as the theme. It needs:
 
-- **PHP 8.1** (`brew install php@8.1`), which the Makefile finds at its Homebrew path from `PHP_VERSION`; override that, or point `PHP=` at a binary
+- **PHP 8.5** (`brew install php@8.5`), which the Makefile finds at its Homebrew path from `PHP_VERSION`; override that, or point `PHP=` at a binary
 - **MySQL** (`mysql -uroot`, no password)
 - **wp-cli** (`brew install wp-cli`), for `make urls`
 - A `public_html` files backup and a database backup from production, in the repository root (the newest of each is auto-detected):
@@ -124,7 +124,7 @@ wp eval 'echo "wordpress_" . COOKIEHASH . "=" . wp_generate_auth_cookie(53, time
 SVG files within the `/resources/svg` directory will be combined into a single SVG sprite, and can be referenced using the following snippet where a filename of `icon-twitter.svg` is referenced as:
 
 ```
-<svg><use xlink:href="#icon-twitter"></use></svg>
+<svg><use xlink:href="{{ iconUrl('icon-twitter') }}"></use></svg>
 ```
 
 SVGs used like this can be interacted with JavaScript and styled with CSS.

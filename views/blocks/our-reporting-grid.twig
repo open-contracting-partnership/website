@@ -43,7 +43,7 @@
                 {% endif %}
 
                 {% if card.url is not empty %}
-                    <svg class="our-reporting-card__icon"><use xlink:href="#icon-arrow-circle"></use></svg>
+                    <svg class="our-reporting-card__icon"><use xlink:href="{{ iconUrl('icon-arrow-circle') }}"></use></svg>
                 {% endif %}
             </{{ card.type }}>
         {% endfor %}

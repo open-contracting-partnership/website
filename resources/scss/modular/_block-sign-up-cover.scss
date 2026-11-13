@@ -35,8 +35,8 @@
     .sign-up__background-image {
         position: absolute;
         inset: 0;
-        left: calc(50% - 50vw);
-        width: 100vw;
+        left: calc(50% - 50cqw);
+        width: 100cqw;
         // background-color: var(--background-colour);
         z-index: -2;
 
@@ -54,8 +54,8 @@
     .sign-up__background-overlay {
         position: absolute;
         inset: 0;
-        left: calc(50% - 50vw);
-        width: 100vw;
+        left: calc(50% - 50cqw);
+        width: 100cqw;
         z-index: -1;
         background-color: var(--background-colour);
         opacity: var(--overlay-opacity);
