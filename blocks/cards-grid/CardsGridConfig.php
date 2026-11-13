@@ -18,6 +18,15 @@ class CardsGridConfig
             ],
             'default_variation' => 'three-columns',
         ],
+        'card-arrow-link' => [
+            'title' => 'Arrow Link',
+            'variations' => [
+                'one-column' => 'One Column',
+                'two-columns' => 'Two Columns',
+                'three-columns' => 'Three Columns',
+            ],
+            'default_variation' => 'three-columns',
+        ],
         'card-half-image' => [
             'title' => 'Half Image',
             'variations' => [
