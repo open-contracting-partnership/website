@@ -2,6 +2,8 @@
     &:not([style*="--background-colour: #ffffff;"]) {
         --link-block-primary-colour: var(--text-colour);
         --link-block-hover-text-colour: var(--background-colour);
+        --carousel-controls-icon-colour: var(--background-colour);
+        --carousel-controls-background-colour: var(--text-colour);
     }
 
     .block__background {

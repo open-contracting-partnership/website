@@ -14,12 +14,22 @@
     z-index: 3;
     pointer-events: none;
 
+    svg {
+        circle {
+            fill: var(--carousel-controls-icon-colour, #ffffff);
+        }
+
+        path {
+            fill: var(--carousel-controls-background-colour, #323232);
+        }
+    }
+
     button {
         pointer-events: all;
     }
 
     button[disabled] {
-        opacity: .5;
+        opacity: 0.5;
         cursor: default;
     }
 
@@ -35,7 +45,7 @@
 }
 
 .cards-carousel__carousel-item {
-    transition: opacity .3s ease;
+    transition: opacity 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -45,4 +55,3 @@
         height: 100%;
     }
 }
-
