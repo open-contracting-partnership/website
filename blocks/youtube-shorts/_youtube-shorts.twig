@@ -8,6 +8,7 @@
     {% if block.youtube_shorts is not empty %}
         <div class="youtube-shorts__container">
             <div class="youtube-shorts__grid" data-youtube-carousel>
+
                 {% for short in block.youtube_shorts %}
                     <div class="youtube-shorts__item" data-youtube-carousel-item>
                         <div class="youtube-short" data-youtube-short>
@@ -18,6 +19,7 @@
                                     class="youtube-short__poster"
                                     loading="lazy"
                                 >
+
                                 {% if short.video_id %}
                                     <button
                                         class="youtube-short__play-btn"
@@ -31,6 +33,7 @@
                                         </svg>
                                     </button>
                                 {% endif %}
+
                             {% else %}
                                 {# Fallback: load iframe directly if no poster image is provided #}
                                 {% if short.video_id %}

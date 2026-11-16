@@ -1,80 +1,47 @@
-// .youtube-shorts {
-//     --youtube-shorts-gap: #{spacing(2)};
+// carousel
+.youtube-shorts__container {
+    position: relative;
+}
 
-//     @include from(T) {
-//         --youtube-shorts-gap: #{spacing(3)};
-//     }
-// }
+.youtube-shorts__carousel-controls {
+    button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        pointer-events: all;
+    }
 
-// .youtube-shorts__container {
-//     position: relative;
-// }
+    button[rel="prev"] {
+        left: 8px;
+    }
 
-// .youtube-shorts__grid {
-//     display: flex;
-// }
+    button[rel="next"] {
+        right: 8px;
+    }
 
-// .youtube-shorts__item {
-//     flex: 0 0 100%;
-//     width: 100%;
-//     padding-right: var(--youtube-shorts-gap);
-// }
+    button[disabled] {
+        opacity: 0.5;
+        cursor: default;
+    }
 
-// /* Carousel navigation arrows */
-// .youtube-shorts__nav {
-//     position: absolute;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     width: 40px;
-//     height: 40px;
-//     background-color: rgba(0, 0, 0, 0.5);
-//     border: none;
-//     border-radius: 50%;
-//     cursor: pointer;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     color: #ffffff;
-//     z-index: 20;
-//     transition: all 200ms ease;
-//     padding: 0;
+    button > svg {
+        font-size: 77px;
+        height: 1em;
+        fill: $ui-brand;
+    }
 
-//     &:hover,
-//     &:focus {
-//         background-color: rgba(0, 0, 0, 0.8);
-//     }
+    button[rel="prev"] > svg {
+        transform: rotate(180deg);
+    }
+}
 
-//     &:active {
-//         transform: translateY(-50%) scale(0.95);
-//     }
-
-//     svg {
-//         width: 24px;
-//         height: 24px;
-//     }
-
-//     &--prev {
-//         left: spacing(2);
-//     }
-
-//     &--next {
-//         right: spacing(2);
-//     }
-
-//     /* Hide arrows when disabled or only one item */
-//     &[disabled],
-//     &.hidden {
-//         opacity: 0.5;
-//         pointer-events: none;
-//         cursor: default;
-//     }
-// }
-
+// single embed
 .youtube-short {
     position: relative;
     width: 100%;
     background-color: var(--color-neutral-n900);
-    border-radius: 12px;
+    border-radius: 24px 8px;
     overflow: hidden;
     aspect-ratio: 9 / 16;
 }
@@ -136,32 +103,4 @@
 .youtube-short__play-icon {
     transition: transform 200ms ease;
     margin-left: 4px;
-}
-
-.youtube-shorts__carousel-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-    z-index: 3;
-    pointer-events: none;
-
-    button {
-        pointer-events: all;
-    }
-
-    button[disabled] {
-        opacity: 0.5;
-        cursor: default;
-    }
-
-    button > svg {
-        font-size: 77px;
-        height: 1em;
-        fill: $ui-brand;
-    }
-
-    button[rel="prev"] > svg {
-        transform: rotate(180deg);
-    }
 }
