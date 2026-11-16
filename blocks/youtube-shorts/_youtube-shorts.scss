@@ -1,11 +1,21 @@
 // carousel
 .youtube-shorts__container {
     position: relative;
-    padding: 0 56px;
+    padding: 0 48px;
 
-    @include upto(T) {
-        padding: 0 48px;
+    @include from(T) {
+        padding: 0 56px;
     }
+
+    @include from(M) {
+        padding: 0;
+    }
+}
+
+.youtube-shorts__grid--preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
 }
 
 .youtube-shorts__carousel-controls {
@@ -27,10 +37,18 @@
 
     button[rel="prev"] {
         left: 0;
+
+        @include from(M) {
+            left: -64px;
+        }
     }
 
     button[rel="next"] {
         right: 0;
+
+        @include from(M) {
+            right: -64px;
+        }
     }
 
     button[disabled] {

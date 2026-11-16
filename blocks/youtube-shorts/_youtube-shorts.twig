@@ -7,8 +7,10 @@
 >
     {% if block.youtube_shorts is not empty %}
         <div class="youtube-shorts__container">
-            <div class="youtube-shorts__grid" data-youtube-carousel>
-
+            <div
+                class="youtube-shorts__grid {% if block.is_preview %}youtube-shorts__grid--preview{% endif %}"
+                data-youtube-carousel
+            >
                 {% for short in block.youtube_shorts %}
                     <div class="youtube-shorts__item" data-youtube-carousel-item>
                         <div class="youtube-short" data-youtube-short>
