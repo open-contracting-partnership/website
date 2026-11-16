@@ -17,6 +17,7 @@ register_extended_field_group([
                     ->helperText('Paste the full YouTube Shorts URL'),
 
                 Image::make('Poster Image', 'poster_image')
+                    ->required()
                     ->format('array')
                     ->helperText('Optional. Display a custom poster image instead of the video thumbnail.'),
             ]),

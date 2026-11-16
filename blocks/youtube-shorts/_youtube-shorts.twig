@@ -29,6 +29,7 @@
                                 </button>
                             {% endif %}
                         {% else %}
+                            {# Fallback: load iframe directly if no poster image is provided #}
                             {% if short.video_id %}
                                 <iframe
                                     class="youtube-shorts__iframe"
