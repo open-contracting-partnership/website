@@ -42,6 +42,10 @@
         @extend %three-columns;
     }
 
+    &[data-card-type="card-arrow-link"] {
+        @extend %three-columns;
+    }
+
     &[data-card-type="card-half-image"] {
         @extend %two-columns;
     }
