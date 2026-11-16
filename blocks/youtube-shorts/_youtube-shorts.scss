@@ -1,6 +1,11 @@
 // carousel
 .youtube-shorts__container {
     position: relative;
+    padding: 0 56px;
+
+    @include upto(T) {
+        padding: 0 48px;
+    }
 }
 
 .youtube-shorts__carousel-controls {
@@ -10,14 +15,22 @@
         transform: translateY(-50%);
         z-index: 3;
         pointer-events: all;
+
+        @include upto(T) {
+            svg {
+                display: block;
+                width: 40px;
+                height: 40px;
+            }
+        }
     }
 
     button[rel="prev"] {
-        left: 8px;
+        left: 0;
     }
 
     button[rel="next"] {
-        right: 8px;
+        right: 0;
     }
 
     button[disabled] {
@@ -40,7 +53,6 @@
 .youtube-short {
     position: relative;
     width: 100%;
-    background-color: var(--color-neutral-n900);
     border-radius: 24px 8px;
     overflow: hidden;
     aspect-ratio: 9 / 16;
@@ -71,26 +83,25 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 64px;
-    height: 64px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-primary);
     z-index: 10;
-    transition: all 200ms ease;
-    padding: 0;
-    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    svg {
+        display: block;
+        width: 80px;
+        height: 80px;
+    }
 
     &:hover,
     &:focus {
-        background-color: $ui-white;
-
-        .youtube-shorts__play-icon {
+        svg {
             transform: scale(1.05);
         }
     }
