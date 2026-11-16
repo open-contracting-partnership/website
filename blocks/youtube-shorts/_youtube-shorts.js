@@ -1,8 +1,8 @@
 import { tns } from "tiny-slider";
 
-const blocks = document.querySelectorAll(".youtube-shorts");
+const $blocks = document.querySelectorAll("[data-block='youtube-shorts']");
 
-if (blocks.length) {
+if ($blocks.length) {
     let apiReady = null;
     const players = new Map();
 
@@ -62,65 +62,99 @@ if (blocks.length) {
             .catch((error) => console.error(error));
     }
 
-    function setupBlock(block) {
-        const $carousel = block.querySelector("[data-youtube-carousel]");
-        const items = $carousel.querySelectorAll(".youtube-shorts__item");
+    function createIframe(videoId) {
+        const iframe = document.createElement("iframe");
+        iframe.className = "youtube-short__iframe";
+        iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1`;
+        iframe.title = "YouTube Short";
+        iframe.allow =
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        iframe.frameBorder = "0";
+
+        return iframe;
+    }
+
+    function setupBlock($block) {
+        const $items = $block.querySelectorAll("[data-youtube-carousel-item]");
+
+        if (!$items?.length) return;
 
         // Register any existing iframes (fallback for items without poster)
-        block
-            .querySelectorAll(".youtube-short__iframe")
-            .forEach((iframe) => registerPlayer(iframe, block));
+        $block
+            .querySelectorAll("[data-youtube-short-iframe]")
+            .forEach((iframe) => registerPlayer(iframe, $block));
 
         // Handle play button clicks to create iframe lazily
-        block.addEventListener("click", (event) => {
-            const button = event.target.closest(".youtube-short__play-btn");
+        $block.addEventListener("click", (event) => {
+            const button = event.target.closest(
+                "[data-youtube-short-play-button]"
+            );
             if (!button) return;
 
-            const wrapper = button.closest(".youtube-short");
+            const wrapper = button.closest("[data-youtube-short]");
             if (!wrapper) return;
 
             // Prevent multiple clicks
             if (wrapper.dataset.videoLoaded === "true") return;
             wrapper.dataset.videoLoaded = "true";
 
-            const iframe = document.createElement("iframe");
-            iframe.className = "youtube-short__iframe";
-            iframe.src = `https://www.youtube.com/embed/${button.dataset.videoId}?enablejsapi=1&autoplay=1`;
-            iframe.title = "YouTube Short";
-            iframe.allow =
-                "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-            iframe.allowFullscreen = true;
-            iframe.frameBorder = "0";
+            const iframe = createIframe(button.dataset.videoId);
 
             wrapper.replaceChildren(iframe);
-            registerPlayer(iframe, block);
+            registerPlayer(iframe, $block);
         });
 
-        // Initialize carousel
-        if (items.length > 1) {
-            const $carousel = block.querySelector("[data-youtube-carousel]");
-            const $prevButton = block.querySelector('[data-youtube-carousel-controls] [rel="prev"]');
-            const $nextButton = block.querySelector('[data-youtube-carousel-controls] [rel="next"]');
-
-            tns({
-                container: $carousel,
-                swipeAngle: false,
-                prevButton: $prevButton,
-                nextButton: $nextButton,
-                nav: false,
-                speed: 400,
-                items: 1,
-                gutter: 16,
-                responsive: {
-                    768: {
-                        items: 2,
-                    },
-                    1024: {
-                        items: 4,
-                    }
-                }
-            });
+        if ($items.length > 1) {
+            initializeSlider($block, $items);
         }
+    }
+
+    function initializeSlider($block, $items) {
+        const $carousel = $block.querySelector("[data-youtube-carousel]");
+        const $prevButton = $block.querySelector(
+            '[data-youtube-carousel-controls] [rel="prev"]'
+        );
+        const $nextButton = $block.querySelector(
+            '[data-youtube-carousel-controls] [rel="next"]'
+        );
+
+        const slider = tns({
+            container: $carousel,
+            swipeAngle: false,
+            prevButton: $prevButton,
+            nextButton: $nextButton,
+            nav: false,
+            speed: 400,
+            items: 1,
+            gutter: 16,
+            loop: false,
+            responsive: {
+                768: {
+                    items: 2,
+                },
+                1024: {
+                    items: 4,
+                },
+            },
+        });
+
+        slider.events.on("transitionEnd", (info) => {
+            pauseNonVisibleVideos($items, info.displayIndex);
+        });
+    }
+
+    // pause video if its slide is not visible
+    function pauseNonVisibleVideos($items, visibleIndex) {
+        $items.forEach(($item, index) => {
+            if (index !== visibleIndex) {
+                players.forEach((block, player) => {
+                    if (block === $item.closest("[data-block='youtube-shorts']")) {
+                        player.pauseVideo();
+                    }
+                });
+            }
+        });
     }
 
     // Use Intersection Observer to initialize only when block comes into view
@@ -139,7 +173,7 @@ if (blocks.length) {
         }
     );
 
-    blocks.forEach((block) => {
-        observer.observe(block);
+    $blocks.forEach(($block) => {
+        observer.observe($block);
     });
 }
