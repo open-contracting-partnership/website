@@ -17,7 +17,7 @@ body:has([data-block="hero-with-image-alt"]) .site-header {
         background: $ui-teal;
         color: $ui-white;
 
-        a.link-highlight[data-highlight]::before {
+        .nav-main-item > a.link-highlight[data-highlight]::before {
             background: $ui-white;
         }
     }
