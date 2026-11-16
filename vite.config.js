@@ -84,6 +84,7 @@ export default defineConfig({
         'block-team-profile': resolve(__dirname, 'resources/js/block-team-profile.js'),
         'block-timeline': resolve(__dirname, 'resources/js/block-timeline.js'),
         'block-where-we-work': resolve(__dirname, 'resources/js/block-where-we-work.js'),
+        'block-youtube-shorts': resolve(__dirname, 'blocks/youtube-shorts/_youtube-shorts.js'),
         header: resolve(__dirname, 'resources/js/header.js'),
         'impact-stories': resolve(__dirname, 'resources/js/impact-stories.js'),
         'latest-news': resolve(__dirname, 'resources/js/latest-news.js'),
