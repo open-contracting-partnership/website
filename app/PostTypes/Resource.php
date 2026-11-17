@@ -75,8 +75,8 @@ class Resource extends Post
     public function fallbackImageType(): string
     {
         return match ($this->resourceType()?->slug) {
-            'data-tool' => 'data',
-            'infographic' => 'infographic',
+            'data-tool', 'data-tool-es' => 'data',
+            'infographic', 'infographic-es' => 'infographic',
             default => 'resource',
         };
     }
