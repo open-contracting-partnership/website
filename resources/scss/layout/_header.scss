@@ -413,6 +413,7 @@ body:has([data-block="hero-with-image-alt"]) .site-header {
 .boxed-link__image {
     width: 32px;
     height: auto;
+    align-self: flex-start;
     margin-right: 6px;
 }
 
