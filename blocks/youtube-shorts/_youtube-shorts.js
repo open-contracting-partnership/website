@@ -7,7 +7,9 @@ if ($blocks.length) {
     const players = new Map();
 
     function initializeYouTubeAPI() {
-        if (apiReady) return apiReady;
+        if (apiReady) {
+            return apiReady;
+        }
 
         apiReady = new Promise((resolve, reject) => {
             if (window.YT?.Player) {
@@ -16,14 +18,19 @@ if ($blocks.length) {
             }
 
             const previousCallback = window.onYouTubeIframeAPIReady;
+
             window.onYouTubeIframeAPIReady = () => {
-                if (previousCallback) previousCallback();
+                if (previousCallback) {
+                    previousCallback();
+                }
+
                 resolve(window.YT);
             };
 
             const existingScript = document.querySelector(
                 'script[src="https://www.youtube.com/iframe_api"]'
             );
+
             if (existingScript) {
                 return;
             }
@@ -112,9 +119,11 @@ if ($blocks.length) {
 
     function initializeSlider($block, $items) {
         const $carousel = $block.querySelector("[data-youtube-carousel]");
+
         const $prevButton = $block.querySelector(
             '[data-youtube-carousel-controls] [rel="prev"]'
         );
+
         const $nextButton = $block.querySelector(
             '[data-youtube-carousel-controls] [rel="next"]'
         );
@@ -149,7 +158,9 @@ if ($blocks.length) {
         $items.forEach(($item, index) => {
             if (index !== visibleIndex) {
                 players.forEach((block, player) => {
-                    if (block === $item.closest("[data-block='youtube-shorts']")) {
+                    if (
+                        block === $item.closest("[data-block='youtube-shorts']")
+                    ) {
                         player.pauseVideo();
                     }
                 });
