@@ -16,7 +16,6 @@ foreach ($shorts as &$short) {
         $short['video_id'] = $matches[1] ?? '';
     }
 }
-unset($short); // Break reference
 
 $context['block']['youtube_shorts'] = $shorts;
 $context['block']['block_spacing'] = BlockSpacingControls::makeContext();
