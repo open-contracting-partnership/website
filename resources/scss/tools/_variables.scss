@@ -6,36 +6,34 @@
 // COLOURS
 
 // TODO: re-organise colour names
-$ui-white: #FFF;
+$ui-white: #fff;
 $ui-grey-3: #323232;
-$ui-grey: #4D4D53;
-$ui-grey-2: #4B4B4B;
+$ui-grey: #4d4d53;
+$ui-grey-2: #4b4b4b;
 $ui-grey-4: #666666;
-$ui-grey-5: #C4C4C4;
-$ui-grey-6: #E2E1E1;
-$ui-grey-7: #DADADA;
-$ui-grey-8: #F6F6F6;
+$ui-grey-5: #c4c4c4;
+$ui-grey-6: #e2e1e1;
+$ui-grey-7: #dadada;
+$ui-grey-8: #f6f6f6;
 $ui-grey-9: #989898;
 $ui-black: #000;
-$ui-brand: #E0E83D;
-$ui-brand-2: #EBECA8;
+$ui-brand: #e0e83d;
+$ui-brand-2: #ebeca8;
 
-$ui-orange: #FB6045;
-$ui-blue: #6C75E1;
-$ui-teal: #23B2A7;
-
+$ui-orange: #fb6045;
+$ui-blue: #6c75e1;
+$ui-teal: #23b2a7;
 
 //***************
 // SOCIAL COLOURS
 
 $social-colors: (
-    'youtube': #CC181E,
-    'twitter': #00ACEE,
-    'facebook': #3B5998,
-    'google': #DD4B39,
-    'linkedin': #007BB6,
+    "youtube": #cc181e,
+    "twitter": #00acee,
+    "facebook": #3b5998,
+    "google": #dd4b39,
+    "linkedin": #007bb6,
 );
-
 
 //**************
 // TYPE SETTINGS
@@ -44,7 +42,6 @@ $base-font-size: 16;
 
 $copy: $ui-black;
 $border-radius: 4px;
-
 
 //****************
 // LAYOUT SETTINGS
@@ -56,44 +53,43 @@ $breakpoints: (
     S: 640,
     T: 768,
     M: 1024,
-    L: 1440
+    L: 1440,
 );
 
 $header-break-1: 640;
-$header-break-2: 880;
-$header-break-3: 1060;
-$header-break-4: 1240;
-
+$header-break-2: 1024;
+$header-break-3: 1200;
 
 //******
 // FONTS
 
 $fonts: (
     primary: (
-        family: 'gt_eesti_text',
+        family: "gt_eesti_text",
         fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
         weights: (
             light: 300,
             regular: 400,
             semibold: 600,
-            bold: 700
+            bold: 700,
         ),
-        typekit: false
+        typekit: false,
     ),
     secondary: (
-        family: 'gt_eesti_display',
+        family: "gt_eesti_display",
         fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
         weights: (
             regular: 400,
             medium: 500,
-            bold: 700
+            bold: 700,
         ),
-        typekit: false
-    )
+        typekit: false,
+    ),
 );
 
 $font-primary: "gt_eesti_text", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-secondary: "gt_eesti_display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-secondary: "gt_eesti_display", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
 
 $font-weight-thin: 100;
 $font-weight-extra-light: 200;

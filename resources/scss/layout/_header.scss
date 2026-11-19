@@ -5,7 +5,7 @@
     @extend %screen-shell-grid;
 
     @include upto($header-break-2) {
-        overflow: hidden;
+        overflow-x: clip;
     }
 
     @media print {
