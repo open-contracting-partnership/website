@@ -1,6 +1,7 @@
 .site-header {
-    background-color: $ui-grey-3;
+    background: $ui-teal;
     color: $ui-white;
+
     @extend %screen-shell-grid;
 
     @include upto($header-break-2) {
@@ -9,17 +10,6 @@
 
     @media print {
         display: none;
-    }
-}
-
-body:has([data-block="hero-with-image-alt"]) .site-header {
-    @include from($header-break-2) {
-        background: $ui-teal;
-        color: $ui-white;
-
-        .nav-main-item > a.link-highlight[data-highlight]::before {
-            background: $ui-white;
-        }
     }
 }
 
@@ -45,7 +35,7 @@ body:has([data-block="hero-with-image-alt"]) .site-header {
     &::before {
         content: "";
         display: block;
-        border: spacing(3) solid $ui-grey-2;
+        border: spacing(3) solid rgba(255, 255, 255, 0.33);
         border-radius: 50%;
         opacity: 0.8;
         font-size: 120px;
@@ -462,4 +452,8 @@ a.link-highlight {
             height: 3px;
         }
     }
+}
+
+.nav-main-item > a.link-highlight[data-highlight]::before {
+    background: $ui-white;
 }
