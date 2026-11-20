@@ -36,13 +36,16 @@ class StagesServiceProvider
         $context['block'] = [];
         $context['block']['title'] = get_field('title');
         $context['block']['introduction'] = get_field('introduction');
-        $context['block']['stages'] = get_field('stages');
+        $context['block']['stages'] = get_field('stages') ?: [];
         $context['block']['image_type'] = get_field('image_type') ?? 'image';
 
-        $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        // HTTP_HOST is unset outside a web request, like in WP-Cron run by WP-CLI.
+        $actual_link = isset($_SERVER['HTTP_HOST'])
+            ? (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"
+            : null;
 
         foreach ($context['block']['stages'] as &$stage) {
-            $stage['is_active'] = strpos($actual_link, $stage['link']['url']) === 0;
+            $stage['is_active'] = $actual_link !== null && str_starts_with($actual_link, $stage['link']['url']);
         }
 
         $context['block']['background_colour'] = get_field('background_colour') ?: '#23B2A7';
