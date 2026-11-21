@@ -49,9 +49,13 @@ class Resource extends Post
         return $this->thumbnail() ? $this->thumbnail()->src : null;
     }
 
+    /** Return the first resource type in the current language, or null if it has no translation. */
     public function resourceType(): Term|null
     {
-        return $this->terms('resource-type')[0] ?? null;
+        $terms = get_the_terms($this->ID, 'resource-type');
+        $term_id = is_array($terms) ? apply_filters('wpml_object_id', $terms[0]->term_id, 'resource-type', false) : null;
+
+        return $term_id ? Timber::get_term($term_id) : null;
     }
 
     public function colour(): string
@@ -71,8 +75,8 @@ class Resource extends Post
     public function fallbackImageType(): string
     {
         return match ($this->resourceType()?->slug) {
-            'data-tool' => 'data',
-            'infographic' => 'infographic',
+            'data-tool', 'data-tool-es' => 'data',
+            'infographic', 'infographic-es' => 'infographic',
             default => 'resource',
         };
     }
