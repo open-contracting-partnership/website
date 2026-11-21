@@ -19,7 +19,7 @@ return [
         Rareloop\Lumberjack\Providers\WordPressControllersServiceProvider::class,
         Rareloop\Lumberjack\Providers\TimberServiceProvider::class,
         Rareloop\Lumberjack\Providers\ImageSizesServiceProvider::class,
-        Rareloop\Lumberjack\Providers\CustomPostTypesServiceProvider::class,
+        App\Providers\CustomPostTypesServiceProvider::class,
         Rareloop\Lumberjack\Providers\MenusServiceProvider::class,
         Rareloop\Lumberjack\Providers\LogServiceProvider::class,
         Rareloop\Lumberjack\Providers\ThemeSupportServiceProvider::class,
