@@ -1,0 +1,137 @@
+// carousel
+.youtube-shorts__container {
+    position: relative;
+    padding: 0 48px;
+
+    @include from(T) {
+        padding: 0 56px;
+    }
+
+    @include from(M) {
+        padding: 0;
+    }
+}
+
+.youtube-shorts__grid[data-is-preview="true"] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.youtube-shorts__carousel-controls {
+    button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        pointer-events: all;
+
+        @include upto(T) {
+            svg {
+                display: block;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+
+    button[rel="prev"] {
+        left: 0;
+
+        @include from(M) {
+            left: -64px;
+        }
+    }
+
+    button[rel="next"] {
+        right: 0;
+
+        @include from(M) {
+            right: -64px;
+        }
+    }
+
+    button[disabled] {
+        opacity: 0.5;
+        cursor: default;
+    }
+
+    button > svg {
+        font-size: 77px;
+        height: 1em;
+        fill: $ui-brand;
+    }
+
+    button[rel="prev"] > svg {
+        transform: rotate(180deg);
+    }
+}
+
+// single embed
+.youtube-short {
+    position: relative;
+    width: 100%;
+    border-radius: 24px 8px;
+    overflow: hidden;
+    aspect-ratio: 9 / 16;
+}
+
+.youtube-short__poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.youtube-short__iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: auto;
+    z-index: 10;
+}
+
+.youtube-short__play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    svg {
+        display: block;
+        width: 80px;
+        height: 80px;
+    }
+
+    &:hover,
+    &:focus {
+        svg {
+            transform: scale(1.05);
+        }
+    }
+
+    &:active {
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+}
+
+.youtube-short__play-icon {
+    transition: transform 200ms ease;
+    margin-left: 4px;
+}

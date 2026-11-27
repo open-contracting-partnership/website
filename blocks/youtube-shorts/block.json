@@ -1,0 +1,16 @@
+{
+    "name": "app/youtube-shorts",
+    "title": "YouTube Shorts",
+    "category": "app-blocks",
+    "viewScriptModule": [
+        "block-youtube-shorts"
+    ],
+    "supports": {
+        "jsx": true
+    },
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php",
+        "blockVersion": 3
+    }
+}

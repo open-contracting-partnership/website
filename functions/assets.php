@@ -105,6 +105,7 @@ add_action('wp_enqueue_scripts', function () {
     Assets::registerScript('block-team-profile', 'js/block-team-profile-VITE.js', true);
     Assets::registerScript('block-timeline', 'js/block-timeline-VITE.js', true);
     Assets::registerScript('block-where-we-work', 'js/block-where-we-work-VITE.js', true);
+    Assets::registerScript('block-youtube-shorts', 'js/block-youtube-shorts-VITE.js', true);
 
     // MISCELLANEOUS
     Assets::registerScript('mailchimp', 'js/mailchimp-VITE.js', true);

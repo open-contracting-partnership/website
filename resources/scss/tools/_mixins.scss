@@ -92,6 +92,7 @@
 
 // $value: can be a number, 'landscape', or a breakpoint letter
 // $feature: default is min-width, can be overwritten with 'max-width', or 'orientation' etc.
+// Upper width bounds are exclusive; lower bounds are inclusive.
 @mixin mq($arg1, $arg2: 'min-width') {
     $between: false;
 
@@ -100,7 +101,7 @@
         $arg1: map.get($breakpoints, $arg1);
     }
 
-    @if meta.type-of($arg1) == 'number' {
+    @if meta.type-of($arg1) == 'number' and math.is-unitless($arg1) {
         $arg1: $arg1 * 1px;
     }
 
@@ -112,16 +113,22 @@
 
     // maybe arg2 is a number
     @if meta.type-of($arg2) == 'number' {
-        $arg2: ($arg2 - 1) * 1px;
+        @if math.is-unitless($arg2) {
+            $arg2: $arg2 * 1px;
+        }
         $between: true;
     }
 
-    @if $between == false {
-        @media screen and (#{$arg2}: $arg1) {
+    @if $between {
+        @media screen and (min-width: $arg1) and (width < #{$arg2}) {
+            @content;
+        }
+    } @else if $arg2 == 'max-width' {
+        @media screen and (width < #{$arg1}) {
             @content;
         }
     } @else {
-        @media screen and (min-width: $arg1) and (max-width: $arg2) {
+        @media screen and (#{$arg2}: $arg1) {
             @content;
         }
     }

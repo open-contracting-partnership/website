@@ -12,6 +12,9 @@ class CardsCarouselConfig
         'card-primary' => [
             'title' => 'Primary',
         ],
+        'card-arrow-link' => [
+            'title' => 'Arrow Link',
+        ],
     ];
 
     public static function getCardTypeChoices(): array

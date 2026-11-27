@@ -11,9 +11,8 @@
 }
 
 .translation-menu__trigger {
-    border: solid 0.5px #C4C4C4;
-    border-radius: 2px 999px 999px 2px;
-    color: #C4C4C4;
+    border: 1px solid;
+    color: currentColor;
     cursor: pointer;
     display: block;
     font-size: 14px;
@@ -26,7 +25,7 @@
     &::after {
         border-left: 4px solid transparent;
         border-right: 4px solid transparent;
-        border-top: 8px solid #C4C4C4;
+        border-top: 8px solid;
         content: '';
         height: 0;
         margin-top: -4px;
@@ -71,8 +70,9 @@
 }
 
 .translation-menu__actual {
-    background-color: #323232;
-    border: solid 0.5px #C4C4C4;
+    background-color: $ui-white;
+    color: $ui-black;
+    border: solid 0.5px $ui-grey-6;
     border-radius: 2px;
     display: flex;
     flex-direction: column;
@@ -87,7 +87,7 @@
 }
 
 .translation-menu__group {
-    border-top: solid 0.5px #C4C4C4;
+    border-top: solid 0.5px $ui-grey-6;
     display: flex;
     flex-direction: column;
 }
@@ -98,14 +98,14 @@
 }
 
 .translation-menu__title {
-    color: rgba(218, 218, 218, 0.5);
+    color: $ui-grey;
     font-size: 12px;
     font-weight: 300;
     padding: 5px 10px 0 10px;
 }
 
 .translation-menu__item {
-    color: #C4C4C4;
+    color: $ui-grey-3;
     font-size: 14px;
     font-weight: 500;
     padding: 4px 10px 2px 10px;
@@ -113,11 +113,11 @@
     transition: .3s ease;
 
     &:hover {
-        background-color: #4B4B4B;
+        background-color: $ui-grey-6;
     }
 
     &.is-active {
-        background-color: #4B4B4B;
-        color: #E0E83D;
+        background-color: $ui-grey-6;
+        color: $ui-blue;
     }
 }
