@@ -41,7 +41,7 @@ class StagesServiceProvider
 
         // HTTP_HOST is unset outside a web request, like in WP-Cron run by WP-CLI.
         $actual_link = isset($_SERVER['HTTP_HOST'])
-            ? (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"
+            ? (is_ssl() ? 'https' : 'http') . "://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"
             : null;
 
         foreach ($context['block']['stages'] as &$stage) {

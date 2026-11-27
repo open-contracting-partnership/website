@@ -19,6 +19,11 @@ class Handler extends LumberjackHandler
     public function report(Exception $e)
     {
         if ($e instanceof ErrorException) {
+            // Lumberjack reports warnings even when silenced with @, which clears them from error_reporting().
+            if (!(error_reporting() & $e->getSeverity())) {
+                return;
+            }
+
             $ignoredSeverities = [
                 E_DEPRECATED,
                 E_USER_DEPRECATED,
