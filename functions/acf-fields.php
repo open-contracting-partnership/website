@@ -4,7 +4,11 @@
  * Adds various sub-options pages
  */
 
-if (function_exists('acf_add_options_page') && function_exists('acf_add_options_sub_page')) {
+add_action('acf/init', function () {
+    if (! function_exists('acf_add_options_page') || ! function_exists('acf_add_options_sub_page')) {
+        return;
+    }
+
     // add parent
     $parent = acf_add_options_page([
         'page_title' => 'Options',
@@ -32,7 +36,7 @@ if (function_exists('acf_add_options_page') && function_exists('acf_add_options_
         'menu_title' => 'Resources',
         'parent_slug' => $parent['menu_slug'],
     ]);
-}
+});
 
  //*****************
 // GUTENBERG BLOCKS
