@@ -90,8 +90,19 @@ function array_multi_implode(string $standard_glue, string $last_nodes_glue, arr
  //********
 // AUTHORS
 
+/** ID of the shared "Open Contracting" account, which the REST API leaves out of bylines. */
+const SHARED_AUTHOR_ID = 29;
+
+/**
+ * Return the post's authors in display order: users (with id, slug and url) and guest text (name only).
+ */
 function get_post_authors($post_id)
 {
+    // we should never display an author for news posts
+    if (get_post_type($post_id) === 'news') {
+        return array();
+    }
+
     // set the initial authors array as the normal post author...
     $authors = array(get_author_object(get_post_field('post_author', $post_id)));
 
@@ -128,19 +139,16 @@ function get_author_object($author_id = null)
     }
 
     return (object) array(
+        'id' => (int) $author_id,
         'name' => get_the_author_meta('display_name', $author_id),
+        'slug' => get_the_author_meta('user_nicename', $author_id),
         'url' => get_author_posts_url($author_id)
     );
 }
 
 function get_authors($post_id = null, $with_links = false)
 {
-    // we should never display an author for news posts
-    if (get_post_type() === 'news') {
-        return '';
-    }
-
-    // and we should only ever show the organisation for resources
+    // we should only ever show the organisation for resources
     if (get_post_type() === 'resource') {
         return get_field('organisation');
     }
@@ -169,6 +177,92 @@ function the_authors($post_id = null, $with_links = false)
 {
     echo get_authors($post_id, $with_links);
 }
+
+/**
+ * Return the post's byline for the REST API, without the shared account. Author URLs are in the current language.
+ */
+function get_byline(int $post_id): array
+{
+    $staff = array();
+    $guests = array();
+    $names = array();
+
+    foreach (get_post_authors($post_id) as $author) {
+        if (empty($author->name)) {
+            continue;
+        }
+
+        if (isset($author->url)) {
+            if ($author->id === SHARED_AUTHOR_ID) {
+                continue;
+            }
+
+            $staff[] = array(
+                'name' => $author->name,
+                'slug' => $author->slug,
+                'url' => $author->url
+            );
+        } else {
+            $guests[] = $author->name;
+        }
+
+        $names[] = $author->name;
+    }
+
+    return array(
+        'staff' => $staff,
+        'guests' => $guests ? array_multi_implode(', ', ' and ', $guests) : null,
+        'text' => $names ? trim(array_multi_implode(', ', ' and ', $names)) : null
+    );
+}
+
+add_action('rest_api_init', function () {
+    $nullable_string = array('type' => array('string', 'null'));
+
+    register_rest_field(array('post', 'news'), 'byline', array(
+        'get_callback' => function ($post) {
+            $current = apply_filters('wpml_current_language', null);
+            $language = apply_filters('wpml_element_language_code', null, array(
+                'element_id' => $post['id'],
+                'element_type' => get_post_type($post['id'])
+            ));
+
+            // Build author URLs in the post's language, as on the post's page.
+            if ($language && $language !== $current) {
+                do_action('wpml_switch_language', $language);
+            }
+
+            $byline = get_byline($post['id']);
+
+            if ($language && $language !== $current) {
+                do_action('wpml_switch_language', $current);
+            }
+
+            return $byline;
+        },
+        'schema' => array(
+            'description' => 'The byline: staff in display order, guest text as entered, and the byline as text.',
+            'type' => 'object',
+            'context' => array('view', 'edit', 'embed'),
+            'readonly' => true,
+            'properties' => array(
+                'staff' => array(
+                    'type' => 'array',
+                    'items' => array(
+                        'type' => 'object',
+                        'properties' => array(
+                            'name' => array('type' => 'string'),
+                            'slug' => array('type' => 'string'),
+                            'url' => array('type' => 'string', 'format' => 'uri')
+                        )
+                    )
+                ),
+                'guests' => $nullable_string,
+                'text' => $nullable_string
+            )
+        )
+    ));
+});
 
 
  //**************
