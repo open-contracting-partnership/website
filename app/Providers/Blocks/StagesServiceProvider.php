@@ -39,7 +39,8 @@ class StagesServiceProvider
         $context['block']['stages'] = get_field('stages');
         $context['block']['image_type'] = get_field('image_type') ?? 'image';
 
-        $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        // HTTP_HOST and REQUEST_URI are unset under WP-CLI (e.g. Yoast's indexing cron).
+        $actual_link = (is_ssl() ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? '') . ($_SERVER['REQUEST_URI'] ?? '');
 
         foreach ($context['block']['stages'] as &$stage) {
             $stage['is_active'] = strpos($actual_link, $stage['link']['url']) === 0;
