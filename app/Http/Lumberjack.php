@@ -56,7 +56,7 @@ class Lumberjack extends LumberjackCore
             $context['sticky_cta_link'] = get_field('sticky_cta_link', 'options');
             $context['sticky_cta_hash'] = md5(json_encode($context['sticky_cta_link']));
 
-            $currentUrl = home_url($_SERVER['REQUEST_URI']);
+            $currentUrl = home_url($_SERVER['REQUEST_URI'] ?? '');
 
             $excludeStickyCtaByUrl = collect(explode("\r\n", get_field('sticky_cta_excluded_urls', 'options') ?? ''))
                 ->map('trim')
